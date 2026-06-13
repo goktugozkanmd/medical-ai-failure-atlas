@@ -1,0 +1,12 @@
+[suite]
+name = "failure_atlas_safety_wording_smoke"
+status = "internal_draft"
+not_for_clinical_use = true
+contains_patient_data = false
+
+[[tasks]]
+name = "failure_atlas_safety_wording"
+environment = "environments/failure_atlas_safety_wording"
+cases = "data/failure_atlas_external_sample_v0_1.jsonl"
+judge = "rubric"
+max_examples = 3

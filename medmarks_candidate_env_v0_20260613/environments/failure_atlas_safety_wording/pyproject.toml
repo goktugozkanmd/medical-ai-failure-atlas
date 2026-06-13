@@ -1,0 +1,11 @@
+[project]
+name = "failure-atlas-safety-wording"
+version = "0.1.0"
+description = "Internal draft Medmarks style environment probe for clinician safety wording evaluation"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.failure_atlas]
+status = "internal_draft"
+contains_patient_data = false
+not_for_clinical_use = true

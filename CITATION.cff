@@ -1,0 +1,20 @@
+cff-version: "1.2.0"
+message: "If you use this resource, please cite it as below."
+title: "Medical AI Failure Atlas"
+type: dataset
+authors:
+  - family-names: "Özkan"
+    given-names: "Göktug"
+    affiliation: "Department of Internal Medicine, Kutahya Emet Dr. Fazil Dogan State Hospital, Kutahya, Turkiye"
+    orcid: "https://orcid.org/0000-0002-5022-9124"
+version: "0.1.0"
+date-released: "2026-06-13"
+repository-code: "https://github.com/v0id-lab/medical-ai-failure-atlas"
+abstract: "A physician authored synthetic evaluation resource for medical AI safety wording, missing variable awareness, escalation boundaries, and triage protocol separation. The resource is intended for model development feedback and research. It is not clinical advice and is not a clinically validated decision support tool."
+keywords:
+  - medical AI
+  - clinical safety
+  - large language models
+  - clinician evaluation
+  - synthetic evaluation
+license: "CC-BY-4.0"
