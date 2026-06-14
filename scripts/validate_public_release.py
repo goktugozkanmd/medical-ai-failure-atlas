@@ -187,6 +187,16 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
         if metric.get("not_for_clinical_use") is not True:
             fail(errors, "MedHELM metric not_for_clinical_use must be true")
 
+    readme = root / "README.md"
+    readme_text = readme.read_text(encoding="utf-8") if readme.exists() else ""
+    if readme.exists():
+        if "failure_atlas/public/INDEX.md" not in readme_text:
+            fail(errors, "README must link to failure_atlas/public/INDEX.md")
+        if "failure_atlas/public/METHODOLOGY.md" not in readme_text:
+            fail(errors, "README must link to failure_atlas/public/METHODOLOGY.md")
+        if "Raw model outputs and logs are not included" not in readme_text:
+            fail(errors, "README must state that raw model outputs and logs are not included")
+
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",
         root / "data" / "prompt_set_v2_hard_30.tsv",
@@ -196,8 +206,7 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
         prompt_rows = sum(count_tsv_rows(path) for path in prompt_files)
         if prompt_rows != 70:
             fail(errors, f"Public prompt set count must be 70 rows, found {prompt_rows}")
-        readme = root / "README.md"
-        if readme.exists() and "70 row prompt set" not in readme.read_text(encoding="utf-8"):
+        if readme.exists() and "70 row prompt set" not in readme_text:
             fail(errors, "README must describe the public prompt set count as 70 rows")
 
     return errors, warnings

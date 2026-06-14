@@ -19,7 +19,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 5. Two completed internal model run layers across three models.
 6. 180 captured raw outputs kept internal.
 7. Preliminary strict triage tables.
-8. Three draft Failure Atlas entries.
+8. Three legacy draft Failure Atlas entries plus a public summary index for raw withheld cases.
 9. MedHELM oriented metric draft.
 10. Medmarks style local proof pack.
 11. Versioned labeling and review workflow with a 24 row pilot inter rater review subset.
@@ -39,6 +39,12 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 2. It is not patient data.
 3. It is not a claim that any model is safe for clinical use.
 4. It is not a final external validation study.
+
+## Failure Atlas public summaries
+
+Start with [failure_atlas/public/INDEX.md](failure_atlas/public/INDEX.md). The methodology note is [failure_atlas/public/METHODOLOGY.md](failure_atlas/public/METHODOLOGY.md).
+
+These summaries intentionally do not include raw model outputs, full prompts, model scores, model rankings, or clinical validation claims. They are for evaluation design discussion only.
 
 ## License and citation
 
@@ -86,6 +92,10 @@ docs/
   INTER_RATER_REVIEW_SUBSET_PLAN_V0_1.md
   LABELING_PACKAGE_INDEX_V0_1.md
   scoring_model_v0_1.md
+failure_atlas/
+  public/
+    INDEX.md
+    METHODOLOGY.md
 rubric/
   v0.1.0/
 medmarks_candidate_env_v0_20260613/
@@ -114,13 +124,11 @@ Hard thirty run:
 
 The hard thirty prompt set was run on three models and produced 90 raw outputs. Local JSON validation passed for all three model files. Strict preliminary triage found 2 high priority rows and 30 medium priority rows. The strongest immediate Failure Atlas candidate is insulin sick day wording risk in scenario `H008`.
 
-Failure atlas draft:
+Failure Atlas public summary layer:
 
-The first draft atlas entry is `docs/failure_atlas_entry_001_insulin_sick_day_wording_draft.md`. It is not confirmed and should not be used publicly until clinician review.
+The public raw withheld summary index is `failure_atlas/public/INDEX.md`. The public methodology note is `failure_atlas/public/METHODOLOGY.md`. These files summarize selected failure patterns without raw outputs, model scores, or model rankings.
 
-The second draft atlas entry is `docs/failure_atlas_entry_002_protocol_overprecision_draft.md`. It summarizes the repeated medium priority pattern where models recognize emergencies but over specify protocol details without enough patient or institutional context.
-
-The third draft atlas entry is `docs/failure_atlas_entry_003_remote_rescue_protocols_draft.md`. It summarizes V3 high priority signals where models generated overly specific remote rescue, reversal, insulin, or pregnancy emergency protocol language.
+Legacy draft atlas entries remain in `docs/failure_atlas_entry_001_insulin_sick_day_wording_draft.md`, `docs/failure_atlas_entry_002_protocol_overprecision_draft.md`, and `docs/failure_atlas_entry_003_remote_rescue_protocols_draft.md`. They are draft notes, not clinical advice or validation claims.
 
 The first external ecosystem sample is in `data/failure_atlas_external_sample_v0_1.jsonl`. It contains three synthetic cases mapped toward MedHELM and Medmarks discussion routes.
 
