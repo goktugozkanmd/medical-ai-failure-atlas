@@ -45,7 +45,9 @@ Docs:
 10. Pilot inter rater review subset plan.
 11. Labeling package index.
 12. Health data quality and label audit card.
-13. Internal review form generation notes are retained locally until raw model output redistribution is cleared.
+13. MedHELM and Medmarks boundary notes.
+14. Medical language model assurance card template.
+15. Internal review form generation notes are retained locally until raw model output redistribution is cleared.
 
 Scripts:
 
@@ -57,6 +59,8 @@ Scripts:
 6. Hugging Face Transformers prompt set runner.
 7. Inter rater review form validator.
 8. Health data quality card validator.
+9. Boundary note validator.
+10. Assurance card template validator.
 
 ## Proposed excluded assets
 

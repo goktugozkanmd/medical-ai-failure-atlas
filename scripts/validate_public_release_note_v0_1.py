@@ -27,6 +27,8 @@ REQUIRED_PHRASES = [
     "70 prompt rows",
     "24 pilot inter rater rows",
     "MedHELM and Medmarks boundary notes v0.1",
+    "Medical language model assurance card template v0.1",
+    "Assurance card template for intended use, risk, source support, human review, and release gate boundaries",
 ]
 
 FORBIDDEN_PHRASES = [

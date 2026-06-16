@@ -28,6 +28,7 @@ New visible build surfaces are now staged in this public repository:
 18. [Health data quality and label audit card v0.1](docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
 19. [MedHELM boundary note v0.1](docs/MEDHELM_BOUNDARY_NOTE_V0_1.md)
 20. [Medmarks boundary note v0.1](docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md)
+21. [Medical language model assurance card template v0.1](docs/ASSURANCE_CARD_TEMPLATE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -163,6 +164,12 @@ Validate the MedHELM and Medmarks boundary notes:
 make boundary_notes
 ```
 
+Validate the assurance card template:
+
+```bash
+make assurance_card_template
+```
+
 Validate SourceCheckup contribution examples:
 
 ```bash
@@ -199,6 +206,8 @@ docs/
   HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md
   MEDHELM_BOUNDARY_NOTE_V0_1.md
   MEDMARKS_BOUNDARY_NOTE_V0_1.md
+  ASSURANCE_CARD_TEMPLATE_V0_1.md
+  assurance_card_template_v0_1.json
   scoring_model_v0_1.md
 failure_atlas/
   public/
@@ -217,6 +226,7 @@ scripts/
   validate_model_run_json.py
   validate_public_release.py
   validate_scoring_rubric_v0_1.py
+  validate_assurance_card_template_v0_1.py
   run_prompt_set_openai_compatible_v2.py
   run_prompt_set_hf_transformers_v2.py
 CONTRIBUTING.md

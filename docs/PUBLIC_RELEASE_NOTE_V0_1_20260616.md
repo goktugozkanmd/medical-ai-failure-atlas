@@ -22,6 +22,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 10. Source claim review queue v0.1.
 11. Health data quality and label audit card v0.1.
 12. MedHELM and Medmarks boundary notes v0.1.
+13. Medical language model assurance card template v0.1.
 
 ## Current public coverage
 
@@ -50,6 +51,7 @@ make clinician_review_queue
 make source_claim_queue
 make health_data_quality_card
 make boundary_notes
+make assurance_card_template
 make sourcecheckup_contrib_v02
 make leaderboard_report
 ```
@@ -68,6 +70,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 6. Source claim review queue for Turkish medical language model examples.
 7. Data quality and label audit card for synthetic release readiness.
 8. Boundary notes that separate benchmark mapping from compatibility or endorsement claims.
+9. Assurance card template for intended use, risk, source support, human review, and release gate boundaries.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -84,12 +87,13 @@ For global open source medical AI evaluation, this public preview gives:
 7. A source claim review queue that separates citation presence from evidence support.
 8. A data quality and label audit checklist for synthetic dataset release readiness.
 9. Boundary notes for MedHELM and Medmarks oriented mapping without compatibility claims.
+10. A reusable assurance card template for public medical language model evaluation releases.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
 1. Additional Turkish risk rows for specialty spread.
-2. Assurance card template for medical language model releases.
-3. Specialty expansion rows for Turkish medical language model safety.
+2. Specialty expansion rows for Turkish medical language model safety.
+3. Public dashboard index for the six seed platforms.
 4. External maintainer issue draft only after exact owner clearance.

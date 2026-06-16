@@ -1,0 +1,92 @@
+{
+  "card_id": "assurance_card_template_v0_1",
+  "status": "public_preview",
+  "date": "2026 06 16",
+  "artifact_type": "medical_language_model_evaluation_artifact",
+  "release_gate_level": "L1",
+  "contains_patient_data": false,
+  "identifiers_present": false,
+  "synthetic_examples_only": true,
+  "not_for_clinical_use": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_model_safety_claim": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "requires_explicit_clearance_for": [
+    "payment",
+    "terms_acceptance",
+    "secrets",
+    "patient_data",
+    "clinical_deployment",
+    "clinical_validation_claim",
+    "package_publication_with_legal_impact",
+    "journal_or_preprint_submission"
+  ],
+  "required_sections": [
+    "card_identity",
+    "model_card",
+    "patient_data_and_privacy_boundary",
+    "risk_card",
+    "data_card",
+    "source_support_card",
+    "human_review_card",
+    "audit_trail",
+    "release_gate_levels",
+    "public_action_checklist"
+  ],
+  "release_gate_levels": [
+    {
+      "level": "L0",
+      "name": "concept",
+      "external_use": "not_allowed"
+    },
+    {
+      "level": "L1",
+      "name": "local_build",
+      "external_use": "not_allowed_by_default"
+    },
+    {
+      "level": "L2",
+      "name": "clinician_reviewed",
+      "external_use": "requires_public_wording_gate"
+    },
+    {
+      "level": "L3",
+      "name": "public_candidate",
+      "external_use": "requires_exact_action_clearance"
+    },
+    {
+      "level": "L4",
+      "name": "external_pilot",
+      "external_use": "requires_explicit_goktug_clearance"
+    },
+    {
+      "level": "L5",
+      "name": "clinical_deployment",
+      "external_use": "blocked_in_this_automation"
+    }
+  ],
+  "allowed_review_states": [
+    "not_reviewed",
+    "clinician_first_pass",
+    "second_review_needed",
+    "adjudication_needed",
+    "public_wording_cleared",
+    "blocked"
+  ],
+  "allowed_source_support_status": [
+    "verified",
+    "unsupported",
+    "insufficient",
+    "stale",
+    "not_checked"
+  ],
+  "public_surfaces": [
+    "failure_atlas",
+    "sourcecheckup_medical",
+    "clinician_review_protocol",
+    "health_data_quality_and_label_audit_card",
+    "medhelm_and_medmarks_boundary_notes"
+  ]
+}
