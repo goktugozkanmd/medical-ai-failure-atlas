@@ -20,6 +20,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 8. 150 synthetic scenario rows.
 9. 70 prompt rows.
 10. 6 clinician literacy release gate lessons.
+11. 6 assurance release gate examples.
 
 ## Top public entry files
 
@@ -98,11 +99,14 @@ Public files:
 3. [Assurance governance matrix](tr%2Dmedai%2Dsafety%2Dsuite/ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md)
 4. [MedHELM boundary note](MEDHELM_BOUNDARY_NOTE_V0_1.md)
 5. [Medmarks boundary note](MEDMARKS_BOUNDARY_NOTE_V0_1.md)
+6. [Assurance release gate example map](ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
+7. [Assurance release gate example JSON](assurance_release_gate_example_map_v0_1.json)
 
 Runnable checks:
 
 ```bash
 make assurance_card_template
+make assurance_release_gate_map
 make boundary_notes
 ```
 
@@ -110,7 +114,7 @@ Track A value: release gate language for Turkish health AI sandbox readiness dis
 
 Track B value: reusable assurance artifact pattern for public medical language model evaluation releases.
 
-Next build: connect dashboard rows to review gate state counts.
+Next build: link SourceCheckup dashboard rows back into TR MedLLM specialty and assurance release gates.
 
 ### 4. SourceCheckup Medical
 
@@ -200,9 +204,8 @@ Next build: label audit workflow table with reviewer roles and escalation gates.
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add assurance card release gate example map.
-3. Link SourceCheckup dashboard rows back into TR MedLLM specialty and assurance release gates.
-4. Add lab collaboration packets only after exact target review.
+2. Link SourceCheckup dashboard rows back into TR MedLLM specialty and assurance release gates.
+3. Add lab target packets only after exact target review.
 
 ## Visibility rule
 

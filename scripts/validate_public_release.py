@@ -53,6 +53,8 @@ REQUIRED_FILES = [
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
     "docs/assurance_card_template_v0_1.json",
+    "docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md",
+    "docs/assurance_release_gate_example_map_v0_1.json",
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
     "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md",
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
@@ -86,6 +88,8 @@ REQUIRED_FILES = [
     "scripts/validate_health_data_quality_card_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
+    "scripts/generate_assurance_release_gate_example_map_v0_1.py",
+    "scripts/validate_assurance_release_gate_example_map_v0_1.py",
     "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
     "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
     "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
@@ -240,6 +244,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the clinician literacy release gate lesson map")
         if "make clinician_literacy_map" not in readme_text:
             fail(errors, "README must document the clinician literacy lesson map command")
+        if "docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the assurance release gate example map")
+        if "make assurance_release_gate_map" not in readme_text:
+            fail(errors, "README must document the assurance release gate map command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",
