@@ -49,6 +49,8 @@ These files are eligible for the public v0.1 release after sanitation:
 35. `scripts/benchmark_runner.py`
 36. `scripts/run_prompt_set_openai_compatible_v2.py`
 37. `scripts/run_prompt_set_hf_transformers_v2.py`
+38. `docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md`
+39. `scripts/validate_health_data_quality_card_v0_1.py`
 
 ## Internal only
 

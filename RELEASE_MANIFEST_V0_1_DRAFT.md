@@ -44,7 +44,8 @@ Docs:
 9. Clinician review disagreement protocol.
 10. Pilot inter rater review subset plan.
 11. Labeling package index.
-12. Internal review form generation notes are retained locally until raw model output redistribution is cleared.
+12. Health data quality and label audit card.
+13. Internal review form generation notes are retained locally until raw model output redistribution is cleared.
 
 Scripts:
 
@@ -55,6 +56,7 @@ Scripts:
 5. OpenAI compatible prompt set runner.
 6. Hugging Face Transformers prompt set runner.
 7. Inter rater review form validator.
+8. Health data quality card validator.
 
 ## Proposed excluded assets
 

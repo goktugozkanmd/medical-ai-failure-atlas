@@ -20,6 +20,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 8. Public roadmap for the next build steps.
 9. Clinician review protocol v0.1.
 10. Source claim review queue v0.1.
+11. Health data quality and label audit card v0.1.
 
 ## Current public coverage
 
@@ -31,6 +32,9 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 6. 2 source review rows.
 7. 6 public review states.
 8. 8 source claim review queue rows.
+9. 150 synthetic scenario rows.
+10. 70 prompt rows.
+11. 24 pilot inter rater rows.
 
 ## Reproducible checks
 
@@ -43,6 +47,7 @@ make taxonomy_dashboard
 make tr_medllm_pack
 make clinician_review_queue
 make source_claim_queue
+make health_data_quality_card
 make sourcecheckup_contrib_v02
 make leaderboard_report
 ```
@@ -59,6 +64,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 4. Source support discipline.
 5. Health data privacy and provenance boundaries.
 6. Source claim review queue for Turkish medical language model examples.
+7. Data quality and label audit card for synthetic release readiness.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -73,12 +79,13 @@ For global open source medical AI evaluation, this public preview gives:
 5. A no ranking report path.
 6. A visible foundation for collaboration with benchmark and model builder communities.
 7. A source claim review queue that separates citation presence from evidence support.
+8. A data quality and label audit checklist for synthetic dataset release readiness.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Health data quality card for synthetic dataset release readiness.
-2. MedHELM and Medmarks compatibility notes with strict wording.
-3. Additional Turkish risk rows for specialty spread.
-4. Assurance card template for medical language model releases.
+1. MedHELM and Medmarks compatibility notes with strict wording.
+2. Additional Turkish risk rows for specialty spread.
+3. Assurance card template for medical language model releases.
+4. Specialty expansion rows for Turkish medical language model safety.

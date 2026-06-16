@@ -22,6 +22,10 @@ REQUIRED_PHRASES = [
     "Clinician review protocol v0.1",
     "Source claim review queue v0.1",
     "8 source claim review queue rows",
+    "Health data quality and label audit card v0.1",
+    "150 synthetic scenario rows",
+    "70 prompt rows",
+    "24 pilot inter rater rows",
 ]
 
 FORBIDDEN_PHRASES = [

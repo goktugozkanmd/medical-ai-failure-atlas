@@ -8,10 +8,10 @@ Date: 2026 06 13
 
 New visible build surfaces are now staged in this public repository:
 
-1. [TR MedAI Safety Suite public release card](docs/tr-medai-safety-suite/PUBLIC_REPO_RELEASE_CARD_20260616.md)
+1. TR MedAI Safety Suite public release card.
 2. [SourceCheckup Medical public demo matrix](docs/sourcecheckup/PUBLIC_DEMO_MATRIX_20260616.md)
-3. [Turkish Clinical AI Assurance Lab governance matrix](docs/tr-medai-safety-suite/ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md)
-4. [Clinician AI Literacy 30 minute Turkish facilitator packet](docs/tr-medai-safety-suite/CLINICIAN_AI_LITERACY_30MIN_TR_20260616.md)
+3. Turkish Clinical AI Assurance Lab governance matrix.
+4. Clinician AI Literacy 30 minute Turkish facilitator packet.
 5. [Runnable SourceCheckup Medical tool](sourcecheckup/README.md)
 6. [Failure Atlas taxonomy public preview](failure_atlas/public/TAXONOMY_PREVIEW_20260616.md)
 7. [SourceCheckup workflow example](sourcecheckup/WORKFLOW_EXAMPLE_20260616.md)
@@ -25,6 +25,7 @@ New visible build surfaces are now staged in this public repository:
 15. [Clinician review queue](failure_atlas/public/build/clinician_review_queue_v0_1.md)
 16. [Public infrastructure release note v0.1](docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md)
 17. [Clinician review protocol v0.1](docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md)
+18. [Health data quality and label audit card v0.1](docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -148,6 +149,12 @@ Validate the public release note:
 make release_note
 ```
 
+Validate the health data quality and label audit card:
+
+```bash
+make health_data_quality_card
+```
+
 Validate SourceCheckup contribution examples:
 
 ```bash
@@ -181,6 +188,7 @@ docs/
   CLINICIAN_REVIEW_DISAGREEMENT_PROTOCOL_V0_1.md
   INTER_RATER_REVIEW_SUBSET_PLAN_V0_1.md
   LABELING_PACKAGE_INDEX_V0_1.md
+  HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md
   scoring_model_v0_1.md
 failure_atlas/
   public/

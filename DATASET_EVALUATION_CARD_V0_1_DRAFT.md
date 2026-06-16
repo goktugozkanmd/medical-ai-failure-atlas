@@ -56,6 +56,14 @@ Do not use this wording yet:
 
 `clinician validated`
 
+## Data quality companion
+
+The public data quality and label audit companion is:
+
+`docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md`
+
+It is a release readiness checklist for synthetic dataset surfaces. It is not proof of dataset quality and not clinical validation.
+
 ## Known limitations
 
 1. Clinician confirmation is not complete.

@@ -188,3 +188,9 @@ Columns:
 ## Important boundary
 
 The current score file is a preliminary internal screen. It must not be described as final model performance.
+
+## Health data quality card
+
+`docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md` summarizes the current synthetic dataset release readiness boundary.
+
+It does not supersede the source data files, label definition lock, or validator outputs.
