@@ -73,6 +73,20 @@ Use one or more of:
 6. `public_release_boundary`
 7. `dataset_quality_proof_boundary`
 
+## Label audit example intake rows
+
+Current public example intake rows:
+
+`docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md`
+
+The example intake contains 5 synthetic label audit examples that contributors can mirror before opening an issue. It covers provenance, label definition lock, pilot subset framing, raw output exclusion, and dataset quality proof boundary review.
+
+Run:
+
+```bash
+make label_audit_examples
+```
+
 ## Example public issue body
 
 Audit surface:

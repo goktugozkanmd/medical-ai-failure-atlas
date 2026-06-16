@@ -159,6 +159,24 @@ Run:
 make label_audit_public_issue
 ```
 
+## Label audit example intake rows
+
+Current public example intake rows:
+
+`docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md`
+
+Machine readable source:
+
+`docs/label_audit/label_audit_example_intake_v0_1.json`
+
+The file contains 5 synthetic label audit examples for synthetic provenance, label definition lock, pilot subset framing, raw output exclusion, and dataset quality proof boundary review. These examples are intake rows only. They do not prove dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_examples
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

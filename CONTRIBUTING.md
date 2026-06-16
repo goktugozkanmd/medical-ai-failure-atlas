@@ -65,3 +65,11 @@ Use `.github/ISSUE_TEMPLATE/label_audit_review.yml` for synthetic data quality a
 This route is for synthetic provenance, label definition lock, pilot subset framing, raw output exclusion, and public release boundary review.
 
 It does not allow patient data, raw model outputs, clinical advice, clinical validation claims, dataset quality proof, or outward use without maintainer review.
+
+Public example intake rows are available at `docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_examples
+```

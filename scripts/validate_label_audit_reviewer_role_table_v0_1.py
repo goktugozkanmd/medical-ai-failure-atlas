@@ -43,6 +43,8 @@ REQUIRED_PUBLIC_FILES = {
     "docs/LABEL_DEFINITION_LOCK_V0_1.md",
     "docs/LABELING_PACKAGE_INDEX_V0_1.md",
     "data/inter_rater_review_subset_v0_1.tsv",
+    "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+    "docs/label_audit/label_audit_example_intake_v0_1.json",
 }
 REQUIRED_COUNTS = {
     "synthetic_scenario_rows": 150,
@@ -85,6 +87,9 @@ REQUIRED_PHRASES = [
     "make label_audit_role_table",
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
     "docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md",
+    "Label audit example intake rows",
+    "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+    "docs/label_audit/label_audit_example_intake_v0_1.json",
 ]
 
 FORBIDDEN_PHRASES = [

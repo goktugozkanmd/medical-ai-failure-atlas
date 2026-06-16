@@ -42,6 +42,9 @@ REQUIRED_GUIDE_PHRASES = [
     "public_release_boundary",
     "dataset_quality_proof_boundary",
     "No dataset quality proof",
+    "Label audit example intake rows",
+    "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+    "5 synthetic label audit examples",
 ]
 
 REQUIRED_TEMPLATE_PHRASES = [
@@ -110,6 +113,7 @@ def main() -> int:
         "DATA_DICTIONARY.md",
         "docs/LABEL_DEFINITION_LOCK_V0_1.md",
         "docs/LABELING_PACKAGE_INDEX_V0_1.md",
+        "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
     ]:
         if relative_path not in guide_text and relative_path not in template_text:
             errors.append(f"Missing public route reference: {relative_path}")

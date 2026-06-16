@@ -1,0 +1,122 @@
+{
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "example_count": 5,
+  "examples": [
+    {
+      "audit_surface": "synthetic provenance",
+      "exact_boundary_to_review": "Public text implies real care record coverage or unclear provenance.",
+      "example_id": "LAE001",
+      "linked_audit_id": "LAA001",
+      "proposed_public_action": "rewrite_public_wording",
+      "required_checks": [
+        "synthetic_provenance",
+        "patient_data_absence",
+        "direct_identifier_absence",
+        "public_boundary_state"
+      ],
+      "review_state": "synthetic_preview_only",
+      "suggested_role_id": "LAR001",
+      "title": "Synthetic provenance overclaim"
+    },
+    {
+      "audit_surface": "label definition lock",
+      "exact_boundary_to_review": "A label explanation no longer matches the locked rubric version.",
+      "example_id": "LAE002",
+      "linked_audit_id": "LAA002",
+      "proposed_public_action": "route_to_clinician_review",
+      "required_checks": [
+        "label_lock_match",
+        "rubric_version_match",
+        "unsure_rule_state",
+        "clinical_validation_boundary"
+      ],
+      "review_state": "needs_clinician_review",
+      "suggested_role_id": "LAR002",
+      "title": "Label definition drift"
+    },
+    {
+      "audit_surface": "pilot inter rater subset",
+      "exact_boundary_to_review": "A 24 row pilot subset is framed as if it measured population performance.",
+      "example_id": "LAE003",
+      "linked_audit_id": "LAA003",
+      "proposed_public_action": "add_protocol_testing_wording",
+      "required_checks": [
+        "pilot_subset_framing",
+        "no_agreement_statistic",
+        "sampling_reason",
+        "no_population_prevalence"
+      ],
+      "review_state": "needs_adjudication",
+      "suggested_role_id": "LAR003",
+      "title": "Pilot subset overinterpretation"
+    },
+    {
+      "audit_surface": "raw output exclusion",
+      "exact_boundary_to_review": "A public summary could be read as releasing raw model outputs.",
+      "example_id": "LAE004",
+      "linked_audit_id": "LAA004",
+      "proposed_public_action": "keep_raw_outputs_withheld",
+      "required_checks": [
+        "raw_output_exclusion",
+        "redistribution_terms_state",
+        "private_output_absence",
+        "public_release_boundary"
+      ],
+      "review_state": "not_for_public_summary",
+      "suggested_role_id": "LAR004",
+      "title": "Raw output exclusion boundary"
+    },
+    {
+      "audit_surface": "public release boundary",
+      "exact_boundary_to_review": "A public card sounds as if it proves dataset quality or readiness.",
+      "example_id": "LAE005",
+      "linked_audit_id": "LAA005",
+      "proposed_public_action": "block_stronger_public_claim",
+      "required_checks": [
+        "dataset_quality_proof_boundary",
+        "clinical_deployment_boundary",
+        "model_ranking_boundary",
+        "formal_approval_boundary"
+      ],
+      "review_state": "not_for_public_summary",
+      "suggested_role_id": "LAR004",
+      "title": "Dataset quality proof boundary"
+    }
+  ],
+  "linked_audit_ids": [
+    "LAA001",
+    "LAA002",
+    "LAA003",
+    "LAA004",
+    "LAA005"
+  ],
+  "linked_counts": {
+    "pilot_inter_rater_rows": 24,
+    "prompt_rows": 70,
+    "source_claim_review_queue_rows": 12,
+    "synthetic_scenario_rows": 150,
+    "turkish_synthetic_risk_rows": 14
+  },
+  "linked_health_data_card": "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
+  "linked_issue_template": ".github/ISSUE_TEMPLATE/label_audit_review.yml",
+  "linked_public_guide": "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md",
+  "linked_role_ids": [
+    "LAR001",
+    "LAR002",
+    "LAR003",
+    "LAR004"
+  ],
+  "linked_role_table": "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_example_intake_v0_1"
+}

@@ -34,6 +34,8 @@ DATA: dict[str, Any] = {
         "docs/LABEL_DEFINITION_LOCK_V0_1.md",
         "docs/LABELING_PACKAGE_INDEX_V0_1.md",
         "data/inter_rater_review_subset_v0_1.tsv",
+        "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+        "docs/label_audit/label_audit_example_intake_v0_1.json",
     ],
     "linked_counts": {
         "synthetic_scenario_rows": 150,
@@ -286,6 +288,8 @@ def main() -> None:
             "4. Runnable target: `make label_audit_role_table`",
             "5. Health data quality card: `docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md`",
             "6. Clinician review protocol: `docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md`",
+            "7. Label audit example intake rows: `docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md`",
+            "8. Label audit example intake JSON: `docs/label_audit/label_audit_example_intake_v0_1.json`",
             "",
         ]
     )
