@@ -1,0 +1,229 @@
+{
+  "external_actions_executed": false,
+  "input": "sourcecheckup/examples/source_surface_examples_v0_2.jsonl",
+  "items": [
+    {
+      "answer_id": "sc_v02_guideline_broad_001",
+      "declared_claim_count": 2,
+      "declared_source_count": 0,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_missing_source_support",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "unsupported_source_language",
+          "evidence": "studies show",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "unsupported_source_language",
+          "evidence": "Guidelines recommend",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "guideline_claim_missing_structured_support",
+          "evidence": "",
+          "message": "Answer appears to make a guideline claim without a linked guideline claim record.",
+          "severity": "high"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "guideline",
+          "reason": "central_guideline_or_policy_claim_requires_source_text_support_check",
+          "value": "Guidelines recommend a careful approach."
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "studies show"
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "Guidelines recommend"
+        }
+      ]
+    },
+    {
+      "answer_id": "sc_v02_policy_claim_002",
+      "declared_claim_count": 1,
+      "declared_source_count": 0,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_missing_source_support",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "policy_claim_missing_structured_support",
+          "evidence": "",
+          "message": "Answer appears to make a policy claim without a linked policy claim record.",
+          "severity": "high"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "policy",
+          "reason": "central_guideline_or_policy_claim_requires_source_text_support_check",
+          "value": "A ministry approved policy requires every AI triage answer to include a fixed disclaimer."
+        }
+      ]
+    },
+    {
+      "answer_id": "sc_v02_locator_inventory_003",
+      "declared_claim_count": 1,
+      "declared_source_count": 1,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_pending_source_verification",
+      "extracted_locators": {
+        "doi": [
+          "10.5555/sourcecheckup.synthetic.v02a"
+        ],
+        "pmid": [
+          "123456789"
+        ],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "s1:doi:10.5555/sourcecheckup.synthetic.v02a",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "undeclared_locator_in_answer",
+          "evidence": "pmid:123456789",
+          "message": "Answer contains a source locator that is not declared in source inventory.",
+          "severity": "medium"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "doi",
+          "reason": "declared_source_status_not_checked",
+          "value": "10.5555/sourcecheckup.synthetic.v02a"
+        },
+        {
+          "kind": "pmid",
+          "reason": "undeclared_locator_found_in_answer",
+          "value": "123456789"
+        }
+      ]
+    },
+    {
+      "answer_id": "sc_v02_url_missing_inventory_004",
+      "declared_claim_count": 2,
+      "declared_source_count": 0,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_missing_source_support",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": [
+          "https://example.org/synthetic/source_a"
+        ]
+      },
+      "flags": [
+        {
+          "code": "undeclared_locator_in_answer",
+          "evidence": "url:https://example.org/synthetic/source_a",
+          "message": "Answer contains a source locator that is not declared in source inventory.",
+          "severity": "medium"
+        },
+        {
+          "code": "unsupported_source_language",
+          "evidence": "official sources support",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "guideline_claim_missing_structured_support",
+          "evidence": "",
+          "message": "Answer appears to make a guideline claim without a linked guideline claim record.",
+          "severity": "high"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "url",
+          "reason": "undeclared_locator_found_in_answer",
+          "value": "https://example.org/synthetic/source_a"
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "official sources support"
+        }
+      ]
+    },
+    {
+      "answer_id": "sc_v02_complete_inventory_005",
+      "declared_claim_count": 1,
+      "declared_source_count": 1,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_pending_source_verification",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": [
+          "https://example.org/synthetic/source_b"
+        ]
+      },
+      "flags": [
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "s1:url:https://example.org/synthetic/source_b",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "url",
+          "reason": "declared_source_status_not_checked",
+          "value": "https://example.org/synthetic/source_b"
+        }
+      ]
+    }
+  ],
+  "sourcecheckup_version": "0.1.0",
+  "summary": {
+    "flag_counts": {
+      "guideline_claim_missing_structured_support": 2,
+      "policy_claim_missing_structured_support": 1,
+      "source_not_externally_verified": 2,
+      "undeclared_locator_in_answer": 2,
+      "unsupported_source_language": 3
+    },
+    "gate_counts": {
+      "blocked_missing_source_support": 3,
+      "blocked_pending_source_verification": 2
+    },
+    "items": 5,
+    "severity_counts": {
+      "high": 3,
+      "medium": 7
+    },
+    "verification_queue_items": 9
+  }
+}

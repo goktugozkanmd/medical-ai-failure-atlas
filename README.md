@@ -15,6 +15,7 @@ New visible build surfaces are now staged in this public repository:
 5. [Runnable SourceCheckup Medical tool](sourcecheckup/README.md)
 6. [Failure Atlas taxonomy public preview](failure_atlas/public/TAXONOMY_PREVIEW_20260616.md)
 7. [SourceCheckup workflow example](sourcecheckup/WORKFLOW_EXAMPLE_20260616.md)
+8. [June 2026 public roadmap](docs/ROADMAP_2026_06.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -82,6 +83,12 @@ Run the public SourceCheckup Medical preview:
 
 ```bash
 make sourcecheckup
+```
+
+Run the larger SourceCheckup v0.2 example set:
+
+```bash
+make sourcecheckup_v02
 ```
 
 ## Folder structure

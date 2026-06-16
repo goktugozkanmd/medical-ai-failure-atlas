@@ -26,6 +26,12 @@ It checks whether an answer uses DOI, PMID, URL, guideline, policy, or broad sou
 make sourcecheckup
 ```
 
+Run the larger v0.2 public example set:
+
+```bash
+make sourcecheckup_v02
+```
+
 Direct command:
 
 ```bash
@@ -34,6 +40,11 @@ python3 scripts/sourcecheckup_medical.py validate \
   --out-json sourcecheckup/build/sourcecheckup_seed_report.json \
   --out-md sourcecheckup/build/sourcecheckup_seed_report.md
 ```
+
+Current public example sets:
+
+1. `sourcecheckup/examples/sourcecheckup_seed_answers.jsonl`
+2. `sourcecheckup/examples/source_surface_examples_v0_2.jsonl`
 
 ## Input Format
 
