@@ -26,12 +26,12 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 
 ## Current public coverage
 
-1. 13 synthetic intake rows.
-2. 8 Turkish synthetic risk rows.
-3. 8 risk axes.
+1. 19 synthetic intake rows.
+2. 14 Turkish synthetic risk rows.
+3. 10 risk axes.
 4. 10 of 10 Failure Atlas taxonomy pattern IDs represented.
-5. 13 clinician review queue rows.
-6. 2 source review rows.
+5. 19 clinician review queue rows.
+6. 4 source review rows.
 7. 6 public review states.
 8. 8 source claim review queue rows.
 9. 150 synthetic scenario rows.
@@ -47,6 +47,7 @@ make validate
 make case_intake
 make taxonomy_dashboard
 make tr_medllm_pack
+make tr_medllm_specialty_spread
 make clinician_review_queue
 make source_claim_queue
 make health_data_quality_card
@@ -94,6 +95,6 @@ This does not claim benchmark equivalence, clinical validation, or model superio
 ## Next public build gates
 
 1. Additional Turkish risk rows for specialty spread.
-2. Specialty expansion rows for Turkish medical language model safety.
-3. Public dashboard index for the six seed platforms.
+2. Public dashboard index for the six seed platforms.
+3. SourceCheckup contributor issue for source claim review examples.
 4. External maintainer issue draft only after exact owner clearance.

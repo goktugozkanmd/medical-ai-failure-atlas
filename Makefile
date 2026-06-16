@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate validate-public sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 source_claim_queue health_data_quality_card boundary_notes assurance_card_template leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
+.PHONY: validate validate-public sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 source_claim_queue health_data_quality_card boundary_notes assurance_card_template tr_medllm_specialty_spread leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
 
 validate:
 	$(PYTHON) scripts/validate_external_sample_jsonl.py data/failure_atlas_external_sample_v0_1.jsonl
@@ -12,6 +12,7 @@ validate:
 	$(PYTHON) scripts/validate_health_data_quality_card_v0_1.py
 	$(PYTHON) scripts/validate_boundary_notes_v0_1.py
 	$(PYTHON) scripts/validate_assurance_card_template_v0_1.py
+	$(PYTHON) scripts/validate_tr_medllm_specialty_spread_v0_1.py
 	$(PYTHON) scripts/validate_public_release_note_v0_1.py
 	$(PYTHON) scripts/validate_public_release.py --root .
 
@@ -56,6 +57,10 @@ taxonomy_dashboard:
 
 tr_medllm_pack:
 	$(PYTHON) scripts/validate_failure_atlas_case_intake_v0_1.py --input tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl
+	$(PYTHON) scripts/validate_tr_medllm_specialty_spread_v0_1.py
+
+tr_medllm_specialty_spread:
+	$(PYTHON) scripts/validate_tr_medllm_specialty_spread_v0_1.py
 
 clinician_review_queue:
 	$(PYTHON) scripts/validate_failure_atlas_case_intake_v0_1.py

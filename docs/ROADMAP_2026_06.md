@@ -33,7 +33,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 1. Public release note v0.1.
 2. Failure Atlas case intake workflow.
 3. Full taxonomy dashboard with 10 of 10 pattern IDs represented.
-4. TR MedLLM synthetic risk pack with 8 Turkish rows.
+4. TR MedLLM synthetic risk pack with 14 Turkish rows.
 5. Generated clinician review queue with 13 synthetic rows.
 6. SourceCheckup contribution schema and validator.
 7. No ranking synthetic report generator.
@@ -66,7 +66,7 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add specialty spread rows for the Turkish synthetic risk pack.
-2. Open the next SourceCheckup public issue for source claim review contributors.
+1. Open the next SourceCheckup public issue for source claim review contributors.
+2. Build a public dashboard index that links the six seed platforms.
 3. Prepare external maintainer issue drafts only after exact owner clearance.
-4. Build a public dashboard index that links the six seed platforms.
+4. Add a specialty spread dashboard view for the Turkish synthetic risk pack.

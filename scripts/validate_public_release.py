@@ -79,6 +79,7 @@ REQUIRED_FILES = [
     "scripts/validate_health_data_quality_card_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
+    "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
     "scripts/validate_public_release.py",
     "scripts/run_prompt_set_openai_compatible_v2.py",
     "scripts/run_prompt_set_hf_transformers_v2.py",

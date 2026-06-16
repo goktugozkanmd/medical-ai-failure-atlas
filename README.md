@@ -53,6 +53,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 11. Versioned labeling and review workflow with a 24 row pilot inter rater review subset.
 12. Internal reviewer form, source key, and adjudication log templates for the pilot subset, held out of public release until raw output redistribution is cleared.
 13. Scripts for validation, model capture, scoring dry run, benchmark report generation, and public candidate sanitation.
+14. A 14 row Turkish synthetic risk pack with specialty spread rows across cardiology, endocrinology, nephrology, infectious diseases, geriatrics, and pregnancy medication safety.
 
 ## What this is
 
@@ -132,6 +133,12 @@ Validate the TR MedLLM synthetic risk pack:
 
 ```bash
 make tr_medllm_pack
+```
+
+Validate the TR MedLLM specialty spread:
+
+```bash
+make tr_medllm_specialty_spread
 ```
 
 Generate the clinician review queue:
@@ -227,6 +234,7 @@ scripts/
   validate_public_release.py
   validate_scoring_rubric_v0_1.py
   validate_assurance_card_template_v0_1.py
+  validate_tr_medllm_specialty_spread_v0_1.py
   run_prompt_set_openai_compatible_v2.py
   run_prompt_set_hf_transformers_v2.py
 CONTRIBUTING.md

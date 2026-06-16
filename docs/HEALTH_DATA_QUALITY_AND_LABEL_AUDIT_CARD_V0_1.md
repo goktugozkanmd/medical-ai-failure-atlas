@@ -29,7 +29,7 @@ Current public source files:
 1. 150 synthetic scenario rows.
 2. 70 prompt rows.
 3. 24 pilot inter rater rows.
-4. 8 Turkish synthetic risk rows.
+4. 14 Turkish synthetic risk rows.
 5. 8 source claim review queue rows.
 
 The 24 pilot inter rater rows are for protocol testing only. They are not a powered agreement study and they do not establish clinical validation.
