@@ -1,0 +1,32 @@
+{
+  "title": "SourceCheckup contribution v0.2",
+  "type": "object",
+  "required": [
+    "contribution_id",
+    "source_surface",
+    "synthetic_answer_excerpt",
+    "exact_claim_text",
+    "central_to_answer",
+    "declared_sources",
+    "required_evidence_checks",
+    "proposed_public_action",
+    "maintainer_review_status",
+    "contains_patient_data",
+    "external_actions_executed",
+    "outward_use_allowed"
+  ],
+  "properties": {
+    "contribution_id": {"type": "string"},
+    "source_surface": {"type": "string"},
+    "synthetic_answer_excerpt": {"type": "string"},
+    "exact_claim_text": {"type": "string"},
+    "central_to_answer": {"type": "boolean"},
+    "declared_sources": {"type": "array"},
+    "required_evidence_checks": {"type": "array"},
+    "proposed_public_action": {"type": "string"},
+    "maintainer_review_status": {"type": "string"},
+    "contains_patient_data": {"type": "boolean"},
+    "external_actions_executed": {"type": "boolean"},
+    "outward_use_allowed": {"type": "boolean"}
+  }
+}

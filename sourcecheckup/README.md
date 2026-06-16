@@ -32,6 +32,12 @@ Run the larger v0.2 public example set:
 make sourcecheckup_v02
 ```
 
+Validate v0.2 contribution examples:
+
+```bash
+make sourcecheckup_contrib_v02
+```
+
 Direct command:
 
 ```bash
@@ -45,6 +51,7 @@ Current public example sets:
 
 1. `sourcecheckup/examples/sourcecheckup_seed_answers.jsonl`
 2. `sourcecheckup/examples/source_surface_examples_v0_2.jsonl`
+3. `sourcecheckup/examples/sourcecheckup_contribution_examples_v0_2.jsonl`
 
 ## Input Format
 
