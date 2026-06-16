@@ -141,6 +141,24 @@ make label_audit_role_table
 
 The linked escalation gate audit rows keep synthetic provenance, label definition lock, pilot inter rater subset, raw output exclusion, and public release boundary checks visible before stronger public wording.
 
+## Label audit public contributor route
+
+Contributors may open a public synthetic label audit issue with:
+
+`.github/ISSUE_TEMPLATE/label_audit_review.yml`
+
+Guide:
+
+`docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md`
+
+The route accepts synthetic examples for provenance, label definition lock, pilot subset framing, raw output exclusion, and public release boundary review. It does not allow patient data, raw model outputs, clinical advice, clinical validation claims, dataset quality proof, or outward use without maintainer review.
+
+Run:
+
+```bash
+make label_audit_public_issue
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

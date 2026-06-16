@@ -35,6 +35,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 23. Red flag source locator contributor examples v0.1.
 24. Warning sign reviewer role table v0.1.
 25. Label audit reviewer role table v0.1.
+26. Label audit public contributor issue guide v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -62,7 +63,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 20. 5 escalation gate audit rows.
 21. 4 label audit reviewer roles.
 22. 5 label audit escalation gate rows.
-23. 3 red flag source locator contributor examples.
+23. 1 label audit public contributor issue route.
+24. 3 red flag source locator contributor examples.
 
 ## Reproducible checks
 
@@ -88,6 +90,7 @@ make red_flag_warning_checklist
 make red_flag_contributor_examples
 make warning_sign_role_table
 make label_audit_role_table
+make label_audit_public_issue
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -122,6 +125,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 19. Red flag source locator contributor examples that turn unsafe red flag wording into SourceCheckup contribution rows.
 20. Warning sign reviewer role table that assigns clinician, source locator, warning sign wording, and adjudication roles.
 21. Label audit reviewer role table that assigns provenance, label definition, pilot subset, and public release boundary review roles.
+22. Public label audit contributor issue route for synthetic data quality and label audit review examples.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -151,11 +155,12 @@ For global open source medical AI evaluation, this public preview gives:
 20. Red flag contributor examples for PMID locator misuse, broad source reassurance, and warning sign placement.
 21. Escalation gate audit rows for partial negative evidence, symptom fluctuation, source locator triage claims, public wording boundaries, and reviewer disagreement.
 22. Label audit escalation gate rows for synthetic provenance, label definition lock, pilot inter rater subset, raw output exclusion, and public release boundaries.
+23. Label audit contributor issue route for provenance, label lock, pilot subset, raw output exclusion, and public boundary examples.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Public contributor issue template for synthetic label audit examples.
+1. Synthetic label audit example intake rows after maintainer wording review.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

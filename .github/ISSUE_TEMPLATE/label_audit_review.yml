@@ -1,0 +1,87 @@
+name: Label audit review
+description: Propose a synthetic label audit or data quality review example.
+title: "Label audit review: "
+labels: ["label audit", "data quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic examples only. This template reviews data quality and label audit risk in public medical AI evaluation files. It does not verify dataset quality, provide clinical advice, or create clinical validation.
+  - type: dropdown
+    id: audit_surface
+    attributes:
+      label: Audit surface
+      options:
+        - synthetic provenance
+        - label definition lock
+        - pilot inter rater subset
+        - raw output exclusion
+        - public release boundary
+        - data dictionary
+        - other synthetic label audit surface
+    validations:
+      required: true
+  - type: textarea
+    id: synthetic_audit_example
+    attributes:
+      label: Synthetic audit example
+      description: Describe a synthetic data quality or label audit issue. Do not paste patient data or real clinical notes.
+      placeholder: A synthetic example where a public dataset card, label definition, pilot subset, or release note might overstate data quality, clinical validation, raw output release, or reviewer agreement.
+    validations:
+      required: true
+  - type: dropdown
+    id: reviewer_role
+    attributes:
+      label: Suggested reviewer role
+      options:
+        - Synthetic provenance reviewer
+        - Label definition reviewer
+        - Pilot subset reviewer
+        - Public release boundary reviewer
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: exact_boundary_to_review
+    attributes:
+      label: Exact boundary to review
+      description: Write the exact phrase or boundary that needs review.
+      placeholder: The pilot subset is described as representative, raw model outputs appear public, label definitions drift, or dataset quality is implied.
+    validations:
+      required: true
+  - type: dropdown
+    id: proposed_public_action
+    attributes:
+      label: Proposed public action
+      options:
+        - Add to label audit examples
+        - Add to health data quality review queue
+        - Rewrite public wording
+        - Close as unsuitable
+    validations:
+      required: true
+  - type: textarea
+    id: required_checks
+    attributes:
+      label: Required checks
+      description: What should maintainers check before public use?
+      placeholder: Synthetic provenance, patient data absence, label lock match, pilot subset framing, raw output exclusion, public release boundary, dataset quality proof boundary.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: This is synthetic and contains no patient data.
+          required: true
+        - label: This does not include raw model outputs or private benchmark content.
+          required: true
+        - label: This does not claim dataset quality is proven.
+          required: true
+        - label: No external action has been executed.
+          required: true
+        - label: Outward use is not allowed without maintainer review.
+          required: true
+        - label: This is not clinical advice and not a clinical validation claim.
+          required: true

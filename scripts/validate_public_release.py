@@ -51,6 +51,7 @@ REQUIRED_FILES = [
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
     "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
     "docs/label_audit_reviewer_role_table_v0_1.json",
+    "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -70,6 +71,7 @@ REQUIRED_FILES = [
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
     "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
     "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md",
+    ".github/ISSUE_TEMPLATE/label_audit_review.yml",
     "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md",
     "sourcecheckup/build/source_claim_example_expansion_v0_2.md",
     ".github/ISSUE_TEMPLATE/sourcecheckup_review.yml",
@@ -99,6 +101,7 @@ REQUIRED_FILES = [
     "scripts/validate_health_data_quality_card_v0_1.py",
     "scripts/generate_label_audit_reviewer_role_table_v0_1.py",
     "scripts/validate_label_audit_reviewer_role_table_v0_1.py",
+    "scripts/validate_label_audit_public_contributor_issue_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -295,6 +298,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:
             fail(errors, "README must document the label audit reviewer role table command")
+        if "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the label audit public contributor issue guide")
+        if "make label_audit_public_issue" not in readme_text:
+            fail(errors, "README must document the label audit public issue validation command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

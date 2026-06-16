@@ -29,7 +29,8 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 17. 5 escalation gate audit rows.
 18. 4 label audit reviewer roles.
 19. 5 label audit escalation gate rows.
-20. 3 red flag source locator contributor examples.
+20. 1 label audit public contributor issue route.
+21. 3 red flag source locator contributor examples.
 
 ## Top public entry files
 
@@ -219,30 +220,33 @@ Public files:
 1. [Health data quality and label audit card](HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
 2. [Label audit reviewer role table](LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md)
 3. [Label audit reviewer role table JSON](label_audit_reviewer_role_table_v0_1.json)
-4. [Dataset evaluation card draft](../DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
-5. [Data dictionary](../DATA_DICTIONARY.md)
-6. [Pilot inter rater review rows](../data/inter_rater_review_subset_v0_1.tsv)
-7. [Labeling workflow](../LABELING.md)
-8. [Label definition lock](LABEL_DEFINITION_LOCK_V0_1.md)
-9. [Labeling package index](LABELING_PACKAGE_INDEX_V0_1.md)
+4. [Label audit public contributor issue guide](label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md)
+5. [Label audit GitHub issue template](../.github/ISSUE_TEMPLATE/label_audit_review.yml)
+6. [Dataset evaluation card draft](../DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
+7. [Data dictionary](../DATA_DICTIONARY.md)
+8. [Pilot inter rater review rows](../data/inter_rater_review_subset_v0_1.tsv)
+9. [Labeling workflow](../LABELING.md)
+10. [Label definition lock](LABEL_DEFINITION_LOCK_V0_1.md)
+11. [Labeling package index](LABELING_PACKAGE_INDEX_V0_1.md)
 
 Runnable checks:
 
 ```bash
 make health_data_quality_card
 make label_audit_role_table
+make label_audit_public_issue
 ```
 
 Track A value: data quality and label audit surface for Turkish health AI readiness discussions without patient data use.
 
 Track B value: reusable public checklist for synthetic medical AI dataset release readiness.
 
-Next build: create public contributor issue template for synthetic label audit examples.
+Next build: add synthetic label audit example intake rows after maintainer wording review.
 
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Create public contributor issue template for synthetic label audit examples.
+2. Add synthetic label audit example intake rows after maintainer wording review.
 3. Add lab target packets only after exact target review.
 
 ## Visibility rule

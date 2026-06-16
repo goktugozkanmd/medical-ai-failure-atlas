@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds twelve concrete build surfaces:
+This preview adds thirteen concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -22,6 +22,7 @@ This preview adds twelve concrete build surfaces:
 10. Red flag source locator contributor examples.
 11. Warning sign reviewer role table.
 12. Label audit reviewer role table.
+13. Label audit public contributor issue guide.
 
 ## What This Is
 
@@ -67,7 +68,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 10. [Red flag source locator contributor examples](../sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md)
 11. [Warning sign reviewer role table](../WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
 12. [Label audit reviewer role table](../LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md)
+13. [Label audit public contributor issue guide](../label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is to add a public contributor issue template for synthetic label audit examples.
+The next useful public build is to add synthetic label audit example intake rows after maintainer wording review.

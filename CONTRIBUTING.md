@@ -57,3 +57,11 @@ Not allowed:
 Repository issues and pull requests should stay focused on synthetic examples, source support review, failure taxonomy, validation scripts, and documentation.
 
 Do not use this repository to request patient data, clinical deployment, clinical validation, institutional endorsement, model ranking claims, or private benchmark access.
+
+## Label audit issue route
+
+Use `.github/ISSUE_TEMPLATE/label_audit_review.yml` for synthetic data quality and label audit examples.
+
+This route is for synthetic provenance, label definition lock, pilot subset framing, raw output exclusion, and public release boundary review.
+
+It does not allow patient data, raw model outputs, clinical advice, clinical validation claims, dataset quality proof, or outward use without maintainer review.
