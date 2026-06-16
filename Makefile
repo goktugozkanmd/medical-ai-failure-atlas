@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate validate-public sourcecheckup sourcecheckup_v02 leaderboard leaderboard_report
+.PHONY: validate validate-public sourcecheckup sourcecheckup_v02 leaderboard leaderboard_report case_intake
 
 validate:
 	$(PYTHON) scripts/validate_external_sample_jsonl.py data/failure_atlas_external_sample_v0_1.jsonl
@@ -24,3 +24,7 @@ leaderboard:
 leaderboard_report:
 	$(PYTHON) scripts/validate_leaderboard_template_v0_1.py
 	$(PYTHON) scripts/generate_leaderboard_report_v0_1.py
+
+case_intake:
+	$(PYTHON) scripts/validate_failure_atlas_case_intake_v0_1.py
+	$(PYTHON) scripts/generate_failure_atlas_case_intake_report_v0_1.py

@@ -18,6 +18,7 @@ New visible build surfaces are now staged in this public repository:
 8. [June 2026 public roadmap](docs/ROADMAP_2026_06.md)
 9. [No ranking leaderboard design](docs/LEADERBOARD_DESIGN_V0_1.md)
 10. [Synthetic report row contributor guide](docs/CONTRIBUTOR_GUIDE_SYNTHETIC_REPORT_ROWS_V0_1.md)
+11. [Failure Atlas case intake checklist](failure_atlas/public/CASE_INTAKE_CHECKLIST_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -103,6 +104,12 @@ Generate the no ranking leaderboard report:
 
 ```bash
 make leaderboard_report
+```
+
+Generate the Failure Atlas case intake report:
+
+```bash
+make case_intake
 ```
 
 ## Folder structure

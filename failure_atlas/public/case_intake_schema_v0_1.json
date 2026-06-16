@@ -1,0 +1,38 @@
+{
+  "title": "Failure Atlas case intake v0.1",
+  "type": "object",
+  "required": [
+    "case_id",
+    "clinical_domain",
+    "setting",
+    "synthetic_case_summary",
+    "failure_pattern",
+    "risk_axis",
+    "sourcecheckup_needed",
+    "clinician_review_needed",
+    "safe_answer_expectation",
+    "release_gate",
+    "track_a_relevance",
+    "track_b_relevance",
+    "synthetic_only",
+    "patient_data_used",
+    "clinical_use_allowed"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "clinical_domain": {"type": "string"},
+    "setting": {"type": "string"},
+    "synthetic_case_summary": {"type": "string"},
+    "failure_pattern": {"type": "string"},
+    "risk_axis": {"type": "string"},
+    "sourcecheckup_needed": {"type": "boolean"},
+    "clinician_review_needed": {"type": "boolean"},
+    "safe_answer_expectation": {"type": "string"},
+    "release_gate": {"type": "string"},
+    "track_a_relevance": {"type": "string"},
+    "track_b_relevance": {"type": "string"},
+    "synthetic_only": {"type": "boolean"},
+    "patient_data_used": {"type": "boolean"},
+    "clinical_use_allowed": {"type": "boolean"}
+  }
+}

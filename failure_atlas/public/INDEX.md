@@ -12,6 +12,10 @@ The entries below describe internal case packs at a high level only.
 
 The current failure mode taxonomy preview is available at [TAXONOMY_PREVIEW_20260616.md](TAXONOMY_PREVIEW_20260616.md).
 
+The public case intake checklist is available at [CASE_INTAKE_CHECKLIST_V0_1.md](CASE_INTAKE_CHECKLIST_V0_1.md).
+
+The generated case intake report is available at [build/case_intake_report_v0_1.md](build/case_intake_report_v0_1.md).
+
 ### FA_PUBLIC_001
 
 Internal case: case 0001.
