@@ -30,6 +30,7 @@ New visible build surfaces are now staged in this public repository:
 20. [Medmarks boundary note v0.1](docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md)
 21. [Medical language model assurance card template v0.1](docs/ASSURANCE_CARD_TEMPLATE_V0_1.md)
 22. [SourceCheckup public contributor issue guide v0.1](docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md)
+23. [Six platform dashboard index v0.1](docs/PLATFORM_DASHBOARD_INDEX_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -190,6 +191,12 @@ Validate the SourceCheckup public contributor issue route:
 make sourcecheckup_public_issue
 ```
 
+Validate the six platform dashboard index:
+
+```bash
+make platform_dashboard
+```
+
 ## Folder structure
 
 ```text
@@ -221,6 +228,7 @@ docs/
   MEDHELM_BOUNDARY_NOTE_V0_1.md
   MEDMARKS_BOUNDARY_NOTE_V0_1.md
   ASSURANCE_CARD_TEMPLATE_V0_1.md
+  PLATFORM_DASHBOARD_INDEX_V0_1.md
   assurance_card_template_v0_1.json
   scoring_model_v0_1.md
   sourcecheckup/

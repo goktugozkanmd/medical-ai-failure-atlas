@@ -35,6 +35,10 @@ REQUIRED_PHRASES = [
     "SourceCheckup public contributor issue route v0.1",
     "make sourcecheckup_public_issue",
     "public SourceCheckup contributor issue route for synthetic source claim review examples",
+    "Six platform dashboard index v0.1",
+    "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
+    "make platform_dashboard",
+    "public dashboard entry point that links the six seed platforms and their runnable checks",
 ]
 
 FORBIDDEN_PHRASES = [

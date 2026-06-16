@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+from urllib.parse import unquote
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DASHBOARD = ROOT / "docs" / "PLATFORM_DASHBOARD_INDEX_V0_1.md"
+
+REQUIRED_PHRASES = [
+    "Public platform dashboard index v0.1",
+    "TR MedLLM SafetyBench",
+    "Top public entry files",
+    "Medical AI Failure Atlas Global",
+    "Turkish Clinical AI Assurance Lab",
+    "SourceCheckup Medical",
+    "Clinician AI Literacy Academy Turkiye",
+    "Health Data Quality and Label Audit Commons",
+    "19 synthetic intake rows",
+    "14 Turkish synthetic risk rows",
+    "10 risk axes",
+    "10 of 10 Failure Atlas taxonomy pattern IDs represented",
+    "19 clinician review queue rows",
+    "8 source claim review queue rows",
+    "24 pilot inter rater rows",
+    "150 synthetic scenario rows",
+    "70 prompt rows",
+    "not clinical advice",
+    "not patient data",
+    "not clinical deployment",
+    "not clinical validation",
+    "not a model safety claim",
+    "not a model safety proof",
+    "not a model ranking",
+    "not a regulatory claim",
+    "not a benchmark compatibility claim",
+    "not an official endorsement",
+    "make tr_medllm_pack",
+    "make taxonomy_dashboard",
+    "make leaderboard_report",
+    "make assurance_card_template",
+    "make sourcecheckup_public_issue",
+    "make clinician_review_protocol",
+    "make health_data_quality_card",
+]
+
+REQUIRED_LINK_TARGETS = [
+    "README.md",
+    "docs/tr-medai-safety-suite/PUBLIC_PREVIEW_INDEX_20260616.md",
+    "docs/tr-medai-safety-suite/PUBLIC_REPO_RELEASE_CARD_20260616.md",
+    "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
+    "docs/ROADMAP_2026_06.md",
+    "tr_medllm_safetybench/README.md",
+    "tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl",
+    "failure_atlas/public/INDEX.md",
+    "failure_atlas/public/METHODOLOGY.md",
+    "failure_atlas/public/build/case_intake_report_v0_1.md",
+    "failure_atlas/public/build/taxonomy_dashboard_v0_1.md",
+    "failure_atlas/public/build/clinician_review_queue_v0_1.md",
+    "leaderboard/build/synthetic_report_v0_1.md",
+    "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
+    "docs/assurance_card_template_v0_1.json",
+    "docs/tr-medai-safety-suite/ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md",
+    "sourcecheckup/README.md",
+    "sourcecheckup/WORKFLOW_EXAMPLE_20260616.md",
+    "docs/sourcecheckup/SOURCE_CLAIM_REVIEW_QUEUE_V0_1.md",
+    "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
+    "sourcecheckup/build/sourcecheckup_seed_report.md",
+    "sourcecheckup/build/source_surface_examples_v0_2_report.md",
+    "docs/tr-medai-safety-suite/CLINICIAN_AI_LITERACY_30MIN_TR_20260616.md",
+    "docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md",
+    "failure_atlas/public/clinician_review_states_v0_1.json",
+    "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
+    "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
+    "DATA_DICTIONARY.md",
+    "data/inter_rater_review_subset_v0_1.tsv",
+    "LABELING.md",
+    "docs/LABEL_DEFINITION_LOCK_V0_1.md",
+    "docs/LABELING_PACKAGE_INDEX_V0_1.md",
+]
+
+FORBIDDEN_PHRASES = [
+    "clinically validated",
+    "validated for clinical use",
+    "safe for clinical use",
+    "officially endorsed",
+    "regulatory approved",
+    "sandbox access granted",
+    "patient data used",
+    "model is safe",
+    "best model",
+]
+
+
+def dashboard_mentions(text: str, relative_path: str) -> bool:
+    root_relative = relative_path
+    dashboard_relative = str(Path(relative_path).relative_to("docs")) if relative_path.startswith("docs/") else "../" + relative_path
+    candidates = {
+        root_relative,
+        root_relative.replace("-", "%2D"),
+        dashboard_relative,
+        dashboard_relative.replace("-", "%2D"),
+    }
+    return any(token in text for token in candidates)
+
+
+def main() -> int:
+    errors: list[str] = []
+    if not DASHBOARD.exists():
+        errors.append(f"Missing dashboard: {DASHBOARD.relative_to(ROOT)}")
+        text = ""
+    else:
+        text = DASHBOARD.read_text(encoding="utf-8")
+
+    lower_text = text.lower()
+    for phrase in REQUIRED_PHRASES:
+        if phrase.lower() not in lower_text:
+            errors.append(f"Missing required phrase: {phrase}")
+
+    for phrase in FORBIDDEN_PHRASES:
+        if phrase in lower_text:
+            errors.append(f"Forbidden phrase present: {phrase}")
+
+    for relative_path in REQUIRED_LINK_TARGETS:
+        if not (ROOT / relative_path).exists():
+            errors.append(f"Missing linked public file: {relative_path}")
+        if not dashboard_mentions(text, relative_path):
+            errors.append(f"Dashboard does not mention required target: {relative_path}")
+
+    for link in text.split("](")[1:]:
+        target = link.split(")", 1)[0]
+        if target.startswith("http"):
+            continue
+        normalized = unquote(target)
+        candidate = (DASHBOARD.parent / normalized).resolve()
+        try:
+            candidate.relative_to(ROOT)
+        except ValueError:
+            errors.append(f"Link escapes repo root: {target}")
+            continue
+        if not candidate.exists():
+            errors.append(f"Linked file does not exist: {target}")
+
+    if errors:
+        print("FAIL platform dashboard index validation")
+        for error in errors:
+            print(f"- {error}")
+        return 1
+
+    print("PASS platform dashboard index validation")
+    print(f"dashboard={DASHBOARD.relative_to(ROOT)}")
+    print("platforms=6")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

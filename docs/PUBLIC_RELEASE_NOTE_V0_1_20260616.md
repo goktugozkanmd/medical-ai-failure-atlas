@@ -24,6 +24,9 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 12. MedHELM and Medmarks boundary notes v0.1.
 13. Medical language model assurance card template v0.1.
 14. SourceCheckup public contributor issue route v0.1.
+15. Six platform dashboard index v0.1.
+
+Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
 ## Current public coverage
 
@@ -56,6 +59,7 @@ make boundary_notes
 make assurance_card_template
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
+make platform_dashboard
 make leaderboard_report
 ```
 
@@ -75,6 +79,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 8. Boundary notes that separate benchmark mapping from compatibility or endorsement claims.
 9. Assurance card template for intended use, risk, source support, human review, and release gate boundaries.
 10. SourceCheckup public contributor issue route for synthetic Turkish medical language model source claim review examples.
+11. Six platform dashboard index that connects Turkish benchmark, assurance, literacy, source review, failure atlas, and data quality surfaces.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -93,11 +98,12 @@ For global open source medical AI evaluation, this public preview gives:
 9. Boundary notes for MedHELM and Medmarks oriented mapping without compatibility claims.
 10. A reusable assurance card template for public medical language model evaluation releases.
 11. A public SourceCheckup contributor issue route for synthetic source claim review examples.
+12. A public dashboard entry point that links the six seed platforms and their runnable checks.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Public dashboard index for the six seed platforms.
-2. Additional specialty spread dashboard view for the Turkish synthetic risk pack.
-3. External maintainer issue draft only after exact owner clearance.
+1. Additional specialty spread dashboard view for the Turkish synthetic risk pack.
+2. External maintainer issue draft only after exact owner clearance.
+3. Expanded source claim review examples after maintainer review.

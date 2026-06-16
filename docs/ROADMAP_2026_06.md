@@ -34,7 +34,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 2. Failure Atlas case intake workflow.
 3. Full taxonomy dashboard with 10 of 10 pattern IDs represented.
 4. TR MedLLM synthetic risk pack with 14 Turkish rows.
-5. Generated clinician review queue with 13 synthetic rows.
+5. Generated clinician review queue with 19 synthetic rows.
 6. SourceCheckup contribution schema and validator.
 7. No ranking synthetic report generator.
 8. Clinician review protocol v0.1.
@@ -43,6 +43,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 11. MedHELM and Medmarks boundary notes v0.1.
 12. Medical language model assurance card template v0.1.
 13. SourceCheckup public contributor issue route v0.1.
+14. Six platform dashboard index v0.1.
 
 ## External visibility sequence
 
@@ -67,7 +68,7 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Build a public dashboard index that links the six seed platforms.
-2. Add a specialty spread dashboard view for the Turkish synthetic risk pack.
-3. Prepare external maintainer issue drafts only after exact owner clearance.
-4. Expand public contributor examples after maintainer review of synthetic issue submissions.
+1. Add a specialty spread dashboard view for the Turkish synthetic risk pack.
+2. Prepare external maintainer issue drafts only after exact owner clearance.
+3. Expand public contributor examples after maintainer review of synthetic issue submissions.
+4. Add clinician literacy lesson outlines tied to release gates.
