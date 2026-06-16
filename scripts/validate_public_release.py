@@ -54,6 +54,8 @@ REQUIRED_FILES = [
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
     "docs/assurance_card_template_v0_1.json",
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
+    "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md",
+    "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
     "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
     "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md",
     "sourcecheckup/build/source_claim_example_expansion_v0_2.md",
@@ -88,6 +90,8 @@ REQUIRED_FILES = [
     "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
     "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
     "scripts/validate_platform_dashboard_index_v0_1.py",
+    "scripts/generate_clinician_literacy_release_gate_lesson_map_v0_1.py",
+    "scripts/validate_clinician_literacy_release_gate_lesson_map_v0_1.py",
     "scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py",
     "scripts/generate_sourcecheckup_example_expansion_dashboard_v0_2.py",
     "scripts/validate_sourcecheckup_example_expansion_dashboard_v0_2.py",
@@ -232,6 +236,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the SourceCheckup expansion dashboard")
         if "make sourcecheckup_expansion_dashboard" not in readme_text:
             fail(errors, "README must document the SourceCheckup expansion dashboard command")
+        if "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the clinician literacy release gate lesson map")
+        if "make clinician_literacy_map" not in readme_text:
+            fail(errors, "README must document the clinician literacy lesson map command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

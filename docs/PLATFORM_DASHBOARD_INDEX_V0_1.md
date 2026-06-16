@@ -19,6 +19,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 7. 24 pilot inter rater rows.
 8. 150 synthetic scenario rows.
 9. 70 prompt rows.
+10. 6 clinician literacy release gate lessons.
 
 ## Top public entry files
 
@@ -153,10 +154,13 @@ Public files:
 2. [Clinician review protocol](CLINICIAN_REVIEW_PROTOCOL_V0_1.md)
 3. [Clinician review queue](../failure_atlas/public/build/clinician_review_queue_v0_1.md)
 4. [Clinician review states](../failure_atlas/public/clinician_review_states_v0_1.json)
+5. [Clinician literacy release gate lesson map](CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md)
+6. [Clinician literacy release gate lesson JSON](clinician_literacy_release_gate_lesson_map_v0_1.json)
 
 Runnable checks:
 
 ```bash
+make clinician_literacy_map
 make clinician_review_protocol
 make clinician_review_queue
 ```
@@ -165,7 +169,7 @@ Track A value: Turkish clinician literacy material tied to real release gates an
 
 Track B value: clinician review protocol and public review states for global medical AI evaluation workflows.
 
-Next build: public lesson outline that maps each module to one synthetic case and one release gate.
+Next build: connect lesson map outputs into assurance card release gate examples.
 
 ### 6. Health Data Quality and Label Audit Commons
 
@@ -196,7 +200,7 @@ Next build: label audit workflow table with reviewer roles and escalation gates.
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add clinician literacy lesson outline tied to release gates.
+2. Add assurance card release gate example map.
 3. Link SourceCheckup dashboard rows back into TR MedLLM specialty and assurance release gates.
 4. Add lab collaboration packets only after exact target review.
 

@@ -46,6 +46,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 14. Six platform dashboard index v0.1.
 15. TR MedLLM specialty spread dashboard v0.1.
 16. SourceCheckup source claim example expansion v0.2.
+17. Clinician literacy release gate lesson map v0.1.
 
 ## External visibility sequence
 
@@ -70,7 +71,7 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add clinician literacy lesson outlines tied to release gates.
+1. Add assurance card release gate example map.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.
 4. Link SourceCheckup dashboard rows back into TR MedLLM specialty and assurance release gates.

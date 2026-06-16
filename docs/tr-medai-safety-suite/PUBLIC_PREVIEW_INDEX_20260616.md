@@ -12,6 +12,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 2. `../sourcecheckup/PUBLIC_DEMO_MATRIX_20260616.md` shows the SourceCheckup Medical source support risk matrix.
 3. `ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md` shows a Turkish health AI assurance and release gate matrix.
 4. `CLINICIAN_AI_LITERACY_30MIN_TR_20260616.md` provides a Turkish clinician AI literacy facilitator packet.
+5. `../CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md` maps six clinician literacy lessons to release gates, SourceCheckup rows, Turkish risk rows, and assurance levels.
 
 ## What This Preview Is
 
@@ -43,8 +44,9 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Make SourceCheckup Medical easier to run from this repository.
-2. Add a compact public failure mode taxonomy page.
-3. Add a public contributor path for synthetic failure cases.
-4. Add a no patient data review checklist.
-5. Add a model run template that stays disabled unless endpoint terms and cost are explicitly cleared.
+1. Connect the clinician lesson map to assurance card release gate examples.
+2. Make SourceCheckup Medical easier to run from this repository.
+3. Add a compact public failure mode taxonomy page.
+4. Add a public contributor path for synthetic failure cases.
+5. Add a no patient data review checklist.
+6. Add a model run template that stays disabled unless endpoint terms and cost are explicitly cleared.

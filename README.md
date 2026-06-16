@@ -33,6 +33,7 @@ New visible build surfaces are now staged in this public repository:
 23. [Six platform dashboard index v0.1](docs/PLATFORM_DASHBOARD_INDEX_V0_1.md)
 24. [TR MedLLM specialty spread dashboard v0.1](tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md)
 25. [SourceCheckup source claim example expansion v0.2](sourcecheckup/build/source_claim_example_expansion_v0_2.md)
+26. [Clinician literacy release gate lesson map v0.1](docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -163,6 +164,12 @@ Validate the clinician review protocol:
 make clinician_review_protocol
 ```
 
+Generate the clinician literacy release gate lesson map:
+
+```bash
+make clinician_literacy_map
+```
+
 Validate the public release note:
 
 ```bash
@@ -243,7 +250,9 @@ docs/
   MEDMARKS_BOUNDARY_NOTE_V0_1.md
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   PLATFORM_DASHBOARD_INDEX_V0_1.md
+  CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md
   assurance_card_template_v0_1.json
+  clinician_literacy_release_gate_lesson_map_v0_1.json
   scoring_model_v0_1.md
   sourcecheckup/
     CONTRIBUTOR_CHECKLIST_V0_2.md
@@ -279,6 +288,7 @@ scripts/
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py
+  validate_clinician_literacy_release_gate_lesson_map_v0_1.py
   run_prompt_set_openai_compatible_v2.py
   run_prompt_set_hf_transformers_v2.py
 CONTRIBUTING.md

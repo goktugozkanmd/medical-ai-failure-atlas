@@ -4,16 +4,17 @@ Date: 2026 06 16
 
 Owner identity: Dr. Goktug Ozkan, Internal Medicine Specialist.
 
-This public preview makes the current Turkish and global medical AI evaluation build visible inside the existing `medical-ai-failure-atlas` repository.
+This public preview makes the current Turkish and global medical AI evaluation build visible inside the existing public repository.
 
 ## What This Adds
 
-This preview adds four concrete build surfaces:
+This preview adds five concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
 3. Clinician AI Literacy 30 minute Turkish facilitator packet.
 4. Public preview index for TR MedAI Safety Suite.
+5. Clinician literacy release gate lesson map.
 
 ## What This Is
 
@@ -51,7 +52,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 2. [SourceCheckup Medical public demo matrix](../sourcecheckup/PUBLIC_DEMO_MATRIX_20260616.md)
 3. [Turkish Clinical AI Assurance Lab governance matrix](ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md)
 4. [Clinician AI Literacy 30 minute Turkish facilitator packet](CLINICIAN_AI_LITERACY_30MIN_TR_20260616.md)
+5. [Clinician literacy release gate lesson map](../CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is to make SourceCheckup Medical runnable from this repository with a compact source claim review workflow for synthetic medical AI answers.
+The next useful public build is to connect the clinician lesson map to assurance card release gate examples for synthetic medical AI answers.
