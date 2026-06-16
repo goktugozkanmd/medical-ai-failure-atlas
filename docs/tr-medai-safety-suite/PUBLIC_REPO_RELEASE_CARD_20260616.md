@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds fifteen concrete build surfaces:
+This preview adds sixteen concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -25,6 +25,7 @@ This preview adds fifteen concrete build surfaces:
 13. Label audit public contributor issue guide.
 14. Label audit example intake rows.
 15. Label audit example dashboard.
+16. Label audit maintainer triage board.
 
 ## What This Is
 
@@ -73,7 +74,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 13. [Label audit public contributor issue guide](../label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md)
 14. [Label audit example intake rows](../label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md)
 15. [Label audit example dashboard](../label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md)
+16. [Label audit maintainer triage board](../label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a label audit maintainer triage board after maintainer wording review.
+The next useful public build is a label audit public wording decision log after maintainer wording review.

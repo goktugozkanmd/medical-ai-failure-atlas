@@ -40,6 +40,7 @@ REQUIRED_PHRASES = [
     "1 label audit public contributor issue route",
     "5 label audit example intake rows",
     "5 label audit example dashboard rows",
+    "5 label audit maintainer triage rows",
     "3 red flag source locator contributor examples",
     "not clinical advice",
     "not patient data",
@@ -71,6 +72,7 @@ REQUIRED_PHRASES = [
     "make label_audit_public_issue",
     "make label_audit_examples",
     "make label_audit_dashboard",
+    "make label_audit_triage",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -122,6 +124,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/label_audit/label_audit_example_intake_v0_1.json",
     "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md",
     "docs/label_audit/label_audit_example_dashboard_v0_1.json",
+    "docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md",
+    "docs/label_audit/label_audit_maintainer_triage_board_v0_1.json",
     ".github/ISSUE_TEMPLATE/label_audit_review.yml",
     "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
     "DATA_DICTIONARY.md",

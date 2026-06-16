@@ -44,6 +44,7 @@ New visible build surfaces are now staged in this public repository:
 34. [Label audit public contributor issue guide v0.1](docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md)
 35. [Label audit example intake rows v0.1](docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md)
 36. [Label audit example dashboard v0.1](docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md)
+37. [Label audit maintainer triage board v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -270,6 +271,12 @@ Generate the label audit example dashboard:
 make label_audit_dashboard
 ```
 
+Generate the label audit maintainer triage board:
+
+```bash
+make label_audit_triage
+```
+
 Validate the SourceCheckup public contributor issue route:
 
 ```bash
@@ -342,6 +349,8 @@ docs/
     label_audit_example_intake_v0_1.json
     LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md
     label_audit_example_dashboard_v0_1.json
+    LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md
+    label_audit_maintainer_triage_board_v0_1.json
 sourcecheckup/
   build/
     source_claim_example_expansion_v0_2.md

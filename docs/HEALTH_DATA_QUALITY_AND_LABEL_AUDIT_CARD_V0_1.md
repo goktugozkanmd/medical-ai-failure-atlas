@@ -195,6 +195,26 @@ Run:
 make label_audit_dashboard
 ```
 
+## Label audit maintainer triage board
+
+Current public triage board:
+
+`docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md`
+
+Machine readable triage source:
+
+`docs/label_audit/label_audit_maintainer_triage_board_v0_1.json`
+
+Maintainer triage rows: 5.
+
+The board turns dashboard rows into maintainer actions, owner roles, triage status values, and next public wording decisions. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_triage
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

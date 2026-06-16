@@ -81,3 +81,11 @@ Run:
 ```bash
 make label_audit_dashboard
 ```
+
+The maintainer triage board is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_triage
+```
