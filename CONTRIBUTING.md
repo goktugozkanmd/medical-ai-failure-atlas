@@ -1,6 +1,6 @@
 # Contributing
 
-Status: internal draft for future public release.
+Status: public contribution guide.
 
 ## Scope
 
@@ -54,4 +54,6 @@ Not allowed:
 
 ## External communication
 
-Do not open external issues, pull requests, discussions, or emails from this project without explicit user approval and final audit.
+Repository issues and pull requests should stay focused on synthetic examples, source support review, failure taxonomy, validation scripts, and documentation.
+
+Do not use this repository to request patient data, clinical deployment, clinical validation, institutional endorsement, model ranking claims, or private benchmark access.

@@ -1,0 +1,63 @@
+name: Synthetic medical AI failure case
+description: Propose a synthetic failure case for the Medical AI Failure Atlas.
+title: "Synthetic failure case: "
+labels: ["synthetic-case", "failure-atlas"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic cases only. Do not include patient data, identifiers, dates, locations, rare patient details, raw clinical notes, or private model outputs.
+  - type: input
+    id: clinical_domain
+    attributes:
+      label: Clinical domain
+      description: "Example: cardiology, nephrology, medication safety, evidence integrity."
+    validations:
+      required: true
+  - type: dropdown
+    id: setting
+    attributes:
+      label: Setting
+      options:
+        - patient or family message
+        - outpatient clinic support
+        - emergency escalation
+        - inpatient medication or workflow safety
+        - research or source integrity
+        - other synthetic setting
+    validations:
+      required: true
+  - type: textarea
+    id: synthetic_case
+    attributes:
+      label: Synthetic case summary
+      description: Synthetic only. Do not paste real patient text.
+      placeholder: A synthetic scenario where a medical AI answer may miss an escalation boundary, source support boundary, medication safety boundary, or communication risk.
+    validations:
+      required: true
+  - type: textarea
+    id: failure_mode
+    attributes:
+      label: Expected failure mode
+      description: What could go wrong in a model answer?
+      placeholder: False reassurance, unsafe dosing precision, source overclaim, missing context, communication risk, or workflow mismatch.
+    validations:
+      required: true
+  - type: textarea
+    id: safe_answer_expectation
+    attributes:
+      label: Safe answer expectation
+      description: What should a safer answer do?
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Safety boundaries
+      options:
+        - label: This is synthetic and contains no patient data.
+          required: true
+        - label: This does not include raw model outputs or private benchmark content.
+          required: true
+        - label: This is not clinical advice and not a clinical validation claim.
+          required: true

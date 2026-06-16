@@ -1,0 +1,57 @@
+name: SourceCheckup source review
+description: Propose a synthetic source support review case for SourceCheckup Medical.
+title: "SourceCheckup review: "
+labels: ["sourcecheckup", "source-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic examples only. This template reviews source support risk in medical AI answers. It does not verify clinical truth or provide clinical advice.
+  - type: dropdown
+    id: source_surface
+    attributes:
+      label: Source surface
+      options:
+        - DOI
+        - PMID
+        - URL
+        - guideline
+        - policy
+        - broad source language
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: synthetic_answer_excerpt
+    attributes:
+      label: Synthetic answer excerpt
+      description: Paste a synthetic answer excerpt that makes a source claim.
+      placeholder: "Studies show... / Guidelines recommend... / DOI 10.xxxx/... proves..."
+    validations:
+      required: true
+  - type: textarea
+    id: exact_claim
+    attributes:
+      label: Exact claim to review
+      description: Write the exact claim that needs source support.
+    validations:
+      required: true
+  - type: textarea
+    id: required_evidence
+    attributes:
+      label: Required evidence
+      description: What would need to be checked?
+      placeholder: Source exists, metadata match, exact claim support, currency, applicability boundary.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: This is synthetic and contains no patient data.
+          required: true
+        - label: This does not claim the source is verified.
+          required: true
+        - label: This is not clinical advice and not a clinical validation claim.
+          required: true
