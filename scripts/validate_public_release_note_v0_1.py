@@ -26,6 +26,7 @@ REQUIRED_PHRASES = [
     "150 synthetic scenario rows",
     "70 prompt rows",
     "24 pilot inter rater rows",
+    "MedHELM and Medmarks boundary notes v0.1",
 ]
 
 FORBIDDEN_PHRASES = [

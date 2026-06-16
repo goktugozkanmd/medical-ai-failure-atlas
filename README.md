@@ -26,6 +26,8 @@ New visible build surfaces are now staged in this public repository:
 16. [Public infrastructure release note v0.1](docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md)
 17. [Clinician review protocol v0.1](docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md)
 18. [Health data quality and label audit card v0.1](docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
+19. [MedHELM boundary note v0.1](docs/MEDHELM_BOUNDARY_NOTE_V0_1.md)
+20. [Medmarks boundary note v0.1](docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -155,6 +157,12 @@ Validate the health data quality and label audit card:
 make health_data_quality_card
 ```
 
+Validate the MedHELM and Medmarks boundary notes:
+
+```bash
+make boundary_notes
+```
+
 Validate SourceCheckup contribution examples:
 
 ```bash
@@ -189,6 +197,8 @@ docs/
   INTER_RATER_REVIEW_SUBSET_PLAN_V0_1.md
   LABELING_PACKAGE_INDEX_V0_1.md
   HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md
+  MEDHELM_BOUNDARY_NOTE_V0_1.md
+  MEDMARKS_BOUNDARY_NOTE_V0_1.md
   scoring_model_v0_1.md
 failure_atlas/
   public/
