@@ -39,6 +39,9 @@ REQUIRED_PHRASES = [
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
     "make platform_dashboard",
     "public dashboard entry point that links the six seed platforms and their runnable checks",
+    "TR MedLLM specialty spread dashboard v0.1",
+    "make tr_medllm_specialty_dashboard",
+    "generated specialty spread dashboard for multilingual medical AI safety benchmark growth",
 ]
 
 FORBIDDEN_PHRASES = [

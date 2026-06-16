@@ -31,6 +31,7 @@ New visible build surfaces are now staged in this public repository:
 21. [Medical language model assurance card template v0.1](docs/ASSURANCE_CARD_TEMPLATE_V0_1.md)
 22. [SourceCheckup public contributor issue guide v0.1](docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md)
 23. [Six platform dashboard index v0.1](docs/PLATFORM_DASHBOARD_INDEX_V0_1.md)
+24. [TR MedLLM specialty spread dashboard v0.1](tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -143,6 +144,12 @@ Validate the TR MedLLM specialty spread:
 make tr_medllm_specialty_spread
 ```
 
+Generate the TR MedLLM specialty spread dashboard:
+
+```bash
+make tr_medllm_specialty_dashboard
+```
+
 Generate the clinician review queue:
 
 ```bash
@@ -238,6 +245,11 @@ failure_atlas/
   public/
     INDEX.md
     METHODOLOGY.md
+tr_medllm_safetybench/
+  README.md
+  build/
+    specialty_spread_dashboard_v0_1.md
+  synthetic_risk_pack_v0_1.jsonl
 rubric/
   v0.1.0/
 medmarks_candidate_env_v0_20260613/
@@ -253,6 +265,7 @@ scripts/
   validate_scoring_rubric_v0_1.py
   validate_assurance_card_template_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
+  validate_tr_medllm_specialty_dashboard_v0_1.py
   run_prompt_set_openai_compatible_v2.py
   run_prompt_set_hf_transformers_v2.py
 CONTRIBUTING.md

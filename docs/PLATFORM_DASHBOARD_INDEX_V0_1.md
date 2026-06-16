@@ -38,14 +38,16 @@ Public files:
 
 1. [TR MedLLM synthetic risk pack](../tr_medllm_safetybench/README.md)
 2. [TR MedLLM risk rows](../tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl)
-3. [Failure Atlas taxonomy dashboard](../failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
-4. [Clinician review queue](../failure_atlas/public/build/clinician_review_queue_v0_1.md)
+3. [TR MedLLM specialty spread dashboard](../tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md)
+4. [Failure Atlas taxonomy dashboard](../failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
+5. [Clinician review queue](../failure_atlas/public/build/clinician_review_queue_v0_1.md)
 
 Runnable checks:
 
 ```bash
 make tr_medllm_pack
 make tr_medllm_specialty_spread
+make tr_medllm_specialty_dashboard
 make taxonomy_dashboard
 make clinician_review_queue
 ```
@@ -54,7 +56,7 @@ Track A value: Turkish clinician led evaluation material for national health AI 
 
 Track B value: reusable multilingual safety benchmark seed for global medical AI evaluation without model ranking claims.
 
-Next build: specialty spread dashboard view for Turkish rows.
+Next build: source claim review examples for Turkish rows after maintainer review.
 
 ### 2. Medical AI Failure Atlas Global
 
@@ -192,10 +194,9 @@ Next build: label audit workflow table with reviewer roles and escalation gates.
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add specialty spread dashboard view for TR MedLLM rows.
-3. Expand source claim review examples after maintainer review.
-4. Add clinician literacy lesson outline tied to release gates.
-5. Add lab collaboration packets only after exact target review.
+2. Expand source claim review examples after maintainer review.
+3. Add clinician literacy lesson outline tied to release gates.
+4. Add lab collaboration packets only after exact target review.
 
 ## Visibility rule
 

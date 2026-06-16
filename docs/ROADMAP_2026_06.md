@@ -44,6 +44,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 12. Medical language model assurance card template v0.1.
 13. SourceCheckup public contributor issue route v0.1.
 14. Six platform dashboard index v0.1.
+15. TR MedLLM specialty spread dashboard v0.1.
 
 ## External visibility sequence
 
@@ -68,7 +69,7 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add a specialty spread dashboard view for the Turkish synthetic risk pack.
+1. Expand public source claim review examples after maintainer review of synthetic issue submissions.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
-3. Expand public contributor examples after maintainer review of synthetic issue submissions.
-4. Add clinician literacy lesson outlines tied to release gates.
+3. Add clinician literacy lesson outlines tied to release gates.
+4. Add model run plan files only after endpoint terms and cost are explicitly cleared.

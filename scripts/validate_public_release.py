@@ -55,6 +55,7 @@ REQUIRED_FILES = [
     "docs/assurance_card_template_v0_1.json",
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
     "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
+    "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md",
     ".github/ISSUE_TEMPLATE/sourcecheckup_review.yml",
     ".gitignore",
     "data/scenario_bank_v1.tsv",
@@ -83,6 +84,8 @@ REQUIRED_FILES = [
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
+    "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
+    "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
     "scripts/validate_platform_dashboard_index_v0_1.py",
     "scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py",
     "scripts/validate_public_release.py",
@@ -218,6 +221,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the platform dashboard index")
         if "make platform_dashboard" not in readme_text:
             fail(errors, "README must document the platform dashboard validation command")
+        if "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md" not in readme_text:
+            fail(errors, "README must link to the TR MedLLM specialty spread dashboard")
+        if "make tr_medllm_specialty_dashboard" not in readme_text:
+            fail(errors, "README must document the TR MedLLM specialty dashboard command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

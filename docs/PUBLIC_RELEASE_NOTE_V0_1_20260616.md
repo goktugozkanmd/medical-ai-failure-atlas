@@ -25,6 +25,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 13. Medical language model assurance card template v0.1.
 14. SourceCheckup public contributor issue route v0.1.
 15. Six platform dashboard index v0.1.
+16. TR MedLLM specialty spread dashboard v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -52,6 +53,7 @@ make case_intake
 make taxonomy_dashboard
 make tr_medllm_pack
 make tr_medllm_specialty_spread
+make tr_medllm_specialty_dashboard
 make clinician_review_queue
 make source_claim_queue
 make health_data_quality_card
@@ -80,6 +82,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 9. Assurance card template for intended use, risk, source support, human review, and release gate boundaries.
 10. SourceCheckup public contributor issue route for synthetic Turkish medical language model source claim review examples.
 11. Six platform dashboard index that connects Turkish benchmark, assurance, literacy, source review, failure atlas, and data quality surfaces.
+12. TR MedLLM specialty spread dashboard for Turkish clinical domain, risk axis, release gate, and SourceCheckup routing coverage.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -99,11 +102,12 @@ For global open source medical AI evaluation, this public preview gives:
 10. A reusable assurance card template for public medical language model evaluation releases.
 11. A public SourceCheckup contributor issue route for synthetic source claim review examples.
 12. A public dashboard entry point that links the six seed platforms and their runnable checks.
+13. A generated specialty spread dashboard for multilingual medical AI safety benchmark growth.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Additional specialty spread dashboard view for the Turkish synthetic risk pack.
+1. Expanded source claim review examples after maintainer review.
 2. External maintainer issue draft only after exact owner clearance.
-3. Expanded source claim review examples after maintainer review.
+3. Clinician literacy lesson outlines tied to release gates.

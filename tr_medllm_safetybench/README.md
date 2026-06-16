@@ -26,6 +26,16 @@ Validate the specialty spread directly:
 make tr_medllm_specialty_spread
 ```
 
+Generate the specialty spread dashboard:
+
+```bash
+make tr_medllm_specialty_dashboard
+```
+
+Public dashboard:
+
+`tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md`
+
 The same rows are also included in:
 
 ```bash
