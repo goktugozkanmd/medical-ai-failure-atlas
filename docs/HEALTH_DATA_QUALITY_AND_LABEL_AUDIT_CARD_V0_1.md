@@ -215,6 +215,26 @@ Run:
 make label_audit_triage
 ```
 
+## Label audit public wording decision log
+
+Current public wording decision log:
+
+`docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md`
+
+Machine readable decision source:
+
+`docs/label_audit/label_audit_public_wording_decision_log_v0_1.json`
+
+Public wording decision rows: 5.
+
+The log records blocked wording, proposed public wording, reviewer role, decision status, maintainer action, and next public surface for each triage row. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_wording_log
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

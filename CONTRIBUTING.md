@@ -89,3 +89,11 @@ Run:
 ```bash
 make label_audit_triage
 ```
+
+The public wording decision log is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_wording_log
+```

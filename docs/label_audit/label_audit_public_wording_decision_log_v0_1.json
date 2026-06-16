@@ -1,0 +1,72 @@
+{
+  "blocked_wording_count": 5,
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "decision_row_count": 5,
+  "decision_status_count": 1,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "proposed_public_wording_count": 5,
+  "rows": [
+    {
+      "blocked_wording": "covers real care records",
+      "decision_status": "safe_public_wording_ready",
+      "example_id": "LAE001",
+      "maintainer_action": "rewrite provenance wording",
+      "next_public_surface": "Health data quality card",
+      "proposed_public_wording": "synthetic example only",
+      "reviewer_role_id": "LAR001",
+      "reviewer_role_name": "Synthetic provenance reviewer"
+    },
+    {
+      "blocked_wording": "clinically validated labels",
+      "decision_status": "safe_public_wording_ready",
+      "example_id": "LAE002",
+      "maintainer_action": "route to clinician wording review",
+      "next_public_surface": "Label definition lock",
+      "proposed_public_wording": "pending clinician review",
+      "reviewer_role_id": "LAR002",
+      "reviewer_role_name": "Label definition reviewer"
+    },
+    {
+      "blocked_wording": "representative of deployment performance",
+      "decision_status": "safe_public_wording_ready",
+      "example_id": "LAE003",
+      "maintainer_action": "add pilot subset limitation note",
+      "next_public_surface": "Platform dashboard",
+      "proposed_public_wording": "protocol testing only",
+      "reviewer_role_id": "LAR003",
+      "reviewer_role_name": "Pilot subset reviewer"
+    },
+    {
+      "blocked_wording": "raw outputs are available in public",
+      "decision_status": "safe_public_wording_ready",
+      "example_id": "LAE004",
+      "maintainer_action": "keep raw outputs withheld",
+      "next_public_surface": "Public release boundary",
+      "proposed_public_wording": "raw outputs are withheld",
+      "reviewer_role_id": "LAR004",
+      "reviewer_role_name": "Public release boundary reviewer"
+    },
+    {
+      "blocked_wording": "proves dataset quality",
+      "decision_status": "safe_public_wording_ready",
+      "example_id": "LAE005",
+      "maintainer_action": "block dataset quality proof wording",
+      "next_public_surface": "Release note",
+      "proposed_public_wording": "dataset quality is not proven",
+      "reviewer_role_id": "LAR004",
+      "reviewer_role_name": "Public release boundary reviewer"
+    }
+  ],
+  "source": "docs/label_audit/label_audit_maintainer_triage_board_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_public_wording_decision_log_v0_1"
+}

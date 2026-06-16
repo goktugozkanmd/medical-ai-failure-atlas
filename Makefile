@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate validate-public platform_dashboard sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 sourcecheckup_public_issue label_audit_public_issue label_audit_examples label_audit_dashboard label_audit_triage sourcecheckup_expansion_dashboard sourcecheckup_tr_medllm_routing source_review_worksheets red_flag_warning_checklist red_flag_contributor_examples warning_sign_role_table label_audit_role_table source_claim_queue health_data_quality_card boundary_notes assurance_card_template assurance_release_gate_map clinician_literacy_map tr_medllm_specialty_spread tr_medllm_specialty_dashboard leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
+.PHONY: validate validate-public platform_dashboard sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 sourcecheckup_public_issue label_audit_public_issue label_audit_examples label_audit_dashboard label_audit_triage label_audit_wording_log sourcecheckup_expansion_dashboard sourcecheckup_tr_medllm_routing source_review_worksheets red_flag_warning_checklist red_flag_contributor_examples warning_sign_role_table label_audit_role_table source_claim_queue health_data_quality_card boundary_notes assurance_card_template assurance_release_gate_map clinician_literacy_map tr_medllm_specialty_spread tr_medllm_specialty_dashboard leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
 
 validate:
 	$(PYTHON) scripts/validate_external_sample_jsonl.py data/failure_atlas_external_sample_v0_1.jsonl
@@ -14,6 +14,7 @@ validate:
 	$(PYTHON) scripts/validate_label_audit_example_intake_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_dashboard_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_maintainer_triage_board_v0_1.py
+	$(PYTHON) scripts/validate_label_audit_public_wording_decision_log_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_contribution_v0_2.py
 	$(PYTHON) scripts/validate_red_flag_contributor_examples_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_example_expansion_dashboard_v0_2.py
@@ -67,6 +68,10 @@ label_audit_dashboard:
 label_audit_triage:
 	$(PYTHON) scripts/generate_label_audit_maintainer_triage_board_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_maintainer_triage_board_v0_1.py
+
+label_audit_wording_log:
+	$(PYTHON) scripts/generate_label_audit_public_wording_decision_log_v0_1.py
+	$(PYTHON) scripts/validate_label_audit_public_wording_decision_log_v0_1.py
 
 sourcecheckup_expansion_dashboard:
 	$(PYTHON) scripts/sourcecheckup_medical.py validate --input sourcecheckup/examples/source_surface_examples_v0_2.jsonl --out-json sourcecheckup/build/source_surface_examples_v0_2_report.json --out-md sourcecheckup/build/source_surface_examples_v0_2_report.md
