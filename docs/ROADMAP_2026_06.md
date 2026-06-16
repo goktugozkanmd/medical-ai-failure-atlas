@@ -56,6 +56,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 24. Label audit reviewer role table v0.1.
 25. Label audit public contributor issue guide v0.1.
 26. Label audit example intake rows v0.1.
+27. Label audit example dashboard v0.1.
 
 ## External visibility sequence
 
@@ -80,6 +81,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add a compact label audit example dashboard after maintainer wording review.
+1. Add a label audit maintainer triage board after maintainer wording review.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

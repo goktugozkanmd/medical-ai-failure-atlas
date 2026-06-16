@@ -37,6 +37,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 25. Label audit reviewer role table v0.1.
 26. Label audit public contributor issue guide v0.1.
 27. Label audit example intake v0.1.
+28. Label audit example dashboard v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -66,7 +67,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 22. 5 label audit escalation gate rows.
 23. 1 label audit public contributor issue route.
 24. 5 label audit example intake rows.
-25. 3 red flag source locator contributor examples.
+25. 5 label audit example dashboard rows.
+26. 3 red flag source locator contributor examples.
 
 ## Reproducible checks
 
@@ -94,6 +96,7 @@ make warning_sign_role_table
 make label_audit_role_table
 make label_audit_public_issue
 make label_audit_examples
+make label_audit_dashboard
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -130,6 +133,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 21. Label audit reviewer role table that assigns provenance, label definition, pilot subset, and public release boundary review roles.
 22. Public label audit contributor issue route for synthetic data quality and label audit review examples.
 23. Synthetic label audit example intake rows for provenance, label definition, pilot subset, raw output exclusion, and dataset quality proof boundaries.
+24. Compact label audit example dashboard that summarizes role, audit row, review state, and blocked public claim type.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -161,11 +165,12 @@ For global open source medical AI evaluation, this public preview gives:
 22. Label audit escalation gate rows for synthetic provenance, label definition lock, pilot inter rater subset, raw output exclusion, and public release boundaries.
 23. Label audit contributor issue route for provenance, label lock, pilot subset, raw output exclusion, and public boundary examples.
 24. Label audit example intake rows that make the public data quality review queue inspectable without patient data or raw model outputs.
+25. Label audit example dashboard that makes blocked public claim types visible for reusable open source review.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Compact label audit example dashboard after maintainer wording review.
+1. Label audit maintainer triage board after maintainer wording review.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

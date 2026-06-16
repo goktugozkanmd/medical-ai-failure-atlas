@@ -1,0 +1,104 @@
+{
+  "audit_counts": {
+    "LAA001": 1,
+    "LAA002": 1,
+    "LAA003": 1,
+    "LAA004": 1,
+    "LAA005": 1
+  },
+  "audit_row_count": 5,
+  "blocked_public_claim_type_count": 5,
+  "blocked_public_claim_type_counts": {
+    "clinical validation claim": 1,
+    "dataset quality proof claim": 1,
+    "population performance claim": 1,
+    "raw model output release claim": 1,
+    "real care record coverage claim": 1
+  },
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "example_count": 5,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "review_state_count": 4,
+  "review_state_counts": {
+    "needs_adjudication": 1,
+    "needs_clinician_review": 1,
+    "not_for_public_summary": 2,
+    "synthetic_preview_only": 1
+  },
+  "role_count": 4,
+  "role_counts": {
+    "LAR001": 1,
+    "LAR002": 1,
+    "LAR003": 1,
+    "LAR004": 2
+  },
+  "rows": [
+    {
+      "audit_id": "LAA001",
+      "audit_name": "Synthetic provenance audit",
+      "blocked_public_claim_type": "real care record coverage claim",
+      "example_id": "LAE001",
+      "required_check_count": 4,
+      "review_state": "synthetic_preview_only",
+      "role_id": "LAR001",
+      "role_name": "Synthetic provenance reviewer",
+      "title": "Synthetic provenance overclaim"
+    },
+    {
+      "audit_id": "LAA002",
+      "audit_name": "Label definition lock audit",
+      "blocked_public_claim_type": "clinical validation claim",
+      "example_id": "LAE002",
+      "required_check_count": 4,
+      "review_state": "needs_clinician_review",
+      "role_id": "LAR002",
+      "role_name": "Label definition reviewer",
+      "title": "Label definition drift"
+    },
+    {
+      "audit_id": "LAA003",
+      "audit_name": "Pilot inter rater subset audit",
+      "blocked_public_claim_type": "population performance claim",
+      "example_id": "LAE003",
+      "required_check_count": 4,
+      "review_state": "needs_adjudication",
+      "role_id": "LAR003",
+      "role_name": "Pilot subset reviewer",
+      "title": "Pilot subset overinterpretation"
+    },
+    {
+      "audit_id": "LAA004",
+      "audit_name": "Raw output exclusion audit",
+      "blocked_public_claim_type": "raw model output release claim",
+      "example_id": "LAE004",
+      "required_check_count": 4,
+      "review_state": "not_for_public_summary",
+      "role_id": "LAR004",
+      "role_name": "Public release boundary reviewer",
+      "title": "Raw output exclusion boundary"
+    },
+    {
+      "audit_id": "LAA005",
+      "audit_name": "Public release boundary audit",
+      "blocked_public_claim_type": "dataset quality proof claim",
+      "example_id": "LAE005",
+      "required_check_count": 4,
+      "review_state": "not_for_public_summary",
+      "role_id": "LAR004",
+      "role_name": "Public release boundary reviewer",
+      "title": "Dataset quality proof boundary"
+    }
+  ],
+  "source": "docs/label_audit/label_audit_example_intake_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_example_dashboard_v0_1"
+}

@@ -73,3 +73,11 @@ Run:
 ```bash
 make label_audit_examples
 ```
+
+The compact dashboard for these rows is available at `docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_dashboard
+```

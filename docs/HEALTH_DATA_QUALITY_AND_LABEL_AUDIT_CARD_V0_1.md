@@ -177,6 +177,24 @@ Run:
 make label_audit_examples
 ```
 
+## Label audit example dashboard
+
+Current public dashboard:
+
+`docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md`
+
+Machine readable dashboard source:
+
+`docs/label_audit/label_audit_example_dashboard_v0_1.json`
+
+The dashboard summarizes 5 intake rows by reviewer role, audit row, review state, and blocked public claim type. Blocked public claim types represented: 5.
+
+Run:
+
+```bash
+make label_audit_dashboard
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

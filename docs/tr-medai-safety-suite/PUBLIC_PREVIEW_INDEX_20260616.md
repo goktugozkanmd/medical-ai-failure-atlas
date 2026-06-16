@@ -22,6 +22,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 12. `../LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md` gives label audit reviewer roles and data quality escalation gate audit rows.
 13. `../label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md` gives a public issue route for synthetic label audit examples.
 14. `../label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md` gives 5 synthetic label audit example intake rows.
+15. `../label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md` summarizes label audit examples by role, audit row, review state, and blocked claim type.
 
 ## What This Preview Is
 
@@ -53,7 +54,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a compact label audit example dashboard after maintainer wording review.
+1. Add a label audit maintainer triage board after maintainer wording review.
 2. Make SourceCheckup Medical easier to run from this repository.
 3. Add a compact public failure mode taxonomy page.
 4. Add a public contributor path for synthetic failure cases.

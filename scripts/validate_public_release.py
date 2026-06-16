@@ -54,6 +54,8 @@ REQUIRED_FILES = [
     "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md",
     "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
     "docs/label_audit/label_audit_example_intake_v0_1.json",
+    "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md",
+    "docs/label_audit/label_audit_example_dashboard_v0_1.json",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -106,6 +108,8 @@ REQUIRED_FILES = [
     "scripts/validate_label_audit_public_contributor_issue_v0_1.py",
     "scripts/generate_label_audit_example_intake_v0_1.py",
     "scripts/validate_label_audit_example_intake_v0_1.py",
+    "scripts/generate_label_audit_example_dashboard_v0_1.py",
+    "scripts/validate_label_audit_example_dashboard_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -310,6 +314,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the label audit example intake rows")
         if "make label_audit_examples" not in readme_text:
             fail(errors, "README must document the label audit example intake command")
+        if "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the label audit example dashboard")
+        if "make label_audit_dashboard" not in readme_text:
+            fail(errors, "README must document the label audit example dashboard command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",
