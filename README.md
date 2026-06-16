@@ -12,6 +12,7 @@ New visible build surfaces are now staged in this public repository:
 2. [SourceCheckup Medical public demo matrix](docs/sourcecheckup/PUBLIC_DEMO_MATRIX_20260616.md)
 3. [Turkish Clinical AI Assurance Lab governance matrix](docs/tr-medai-safety-suite/ASSURANCE_LAB_TPLC_GOVERNANCE_MATRIX_20260616.md)
 4. [Clinician AI Literacy 30 minute Turkish facilitator packet](docs/tr-medai-safety-suite/CLINICIAN_AI_LITERACY_30MIN_TR_20260616.md)
+5. [Runnable SourceCheckup Medical tool](sourcecheckup/README.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -73,6 +74,12 @@ Run the public validation check:
 
 ```bash
 make validate
+```
+
+Run the public SourceCheckup Medical preview:
+
+```bash
+make sourcecheckup
 ```
 
 ## Folder structure

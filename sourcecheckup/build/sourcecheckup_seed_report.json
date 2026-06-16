@@ -1,0 +1,235 @@
+{
+  "external_actions_executed": false,
+  "input": "sourcecheckup/examples/sourcecheckup_seed_answers.jsonl",
+  "items": [
+    {
+      "answer_id": "SCM-SEED-001",
+      "declared_claim_count": 1,
+      "declared_source_count": 3,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_pending_source_verification",
+      "extracted_locators": {
+        "doi": [
+          "10.1056/NEJMoa000000"
+        ],
+        "pmid": [
+          "12345678"
+        ],
+        "url": [
+          "https://example.org/guideline-warfarin"
+        ]
+      },
+      "flags": [
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S1:doi:10.1056/NEJMoa000000",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S2:pmid:12345678",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S3:url:https://example.org/guideline-warfarin",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "doi",
+          "reason": "declared_source_status_format_checked_only",
+          "value": "10.1056/NEJMoa000000"
+        },
+        {
+          "kind": "pmid",
+          "reason": "declared_source_status_not_checked",
+          "value": "12345678"
+        },
+        {
+          "kind": "url",
+          "reason": "declared_source_status_not_checked",
+          "value": "https://example.org/guideline-warfarin"
+        },
+        {
+          "kind": "guideline",
+          "reason": "central_guideline_or_policy_claim_requires_source_text_support_check",
+          "value": "Urgent assessment is needed for black stool while taking warfarin."
+        }
+      ]
+    },
+    {
+      "answer_id": "SCM-SEED-002",
+      "declared_claim_count": 0,
+      "declared_source_count": 0,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_missing_source_support",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "unsupported_source_language",
+          "evidence": "Studies show",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "unsupported_source_language",
+          "evidence": "guidelines recommend",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "unsupported_source_language",
+          "evidence": "well proven",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        },
+        {
+          "code": "guideline_claim_missing_structured_support",
+          "evidence": "",
+          "message": "Answer appears to make a guideline claim without a linked guideline claim record.",
+          "severity": "high"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "Studies show"
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "guidelines recommend"
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "well proven"
+        }
+      ]
+    },
+    {
+      "answer_id": "SCM-SEED-003",
+      "declared_claim_count": 1,
+      "declared_source_count": 3,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_missing_source_support",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "declared_source_invalid_format",
+          "evidence": "10.bad",
+          "message": "DOI must match 10.xxxx/suffix format",
+          "severity": "high"
+        },
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S1:doi:10.bad",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "declared_source_invalid_format",
+          "evidence": "ABC123",
+          "message": "PMID must be numeric",
+          "severity": "high"
+        },
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S2:pmid:ABC123",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "declared_source_invalid_format",
+          "evidence": "htp:/bad-url",
+          "message": "URL must use http or https and include a host",
+          "severity": "high"
+        },
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S3:url:htp:/bad-url",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "doi",
+          "reason": "declared_source_status_format_checked_only",
+          "value": "10.bad"
+        },
+        {
+          "kind": "pmid",
+          "reason": "declared_source_status_not_checked",
+          "value": "ABC123"
+        },
+        {
+          "kind": "url",
+          "reason": "declared_source_status_self_reported",
+          "value": "htp:/bad-url"
+        },
+        {
+          "kind": "policy",
+          "reason": "central_guideline_or_policy_claim_requires_source_text_support_check",
+          "value": "A ministry policy requires approval before deployment."
+        }
+      ]
+    },
+    {
+      "answer_id": "SCM-SEED-004",
+      "declared_claim_count": 0,
+      "declared_source_count": 0,
+      "external_actions_executed": false,
+      "external_source_clearance": true,
+      "external_use_gate": "pass_local_sourcecheckup",
+      "extracted_locators": {
+        "doi": [],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [],
+      "source_claims_present": false,
+      "verification_queue": []
+    }
+  ],
+  "sourcecheckup_version": "0.1.0",
+  "summary": {
+    "flag_counts": {
+      "declared_source_invalid_format": 3,
+      "guideline_claim_missing_structured_support": 1,
+      "source_not_externally_verified": 6,
+      "unsupported_source_language": 3
+    },
+    "gate_counts": {
+      "blocked_missing_source_support": 2,
+      "blocked_pending_source_verification": 1,
+      "pass_local_sourcecheckup": 1
+    },
+    "items": 4,
+    "severity_counts": {
+      "high": 4,
+      "medium": 9
+    },
+    "verification_queue_items": 11
+  }
+}

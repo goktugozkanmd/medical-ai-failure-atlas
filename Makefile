@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate validate-public
+.PHONY: validate validate-public sourcecheckup
 
 validate:
 	$(PYTHON) scripts/validate_external_sample_jsonl.py data/failure_atlas_external_sample_v0_1.jsonl
@@ -10,3 +10,7 @@ validate:
 	$(PYTHON) scripts/validate_public_release.py --root .
 
 validate-public: validate
+
+sourcecheckup:
+	$(PYTHON) scripts/sourcecheckup_medical.py self-test
+	$(PYTHON) scripts/sourcecheckup_medical.py validate --input sourcecheckup/examples/sourcecheckup_seed_answers.jsonl --out-json sourcecheckup/build/sourcecheckup_seed_report.json --out-md sourcecheckup/build/sourcecheckup_seed_report.md
