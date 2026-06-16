@@ -43,7 +43,7 @@
       "public_use_boundary": "use as synthetic medication safety stop rule material only",
       "track_a_value": "Turkish assurance lab stop rule for medication safety before any patient facing reuse.",
       "track_b_value": "Open source medical AI review route for medication safety source and clinician gates.",
-      "next_public_action": "add a medication safety source review worksheet with synthetic prompts and blocked phrases"
+      "next_public_action": "expand into more specialty medication worksheets after maintainer review"
     },
     {
       "route_id": "STM003",
@@ -75,7 +75,7 @@
       "public_use_boundary": "use as public evaluation infrastructure wording only",
       "track_a_value": "Turkish national route wording gate that keeps sandbox readiness separate from sandbox access claims.",
       "track_b_value": "Global open source release boundary for policy and deployment language.",
-      "next_public_action": "build lab target packet index only with verified target names and no access claims"
+      "next_public_action": "connect verified target packets only after exact target and wording review"
     },
     {
       "route_id": "STM005",

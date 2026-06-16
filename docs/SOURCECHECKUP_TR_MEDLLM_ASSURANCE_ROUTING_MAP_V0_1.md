@@ -134,7 +134,7 @@ Track A value: Turkish assurance lab stop rule for medication safety before any 
 
 Track B value: Open source medical AI review route for medication safety source and clinician gates.
 
-Next public action: add a medication safety source review worksheet with synthetic prompts and blocked phrases
+Next public action: expand into more specialty medication worksheets after maintainer review
 
 ### STM003: Red flag escalation and locator support route
 
@@ -186,7 +186,7 @@ Track A value: Turkish national route wording gate that keeps sandbox readiness 
 
 Track B value: Global open source release boundary for policy and deployment language.
 
-Next public action: build lab target packet index only with verified target names and no access claims
+Next public action: connect verified target packets only after exact target and wording review
 
 ### STM005: Communication bias and broad source wording route
 
@@ -281,3 +281,4 @@ Next public action: keep positive controls visible in future review queues
 2. Generated map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`
 3. Validator: `scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py`
 4. Runnable target: `make sourcecheckup_tr_medllm_routing`
+5. Source review worksheets: `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`

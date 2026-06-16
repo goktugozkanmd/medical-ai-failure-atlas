@@ -49,6 +49,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 17. Clinician literacy release gate lesson map v0.1.
 18. Assurance release gate example map v0.1.
 19. SourceCheckup TR MedLLM assurance routing map v0.1.
+20. Source review worksheets v0.1.
 
 ## External visibility sequence
 
@@ -73,6 +74,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add source review worksheets for medication safety and policy wording routes.
+1. Add red flag source locator and warning sign wording checklist.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

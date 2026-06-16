@@ -57,6 +57,8 @@ REQUIRED_PHRASES = [
     "make assurance_release_gate_map",
     "SourceCheckup TR MedLLM assurance routing map",
     "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
+    "Source review worksheets",
+    "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
 ]
 
 FORBIDDEN_PHRASES = [

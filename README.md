@@ -36,6 +36,7 @@ New visible build surfaces are now staged in this public repository:
 26. [Clinician literacy release gate lesson map v0.1](docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md)
 27. [Assurance release gate example map v0.1](docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
 28. [SourceCheckup TR MedLLM assurance routing map v0.1](docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
+29. [Source review worksheets v0.1](docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -208,6 +209,12 @@ Generate the SourceCheckup TR MedLLM assurance routing map:
 make sourcecheckup_tr_medllm_routing
 ```
 
+Generate the source review worksheets:
+
+```bash
+make source_review_worksheets
+```
+
 Validate SourceCheckup contribution examples:
 
 ```bash
@@ -265,11 +272,13 @@ docs/
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
+  SOURCE_REVIEW_WORKSHEETS_V0_1.md
   PLATFORM_DASHBOARD_INDEX_V0_1.md
   CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md
   assurance_card_template_v0_1.json
   assurance_release_gate_example_map_v0_1.json
   sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json
+  source_review_worksheets_v0_1.json
   clinician_literacy_release_gate_lesson_map_v0_1.json
   scoring_model_v0_1.md
   sourcecheckup/

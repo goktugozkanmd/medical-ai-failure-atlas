@@ -127,6 +127,7 @@ def main() -> None:
             "2. Generated map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`",
             "3. Validator: `scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py`",
             "4. Runnable target: `make sourcecheckup_tr_medllm_routing`",
+            "5. Source review worksheets: `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`",
             "",
         ]
     )

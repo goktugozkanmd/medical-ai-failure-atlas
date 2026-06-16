@@ -22,6 +22,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 10. 6 clinician literacy release gate lessons.
 11. 6 assurance release gate examples.
 12. 7 SourceCheckup TR MedLLM assurance routes.
+13. 2 source review worksheets.
 
 ## Top public entry files
 
@@ -106,6 +107,8 @@ Public files:
 7. [Assurance release gate example JSON](assurance_release_gate_example_map_v0_1.json)
 8. [SourceCheckup TR MedLLM assurance routing map](SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
 9. [SourceCheckup TR MedLLM assurance routing JSON](sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json)
+10. [Source review worksheets](SOURCE_REVIEW_WORKSHEETS_V0_1.md)
+11. [Source review worksheets JSON](source_review_worksheets_v0_1.json)
 
 Runnable checks:
 
@@ -113,6 +116,7 @@ Runnable checks:
 make assurance_card_template
 make assurance_release_gate_map
 make sourcecheckup_tr_medllm_routing
+make source_review_worksheets
 make boundary_notes
 ```
 
@@ -137,6 +141,7 @@ Public files:
 7. [SourceCheckup v0.2 report](../sourcecheckup/build/source_surface_examples_v0_2_report.md)
 8. [SourceCheckup expansion dashboard](../sourcecheckup/build/source_claim_example_expansion_v0_2.md)
 9. [SourceCheckup TR MedLLM assurance routing map](../docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
+10. [Source review worksheets](../docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
 
 Runnable checks:
 
@@ -147,6 +152,7 @@ make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
 make sourcecheckup_tr_medllm_routing
+make source_review_worksheets
 make source_claim_queue
 ```
 
@@ -154,7 +160,7 @@ Track A value: public source support discipline for Turkish medical LLM review e
 
 Track B value: open source source quality infrastructure that can grow into source review examples, queues, and contributor workflows.
 
-Next build: add public source review worksheets for the highest risk medication and policy routes.
+Next build: add red flag source locator and warning sign wording checklist.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 
@@ -212,7 +218,7 @@ Next build: label audit workflow table with reviewer roles and escalation gates.
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add public source review worksheets for the highest risk medication and policy routes.
+2. Add red flag source locator and warning sign wording checklist.
 3. Add lab target packets only after exact target review.
 
 ## Visibility rule

@@ -43,6 +43,8 @@ REQUIRED_PHRASES = [
     "Outward use is not allowed until maintainer review",
     "SourceCheckup TR MedLLM assurance routing map",
     "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
+    "source review worksheets",
+    "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
 ]
 
 FORBIDDEN_PHRASES = [

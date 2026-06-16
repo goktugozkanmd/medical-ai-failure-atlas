@@ -57,6 +57,8 @@ REQUIRED_FILES = [
     "docs/assurance_release_gate_example_map_v0_1.json",
     "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
     "docs/sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json",
+    "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
+    "docs/source_review_worksheets_v0_1.json",
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
     "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md",
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
@@ -94,6 +96,8 @@ REQUIRED_FILES = [
     "scripts/validate_assurance_release_gate_example_map_v0_1.py",
     "scripts/generate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py",
     "scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py",
+    "scripts/generate_source_review_worksheets_v0_1.py",
+    "scripts/validate_source_review_worksheets_v0_1.py",
     "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
     "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
     "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
@@ -256,6 +260,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the SourceCheckup TR MedLLM assurance routing map")
         if "make sourcecheckup_tr_medllm_routing" not in readme_text:
             fail(errors, "README must document the SourceCheckup TR MedLLM routing command")
+        if "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the source review worksheets")
+        if "make source_review_worksheets" not in readme_text:
+            fail(errors, "README must document the source review worksheets command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

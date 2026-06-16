@@ -70,6 +70,8 @@ REQUIRED_PHRASES = [
     "Policy, sandbox, pilot, official route, and deployment language remains blocked",
     "SourceCheckup routing is a review path",
     "make sourcecheckup_tr_medllm_routing",
+    "Source review worksheets",
+    "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
 ]
 
 FORBIDDEN_PHRASES = [
