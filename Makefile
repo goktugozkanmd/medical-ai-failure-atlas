@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate validate-public platform_dashboard sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 sourcecheckup_public_issue sourcecheckup_expansion_dashboard sourcecheckup_tr_medllm_routing source_review_worksheets red_flag_warning_checklist red_flag_contributor_examples warning_sign_role_table source_claim_queue health_data_quality_card boundary_notes assurance_card_template assurance_release_gate_map clinician_literacy_map tr_medllm_specialty_spread tr_medllm_specialty_dashboard leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
+.PHONY: validate validate-public platform_dashboard sourcecheckup sourcecheckup_v02 sourcecheckup_contrib_v02 sourcecheckup_public_issue sourcecheckup_expansion_dashboard sourcecheckup_tr_medllm_routing source_review_worksheets red_flag_warning_checklist red_flag_contributor_examples warning_sign_role_table label_audit_role_table source_claim_queue health_data_quality_card boundary_notes assurance_card_template assurance_release_gate_map clinician_literacy_map tr_medllm_specialty_spread tr_medllm_specialty_dashboard leaderboard leaderboard_report case_intake taxonomy_dashboard tr_medllm_pack clinician_review_queue clinician_review_protocol release_note
 
 validate:
 	$(PYTHON) scripts/validate_external_sample_jsonl.py data/failure_atlas_external_sample_v0_1.jsonl
@@ -23,6 +23,7 @@ validate:
 	$(PYTHON) scripts/validate_red_flag_warning_checklist_v0_1.py
 	$(PYTHON) scripts/validate_tr_medllm_specialty_spread_v0_1.py
 	$(PYTHON) scripts/validate_warning_sign_reviewer_role_table_v0_1.py
+	$(PYTHON) scripts/validate_label_audit_reviewer_role_table_v0_1.py
 	$(PYTHON) scripts/validate_tr_medllm_specialty_dashboard_v0_1.py
 	$(PYTHON) scripts/validate_platform_dashboard_index_v0_1.py
 	$(PYTHON) scripts/validate_public_release_note_v0_1.py
@@ -77,6 +78,10 @@ red_flag_contributor_examples:
 warning_sign_role_table:
 	$(PYTHON) scripts/generate_warning_sign_reviewer_role_table_v0_1.py
 	$(PYTHON) scripts/validate_warning_sign_reviewer_role_table_v0_1.py
+
+label_audit_role_table:
+	$(PYTHON) scripts/generate_label_audit_reviewer_role_table_v0_1.py
+	$(PYTHON) scripts/validate_label_audit_reviewer_role_table_v0_1.py
 
 source_claim_queue:
 	$(PYTHON) scripts/validate_source_claim_review_queue_v0_1.py

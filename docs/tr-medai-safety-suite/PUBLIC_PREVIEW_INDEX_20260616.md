@@ -19,6 +19,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 9. `../RED_FLAG_WARNING_CHECKLIST_V0_1.md` gives red flag source locator and warning sign wording review steps.
 10. `../sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md` gives red flag SourceCheckup contributor rows.
 11. `../WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md` gives warning sign reviewer roles and escalation gate audit rows.
+12. `../LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md` gives label audit reviewer roles and data quality escalation gate audit rows.
 
 ## What This Preview Is
 
@@ -50,7 +51,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add label audit reviewer role table and escalation gate audit rows.
+1. Add public contributor issue template for synthetic label audit examples.
 2. Make SourceCheckup Medical easier to run from this repository.
 3. Add a compact public failure mode taxonomy page.
 4. Add a public contributor path for synthetic failure cases.

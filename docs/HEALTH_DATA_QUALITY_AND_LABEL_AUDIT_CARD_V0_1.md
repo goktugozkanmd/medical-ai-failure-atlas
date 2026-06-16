@@ -122,6 +122,25 @@ Not allowed public use:
 7. Claims of sandbox access.
 8. Claims of institutional backing.
 
+## Label audit reviewer role table
+
+Use `docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md` when a public dataset surface needs provenance review, label definition review, pilot subset framing review, raw output exclusion review, or public release boundary review.
+
+The table defines four public reviewer roles:
+
+1. Synthetic provenance reviewer.
+2. Label definition reviewer.
+3. Pilot subset reviewer.
+4. Public release boundary reviewer.
+
+Run:
+
+```bash
+make label_audit_role_table
+```
+
+The linked escalation gate audit rows keep synthetic provenance, label definition lock, pilot inter rater subset, raw output exclusion, and public release boundary checks visible before stronger public wording.
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

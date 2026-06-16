@@ -35,6 +35,8 @@ REQUIRED_PHRASES = [
     "3 red flag warning checklists",
     "4 warning sign reviewer roles",
     "5 escalation gate audit rows",
+    "4 label audit reviewer roles",
+    "5 label audit escalation gate rows",
     "3 red flag source locator contributor examples",
     "not clinical advice",
     "not patient data",
@@ -62,6 +64,7 @@ REQUIRED_PHRASES = [
     "make clinician_literacy_map",
     "make clinician_review_protocol",
     "make health_data_quality_card",
+    "make label_audit_role_table",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -106,6 +109,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md",
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
+    "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
+    "docs/label_audit_reviewer_role_table_v0_1.json",
     "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
     "DATA_DICTIONARY.md",
     "data/inter_rater_review_subset_v0_1.tsv",

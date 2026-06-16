@@ -27,8 +27,10 @@ REQUIRED_PROTOCOL_PHRASES = [
     "Disagreement rule",
     "SourceCheckup routing",
     "Warning sign reviewer role table",
+    "Label audit reviewer role table",
     "Escalation gate audit rows",
     "make warning_sign_role_table",
+    "make label_audit_role_table",
     "Track A use",
     "Track B use",
 ]

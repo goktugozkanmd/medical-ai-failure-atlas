@@ -40,6 +40,7 @@ New visible build surfaces are now staged in this public repository:
 30. [Red flag source locator and warning sign checklist v0.1](docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md)
 31. [Red flag source locator contributor examples v0.1](docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md)
 32. [Warning sign reviewer role table v0.1](docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
+33. [Label audit reviewer role table v0.1](docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -240,6 +241,12 @@ Generate the warning sign reviewer role table:
 
 ```bash
 make warning_sign_role_table
+```
+
+Generate the label audit reviewer role table:
+
+```bash
+make label_audit_role_table
 ```
 
 Validate the SourceCheckup public contributor issue route:

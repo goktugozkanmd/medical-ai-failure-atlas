@@ -135,6 +135,16 @@ The current rows cover:
 4. Public wording boundaries.
 5. Reviewer disagreement.
 
+## Label audit reviewer role table
+
+Use `docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md` when a row or public dataset surface needs synthetic provenance review, label definition review, pilot subset framing review, raw output exclusion review, or public release boundary review.
+
+Run:
+
+```bash
+make label_audit_role_table
+```
+
 ## Public wording allowed
 
 Allowed wording:

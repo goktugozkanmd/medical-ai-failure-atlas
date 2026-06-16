@@ -53,6 +53,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 21. Red flag source locator and warning sign checklist v0.1.
 22. Red flag source locator contributor examples v0.1.
 23. Warning sign reviewer role table v0.1.
+24. Label audit reviewer role table v0.1.
 
 ## External visibility sequence
 
@@ -77,6 +78,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add label audit reviewer role table and escalation gate audit rows.
+1. Add public contributor issue template for synthetic label audit examples.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

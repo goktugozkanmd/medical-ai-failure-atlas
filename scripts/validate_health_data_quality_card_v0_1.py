@@ -41,6 +41,13 @@ REQUIRED_PHRASES = [
     "v0.1.0",
     "public_preview_allowed_synthetic_only",
     "sourcecheckup/review_queue/source_claim_review_queue_v0_1.jsonl",
+    "Label audit reviewer role table",
+    "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
+    "make label_audit_role_table",
+    "Synthetic provenance reviewer",
+    "Label definition reviewer",
+    "Pilot subset reviewer",
+    "Public release boundary reviewer",
     "raw model outputs are not public",
     "No agreement statistic is reported here",
 ]

@@ -49,6 +49,8 @@ REQUIRED_FILES = [
     "CONTRIBUTING.md",
     "PUBLIC_RELEASE_CANDIDATE_STATUS.md",
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
+    "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
+    "docs/label_audit_reviewer_role_table_v0_1.json",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -95,6 +97,8 @@ REQUIRED_FILES = [
     "scripts/validate_scoring_rubric_v0_1.py",
     "scripts/validate_failure_atlas_public_summary_v0_1.py",
     "scripts/validate_health_data_quality_card_v0_1.py",
+    "scripts/generate_label_audit_reviewer_role_table_v0_1.py",
+    "scripts/validate_label_audit_reviewer_role_table_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -287,6 +291,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to red flag contributor examples")
         if "make red_flag_contributor_examples" not in readme_text:
             fail(errors, "README must document the red flag contributor examples command")
+        if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the label audit reviewer role table")
+        if "make label_audit_role_table" not in readme_text:
+            fail(errors, "README must document the label audit reviewer role table command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

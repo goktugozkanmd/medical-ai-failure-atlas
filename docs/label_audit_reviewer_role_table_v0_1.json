@@ -1,0 +1,210 @@
+{
+  "audit_row_count": 5,
+  "audit_rows": [
+    {
+      "audit_id": "LAA001",
+      "linked_ids": [
+        "LAR001",
+        "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md"
+      ],
+      "required_outcome": "Keep synthetic provenance and patient data absence visible.",
+      "required_role_ids": [
+        "LAR001"
+      ],
+      "review_state": "synthetic_preview_only",
+      "title": "Synthetic provenance audit"
+    },
+    {
+      "audit_id": "LAA002",
+      "linked_ids": [
+        "LAR002",
+        "docs/LABEL_DEFINITION_LOCK_V0_1.md",
+        "data/scoring_rubric_v0_1.json"
+      ],
+      "required_outcome": "Block silent label definition drift and clinical validation wording.",
+      "required_role_ids": [
+        "LAR002"
+      ],
+      "review_state": "needs_clinician_review",
+      "title": "Label definition lock audit"
+    },
+    {
+      "audit_id": "LAA003",
+      "linked_ids": [
+        "LAR003",
+        "data/inter_rater_review_subset_v0_1.tsv"
+      ],
+      "required_outcome": "Keep the 24 row subset framed as protocol testing only.",
+      "required_role_ids": [
+        "LAR003"
+      ],
+      "review_state": "needs_adjudication",
+      "title": "Pilot inter rater subset audit"
+    },
+    {
+      "audit_id": "LAA004",
+      "linked_ids": [
+        "LAR004",
+        "PUBLIC_RELEASE_BOUNDARY_V0_1.md"
+      ],
+      "required_outcome": "Keep raw model outputs excluded unless redistribution is cleared.",
+      "required_role_ids": [
+        "LAR004"
+      ],
+      "review_state": "not_for_public_summary",
+      "title": "Raw output exclusion audit"
+    },
+    {
+      "audit_id": "LAA005",
+      "linked_ids": [
+        "LAR001",
+        "LAR002",
+        "LAR003",
+        "LAR004"
+      ],
+      "required_outcome": "Block dataset quality proof, clinical deployment, model ranking, and formal approval language.",
+      "required_role_ids": [
+        "LAR004"
+      ],
+      "review_state": "not_for_public_summary",
+      "title": "Public release boundary audit"
+    }
+  ],
+  "contains_patient_data": false,
+  "date": "2026 06 16",
+  "linked_counts": {
+    "pilot_inter_rater_rows": 24,
+    "prompt_rows": 70,
+    "source_claim_review_queue_rows": 12,
+    "synthetic_scenario_rows": 150,
+    "turkish_synthetic_risk_rows": 14
+  },
+  "linked_public_files": [
+    "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
+    "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
+    "DATA_DICTIONARY.md",
+    "LABELING.md",
+    "docs/LABEL_DEFINITION_LOCK_V0_1.md",
+    "docs/LABELING_PACKAGE_INDEX_V0_1.md",
+    "data/inter_rater_review_subset_v0_1.tsv"
+  ],
+  "linked_review_states": [
+    "synthetic_preview_only",
+    "needs_clinician_review",
+    "needs_adjudication",
+    "not_for_public_summary"
+  ],
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "not_for_clinical_use": true,
+  "role_count": 4,
+  "roles": [
+    {
+      "escalation_triggers": [
+        "Patient data status is unclear",
+        "Synthetic provenance is missing",
+        "Identifier review is incomplete",
+        "Real record language appears"
+      ],
+      "purpose": "Confirm that every public dataset surface stays synthetic and excludes patient data.",
+      "release_gate_decision": "synthetic_preview_only",
+      "required_fields": [
+        "dataset surface",
+        "provenance statement",
+        "patient data absent",
+        "direct identifier absent",
+        "real record absent",
+        "raw output absent",
+        "public boundary state"
+      ],
+      "review_lanes": [
+        "provenance_review",
+        "privacy_boundary_review"
+      ],
+      "role_id": "LAR001",
+      "role_name": "Synthetic provenance reviewer"
+    },
+    {
+      "escalation_triggers": [
+        "Label version is missing",
+        "Label lock is edited silently",
+        "Clinical validation wording appears",
+        "Unsure rule is bypassed"
+      ],
+      "purpose": "Check that labels match the locked rubric version and do not claim clinical validation.",
+      "release_gate_decision": "needs_clinician_review",
+      "required_fields": [
+        "label version",
+        "label lock file",
+        "rubric file",
+        "binary gate mapping",
+        "final label mapping",
+        "unsure rule state",
+        "review status wording"
+      ],
+      "review_lanes": [
+        "label_definition_review",
+        "clinician_review"
+      ],
+      "role_id": "LAR002",
+      "role_name": "Label definition reviewer"
+    },
+    {
+      "escalation_triggers": [
+        "Pilot subset is described as powered",
+        "Agreement statistic is implied",
+        "Model identity is overclaimed",
+        "Population prevalence is implied"
+      ],
+      "purpose": "Keep the pilot inter rater subset framed as protocol testing rather than an agreement study.",
+      "release_gate_decision": "needs_adjudication",
+      "required_fields": [
+        "subset row count",
+        "sampling reason",
+        "agreement statistic state",
+        "reviewer bias reduction note",
+        "model identity limitation",
+        "pilot status wording",
+        "next review need"
+      ],
+      "review_lanes": [
+        "inter_rater_review",
+        "label_quality_review"
+      ],
+      "role_id": "LAR003",
+      "role_name": "Pilot subset reviewer"
+    },
+    {
+      "escalation_triggers": [
+        "Raw model output release is implied",
+        "Dataset quality proof is implied",
+        "Clinical deployment readiness is implied",
+        "Formal approval wording appears"
+      ],
+      "purpose": "Check that release language blocks raw output release, deployment claims, and dataset quality proof language.",
+      "release_gate_decision": "not_for_public_summary",
+      "required_fields": [
+        "allowed public use",
+        "not allowed public use",
+        "raw output boundary",
+        "dataset quality proof boundary",
+        "clinical deployment boundary",
+        "model ranking boundary",
+        "official endorsement boundary"
+      ],
+      "review_lanes": [
+        "public_release_boundary_review",
+        "data_quality_review"
+      ],
+      "role_id": "LAR004",
+      "role_name": "Public release boundary reviewer"
+    }
+  ],
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_reviewer_role_table_v0_1"
+}

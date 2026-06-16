@@ -27,7 +27,9 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 15. 3 red flag warning checklists.
 16. 4 warning sign reviewer roles.
 17. 5 escalation gate audit rows.
-18. 3 red flag source locator contributor examples.
+18. 4 label audit reviewer roles.
+19. 5 label audit escalation gate rows.
+20. 3 red flag source locator contributor examples.
 
 ## Top public entry files
 
@@ -215,29 +217,32 @@ Current role: dataset readiness, label quality, provenance, privacy boundary, in
 Public files:
 
 1. [Health data quality and label audit card](HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
-2. [Dataset evaluation card draft](../DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
-3. [Data dictionary](../DATA_DICTIONARY.md)
-4. [Pilot inter rater review rows](../data/inter_rater_review_subset_v0_1.tsv)
-5. [Labeling workflow](../LABELING.md)
-6. [Label definition lock](LABEL_DEFINITION_LOCK_V0_1.md)
-7. [Labeling package index](LABELING_PACKAGE_INDEX_V0_1.md)
+2. [Label audit reviewer role table](LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md)
+3. [Label audit reviewer role table JSON](label_audit_reviewer_role_table_v0_1.json)
+4. [Dataset evaluation card draft](../DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
+5. [Data dictionary](../DATA_DICTIONARY.md)
+6. [Pilot inter rater review rows](../data/inter_rater_review_subset_v0_1.tsv)
+7. [Labeling workflow](../LABELING.md)
+8. [Label definition lock](LABEL_DEFINITION_LOCK_V0_1.md)
+9. [Labeling package index](LABELING_PACKAGE_INDEX_V0_1.md)
 
 Runnable checks:
 
 ```bash
 make health_data_quality_card
+make label_audit_role_table
 ```
 
 Track A value: data quality and label audit surface for Turkish health AI readiness discussions without patient data use.
 
 Track B value: reusable public checklist for synthetic medical AI dataset release readiness.
 
-Next build: label audit workflow table with reviewer roles and escalation gates.
+Next build: create public contributor issue template for synthetic label audit examples.
 
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add label audit reviewer role table and escalation gate audit rows.
+2. Create public contributor issue template for synthetic label audit examples.
 3. Add lab target packets only after exact target review.
 
 ## Visibility rule
