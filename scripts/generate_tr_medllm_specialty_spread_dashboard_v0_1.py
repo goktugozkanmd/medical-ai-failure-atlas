@@ -70,6 +70,8 @@ def main() -> None:
         "",
         f"SourceCheckup routed rows: {len(source_rows)}",
         "",
+        "SourceCheckup TR MedLLM assurance routing map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`",
+        "",
         f"Clinician review needed rows: {len(clinician_rows)}",
         "",
         "## Specialty spread rows",

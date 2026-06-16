@@ -115,10 +115,11 @@ def main() -> None:
             "",
             "1. JSON source: `docs/assurance_release_gate_example_map_v0_1.json`",
             "2. Generated map: `docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md`",
-            "3. Validator: `scripts/validate_assurance_release_gate_example_map_v0_1.py`",
-            "4. Runnable target: `make assurance_release_gate_map`",
-            "",
-        ]
+        "3. Validator: `scripts/validate_assurance_release_gate_example_map_v0_1.py`",
+        "4. Runnable target: `make assurance_release_gate_map`",
+        "5. SourceCheckup TR MedLLM assurance routing map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`",
+        "",
+    ]
     )
 
     OUTPUT.write_text("\n".join(lines), encoding="utf-8")

@@ -29,6 +29,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 17. SourceCheckup source claim example expansion v0.2.
 18. Clinician literacy release gate lesson map v0.1.
 19. Assurance release gate example map v0.1.
+20. SourceCheckup TR MedLLM assurance routing map v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -49,6 +50,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 13. 24 pilot inter rater rows.
 14. 6 clinician literacy release gate lessons.
 15. 6 assurance release gate examples.
+16. 7 SourceCheckup TR MedLLM assurance routes.
 
 ## Reproducible checks
 
@@ -68,6 +70,7 @@ make health_data_quality_card
 make boundary_notes
 make assurance_card_template
 make assurance_release_gate_map
+make sourcecheckup_tr_medllm_routing
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -96,6 +99,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 13. SourceCheckup expansion dashboard that blocks medication, benchmark wording, national route wording, and data provenance source claims until exact support checks are complete.
 14. Clinician literacy release gate lesson map that turns 14 Turkish medical language model rows and 12 SourceCheckup rows into six public training lessons.
 15. Assurance release gate example map that turns six clinician literacy lessons into model card, risk card, data card, source card, human review, audit trail, and public action gates.
+16. SourceCheckup TR MedLLM assurance routing map that connects 12 source claim queue rows, 14 Turkish synthetic risk rows, and six assurance release gate examples.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -119,11 +123,12 @@ For global open source medical AI evaluation, this public preview gives:
 14. A generated SourceCheckup expansion dashboard that turns source support, benchmark wording, policy wording, and provenance checks into a public review surface.
 15. A clinician literacy lesson map that connects Failure Atlas, TR MedLLM, SourceCheckup, assurance gates, and clinician review states.
 16. A generated assurance release gate map that connects public examples to assurance card sections and release gate levels.
+17. A generated SourceCheckup TR MedLLM assurance routing map that links source surfaces, risk axes, release gate levels, and blocked public wording.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. SourceCheckup to TR MedLLM assurance routing map.
+1. Source review worksheet for medication safety and policy wording routes.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

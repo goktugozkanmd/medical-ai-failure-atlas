@@ -229,3 +229,4 @@ Track B value: Open source release boundary example for public medical AI infras
 2. Generated map: `docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md`
 3. Validator: `scripts/validate_assurance_release_gate_example_map_v0_1.py`
 4. Runnable target: `make assurance_release_gate_map`
+5. SourceCheckup TR MedLLM assurance routing map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`

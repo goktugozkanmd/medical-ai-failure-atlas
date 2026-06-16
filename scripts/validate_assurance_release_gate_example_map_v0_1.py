@@ -55,6 +55,8 @@ REQUIRED_PHRASES = [
     "L4 external pilot language requires separate explicit clearance",
     "Assurance gate L5 remains blocked",
     "make assurance_release_gate_map",
+    "SourceCheckup TR MedLLM assurance routing map",
+    "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
 ]
 
 FORBIDDEN_PHRASES = [

@@ -19,6 +19,8 @@ REQUIRED_PHRASES = [
     "Risk axes represented: 10",
     "Rows needing SourceCheckup review: 3",
     "SourceCheckup routed rows: 3",
+    "SourceCheckup TR MedLLM assurance routing map",
+    "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
     "Clinician review needed rows: 14",
     "cardiology",
     "endocrinology",
