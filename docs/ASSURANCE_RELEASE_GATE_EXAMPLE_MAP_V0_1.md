@@ -231,3 +231,4 @@ Track B value: Open source release boundary example for public medical AI infras
 4. Runnable target: `make assurance_release_gate_map`
 5. SourceCheckup TR MedLLM assurance routing map: `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`
 6. Source review worksheets: `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`
+7. Red flag source locator and warning sign checklist: `docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md`

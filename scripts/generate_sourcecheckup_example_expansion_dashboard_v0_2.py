@@ -126,6 +126,7 @@ def main() -> None:
             "3. Keeps source review separate from source truth certification, model ranking, and clinical validation.",
             "4. Adds a bridge into `docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md`.",
             "5. Adds a bridge into `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`.",
+            "6. Adds a bridge into `docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md` for red flag source locator review.",
             "",
             "## Boundary checks",
             "",

@@ -16,6 +16,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 6. `../ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md` maps six examples into assurance card sections and release gate levels.
 7. `../SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md` maps SourceCheckup rows into Turkish risk rows and assurance gate routes.
 8. `../SOURCE_REVIEW_WORKSHEETS_V0_1.md` gives medication safety and policy wording source review worksheets.
+9. `../RED_FLAG_WARNING_CHECKLIST_V0_1.md` gives red flag source locator and warning sign wording review steps.
 
 ## What This Preview Is
 
@@ -47,7 +48,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add red flag source locator and warning sign wording checklist.
+1. Add contributor examples for unsafe red flag source locator wording.
 2. Make SourceCheckup Medical easier to run from this repository.
 3. Add a compact public failure mode taxonomy page.
 4. Add a public contributor path for synthetic failure cases.

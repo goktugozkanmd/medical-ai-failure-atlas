@@ -128,6 +128,7 @@ def main() -> None:
             "3. Validator: `scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py`",
             "4. Runnable target: `make sourcecheckup_tr_medllm_routing`",
             "5. Source review worksheets: `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`",
+            "6. Red flag source locator and warning sign checklist: `docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md`",
             "",
         ]
     )

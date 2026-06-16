@@ -31,6 +31,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 19. Assurance release gate example map v0.1.
 20. SourceCheckup TR MedLLM assurance routing map v0.1.
 21. Source review worksheets v0.1.
+22. Red flag source locator and warning sign checklist v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -53,6 +54,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 15. 6 assurance release gate examples.
 16. 7 SourceCheckup TR MedLLM assurance routes.
 17. 2 source review worksheets.
+18. 3 red flag warning checklists.
 
 ## Reproducible checks
 
@@ -74,6 +76,7 @@ make assurance_card_template
 make assurance_release_gate_map
 make sourcecheckup_tr_medllm_routing
 make source_review_worksheets
+make red_flag_warning_checklist
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -104,6 +107,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 15. Assurance release gate example map that turns six clinician literacy lessons into model card, risk card, data card, source card, human review, audit trail, and public action gates.
 16. SourceCheckup TR MedLLM assurance routing map that connects 12 source claim queue rows, 14 Turkish synthetic risk rows, and six assurance release gate examples.
 17. Source review worksheets that turn medication safety and policy wording routes into concrete public review questions.
+18. Red flag source locator and warning sign checklist that turns false reassurance, rare danger, and source locator risks into public review steps.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -129,11 +133,12 @@ For global open source medical AI evaluation, this public preview gives:
 16. A generated assurance release gate map that connects public examples to assurance card sections and release gate levels.
 17. A generated SourceCheckup TR MedLLM assurance routing map that links source surfaces, risk axes, release gate levels, and blocked public wording.
 18. Source review worksheets for medication safety and policy wording without source truth certification or clinical claims.
+19. Red flag warning checklists for partial negative evidence, symptom fluctuation, and source locator triage claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Red flag source locator and warning sign wording checklist.
+1. Contributor examples for unsafe red flag source locator wording.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

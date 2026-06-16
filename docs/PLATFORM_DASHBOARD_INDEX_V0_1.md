@@ -23,6 +23,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 11. 6 assurance release gate examples.
 12. 7 SourceCheckup TR MedLLM assurance routes.
 13. 2 source review worksheets.
+14. 3 red flag warning checklists.
 
 ## Top public entry files
 
@@ -109,6 +110,8 @@ Public files:
 9. [SourceCheckup TR MedLLM assurance routing JSON](sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json)
 10. [Source review worksheets](SOURCE_REVIEW_WORKSHEETS_V0_1.md)
 11. [Source review worksheets JSON](source_review_worksheets_v0_1.json)
+12. [Red flag source locator and warning sign checklist](RED_FLAG_WARNING_CHECKLIST_V0_1.md)
+13. [Red flag source locator and warning sign checklist JSON](red_flag_warning_checklist_v0_1.json)
 
 Runnable checks:
 
@@ -117,6 +120,7 @@ make assurance_card_template
 make assurance_release_gate_map
 make sourcecheckup_tr_medllm_routing
 make source_review_worksheets
+make red_flag_warning_checklist
 make boundary_notes
 ```
 
@@ -142,6 +146,7 @@ Public files:
 8. [SourceCheckup expansion dashboard](../sourcecheckup/build/source_claim_example_expansion_v0_2.md)
 9. [SourceCheckup TR MedLLM assurance routing map](../docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
 10. [Source review worksheets](../docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
+11. [Red flag source locator and warning sign checklist](../docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md)
 
 Runnable checks:
 
@@ -153,6 +158,7 @@ make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
 make sourcecheckup_tr_medllm_routing
 make source_review_worksheets
+make red_flag_warning_checklist
 make source_claim_queue
 ```
 
@@ -160,7 +166,7 @@ Track A value: public source support discipline for Turkish medical LLM review e
 
 Track B value: open source source quality infrastructure that can grow into source review examples, queues, and contributor workflows.
 
-Next build: add red flag source locator and warning sign wording checklist.
+Next build: add contributor examples for unsafe red flag source locator wording.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 
@@ -218,7 +224,7 @@ Next build: label audit workflow table with reviewer roles and escalation gates.
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add red flag source locator and warning sign wording checklist.
+2. Add contributor examples for unsafe red flag source locator wording.
 3. Add lab target packets only after exact target review.
 
 ## Visibility rule

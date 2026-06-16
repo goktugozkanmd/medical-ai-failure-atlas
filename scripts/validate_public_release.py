@@ -59,6 +59,8 @@ REQUIRED_FILES = [
     "docs/sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json",
     "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
     "docs/source_review_worksheets_v0_1.json",
+    "docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md",
+    "docs/red_flag_warning_checklist_v0_1.json",
     "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md",
     "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md",
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
@@ -98,6 +100,8 @@ REQUIRED_FILES = [
     "scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py",
     "scripts/generate_source_review_worksheets_v0_1.py",
     "scripts/validate_source_review_worksheets_v0_1.py",
+    "scripts/generate_red_flag_warning_checklist_v0_1.py",
+    "scripts/validate_red_flag_warning_checklist_v0_1.py",
     "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
     "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
     "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
@@ -264,6 +268,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the source review worksheets")
         if "make source_review_worksheets" not in readme_text:
             fail(errors, "README must document the source review worksheets command")
+        if "docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the red flag warning checklist")
+        if "make red_flag_warning_checklist" not in readme_text:
+            fail(errors, "README must document the red flag warning checklist command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

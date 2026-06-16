@@ -45,6 +45,8 @@ REQUIRED_PHRASES = [
     "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md",
     "source review worksheets",
     "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md",
+    "red flag source locator review",
+    "docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md",
 ]
 
 FORBIDDEN_PHRASES = [

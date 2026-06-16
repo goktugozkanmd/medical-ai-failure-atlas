@@ -37,6 +37,7 @@ New visible build surfaces are now staged in this public repository:
 27. [Assurance release gate example map v0.1](docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
 28. [SourceCheckup TR MedLLM assurance routing map v0.1](docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
 29. [Source review worksheets v0.1](docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
+30. [Red flag source locator and warning sign checklist v0.1](docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -215,6 +216,12 @@ Generate the source review worksheets:
 make source_review_worksheets
 ```
 
+Generate the red flag source locator and warning sign checklist:
+
+```bash
+make red_flag_warning_checklist
+```
+
 Validate SourceCheckup contribution examples:
 
 ```bash
@@ -273,12 +280,14 @@ docs/
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
   SOURCE_REVIEW_WORKSHEETS_V0_1.md
+  RED_FLAG_WARNING_CHECKLIST_V0_1.md
   PLATFORM_DASHBOARD_INDEX_V0_1.md
   CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md
   assurance_card_template_v0_1.json
   assurance_release_gate_example_map_v0_1.json
   sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json
   source_review_worksheets_v0_1.json
+  red_flag_warning_checklist_v0_1.json
   clinician_literacy_release_gate_lesson_map_v0_1.json
   scoring_model_v0_1.md
   sourcecheckup/
@@ -313,6 +322,7 @@ scripts/
   validate_scoring_rubric_v0_1.py
   validate_assurance_card_template_v0_1.py
   validate_assurance_release_gate_example_map_v0_1.py
+  validate_red_flag_warning_checklist_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py

@@ -50,6 +50,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 18. Assurance release gate example map v0.1.
 19. SourceCheckup TR MedLLM assurance routing map v0.1.
 20. Source review worksheets v0.1.
+21. Red flag source locator and warning sign checklist v0.1.
 
 ## External visibility sequence
 
@@ -74,6 +75,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add red flag source locator and warning sign wording checklist.
+1. Add contributor examples for unsafe red flag source locator wording.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

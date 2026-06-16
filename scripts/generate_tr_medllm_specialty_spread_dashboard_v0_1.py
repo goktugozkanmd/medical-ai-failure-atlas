@@ -74,6 +74,8 @@ def main() -> None:
         "",
         "Source review worksheets: `docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md`",
         "",
+        "Red flag warning checklist: `docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md`",
+        "",
         f"Clinician review needed rows: {len(clinician_rows)}",
         "",
         "## Specialty spread rows",
