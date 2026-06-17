@@ -80,6 +80,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 68. Reviewer question maintainer public preview decision log v0.1.
 69. Reviewer question maintainer public preview handoff summary v0.1.
 70. Reviewer question maintainer public preview closure checklist v0.1.
+71. Reviewer question maintainer public preview archive digest v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -155,6 +156,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 68. 5 reviewer question maintainer public preview decision rows.
 69. 5 reviewer question maintainer public preview handoff rows.
 70. 5 reviewer question maintainer public preview closure rows.
+71. 5 reviewer question maintainer public preview archive rows.
 
 ## Reproducible checks
 
@@ -360,11 +362,12 @@ For global open source medical AI evaluation, this public preview gives:
 65. Reviewer question maintainer public preview decision log for public preview decisions without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 66. Reviewer question maintainer public preview handoff summary for public preview reviewer actions without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 67. Reviewer question maintainer public preview closure checklist for closeable public preview checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+68. Reviewer question maintainer public preview archive digest for compact public preview trace without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview archive digest without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview index rollup without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

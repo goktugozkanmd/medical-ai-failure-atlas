@@ -86,6 +86,7 @@ New visible build surfaces are now staged in this public repository:
 76. [Reviewer question maintainer public preview decision log v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md)
 77. [Reviewer question maintainer public preview handoff summary v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
 78. [Reviewer question maintainer public preview closure checklist v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
+79. [Reviewer question maintainer public preview archive digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -132,6 +133,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 33. Reviewer question maintainer public preview decision log for public preview decisions without scoring or compatibility claims.
 34. Reviewer question maintainer public preview handoff summary for public preview reviewer actions without scoring or compatibility claims.
 35. Reviewer question maintainer public preview closure checklist for closeable public preview checks without scoring or compatibility claims.
+36. Reviewer question maintainer public preview archive digest for compact public preview trace without scoring or compatibility claims.
 
 ## What this is
 
@@ -385,6 +387,12 @@ Generate reviewer question maintainer public preview closure checklist:
 
 ```bash
 make reviewer_question_maintainer_public_preview_closure_checklist
+```
+
+Generate reviewer question maintainer public preview archive digest:
+
+```bash
+make reviewer_question_maintainer_public_preview_archive_digest
 ```
 
 Validate the assurance card template:
@@ -670,6 +678,8 @@ docs/
   reviewer_question_maintainer_public_preview_handoff_summary_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md
   reviewer_question_maintainer_public_preview_closure_checklist_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md
+  reviewer_question_maintainer_public_preview_archive_digest_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
