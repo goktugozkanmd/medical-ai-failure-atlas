@@ -83,6 +83,7 @@ They remain issue template intake fields without scoring or compatibility claims
 67. 5 reviewer question maintainer public preview closure rows.
 68. 5 reviewer question maintainer public preview archive rows.
 69. 6 reviewer question maintainer public preview index rollup rows.
+70. 6 reviewer question maintainer public preview repository navigation rows.
 
 ## Top public entry files
 
@@ -140,6 +141,8 @@ They remain issue template intake fields without scoring or compatibility claims
 52. [Reviewer question maintainer public preview archive digest JSON](reviewer_question_maintainer_public_preview_archive_digest_v0_1.json)
 53. [Reviewer question maintainer public preview index rollup](REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md)
 54. [Reviewer question maintainer public preview index rollup JSON](reviewer_question_maintainer_public_preview_index_rollup_v0_1.json)
+55. [Reviewer question maintainer public preview repository navigation note](REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md)
+56. [Reviewer question maintainer public preview repository navigation note JSON](reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.json)
 
 ## Platform map
 
@@ -275,13 +278,14 @@ make reviewer_question_maintainer_public_preview_handoff_summary
 make reviewer_question_maintainer_public_preview_closure_checklist
 make reviewer_question_maintainer_public_preview_archive_digest
 make reviewer_question_maintainer_public_preview_index_rollup
+make reviewer_question_maintainer_public_preview_repository_navigation_note
 ```
 
 Track A value: source material for Turkish health AI risk education and assurance gates, including benchmark style reviewer questions for escalation, medication safety, missing context, and warning sign visibility.
 
-Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion with reviewer questions, issue template intake fields, intake examples, maintainer triage, public wording decisions, release gates, gate outcome rows, a release packet, public changelog, public release index, contributor digest, maintainer handoff notes, maintainer closeout digest, maintainer release readiness digest, maintainer evidence map, maintainer audit trail packet, maintainer release candidate summary, maintainer public preview decision log, maintainer public preview handoff summary, maintainer public preview closure checklist, maintainer public preview archive digest, and maintainer public preview index rollup that do not add scores or compatibility claims.
+Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion with reviewer questions, issue template intake fields, intake examples, maintainer triage, public wording decisions, release gates, gate outcome rows, a release packet, public changelog, public release index, contributor digest, maintainer handoff notes, maintainer closeout digest, maintainer release readiness digest, maintainer evidence map, maintainer audit trail packet, maintainer release candidate summary, maintainer public preview decision log, maintainer public preview handoff summary, maintainer public preview closure checklist, maintainer public preview archive digest, maintainer public preview index rollup, and maintainer public preview repository navigation note that do not add scores or compatibility claims.
 
-Next build: add a reviewer question maintainer public preview repository navigation note without scoring or compatibility claims.
+Next build: add a reviewer question maintainer public preview release card without scoring or compatibility claims.
 
 ### 3. Turkish Clinical AI Assurance Lab
 
@@ -411,13 +415,14 @@ make reviewer_question_maintainer_public_preview_handoff_summary
 make reviewer_question_maintainer_public_preview_closure_checklist
 make reviewer_question_maintainer_public_preview_archive_digest
 make reviewer_question_maintainer_public_preview_index_rollup
+make reviewer_question_maintainer_public_preview_repository_navigation_note
 ```
 
-Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, benchmark style reviewer questions, intake examples, maintainer triage, wording decisions, release gates, outcome rows, release packet rows, changelog rows, release index rows, contributor digest rows, maintainer handoff rows, maintainer closeout rows, release readiness rows, evidence map rows, audit trail packet rows, release candidate rows, public preview decision rows, public preview handoff rows, public preview closure rows, public preview archive rows, and public preview index rollup rows for policy wording and source support, and one runnable SourceCheckup path for local review.
+Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, benchmark style reviewer questions, intake examples, maintainer triage, wording decisions, release gates, outcome rows, release packet rows, changelog rows, release index rows, contributor digest rows, maintainer handoff rows, maintainer closeout rows, release readiness rows, evidence map rows, audit trail packet rows, release candidate rows, public preview decision rows, public preview handoff rows, public preview closure rows, public preview archive rows, public preview index rollup rows, and public preview repository navigation rows for policy wording and source support, and one runnable SourceCheckup path for local review.
 
-Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, benchmark style reviewer questions, issue template intake fields, intake examples, maintainer triage, wording decisions, release gates, outcome dashboards, release packets, public changelogs, public release indexes, contributor digests, maintainer handoff notes, maintainer closeout digests, release readiness digests, evidence maps, audit trail packets, release candidate summaries, public preview decision logs, public preview handoff summaries, public preview closure checklists, public preview archive digests, and public preview index rollups without scoring or compatibility claims.
+Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, benchmark style reviewer questions, issue template intake fields, intake examples, maintainer triage, wording decisions, release gates, outcome dashboards, release packets, public changelogs, public release indexes, contributor digests, maintainer handoff notes, maintainer closeout digests, release readiness digests, evidence maps, audit trail packets, release candidate summaries, public preview decision logs, public preview handoff summaries, public preview closure checklists, public preview archive digests, public preview index rollups, and public preview repository navigation notes without scoring or compatibility claims.
 
-Next build: add a reviewer question maintainer public preview repository navigation note without scoring or compatibility claims.
+Next build: add a reviewer question maintainer public preview release card without scoring or compatibility claims.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 

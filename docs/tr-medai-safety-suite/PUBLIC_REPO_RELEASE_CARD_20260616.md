@@ -149,7 +149,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 57. [Reviewer question maintainer public preview closure checklist](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
 58. [Reviewer question maintainer public preview archive digest](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md)
 59. [Reviewer question maintainer public preview index rollup](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md)
+60. [Reviewer question maintainer public preview repository navigation note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer public preview repository navigation note without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer public preview release card without scoring or compatibility claims.
