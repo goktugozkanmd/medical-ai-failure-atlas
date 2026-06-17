@@ -62,6 +62,7 @@ New visible build surfaces are now staged in this public repository:
 52. [Label audit maintainer public preview handoff summary v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
 53. [Label audit maintainer public preview closure checklist v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
 54. [BİLGE readiness queue v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
+55. [TÜBİTAK 1711 collaboration readiness packet v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -396,6 +397,12 @@ Generate the BİLGE readiness queue:
 make bilge_readiness_queue
 ```
 
+Generate the TÜBİTAK 1711 collaboration readiness packet:
+
+```bash
+make tubitak_1711_readiness_packet
+```
+
 Validate the SourceCheckup public contributor issue route:
 
 ```bash
@@ -453,6 +460,8 @@ docs/
   CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md
   BILGE_READINESS_QUEUE_V0_1.md
   bilge_readiness_queue_v0_1.json
+  TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md
+  tubitak_1711_collaboration_readiness_packet_v0_1.json
   assurance_card_template_v0_1.json
   assurance_release_gate_example_map_v0_1.json
   sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json
@@ -529,6 +538,8 @@ scripts/
   validate_clinician_literacy_release_gate_lesson_map_v0_1.py
   generate_bilge_readiness_queue_v0_1.py
   validate_bilge_readiness_queue_v0_1.py
+  generate_tubitak_1711_collaboration_readiness_packet_v0_1.py
+  validate_tubitak_1711_collaboration_readiness_packet_v0_1.py
   run_prompt_set_openai_compatible_v2.py
   run_prompt_set_hf_transformers_v2.py
 CONTRIBUTING.md

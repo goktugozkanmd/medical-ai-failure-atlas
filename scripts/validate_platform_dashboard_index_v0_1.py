@@ -60,6 +60,7 @@ REQUIRED_PHRASES = [
     "5 label audit maintainer public preview closure rows",
     "3 red flag source locator contributor examples",
     "5 BİLGE readiness queue rows",
+    "5 TÜBİTAK 1711 collaboration readiness packet rows",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -108,11 +109,14 @@ REQUIRED_PHRASES = [
     "make label_audit_maintainer_public_preview_handoff_summary",
     "make label_audit_maintainer_public_preview_closure_checklist",
     "make bilge_readiness_queue",
+    "make tubitak_1711_readiness_packet",
     "BİLGE readiness queue",
     "no access claim",
     "no score claim",
     "no endorsement claim",
-    "1711 collaboration readiness packet",
+    "TÜBİTAK 1711 collaboration readiness",
+    "no submission claim",
+    "SourceCheckup Turkish institutional wording examples",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -121,6 +125,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/tr-medai-safety-suite/PUBLIC_REPO_RELEASE_CARD_20260616.md",
     "docs/tr-medai-safety-suite/BILGE_READINESS_QUEUE_V0_1.md",
     "docs/tr-medai-safety-suite/bilge_readiness_queue_v0_1.json",
+    "docs/tr-medai-safety-suite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md",
+    "docs/tr-medai-safety-suite/tubitak_1711_collaboration_readiness_packet_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",

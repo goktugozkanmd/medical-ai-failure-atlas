@@ -1,0 +1,90 @@
+{
+  "version": "tubitak_1711_collaboration_readiness_packet_v0_1",
+  "status": "public_preview",
+  "date": "2026 06 17",
+  "official_announcement_url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+  "official_call_text_url": "https://tubitak.gov.tr/sites/default/files/2026-06/1711_Yapay_Zeka_Ekosistem_Cagrisi_2026_Cagri_Metni.pdf",
+  "official_source_boundaries": {
+    "call_name": "1711 Yapay Zekâ Ekosistem 2026 Yılı Çağrısı",
+    "opening_date": "15 June 2026",
+    "announcement_date": "16 June 2026",
+    "application_system": "PRODİS",
+    "application_window": "15 June 2026 to 18 September 2026",
+    "pre_registration_deadline": "14 September 2026 17:30",
+    "priority_areas": [
+      "Akıllı Üretim Sistemleri",
+      "Akıllı Tarım Gıda ve Hayvancılık",
+      "Finans Teknolojileri",
+      "İklim Değişikliği ve Sürdürülebilirlik",
+      "Akıllı Eğitim Teknolojileri"
+    ],
+    "health_listed_as_priority_area": false,
+    "consortium_required": true,
+    "customer_organization_required": true,
+    "technology_provider_required": true,
+    "experienced_research_laboratory_or_center_required": true,
+    "tubitak_ai_institute_role_mentioned": true
+  },
+  "queue_row_count": 5,
+  "official_call_boundary_rows": 1,
+  "consortium_role_rows": 1,
+  "priority_area_fit_rows": 1,
+  "health_ai_assurance_bridge_rows": 1,
+  "no_submission_gate_rows": 1,
+  "contains_patient_data": false,
+  "not_for_clinical_use": true,
+  "no_submission_claim": true,
+  "no_application_claim": true,
+  "no_funding_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_partner_claim": true,
+  "no_health_priority_claim": true,
+  "no_route_access_claim": true,
+  "no_terms_acceptance": true,
+  "no_payment": true,
+  "no_clinical_validation_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_patient_data_use": true,
+  "rows": [
+    {
+      "row_id": "T1711Q001",
+      "lane": "official call boundary",
+      "source_basis": "TÜBİTAK 2026 announcement",
+      "readiness_action": "record that the fifth 1711 call opened on 15 June 2026",
+      "blocked_claim": "submission claim",
+      "next_public_action": "keep call boundary visible without submission language"
+    },
+    {
+      "row_id": "T1711Q002",
+      "lane": "consortium role map",
+      "source_basis": "TÜBİTAK support page",
+      "readiness_action": "map customer organization technology provider laboratory and institute roles",
+      "blocked_claim": "partner claim",
+      "next_public_action": "prepare role neutral collaboration checklist"
+    },
+    {
+      "row_id": "T1711Q003",
+      "lane": "priority area fit check",
+      "source_basis": "TÜBİTAK 2026 priority list",
+      "readiness_action": "record that health is not listed among the five stated 2026 priority areas",
+      "blocked_claim": "health priority claim",
+      "next_public_action": "keep health AI safety as readiness infrastructure only"
+    },
+    {
+      "row_id": "T1711Q004",
+      "lane": "health AI assurance bridge",
+      "source_basis": "public assurance lab artifacts",
+      "readiness_action": "map assurance cards source support and review gates to future collaboration preparation",
+      "blocked_claim": "official endorsement",
+      "next_public_action": "connect assurance lab files to collaboration packet"
+    },
+    {
+      "row_id": "T1711Q005",
+      "lane": "no submission release gate",
+      "source_basis": "public external action policy",
+      "readiness_action": "block any application claim funding claim payment terms action or route access claim",
+      "blocked_claim": "funding claim",
+      "next_public_action": "open a public issue that records packet completion only"
+    }
+  ]
+}

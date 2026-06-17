@@ -92,6 +92,8 @@ REQUIRED_FILES = [
     "docs/label_audit/label_audit_maintainer_public_preview_closure_checklist_v0_1.json",
     "docs/tr-medai-safety-suite/BILGE_READINESS_QUEUE_V0_1.md",
     "docs/tr-medai-safety-suite/bilge_readiness_queue_v0_1.json",
+    "docs/tr-medai-safety-suite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md",
+    "docs/tr-medai-safety-suite/tubitak_1711_collaboration_readiness_packet_v0_1.json",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -182,6 +184,8 @@ REQUIRED_FILES = [
     "scripts/validate_label_audit_maintainer_public_preview_closure_checklist_v0_1.py",
     "scripts/generate_bilge_readiness_queue_v0_1.py",
     "scripts/validate_bilge_readiness_queue_v0_1.py",
+    "scripts/generate_tubitak_1711_collaboration_readiness_packet_v0_1.py",
+    "scripts/validate_tubitak_1711_collaboration_readiness_packet_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -462,6 +466,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the BİLGE readiness queue")
         if "make bilge_readiness_queue" not in readme_text:
             fail(errors, "README must document the BİLGE readiness queue command")
+        if "docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the TÜBİTAK 1711 collaboration readiness packet")
+        if "make tubitak_1711_readiness_packet" not in readme_text:
+            fail(errors, "README must document the TÜBİTAK 1711 readiness packet command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",
