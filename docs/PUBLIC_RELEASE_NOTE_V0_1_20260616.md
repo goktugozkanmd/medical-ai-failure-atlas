@@ -87,6 +87,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 75. Reviewer question maintainer public preview contributor route note v0.1.
 76. Reviewer question maintainer public preview issue template route note v0.1.
 77. Reviewer question maintainer public preview maintainer acceptance checklist v0.1.
+78. Reviewer question maintainer public preview acceptance closeout digest v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -169,6 +170,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 75. 6 reviewer question maintainer public preview contributor route note rows.
 76. 6 reviewer question maintainer public preview issue template route note rows.
 77. 6 reviewer question maintainer public preview maintainer acceptance checklist rows.
+78. 6 reviewer question maintainer public preview acceptance closeout digest rows.
 
 ## Reproducible checks
 
@@ -240,6 +242,7 @@ make reviewer_question_maintainer_public_preview_release_card
 make reviewer_question_maintainer_public_preview_contributor_route_note
 make reviewer_question_maintainer_public_preview_issue_template_route_note
 make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist
+make reviewer_question_maintainer_public_preview_acceptance_closeout_digest
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -392,11 +395,12 @@ For global open source medical AI evaluation, this public preview gives:
 72. Reviewer question maintainer public preview contributor route note for public contributor proposal routing without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 73. Reviewer question maintainer public preview issue template route note for public proposal field routing without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 74. Reviewer question maintainer public preview maintainer acceptance checklist for public maintainer acceptance checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+75. Reviewer question maintainer public preview acceptance closeout digest for public maintainer closeout checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview acceptance closeout digest without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview acceptance archive index without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

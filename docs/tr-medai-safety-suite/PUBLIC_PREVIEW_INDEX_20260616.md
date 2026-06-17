@@ -72,6 +72,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 62. `../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md` gives a reviewer question maintainer public preview contributor route note without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 63. `../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md` gives a reviewer question maintainer public preview issue template route note without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 64. `../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md` gives a reviewer question maintainer public preview maintainer acceptance checklist without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
+65. `../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md` gives a reviewer question maintainer public preview acceptance closeout digest without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 
 ## What This Preview Is
 
@@ -103,7 +104,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a reviewer question maintainer public preview acceptance closeout digest without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview acceptance archive index without scoring or compatibility claims.
 2. Add a compact public failure mode taxonomy page.
 3. Add a public contributor path for synthetic failure cases.
 4. Add a no patient data review checklist.

@@ -154,7 +154,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 62. [Reviewer question maintainer public preview contributor route note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md)
 63. [Reviewer question maintainer public preview issue template route note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md)
 64. [Reviewer question maintainer public preview maintainer acceptance checklist](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md)
+65. [Reviewer question maintainer public preview acceptance closeout digest](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer public preview acceptance closeout digest without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer public preview acceptance archive index without scoring or compatibility claims.

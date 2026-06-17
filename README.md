@@ -93,6 +93,7 @@ New visible build surfaces are now staged in this public repository:
 83. [Reviewer question maintainer public preview contributor route note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md)
 84. [Reviewer question maintainer public preview issue template route note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md)
 85. [Reviewer question maintainer public preview maintainer acceptance checklist v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md)
+86. [Reviewer question maintainer public preview acceptance closeout digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -146,6 +147,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 40. Reviewer question maintainer public preview contributor route note for public contributor proposal routing without scoring or compatibility claims.
 41. Reviewer question maintainer public preview issue template route note for public proposal field routing without scoring or compatibility claims.
 42. Reviewer question maintainer public preview maintainer acceptance checklist for public maintainer acceptance checks without scoring or compatibility claims.
+43. Reviewer question maintainer public preview acceptance closeout digest for public maintainer closeout checks without scoring or compatibility claims.
 
 ## What this is
 
@@ -441,6 +443,12 @@ Generate reviewer question maintainer public preview maintainer acceptance check
 
 ```bash
 make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist
+```
+
+Generate reviewer question maintainer public preview acceptance closeout digest:
+
+```bash
+make reviewer_question_maintainer_public_preview_acceptance_closeout_digest
 ```
 
 Validate the assurance card template:
@@ -740,6 +748,8 @@ docs/
   reviewer_question_maintainer_public_preview_issue_template_route_note_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md
   reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md
+  reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
@@ -882,6 +892,8 @@ scripts/
   validate_reviewer_question_maintainer_public_preview_issue_template_route_note_v0_1.py
   generate_reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.py
   validate_reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.py
+  generate_reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.py
+  validate_reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py
