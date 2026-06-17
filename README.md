@@ -89,6 +89,7 @@ New visible build surfaces are now staged in this public repository:
 79. [Reviewer question maintainer public preview archive digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md)
 80. [Reviewer question maintainer public preview index rollup v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md)
 81. [Reviewer question maintainer public preview repository navigation note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md)
+82. [Reviewer question maintainer public preview release card v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -138,6 +139,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 36. Reviewer question maintainer public preview archive digest for compact public preview trace without scoring or compatibility claims.
 37. Reviewer question maintainer public preview index rollup for one maintainer navigation surface without scoring or compatibility claims.
 38. Reviewer question maintainer public preview repository navigation note for ordered public preview reading without scoring or compatibility claims.
+39. Reviewer question maintainer public preview release card for compact public preview positioning without scoring or compatibility claims.
 
 ## What this is
 
@@ -409,6 +411,12 @@ Generate reviewer question maintainer public preview repository navigation note:
 
 ```bash
 make reviewer_question_maintainer_public_preview_repository_navigation_note
+```
+
+Generate reviewer question maintainer public preview release card:
+
+```bash
+make reviewer_question_maintainer_public_preview_release_card
 ```
 
 Validate the assurance card template:
@@ -700,6 +708,8 @@ docs/
   reviewer_question_maintainer_public_preview_index_rollup_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md
   reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md
+  reviewer_question_maintainer_public_preview_release_card_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
@@ -834,6 +844,8 @@ scripts/
   validate_reviewer_question_maintainer_public_preview_index_rollup_v0_1.py
   generate_reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.py
   validate_reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.py
+  generate_reviewer_question_maintainer_public_preview_release_card_v0_1.py
+  validate_reviewer_question_maintainer_public_preview_release_card_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py

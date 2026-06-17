@@ -113,6 +113,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add a reviewer question maintainer public preview release card without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview contributor route note without scoring or compatibility claims.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.
