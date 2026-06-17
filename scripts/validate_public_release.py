@@ -113,6 +113,8 @@ REQUIRED_FILES = [
     "docs/clinician_literacy_release_gate_lesson_map_v0_1.json",
     "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
     "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md",
+    "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md",
+    "docs/sourcecheckup/sourcecheckup_turkish_institutional_wording_examples_v0_1.json",
     ".github/ISSUE_TEMPLATE/label_audit_review.yml",
     "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md",
     "sourcecheckup/build/source_claim_example_expansion_v0_2.md",
@@ -200,6 +202,8 @@ REQUIRED_FILES = [
     "scripts/validate_warning_sign_reviewer_role_table_v0_1.py",
     "scripts/generate_red_flag_contributor_examples_v0_1.py",
     "scripts/validate_red_flag_contributor_examples_v0_1.py",
+    "scripts/generate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py",
+    "scripts/validate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py",
     "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
     "scripts/generate_tr_medllm_specialty_spread_dashboard_v0_1.py",
     "scripts/validate_tr_medllm_specialty_dashboard_v0_1.py",
@@ -378,6 +382,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to red flag contributor examples")
         if "make red_flag_contributor_examples" not in readme_text:
             fail(errors, "README must document the red flag contributor examples command")
+        if "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md" not in readme_text:
+            fail(errors, "README must link to SourceCheckup Turkish institutional wording examples")
+        if "make sourcecheckup_turkish_institutional_wording" not in readme_text:
+            fail(errors, "README must document the SourceCheckup Turkish institutional wording command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

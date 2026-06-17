@@ -61,6 +61,7 @@ REQUIRED_PHRASES = [
     "3 red flag source locator contributor examples",
     "5 BİLGE readiness queue rows",
     "5 TÜBİTAK 1711 collaboration readiness packet rows",
+    "5 SourceCheckup Turkish institutional wording examples",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -82,6 +83,7 @@ REQUIRED_PHRASES = [
     "make red_flag_warning_checklist",
     "make warning_sign_role_table",
     "make red_flag_contributor_examples",
+    "make sourcecheckup_turkish_institutional_wording",
     "make sourcecheckup_public_issue",
     "make sourcecheckup_expansion_dashboard",
     "make clinician_literacy_map",
@@ -117,6 +119,8 @@ REQUIRED_PHRASES = [
     "TÜBİTAK 1711 collaboration readiness",
     "no submission claim",
     "SourceCheckup Turkish institutional wording examples",
+    "without endorsement or route access claims",
+    "make SourceCheckup Medical easier to run",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -156,6 +160,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/sourcecheckup/SOURCE_CLAIM_REVIEW_QUEUE_V0_1.md",
     "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
     "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md",
+    "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md",
+    "docs/sourcecheckup/sourcecheckup_turkish_institutional_wording_examples_v0_1.json",
     "sourcecheckup/build/sourcecheckup_seed_report.md",
     "sourcecheckup/build/source_surface_examples_v0_2_report.md",
     "sourcecheckup/build/source_claim_example_expansion_v0_2.md",

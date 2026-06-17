@@ -1,0 +1,60 @@
+{
+  "version": "sourcecheckup_turkish_institutional_wording_examples_v0_1",
+  "status": "public_preview",
+  "date": "2026 06 17",
+  "row_count": 5,
+  "contains_patient_data": false,
+  "not_for_clinical_use": true,
+  "no_official_endorsement_claim": true,
+  "no_route_access_claim": true,
+  "no_submission_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "rows": [
+    {
+      "row_id": "STIWE001",
+      "institutional_surface": "ministry wording",
+      "synthetic_risky_wording": "This work is aligned with national health AI priorities.",
+      "blocked_claim": "official endorsement",
+      "safe_public_wording": "This public preview studies health AI safety questions and does not claim a Ministry role or endorsement.",
+      "sourcecheckup_action": "replace alignment language with scope language",
+      "review_lane": "institutional wording review"
+    },
+    {
+      "row_id": "STIWE002",
+      "institutional_surface": "TÜYZE wording",
+      "synthetic_risky_wording": "The project is ready for a national AI ecosystem route.",
+      "blocked_claim": "route access",
+      "safe_public_wording": "The project prepares public review artifacts that could support a future route decision after verified clearance.",
+      "sourcecheckup_action": "separate readiness from access",
+      "review_lane": "route wording review"
+    },
+    {
+      "row_id": "STIWE003",
+      "institutional_surface": "TÜBİTAK wording",
+      "synthetic_risky_wording": "This packet supports a TÜBİTAK application.",
+      "blocked_claim": "submission claim",
+      "safe_public_wording": "This packet records source boundaries and does not claim application submission.",
+      "sourcecheckup_action": "replace support claim with boundary record",
+      "review_lane": "submission wording review"
+    },
+    {
+      "row_id": "STIWE004",
+      "institutional_surface": "hospital wording",
+      "synthetic_risky_wording": "The examples are ready for hospital workflow testing.",
+      "blocked_claim": "clinical deployment",
+      "safe_public_wording": "The examples are synthetic review material and are not for hospital workflow deployment.",
+      "sourcecheckup_action": "block workflow testing language",
+      "review_lane": "clinical deployment wording review"
+    },
+    {
+      "row_id": "STIWE005",
+      "institutional_surface": "university lab wording",
+      "synthetic_risky_wording": "A university lab can validate this safety benchmark.",
+      "blocked_claim": "validation claim",
+      "safe_public_wording": "A future reviewer could inspect the method, but this public preview does not claim validation.",
+      "sourcecheckup_action": "replace validation language with review language",
+      "review_lane": "validation wording review"
+    }
+  ]
+}

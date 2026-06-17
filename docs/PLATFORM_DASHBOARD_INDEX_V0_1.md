@@ -53,6 +53,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 41. 3 red flag source locator contributor examples.
 42. 5 BİLGE readiness queue rows.
 43. 5 TÜBİTAK 1711 collaboration readiness packet rows.
+44. 5 SourceCheckup Turkish institutional wording examples.
 
 ## Top public entry files
 
@@ -190,7 +191,9 @@ Public files:
 10. [Source review worksheets](../docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
 11. [Red flag source locator and warning sign checklist](../docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md)
 12. [Red flag source locator contributor examples](sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md)
-13. [Warning sign reviewer role table](../docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
+13. [SourceCheckup Turkish institutional wording examples](sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
+14. [SourceCheckup Turkish institutional wording JSON](sourcecheckup/sourcecheckup_turkish_institutional_wording_examples_v0_1.json)
+15. [Warning sign reviewer role table](../docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
 
 Runnable checks:
 
@@ -204,15 +207,16 @@ make sourcecheckup_tr_medllm_routing
 make source_review_worksheets
 make red_flag_warning_checklist
 make red_flag_contributor_examples
+make sourcecheckup_turkish_institutional_wording
 make warning_sign_role_table
 make source_claim_queue
 ```
 
-Track A value: public source support discipline for Turkish medical LLM review examples and clinician AI literacy.
+Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, and Turkish institutional wording without endorsement or route access claims.
 
-Track B value: open source source quality infrastructure that can grow into source review examples, queues, and contributor workflows.
+Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, and public institutional wording gates.
 
-Next build: add issue ready source locator example packets after maintainer wording review.
+Next build: make SourceCheckup Medical easier to run from this repository.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 

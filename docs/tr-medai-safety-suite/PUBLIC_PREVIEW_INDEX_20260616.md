@@ -42,6 +42,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 32. `../label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md` turns maintainer reviewer actions into closeable public preview checks.
 33. `BILGE_READINESS_QUEUE_V0_1.md` records BİLGE readiness rows with no access claim, no score claim, and no endorsement claim.
 34. `TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md` records TÜBİTAK 1711 collaboration readiness rows with no submission claim and no endorsement claim.
+35. `../sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md` records Turkish institutional wording examples that block endorsement, route access, submission, deployment, and validation claims.
 
 ## What This Preview Is
 
@@ -73,8 +74,8 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add SourceCheckup Turkish institutional wording examples.
-2. Make SourceCheckup Medical easier to run from this repository.
+1. Make SourceCheckup Medical easier to run from this repository.
+2. Add a HealthBench and MedHELM mapping note with no compatibility claim.
 3. Add a compact public failure mode taxonomy page.
 4. Add a public contributor path for synthetic failure cases.
 5. Add a no patient data review checklist.

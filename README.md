@@ -63,6 +63,7 @@ New visible build surfaces are now staged in this public repository:
 53. [Label audit maintainer public preview closure checklist v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
 54. [BİLGE readiness queue v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
 55. [TÜBİTAK 1711 collaboration readiness packet v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
+56. [SourceCheckup Turkish institutional wording examples v0.1](docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -257,6 +258,12 @@ Generate the red flag source locator contributor examples:
 
 ```bash
 make red_flag_contributor_examples
+```
+
+Generate the SourceCheckup Turkish institutional wording examples:
+
+```bash
+make sourcecheckup_turkish_institutional_wording
 ```
 
 Generate the warning sign reviewer role table:
@@ -473,6 +480,8 @@ docs/
     CONTRIBUTOR_CHECKLIST_V0_2.md
     PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md
     RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md
+    SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md
+    sourcecheckup_turkish_institutional_wording_examples_v0_1.json
   label_audit/
     PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md
     LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md
@@ -532,6 +541,8 @@ scripts/
   validate_assurance_release_gate_example_map_v0_1.py
   validate_red_flag_warning_checklist_v0_1.py
   validate_red_flag_contributor_examples_v0_1.py
+  generate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
+  validate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py
