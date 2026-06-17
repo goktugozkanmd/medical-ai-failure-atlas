@@ -483,6 +483,24 @@ Decision rows: 5
 
 The public preview decision log records current public preview decision rows after release candidate summary review. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
 
+## Label audit maintainer public preview handoff summary
+
+Current maintainer public preview handoff summary:
+
+`docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md`
+
+Machine readable maintainer public preview handoff source:
+
+`docs/label_audit/label_audit_maintainer_public_preview_handoff_summary_v0_1.json`
+
+Runnable check:
+
+`make label_audit_maintainer_public_preview_handoff_summary`
+
+Handoff rows: 5
+
+The public preview handoff summary turns current public preview decisions into reviewer actions. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
 Run:
 
 ```bash

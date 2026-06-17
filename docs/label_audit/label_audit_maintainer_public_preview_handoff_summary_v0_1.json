@@ -1,0 +1,121 @@
+{
+  "audit_trail_rows_represented": 5,
+  "candidate_summary_rows_represented": 5,
+  "closeout_rows_represented": 5,
+  "contains_patient_data": false,
+  "contributor_digest_rows_represented": 5,
+  "date": "2026 06 17",
+  "decision_rows_represented": 5,
+  "evidence_rows_represented": 5,
+  "handoff_row_count": 5,
+  "handoff_rows_represented": 5,
+  "maintainer_review_scope": "current public preview route only",
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "previous_public_issue_number": 37,
+  "public_preview_handoff": "ready_for_maintainer_public_preview_review",
+  "readiness_rows_represented": 5,
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "blocked_claims": [
+        "dataset quality proof",
+        "clinical readiness",
+        "clinical validation",
+        "clinical deployment",
+        "model safety proof",
+        "model ranking",
+        "official endorsement"
+      ],
+      "handoff_boundary": "synthetic only and not for clinical use",
+      "handoff_id": "LAPH001",
+      "handoff_name": "Synthetic boundary handoff",
+      "handoff_owner": "maintainer reviewer",
+      "handoff_state": "ready_for_maintainer_public_preview_review",
+      "next_reviewer_action": "confirm synthetic only boundary text before public preview update",
+      "source_decision_id": "LAMP001"
+    },
+    {
+      "blocked_claims": [
+        "dataset quality proof",
+        "clinical readiness",
+        "clinical validation",
+        "clinical deployment",
+        "model safety proof",
+        "model ranking",
+        "official endorsement"
+      ],
+      "handoff_boundary": "synthetic only and not for clinical use",
+      "handoff_id": "LAPH002",
+      "handoff_name": "Intake pattern handoff",
+      "handoff_owner": "label audit reviewer",
+      "handoff_state": "ready_for_maintainer_public_preview_review",
+      "next_reviewer_action": "confirm intake examples stay synthetic and do not imply dataset quality proof",
+      "source_decision_id": "LAMP002"
+    },
+    {
+      "blocked_claims": [
+        "dataset quality proof",
+        "clinical readiness",
+        "clinical validation",
+        "clinical deployment",
+        "model safety proof",
+        "model ranking",
+        "official endorsement"
+      ],
+      "handoff_boundary": "synthetic only and not for clinical use",
+      "handoff_id": "LAPH003",
+      "handoff_name": "Public wording handoff",
+      "handoff_owner": "public wording reviewer",
+      "handoff_state": "ready_for_maintainer_public_preview_review",
+      "next_reviewer_action": "confirm public wording blocks clinical validation and model safety claims",
+      "source_decision_id": "LAMP003"
+    },
+    {
+      "blocked_claims": [
+        "dataset quality proof",
+        "clinical readiness",
+        "clinical validation",
+        "clinical deployment",
+        "model safety proof",
+        "model ranking",
+        "official endorsement"
+      ],
+      "handoff_boundary": "synthetic only and not for clinical use",
+      "handoff_id": "LAPH004",
+      "handoff_name": "Release surface handoff",
+      "handoff_owner": "release surface reviewer",
+      "handoff_state": "ready_for_maintainer_public_preview_review",
+      "next_reviewer_action": "confirm release note and dashboard links expose the decision route without official role claims",
+      "source_decision_id": "LAMP004"
+    },
+    {
+      "blocked_claims": [
+        "dataset quality proof",
+        "clinical readiness",
+        "clinical validation",
+        "clinical deployment",
+        "model safety proof",
+        "model ranking",
+        "official endorsement"
+      ],
+      "handoff_boundary": "synthetic only and not for clinical use",
+      "handoff_id": "LAPH005",
+      "handoff_name": "Validation handoff",
+      "handoff_owner": "validator maintainer",
+      "handoff_state": "ready_for_maintainer_public_preview_review",
+      "next_reviewer_action": "confirm runnable checks fail when decision rows or safety boundaries are missing",
+      "source_decision_id": "LAMP005"
+    }
+  ],
+  "source": "docs/label_audit/label_audit_maintainer_public_preview_decision_log_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_maintainer_public_preview_handoff_summary_v0_1"
+}
