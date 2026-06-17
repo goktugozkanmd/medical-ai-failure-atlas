@@ -72,6 +72,7 @@ New visible build surfaces are now staged in this public repository:
 62. [Reviewer question intake triage board v0.1](docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md)
 63. [Reviewer question public wording decision log v0.1](docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md)
 64. [Reviewer question release gate checklist v0.1](docs/REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md)
+65. [Reviewer question release gate outcome dashboard v0.1](docs/REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -104,6 +105,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 19. Reviewer question intake triage board for maintainer actions and public wording decisions without scoring or compatibility claims.
 20. Reviewer question public wording decision log for blocked wording and allowed public wording without scoring or compatibility claims.
 21. Reviewer question release gate checklist for pass and block states without scoring or compatibility claims.
+22. Reviewer question release gate outcome dashboard for current pass and block outcomes without scoring or compatibility claims.
 
 ## What this is
 
@@ -273,6 +275,12 @@ Generate reviewer question release gate checklist:
 
 ```bash
 make reviewer_question_release_gates
+```
+
+Generate reviewer question release gate outcome dashboard:
+
+```bash
+make reviewer_question_gate_outcomes
 ```
 
 Validate the assurance card template:
@@ -530,6 +538,8 @@ docs/
   reviewer_question_public_wording_decision_log_v0_1.json
   REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md
   reviewer_question_release_gate_checklist_v0_1.json
+  REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md
+  reviewer_question_release_gate_outcome_dashboard_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
@@ -630,6 +640,8 @@ scripts/
   validate_reviewer_question_public_wording_decision_log_v0_1.py
   generate_reviewer_question_release_gate_checklist_v0_1.py
   validate_reviewer_question_release_gate_checklist_v0_1.py
+  generate_reviewer_question_release_gate_outcome_dashboard_v0_1.py
+  validate_reviewer_question_release_gate_outcome_dashboard_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py
