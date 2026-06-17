@@ -102,4 +102,4 @@ make reviewer_question_maintainer_handoff
 
 ## Next safe public action
 
-Add a reviewer question maintainer evidence map without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
+Add a reviewer question maintainer audit trail packet without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.

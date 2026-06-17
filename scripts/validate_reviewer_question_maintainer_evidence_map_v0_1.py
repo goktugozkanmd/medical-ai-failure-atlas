@@ -8,38 +8,41 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs" / "reviewer_question_maintainer_release_readiness_digest_v0_1.json"
-MARKDOWN = ROOT / "docs" / "REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md"
+SOURCE = ROOT / "docs" / "reviewer_question_maintainer_evidence_map_v0_1.json"
+MARKDOWN = ROOT / "docs" / "REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md"
 
-REQUIRED_READINESS_IDS = {"RQMR001", "RQMR002", "RQMR003", "RQMR004", "RQMR005"}
+REQUIRED_EVIDENCE_IDS = {"RQME001", "RQME002", "RQME003", "RQME004", "RQME005"}
+REQUIRED_SOURCE_READINESS_IDS = {"RQMR001", "RQMR002", "RQMR003", "RQMR004", "RQMR005"}
 REQUIRED_FILES = [
+    "docs/REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md",
+    "docs/reviewer_question_maintainer_evidence_map_v0_1.json",
     "docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md",
     "docs/reviewer_question_maintainer_release_readiness_digest_v0_1.json",
     "docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md",
-    "docs/reviewer_question_maintainer_closeout_digest_v0_1.json",
     "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
     "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "Makefile",
 ]
 REQUIRED_PHRASES = [
-    "Reviewer question maintainer release readiness digest v0.1",
-    "Readiness rows: 5",
+    "Reviewer question maintainer evidence map v0.1",
+    "Evidence rows: 5",
+    "Readiness rows represented: 5",
     "Closeout rows represented: 5",
     "Handoff rows represented: 5",
     "Contributor digest rows represented: 5",
     "Release index surface rows represented: 9",
     "Issue history rows represented: 11",
-    "Previous public issue represented: 57",
+    "Previous public issue represented: 58",
     "current public preview route only",
-    "ready_for_public_preview",
-    "Synthetic boundary readiness",
-    "Reviewer question lane readiness",
-    "Public wording readiness",
-    "Release surface readiness",
-    "Validation readiness",
-    "included_in_public_maintainer_release_readiness_digest",
-    "current_preview_ready",
+    "mapped_for_public_preview_review",
+    "Synthetic boundary evidence",
+    "Reviewer question lane evidence",
+    "Public wording evidence",
+    "Release surface evidence",
+    "Validation evidence",
+    "mapped_for_public_maintainer_review",
+    "current_preview_evidence",
     "synthetic only and not for clinical use",
     "not clinical advice",
     "not patient data",
@@ -52,7 +55,7 @@ REQUIRED_PHRASES = [
     "not a model ranking",
     "not an endpoint result",
     "not an official endorsement",
-    "make reviewer_question_maintainer_release_readiness_digest",
+    "make reviewer_question_maintainer_evidence_map",
     "Add a reviewer question maintainer audit trail packet without scoring",
 ]
 FORBIDDEN_PHRASES = [
@@ -82,8 +85,10 @@ def main() -> int:
     if not isinstance(rows, list):
         errors.append("rows must be a list")
         rows = []
-    if data.get("readiness_row_count") != 5:
-        errors.append("readiness_row_count must be 5")
+    if data.get("evidence_row_count") != 5:
+        errors.append("evidence_row_count must be 5")
+    if data.get("readiness_rows_represented") != 5:
+        errors.append("readiness_rows_represented must be 5")
     if data.get("closeout_rows_represented") != 5:
         errors.append("closeout_rows_represented must be 5")
     if data.get("handoff_rows_represented") != 5:
@@ -94,14 +99,14 @@ def main() -> int:
         errors.append("release_index_surface_rows_represented must be 9")
     if data.get("issue_history_rows_represented") != 11:
         errors.append("issue_history_rows_represented must be 11")
-    if data.get("previous_public_issue_number") != 57:
-        errors.append("previous_public_issue_number must be 57")
-    if data.get("readiness_decision") != "ready_for_public_preview":
-        errors.append("readiness_decision must be ready_for_public_preview")
+    if data.get("previous_public_issue_number") != 58:
+        errors.append("previous_public_issue_number must be 58")
+    if data.get("evidence_map_decision") != "mapped_for_public_preview_review":
+        errors.append("evidence_map_decision must be mapped_for_public_preview_review")
     if data.get("maintainer_review_scope") != "current public preview route only":
         errors.append("maintainer_review_scope must be current public preview route only")
     if len(rows) != 5:
-        errors.append(f"Expected 5 readiness rows, found {len(rows)}")
+        errors.append(f"Expected 5 evidence rows, found {len(rows)}")
 
     for field in [
         "contains_patient_data",
@@ -121,19 +126,22 @@ def main() -> int:
         if data.get(field) is not expected:
             errors.append(f"{field} must be {expected}")
 
-    readiness_ids = {str(row.get("readiness_id")) for row in rows}
-    if readiness_ids != REQUIRED_READINESS_IDS:
-        errors.append("readiness id set must match required ids")
-    if {str(row.get("readiness_status")) for row in rows} != {"included_in_public_maintainer_release_readiness_digest"}:
-        errors.append("all readiness statuses must be included_in_public_maintainer_release_readiness_digest")
-    if {str(row.get("readiness_state")) for row in rows} != {"current_preview_ready"}:
-        errors.append("all readiness states must be current_preview_ready")
+    evidence_ids = {str(row.get("evidence_id")) for row in rows}
+    if evidence_ids != REQUIRED_EVIDENCE_IDS:
+        errors.append("evidence id set must match required ids")
+    source_readiness_ids = {str(row.get("source_readiness_id")) for row in rows}
+    if source_readiness_ids != REQUIRED_SOURCE_READINESS_IDS:
+        errors.append("source readiness id set must match required ids")
+    if {str(row.get("evidence_status")) for row in rows} != {"mapped_for_public_maintainer_review"}:
+        errors.append("all evidence statuses must be mapped_for_public_maintainer_review")
+    if {str(row.get("evidence_state")) for row in rows} != {"current_preview_evidence"}:
+        errors.append("all evidence states must be current_preview_evidence")
 
     for row in rows:
-        readiness_id = str(row.get("readiness_id", ""))
-        for key in ["readiness_name", "evidence_file", "readiness_action", "readiness_status", "readiness_state", "boundary"]:
+        evidence_id = str(row.get("evidence_id", ""))
+        for key in ["evidence_name", "source_readiness_id", "source_file", "maintainer_use", "evidence_status", "evidence_state", "boundary"]:
             if key not in row:
-                errors.append(f"{readiness_id}: missing {key}")
+                errors.append(f"{evidence_id}: missing {key}")
 
     for relative_path in REQUIRED_FILES:
         if not (ROOT / relative_path).exists():
@@ -152,17 +160,17 @@ def main() -> int:
         if phrase in lower_text:
             errors.append(f"Forbidden phrase present: {phrase}")
     if "-" in text:
-        errors.append("Generated outward facing maintainer release readiness digest must not contain hyphen characters")
+        errors.append("Generated outward facing maintainer evidence map must not contain hyphen characters")
 
     if errors:
-        print("FAIL reviewer question maintainer release readiness digest validation")
+        print("FAIL reviewer question maintainer evidence map validation")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print("PASS reviewer question maintainer release readiness digest validation")
+    print("PASS reviewer question maintainer evidence map validation")
     print(f"markdown={MARKDOWN.relative_to(ROOT)}")
-    print(f"readiness_rows={len(rows)}")
+    print(f"evidence_rows={len(rows)}")
     return 0
 
 

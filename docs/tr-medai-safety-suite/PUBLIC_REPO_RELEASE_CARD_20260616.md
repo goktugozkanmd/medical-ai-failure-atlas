@@ -141,7 +141,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 49. [Reviewer question maintainer handoff notes](../REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md)
 50. [Reviewer question maintainer closeout digest](../REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md)
 51. [Reviewer question maintainer release readiness digest](../REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
+52. [Reviewer question maintainer evidence map](../REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer evidence map without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer audit trail packet without scoring or compatibility claims.

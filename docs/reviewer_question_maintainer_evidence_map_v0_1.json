@@ -1,0 +1,80 @@
+{
+  "closeout_rows_represented": 5,
+  "contains_patient_data": false,
+  "contributor_digest_rows_represented": 5,
+  "date": "2026 06 17",
+  "evidence_map_decision": "mapped_for_public_preview_review",
+  "evidence_row_count": 5,
+  "handoff_rows_represented": 5,
+  "issue_history_rows_represented": 11,
+  "maintainer_review_scope": "current public preview route only",
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_endpoint_result": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "no_score_report": true,
+  "not_for_clinical_use": true,
+  "previous_public_issue_number": 58,
+  "readiness_rows_represented": 5,
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "evidence_id": "RQME001",
+      "evidence_name": "Synthetic boundary evidence",
+      "evidence_state": "current_preview_evidence",
+      "evidence_status": "mapped_for_public_maintainer_review",
+      "maintainer_use": "check that reviewer question public rows remain synthetic only",
+      "source_file": "docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md",
+      "source_readiness_id": "RQMR001"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "evidence_id": "RQME002",
+      "evidence_name": "Reviewer question lane evidence",
+      "evidence_state": "current_preview_evidence",
+      "evidence_status": "mapped_for_public_maintainer_review",
+      "maintainer_use": "check that reviewer question lanes remain source facing and bounded",
+      "source_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
+      "source_readiness_id": "RQMR002"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "evidence_id": "RQME003",
+      "evidence_name": "Public wording evidence",
+      "evidence_state": "current_preview_evidence",
+      "evidence_status": "mapped_for_public_maintainer_review",
+      "maintainer_use": "check that blocked score, endpoint, compatibility, validation, and endorsement wording stays out",
+      "source_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "source_readiness_id": "RQMR003"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "evidence_id": "RQME004",
+      "evidence_name": "Release surface evidence",
+      "evidence_state": "current_preview_evidence",
+      "evidence_status": "mapped_for_public_maintainer_review",
+      "maintainer_use": "check that public surfaces expose boundaries and runnable checks",
+      "source_file": "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
+      "source_readiness_id": "RQMR004"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "evidence_id": "RQME005",
+      "evidence_name": "Validation evidence",
+      "evidence_state": "current_preview_evidence",
+      "evidence_status": "mapped_for_public_maintainer_review",
+      "maintainer_use": "check that the evidence map is generated and validated before issue closeout",
+      "source_file": "Makefile",
+      "source_readiness_id": "RQMR005"
+    }
+  ],
+  "source": "docs/reviewer_question_maintainer_release_readiness_digest_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "reviewer_question_maintainer_evidence_map_v0_1"
+}
