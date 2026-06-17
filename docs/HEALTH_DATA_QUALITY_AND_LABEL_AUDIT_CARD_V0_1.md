@@ -275,6 +275,26 @@ Run:
 make label_audit_outcome_dashboard
 ```
 
+## Label audit release note packet
+
+Current release note packet:
+
+`docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md`
+
+Machine readable packet source:
+
+`docs/label_audit/label_audit_release_note_packet_v0_1.json`
+
+Packet surface rows: 7.
+
+The packet gives one public release note surface for the contributor route, intake rows, dashboard, triage board, wording log, release gate checklist, and outcome dashboard. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_release_packet
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

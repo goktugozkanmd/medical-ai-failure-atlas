@@ -61,6 +61,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 29. Label audit public wording decision log v0.1.
 30. Label audit release gate checklist v0.1.
 31. Label audit release gate outcome dashboard v0.1.
+32. Label audit release note packet v0.1.
 
 ## External visibility sequence
 
@@ -85,6 +86,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add a label audit release note packet after maintainer review.
+1. Add a label audit public changelog after maintainer review.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

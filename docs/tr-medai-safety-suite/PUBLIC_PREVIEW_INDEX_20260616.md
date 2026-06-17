@@ -27,6 +27,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 17. `../label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md` records blocked wording and proposed public wording decisions.
 18. `../label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md` converts wording decisions into release gate pass or block states.
 19. `../label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md` summarizes release gate pass and block outcomes.
+20. `../label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md` packages the label audit public release surfaces.
 
 ## What This Preview Is
 
@@ -58,7 +59,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a label audit release note packet after maintainer review.
+1. Add a label audit public changelog after maintainer review.
 2. Make SourceCheckup Medical easier to run from this repository.
 3. Add a compact public failure mode taxonomy page.
 4. Add a public contributor path for synthetic failure cases.

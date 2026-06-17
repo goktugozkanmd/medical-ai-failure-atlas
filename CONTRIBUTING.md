@@ -113,3 +113,11 @@ Run:
 ```bash
 make label_audit_outcome_dashboard
 ```
+
+The release note packet is available at `docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_release_packet
+```
