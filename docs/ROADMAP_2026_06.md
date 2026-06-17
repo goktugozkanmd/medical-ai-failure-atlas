@@ -74,6 +74,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 42. Label audit maintainer public preview decision log v0.1.
 43. Label audit maintainer public preview handoff summary v0.1.
 44. Label audit maintainer public preview closure checklist v0.1.
+45. BİLGE readiness queue v0.1.
 
 ## External visibility sequence
 
@@ -98,6 +99,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add BİLGE readiness queue with no access, no score, and no endorsement claim.
+1. Add 1711 collaboration readiness packet with no submission and no endorsement claim.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

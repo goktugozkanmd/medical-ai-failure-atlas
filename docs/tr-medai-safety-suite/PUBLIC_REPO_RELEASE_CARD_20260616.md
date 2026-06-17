@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds thirty two concrete build surfaces:
+This preview adds thirty three concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -42,6 +42,7 @@ This preview adds thirty two concrete build surfaces:
 30. Label audit maintainer public preview decision log.
 31. Label audit maintainer public preview handoff summary.
 32. Label audit maintainer public preview closure checklist.
+33. BİLGE readiness queue.
 
 ## What This Is
 
@@ -107,7 +108,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 30. [Label audit maintainer public preview decision log](../label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md)
 31. [Label audit maintainer public preview handoff summary](../label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
 32. [Label audit maintainer public preview closure checklist](../label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
+33. [BİLGE readiness queue](BILGE_READINESS_QUEUE_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is BİLGE readiness queue with no access, no score, and no endorsement claim.
+The next useful public build is 1711 collaboration readiness packet with no submission and no endorsement claim.

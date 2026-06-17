@@ -51,6 +51,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 39. 5 label audit maintainer public preview handoff rows.
 40. 5 label audit maintainer public preview closure rows.
 41. 3 red flag source locator contributor examples.
+42. 5 BİLGE readiness queue rows.
 
 ## Top public entry files
 
@@ -59,6 +60,8 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 3. [TR MedAI Safety Suite release card](tr%2Dmedai%2Dsafety%2Dsuite/PUBLIC_REPO_RELEASE_CARD_20260616.md)
 4. [Public infrastructure release note](PUBLIC_RELEASE_NOTE_V0_1_20260616.md)
 5. [June roadmap](ROADMAP_2026_06.md)
+6. [BİLGE readiness queue](tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
+7. [BİLGE readiness queue JSON](tr%2Dmedai%2Dsafety%2Dsuite/bilge_readiness_queue_v0_1.json)
 
 ## Platform map
 
@@ -74,6 +77,8 @@ Public files:
 4. [Failure Atlas taxonomy dashboard](../failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
 5. [Clinician review queue](../failure_atlas/public/build/clinician_review_queue_v0_1.md)
 6. [SourceCheckup TR MedLLM assurance routing map](SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
+7. [BİLGE readiness queue](tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
+8. [BİLGE readiness queue JSON](tr%2Dmedai%2Dsafety%2Dsuite/bilge_readiness_queue_v0_1.json)
 
 Runnable checks:
 
@@ -82,15 +87,16 @@ make tr_medllm_pack
 make tr_medllm_specialty_spread
 make tr_medllm_specialty_dashboard
 make sourcecheckup_tr_medllm_routing
+make bilge_readiness_queue
 make taxonomy_dashboard
 make clinician_review_queue
 ```
 
-Track A value: Turkish clinician led evaluation material for national health AI safety, clinician literacy, and assurance review.
+Track A value: Turkish clinician led evaluation material for national health AI safety, clinician literacy, assurance review, and BİLGE readiness with no access claim, no score claim, and no endorsement claim.
 
-Track B value: reusable multilingual safety benchmark seed for global medical AI evaluation without model ranking claims.
+Track B value: reusable multilingual safety benchmark seed and no access readiness queue pattern for global medical AI evaluation without model ranking claims.
 
-Next build: source claim review examples for Turkish rows after maintainer review.
+Next build: 1711 collaboration readiness packet with no submission and no endorsement claim.
 
 ### 2. Medical AI Failure Atlas Global
 
