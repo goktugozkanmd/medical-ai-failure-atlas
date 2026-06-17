@@ -78,6 +78,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 66. Reviewer question maintainer audit trail packet v0.1.
 67. Reviewer question maintainer release candidate summary v0.1.
 68. Reviewer question maintainer public preview decision log v0.1.
+69. Reviewer question maintainer public preview handoff summary v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -151,6 +152,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 66. 5 reviewer question maintainer audit trail packet rows.
 67. 5 reviewer question maintainer release candidate summary rows.
 68. 5 reviewer question maintainer public preview decision rows.
+69. 5 reviewer question maintainer public preview handoff rows.
 
 ## Reproducible checks
 
@@ -354,11 +356,12 @@ For global open source medical AI evaluation, this public preview gives:
 63. Reviewer question maintainer audit trail packet for public preview audit tracing without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 64. Reviewer question maintainer release candidate summary for public preview candidate review without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 65. Reviewer question maintainer public preview decision log for public preview decisions without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+66. Reviewer question maintainer public preview handoff summary for public preview reviewer actions without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview handoff summary without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview closure checklist without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

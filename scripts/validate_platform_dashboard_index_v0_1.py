@@ -83,6 +83,7 @@ REQUIRED_PHRASES = [
     "5 reviewer question maintainer audit trail packet rows",
     "5 reviewer question maintainer release candidate summary rows",
     "5 reviewer question maintainer public preview decision rows",
+    "5 reviewer question maintainer public preview handoff rows",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -125,6 +126,7 @@ REQUIRED_PHRASES = [
     "make reviewer_question_maintainer_audit_trail_packet",
     "make reviewer_question_maintainer_release_candidate_summary",
     "make reviewer_question_maintainer_public_preview_decision_log",
+    "make reviewer_question_maintainer_public_preview_handoff_summary",
     "make sourcecheckup_public_issue",
     "make sourcecheckup_expansion_dashboard",
     "make clinician_literacy_map",
@@ -183,7 +185,8 @@ REQUIRED_PHRASES = [
     "Reviewer question maintainer audit trail packet",
     "Reviewer question maintainer release candidate summary",
     "Reviewer question maintainer public preview decision log",
-    "Add a reviewer question maintainer public preview handoff summary without scoring or compatibility claims",
+    "Reviewer question maintainer public preview handoff summary",
+    "Add a reviewer question maintainer public preview closure checklist without scoring or compatibility claims",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -231,6 +234,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/reviewer_question_maintainer_release_candidate_summary_v0_1.json",
     "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md",
     "docs/reviewer_question_maintainer_public_preview_decision_log_v0_1.json",
+    "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md",
+    "docs/reviewer_question_maintainer_public_preview_handoff_summary_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",

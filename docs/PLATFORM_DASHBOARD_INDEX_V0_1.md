@@ -79,6 +79,7 @@ They remain issue template intake fields without scoring or compatibility claims
 63. 5 reviewer question maintainer audit trail packet rows.
 64. 5 reviewer question maintainer release candidate summary rows.
 65. 5 reviewer question maintainer public preview decision rows.
+66. 5 reviewer question maintainer public preview handoff rows.
 
 ## Top public entry files
 
@@ -128,6 +129,8 @@ They remain issue template intake fields without scoring or compatibility claims
 44. [Reviewer question maintainer release candidate summary JSON](reviewer_question_maintainer_release_candidate_summary_v0_1.json)
 45. [Reviewer question maintainer public preview decision log](REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md)
 46. [Reviewer question maintainer public preview decision log JSON](reviewer_question_maintainer_public_preview_decision_log_v0_1.json)
+47. [Reviewer question maintainer public preview handoff summary](REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
+48. [Reviewer question maintainer public preview handoff summary JSON](reviewer_question_maintainer_public_preview_handoff_summary_v0_1.json)
 
 ## Platform map
 
@@ -259,13 +262,14 @@ make reviewer_question_maintainer_evidence_map
 make reviewer_question_maintainer_audit_trail_packet
 make reviewer_question_maintainer_release_candidate_summary
 make reviewer_question_maintainer_public_preview_decision_log
+make reviewer_question_maintainer_public_preview_handoff_summary
 ```
 
 Track A value: source material for Turkish health AI risk education and assurance gates, including benchmark style reviewer questions for escalation, medication safety, missing context, and warning sign visibility.
 
-Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion with reviewer questions, issue template intake fields, intake examples, maintainer triage, public wording decisions, release gates, gate outcome rows, a release packet, public changelog, public release index, contributor digest, maintainer handoff notes, maintainer closeout digest, maintainer release readiness digest, maintainer evidence map, maintainer audit trail packet, maintainer release candidate summary, and maintainer public preview decision log that do not add scores or compatibility claims.
+Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion with reviewer questions, issue template intake fields, intake examples, maintainer triage, public wording decisions, release gates, gate outcome rows, a release packet, public changelog, public release index, contributor digest, maintainer handoff notes, maintainer closeout digest, maintainer release readiness digest, maintainer evidence map, maintainer audit trail packet, maintainer release candidate summary, maintainer public preview decision log, and maintainer public preview handoff summary that do not add scores or compatibility claims.
 
-Next build: add a reviewer question maintainer public preview handoff summary without scoring or compatibility claims.
+Next build: add a reviewer question maintainer public preview closure checklist without scoring or compatibility claims.
 
 ### 3. Turkish Clinical AI Assurance Lab
 
@@ -391,13 +395,14 @@ make reviewer_question_maintainer_evidence_map
 make reviewer_question_maintainer_audit_trail_packet
 make reviewer_question_maintainer_release_candidate_summary
 make reviewer_question_maintainer_public_preview_decision_log
+make reviewer_question_maintainer_public_preview_handoff_summary
 ```
 
-Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, benchmark style reviewer questions, intake examples, maintainer triage, wording decisions, release gates, outcome rows, release packet rows, changelog rows, release index rows, contributor digest rows, maintainer handoff rows, maintainer closeout rows, release readiness rows, evidence map rows, audit trail packet rows, release candidate rows, and public preview decision rows for policy wording and source support, and one runnable SourceCheckup path for local review.
+Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, benchmark style reviewer questions, intake examples, maintainer triage, wording decisions, release gates, outcome rows, release packet rows, changelog rows, release index rows, contributor digest rows, maintainer handoff rows, maintainer closeout rows, release readiness rows, evidence map rows, audit trail packet rows, release candidate rows, public preview decision rows, and public preview handoff rows for policy wording and source support, and one runnable SourceCheckup path for local review.
 
-Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, benchmark style reviewer questions, issue template intake fields, intake examples, maintainer triage, wording decisions, release gates, outcome dashboards, release packets, public changelogs, public release indexes, contributor digests, maintainer handoff notes, maintainer closeout digests, release readiness digests, evidence maps, audit trail packets, release candidate summaries, and public preview decision logs without scoring or compatibility claims.
+Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, benchmark style reviewer questions, issue template intake fields, intake examples, maintainer triage, wording decisions, release gates, outcome dashboards, release packets, public changelogs, public release indexes, contributor digests, maintainer handoff notes, maintainer closeout digests, release readiness digests, evidence maps, audit trail packets, release candidate summaries, public preview decision logs, and public preview handoff summaries without scoring or compatibility claims.
 
-Next build: add a reviewer question maintainer public preview handoff summary without scoring or compatibility claims.
+Next build: add a reviewer question maintainer public preview closure checklist without scoring or compatibility claims.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 
