@@ -1,0 +1,73 @@
+{
+  "closeout_decision": "ready_for_public_preview",
+  "closeout_row_count": 5,
+  "contains_patient_data": false,
+  "contributor_digest_rows_represented": 5,
+  "date": "2026 06 17",
+  "handoff_rows_represented": 5,
+  "issue_history_rows_represented": 11,
+  "maintainer_review_scope": "current public preview route only",
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_endpoint_result": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "no_score_report": true,
+  "not_for_clinical_use": true,
+  "previous_public_issue_number": 56,
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_action": "record that proposed reviewer question contributions stay synthetic only",
+      "closeout_id": "RQMC001",
+      "closeout_name": "Synthetic scope closeout",
+      "closeout_state": "current_preview_closed",
+      "closeout_status": "included_in_public_maintainer_closeout_digest",
+      "evidence_file": "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_action": "record that the contribution maps to a public reviewer question lane",
+      "closeout_id": "RQMC002",
+      "closeout_name": "Reviewer question fit closeout",
+      "closeout_state": "current_preview_closed",
+      "closeout_status": "included_in_public_maintainer_closeout_digest",
+      "evidence_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_action": "record owner role, review state, and public wording decision",
+      "closeout_id": "RQMC003",
+      "closeout_name": "Intake route closeout",
+      "closeout_state": "current_preview_closed",
+      "closeout_status": "included_in_public_maintainer_closeout_digest",
+      "evidence_file": "docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_action": "record that blocked public wording remains excluded",
+      "closeout_id": "RQMC004",
+      "closeout_name": "Blocked wording closeout",
+      "closeout_state": "current_preview_closed",
+      "closeout_status": "included_in_public_maintainer_closeout_digest",
+      "evidence_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_action": "run make reviewer_question_maintainer_closeout_digest before public issue closure",
+      "closeout_id": "RQMC005",
+      "closeout_name": "Validation closeout",
+      "closeout_state": "current_preview_closed",
+      "closeout_status": "included_in_public_maintainer_closeout_digest",
+      "evidence_file": "Makefile"
+    }
+  ],
+  "source": "docs/reviewer_question_maintainer_handoff_notes_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "reviewer_question_maintainer_closeout_digest_v0_1"
+}
