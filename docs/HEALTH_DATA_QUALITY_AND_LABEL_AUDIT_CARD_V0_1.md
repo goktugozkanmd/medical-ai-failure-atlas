@@ -235,6 +235,26 @@ Run:
 make label_audit_wording_log
 ```
 
+## Label audit release gate checklist
+
+Current release gate checklist:
+
+`docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md`
+
+Machine readable release gate source:
+
+`docs/label_audit/label_audit_release_gate_checklist_v0_1.json`
+
+Release gate rows: 5.
+
+The checklist converts wording decisions into required pass or block states for synthetic provenance, label definition review, pilot subset scope, raw output release, and dataset quality proof boundaries. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_release_gates
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

@@ -40,6 +40,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 28. Label audit example dashboard v0.1.
 29. Label audit maintainer triage board v0.1.
 30. Label audit public wording decision log v0.1.
+31. Label audit release gate checklist v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -72,7 +73,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 25. 5 label audit example dashboard rows.
 26. 5 label audit maintainer triage rows.
 27. 5 label audit public wording decision rows.
-28. 3 red flag source locator contributor examples.
+28. 5 label audit release gate rows.
+29. 3 red flag source locator contributor examples.
 
 ## Reproducible checks
 
@@ -103,6 +105,7 @@ make label_audit_examples
 make label_audit_dashboard
 make label_audit_triage
 make label_audit_wording_log
+make label_audit_release_gates
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -142,6 +145,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 24. Compact label audit example dashboard that summarizes role, audit row, review state, and blocked public claim type.
 25. Label audit maintainer triage board that turns dashboard rows into maintainer actions and public wording decisions.
 26. Label audit public wording decision log that records blocked wording and proposed public wording.
+27. Label audit release gate checklist that converts wording decisions into pass or block release states.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -176,11 +180,12 @@ For global open source medical AI evaluation, this public preview gives:
 25. Label audit example dashboard that makes blocked public claim types visible for reusable open source review.
 26. Label audit maintainer triage board that maps blocked claim types to owner roles and next public wording decisions.
 27. Label audit public wording decision log that makes safe public phrasing inspectable for future contributors.
+28. Label audit release gate checklist that makes public release decisions reproducible for synthetic dataset review.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Label audit release gate checklist after maintainer wording review.
+1. Public release gate outcome dashboard after maintainer review.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

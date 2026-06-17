@@ -60,6 +60,8 @@ REQUIRED_FILES = [
     "docs/label_audit/label_audit_maintainer_triage_board_v0_1.json",
     "docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
     "docs/label_audit/label_audit_public_wording_decision_log_v0_1.json",
+    "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md",
+    "docs/label_audit/label_audit_release_gate_checklist_v0_1.json",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -118,6 +120,8 @@ REQUIRED_FILES = [
     "scripts/validate_label_audit_maintainer_triage_board_v0_1.py",
     "scripts/generate_label_audit_public_wording_decision_log_v0_1.py",
     "scripts/validate_label_audit_public_wording_decision_log_v0_1.py",
+    "scripts/generate_label_audit_release_gate_checklist_v0_1.py",
+    "scripts/validate_label_audit_release_gate_checklist_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -334,6 +338,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the label audit public wording decision log")
         if "make label_audit_wording_log" not in readme_text:
             fail(errors, "README must document the label audit public wording decision command")
+        if "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the label audit release gate checklist")
+        if "make label_audit_release_gates" not in readme_text:
+            fail(errors, "README must document the label audit release gate checklist command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

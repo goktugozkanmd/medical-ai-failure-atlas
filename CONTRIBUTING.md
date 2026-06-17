@@ -97,3 +97,11 @@ Run:
 ```bash
 make label_audit_wording_log
 ```
+
+The release gate checklist is available at `docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_release_gates
+```
