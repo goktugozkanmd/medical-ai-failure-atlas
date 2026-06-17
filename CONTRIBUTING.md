@@ -121,3 +121,11 @@ Run:
 ```bash
 make label_audit_release_packet
 ```
+
+The public changelog is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_changelog
+```

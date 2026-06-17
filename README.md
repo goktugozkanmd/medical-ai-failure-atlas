@@ -49,6 +49,7 @@ New visible build surfaces are now staged in this public repository:
 39. [Label audit release gate checklist v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md)
 40. [Label audit release gate outcome dashboard v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md)
 41. [Label audit release note packet v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md)
+42. [Label audit public changelog v0.1](docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -305,6 +306,12 @@ Generate the label audit release note packet:
 make label_audit_release_packet
 ```
 
+Generate the label audit public changelog:
+
+```bash
+make label_audit_changelog
+```
+
 Validate the SourceCheckup public contributor issue route:
 
 ```bash
@@ -387,6 +394,8 @@ docs/
     label_audit_release_gate_outcome_dashboard_v0_1.json
     LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md
     label_audit_release_note_packet_v0_1.json
+    LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md
+    label_audit_public_changelog_v0_1.json
 sourcecheckup/
   build/
     source_claim_example_expansion_v0_2.md

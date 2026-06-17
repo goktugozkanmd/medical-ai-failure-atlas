@@ -295,6 +295,26 @@ Run:
 make label_audit_release_packet
 ```
 
+## Label audit public changelog
+
+Current public changelog:
+
+`docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md`
+
+Machine readable changelog source:
+
+`docs/label_audit/label_audit_public_changelog_v0_1.json`
+
+Change rows: 8.
+
+The changelog records the chronological maintainer sequence for the contributor route, intake rows, dashboard, triage board, wording log, release gate checklist, outcome dashboard, and release note packet. It does not approve dataset quality, clinical readiness, clinical validation, model safety, or formal approval.
+
+Run:
+
+```bash
+make label_audit_changelog
+```
+
 ## Maintenance owner
 
 Maintainer: Dr. Goktug Ozkan, Internal Medicine Specialist.

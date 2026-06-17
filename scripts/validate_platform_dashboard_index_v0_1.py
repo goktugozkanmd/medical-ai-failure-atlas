@@ -45,6 +45,7 @@ REQUIRED_PHRASES = [
     "5 label audit release gate rows",
     "5 label audit release gate outcome rows",
     "7 label audit release note packet rows",
+    "8 label audit public changelog rows",
     "3 red flag source locator contributor examples",
     "not clinical advice",
     "not patient data",
@@ -81,6 +82,7 @@ REQUIRED_PHRASES = [
     "make label_audit_release_gates",
     "make label_audit_outcome_dashboard",
     "make label_audit_release_packet",
+    "make label_audit_changelog",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -142,6 +144,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/label_audit/label_audit_release_gate_outcome_dashboard_v0_1.json",
     "docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md",
     "docs/label_audit/label_audit_release_note_packet_v0_1.json",
+    "docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md",
+    "docs/label_audit/label_audit_public_changelog_v0_1.json",
     ".github/ISSUE_TEMPLATE/label_audit_review.yml",
     "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
     "DATA_DICTIONARY.md",

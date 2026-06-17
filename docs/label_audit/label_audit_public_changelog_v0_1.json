@@ -1,0 +1,102 @@
+{
+  "change_row_count": 8,
+  "changelog_decision": "ready_for_public_preview",
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "latest_change_id": "LAC008",
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "release_note_packet_rows_represented": 7,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC001",
+      "change_status": "public_preview_added",
+      "date": "2026 06 16",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md",
+      "public_value": "opened a synthetic label audit issue route",
+      "surface_name": "Public contributor route"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC002",
+      "change_status": "public_preview_added",
+      "date": "2026 06 16",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+      "public_value": "added synthetic examples for provenance and label review",
+      "surface_name": "Example intake rows"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC003",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md",
+      "public_value": "summarized intake rows by role and blocked claim type",
+      "surface_name": "Example dashboard"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC004",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md",
+      "public_value": "mapped each dashboard row to a maintainer action",
+      "surface_name": "Maintainer triage board"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC005",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "public_value": "recorded blocked wording and safer public wording",
+      "surface_name": "Public wording decision log"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC006",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md",
+      "public_value": "converted wording decisions into release checks",
+      "surface_name": "Release gate checklist"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC007",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md",
+      "public_value": "summarized current pass and block outcomes",
+      "surface_name": "Release gate outcome dashboard"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "change_id": "LAC008",
+      "change_status": "public_preview_added",
+      "date": "2026 06 17",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md",
+      "public_value": "packaged the label audit route into one public release note surface",
+      "surface_name": "Release note packet"
+    }
+  ],
+  "source": "docs/label_audit/label_audit_release_note_packet_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_public_changelog_v0_1"
+}
