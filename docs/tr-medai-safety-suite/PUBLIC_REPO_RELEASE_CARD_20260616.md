@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds forty four concrete build surfaces:
+This preview adds forty five concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -54,6 +54,7 @@ This preview adds forty four concrete build surfaces:
 42. Reviewer question public wording decision log.
 43. Reviewer question release gate checklist.
 44. Reviewer question release gate outcome dashboard.
+45. Reviewer question public release packet.
 
 ## What This Is
 
@@ -131,7 +132,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 42. [Reviewer question public wording decision log](../REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md)
 43. [Reviewer question release gate checklist](../REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md)
 44. [Reviewer question release gate outcome dashboard](../REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md)
+45. [Reviewer question public release packet](../REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question public release packet without scoring or compatibility claims.
+The next useful public build is a reviewer question public changelog without scoring or compatibility claims.

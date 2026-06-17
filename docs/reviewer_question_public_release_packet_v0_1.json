@@ -1,0 +1,81 @@
+{
+  "artifact": "reviewer_question_public_release_packet_v0_1",
+  "status": "generated public preview",
+  "date": "2026 06 17",
+  "source_artifact": "reviewer_question_release_gate_outcome_dashboard_v0_1",
+  "packet_surface_count": 7,
+  "outcome_row_count": 4,
+  "pass_state_count": 4,
+  "block_state_count": 0,
+  "packet_decision": "ready_for_public_preview",
+  "contains_patient_data": false,
+  "synthetic_examples_only": true,
+  "not_for_clinical_use": true,
+  "no_raw_model_output_release": true,
+  "no_endpoint_result": true,
+  "no_score_report": true,
+  "no_model_ranking": true,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_official_endorsement_claim": true,
+  "rows": [
+    {
+      "surface_id": "RQRLP001",
+      "surface_name": "Benchmark style reviewer questions",
+      "public_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
+      "role": "defines public reviewer questions for source support and safety review",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP002",
+      "surface_name": "Contributor issue template reviewer questions",
+      "public_file": "docs/CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md",
+      "role": "adds reviewer question fields to public intake templates",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP003",
+      "surface_name": "Reviewer question intake examples",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md",
+      "role": "shows synthetic reviewer question intake examples",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP004",
+      "surface_name": "Reviewer question intake triage board",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md",
+      "role": "maps intake examples to maintainer action and owner roles",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP005",
+      "surface_name": "Reviewer question public wording decision log",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "role": "records blocked wording and required public wording",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP006",
+      "surface_name": "Reviewer question release gate checklist",
+      "public_file": "docs/REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md",
+      "role": "turns wording decisions into pass or block checks",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    },
+    {
+      "surface_id": "RQRLP007",
+      "surface_name": "Reviewer question release gate outcome dashboard",
+      "public_file": "docs/REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md",
+      "role": "summarizes current pass and block outcomes",
+      "packet_status": "included_in_public_preview",
+      "next_action": "keep linked public surface current"
+    }
+  ]
+}
