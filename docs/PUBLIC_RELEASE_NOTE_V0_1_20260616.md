@@ -70,6 +70,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 58. Reviewer question public release packet v0.1.
 59. Reviewer question public changelog v0.1.
 60. Reviewer question public release index v0.1.
+61. Reviewer question public contributor digest v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -134,6 +135,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 57. 7 reviewer question public release packet rows.
 58. 8 reviewer question public changelog rows.
 59. 9 reviewer question public release index surface rows.
+60. 10 reviewer question issue history rows.
+61. 5 reviewer question public contributor digest rows.
 
 ## Reproducible checks
 
@@ -188,6 +191,7 @@ make reviewer_question_gate_outcomes
 make reviewer_question_release_packet
 make reviewer_question_changelog
 make reviewer_question_release_index
+make reviewer_question_contributor_digest
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -323,11 +327,12 @@ For global open source medical AI evaluation, this public preview gives:
 55. Reviewer question public release packet for one maintainer facing release surface without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 56. Reviewer question public changelog for maintainer chronology without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 57. Reviewer question public release index for one contributor entry point without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+58. Reviewer question public contributor digest for compact contributor orientation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question public contributor digest without scoring or compatibility claims.
+1. Add a reviewer question maintainer handoff note without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

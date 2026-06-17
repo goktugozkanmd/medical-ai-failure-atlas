@@ -137,7 +137,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 45. [Reviewer question public release packet](../REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md)
 46. [Reviewer question public changelog](../REVIEWER_QUESTION_PUBLIC_CHANGELOG_V0_1.md)
 47. [Reviewer question public release index](../REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md)
+48. [Reviewer question public contributor digest](../REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question public contributor digest without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer handoff note without scoring or compatibility claims.

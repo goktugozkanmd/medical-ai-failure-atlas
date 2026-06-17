@@ -79,6 +79,7 @@ ISSUE_HISTORY = [
     (51, "Roadmap: reviewer question gate outcome dashboard", "reviewer questions", "gate outcome dashboard added"),
     (52, "Roadmap: reviewer question public release packet", "reviewer questions", "public release packet added"),
     (53, "Roadmap: reviewer question public changelog", "reviewer questions", "public changelog added"),
+    (54, "Roadmap: reviewer question public release index", "reviewer questions", "public release index added"),
 ]
 
 
@@ -208,7 +209,7 @@ def main() -> int:
             "",
             "## Next safe public action",
             "",
-            "Add a reviewer question public contributor digest without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.",
+            "Add a reviewer question maintainer handoff note without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.",
             "",
         ]
     )

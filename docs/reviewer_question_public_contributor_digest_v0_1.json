@@ -1,0 +1,64 @@
+{
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "digest_decision": "ready_for_public_preview",
+  "digest_step_count": 5,
+  "issue_history_rows_represented": 10,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_endpoint_result": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "no_score_report": true,
+  "not_for_clinical_use": true,
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "contributor_action": "start from the public route index",
+      "digest_status": "included_in_public_contributor_digest",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md",
+      "step_id": "RQCD001",
+      "step_name": "Read the reviewer question release index"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "contributor_action": "select a source support, escalation, medication safety, missing context, policy wording, or warning sign question",
+      "digest_status": "included_in_public_contributor_digest",
+      "public_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
+      "step_id": "RQCD002",
+      "step_name": "Choose the matching reviewer question surface"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "contributor_action": "match the proposed contribution to a synthetic intake example",
+      "digest_status": "included_in_public_contributor_digest",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md",
+      "step_id": "RQCD003",
+      "step_name": "Match an intake example"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "contributor_action": "avoid score, compatibility, endpoint, patient data, clinical validation, and endorsement wording",
+      "digest_status": "included_in_public_contributor_digest",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "step_id": "RQCD004",
+      "step_name": "Check wording boundaries"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "contributor_action": "run make reviewer_question_release_index before opening or updating an issue",
+      "digest_status": "included_in_public_contributor_digest",
+      "public_file": "Makefile",
+      "step_id": "RQCD005",
+      "step_name": "Run the release index check"
+    }
+  ],
+  "source": "docs/reviewer_question_public_release_index_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "reviewer_question_public_contributor_digest_v0_1"
+}

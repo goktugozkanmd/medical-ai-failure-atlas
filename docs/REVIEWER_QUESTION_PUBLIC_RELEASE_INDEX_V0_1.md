@@ -12,7 +12,7 @@ It is not clinical advice, not patient data, not raw model output release, not c
 
 Index surface rows: 9
 
-Issue history rows: 9
+Issue history rows: 10
 
 Release packet rows represented: 7
 
@@ -222,6 +222,16 @@ Public label: reviewer questions
 
 Public value: public changelog added
 
+### Issue 54
+
+Title: Roadmap: reviewer question public release index
+
+State: closed
+
+Public label: reviewer questions
+
+Public value: public release index added
+
 ## Runnable check
 
 Run:
@@ -232,4 +242,4 @@ make reviewer_question_release_index
 
 ## Next safe public action
 
-Add a reviewer question public contributor digest without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
+Add a reviewer question maintainer handoff note without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
