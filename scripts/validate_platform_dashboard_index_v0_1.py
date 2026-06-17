@@ -62,6 +62,7 @@ REQUIRED_PHRASES = [
     "5 BİLGE readiness queue rows",
     "5 TÜBİTAK 1711 collaboration readiness packet rows",
     "5 SourceCheckup Turkish institutional wording examples",
+    "6 SourceCheckup repo run guide rows",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -84,6 +85,7 @@ REQUIRED_PHRASES = [
     "make warning_sign_role_table",
     "make red_flag_contributor_examples",
     "make sourcecheckup_turkish_institutional_wording",
+    "make sourcecheckup_repo_run_guide",
     "make sourcecheckup_public_issue",
     "make sourcecheckup_expansion_dashboard",
     "make clinician_literacy_map",
@@ -120,7 +122,8 @@ REQUIRED_PHRASES = [
     "no submission claim",
     "SourceCheckup Turkish institutional wording examples",
     "without endorsement or route access claims",
-    "make SourceCheckup Medical easier to run",
+    "one runnable SourceCheckup path",
+    "HealthBench and MedHELM mapping note with no compatibility claim",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -162,6 +165,9 @@ REQUIRED_LINK_TARGETS = [
     "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md",
     "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md",
     "docs/sourcecheckup/sourcecheckup_turkish_institutional_wording_examples_v0_1.json",
+    "docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md",
+    "docs/sourcecheckup/sourcecheckup_repo_run_guide_v0_1.json",
+    "docs/sourcecheckup/sourcecheckup_repo_doctor_v0_1.json",
     "sourcecheckup/build/sourcecheckup_seed_report.md",
     "sourcecheckup/build/source_surface_examples_v0_2_report.md",
     "sourcecheckup/build/source_claim_example_expansion_v0_2.md",

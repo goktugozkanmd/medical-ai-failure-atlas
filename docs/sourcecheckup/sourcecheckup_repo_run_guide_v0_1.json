@@ -1,0 +1,49 @@
+{
+  "version": "sourcecheckup_repo_run_guide_v0_1",
+  "status": "public_preview",
+  "date": "2026 06 17",
+  "row_count": 6,
+  "contains_patient_data": false,
+  "not_for_clinical_use": true,
+  "no_external_calls": true,
+  "no_model_calls": true,
+  "no_source_truth_certification": true,
+  "rows": [
+    {
+      "row_id": "SCRUN001",
+      "step": "basic source scan",
+      "command": "make sourcecheckup",
+      "checks": "seed examples and report generation"
+    },
+    {
+      "row_id": "SCRUN002",
+      "step": "expanded example scan",
+      "command": "make sourcecheckup_v02",
+      "checks": "ten public source surface examples"
+    },
+    {
+      "row_id": "SCRUN003",
+      "step": "review queue check",
+      "command": "make source_claim_queue",
+      "checks": "twelve source claim review rows"
+    },
+    {
+      "row_id": "SCRUN004",
+      "step": "expansion dashboard check",
+      "command": "make sourcecheckup_expansion_dashboard",
+      "checks": "public expansion dashboard and queue surface"
+    },
+    {
+      "row_id": "SCRUN005",
+      "step": "institutional wording check",
+      "command": "make sourcecheckup_turkish_institutional_wording",
+      "checks": "five Turkish institutional wording examples"
+    },
+    {
+      "row_id": "SCRUN006",
+      "step": "repo doctor check",
+      "command": "make sourcecheckup_repo_run_guide",
+      "checks": "required files and row counts"
+    }
+  ]
+}

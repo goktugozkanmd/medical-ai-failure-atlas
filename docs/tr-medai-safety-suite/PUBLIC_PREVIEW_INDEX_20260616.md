@@ -43,6 +43,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 33. `BILGE_READINESS_QUEUE_V0_1.md` records BİLGE readiness rows with no access claim, no score claim, and no endorsement claim.
 34. `TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md` records TÜBİTAK 1711 collaboration readiness rows with no submission claim and no endorsement claim.
 35. `../sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md` records Turkish institutional wording examples that block endorsement, route access, submission, deployment, and validation claims.
+36. `../sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md` gives one runnable SourceCheckup path with doctor checks for required files and row counts.
 
 ## What This Preview Is
 
@@ -74,9 +75,8 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Make SourceCheckup Medical easier to run from this repository.
-2. Add a HealthBench and MedHELM mapping note with no compatibility claim.
-3. Add a compact public failure mode taxonomy page.
-4. Add a public contributor path for synthetic failure cases.
-5. Add a no patient data review checklist.
-6. Add a model run template that stays disabled unless endpoint terms and cost are explicitly cleared.
+1. Add a HealthBench and MedHELM mapping note with no compatibility claim.
+2. Add a compact public failure mode taxonomy page.
+3. Add a public contributor path for synthetic failure cases.
+4. Add a no patient data review checklist.
+5. Add a model run template that stays disabled unless endpoint terms and cost are explicitly cleared.

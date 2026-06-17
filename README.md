@@ -64,6 +64,7 @@ New visible build surfaces are now staged in this public repository:
 54. [BİLGE readiness queue v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
 55. [TÜBİTAK 1711 collaboration readiness packet v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
 56. [SourceCheckup Turkish institutional wording examples v0.1](docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
+57. [SourceCheckup repo run guide v0.1](docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -264,6 +265,12 @@ Generate the SourceCheckup Turkish institutional wording examples:
 
 ```bash
 make sourcecheckup_turkish_institutional_wording
+```
+
+Run the SourceCheckup repo doctor and run guide:
+
+```bash
+make sourcecheckup_repo_run_guide
 ```
 
 Generate the warning sign reviewer role table:
@@ -482,6 +489,9 @@ docs/
     RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md
     SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md
     sourcecheckup_turkish_institutional_wording_examples_v0_1.json
+    SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md
+    sourcecheckup_repo_run_guide_v0_1.json
+    sourcecheckup_repo_doctor_v0_1.json
   label_audit/
     PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md
     LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md
@@ -543,6 +553,9 @@ scripts/
   validate_red_flag_contributor_examples_v0_1.py
   generate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
   validate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
+  sourcecheckup_repo_doctor_v0_1.py
+  generate_sourcecheckup_repo_run_guide_v0_1.py
+  validate_sourcecheckup_repo_run_guide_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py

@@ -1,0 +1,85 @@
+{
+  "version": "sourcecheckup_repo_doctor_v0_1",
+  "status": "pass",
+  "date": "2026 06 17",
+  "required_file_count": 10,
+  "jsonl_count_checks": 4,
+  "recommended_commands": [
+    "make sourcecheckup",
+    "make sourcecheckup_v02",
+    "make source_claim_queue",
+    "make sourcecheckup_expansion_dashboard",
+    "make sourcecheckup_turkish_institutional_wording"
+  ],
+  "contains_patient_data": false,
+  "not_for_clinical_use": true,
+  "no_external_calls": true,
+  "no_model_calls": true,
+  "checks": [
+    {
+      "path": "scripts/sourcecheckup_medical.py",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/README.md",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/schemas/sourcecheckup_input_schema_v0_1.json",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/examples/sourcecheckup_seed_answers.jsonl",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/examples/source_surface_examples_v0_2.jsonl",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/examples/sourcecheckup_contribution_examples_v0_2.jsonl",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/review_queue/source_claim_review_queue_v0_1.jsonl",
+      "exists": true
+    },
+    {
+      "path": "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md",
+      "exists": true
+    },
+    {
+      "path": "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/build/source_claim_example_expansion_v0_2.md",
+      "exists": true
+    },
+    {
+      "path": "sourcecheckup/examples/sourcecheckup_seed_answers.jsonl",
+      "expected_rows": 4,
+      "actual_rows": 4,
+      "ok": true
+    },
+    {
+      "path": "sourcecheckup/examples/source_surface_examples_v0_2.jsonl",
+      "expected_rows": 10,
+      "actual_rows": 10,
+      "ok": true
+    },
+    {
+      "path": "sourcecheckup/examples/sourcecheckup_contribution_examples_v0_2.jsonl",
+      "expected_rows": 11,
+      "actual_rows": 11,
+      "ok": true
+    },
+    {
+      "path": "sourcecheckup/review_queue/source_claim_review_queue_v0_1.jsonl",
+      "expected_rows": 12,
+      "actual_rows": 12,
+      "ok": true
+    }
+  ],
+  "errors": []
+}

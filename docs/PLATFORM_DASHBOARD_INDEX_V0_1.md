@@ -54,6 +54,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 42. 5 BİLGE readiness queue rows.
 43. 5 TÜBİTAK 1711 collaboration readiness packet rows.
 44. 5 SourceCheckup Turkish institutional wording examples.
+45. 6 SourceCheckup repo run guide rows.
 
 ## Top public entry files
 
@@ -193,7 +194,10 @@ Public files:
 12. [Red flag source locator contributor examples](sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md)
 13. [SourceCheckup Turkish institutional wording examples](sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
 14. [SourceCheckup Turkish institutional wording JSON](sourcecheckup/sourcecheckup_turkish_institutional_wording_examples_v0_1.json)
-15. [Warning sign reviewer role table](../docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
+15. [SourceCheckup repo run guide](sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md)
+16. [SourceCheckup repo run guide JSON](sourcecheckup/sourcecheckup_repo_run_guide_v0_1.json)
+17. [SourceCheckup repo doctor JSON](sourcecheckup/sourcecheckup_repo_doctor_v0_1.json)
+18. [Warning sign reviewer role table](../docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
 
 Runnable checks:
 
@@ -208,15 +212,16 @@ make source_review_worksheets
 make red_flag_warning_checklist
 make red_flag_contributor_examples
 make sourcecheckup_turkish_institutional_wording
+make sourcecheckup_repo_run_guide
 make warning_sign_role_table
 make source_claim_queue
 ```
 
-Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, and Turkish institutional wording without endorsement or route access claims.
+Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, and one runnable SourceCheckup path for local review.
 
-Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, and public institutional wording gates.
+Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, and contributor onboarding.
 
-Next build: make SourceCheckup Medical easier to run from this repository.
+Next build: add a HealthBench and MedHELM mapping note with no compatibility claim.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 
