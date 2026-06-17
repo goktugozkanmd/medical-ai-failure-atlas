@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds thirty seven concrete build surfaces:
+This preview adds thirty eight concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -47,6 +47,7 @@ This preview adds thirty seven concrete build surfaces:
 35. SourceCheckup Turkish institutional wording examples.
 36. SourceCheckup repo run guide.
 37. HealthBench and MedHELM mapping note.
+38. Benchmark style reviewer questions.
 
 ## What This Is
 
@@ -117,7 +118,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 35. [SourceCheckup Turkish institutional wording examples](../sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
 36. [SourceCheckup repo run guide](../sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md)
 37. [HealthBench and MedHELM mapping note](../HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md)
+38. [Benchmark style reviewer questions](../BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is benchmark style reviewer questions without scoring or compatibility claims.
+The next useful public build is contributor issue template expansion for benchmark style reviewer questions without scoring or compatibility claims.

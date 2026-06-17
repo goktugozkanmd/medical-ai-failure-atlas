@@ -66,6 +66,7 @@ New visible build surfaces are now staged in this public repository:
 56. [SourceCheckup Turkish institutional wording examples v0.1](docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
 57. [SourceCheckup repo run guide v0.1](docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md)
 58. [HealthBench and MedHELM mapping note v0.1](docs/HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md)
+59. [Benchmark style reviewer questions v0.1](docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -92,6 +93,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 13. Scripts for validation, model capture, scoring dry run, benchmark report generation, and public candidate sanitation.
 14. A 14 row Turkish synthetic risk pack with specialty spread rows across cardiology, endocrinology, nephrology, infectious diseases, geriatrics, and pregnancy medication safety.
 15. A HealthBench and MedHELM oriented mapping note that blocks compatibility, ranking, validation, deployment, and endorsement claims.
+16. A benchmark style reviewer question set that links SourceCheckup and Failure Atlas rows to review questions without scoring or compatibility claims.
 
 ## What this is
 
@@ -225,6 +227,12 @@ Generate the HealthBench and MedHELM mapping note:
 
 ```bash
 make healthbench_medhelm_mapping
+```
+
+Generate the benchmark style reviewer questions:
+
+```bash
+make benchmark_reviewer_questions
 ```
 
 Validate the assurance card template:

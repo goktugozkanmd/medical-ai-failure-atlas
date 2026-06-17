@@ -64,6 +64,7 @@ REQUIRED_PHRASES = [
     "5 SourceCheckup Turkish institutional wording examples",
     "6 SourceCheckup repo run guide rows",
     "6 HealthBench and MedHELM mapping rows",
+    "8 benchmark style reviewer question rows",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -88,6 +89,7 @@ REQUIRED_PHRASES = [
     "make sourcecheckup_turkish_institutional_wording",
     "make sourcecheckup_repo_run_guide",
     "make healthbench_medhelm_mapping",
+    "make benchmark_reviewer_questions",
     "make sourcecheckup_public_issue",
     "make sourcecheckup_expansion_dashboard",
     "make clinician_literacy_map",
@@ -127,6 +129,8 @@ REQUIRED_PHRASES = [
     "one runnable SourceCheckup path",
     "HealthBench and MedHELM mapping note",
     "benchmark style reviewer questions without scoring or compatibility claims",
+    "source support, escalation, medication safety, missing context, policy wording, and warning sign visibility",
+    "expand contributor issue templates to accept benchmark style reviewer question rows without scoring or compatibility claims",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -139,6 +143,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/tr-medai-safety-suite/tubitak_1711_collaboration_readiness_packet_v0_1.json",
     "docs/HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md",
     "docs/healthbench_medhelm_mapping_note_v0_1.json",
+    "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
+    "docs/benchmark_style_reviewer_questions_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",

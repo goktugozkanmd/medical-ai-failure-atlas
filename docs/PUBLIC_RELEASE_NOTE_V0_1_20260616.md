@@ -60,6 +60,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 48. SourceCheckup Turkish institutional wording examples v0.1.
 49. SourceCheckup repo run guide v0.1.
 50. HealthBench and MedHELM mapping note v0.1.
+51. Benchmark style reviewer questions v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -114,6 +115,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 47. 5 SourceCheckup Turkish institutional wording examples.
 48. 6 SourceCheckup repo run guide rows.
 49. 6 HealthBench and MedHELM mapping rows.
+50. 8 benchmark style reviewer question rows.
 
 ## Reproducible checks
 
@@ -158,6 +160,7 @@ make tubitak_1711_readiness_packet
 make sourcecheckup_turkish_institutional_wording
 make sourcecheckup_repo_run_guide
 make healthbench_medhelm_mapping
+make benchmark_reviewer_questions
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -217,6 +220,9 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 44. SourceCheckup Turkish institutional wording examples that block endorsement, route access, submission, deployment, and validation wording.
 45. SourceCheckup repo run guide that gives one runnable path and doctor checks for required files and row counts.
 46. HealthBench and MedHELM mapping note that connects six local public surfaces to source anchored benchmark vocabulary without compatibility, ranking, validation, deployment, or endorsement claims.
+47. Benchmark style reviewer questions that turn SourceCheckup and Failure Atlas rows into public questions for source support, escalation, medication safety, missing context, policy wording, and warning sign visibility without scoring or compatibility claims.
+
+These are benchmark style reviewer questions without scoring or compatibility claims.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -271,11 +277,12 @@ For global open source medical AI evaluation, this public preview gives:
 45. SourceCheckup Turkish institutional wording examples for public institutional wording without endorsement, route access, submission, deployment, or validation claims.
 46. SourceCheckup repo run guide for contributor onboarding without external calls, model calls, patient data, source truth certification, or clinical validation claims.
 47. HealthBench and MedHELM mapping note for benchmark maintainer readability without compatibility, equivalence, ranking, score, clinical deployment, clinical validation, or endorsement claims.
+48. Benchmark style reviewer questions for public contributor review without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add benchmark style reviewer questions without scoring or compatibility claims.
+1. Expand contributor issue templates to accept benchmark style reviewer question rows without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

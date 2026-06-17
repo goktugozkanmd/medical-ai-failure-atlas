@@ -56,6 +56,7 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 44. 5 SourceCheckup Turkish institutional wording examples.
 45. 6 SourceCheckup repo run guide rows.
 46. 6 HealthBench and MedHELM mapping rows.
+47. 8 benchmark style reviewer question rows.
 
 ## Top public entry files
 
@@ -70,6 +71,8 @@ It uses synthetic examples only. It is not clinical advice, not patient data, no
 9. [TÜBİTAK 1711 collaboration readiness packet JSON](tr%2Dmedai%2Dsafety%2Dsuite/tubitak_1711_collaboration_readiness_packet_v0_1.json)
 10. [HealthBench and MedHELM mapping note](HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md)
 11. [HealthBench and MedHELM mapping JSON](healthbench_medhelm_mapping_note_v0_1.json)
+12. [Benchmark style reviewer questions](BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
+13. [Benchmark style reviewer questions JSON](benchmark_style_reviewer_questions_v0_1.json)
 
 ## Platform map
 
@@ -85,10 +88,12 @@ Public files:
 4. [Failure Atlas taxonomy dashboard](../failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
 5. [Clinician review queue](../failure_atlas/public/build/clinician_review_queue_v0_1.md)
 6. [SourceCheckup TR MedLLM assurance routing map](SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
-7. [BİLGE readiness queue](tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
-8. [BİLGE readiness queue JSON](tr%2Dmedai%2Dsafety%2Dsuite/bilge_readiness_queue_v0_1.json)
-9. [TÜBİTAK 1711 collaboration readiness packet](tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
-10. [TÜBİTAK 1711 collaboration readiness packet JSON](tr%2Dmedai%2Dsafety%2Dsuite/tubitak_1711_collaboration_readiness_packet_v0_1.json)
+7. [Benchmark style reviewer questions](BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
+8. [Benchmark style reviewer questions JSON](benchmark_style_reviewer_questions_v0_1.json)
+9. [BİLGE readiness queue](tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
+10. [BİLGE readiness queue JSON](tr%2Dmedai%2Dsafety%2Dsuite/bilge_readiness_queue_v0_1.json)
+11. [TÜBİTAK 1711 collaboration readiness packet](tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
+12. [TÜBİTAK 1711 collaboration readiness packet JSON](tr%2Dmedai%2Dsafety%2Dsuite/tubitak_1711_collaboration_readiness_packet_v0_1.json)
 
 Runnable checks:
 
@@ -97,17 +102,18 @@ make tr_medllm_pack
 make tr_medllm_specialty_spread
 make tr_medllm_specialty_dashboard
 make sourcecheckup_tr_medllm_routing
+make benchmark_reviewer_questions
 make bilge_readiness_queue
 make tubitak_1711_readiness_packet
 make taxonomy_dashboard
 make clinician_review_queue
 ```
 
-Track A value: Turkish clinician led evaluation material for national health AI safety, clinician literacy, assurance review, BİLGE readiness with no access claim, no score claim, and no endorsement claim, and TÜBİTAK 1711 collaboration readiness with no submission claim.
+Track A value: Turkish clinician led evaluation material for national health AI safety, clinician literacy, assurance review, benchmark style reviewer questions for source support, escalation, medication safety, missing context, policy wording, and warning sign visibility, BİLGE readiness with no access claim, no score claim, and no endorsement claim, and TÜBİTAK 1711 collaboration readiness with no submission claim.
 
-Track B value: reusable multilingual safety benchmark seed, no access readiness queue pattern, and collaboration readiness packet pattern for global medical AI evaluation without model ranking claims.
+Track B value: reusable multilingual safety benchmark seed, public reviewer questions without scoring or compatibility claims, no access readiness queue pattern, and collaboration readiness packet pattern for global medical AI evaluation without model ranking claims.
 
-Next build: SourceCheckup Turkish institutional wording examples.
+Next build: expand contributor issue templates to accept benchmark style reviewer question rows without scoring or compatibility claims.
 
 ### 2. Medical AI Failure Atlas Global
 
@@ -121,6 +127,8 @@ Public files:
 4. [Case intake report](../failure_atlas/public/build/case_intake_report_v0_1.md)
 5. [Taxonomy dashboard](../failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
 6. [No ranking synthetic report](../leaderboard/build/synthetic_report_v0_1.md)
+7. [Benchmark style reviewer questions](BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
+8. [Benchmark style reviewer questions JSON](benchmark_style_reviewer_questions_v0_1.json)
 
 Runnable checks:
 
@@ -129,13 +137,14 @@ make case_intake
 make taxonomy_dashboard
 make clinician_review_queue
 make leaderboard_report
+make benchmark_reviewer_questions
 ```
 
-Track A value: source material for Turkish health AI risk education and assurance gates.
+Track A value: source material for Turkish health AI risk education and assurance gates, including benchmark style reviewer questions for escalation, medication safety, missing context, and warning sign visibility.
 
-Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion.
+Track B value: global public taxonomy for medical AI failure pattern review and contributor discussion with reviewer questions that do not add scores or compatibility claims.
 
-Next build: more synthetic failure examples after maintainer review.
+Next build: expand Failure Atlas contributor issue template with reviewer question fields.
 
 ### 3. Turkish Clinical AI Assurance Lab
 
@@ -150,16 +159,18 @@ Public files:
 5. [Medmarks boundary note](MEDMARKS_BOUNDARY_NOTE_V0_1.md)
 6. [HealthBench and MedHELM mapping note](HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md)
 7. [HealthBench and MedHELM mapping JSON](healthbench_medhelm_mapping_note_v0_1.json)
-8. [Assurance release gate example map](ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
-9. [Assurance release gate example JSON](assurance_release_gate_example_map_v0_1.json)
-10. [SourceCheckup TR MedLLM assurance routing map](SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
-11. [SourceCheckup TR MedLLM assurance routing JSON](sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json)
-12. [Source review worksheets](SOURCE_REVIEW_WORKSHEETS_V0_1.md)
-13. [Source review worksheets JSON](source_review_worksheets_v0_1.json)
-14. [Red flag source locator and warning sign checklist](RED_FLAG_WARNING_CHECKLIST_V0_1.md)
-15. [Red flag source locator and warning sign checklist JSON](red_flag_warning_checklist_v0_1.json)
-16. [Warning sign reviewer role table](WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
-17. [Warning sign reviewer role table JSON](warning_sign_reviewer_role_table_v0_1.json)
+8. [Benchmark style reviewer questions](BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
+9. [Benchmark style reviewer questions JSON](benchmark_style_reviewer_questions_v0_1.json)
+10. [Assurance release gate example map](ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
+11. [Assurance release gate example JSON](assurance_release_gate_example_map_v0_1.json)
+12. [SourceCheckup TR MedLLM assurance routing map](SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
+13. [SourceCheckup TR MedLLM assurance routing JSON](sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json)
+14. [Source review worksheets](SOURCE_REVIEW_WORKSHEETS_V0_1.md)
+15. [Source review worksheets JSON](source_review_worksheets_v0_1.json)
+16. [Red flag source locator and warning sign checklist](RED_FLAG_WARNING_CHECKLIST_V0_1.md)
+17. [Red flag source locator and warning sign checklist JSON](red_flag_warning_checklist_v0_1.json)
+18. [Warning sign reviewer role table](WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
+19. [Warning sign reviewer role table JSON](warning_sign_reviewer_role_table_v0_1.json)
 
 Runnable checks:
 
@@ -172,13 +183,14 @@ make red_flag_warning_checklist
 make warning_sign_role_table
 make boundary_notes
 make healthbench_medhelm_mapping
+make benchmark_reviewer_questions
 ```
 
-Track A value: release gate language and benchmark style mapping language for Turkish health AI sandbox readiness discussions without claiming sandbox access, compatibility, validation, or endorsement.
+Track A value: release gate language, benchmark style mapping language, and reviewer questions for Turkish health AI sandbox readiness discussions without claiming sandbox access, compatibility, validation, or endorsement.
 
-Track B value: reusable assurance artifact pattern and bounded HealthBench and MedHELM mapping note for public medical language model evaluation releases.
+Track B value: reusable assurance artifact pattern, bounded HealthBench and MedHELM mapping note, and public reviewer question layer for medical language model evaluation releases.
 
-Next build: add reviewer questions to SourceCheckup and Failure Atlas rows without scoring.
+Next build: expand contributor issue templates to accept reviewer question fields without scoring.
 
 ### 4. SourceCheckup Medical
 
@@ -204,6 +216,8 @@ Public files:
 16. [SourceCheckup repo run guide JSON](sourcecheckup/sourcecheckup_repo_run_guide_v0_1.json)
 17. [SourceCheckup repo doctor JSON](sourcecheckup/sourcecheckup_repo_doctor_v0_1.json)
 18. [Warning sign reviewer role table](../docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
+19. [Benchmark style reviewer questions](../docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
+20. [Benchmark style reviewer questions JSON](../docs/benchmark_style_reviewer_questions_v0_1.json)
 
 Runnable checks:
 
@@ -221,13 +235,14 @@ make sourcecheckup_turkish_institutional_wording
 make sourcecheckup_repo_run_guide
 make warning_sign_role_table
 make source_claim_queue
+make benchmark_reviewer_questions
 ```
 
-Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, and one runnable SourceCheckup path for local review.
+Track A value: public source support discipline for Turkish medical LLM review examples, clinician AI literacy, Turkish institutional wording without endorsement or route access claims, benchmark style reviewer questions for policy wording and source support, and one runnable SourceCheckup path for local review.
 
-Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, and contributor onboarding.
+Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, and benchmark style reviewer questions without scoring or compatibility claims.
 
-Next build: add benchmark style reviewer questions without scoring or compatibility claims.
+Next build: expand SourceCheckup contributor issue template with reviewer question fields.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 
@@ -350,7 +365,7 @@ Next build: add BİLGE readiness queue with no access, no score, and no endorsem
 ## Public build order
 
 1. Keep dashboard links and validators green.
-2. Add BİLGE readiness queue with no access, no score, and no endorsement claim.
+2. Expand contributor issue templates to accept benchmark style reviewer question rows without scoring or compatibility claims.
 3. Add lab target packets only after exact target review.
 
 ## Visibility rule
