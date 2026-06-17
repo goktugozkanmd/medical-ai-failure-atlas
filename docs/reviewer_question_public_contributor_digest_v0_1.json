@@ -3,7 +3,7 @@
   "date": "2026 06 17",
   "digest_decision": "ready_for_public_preview",
   "digest_step_count": 5,
-  "issue_history_rows_represented": 10,
+  "issue_history_rows_represented": 11,
   "no_benchmark_compatibility_claim": true,
   "no_benchmark_equivalence_claim": true,
   "no_clinical_deployment_claim": true,

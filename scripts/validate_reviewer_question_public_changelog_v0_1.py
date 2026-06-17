@@ -61,7 +61,7 @@ REQUIRED_PHRASES = [
     "not an endpoint result",
     "not an official endorsement",
     "make reviewer_question_changelog",
-    "Add a reviewer question maintainer handoff note without scoring",
+    "Add a reviewer question maintainer closeout digest without scoring",
 ]
 FORBIDDEN_PHRASES = [
     "clinically validated",

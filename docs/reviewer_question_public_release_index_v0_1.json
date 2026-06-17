@@ -74,9 +74,16 @@
       "issue_title": "Roadmap: reviewer question public release index",
       "public_label": "reviewer questions",
       "public_value": "public release index added"
+    },
+    {
+      "issue_number": 55,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question public contributor digest",
+      "public_label": "reviewer questions",
+      "public_value": "public contributor digest added"
     }
   ],
-  "issue_history_count": 10,
+  "issue_history_count": 11,
   "no_benchmark_compatibility_claim": true,
   "no_benchmark_equivalence_claim": true,
   "no_clinical_deployment_claim": true,

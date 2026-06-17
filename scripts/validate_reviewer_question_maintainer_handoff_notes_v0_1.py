@@ -8,31 +8,33 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs" / "reviewer_question_public_contributor_digest_v0_1.json"
-MARKDOWN = ROOT / "docs" / "REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md"
+SOURCE = ROOT / "docs" / "reviewer_question_maintainer_handoff_notes_v0_1.json"
+MARKDOWN = ROOT / "docs" / "REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md"
 
-REQUIRED_STEP_IDS = {"RQCD001", "RQCD002", "RQCD003", "RQCD004", "RQCD005"}
+REQUIRED_HANDOFF_IDS = {"RQMH001", "RQMH002", "RQMH003", "RQMH004", "RQMH005"}
 REQUIRED_FILES = [
+    "docs/REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md",
+    "docs/reviewer_question_maintainer_handoff_notes_v0_1.json",
     "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md",
-    "docs/reviewer_question_public_contributor_digest_v0_1.json",
-    "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md",
     "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
-    "docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md",
+    "docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md",
     "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
     "Makefile",
 ]
 REQUIRED_PHRASES = [
-    "Reviewer question public contributor digest v0.1",
-    "Digest step rows: 5",
+    "Reviewer question maintainer handoff notes v0.1",
+    "Handoff rows: 5",
+    "Contributor digest rows represented: 5",
     "Release index surface rows represented: 9",
     "Issue history rows represented: 11",
     "ready_for_public_preview",
-    "Read the reviewer question release index",
-    "Choose the matching reviewer question surface",
-    "Match an intake example",
-    "Check wording boundaries",
-    "Run the release index check",
-    "included_in_public_contributor_digest",
+    "Confirm synthetic scope",
+    "Check reviewer question fit",
+    "Check intake and triage route",
+    "Check blocked wording",
+    "Run maintainer checks",
+    "included_in_public_maintainer_handoff",
+    "maintainer_review_required",
     "synthetic only and not for clinical use",
     "not clinical advice",
     "not patient data",
@@ -45,7 +47,7 @@ REQUIRED_PHRASES = [
     "not a model ranking",
     "not an endpoint result",
     "not an official endorsement",
-    "make reviewer_question_contributor_digest",
+    "make reviewer_question_maintainer_handoff",
     "Add a reviewer question maintainer closeout digest without scoring",
 ]
 FORBIDDEN_PHRASES = [
@@ -75,16 +77,18 @@ def main() -> int:
     if not isinstance(rows, list):
         errors.append("rows must be a list")
         rows = []
-    if data.get("digest_step_count") != 5:
-        errors.append("digest_step_count must be 5")
+    if data.get("handoff_row_count") != 5:
+        errors.append("handoff_row_count must be 5")
+    if data.get("contributor_digest_rows_represented") != 5:
+        errors.append("contributor_digest_rows_represented must be 5")
     if data.get("release_index_surface_rows_represented") != 9:
         errors.append("release_index_surface_rows_represented must be 9")
     if data.get("issue_history_rows_represented") != 11:
         errors.append("issue_history_rows_represented must be 11")
-    if data.get("digest_decision") != "ready_for_public_preview":
-        errors.append("digest_decision must be ready_for_public_preview")
+    if data.get("handoff_decision") != "ready_for_public_preview":
+        errors.append("handoff_decision must be ready_for_public_preview")
     if len(rows) != 5:
-        errors.append(f"Expected 5 digest rows, found {len(rows)}")
+        errors.append(f"Expected 5 handoff rows, found {len(rows)}")
 
     for field in [
         "contains_patient_data",
@@ -104,17 +108,19 @@ def main() -> int:
         if data.get(field) is not expected:
             errors.append(f"{field} must be {expected}")
 
-    step_ids = {str(row.get("step_id")) for row in rows}
-    if step_ids != REQUIRED_STEP_IDS:
-        errors.append("step id set must match required ids")
-    if {str(row.get("digest_status")) for row in rows} != {"included_in_public_contributor_digest"}:
-        errors.append("all digest statuses must be included_in_public_contributor_digest")
+    handoff_ids = {str(row.get("handoff_id")) for row in rows}
+    if handoff_ids != REQUIRED_HANDOFF_IDS:
+        errors.append("handoff id set must match required ids")
+    if {str(row.get("handoff_status")) for row in rows} != {"included_in_public_maintainer_handoff"}:
+        errors.append("all handoff statuses must be included_in_public_maintainer_handoff")
+    if {str(row.get("closeout_state")) for row in rows} != {"maintainer_review_required"}:
+        errors.append("all closeout states must be maintainer_review_required")
 
     for row in rows:
-        step_id = str(row.get("step_id", ""))
-        for key in ["step_name", "public_file", "contributor_action", "digest_status", "boundary"]:
+        handoff_id = str(row.get("handoff_id", ""))
+        for key in ["handoff_name", "public_file", "maintainer_action", "handoff_status", "closeout_state", "boundary"]:
             if key not in row:
-                errors.append(f"{step_id}: missing {key}")
+                errors.append(f"{handoff_id}: missing {key}")
 
     for relative_path in REQUIRED_FILES:
         if not (ROOT / relative_path).exists():
@@ -133,17 +139,17 @@ def main() -> int:
         if phrase in lower_text:
             errors.append(f"Forbidden phrase present: {phrase}")
     if "-" in text:
-        errors.append("Generated outward facing contributor digest must not contain hyphen characters")
+        errors.append("Generated outward facing maintainer handoff notes must not contain hyphen characters")
 
     if errors:
-        print("FAIL reviewer question public contributor digest validation")
+        print("FAIL reviewer question maintainer handoff notes validation")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print("PASS reviewer question public contributor digest validation")
+    print("PASS reviewer question maintainer handoff notes validation")
     print(f"markdown={MARKDOWN.relative_to(ROOT)}")
-    print(f"digest_step_rows={len(rows)}")
+    print(f"handoff_rows={len(rows)}")
     return 0
 
 

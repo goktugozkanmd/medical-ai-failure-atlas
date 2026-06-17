@@ -14,7 +14,7 @@ Digest step rows: 5
 
 Release index surface rows represented: 9
 
-Issue history rows represented: 10
+Issue history rows represented: 11
 
 Digest decision: `ready_for_public_preview`
 
@@ -90,4 +90,4 @@ make reviewer_question_contributor_digest
 
 ## Next safe public action
 
-Add a reviewer question maintainer handoff note without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
+Add a reviewer question maintainer closeout digest without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.

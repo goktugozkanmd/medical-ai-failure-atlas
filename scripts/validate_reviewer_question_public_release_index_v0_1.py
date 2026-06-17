@@ -22,7 +22,7 @@ REQUIRED_SURFACE_IDS = {
     "RQRPI008",
     "RQRPI009",
 }
-REQUIRED_ISSUES = set(range(45, 55))
+REQUIRED_ISSUES = set(range(45, 56))
 REQUIRED_FILES = [
     "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md",
     "docs/reviewer_question_public_release_index_v0_1.json",
@@ -39,7 +39,7 @@ REQUIRED_FILES = [
 REQUIRED_PHRASES = [
     "Reviewer question public release index v0.1",
     "Index surface rows: 9",
-    "Issue history rows: 10",
+    "Issue history rows: 11",
     "Release packet rows represented: 7",
     "Changelog rows represented: 8",
     "ready_for_public_preview",
@@ -63,6 +63,7 @@ REQUIRED_PHRASES = [
     "Roadmap: reviewer question public release packet",
     "Roadmap: reviewer question public changelog",
     "Roadmap: reviewer question public release index",
+    "Roadmap: reviewer question public contributor digest",
     "not clinical advice",
     "not patient data",
     "not raw model output release",
@@ -75,7 +76,7 @@ REQUIRED_PHRASES = [
     "not an endpoint result",
     "not an official endorsement",
     "make reviewer_question_release_index",
-    "Add a reviewer question maintainer handoff note without scoring",
+    "Add a reviewer question maintainer closeout digest without scoring",
 ]
 FORBIDDEN_PHRASES = [
     "clinically validated",
@@ -110,8 +111,8 @@ def main() -> int:
         issues = []
     if data.get("index_surface_count") != 9:
         errors.append("index_surface_count must be 9")
-    if data.get("issue_history_count") != 10:
-        errors.append("issue_history_count must be 10")
+    if data.get("issue_history_count") != 11:
+        errors.append("issue_history_count must be 11")
     if data.get("release_packet_rows_represented") != 7:
         errors.append("release_packet_rows_represented must be 7")
     if data.get("changelog_rows_represented") != 8:
@@ -120,8 +121,8 @@ def main() -> int:
         errors.append("index_decision must be ready_for_public_preview")
     if len(surfaces) != 9:
         errors.append(f"Expected 9 index surfaces, found {len(surfaces)}")
-    if len(issues) != 10:
-        errors.append(f"Expected 10 issue history rows, found {len(issues)}")
+    if len(issues) != 11:
+        errors.append(f"Expected 11 issue history rows, found {len(issues)}")
 
     for field in [
         "contains_patient_data",
@@ -146,7 +147,7 @@ def main() -> int:
     if surface_ids != REQUIRED_SURFACE_IDS:
         errors.append("surface id set must match required ids")
     if issue_numbers != REQUIRED_ISSUES:
-        errors.append("issue numbers must be 45 through 54")
+        errors.append("issue numbers must be 45 through 55")
     if {str(row.get("index_status")) for row in surfaces} != {"included_in_public_release_index"}:
         errors.append("all index statuses must be included_in_public_release_index")
     if {str(row.get("issue_state")) for row in issues} != {"closed"}:

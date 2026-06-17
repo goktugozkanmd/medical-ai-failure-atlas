@@ -74,8 +74,9 @@ REQUIRED_PHRASES = [
     "7 reviewer question public release packet rows",
     "8 reviewer question public changelog rows",
     "9 reviewer question public release index surface rows",
-    "10 reviewer question issue history rows",
+    "11 reviewer question issue history rows",
     "5 reviewer question public contributor digest rows",
+    "5 reviewer question maintainer handoff rows",
     "not clinical advice",
     "not patient data",
     "not clinical deployment",
@@ -111,6 +112,7 @@ REQUIRED_PHRASES = [
     "make reviewer_question_changelog",
     "make reviewer_question_release_index",
     "make reviewer_question_contributor_digest",
+    "make reviewer_question_maintainer_handoff",
     "make sourcecheckup_public_issue",
     "make sourcecheckup_expansion_dashboard",
     "make clinician_literacy_map",
@@ -162,7 +164,8 @@ REQUIRED_PHRASES = [
     "Reviewer question public changelog",
     "Reviewer question public release index",
     "Reviewer question public contributor digest",
-    "Add a reviewer question maintainer handoff note without scoring or compatibility claims",
+    "Reviewer question maintainer handoff notes",
+    "Add a reviewer question maintainer closeout digest without scoring or compatibility claims",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -196,6 +199,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/reviewer_question_public_release_index_v0_1.json",
     "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md",
     "docs/reviewer_question_public_contributor_digest_v0_1.json",
+    "docs/REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md",
+    "docs/reviewer_question_maintainer_handoff_notes_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",

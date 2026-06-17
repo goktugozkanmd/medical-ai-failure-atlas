@@ -1,0 +1,70 @@
+{
+  "contains_patient_data": false,
+  "contributor_digest_rows_represented": 5,
+  "date": "2026 06 17",
+  "handoff_decision": "ready_for_public_preview",
+  "handoff_row_count": 5,
+  "issue_history_rows_represented": 11,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_endpoint_result": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "no_score_report": true,
+  "not_for_clinical_use": true,
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_state": "maintainer_review_required",
+      "handoff_id": "RQMH001",
+      "handoff_name": "Confirm synthetic scope",
+      "handoff_status": "included_in_public_maintainer_handoff",
+      "maintainer_action": "reject or rewrite any proposal that could describe a real patient",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_state": "maintainer_review_required",
+      "handoff_id": "RQMH002",
+      "handoff_name": "Check reviewer question fit",
+      "handoff_status": "included_in_public_maintainer_handoff",
+      "maintainer_action": "map the proposal to a public reviewer question lane",
+      "public_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_state": "maintainer_review_required",
+      "handoff_id": "RQMH003",
+      "handoff_name": "Check intake and triage route",
+      "handoff_status": "included_in_public_maintainer_handoff",
+      "maintainer_action": "confirm owner role, review state, and public wording decision",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_state": "maintainer_review_required",
+      "handoff_id": "RQMH004",
+      "handoff_name": "Check blocked wording",
+      "handoff_status": "included_in_public_maintainer_handoff",
+      "maintainer_action": "block score, compatibility, endpoint, patient data, clinical validation, and endorsement wording",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "closeout_state": "maintainer_review_required",
+      "handoff_id": "RQMH005",
+      "handoff_name": "Run maintainer checks",
+      "handoff_status": "included_in_public_maintainer_handoff",
+      "maintainer_action": "run make reviewer_question_maintainer_handoff before public closeout",
+      "public_file": "Makefile"
+    }
+  ],
+  "source": "docs/reviewer_question_public_contributor_digest_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "reviewer_question_maintainer_handoff_notes_v0_1"
+}
