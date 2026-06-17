@@ -69,6 +69,7 @@ New visible build surfaces are now staged in this public repository:
 59. [Benchmark style reviewer questions v0.1](docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
 60. [Contributor issue template reviewer questions v0.1](docs/CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md)
 61. [Reviewer question intake examples v0.1](docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md)
+62. [Reviewer question intake triage board v0.1](docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -98,6 +99,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 16. A benchmark style reviewer question set that links SourceCheckup and Failure Atlas rows to review questions without scoring or compatibility claims.
 17. Contributor issue template reviewer question fields for SourceCheckup and Failure Atlas public intake without scoring or compatibility claims.
 18. Reviewer question intake examples for SourceCheckup and Failure Atlas issue templates without scoring or compatibility claims.
+19. Reviewer question intake triage board for maintainer actions and public wording decisions without scoring or compatibility claims.
 
 ## What this is
 
@@ -249,6 +251,12 @@ Generate reviewer question intake examples:
 
 ```bash
 make reviewer_question_intake_examples
+```
+
+Generate reviewer question intake triage board:
+
+```bash
+make reviewer_question_intake_triage
 ```
 
 Validate the assurance card template:
@@ -500,6 +508,8 @@ docs/
   CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md
   REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md
   reviewer_question_intake_examples_v0_1.json
+  REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md
+  reviewer_question_intake_triage_board_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
@@ -594,6 +604,8 @@ scripts/
   validate_benchmark_reviewer_question_issue_templates_v0_1.py
   generate_reviewer_question_intake_examples_v0_1.py
   validate_reviewer_question_intake_examples_v0_1.py
+  generate_reviewer_question_intake_triage_board_v0_1.py
+  validate_reviewer_question_intake_triage_board_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py

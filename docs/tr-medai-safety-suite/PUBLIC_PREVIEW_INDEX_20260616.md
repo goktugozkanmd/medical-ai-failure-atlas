@@ -48,6 +48,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 38. `../BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md` turns SourceCheckup and Failure Atlas rows into benchmark style reviewer questions without scoring, compatibility, validation, deployment, endpoint, patient data, or endorsement claims.
 39. `../CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md` records the SourceCheckup and Failure Atlas public issue template fields for reviewer questions without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 40. `../REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md` gives synthetic reviewer question intake examples for SourceCheckup and Failure Atlas public templates without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
+41. `../REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md` turns reviewer question intake examples into maintainer actions, owner roles, review states, and public wording decisions without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 
 ## What This Preview Is
 
@@ -79,7 +80,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a maintainer triage board for reviewer question intake examples without scoring or compatibility claims.
+1. Add a public wording decision log for reviewer question intake triage without scoring or compatibility claims.
 2. Add a compact public failure mode taxonomy page.
 3. Add a public contributor path for synthetic failure cases.
 4. Add a no patient data review checklist.
