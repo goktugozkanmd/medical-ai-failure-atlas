@@ -1,0 +1,79 @@
+{
+  "audit_trail_rows_represented": 5,
+  "candidate_summary_row_count": 5,
+  "closeout_rows_represented": 5,
+  "contains_patient_data": false,
+  "contributor_digest_rows_represented": 5,
+  "date": "2026 06 17",
+  "evidence_rows_represented": 5,
+  "handoff_rows_represented": 5,
+  "maintainer_review_scope": "current public preview route only",
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_dataset_quality_proof": true,
+  "no_model_ranking": true,
+  "no_model_safety_claim": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "not_for_clinical_use": true,
+  "previous_public_issue_number": 35,
+  "readiness_rows_represented": 5,
+  "release_candidate_decision": "public_preview_candidate_only",
+  "release_index_surface_rows_represented": 9,
+  "rows": [
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "candidate_state": "current_preview_candidate",
+      "candidate_status": "public_preview_release_candidate_summary",
+      "candidate_surface": "docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md",
+      "maintainer_decision": "candidate remains synthetic only",
+      "source_trail_id": "LAMT001",
+      "summary_id": "LAMC001",
+      "summary_name": "Synthetic boundary candidate"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "candidate_state": "current_preview_candidate",
+      "candidate_status": "public_preview_release_candidate_summary",
+      "candidate_surface": "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md",
+      "maintainer_decision": "candidate keeps intake patterns inspectable",
+      "source_trail_id": "LAMT002",
+      "summary_id": "LAMC002",
+      "summary_name": "Intake pattern candidate"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "candidate_state": "current_preview_candidate",
+      "candidate_status": "public_preview_release_candidate_summary",
+      "candidate_surface": "docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "maintainer_decision": "candidate keeps blocked claims out of public wording",
+      "source_trail_id": "LAMT003",
+      "summary_id": "LAMC003",
+      "summary_name": "Public wording candidate"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "candidate_state": "current_preview_candidate",
+      "candidate_status": "public_preview_release_candidate_summary",
+      "candidate_surface": "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
+      "maintainer_decision": "candidate surfaces remain linked from public release notes",
+      "source_trail_id": "LAMT004",
+      "summary_id": "LAMC004",
+      "summary_name": "Release surface candidate"
+    },
+    {
+      "boundary": "synthetic only and not for clinical use",
+      "candidate_state": "current_preview_candidate",
+      "candidate_status": "public_preview_release_candidate_summary",
+      "candidate_surface": "Makefile",
+      "maintainer_decision": "candidate keeps runnable validation before issue closeout",
+      "source_trail_id": "LAMT005",
+      "summary_id": "LAMC005",
+      "summary_name": "Validation candidate"
+    }
+  ],
+  "source": "docs/label_audit/label_audit_maintainer_audit_trail_packet_v0_1.json",
+  "status": "public_preview",
+  "synthetic_examples_only": true,
+  "version": "label_audit_maintainer_release_candidate_summary_v0_1"
+}

@@ -51,6 +51,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 39. Label audit maintainer release readiness digest v0.1.
 40. Label audit maintainer evidence map v0.1.
 41. Label audit maintainer audit trail packet v0.1.
+42. Label audit maintainer release candidate summary v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -95,7 +96,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 37. 5 label audit maintainer release readiness digest rows.
 38. 5 label audit maintainer evidence map rows.
 39. 5 label audit maintainer audit trail packet rows.
-40. 3 red flag source locator contributor examples.
+40. 5 label audit maintainer release candidate summary rows.
+41. 3 red flag source locator contributor examples.
 
 ## Reproducible checks
 
@@ -185,6 +187,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 35. Label audit maintainer release readiness digest that gives maintainers a public preview readiness trail.
 36. Label audit maintainer evidence map that traces readiness rows to public evidence surfaces.
 37. Label audit maintainer audit trail packet that traces evidence rows to public audit trail surfaces.
+38. Label audit maintainer release candidate summary that records the current public preview candidate state.
 
 This does not claim official status, program participation, regulatory access, sandbox access, or institutional endorsement.
 
@@ -230,11 +233,12 @@ For global open source medical AI evaluation, this public preview gives:
 36. Label audit maintainer release readiness digest that records current public preview readiness rows.
 37. Label audit maintainer evidence map that records current public preview evidence rows.
 38. Label audit maintainer audit trail packet that records current public preview audit trail rows.
+39. Label audit maintainer release candidate summary that records current public preview candidate rows.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Label audit maintainer release candidate summary after audit trail packet review.
+1. Label audit maintainer public preview decision log after release candidate summary review.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

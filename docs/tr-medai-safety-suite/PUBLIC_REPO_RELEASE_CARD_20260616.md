@@ -38,6 +38,7 @@ This preview adds twenty six concrete build surfaces:
 26. Label audit maintainer release readiness digest.
 27. Label audit maintainer evidence map.
 28. Label audit maintainer audit trail packet.
+29. Label audit maintainer release candidate summary.
 
 ## What This Is
 
@@ -99,7 +100,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 26. [Label audit maintainer release readiness digest](../label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
 27. [Label audit maintainer evidence map](../label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md)
 28. [Label audit maintainer audit trail packet](../label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
+29. [Label audit maintainer release candidate summary](../label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is label audit maintainer release candidate summary after audit trail packet review.
+The next useful public build is label audit maintainer public preview decision log after release candidate summary review.

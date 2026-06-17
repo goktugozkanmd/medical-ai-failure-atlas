@@ -70,6 +70,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 38. Label audit maintainer release readiness digest v0.1.
 39. Label audit maintainer evidence map v0.1.
 40. Label audit maintainer audit trail packet v0.1.
+41. Label audit maintainer release candidate summary v0.1.
 
 ## External visibility sequence
 
@@ -94,6 +95,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add label audit maintainer release candidate summary after audit trail packet review.
+1. Add label audit maintainer public preview decision log after release candidate summary review.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.

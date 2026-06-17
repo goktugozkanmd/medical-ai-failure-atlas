@@ -82,6 +82,8 @@ REQUIRED_FILES = [
     "docs/label_audit/label_audit_maintainer_evidence_map_v0_1.json",
     "docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md",
     "docs/label_audit/label_audit_maintainer_audit_trail_packet_v0_1.json",
+    "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md",
+    "docs/label_audit/label_audit_maintainer_release_candidate_summary_v0_1.json",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -162,6 +164,8 @@ REQUIRED_FILES = [
     "scripts/validate_label_audit_maintainer_evidence_map_v0_1.py",
     "scripts/generate_label_audit_maintainer_audit_trail_packet_v0_1.py",
     "scripts/validate_label_audit_maintainer_audit_trail_packet_v0_1.py",
+    "scripts/generate_label_audit_maintainer_release_candidate_summary_v0_1.py",
+    "scripts/validate_label_audit_maintainer_release_candidate_summary_v0_1.py",
     "scripts/validate_boundary_notes_v0_1.py",
     "scripts/validate_assurance_card_template_v0_1.py",
     "scripts/generate_assurance_release_gate_example_map_v0_1.py",
@@ -422,6 +426,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the label audit maintainer audit trail packet")
         if "make label_audit_maintainer_audit_trail_packet" not in readme_text:
             fail(errors, "README must document the label audit maintainer audit trail packet command")
+        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the label audit maintainer release candidate summary")
+        if "make label_audit_maintainer_release_candidate_summary" not in readme_text:
+            fail(errors, "README must document the label audit maintainer release candidate summary command")
 
     prompt_files = [
         root / "data" / "prompt_set_v1.tsv",

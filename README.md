@@ -57,6 +57,7 @@ New visible build surfaces are now staged in this public repository:
 47. [Label audit maintainer release readiness digest v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
 48. [Label audit maintainer evidence map v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md)
 49. [Label audit maintainer audit trail packet v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
+50. [Label audit maintainer release candidate summary v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -359,6 +360,12 @@ Generate the label audit maintainer audit trail packet:
 
 ```bash
 make label_audit_maintainer_audit_trail_packet
+```
+
+Generate the label audit maintainer release candidate summary:
+
+```bash
+make label_audit_maintainer_release_candidate_summary
 ```
 
 Validate the SourceCheckup public contributor issue route:

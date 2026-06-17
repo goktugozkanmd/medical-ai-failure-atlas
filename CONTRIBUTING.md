@@ -185,3 +185,11 @@ Run:
 ```bash
 make label_audit_maintainer_audit_trail_packet
 ```
+
+The maintainer release candidate summary is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md`.
+
+Run:
+
+```bash
+make label_audit_maintainer_release_candidate_summary
+```
