@@ -192,7 +192,10 @@ REQUIRED_PHRASES = [
     "Reviewer question maintainer public preview handoff summary",
     "Reviewer question maintainer public preview closure checklist",
     "Reviewer question maintainer public preview archive digest",
-    "Add a reviewer question maintainer public preview index rollup without scoring or compatibility claims",
+    "Reviewer question maintainer public preview index rollup",
+    "make reviewer_question_maintainer_public_preview_index_rollup",
+    "6 reviewer question maintainer public preview index rollup rows",
+    "Add a reviewer question maintainer public preview repository navigation note without scoring or compatibility claims",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -246,6 +249,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/reviewer_question_maintainer_public_preview_closure_checklist_v0_1.json",
     "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md",
     "docs/reviewer_question_maintainer_public_preview_archive_digest_v0_1.json",
+    "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md",
+    "docs/reviewer_question_maintainer_public_preview_index_rollup_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",

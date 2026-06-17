@@ -81,6 +81,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 69. Reviewer question maintainer public preview handoff summary v0.1.
 70. Reviewer question maintainer public preview closure checklist v0.1.
 71. Reviewer question maintainer public preview archive digest v0.1.
+72. Reviewer question maintainer public preview index rollup v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -157,6 +158,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 69. 5 reviewer question maintainer public preview handoff rows.
 70. 5 reviewer question maintainer public preview closure rows.
 71. 5 reviewer question maintainer public preview archive rows.
+72. 6 reviewer question maintainer public preview index rollup rows.
 
 ## Reproducible checks
 
@@ -217,6 +219,12 @@ make reviewer_question_maintainer_closeout_digest
 make reviewer_question_maintainer_release_readiness_digest
 make reviewer_question_maintainer_evidence_map
 make reviewer_question_maintainer_audit_trail_packet
+make reviewer_question_maintainer_release_candidate_summary
+make reviewer_question_maintainer_public_preview_decision_log
+make reviewer_question_maintainer_public_preview_handoff_summary
+make reviewer_question_maintainer_public_preview_closure_checklist
+make reviewer_question_maintainer_public_preview_archive_digest
+make reviewer_question_maintainer_public_preview_index_rollup
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -363,11 +371,12 @@ For global open source medical AI evaluation, this public preview gives:
 66. Reviewer question maintainer public preview handoff summary for public preview reviewer actions without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 67. Reviewer question maintainer public preview closure checklist for closeable public preview checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 68. Reviewer question maintainer public preview archive digest for compact public preview trace without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+69. Reviewer question maintainer public preview index rollup for one maintainer navigation surface without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview index rollup without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview repository navigation note without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.
