@@ -151,6 +151,10 @@ REQUIRED_FILES = [
     "docs/reviewer_question_maintainer_evidence_map_v0_1.json",
     "scripts/generate_reviewer_question_maintainer_evidence_map_v0_1.py",
     "scripts/validate_reviewer_question_maintainer_evidence_map_v0_1.py",
+    "docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md",
+    "docs/reviewer_question_maintainer_audit_trail_packet_v0_1.json",
+    "scripts/generate_reviewer_question_maintainer_audit_trail_packet_v0_1.py",
+    "scripts/validate_reviewer_question_maintainer_audit_trail_packet_v0_1.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -487,6 +491,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the reviewer question maintainer evidence map")
         if "make reviewer_question_maintainer_evidence_map" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer evidence map command")
+        if "docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the reviewer question maintainer audit trail packet")
+        if "make reviewer_question_maintainer_audit_trail_packet" not in readme_text:
+            fail(errors, "README must document the reviewer question maintainer audit trail packet command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

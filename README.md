@@ -81,6 +81,7 @@ New visible build surfaces are now staged in this public repository:
 71. [Reviewer question maintainer closeout digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md)
 72. [Reviewer question maintainer release readiness digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
 73. [Reviewer question maintainer evidence map v0.1](docs/REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md)
+74. [Reviewer question maintainer audit trail packet v0.1](docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -122,6 +123,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 28. Reviewer question maintainer closeout digest for public preview closeout without scoring or compatibility claims.
 29. Reviewer question maintainer release readiness digest for public preview readiness without scoring or compatibility claims.
 30. Reviewer question maintainer evidence map for public preview evidence tracing without scoring or compatibility claims.
+31. Reviewer question maintainer audit trail packet for public preview audit tracing without scoring or compatibility claims.
 
 ## What this is
 
@@ -345,6 +347,12 @@ Generate reviewer question maintainer evidence map:
 
 ```bash
 make reviewer_question_maintainer_evidence_map
+```
+
+Generate reviewer question maintainer audit trail packet:
+
+```bash
+make reviewer_question_maintainer_audit_trail_packet
 ```
 
 Validate the assurance card template:
@@ -620,6 +628,8 @@ docs/
   reviewer_question_maintainer_release_readiness_digest_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md
   reviewer_question_maintainer_evidence_map_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md
+  reviewer_question_maintainer_audit_trail_packet_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
@@ -738,6 +748,8 @@ scripts/
   validate_reviewer_question_maintainer_release_readiness_digest_v0_1.py
   generate_reviewer_question_maintainer_evidence_map_v0_1.py
   validate_reviewer_question_maintainer_evidence_map_v0_1.py
+  generate_reviewer_question_maintainer_audit_trail_packet_v0_1.py
+  validate_reviewer_question_maintainer_audit_trail_packet_v0_1.py
   validate_tr_medllm_specialty_spread_v0_1.py
   validate_tr_medllm_specialty_dashboard_v0_1.py
   validate_sourcecheckup_example_expansion_dashboard_v0_2.py

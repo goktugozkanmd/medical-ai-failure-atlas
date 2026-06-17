@@ -142,7 +142,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 50. [Reviewer question maintainer closeout digest](../REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md)
 51. [Reviewer question maintainer release readiness digest](../REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
 52. [Reviewer question maintainer evidence map](../REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md)
+53. [Reviewer question maintainer audit trail packet](../REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer audit trail packet without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer release candidate summary without scoring or compatibility claims.
