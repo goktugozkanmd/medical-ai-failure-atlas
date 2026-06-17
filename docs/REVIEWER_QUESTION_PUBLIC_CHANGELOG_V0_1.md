@@ -158,4 +158,4 @@ make reviewer_question_changelog
 
 ## Next safe public action
 
-Add a reviewer question public release index without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
+Add a reviewer question public contributor digest without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.

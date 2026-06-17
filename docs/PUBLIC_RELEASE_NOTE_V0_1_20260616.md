@@ -69,6 +69,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 57. Reviewer question release gate outcome dashboard v0.1.
 58. Reviewer question public release packet v0.1.
 59. Reviewer question public changelog v0.1.
+60. Reviewer question public release index v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -132,6 +133,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 56. 4 reviewer question release gate outcome rows.
 57. 7 reviewer question public release packet rows.
 58. 8 reviewer question public changelog rows.
+59. 9 reviewer question public release index surface rows.
 
 ## Reproducible checks
 
@@ -185,6 +187,7 @@ make reviewer_question_release_gates
 make reviewer_question_gate_outcomes
 make reviewer_question_release_packet
 make reviewer_question_changelog
+make reviewer_question_release_index
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -253,6 +256,7 @@ For Türkiye health AI safety infrastructure, this public preview gives a concre
 53. Reviewer question release gate outcome dashboard that summarizes current pass and block outcomes without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
 54. Reviewer question public release packet that packages public reviewer question surfaces without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
 55. Reviewer question public changelog that records the chronological public reviewer question sequence without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
+56. Reviewer question public release index that gives one public entry point for route, packet, changelog, commands, issue history, and boundaries without scoring, compatibility, endpoint, patient data, clinical validation, or endorsement claims.
 
 These are benchmark style reviewer questions without scoring or compatibility claims.
 
@@ -318,11 +322,12 @@ For global open source medical AI evaluation, this public preview gives:
 54. Reviewer question release gate outcome dashboard for public preview outcome review without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 55. Reviewer question public release packet for one maintainer facing release surface without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 56. Reviewer question public changelog for maintainer chronology without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+57. Reviewer question public release index for one contributor entry point without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question public release index without scoring or compatibility claims.
+1. Add a reviewer question public contributor digest without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

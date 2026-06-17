@@ -54,6 +54,7 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 44. `../REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md` summarizes current reviewer question release gate pass and block outcomes without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 45. `../REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md` packages reviewer question public surfaces for maintainer review without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 46. `../REVIEWER_QUESTION_PUBLIC_CHANGELOG_V0_1.md` records chronological reviewer question public sequence without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
+47. `../REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md` gives one reviewer question public entry point for route, packet, changelog, commands, issue history, and boundaries without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
 
 ## What This Preview Is
 
@@ -85,7 +86,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a reviewer question public release index without scoring or compatibility claims.
+1. Add a reviewer question public contributor digest without scoring or compatibility claims.
 2. Add a compact public failure mode taxonomy page.
 3. Add a public contributor path for synthetic failure cases.
 4. Add a no patient data review checklist.

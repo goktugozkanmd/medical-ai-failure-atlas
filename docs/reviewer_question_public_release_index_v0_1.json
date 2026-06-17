@@ -1,0 +1,165 @@
+{
+  "changelog_rows_represented": 8,
+  "contains_patient_data": false,
+  "date": "2026 06 17",
+  "index_decision": "ready_for_public_preview",
+  "index_surface_count": 9,
+  "issue_history": [
+    {
+      "issue_number": 45,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: benchmark style reviewer questions",
+      "public_label": "reviewer questions",
+      "public_value": "benchmark style reviewer questions added"
+    },
+    {
+      "issue_number": 46,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question issue template fields",
+      "public_label": "reviewer questions",
+      "public_value": "issue template fields added"
+    },
+    {
+      "issue_number": 47,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question intake examples",
+      "public_label": "reviewer questions",
+      "public_value": "intake examples added"
+    },
+    {
+      "issue_number": 48,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question intake triage board",
+      "public_label": "reviewer questions",
+      "public_value": "intake triage board added"
+    },
+    {
+      "issue_number": 49,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question wording decision log",
+      "public_label": "reviewer questions",
+      "public_value": "wording decision log added"
+    },
+    {
+      "issue_number": 50,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question release gate checklist",
+      "public_label": "reviewer questions",
+      "public_value": "release gate checklist added"
+    },
+    {
+      "issue_number": 51,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question gate outcome dashboard",
+      "public_label": "reviewer questions",
+      "public_value": "gate outcome dashboard added"
+    },
+    {
+      "issue_number": 52,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question public release packet",
+      "public_label": "reviewer questions",
+      "public_value": "public release packet added"
+    },
+    {
+      "issue_number": 53,
+      "issue_state": "closed",
+      "issue_title": "Roadmap: reviewer question public changelog",
+      "public_label": "reviewer questions",
+      "public_value": "public changelog added"
+    }
+  ],
+  "issue_history_count": 9,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_endpoint_result": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true,
+  "no_raw_model_output_release": true,
+  "no_score_report": true,
+  "not_for_clinical_use": true,
+  "release_packet_rows_represented": 7,
+  "sources": [
+    "docs/reviewer_question_public_release_packet_v0_1.json",
+    "docs/reviewer_question_public_changelog_v0_1.json"
+  ],
+  "status": "public_preview",
+  "surfaces": [
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md",
+      "role": "defines public reviewer questions for source support and safety review",
+      "surface_id": "RQRPI001",
+      "surface_name": "Benchmark style reviewer questions"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md",
+      "role": "adds reviewer question fields to public intake templates",
+      "surface_id": "RQRPI002",
+      "surface_name": "Contributor issue template reviewer questions"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md",
+      "role": "shows synthetic reviewer question intake examples",
+      "surface_id": "RQRPI003",
+      "surface_name": "Reviewer question intake examples"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md",
+      "role": "maps intake examples to maintainer action and owner roles",
+      "surface_id": "RQRPI004",
+      "surface_name": "Reviewer question intake triage board"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md",
+      "role": "records blocked wording and required public wording",
+      "surface_id": "RQRPI005",
+      "surface_name": "Reviewer question public wording decision log"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md",
+      "role": "turns wording decisions into pass or block checks",
+      "surface_id": "RQRPI006",
+      "surface_name": "Reviewer question release gate checklist"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md",
+      "role": "summarizes current pass and block outcomes",
+      "surface_id": "RQRPI007",
+      "surface_name": "Reviewer question release gate outcome dashboard"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md",
+      "role": "packages reviewer question public surfaces into one release packet",
+      "surface_id": "RQRPI008",
+      "surface_name": "Reviewer question public release packet"
+    },
+    {
+      "index_status": "included_in_public_release_index",
+      "next_action": "keep linked surface current during public preview",
+      "public_file": "docs/REVIEWER_QUESTION_PUBLIC_CHANGELOG_V0_1.md",
+      "role": "records the chronological maintainer sequence",
+      "surface_id": "RQRPI009",
+      "surface_name": "Reviewer question public changelog"
+    }
+  ],
+  "synthetic_examples_only": true,
+  "version": "reviewer_question_public_release_index_v0_1"
+}
