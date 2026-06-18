@@ -114,6 +114,9 @@ New visible build surfaces are now staged in this public repository:
 104. [SourceCheckup Medical benchmark boundary delta note v0.1](docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
 105. [Clinician AI literacy sandbox handoff micro module v0.1](docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md)
 106. [SourceCheckup Medical source support delta queue v0.1](docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
+107. [Field impact opportunity radar](docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md)
+108. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
+109. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -181,6 +184,9 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 54. SourceCheckup Medical benchmark boundary delta note for benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 55. Clinician AI literacy sandbox handoff micro module for public clinician education without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
 56. SourceCheckup Medical source support delta queue for source support review without source truth certification, endpoint, score, ranking, compatibility, equivalence, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
+57. Field impact opportunity radar for TÜBİTAK, TÜYZE, TEKNOFEST, CHAI, and MedHELM aligned public field moves without submission, partner, clinical validation, deployment, official role, payment, terms, or endorsement claims.
+58. Türkiye Health AI Safety Readiness Kit for TÜYZE style review readiness without patient data, clinical validation, deployment, official role, partner, submission, payment, terms, or endorsement claims.
+59. TEKNOFEST Health AI Safety Addendum for health AI teams without official TEKNOFEST endorsement, submission, patient data, clinical validation, deployment, partner, payment, terms, or route access claims.
 
 ## What this is
 
@@ -350,6 +356,24 @@ Generate the paired clinician literacy and source support delta notes:
 
 ```bash
 make paired_literacy_source_support_delta
+```
+
+Generate the Türkiye Health AI Safety Readiness Kit:
+
+```bash
+make turkiye_health_ai_safety_readiness_kit
+```
+
+Generate the TEKNOFEST Health AI Safety Addendum:
+
+```bash
+make teknofest_health_ai_safety_addendum
+```
+
+Generate the field impact packages:
+
+```bash
+make field_impact_packages
 ```
 
 Generate the benchmark style reviewer questions:

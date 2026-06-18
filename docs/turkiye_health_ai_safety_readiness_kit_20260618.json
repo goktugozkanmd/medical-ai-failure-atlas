@@ -1,0 +1,94 @@
+{
+  "artifact": "turkiye_health_ai_safety_readiness_kit_20260618",
+  "status": "field readiness public preview",
+  "date": "2026 06 18",
+  "source_signals": [
+    {
+      "source_id": "THAIS001",
+      "source": "TÜYZE public site",
+      "url": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "TÜYZE is the Türkiye Sağlık Veri Araştırmaları ve Yapay Zeka Uygulamaları Enstitüsü public site.",
+      "field_read": "Direct national health AI fit."
+    },
+    {
+      "source_id": "THAIS002",
+      "source": "TÜYZE public site",
+      "url": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The site lists a Sağlıkta Yapay Zeka Seminerleri program with Marmara University Faculty of Medicine from 08 April to 20 May 2026.",
+      "field_read": "Clinician education route exists."
+    },
+    {
+      "source_id": "THAIS003",
+      "source": "TÜYZE public site",
+      "url": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The site lists health AI and health data related institutional activity with public, university, and technology actors.",
+      "field_read": "A readiness kit can be framed as public field preparation, not as a partner claim."
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "THAIK001",
+      "name": "Public health AI safety brief",
+      "field_user": "health AI educator or lab coordinator",
+      "artifact": "One page brief explaining why source support, data quality, clinician review, and no ranking language matter.",
+      "decision_value": "Gives a reviewer enough context to decide whether a meeting or review is worth considering."
+    },
+    {
+      "module_id": "THAIK002",
+      "name": "Clinician AI literacy micro module",
+      "field_user": "clinician educator",
+      "artifact": "Short handoff module that explains no patient data, no clinical validation, and no deployment claims.",
+      "decision_value": "Converts abstract AI safety into teachable clinician review language."
+    },
+    {
+      "module_id": "THAIK003",
+      "name": "Source support delta queue",
+      "field_user": "source reviewer",
+      "artifact": "Queue for separating citation presence from source support and source truth certification.",
+      "decision_value": "Shows a practical review path without ranking a model."
+    },
+    {
+      "module_id": "THAIK004",
+      "name": "Health data quality handoff",
+      "field_user": "data quality lead",
+      "artifact": "Checklist for label uncertainty, leakage, missing context, data provenance, and reviewer disagreement.",
+      "decision_value": "Moves the conversation from model performance to data readiness."
+    },
+    {
+      "module_id": "THAIK005",
+      "name": "Sandbox readiness boundary",
+      "field_user": "governance or program reviewer",
+      "artifact": "Boundary note that blocks route access, approval, validation, and deployment claims.",
+      "decision_value": "Lets a group discuss sandbox readiness without implying access or endorsement."
+    },
+    {
+      "module_id": "THAIK006",
+      "name": "First outreach packet",
+      "field_user": "Dr. Goktug Ozkan after explicit clearance",
+      "artifact": "Short introduction draft and attachment list for a named national health AI route.",
+      "decision_value": "Turns proof of work into a field conversation while preserving decision gates."
+    }
+  ],
+  "module_count": 6,
+  "boundaries": [
+    "No patient data.",
+    "No clinical advice.",
+    "No clinical deployment claim.",
+    "No clinical validation claim.",
+    "No official role claim.",
+    "No partner claim.",
+    "No route access claim.",
+    "No submission claim.",
+    "No terms acceptance.",
+    "No payment.",
+    "No endorsement claim."
+  ],
+  "requires_goktug_clearance_before_outreach": true,
+  "contains_patient_data": false,
+  "claims_official_role": false,
+  "claims_partner": false,
+  "claims_endorsement": false,
+  "claims_submission": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false
+}

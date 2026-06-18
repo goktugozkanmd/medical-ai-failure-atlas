@@ -1,0 +1,91 @@
+{
+  "artifact": "teknofest_health_ai_safety_addendum_20260618",
+  "status": "field readiness public preview",
+  "date": "2026 06 18",
+  "source_signals": [
+    {
+      "source_id": "THASA001",
+      "source": "TEKNOFEST Sağlıkta Yapay Zeka public page",
+      "url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The public page lists a 2026 health AI competition and says the competition aims to produce solutions for health problems and increase knowledge and trained human capacity.",
+      "field_read": "Contestant facing safety guidance can create timely field value."
+    },
+    {
+      "source_id": "THASA002",
+      "source": "TEKNOFEST Sağlıkta Yapay Zeka public page",
+      "url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The university and above category focuses on predicting whether genetic variants are pathogenic or benign.",
+      "field_read": "Data quality, label uncertainty, and clinical claim boundaries are directly relevant."
+    },
+    {
+      "source_id": "THASA003",
+      "source": "TEKNOFEST Sağlıkta Yapay Zeka public page",
+      "url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The project detail report deadline is listed as 29 June 2026 at 17:00.",
+      "field_read": "A public safety addendum is time sensitive before the detail report deadline."
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "THASC001",
+      "name": "Health claim boundary",
+      "question": "Does the report avoid clinical deployment, diagnosis, treatment, or validation claims?",
+      "why_it_matters": "A competition model should not be framed as ready for care."
+    },
+    {
+      "check_id": "THASC002",
+      "name": "Label uncertainty",
+      "question": "Does the report explain uncertain, conflicting, or evolving labels?",
+      "why_it_matters": "Genetic variant classification can depend on evidence context and update over time."
+    },
+    {
+      "check_id": "THASC003",
+      "name": "Data leakage",
+      "question": "Does the report describe how leakage between training and evaluation data was checked?",
+      "why_it_matters": "Leakage can create false confidence and inflated performance."
+    },
+    {
+      "check_id": "THASC004",
+      "name": "Population and context limits",
+      "question": "Does the report state where the data may not represent the intended use setting?",
+      "why_it_matters": "A model can fail outside the data distribution that shaped it."
+    },
+    {
+      "check_id": "THASC005",
+      "name": "Source support",
+      "question": "Does each medical claim have source support, not only a citation nearby?",
+      "why_it_matters": "Citation presence is not the same as support for a specific claim."
+    },
+    {
+      "check_id": "THASC006",
+      "name": "Human review handoff",
+      "question": "Does the report define what a clinician, geneticist, or domain reviewer would need to check next?",
+      "why_it_matters": "A safe report shows the next human review step instead of implying autonomy."
+    },
+    {
+      "check_id": "THASC007",
+      "name": "Failure examples",
+      "question": "Does the report include examples where the system should abstain, ask for more context, or flag uncertainty?",
+      "why_it_matters": "Failure modes are more useful for safety than only success examples."
+    }
+  ],
+  "check_count": 7,
+  "boundaries": [
+    "No official TEKNOFEST endorsement claim.",
+    "No submission claim.",
+    "No clinical deployment claim.",
+    "No clinical validation claim.",
+    "No patient data included.",
+    "No diagnosis or treatment advice.",
+    "No model ranking.",
+    "No score certification.",
+    "No partner claim.",
+    "No route access claim."
+  ],
+  "contains_patient_data": false,
+  "claims_official_endorsement": false,
+  "claims_submission": false,
+  "claims_partner": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false
+}

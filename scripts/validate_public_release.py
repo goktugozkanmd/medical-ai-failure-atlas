@@ -283,6 +283,15 @@ REQUIRED_FILES = [
     "docs/sourcecheckup_medical_source_support_delta_queue_v0_1.json",
     "scripts/generate_sourcecheckup_medical_source_support_delta_queue_v0_1.py",
     "scripts/validate_sourcecheckup_medical_source_support_delta_queue_v0_1.py",
+    "docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md",
+    "docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md",
+    "docs/turkiye_health_ai_safety_readiness_kit_20260618.json",
+    "scripts/generate_turkiye_health_ai_safety_readiness_kit_20260618.py",
+    "scripts/validate_turkiye_health_ai_safety_readiness_kit_20260618.py",
+    "docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md",
+    "docs/teknofest_health_ai_safety_addendum_20260618.json",
+    "scripts/generate_teknofest_health_ai_safety_addendum_20260618.py",
+    "scripts/validate_teknofest_health_ai_safety_addendum_20260618.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -755,6 +764,18 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must document the SourceCheckup Medical source support delta queue command")
         if "make paired_literacy_source_support_delta" not in readme_text:
             fail(errors, "README must document the paired literacy source support delta command")
+        if "docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md" not in readme_text:
+            fail(errors, "README must link to the field impact opportunity radar")
+        if "docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md" not in readme_text:
+            fail(errors, "README must link to the Türkiye Health AI Safety Readiness Kit")
+        if "make turkiye_health_ai_safety_readiness_kit" not in readme_text:
+            fail(errors, "README must document the Türkiye Health AI Safety Readiness Kit command")
+        if "docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md" not in readme_text:
+            fail(errors, "README must link to the TEKNOFEST Health AI Safety Addendum")
+        if "make teknofest_health_ai_safety_addendum" not in readme_text:
+            fail(errors, "README must document the TEKNOFEST Health AI Safety Addendum command")
+        if "make field_impact_packages" not in readme_text:
+            fail(errors, "README must document the field impact packages command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:
