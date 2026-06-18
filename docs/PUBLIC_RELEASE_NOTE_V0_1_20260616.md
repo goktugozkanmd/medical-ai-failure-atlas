@@ -260,6 +260,7 @@ make reviewer_question_maintainer_public_preview_acceptance_archive_final_index
 make reviewer_question_maintainer_public_preview_acceptance_archive_handoff_packet
 make reviewer_question_maintainer_public_preview_acceptance_archive_steward_note
 make reviewer_question_maintainer_public_preview_acceptance_archive_steward_index
+make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -420,15 +421,18 @@ For global open source medical AI evaluation, this public preview gives:
 80. Reviewer question maintainer public preview acceptance archive handoff packet for public maintainer archive handoff without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 81. Reviewer question maintainer public preview acceptance archive steward note for public maintainer archive stewardship without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 82. Reviewer question maintainer public preview acceptance archive steward index for public maintainer archive stewardship navigation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+83. Reviewer question maintainer public preview acceptance archive stewardship closeout for public maintainer archive closeout without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 6 reviewer question maintainer public preview acceptance archive steward note rows.
 
 6 reviewer question maintainer public preview acceptance archive steward index rows.
 
+6 reviewer question maintainer public preview acceptance archive stewardship closeout rows.
+
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview acceptance archive stewardship closeout without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview acceptance archive stewardship digest without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.
