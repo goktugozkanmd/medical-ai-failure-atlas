@@ -1,0 +1,66 @@
+{
+  "title": "TÜSEB A4 UM Medical AI Safety Concept Gate",
+  "date": "2026 06 19",
+  "status": "public concept gate for a possible TÜSEB A4 UM aligned health AI safety route, not an application",
+  "source_signals": [
+    {
+      "id": "TA4G001",
+      "name": "TÜSEB A4 UM expert call notice",
+      "url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616",
+      "fit_read": "strong health research signal, but eligibility and institutional route are unverified"
+    },
+    {
+      "id": "TA4G002",
+      "name": "TÜSEB A group project support page",
+      "url": "https://proje-destek.tuseb.gov.tr/a-grubu-proje-destekleri",
+      "fit_read": "A4 supports academics and specialists when route and eligibility are real"
+    },
+    {
+      "id": "TA4G003",
+      "name": "TÜYZE health data and AI route surface",
+      "url": "https://tuyze.tuseb.gov.tr/kurullar/saglik-veri-organizasyonu-bilim-kurulu",
+      "fit_read": "plausible scientific route surface, not a confirmed partner"
+    },
+    {
+      "id": "TA4G004",
+      "name": "TÜBİTAK 1711 open call contrast",
+      "url": "https://tubitak.gov.tr/tr/acik-cagrilar",
+      "fit_read": "useful contrast because TÜSEB A4 UM is a more direct health research signal"
+    }
+  ],
+  "concept_lanes": [
+    "Turkish medical LLM safety evaluation",
+    "clinician AI safety literacy",
+    "health data quality and label audit"
+  ],
+  "proposal_blockers": [
+    "personal eligibility",
+    "compulsory service status",
+    "institutional executor route",
+    "TBYS access and authority",
+    "exact call text and budget limits",
+    "host unit or collaborator",
+    "patient data decision",
+    "human reviewer and governance plan",
+    "ethics path",
+    "formal submission clearance"
+  ],
+  "next_outward_action": "prepare one page TUSEB route fit question if no route owner replies",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_tuseb_submission": false,
+  "claims_tbys_submission": false,
+  "claims_tuyze_proposal": false,
+  "claims_official_role": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_budget": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_medical_advice": false,
+  "claims_endorsement": false
+}
