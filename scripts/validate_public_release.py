@@ -300,6 +300,10 @@ REQUIRED_FILES = [
     "docs/named_outreach_decision_matrix_20260618.json",
     "scripts/generate_named_outreach_decision_matrix_20260618.py",
     "scripts/validate_named_outreach_decision_matrix_20260618.py",
+    "docs/GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md",
+    "docs/goktug_field_action_review_packet_20260618.json",
+    "scripts/generate_goktug_field_action_review_packet_20260618.py",
+    "scripts/validate_goktug_field_action_review_packet_20260618.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -794,6 +798,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must document the named outreach decision matrix command")
         if "make field_opportunity_decision_packages" not in readme_text:
             fail(errors, "README must document the field opportunity decision packages command")
+        if "docs/GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md" not in readme_text:
+            fail(errors, "README must link to the Goktug field action review packet")
+        if "make goktug_field_action_review_packet" not in readme_text:
+            fail(errors, "README must document the Goktug field action review packet command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

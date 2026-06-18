@@ -1,0 +1,254 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DOC = ROOT / "docs" / "GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md"
+DATA = ROOT / "docs" / "goktug_field_action_review_packet_20260618.json"
+
+
+SOURCE_FACTS = [
+    {
+        "fact_id": "GFARP001",
+        "route": "TÜYZE readiness outreach",
+        "source": "Türkiye Sağlık Veri Araştırmaları ve Yapay Zeka Uygulamaları Enstitüsü",
+        "url": "https://tuyze.tuseb.gov.tr/",
+        "checked_fact": "The public site lists Büyük Veri, Tıbbi Karar Destek Sistemleri, and Akıllı Medikal Cihaz Teknolojileri units, plus Sağlık Veri Organizasyonu and Yapay Zeka boards.",
+        "field_value": "This is the strongest national institutional fit for a health AI safety readiness conversation.",
+    },
+    {
+        "fact_id": "GFARP002",
+        "route": "TÜYZE readiness outreach",
+        "source": "Türkiye Sağlık Veri Araştırmaları ve Yapay Zeka Uygulamaları Enstitüsü",
+        "url": "https://tuyze.tuseb.gov.tr/",
+        "checked_fact": "The public site reports a Sağlıkta Yapay Zeka Seminerleri program with Marmara University Faculty of Medicine between 08 April and 20 May 2026.",
+        "field_value": "This shows recent clinician and health AI education activity without implying a current partnership.",
+    },
+    {
+        "fact_id": "GFARP003",
+        "route": "TEKNOFEST public share",
+        "source": "TEKNOFEST Sağlıkta Yapay Zeka Yarışması",
+        "url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+        "checked_fact": "The public page says the university and above task is predicting whether genetic variants are pathogenic or benign.",
+        "field_value": "A safety checklist for source support, label uncertainty, leakage, and human review is directly relevant to teams.",
+    },
+    {
+        "fact_id": "GFARP004",
+        "route": "TEKNOFEST public share",
+        "source": "TEKNOFEST Sağlıkta Yapay Zeka Yarışması",
+        "url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+        "checked_fact": "The public page lists the project detail report deadline as 29 June 2026 at 17:00.",
+        "field_value": "The timing is urgent enough to justify a short public safety addendum route.",
+    },
+    {
+        "fact_id": "GFARP005",
+        "route": "TÜBİTAK 1711 consortium scouting",
+        "source": "TÜBİTAK 1711 Yapay Zeka Ekosistem 2026 call announcement",
+        "url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+        "checked_fact": "The 2026 priority areas are smart production systems, smart agriculture, food and livestock, financial technologies, climate change and sustainability, and smart education technologies.",
+        "field_value": "Direct health fit is weak, so any route must be adjacent AI assurance rather than a health AI application claim.",
+    },
+    {
+        "fact_id": "GFARP006",
+        "route": "TÜBİTAK 1711 consortium scouting",
+        "source": "TÜBİTAK 1711 Yapay Zeka Ekosistem 2026 call announcement",
+        "url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+        "checked_fact": "The public page says the model requires a customer organization, at least one technology provider company, and at least one experienced university research lab, center, public research center, or institute.",
+        "field_value": "Scouting is blocked until a credible consortium role exists.",
+    },
+    {
+        "fact_id": "GFARP007",
+        "route": "TÜBİTAK 1711 consortium scouting",
+        "source": "TÜBİTAK 1711 Yapay Zeka Ekosistem 2026 call announcement",
+        "url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+        "checked_fact": "The public page lists pre registration completion by 14 September 2026 at 17:30 and application intake from 15 June 2026 to 18 September 2026.",
+        "field_value": "This is not immediate submission pressure, but the decision clock is real.",
+    },
+]
+
+
+OPTIONS = [
+    {
+        "option_id": "GFARO001",
+        "name": "TÜYZE readiness outreach draft",
+        "field_move": "Prepare a concise readiness note that offers the public Türkiye Health AI Safety Readiness Kit as a discussion artifact for health AI safety literacy, health data quality, clinician review, and sandbox readiness.",
+        "why_it_matters": "This is the highest national health AI infrastructure fit and connects Dr. Ozkan to a visible health data and AI institution without claiming role or partnership.",
+        "prepared_asset": "Türkiye Health AI Safety Readiness Kit",
+        "draft_text": [
+            "Subject line candidate: Türkiye health AI safety readiness discussion",
+            "Opening candidate: I am building an open physician led medical AI safety portfolio focused on Turkish medical language model evaluation, clinician AI literacy, health data quality, and sandbox readiness.",
+            "Offer candidate: I prepared a public readiness kit that could support a short discussion on practical safety checks for health AI systems before clinical use.",
+            "Boundary candidate: This is not a request to claim institutional affiliation, not a clinical validation claim, and not a patient data project.",
+        ],
+        "decision_needed": "Approve, revise, or reject a named TÜYZE outreach draft before any message is sent.",
+        "blocker": "Needs exact recipient route and Dr. Ozkan send clearance.",
+    },
+    {
+        "option_id": "GFARO002",
+        "name": "TEKNOFEST public share draft",
+        "field_move": "Prepare a short public post or repository note pointing contestant teams to the TEKNOFEST Health AI Safety Addendum before the project detail report deadline.",
+        "why_it_matters": "This is the fastest visible field impact route because teams working on genetic variant models can use a safety checklist immediately.",
+        "prepared_asset": "TEKNOFEST Health AI Safety Addendum",
+        "draft_text": [
+            "Post candidate: For TEKNOFEST health AI teams preparing project detail reports, I published a concise safety addendum for genetic variant model projects.",
+            "Value candidate: The checklist focuses on label uncertainty, leakage, source support, population limits, human review, and no clinical deployment claims.",
+            "Boundary candidate: This is an independent public safety note, not an official TEKNOFEST document and not a submission claim.",
+        ],
+        "decision_needed": "Choose public share, mentor route, team route, or no outward action.",
+        "blocker": "Needs Dr. Ozkan clearance before public post or targeted message.",
+    },
+    {
+        "option_id": "GFARO003",
+        "name": "TÜBİTAK 1711 consortium scouting brief",
+        "field_move": "Prepare a scouting brief for adjacent AI assurance roles only if Dr. Ozkan wants to explore a consortium path despite weak direct health fit.",
+        "why_it_matters": "This keeps a major national AI call on the radar while preventing an inflated health fit claim.",
+        "prepared_asset": "TÜBİTAK 1711 AI Assurance Sidecar",
+        "draft_text": [
+            "Scouting candidate: The strongest truthful role is not a health AI application claim, but an AI assurance sidecar for data quality, source support, human review, and no ranking safety reports.",
+            "Eligibility candidate: Any real route needs a customer organization, a technology provider company, and an experienced research lab or public research center.",
+            "Boundary candidate: No application, intent declaration, consortium claim, budget, terms acceptance, or meeting request is made at this stage.",
+        ],
+        "decision_needed": "Decide whether to scout adjacent consortium routes or keep 1711 as monitor only.",
+        "blocker": "Needs Dr. Ozkan decision plus credible customer, company, and research lab route before contact.",
+    },
+]
+
+
+BOUNDARIES = [
+    "No email is sent.",
+    "No public post is made.",
+    "No submission is made.",
+    "No application is submitted.",
+    "No meeting request is sent.",
+    "No intent declaration is made.",
+    "No partner commitment is made.",
+    "No official role is claimed.",
+    "No endorsement is claimed.",
+    "No health priority fit claim is made for TÜBİTAK 1711.",
+    "No patient data is used.",
+    "No clinical deployment is claimed.",
+    "No clinical validation is claimed.",
+    "No payment is made.",
+    "No terms are accepted.",
+]
+
+
+def write_json() -> None:
+    payload = {
+        "artifact": "goktug_field_action_review_packet_20260618",
+        "status": "dr_goktug_review_packet_public_preview",
+        "source_fact_count": len(SOURCE_FACTS),
+        "option_count": len(OPTIONS),
+        "source_facts": SOURCE_FACTS,
+        "options": OPTIONS,
+        "boundaries": BOUNDARIES,
+        "requires_goktug_clearance_before_send": True,
+        "contains_patient_data": False,
+        "claims_submission": False,
+        "claims_application": False,
+        "claims_partner": False,
+        "claims_official_role": False,
+        "claims_endorsement": False,
+        "claims_clinical_validation": False,
+        "claims_clinical_deployment": False,
+        "claims_tubitak_health_priority_fit": False,
+    }
+    DATA.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def write_doc() -> None:
+    lines = [
+        "# Goktug Field Action Review Packet",
+        "",
+        "Date: 2026 06 18",
+        "",
+        "Status: Dr. Goktug review packet public preview.",
+        "",
+        "Purpose: choose the next field action for national medical AI safety impact without sending outreach, making a submission, claiming partnership, or implying official status.",
+        "",
+        "## Decision summary",
+        "",
+        "Recommended first action: TEKNOFEST public share draft, because the project detail report deadline is 29 June 2026 at 17:00 and the safety addendum can be useful without institutional permission.",
+        "",
+        "Recommended second action: TÜYZE readiness outreach draft, because it is the strongest health AI infrastructure fit but needs a named recipient route and send clearance.",
+        "",
+        "Recommended monitor action: TÜBİTAK 1711 consortium scouting brief, because direct health fit is weak and any move needs a customer organization, technology provider company, and research lab route.",
+        "",
+        "## Source facts",
+        "",
+    ]
+    for fact in SOURCE_FACTS:
+        lines.extend(
+            [
+                f"### {fact['fact_id']}: {fact['route']}",
+                "",
+                f"Source: {fact['source']}",
+                "",
+                f"Official or public source: {fact['url']}",
+                "",
+                f"Checked fact: {fact['checked_fact']}",
+                "",
+                f"Field value: {fact['field_value']}",
+                "",
+            ]
+        )
+    lines.extend(["## Three option review packet", ""])
+    for option in OPTIONS:
+        lines.extend(
+            [
+                f"### {option['option_id']}: {option['name']}",
+                "",
+                f"Field move: {option['field_move']}",
+                "",
+                f"Why it matters: {option['why_it_matters']}",
+                "",
+                f"Prepared asset: {option['prepared_asset']}",
+                "",
+                "Draft text for review only:",
+                "",
+            ]
+        )
+        lines.extend(f"{index}. {line}" for index, line in enumerate(option["draft_text"], start=1))
+        lines.extend(
+            [
+                "",
+                f"Decision needed: {option['decision_needed']}",
+                "",
+                f"Blocker: {option['blocker']}",
+                "",
+            ]
+        )
+    lines.extend(["## Boundary", ""])
+    lines.extend(f"{index}. {boundary}" for index, boundary in enumerate(BOUNDARIES, start=1))
+    lines.extend(
+        [
+            "",
+            "## Clearance question",
+            "",
+            "Dr. Ozkan should choose one of four options: approve TEKNOFEST public share draft, approve TÜYZE outreach drafting, approve TÜBİTAK 1711 scouting, or keep all three as monitor only.",
+            "",
+            "## Runnable check",
+            "",
+            "```bash",
+            "make goktug_field_action_review_packet",
+            "```",
+            "",
+        ]
+    )
+    DOC.write_text("\n".join(lines), encoding="utf-8")
+
+
+def main() -> None:
+    write_json()
+    write_doc()
+    print(f"generated={DOC.relative_to(ROOT)}")
+    print(f"json={DATA.relative_to(ROOT)}")
+    print(f"source_facts={len(SOURCE_FACTS)}")
+    print(f"options={len(OPTIONS)}")
+
+
+if __name__ == "__main__":
+    main()
