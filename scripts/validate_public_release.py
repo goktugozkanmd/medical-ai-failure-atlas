@@ -292,6 +292,14 @@ REQUIRED_FILES = [
     "docs/teknofest_health_ai_safety_addendum_20260618.json",
     "scripts/generate_teknofest_health_ai_safety_addendum_20260618.py",
     "scripts/validate_teknofest_health_ai_safety_addendum_20260618.py",
+    "docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md",
+    "docs/tubitak_1711_ai_assurance_sidecar_20260618.json",
+    "scripts/generate_tubitak_1711_ai_assurance_sidecar_20260618.py",
+    "scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py",
+    "docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md",
+    "docs/named_outreach_decision_matrix_20260618.json",
+    "scripts/generate_named_outreach_decision_matrix_20260618.py",
+    "scripts/validate_named_outreach_decision_matrix_20260618.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -776,6 +784,16 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must document the TEKNOFEST Health AI Safety Addendum command")
         if "make field_impact_packages" not in readme_text:
             fail(errors, "README must document the field impact packages command")
+        if "docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md" not in readme_text:
+            fail(errors, "README must link to the TÜBİTAK 1711 AI Assurance Sidecar")
+        if "make tubitak_1711_ai_assurance_sidecar" not in readme_text:
+            fail(errors, "README must document the TÜBİTAK 1711 AI Assurance Sidecar command")
+        if "docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md" not in readme_text:
+            fail(errors, "README must link to the named outreach decision matrix")
+        if "make named_outreach_decision_matrix" not in readme_text:
+            fail(errors, "README must document the named outreach decision matrix command")
+        if "make field_opportunity_decision_packages" not in readme_text:
+            fail(errors, "README must document the field opportunity decision packages command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

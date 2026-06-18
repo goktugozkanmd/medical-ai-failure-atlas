@@ -117,6 +117,8 @@ New visible build surfaces are now staged in this public repository:
 107. [Field impact opportunity radar](docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md)
 108. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
 109. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+110. [TÜBİTAK 1711 AI Assurance Sidecar](docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md)
+111. [Named outreach decision matrix](docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -187,6 +189,8 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 57. Field impact opportunity radar for TÜBİTAK, TÜYZE, TEKNOFEST, CHAI, and MedHELM aligned public field moves without submission, partner, clinical validation, deployment, official role, payment, terms, or endorsement claims.
 58. Türkiye Health AI Safety Readiness Kit for TÜYZE style review readiness without patient data, clinical validation, deployment, official role, partner, submission, payment, terms, or endorsement claims.
 59. TEKNOFEST Health AI Safety Addendum for health AI teams without official TEKNOFEST endorsement, submission, patient data, clinical validation, deployment, partner, payment, terms, or route access claims.
+60. TÜBİTAK 1711 AI Assurance Sidecar for adjacent AI assurance scouting without health priority fit, application, intent declaration, partner, budget, payment, terms, official role, endorsement, patient data, clinical validation, or deployment claims.
+61. Named outreach decision matrix for TÜYZE, TEKNOFEST, TÜBİTAK 1711, CHAI, and MedHELM routes without email, submission, application, partner, official role, endorsement, patient data, clinical validation, or deployment claims.
 
 ## What this is
 
@@ -374,6 +378,24 @@ Generate the field impact packages:
 
 ```bash
 make field_impact_packages
+```
+
+Generate the TÜBİTAK 1711 AI assurance sidecar:
+
+```bash
+make tubitak_1711_ai_assurance_sidecar
+```
+
+Generate the named outreach decision matrix:
+
+```bash
+make named_outreach_decision_matrix
+```
+
+Generate the field opportunity decision packages:
+
+```bash
+make field_opportunity_decision_packages
 ```
 
 Generate the benchmark style reviewer questions:
