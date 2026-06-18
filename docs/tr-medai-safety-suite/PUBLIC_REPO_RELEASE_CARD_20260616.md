@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds fifty one concrete build surfaces:
+This preview adds fifty two concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -61,6 +61,7 @@ This preview adds fifty one concrete build surfaces:
 49. Reviewer question maintainer public preview acceptance archive public handoff digest.
 50. Reviewer question maintainer public preview acceptance archive public handoff release index.
 51. Reviewer question maintainer public preview acceptance archive public handoff release note.
+52. Current medical AI intelligence priority update.
 
 ## What This Is
 
@@ -172,7 +173,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 76. [Reviewer question maintainer public preview acceptance archive public handoff digest](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md)
 77. [Reviewer question maintainer public preview acceptance archive public handoff release index](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md)
 78. [Reviewer question maintainer public preview acceptance archive public handoff release note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md)
+79. [Current medical AI intelligence priority update](../CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring or compatibility claims.
+The next useful public build is a Türkiye AI ethics status gate note and a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring or compatibility claims.

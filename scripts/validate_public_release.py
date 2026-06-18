@@ -255,6 +255,10 @@ REQUIRED_FILES = [
     "docs/reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note_v0_1.json",
     "scripts/generate_reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note_v0_1.py",
     "scripts/validate_reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note_v0_1.py",
+    "docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md",
+    "docs/current_medical_ai_intelligence_priority_update_20260618_v0_1.json",
+    "scripts/generate_current_medical_ai_intelligence_priority_update_20260618_v0_1.py",
+    "scripts/validate_current_medical_ai_intelligence_priority_update_20260618_v0_1.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -695,6 +699,10 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff release note")
         if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff release note command")
+        if "docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the current medical AI intelligence priority update")
+        if "make current_medical_ai_intelligence_priority_update" not in readme_text:
+            fail(errors, "README must document the current medical AI intelligence priority update command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

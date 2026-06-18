@@ -1,0 +1,144 @@
+{
+  "artifact": "current_medical_ai_intelligence_priority_update_20260618_v0_1",
+  "status": "public_preview",
+  "checked_at": "2026 06 18 09:04 TRT",
+  "source_row_count": 8,
+  "priority_row_count": 6,
+  "real_opportunity_detected": true,
+  "real_opportunity": {
+    "name": "TÜBİTAK 1711 Yapay Zekâ Ekosistem 2026 call",
+    "announcement_date": "16 June 2026",
+    "call_opening_date": "15 June 2026",
+    "application_window": "15 June 2026 to 18 September 2026, source page states 25:59 UTC plus 3",
+    "pre_registration_deadline": "14 September 2026 17:30",
+    "blocker": "2026 priority areas do not list health, and any application needs partner commitment, scope decision, terms review, budget decision, and Dr. Ozkan clearance",
+    "prepared_artifact": "docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md"
+  },
+  "contains_patient_data": false,
+  "not_for_clinical_use": true,
+  "no_submission_claim": true,
+  "no_application_claim": true,
+  "no_partner_claim": true,
+  "no_official_role_claim": true,
+  "no_endorsement_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_model_ranking": true,
+  "no_score_report": true,
+  "no_endpoint_call": true,
+  "no_terms_acceptance": true,
+  "no_payment": true,
+  "sources": [
+    {
+      "source_id": "CMIPU001",
+      "source_name": "TÜBİTAK 1711 Yapay Zekâ Ekosistem 2026 announcement",
+      "source_url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+      "source_date": "16 June 2026",
+      "observed_claim": "The fifth 1711 call opened on 15 June 2026, lists five 2026 priority areas, and receives applications through PRODİS.",
+      "portfolio_impact": "Keep the 1711 readiness packet active but do not claim a health priority route because health is not listed among the five stated 2026 areas.",
+      "decision_lock": "Any application, partner, non medical pivot, terms step, budget step, or submission needs Dr. Ozkan clearance."
+    },
+    {
+      "source_id": "CMIPU002",
+      "source_name": "Ankara İl Sağlık Müdürlüğü AI studies ethics page",
+      "source_url": "https://ankaraism.saglik.gov.tr/TR-371527/yapay-zeka-ile-ilgili-calismalar.html",
+      "source_date": "30 January 2026",
+      "observed_claim": "The page says AI related studies presented to that ethics committee will be suspended until new regulation.",
+      "portfolio_impact": "Add a Türkiye ethics status verification gate before any ethics, clinical study, deployment, or validation claim.",
+      "decision_lock": "Do not generalize this local page into a national rule without separate verification."
+    },
+    {
+      "source_id": "CMIPU003",
+      "source_name": "Sağlık Bilgi Sistemleri Genel Müdürlüğü Yapay Zekâ ve Yenilikçi Teknolojiler Daire Başkanlığı page",
+      "source_url": "https://sbsgm.saglik.gov.tr/TR-104172/yapay-zeka-ve-yenilikci-teknolojiler-daire-baskanligi.html",
+      "source_date": "21 August 2024",
+      "observed_claim": "The page lists tasks including identifying AI improvable processes, producing or procuring AI solutions, following AI technologies, building stakeholder collaborations, interoperability, and education materials.",
+      "portfolio_impact": "Track A should emphasize assurance lab, clinician literacy, interoperability, and education surfaces without claiming official role or endorsement.",
+      "decision_lock": "No ministry role, route access, or endorsement claim without explicit verified authorization."
+    },
+    {
+      "source_id": "CMIPU004",
+      "source_name": "OpenAI HealthBench public page",
+      "source_url": "https://openai.com/index/healthbench/",
+      "source_date": "2025",
+      "observed_claim": "HealthBench describes realistic health conversations, physician expert rubrics, 262 physicians, 60 countries, and 5000 conversations.",
+      "portfolio_impact": "Track B should keep building clinician rubric literacy, reviewer question fields, and no ranking safety reports without claiming benchmark compatibility.",
+      "decision_lock": "No HealthBench compatibility, score, or benchmark equivalence claim without explicit benchmark owner aligned validation."
+    },
+    {
+      "source_id": "CMIPU005",
+      "source_name": "MedHELM public site",
+      "source_url": "https://medhelm.org/",
+      "source_date": "2026",
+      "observed_claim": "MedHELM presents an open community benchmark with 121 clinical tasks, 22 subcategories, 31 datasets, 5 categories, and measures including accuracy, calibration, robustness, and writing style.",
+      "portfolio_impact": "Track B should add benchmark compatibility notes that explain what local synthetic artifacts can and cannot map to.",
+      "decision_lock": "No MedHELM compatibility, leaderboard, model comparison, or clinical workflow deployment claim."
+    },
+    {
+      "source_id": "CMIPU006",
+      "source_name": "Google MedGemma Health AI Developer Foundations page",
+      "source_url": "https://developers.google.com/health-ai-developer-foundations/medgemma",
+      "source_date": "2026",
+      "observed_claim": "The page describes MedGemma models for medical text and image comprehension and states that use cases require validation.",
+      "portfolio_impact": "Add open model boundary notes that separate model availability from local clinical validation or deployment readiness.",
+      "decision_lock": "No model run, endpoint use, terms acceptance, clinical validation, or deployment claim without clearance."
+    },
+    {
+      "source_id": "CMIPU007",
+      "source_name": "European Commission AI in healthcare page",
+      "source_url": "https://health.ec.europa.eu/ehealth-digital-health-and-care/artificial-intelligence-healthcare_en",
+      "source_date": "2026",
+      "observed_claim": "The page says the EU AI Act entered into force on 1 August 2024 and high risk AI systems such as AI based software intended for medical purposes must meet requirements including risk mitigation, data quality, user information, and human oversight.",
+      "portfolio_impact": "Track A and Track B should keep no deployment and no regulatory claim language, while adding risk management and human oversight checklist fields.",
+      "decision_lock": "No EU compliance, conformity, or regulatory readiness claim without legal and product scope review."
+    },
+    {
+      "source_id": "CMIPU008",
+      "source_name": "FDA AI Enabled Medical Devices page",
+      "source_url": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
+      "source_date": "2026",
+      "observed_claim": "The page says the FDA AI Enabled Medical Device List identifies authorized marketed AI enabled devices and is updated periodically.",
+      "portfolio_impact": "Track B should add transparent boundary wording that public evaluation tools are not devices, not marketing submissions, and not authorization claims.",
+      "decision_lock": "No FDA authorization, device, SaMD, or marketing claim without formal regulatory scope review."
+    }
+  ],
+  "priority_updates": [
+    {
+      "priority_id": "CMIPUP001",
+      "platform": "TR MedLLM SafetyBench",
+      "priority_update": "Add local ethics status check fields and separate national readiness language from local ethics page observations.",
+      "next_safe_build": "Türkiye AI ethics status gate note"
+    },
+    {
+      "priority_id": "CMIPUP002",
+      "platform": "Medical AI Failure Atlas Global",
+      "priority_update": "Keep failure atlas as synthetic failure pattern infrastructure and add benchmark compatibility boundary notes.",
+      "next_safe_build": "public benchmark boundary delta note"
+    },
+    {
+      "priority_id": "CMIPUP003",
+      "platform": "Turkish Clinical AI Assurance Lab",
+      "priority_update": "Move assurance lab wording toward risk mitigation, human oversight, source support, interoperability, and education material gates.",
+      "next_safe_build": "assurance lab ethics and oversight gate"
+    },
+    {
+      "priority_id": "CMIPUP004",
+      "platform": "SourceCheckup Medical",
+      "priority_update": "Use HealthBench and MedHELM signals to deepen source support and clinician rubric fields without scoring claims.",
+      "next_safe_build": "source support benchmark note"
+    },
+    {
+      "priority_id": "CMIPUP005",
+      "platform": "Clinician AI Literacy Academy Turkiye",
+      "priority_update": "Turn current policy and benchmark observations into clinician literacy lessons on limits, oversight, and non deployment boundaries.",
+      "next_safe_build": "clinician literacy current intelligence lesson"
+    },
+    {
+      "priority_id": "CMIPUP006",
+      "platform": "Health Data Quality and Label Audit Commons",
+      "priority_update": "Add data quality, label provenance, and reviewer state fields aligned with high quality data and human oversight language.",
+      "next_safe_build": "data quality oversight field note"
+    }
+  ],
+  "next_safe_public_build": "Add a Türkiye AI ethics status gate note and a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring, compatibility, endpoint, patient data, clinical validation, route access, or endorsement claims."
+}

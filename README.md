@@ -107,6 +107,7 @@ New visible build surfaces are now staged in this public repository:
 97. [Reviewer question maintainer public preview acceptance archive public handoff digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md)
 98. [Reviewer question maintainer public preview acceptance archive public handoff release index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md)
 99. [Reviewer question maintainer public preview acceptance archive public handoff release note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md)
+100. [Current medical AI intelligence priority update v0.1](docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -167,6 +168,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 47. Reviewer question maintainer public preview acceptance archive final index for public maintainer final archive navigation without scoring or compatibility claims.
 48. Reviewer question maintainer public preview acceptance archive handoff packet for public maintainer archive handoff without scoring or compatibility claims.
 49. Reviewer question maintainer public preview acceptance archive public handoff release note for public maintainer archive handoff notation without scoring or compatibility claims.
+50. Current medical AI intelligence priority update for source checked public priority revision without submission or endorsement claims.
 
 ## What this is
 
@@ -548,6 +550,12 @@ Generate reviewer question maintainer public preview acceptance archive public h
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note
 ```
 
+Generate current medical AI intelligence priority update:
+
+```bash
+make current_medical_ai_intelligence_priority_update
+```
+
 Validate the assurance card template:
 
 ```bash
@@ -873,6 +881,8 @@ docs/
   reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md
   reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note_v0_1.json
+  CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md
+  current_medical_ai_intelligence_priority_update_20260618_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
