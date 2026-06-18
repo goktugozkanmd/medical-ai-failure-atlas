@@ -105,6 +105,8 @@ They remain issue template intake fields without scoring or compatibility claims
 89. 6 Türkiye AI ethics status gate rows.
 90. 6 TR clinical AI assurance sandbox readiness gate rows.
 91. 6 SourceCheckup Medical benchmark boundary delta rows.
+92. 6 clinician AI literacy sandbox handoff micro module steps.
+93. 6 SourceCheckup Medical source support delta queue rows.
 
 ## Top public entry files
 
@@ -210,6 +212,10 @@ They remain issue template intake fields without scoring or compatibility claims
 100. [TR clinical AI assurance sandbox readiness gate checklist JSON](tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.json)
 101. [SourceCheckup Medical benchmark boundary delta note](SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
 102. [SourceCheckup Medical benchmark boundary delta note JSON](sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.json)
+103. [Clinician AI literacy sandbox handoff micro module](CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md)
+104. [Clinician AI literacy sandbox handoff micro module JSON](clinician_ai_literacy_sandbox_handoff_micro_module_v0_1.json)
+105. [SourceCheckup Medical source support delta queue](SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
+106. [SourceCheckup Medical source support delta queue JSON](sourcecheckup_medical_source_support_delta_queue_v0_1.json)
 
 ## Platform map
 
@@ -370,6 +376,9 @@ make turkiye_ai_ethics_status_gate_note
 make tr_clinical_ai_assurance_sandbox_readiness_gate
 make sourcecheckup_medical_benchmark_boundary_delta
 make paired_sandbox_boundary_delta
+make clinician_ai_literacy_sandbox_handoff_micro_module
+make sourcecheckup_medical_source_support_delta_queue
+make paired_literacy_source_support_delta
 ```
 
 Track A value: source material for Turkish health AI risk education and assurance gates, including benchmark style reviewer questions for escalation, medication safety, missing context, and warning sign visibility.
@@ -554,7 +563,11 @@ TR clinical AI assurance sandbox readiness gate checklist adds public sandbox re
 
 SourceCheckup Medical benchmark boundary delta note adds public benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 
-Next build: add a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring or compatibility claims.
+Clinician AI literacy sandbox handoff micro module adds public handoff steps without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
+
+SourceCheckup Medical source support delta queue adds source support review rows without source truth certification, endpoint, score, ranking, compatibility, equivalence, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
+
+Next build: add a Health Data Quality source support handoff card and Failure Atlas no ranking report boundary update without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, payment, terms, partner, or endorsement claims.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 

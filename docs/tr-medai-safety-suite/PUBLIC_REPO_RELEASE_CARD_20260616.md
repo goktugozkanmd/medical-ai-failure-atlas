@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds fifty six concrete build surfaces:
+This preview adds fifty eight concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -66,6 +66,8 @@ This preview adds fifty six concrete build surfaces:
 54. Reviewer question maintainer public preview acceptance archive public handoff closure note.
 55. TR clinical AI assurance sandbox readiness gate checklist.
 56. SourceCheckup Medical benchmark boundary delta note.
+57. Clinician AI literacy sandbox handoff micro module.
+58. SourceCheckup Medical source support delta queue.
 
 ## What This Is
 
@@ -182,7 +184,9 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 81. [Reviewer question maintainer public preview acceptance archive public handoff closure note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md)
 82. [TR clinical AI assurance sandbox readiness gate checklist](../TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md)
 83. [SourceCheckup Medical benchmark boundary delta note](../SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
+84. [Clinician AI literacy sandbox handoff micro module](../CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md)
+85. [SourceCheckup Medical source support delta queue](../SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, or endorsement claims.
+The next useful public build is a Health Data Quality source support handoff card and Failure Atlas no ranking report boundary update without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, payment, terms, partner, or endorsement claims.

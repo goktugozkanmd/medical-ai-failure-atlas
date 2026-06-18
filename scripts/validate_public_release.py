@@ -275,6 +275,14 @@ REQUIRED_FILES = [
     "docs/sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.json",
     "scripts/generate_sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.py",
     "scripts/validate_sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.py",
+    "docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md",
+    "docs/clinician_ai_literacy_sandbox_handoff_micro_module_v0_1.json",
+    "scripts/generate_clinician_ai_literacy_sandbox_handoff_micro_module_v0_1.py",
+    "scripts/validate_clinician_ai_literacy_sandbox_handoff_micro_module_v0_1.py",
+    "docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md",
+    "docs/sourcecheckup_medical_source_support_delta_queue_v0_1.json",
+    "scripts/generate_sourcecheckup_medical_source_support_delta_queue_v0_1.py",
+    "scripts/validate_sourcecheckup_medical_source_support_delta_queue_v0_1.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -737,6 +745,16 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must document the SourceCheckup Medical benchmark boundary delta command")
         if "make paired_sandbox_boundary_delta" not in readme_text:
             fail(errors, "README must document the paired sandbox boundary delta command")
+        if "docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the clinician AI literacy sandbox handoff micro module")
+        if "make clinician_ai_literacy_sandbox_handoff_micro_module" not in readme_text:
+            fail(errors, "README must document the clinician AI literacy sandbox handoff micro module command")
+        if "docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the SourceCheckup Medical source support delta queue")
+        if "make sourcecheckup_medical_source_support_delta_queue" not in readme_text:
+            fail(errors, "README must document the SourceCheckup Medical source support delta queue command")
+        if "make paired_literacy_source_support_delta" not in readme_text:
+            fail(errors, "README must document the paired literacy source support delta command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

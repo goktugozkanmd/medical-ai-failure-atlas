@@ -112,6 +112,8 @@ New visible build surfaces are now staged in this public repository:
 102. [Türkiye AI ethics status gate note v0.1](docs/TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md)
 103. [TR clinical AI assurance sandbox readiness gate checklist v0.1](docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md)
 104. [SourceCheckup Medical benchmark boundary delta note v0.1](docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
+105. [Clinician AI literacy sandbox handoff micro module v0.1](docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md)
+106. [SourceCheckup Medical source support delta queue v0.1](docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -177,6 +179,8 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 52. Türkiye AI ethics status gate note for local ethics signal separation without submission approval or national rule claims.
 53. TR clinical AI assurance sandbox readiness gate checklist for public sandbox readiness discussion without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
 54. SourceCheckup Medical benchmark boundary delta note for benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
+55. Clinician AI literacy sandbox handoff micro module for public clinician education without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
+56. SourceCheckup Medical source support delta queue for source support review without source truth certification, endpoint, score, ranking, compatibility, equivalence, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 
 ## What this is
 
@@ -328,6 +332,24 @@ Generate the paired sandbox readiness and benchmark boundary delta notes:
 
 ```bash
 make paired_sandbox_boundary_delta
+```
+
+Generate the clinician AI literacy sandbox handoff micro module:
+
+```bash
+make clinician_ai_literacy_sandbox_handoff_micro_module
+```
+
+Generate the SourceCheckup Medical source support delta queue:
+
+```bash
+make sourcecheckup_medical_source_support_delta_queue
+```
+
+Generate the paired clinician literacy and source support delta notes:
+
+```bash
+make paired_literacy_source_support_delta
 ```
 
 Generate the benchmark style reviewer questions:

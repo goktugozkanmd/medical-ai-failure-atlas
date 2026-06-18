@@ -1,0 +1,94 @@
+{
+  "artifact": "sourcecheckup_medical_source_support_delta_queue_v0_1",
+  "date": "2026 06 18",
+  "status": "public preview",
+  "contains_patient_data": false,
+  "synthetic_only": true,
+  "not_for_clinical_use": true,
+  "no_source_truth_certification": true,
+  "no_clinical_validation_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_endpoint_result": true,
+  "no_score_report": true,
+  "no_model_ranking": true,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_route_access_claim": true,
+  "no_official_role_claim": true,
+  "no_partner_claim": true,
+  "no_submission_claim": true,
+  "no_terms_acceptance": true,
+  "no_payment": true,
+  "no_endorsement_claim": true,
+  "row_count": 6,
+  "rows": [
+    {
+      "row_id": "SCSSDQ001",
+      "claim_surface": "Citation presence",
+      "delta_question": "Does the answer merely cite a source or does the source support the exact claim",
+      "minimum_review": "claim specific source support review",
+      "blocked_claim": "source truth certification",
+      "next_action": "keep citation presence separate from claim support"
+    },
+    {
+      "row_id": "SCSSDQ002",
+      "claim_surface": "Guideline scope",
+      "delta_question": "Does guideline wording match population, setting, and clinical variables",
+      "minimum_review": "scope and applicability review",
+      "blocked_claim": "clinical advice",
+      "next_action": "route missing variables to clinician review"
+    },
+    {
+      "row_id": "SCSSDQ003",
+      "claim_surface": "Policy wording",
+      "delta_question": "Does public wording imply route access, approval, or official role",
+      "minimum_review": "policy and public wording review",
+      "blocked_claim": "route access",
+      "next_action": "rewrite as public preview only"
+    },
+    {
+      "row_id": "SCSSDQ004",
+      "claim_surface": "Medication safety",
+      "delta_question": "Does the claim need dosing, contraindication, interaction, or renal function context",
+      "minimum_review": "clinician source review",
+      "blocked_claim": "safe medication recommendation",
+      "next_action": "block recommendation language until source and context review"
+    },
+    {
+      "row_id": "SCSSDQ005",
+      "claim_surface": "Benchmark wording",
+      "delta_question": "Does the text imply score, ranking, compatibility, or equivalence",
+      "minimum_review": "benchmark boundary review",
+      "blocked_claim": "benchmark compatibility",
+      "next_action": "replace score language with reviewer question language"
+    },
+    {
+      "row_id": "SCSSDQ006",
+      "claim_surface": "Release route",
+      "delta_question": "Is the next public action documentation only and below outreach threshold",
+      "minimum_review": "owner clearance gate review",
+      "blocked_claim": "submission",
+      "next_action": "require owner decision before contact, terms, payment, or submission"
+    }
+  ],
+  "boundaries": [
+    "No patient data.",
+    "Synthetic only.",
+    "Not for clinical use.",
+    "No source truth certification.",
+    "No clinical validation claim.",
+    "No clinical deployment claim.",
+    "No endpoint result.",
+    "No score report.",
+    "No model ranking.",
+    "No benchmark compatibility claim.",
+    "No benchmark equivalence claim.",
+    "No route access claim.",
+    "No official role claim.",
+    "No partner claim.",
+    "No submission claim.",
+    "No terms acceptance.",
+    "No payment.",
+    "No endorsement claim."
+  ]
+}

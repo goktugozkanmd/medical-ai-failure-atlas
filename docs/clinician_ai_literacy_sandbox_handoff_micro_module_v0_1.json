@@ -1,0 +1,97 @@
+{
+  "artifact": "clinician_ai_literacy_sandbox_handoff_micro_module_v0_1",
+  "date": "2026 06 18",
+  "status": "public preview",
+  "contains_patient_data": false,
+  "synthetic_only": true,
+  "not_for_clinical_use": true,
+  "no_clinical_validation_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_endpoint_result": true,
+  "no_score_report": true,
+  "no_model_ranking": true,
+  "no_benchmark_compatibility_claim": true,
+  "no_route_access_claim": true,
+  "no_official_role_claim": true,
+  "no_partner_claim": true,
+  "no_submission_claim": true,
+  "no_terms_acceptance": true,
+  "no_payment": true,
+  "no_endorsement_claim": true,
+  "step_count": 6,
+  "total_minutes": 18,
+  "steps": [
+    {
+      "step_id": "CLSH001",
+      "title": "Public preview boundary",
+      "minutes": 3,
+      "learner_task": "Name what this public preview can and cannot claim",
+      "handoff_signal": "Reader can repeat no patient data and not for clinical use",
+      "blocked_claim": "clinical deployment",
+      "next_evidence": "owner reviewed public wording before any external route"
+    },
+    {
+      "step_id": "CLSH002",
+      "title": "Sandbox readiness question",
+      "minutes": 3,
+      "learner_task": "Turn a sandbox idea into a readiness question",
+      "handoff_signal": "Question asks for governance, review role, and evidence",
+      "blocked_claim": "sandbox access",
+      "next_evidence": "source checked route details before any application language"
+    },
+    {
+      "step_id": "CLSH003",
+      "title": "Source support gate",
+      "minutes": 3,
+      "learner_task": "Separate citation presence from source support",
+      "handoff_signal": "Reader can identify missing support without scoring a model",
+      "blocked_claim": "source truth certification",
+      "next_evidence": "SourceCheckup row linked to a claim specific review question"
+    },
+    {
+      "step_id": "CLSH004",
+      "title": "Clinician review handoff",
+      "minutes": 3,
+      "learner_task": "Assign clinician review before any practical use language",
+      "handoff_signal": "Reader can state why local pass is not clinical validation",
+      "blocked_claim": "clinical validation",
+      "next_evidence": "named human review role after owner clearance"
+    },
+    {
+      "step_id": "CLSH005",
+      "title": "Public wording repair",
+      "minutes": 3,
+      "learner_task": "Rewrite unsafe public wording into bounded preview wording",
+      "handoff_signal": "Wording removes access, approval, partner, and endorsement claims",
+      "blocked_claim": "official role",
+      "next_evidence": "wording decision log before external use"
+    },
+    {
+      "step_id": "CLSH006",
+      "title": "Next action gate",
+      "minutes": 3,
+      "learner_task": "Choose the next safe public build without outreach",
+      "handoff_signal": "Next action is documentation or validation only",
+      "blocked_claim": "submission",
+      "next_evidence": "explicit owner decision before contact, terms, payment, or submission"
+    }
+  ],
+  "boundaries": [
+    "No patient data.",
+    "Synthetic only.",
+    "Not for clinical use.",
+    "No clinical validation claim.",
+    "No clinical deployment claim.",
+    "No endpoint result.",
+    "No score report.",
+    "No model ranking.",
+    "No benchmark compatibility claim.",
+    "No route access claim.",
+    "No official role claim.",
+    "No partner claim.",
+    "No submission claim.",
+    "No terms acceptance.",
+    "No payment.",
+    "No endorsement claim."
+  ]
+}

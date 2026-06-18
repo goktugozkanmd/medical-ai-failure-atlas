@@ -94,6 +94,8 @@ The repository is moving from a static failure atlas into a visible medical AI a
 62. Reviewer question maintainer public preview acceptance archive public handoff closure note v0.1.
 63. TR clinical AI assurance sandbox readiness gate checklist v0.1.
 64. SourceCheckup Medical benchmark boundary delta note v0.1.
+65. Clinician AI literacy sandbox handoff micro module v0.1.
+66. SourceCheckup Medical source support delta queue v0.1.
 
 ## External visibility sequence
 
@@ -118,6 +120,6 @@ This project will not claim:
 
 ## Next concrete build steps
 
-1. Add a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, or endorsement claims.
+1. Add a Health Data Quality source support handoff card and Failure Atlas no ranking report boundary update without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, payment, terms, partner, or endorsement claims.
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.
