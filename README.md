@@ -103,6 +103,7 @@ New visible build surfaces are now staged in this public repository:
 93. [Reviewer question maintainer public preview acceptance archive steward index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md)
 94. [Reviewer question maintainer public preview acceptance archive stewardship closeout v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md)
 95. [Reviewer question maintainer public preview acceptance archive stewardship digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md)
+96. [Reviewer question maintainer public preview acceptance archive public handoff note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -519,6 +520,12 @@ Generate reviewer question maintainer public preview acceptance archive stewards
 make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest
 ```
 
+Generate reviewer question maintainer public preview acceptance archive public handoff note:
+
+```bash
+make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note
+```
+
 Validate the assurance card template:
 
 ```bash
@@ -836,6 +843,8 @@ docs/
   reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md
   reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md
+  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md

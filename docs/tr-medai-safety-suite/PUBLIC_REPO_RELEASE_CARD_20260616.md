@@ -8,7 +8,7 @@ This public preview makes the current Turkish and global medical AI evaluation b
 
 ## What This Adds
 
-This preview adds forty seven concrete build surfaces:
+This preview adds forty eight concrete build surfaces:
 
 1. SourceCheckup Medical public demo matrix.
 2. Turkish Clinical AI Assurance Lab governance matrix.
@@ -57,6 +57,7 @@ This preview adds forty seven concrete build surfaces:
 45. Reviewer question public release packet.
 46. Reviewer question public changelog.
 47. Reviewer question public release index.
+48. Reviewer question maintainer public preview acceptance archive public handoff note.
 
 ## What This Is
 
@@ -164,7 +165,8 @@ It focuses on source support, synthetic case review, failure modes, clinician li
 72. [Reviewer question maintainer public preview acceptance archive steward index](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md)
 73. [Reviewer question maintainer public preview acceptance archive stewardship closeout](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md)
 74. [Reviewer question maintainer public preview acceptance archive stewardship digest](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md)
+75. [Reviewer question maintainer public preview acceptance archive public handoff note](../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md)
 
 ## Next Public Build
 
-The next useful public build is a reviewer question maintainer public preview acceptance archive public handoff note without scoring or compatibility claims.
+The next useful public build is a reviewer question maintainer public preview acceptance archive public handoff digest without scoring or compatibility claims.
