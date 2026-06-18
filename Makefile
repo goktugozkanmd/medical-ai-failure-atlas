@@ -53,6 +53,7 @@ validate:
 	$(PYTHON) scripts/validate_deu_digital_medicine_board_route_owner_scout_20260618.py
 	$(PYTHON) scripts/validate_ktu_ai_simulation_congress_route_owner_scout_20260618.py
 	$(PYTHON) scripts/validate_turkiye_health_ai_safety_route_owner_map_20260618.py
+	$(PYTHON) scripts/validate_turkiye_health_ai_safety_field_readiness_dashboard_20260618.py
 	$(PYTHON) scripts/validate_named_outreach_decision_matrix_20260618.py
 	$(PYTHON) scripts/validate_goktug_field_action_review_packet_20260618.py
 	$(PYTHON) scripts/validate_teknofest_public_share_clearance_packet_20260618.py
@@ -168,6 +169,9 @@ ktu_ai_simulation_congress_route_owner_scout:
 
 turkiye_health_ai_safety_route_owner_map:
 	$(PYTHON) scripts/validate_turkiye_health_ai_safety_route_owner_map_20260618.py
+
+turkiye_health_ai_safety_field_readiness_dashboard:
+	$(PYTHON) scripts/validate_turkiye_health_ai_safety_field_readiness_dashboard_20260618.py
 
 named_outreach_decision_matrix:
 	$(PYTHON) scripts/generate_named_outreach_decision_matrix_20260618.py
