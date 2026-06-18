@@ -55,6 +55,7 @@ validate:
 	$(PYTHON) scripts/validate_turkiye_health_ai_safety_route_owner_map_20260618.py
 	$(PYTHON) scripts/validate_turkiye_health_ai_safety_field_readiness_dashboard_20260618.py
 	$(PYTHON) scripts/validate_turkiye_clinician_ai_safety_mini_curriculum_20260618.py
+	$(PYTHON) scripts/validate_turkiye_no_ranking_medical_ai_assurance_card_20260618.py
 	$(PYTHON) scripts/validate_named_outreach_decision_matrix_20260618.py
 	$(PYTHON) scripts/validate_goktug_field_action_review_packet_20260618.py
 	$(PYTHON) scripts/validate_teknofest_public_share_clearance_packet_20260618.py
@@ -176,6 +177,9 @@ turkiye_health_ai_safety_field_readiness_dashboard:
 
 turkiye_clinician_ai_safety_mini_curriculum:
 	$(PYTHON) scripts/validate_turkiye_clinician_ai_safety_mini_curriculum_20260618.py
+
+turkiye_no_ranking_medical_ai_assurance_card:
+	$(PYTHON) scripts/validate_turkiye_no_ranking_medical_ai_assurance_card_20260618.py
 
 named_outreach_decision_matrix:
 	$(PYTHON) scripts/generate_named_outreach_decision_matrix_20260618.py
