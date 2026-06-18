@@ -110,10 +110,12 @@ Closing as shipped in the public repository. Next safe public action is clinicia
 
 ## Execution state
 
-Commit: pending.
+Commit: c6ca09386bfc4a830e7f226a451163e4103c9e86.
 
-Issue: pending.
+Issue: https://github.com/v0id-lab/medical-ai-failure-atlas/issues/89
 
-Issue comments: pending.
+Validation comment: https://github.com/v0id-lab/medical-ai-failure-atlas/issues/89#issuecomment-4739376444
 
-Issue close: pending.
+Closeout comment: https://github.com/v0id-lab/medical-ai-failure-atlas/issues/89#issuecomment-4739376556
+
+Issue close: issue 89 closed after shipped comment.
