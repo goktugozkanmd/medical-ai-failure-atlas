@@ -10,11 +10,12 @@ Time sensitive public field note for teams preparing TEKNOFEST Sağlıkta Yapay 
 
 Start here:
 
-1. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
-2. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
-3. [Repository public share issue](https://github.com/v0id-lab/medical-ai-failure-atlas/issues/92)
+1. [TEKNOFEST Health AI Detail Report Final Gate](docs/TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618.md)
+2. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+3. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
+4. [Repository public share issue](https://github.com/v0id-lab/medical-ai-failure-atlas/issues/92)
 
-Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, and clean claim language before project reports.
+Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, final report language, and clean claim language before project reports.
 
 ## Türkiye Health AI Safety Readiness
 
@@ -42,6 +43,7 @@ Start here:
 18. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
 19. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
 20. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+21. [TEKNOFEST Health AI Detail Report Final Gate](docs/TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618.md)
 
 Focus: health data fitness, decision support limits, source support, Turkish clinical context, failure mode disclosure, data governance route, and public claim hygiene.
 
@@ -238,6 +240,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 61. Named outreach decision matrix for TÜYZE, TEKNOFEST, TÜBİTAK 1711, CHAI, and MedHELM routes without email, submission, application, partner, official role, endorsement, patient data, clinical validation, or deployment claims.
 62. Goktug Field Action Review Packet for choosing between TÜYZE readiness outreach, TEKNOFEST public share, and TÜBİTAK 1711 consortium scouting without email, public post, submission, application, partner, official role, endorsement, patient data, clinical validation, deployment, payment, or terms claims.
 63. TEKNOFEST Public Share Clearance Packet for reviewable public share text candidates without public post, email, submission, application, official TEKNOFEST role, endorsement, team relationship, patient data, medical advice, clinical validation, deployment, payment, or terms claims.
+64. TEKNOFEST Health AI Detail Report Final Gate for report language review before the public detail report deadline without official TEKNOFEST role, endorsement, submission, application, partner, patient data, medical advice, clinical validation, deployment, model ranking, payment, or terms claims.
 
 ## What this is
 

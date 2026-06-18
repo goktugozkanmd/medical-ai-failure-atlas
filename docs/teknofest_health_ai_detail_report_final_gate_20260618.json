@@ -1,0 +1,54 @@
+{
+  "artifact": "TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618",
+  "date": "2026 06 18",
+  "status": "time sensitive public final gate for report language and safety claims",
+  "source_signals": [
+    {
+      "source_id": "THADG001",
+      "source": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The public page lists a 2026 Sağlıkta Yapay Zeka competition and states that the competition aims to support AI solutions for health problems and increase knowledge and trained human capacity.",
+      "field_read": "A final safety gate can help teams keep report language useful without implying clinical readiness."
+    },
+    {
+      "source_id": "THADG002",
+      "source": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The university and above category focuses on predicting whether genetic variants are pathogenic or benign.",
+      "field_read": "Variant classification work needs visible label provenance, uncertainty handling, and human review language."
+    },
+    {
+      "source_id": "THADG003",
+      "source": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "checked_fact": "The public page lists the project detail report deadline as 29 June 2026 at 17:00.",
+      "field_read": "The useful window is immediate. The artifact should be short enough for teams to apply before the detail report deadline."
+    }
+  ],
+  "gates": [
+    "data permission and privacy",
+    "label provenance",
+    "leakage check",
+    "missingness and representation",
+    "source support",
+    "human review handoff",
+    "failure mode examples",
+    "no ranking and no validation",
+    "public claim hygiene"
+  ],
+  "decision_states": [
+    "green",
+    "amber",
+    "red"
+  ],
+  "contains_patient_data": false,
+  "claims_official_teknofest_role": false,
+  "claims_official_endorsement": false,
+  "claims_submission": false,
+  "claims_application": false,
+  "claims_partner": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_terms_acceptance": false,
+  "claims_payment": false,
+  "next_action": "Use as a public final gate for teams preparing detail report language before 29 June 2026 at 17:00."
+}
