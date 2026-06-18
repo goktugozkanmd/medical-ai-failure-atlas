@@ -1,0 +1,67 @@
+{
+  "title": "TÜSEB A4 UM TÜYZE Non Patient Data Concept Note",
+  "date": "2026 06 19",
+  "status": "public one page concept note for a medical AI safety readiness package, route neutral until TUSEB or TUYZE guidance is received",
+  "working_title": "Türkiye Medical AI Safety Readiness Package",
+  "source_signals": [
+    {
+      "id": "TACT001",
+      "name": "TÜSEB A4 UM expert call notice",
+      "url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616",
+      "route_read": "possible only after eligibility, compulsory service, institutional executor route, TBYS authority, and exact call text are verified"
+    },
+    {
+      "id": "TACT002",
+      "name": "TÜSEB A group project support page",
+      "url": "https://proje-destek.tuseb.gov.tr/a-grubu-proje-destekleri",
+      "route_read": "concept note only until executor route and institution authority are real"
+    },
+    {
+      "id": "TACT003",
+      "name": "TÜYZE health data and AI route surface",
+      "url": "https://tuyze.tuseb.gov.tr/kurullar/saglik-veri-organizasyonu-bilim-kurulu",
+      "route_read": "possible health data and AI safety readiness route, not a confirmed partner"
+    },
+    {
+      "id": "TACT004",
+      "name": "TÜBİTAK open calls contrast",
+      "url": "https://tubitak.gov.tr/tr/acik-cagrilar",
+      "route_read": "1711 remains useful for smart education consortium thinking, but this concept note stays aligned to health route discovery"
+    }
+  ],
+  "scope": [
+    "Turkish medical LLM safety evaluation readiness",
+    "Clinician AI literacy and responsible use micro module",
+    "Health data quality and label audit worksheet",
+    "Source support and no ranking failure mode intake",
+    "Public claim hygiene for teams preparing reports, demos, or applications"
+  ],
+  "deliverables": [
+    "Public checklist for medical AI safety readiness",
+    "Source support worksheet",
+    "Clinician reviewer protocol",
+    "Health data quality and label audit worksheet",
+    "No ranking safety report template",
+    "Route fit concept gate",
+    "Machine readable boundary file",
+    "Validation script"
+  ],
+  "route_question_thread_active": true,
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_tuseb_application": false,
+  "claims_tbys_submission": false,
+  "claims_tuyze_proposal": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_institutional_approval": false,
+  "claims_budget": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_medical_advice": false,
+  "claims_endorsement": false
+}
