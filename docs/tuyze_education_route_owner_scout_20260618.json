@@ -1,0 +1,47 @@
+{
+  "artifact": "tuyze_education_route_owner_scout_20260618",
+  "date": "2026 06 18",
+  "status": "route owner scout, not an application",
+  "target_contact": "info@tuseb.gov.tr",
+  "target_source": "https://tuyze.tuseb.gov.tr/",
+  "kep_not_used": true,
+  "public_sources": [
+    "https://tuyze.tuseb.gov.tr/bilimsel-etkinlikler/egitimler",
+    "https://tuyze.tuseb.gov.tr/",
+    "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi"
+  ],
+  "route_gates": [
+    {
+      "gate": "education route owner",
+      "state": "scouting",
+      "reason": "TÜYZE public pages list health AI education and seminar activity"
+    },
+    {
+      "gate": "TÜBİTAK 1711 application",
+      "state": "closed",
+      "reason": "this is not an application route and health is not listed as a 2026 TÜBİTAK 1711 priority area"
+    },
+    {
+      "gate": "formal TÜSEB proposal",
+      "state": "closed",
+      "reason": "no proposal submission is being made"
+    },
+    {
+      "gate": "clinical boundary",
+      "state": "education only",
+      "reason": "the work is clinician AI literacy and health AI safety education, not diagnosis, treatment, deployment, validation, or certification"
+    }
+  ],
+  "contains_patient_data": false,
+  "claims_submission": false,
+  "claims_proposal": false,
+  "claims_intent_declaration": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_health_priority_fit": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_terms_acceptance": false,
+  "claims_payment": false
+}
