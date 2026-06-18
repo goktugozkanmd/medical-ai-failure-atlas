@@ -1,0 +1,54 @@
+{
+  "artifact": "tubitak_1711_smart_education_named_scout_20260618",
+  "status": "named route scout, not an application",
+  "direct_health_fit": "weak",
+  "only_priority_fit": "smart education technologies",
+  "named_surfaces": [
+    {
+      "name": "SEBIT",
+      "surface_type": "candidate technology provider surface",
+      "source_urls": [
+        "https://www.sebit.com.tr/",
+        "https://www.sebitlms.com/",
+        "https://www.sebitai.com/"
+      ],
+      "claim": "public sources show education technology, AI supported education, learning management, and institutional education platform signals",
+      "partner_claim": false
+    },
+    {
+      "name": "Acibadem CASE",
+      "surface_type": "candidate health education demand surface",
+      "source_urls": [
+        "https://www.acibadem.edu.tr/merkezler/case",
+        "https://www.acibadem.edu.tr/etkinlikler/hemsirelik-egitiminde-simulasyon-uygulamalari-2026"
+      ],
+      "claim": "public sources show medical simulation and health professional simulation education surfaces",
+      "partner_claim": false
+    },
+    {
+      "name": "TUYZE education activities",
+      "surface_type": "public health AI education signal",
+      "source_urls": [
+        "https://tuyze.tuseb.gov.tr/bilimsel-etkinlikler/egitimler"
+      ],
+      "claim": "public sources show health AI education and seminar signals",
+      "partner_claim": false
+    }
+  ],
+  "scout_gates": [
+    "customer organization",
+    "technology provider company",
+    "research route",
+    "clinical boundary"
+  ],
+  "all_scout_gates_open": false,
+  "contains_patient_data": false,
+  "claims_submission": false,
+  "claims_intent_declaration": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_health_priority_fit": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false
+}
