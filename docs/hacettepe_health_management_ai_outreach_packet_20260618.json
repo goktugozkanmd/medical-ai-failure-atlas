@@ -1,0 +1,28 @@
+{
+  "artifact_id": "hacettepe_health_management_ai_outreach_packet_20260618",
+  "date": "2026 06 18",
+  "status": "named target outreach packet not sent",
+  "institution": "Hacettepe University",
+  "unit": "Sağlık Yönetimi Bölümü",
+  "primary_named_route": "Doç. Dr. Gamze Yorgancıoğlu Tarcan",
+  "primary_public_email_route": "gamze@hacettepe.edu.tr",
+  "source_count": 4,
+  "message_count": 1,
+  "sources": [
+    "https://etkinlikler.hacettepe.edu.tr/tr/saglik_yonetiminde_yapay_zeka-2788",
+    "https://sid.hacettepe.edu.tr/tr/menu/iletisim-11",
+    "https://sid.hacettepe.edu.tr/tr/menu/ogretim_uyeleri-14",
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/94"
+  ],
+  "claims_email_sent": false,
+  "claims_contact_made": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_partner_relationship": false,
+  "claims_application": false,
+  "claims_submission": false,
+  "contains_patient_data": false,
+  "claims_medical_advice": false,
+  "claims_clinical_deployment": false,
+  "claims_clinical_validation": false
+}
