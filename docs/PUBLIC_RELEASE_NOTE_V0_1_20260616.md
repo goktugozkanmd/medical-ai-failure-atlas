@@ -89,6 +89,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 77. Reviewer question maintainer public preview maintainer acceptance checklist v0.1.
 78. Reviewer question maintainer public preview acceptance closeout digest v0.1.
 79. Reviewer question maintainer public preview acceptance archive index v0.1.
+80. Reviewer question maintainer public preview acceptance archive release note v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -173,6 +174,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 77. 6 reviewer question maintainer public preview maintainer acceptance checklist rows.
 78. 6 reviewer question maintainer public preview acceptance closeout digest rows.
 79. 6 reviewer question maintainer public preview acceptance archive index rows.
+80. 6 reviewer question maintainer public preview acceptance archive release note rows.
 
 ## Reproducible checks
 
@@ -246,6 +248,7 @@ make reviewer_question_maintainer_public_preview_issue_template_route_note
 make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist
 make reviewer_question_maintainer_public_preview_acceptance_closeout_digest
 make reviewer_question_maintainer_public_preview_acceptance_archive_index
+make reviewer_question_maintainer_public_preview_acceptance_archive_release_note
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -400,11 +403,12 @@ For global open source medical AI evaluation, this public preview gives:
 74. Reviewer question maintainer public preview maintainer acceptance checklist for public maintainer acceptance checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 75. Reviewer question maintainer public preview acceptance closeout digest for public maintainer closeout checks without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 76. Reviewer question maintainer public preview acceptance archive index for public maintainer archive navigation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+77. Reviewer question maintainer public preview acceptance archive release note for public maintainer archive release notation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview acceptance archive release note without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview acceptance archive closure note without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

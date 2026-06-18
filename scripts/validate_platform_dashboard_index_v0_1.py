@@ -216,7 +216,10 @@ REQUIRED_PHRASES = [
     "Reviewer question maintainer public preview acceptance archive index",
     "make reviewer_question_maintainer_public_preview_acceptance_archive_index",
     "6 reviewer question maintainer public preview acceptance archive index rows",
-    "Add a reviewer question maintainer public preview acceptance archive release note without scoring or compatibility claims",
+    "Reviewer question maintainer public preview acceptance archive release note",
+    "make reviewer_question_maintainer_public_preview_acceptance_archive_release_note",
+    "6 reviewer question maintainer public preview acceptance archive release note rows",
+    "Add a reviewer question maintainer public preview acceptance archive closure note without scoring or compatibility claims",
 ]
 
 REQUIRED_LINK_TARGETS = [
@@ -286,6 +289,8 @@ REQUIRED_LINK_TARGETS = [
     "docs/reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.json",
     "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md",
     "docs/reviewer_question_maintainer_public_preview_acceptance_archive_index_v0_1.json",
+    "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md",
+    "docs/reviewer_question_maintainer_public_preview_acceptance_archive_release_note_v0_1.json",
     "docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md",
     "docs/ROADMAP_2026_06.md",
     "tr_medllm_safetybench/README.md",
