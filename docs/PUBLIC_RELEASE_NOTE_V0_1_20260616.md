@@ -100,6 +100,8 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 88. Reviewer question maintainer public preview acceptance archive public handoff closure note v0.1.
 89. Current medical AI intelligence priority update v0.1.
 90. Türkiye AI ethics status gate note v0.1.
+91. TR clinical AI assurance sandbox readiness gate checklist v0.1.
+92. SourceCheckup Medical benchmark boundary delta note v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -197,6 +199,8 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 90. 6 current medical AI intelligence priority update rows.
 91. 3 Türkiye AI ethics status source rows.
 92. 6 Türkiye AI ethics status gate rows.
+93. 6 TR clinical AI assurance sandbox readiness gate rows.
+94. 6 SourceCheckup Medical benchmark boundary delta rows.
 
 ## Reproducible checks
 
@@ -285,6 +289,9 @@ make reviewer_question_maintainer_public_preview_acceptance_archive_public_hando
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note
 make current_medical_ai_intelligence_priority_update
 make turkiye_ai_ethics_status_gate_note
+make tr_clinical_ai_assurance_sandbox_readiness_gate
+make sourcecheckup_medical_benchmark_boundary_delta
+make paired_sandbox_boundary_delta
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -454,6 +461,8 @@ For global open source medical AI evaluation, this public preview gives:
 89. Reviewer question maintainer public preview acceptance archive public handoff closure note for public maintainer archive handoff closure without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 90. Current medical AI intelligence priority update for source checked public priority revision without submission, application, partner, official role, endorsement, endpoint, patient data, clinical validation, clinical deployment, ranking, score, or compatibility claims.
 91. Türkiye AI ethics status gate note for local ethics signal separation without submission, approval, national rule, official role, patient data, clinical validation, clinical deployment, route access, or endorsement claims.
+92. TR clinical AI assurance sandbox readiness gate checklist for public sandbox readiness discussion without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
+93. SourceCheckup Medical benchmark boundary delta note for public benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 
 6 reviewer question maintainer public preview acceptance archive steward note rows.
 
@@ -481,10 +490,14 @@ For global open source medical AI evaluation, this public preview gives:
 
 6 Türkiye AI ethics status gate rows.
 
+6 TR clinical AI assurance sandbox readiness gate rows.
+
+6 SourceCheckup Medical benchmark boundary delta rows.
+
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Use the current BAGLAM2 and portfolio tracker state to choose the next Track A and Track B build branch before any external maintainer contact.
+1. Add a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, or endorsement claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.

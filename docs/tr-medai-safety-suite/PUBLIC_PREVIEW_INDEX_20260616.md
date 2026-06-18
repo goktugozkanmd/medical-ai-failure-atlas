@@ -89,6 +89,8 @@ This is a public preview layer for clinician led medical AI evaluation infrastru
 79. `../CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md` gives a current medical AI intelligence priority update without submission, partner, official role, endpoint, patient data, validation, or endorsement claims.
 80. `../TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md` gives a Türkiye AI ethics status gate note without submission, approval, national rule, official role, patient data, validation, or endorsement claims.
 81. `../REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md` gives a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring, compatibility, endpoint, patient data, validation, or endorsement claims.
+82. `../TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md` gives a TR clinical AI assurance sandbox readiness gate checklist without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
+83. `../SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md` gives a SourceCheckup Medical benchmark boundary delta note without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 
 ## What This Preview Is
 
@@ -120,7 +122,7 @@ Clinician led medical AI safety evaluation infrastructure, built from synthetic 
 
 ## Next Public Build Targets
 
-1. Add a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring or compatibility claims.
+1. Add a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring, compatibility, endpoint, patient data, clinical validation, route access, official role, submission, or endorsement claims.
 2. Add a compact public failure mode taxonomy page.
 3. Add a public contributor path for synthetic failure cases.
 4. Add a no patient data review checklist.

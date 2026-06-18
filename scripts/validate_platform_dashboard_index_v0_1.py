@@ -263,6 +263,15 @@ REQUIRED_PHRASES = [
     "make turkiye_ai_ethics_status_gate_note",
     "3 Türkiye AI ethics status source rows",
     "6 Türkiye AI ethics status gate rows",
+    "6 TR clinical AI assurance sandbox readiness gate rows",
+    "6 SourceCheckup Medical benchmark boundary delta rows",
+    "TR clinical AI assurance sandbox readiness gate checklist",
+    "SourceCheckup Medical benchmark boundary delta note",
+    "make tr_clinical_ai_assurance_sandbox_readiness_gate",
+    "make sourcecheckup_medical_benchmark_boundary_delta",
+    "make paired_sandbox_boundary_delta",
+    "clinician AI literacy sandbox handoff micro module",
+    "SourceCheckup Medical source support delta queue",
     "Use the current BAGLAM2 and portfolio tracker state to choose the next Track A and Track B build branch before any external maintainer contact",
 ]
 

@@ -267,6 +267,14 @@ REQUIRED_FILES = [
     "docs/turkiye_ai_ethics_status_gate_note_v0_1.json",
     "scripts/generate_turkiye_ai_ethics_status_gate_note_v0_1.py",
     "scripts/validate_turkiye_ai_ethics_status_gate_note_v0_1.py",
+    "docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md",
+    "docs/tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.json",
+    "scripts/generate_tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.py",
+    "scripts/validate_tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.py",
+    "docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md",
+    "docs/sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.json",
+    "scripts/generate_sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.py",
+    "scripts/validate_sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.py",
     "docs/MEDHELM_BOUNDARY_NOTE_V0_1.md",
     "docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md",
     "docs/ASSURANCE_CARD_TEMPLATE_V0_1.md",
@@ -719,6 +727,16 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
             fail(errors, "README must link to the Türkiye AI ethics status gate note")
         if "make turkiye_ai_ethics_status_gate_note" not in readme_text:
             fail(errors, "README must document the Türkiye AI ethics status gate note command")
+        if "docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the TR clinical AI assurance sandbox readiness gate checklist")
+        if "make tr_clinical_ai_assurance_sandbox_readiness_gate" not in readme_text:
+            fail(errors, "README must document the TR clinical AI assurance sandbox readiness gate command")
+        if "docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md" not in readme_text:
+            fail(errors, "README must link to the SourceCheckup Medical benchmark boundary delta note")
+        if "make sourcecheckup_medical_benchmark_boundary_delta" not in readme_text:
+            fail(errors, "README must document the SourceCheckup Medical benchmark boundary delta command")
+        if "make paired_sandbox_boundary_delta" not in readme_text:
+            fail(errors, "README must document the paired sandbox boundary delta command")
         if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
         if "make label_audit_role_table" not in readme_text:

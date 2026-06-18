@@ -103,6 +103,8 @@ They remain issue template intake fields without scoring or compatibility claims
 87. 6 current medical AI intelligence priority update rows.
 88. 3 Türkiye AI ethics status source rows.
 89. 6 Türkiye AI ethics status gate rows.
+90. 6 TR clinical AI assurance sandbox readiness gate rows.
+91. 6 SourceCheckup Medical benchmark boundary delta rows.
 
 ## Top public entry files
 
@@ -204,6 +206,10 @@ They remain issue template intake fields without scoring or compatibility claims
 96. [Current medical AI intelligence priority update JSON](current_medical_ai_intelligence_priority_update_20260618_v0_1.json)
 97. [Türkiye AI ethics status gate note](TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md)
 98. [Türkiye AI ethics status gate note JSON](turkiye_ai_ethics_status_gate_note_v0_1.json)
+99. [TR clinical AI assurance sandbox readiness gate checklist](TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md)
+100. [TR clinical AI assurance sandbox readiness gate checklist JSON](tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.json)
+101. [SourceCheckup Medical benchmark boundary delta note](SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
+102. [SourceCheckup Medical benchmark boundary delta note JSON](sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.json)
 
 ## Platform map
 
@@ -361,6 +367,9 @@ make reviewer_question_maintainer_public_preview_acceptance_archive_public_hando
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note
 make current_medical_ai_intelligence_priority_update
 make turkiye_ai_ethics_status_gate_note
+make tr_clinical_ai_assurance_sandbox_readiness_gate
+make sourcecheckup_medical_benchmark_boundary_delta
+make paired_sandbox_boundary_delta
 ```
 
 Track A value: source material for Turkish health AI risk education and assurance gates, including benchmark style reviewer questions for escalation, medication safety, missing context, and warning sign visibility.
@@ -420,6 +429,8 @@ Public files:
 17. [Red flag source locator and warning sign checklist JSON](red_flag_warning_checklist_v0_1.json)
 18. [Warning sign reviewer role table](WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
 19. [Warning sign reviewer role table JSON](warning_sign_reviewer_role_table_v0_1.json)
+20. [TR clinical AI assurance sandbox readiness gate checklist](TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md)
+21. [TR clinical AI assurance sandbox readiness gate checklist JSON](tr_clinical_ai_assurance_sandbox_readiness_gate_checklist_v0_1.json)
 
 Runnable checks:
 
@@ -433,13 +444,14 @@ make warning_sign_role_table
 make boundary_notes
 make healthbench_medhelm_mapping
 make benchmark_reviewer_questions
+make tr_clinical_ai_assurance_sandbox_readiness_gate
 ```
 
 Track A value: release gate language, benchmark style mapping language, and reviewer questions for Turkish health AI sandbox readiness discussions without claiming sandbox access, compatibility, validation, or endorsement.
 
 Track B value: reusable assurance artifact pattern, bounded HealthBench and MedHELM mapping note, and public reviewer question layer for medical language model evaluation releases.
 
-Next build: expand contributor issue templates to accept reviewer question fields without scoring.
+Next build: add a clinician AI literacy sandbox handoff micro module without patient data, clinical validation, deployment, route access, official role, submission, or endorsement claims.
 
 ### 4. SourceCheckup Medical
 
@@ -484,6 +496,8 @@ Public files:
 35. [Reviewer question public changelog JSON](../docs/reviewer_question_public_changelog_v0_1.json)
 36. [Reviewer question public release index](../docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md)
 37. [Reviewer question public release index JSON](../docs/reviewer_question_public_release_index_v0_1.json)
+38. [SourceCheckup Medical benchmark boundary delta note](../docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
+39. [SourceCheckup Medical benchmark boundary delta note JSON](../docs/sourcecheckup_medical_benchmark_boundary_delta_note_v0_1.json)
 
 Runnable checks:
 
@@ -502,6 +516,7 @@ make sourcecheckup_repo_run_guide
 make warning_sign_role_table
 make source_claim_queue
 make benchmark_reviewer_questions
+make sourcecheckup_medical_benchmark_boundary_delta
 make reviewer_question_issue_templates
 make reviewer_question_intake_examples
 make reviewer_question_intake_triage
@@ -535,7 +550,11 @@ Track A value: public source support discipline for Turkish medical LLM review e
 
 Track B value: open source source quality infrastructure that can grow into source review examples, queues, contributor workflows, public institutional wording gates, contributor onboarding, benchmark style reviewer questions, issue template intake fields, intake examples, maintainer triage, wording decisions, release gates, outcome dashboards, release packets, public changelogs, public release indexes, contributor digests, maintainer handoff notes, maintainer closeout digests, release readiness digests, evidence maps, audit trail packets, release candidate summaries, public preview decision logs, public preview handoff summaries, public preview closure checklists, public preview archive digests, public preview index rollups, public preview repository navigation notes, public preview release cards, contributor route notes, issue template route notes, maintainer acceptance checklists, acceptance closeout digests, acceptance archive indexes, acceptance archive release notes, acceptance archive closure notes, acceptance archive final indexes, acceptance archive handoff packets, acceptance archive steward notes, acceptance archive steward indexes, acceptance archive stewardship closeouts, acceptance archive stewardship digests, acceptance archive public handoff notes, acceptance archive public handoff digests, acceptance archive public handoff release indexes, acceptance archive public handoff release notes, acceptance archive public handoff closure notes, current intelligence priority updates, and Türkiye AI ethics status gates without scoring or compatibility claims.
 
-Next build: add a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring or compatibility claims.
+TR clinical AI assurance sandbox readiness gate checklist adds public sandbox readiness gates without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
+
+SourceCheckup Medical benchmark boundary delta note adds public benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
+
+Next build: add a clinician AI literacy sandbox handoff micro module and SourceCheckup Medical source support delta queue without scoring or compatibility claims.
 
 ### 5. Clinician AI Literacy Academy Turkiye
 

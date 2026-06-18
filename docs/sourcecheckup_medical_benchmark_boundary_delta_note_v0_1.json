@@ -1,0 +1,92 @@
+{
+  "artifact": "sourcecheckup_medical_benchmark_boundary_delta_note_v0_1",
+  "date": "2026 06 18",
+  "status": "public preview",
+  "contains_patient_data": false,
+  "synthetic_only": true,
+  "not_for_clinical_use": true,
+  "no_endpoint_result": true,
+  "no_score_report": true,
+  "no_model_ranking": true,
+  "no_benchmark_compatibility_claim": true,
+  "no_benchmark_equivalence_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_clinical_deployment_claim": true,
+  "no_official_role_claim": true,
+  "no_route_access_claim": true,
+  "no_submission_claim": true,
+  "no_partner_claim": true,
+  "no_terms_acceptance": true,
+  "no_payment": true,
+  "no_endorsement_claim": true,
+  "delta_count": 6,
+  "deltas": [
+    {
+      "delta_id": "SCBBD001",
+      "source_surface": "HealthBench public awareness",
+      "boundary_delta": "Use as external source awareness only",
+      "public_use": "rubric discipline discussion without compatibility wording",
+      "blocked_claim": "HealthBench compatibility",
+      "next_review_action": "keep reviewer questions separate from score fields"
+    },
+    {
+      "delta_id": "SCBBD002",
+      "source_surface": "MedHELM public awareness",
+      "boundary_delta": "Use as workflow concept comparison only",
+      "public_use": "task family orientation without equivalence wording",
+      "blocked_claim": "MedHELM equivalence",
+      "next_review_action": "map task language to source support questions only"
+    },
+    {
+      "delta_id": "SCBBD003",
+      "source_surface": "Open medical model family awareness",
+      "boundary_delta": "Use as model landscape awareness only",
+      "public_use": "document boundary questions without use or endorsement wording",
+      "blocked_claim": "model endorsement",
+      "next_review_action": "avoid naming any model as preferred or safer"
+    },
+    {
+      "delta_id": "SCBBD004",
+      "source_surface": "Source support queue",
+      "boundary_delta": "Use as source claim review queue before report language",
+      "public_use": "ask whether each answer has source support and uncertainty handling",
+      "blocked_claim": "source truth certification",
+      "next_review_action": "route central claims to source review before public summary"
+    },
+    {
+      "delta_id": "SCBBD005",
+      "source_surface": "Reviewer question route",
+      "boundary_delta": "Use reviewer questions instead of scores",
+      "public_use": "collect contributor questions that do not rank systems",
+      "blocked_claim": "score report",
+      "next_review_action": "hold scoring language outside public preview artifacts"
+    },
+    {
+      "delta_id": "SCBBD006",
+      "source_surface": "Public release route",
+      "boundary_delta": "Use public preview wording only",
+      "public_use": "state limits before any external collaboration text",
+      "blocked_claim": "clinical validation",
+      "next_review_action": "require owner clearance before external contact or submission"
+    }
+  ],
+  "boundaries": [
+    "No patient data.",
+    "Synthetic only.",
+    "Not for clinical use.",
+    "No endpoint result.",
+    "No score report.",
+    "No model ranking.",
+    "No benchmark compatibility claim.",
+    "No benchmark equivalence claim.",
+    "No clinical validation claim.",
+    "No clinical deployment claim.",
+    "No official role claim.",
+    "No route access claim.",
+    "No submission claim.",
+    "No partner claim.",
+    "No terms acceptance.",
+    "No payment.",
+    "No endorsement claim."
+  ]
+}
