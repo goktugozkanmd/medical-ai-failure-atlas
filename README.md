@@ -4,6 +4,18 @@ Status: public v0.1 release.
 
 Date: 2026 06 13
 
+## TEKNOFEST Health AI Safety Addendum
+
+Time sensitive public field note for teams preparing TEKNOFEST Sağlıkta Yapay Zeka project detail reports before 29 June 2026 at 17:00.
+
+Start here:
+
+1. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+2. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
+3. [Repository public share issue](https://github.com/v0id-lab/medical-ai-failure-atlas/issues/92)
+
+Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, and clean claim language before project reports.
+
 ## 2026 06 16 public preview update
 
 New visible build surfaces are now staged in this public repository:
