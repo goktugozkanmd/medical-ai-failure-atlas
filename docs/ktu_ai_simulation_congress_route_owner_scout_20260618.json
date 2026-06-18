@@ -1,0 +1,55 @@
+{
+  "artifact": "KTU_AI_SIMULATION_CONGRESS_ROUTE_OWNER_SCOUT_20260618",
+  "date": "2026 06 18",
+  "status": "route owner scout, not an application",
+  "target_contact": "bizeyazintip@ktu.edu.tr",
+  "purpose": "Ask whether clinician AI literacy, health AI safety education, source support review, and no ranking medical AI failure reporting can be reviewed by the correct Karadeniz Technical University Faculty of Medicine or congress route owner after the 2026 health professionals AI and simulation congress.",
+  "official_sources": [
+    {
+      "id": "S001",
+      "url": "https://www.ktu.edu.tr/med/duyuru/saglik-profesyonellerinin-egitiminde-yapay-zeka-ve-simulasyon-kongresi",
+      "checked_fact": "The KTÜ Faculty of Medicine page lists the Health Professionals Education in Artificial Intelligence and Simulation Congress as a Faculty of Medicine announcement and links to the congress web page.",
+      "route_meaning": "Credible faculty level route for a health professionals education and simulation focused AI literacy question."
+    },
+    {
+      "id": "S002",
+      "url": "https://www.ktu.edu.tr/med/duyuru/saglik-profesyonellerinin-egitiminde-yapay-zeka-ve-simulasyon-kongresi",
+      "checked_fact": "The KTÜ Faculty of Medicine page lists bizeyazintip@ktu.edu.tr as the faculty contact email.",
+      "route_meaning": "A low risk route owner scout email is appropriate."
+    },
+    {
+      "id": "S003",
+      "url": "https://aisim2026.com/tr",
+      "checked_fact": "The congress page linked from KTÜ says the congress is hosted by Karadeniz Technical University and the Faculty of Medicine, planned for 4 to 7 June 2026 in Trabzon, and centered on the transformative power of artificial intelligence and simulation in health professionals education.",
+      "route_meaning": "The project can ask a post congress education readiness question, not a congress submission question."
+    },
+    {
+      "id": "S004",
+      "url": "https://aisim2026.com/tr",
+      "checked_fact": "The congress page lists accepted poster and oral presentation topics around AI in health education, AI augmented simulation, virtual patient relative simulation, AI ethics in medical education, clinical decision support, and AI supported competency alignment.",
+      "route_meaning": "No ranking failure reporting, source support review, and clinician AI literacy can be framed as a safety readiness addendum for similar education programs."
+    }
+  ],
+  "route_gates": [
+    "faculty host page",
+    "direct faculty contact route",
+    "health professionals AI and simulation education theme",
+    "accepted topic signal"
+  ],
+  "contains_patient_data": false,
+  "claims_congress_submission": false,
+  "claims_late_abstract": false,
+  "claims_registration": false,
+  "claims_sponsorship": false,
+  "claims_application": false,
+  "claims_proposal": false,
+  "claims_intent_declaration": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_terms_acceptance": false,
+  "claims_payment": false,
+  "next_action": "Create a public issue and release, then send one low risk route owner scout email to bizeyazintip@ktu.edu.tr."
+}

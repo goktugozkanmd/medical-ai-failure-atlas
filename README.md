@@ -30,13 +30,14 @@ Start here:
 6. [TÜYZE Education Route Owner Scout](docs/TUYZE_EDUCATION_ROUTE_OWNER_SCOUT_20260618.md)
 7. [TÜBİTAK 1711 Three Gate Consortium Fit Map](docs/TUBITAK_1711_THREE_GATE_CONSORTIUM_FIT_MAP_20260618.md)
 8. [DEÜ Digital Medicine Board Route Owner Scout](docs/DEU_DIGITAL_MEDICINE_BOARD_ROUTE_OWNER_SCOUT_20260618.md)
-9. [Hospital and Medical Faculty Outreach Draft](docs/HOSPITAL_MEDICAL_FACULTY_OUTREACH_DRAFT_20260618.md)
-10. [Hacettepe Health Informatics Outreach Packet](docs/HACETTEPE_HEALTH_INFORMATICS_OUTREACH_PACKET_20260618.md)
-11. [Hacettepe Health Management AI Outreach Packet](docs/HACETTEPE_HEALTH_MANAGEMENT_AI_OUTREACH_PACKET_20260618.md)
-12. [Acibadem Medical Ethics AI Outreach Packet](docs/ACIBADEM_MEDICAL_ETHICS_AI_OUTREACH_PACKET_20260618.md)
-13. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
-14. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
-15. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+9. [KTÜ AI Simulation Congress Route Owner Scout](docs/KTU_AI_SIMULATION_CONGRESS_ROUTE_OWNER_SCOUT_20260618.md)
+10. [Hospital and Medical Faculty Outreach Draft](docs/HOSPITAL_MEDICAL_FACULTY_OUTREACH_DRAFT_20260618.md)
+11. [Hacettepe Health Informatics Outreach Packet](docs/HACETTEPE_HEALTH_INFORMATICS_OUTREACH_PACKET_20260618.md)
+12. [Hacettepe Health Management AI Outreach Packet](docs/HACETTEPE_HEALTH_MANAGEMENT_AI_OUTREACH_PACKET_20260618.md)
+13. [Acibadem Medical Ethics AI Outreach Packet](docs/ACIBADEM_MEDICAL_ETHICS_AI_OUTREACH_PACKET_20260618.md)
+14. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
+15. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
+16. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
 
 Focus: health data fitness, decision support limits, source support, Turkish clinical context, failure mode disclosure, data governance route, and public claim hygiene.
 
