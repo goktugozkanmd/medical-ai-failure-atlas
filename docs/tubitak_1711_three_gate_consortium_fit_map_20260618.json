@@ -1,0 +1,96 @@
+{
+  "artifact": "TUBITAK_1711_THREE_GATE_CONSORTIUM_FIT_MAP_20260618",
+  "date": "2026 06 18",
+  "status": "live fit map, not an application",
+  "purpose": "Clarify whether the clinician AI literacy and health AI safety education route can become a credible three gate consortium path without claiming submission, partnership, official role, endorsement, patient data, clinical validation, or deployment.",
+  "official_sources": [
+    {
+      "id": "S001",
+      "url": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+      "checked_fact": "TUBITAK describes a consortium model involving a customer organization, technology provider company, experienced university research laboratory or center or public research center or institute, and TUBITAK Artificial Intelligence Institute.",
+      "route_meaning": "A single open source packet is not enough for application thinking."
+    },
+    {
+      "id": "S002",
+      "url": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+      "checked_fact": "Official priority areas include smart production systems, smart agriculture food and livestock, financial technologies, climate change and sustainability, and smart education technologies.",
+      "route_meaning": "Direct health AI fit remains weak; any possible route is limited to smart education technologies."
+    },
+    {
+      "id": "S003",
+      "url": "https://tuyze.tuseb.gov.tr/bilimsel-etkinlikler/egitimler",
+      "checked_fact": "TUYZE lists health AI seminar and education activity signals.",
+      "route_meaning": "Education readiness route owner discovery is reasonable without implying official support."
+    },
+    {
+      "id": "S004",
+      "url": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "TUYZE public pages list health AI seminars, collaboration visits, and sectoral AI activity signals.",
+      "route_meaning": "National health AI collaboration surfaces exist, but no verified institutional role exists for this project."
+    }
+  ],
+  "gates": [
+    {
+      "gate": "demand side",
+      "candidate_surfaces": ["Acibadem CASE", "TUYZE or TUSEB education route", "hospital or medical faculty education route"],
+      "state": "open question, no route owner reply yet",
+      "action_trigger": "real route owner reply describing a training readiness need"
+    },
+    {
+      "gate": "education technology provider",
+      "candidate_surfaces": ["SEBIT"],
+      "state": "open question, no reply yet",
+      "action_trigger": "real SEBIT route owner reply"
+    },
+    {
+      "gate": "research route",
+      "candidate_surfaces": ["Hacettepe health informatics", "Hacettepe health management", "TUYZE", "university or public research route"],
+      "state": "partial acknowledgement only, no research commitment",
+      "action_trigger": "substantive research route feedback"
+    },
+    {
+      "gate": "TUBITAK boundary",
+      "candidate_surfaces": ["TUBITAK 1711 official page"],
+      "state": "boundary locked",
+      "action_trigger": "all three route gates verified before any application thinking"
+    }
+  ],
+  "gmail_threads_checked": [
+    "19eda863ce89f083",
+    "19edaa3a3868fd0f",
+    "19edac07e13052fa",
+    "19edb2e645ca1f6d",
+    "19edb491af3d687b",
+    "19edb64c4ae9fec6"
+  ],
+  "targeted_searches_checked": [
+    "Gozdem Dural Hacettepe health informatics medical-ai-failure-atlas",
+    "Gamze Hacettepe health management medical-ai-failure-atlas",
+    "Yesim Isil Ulman Acibadem CASE medical-ai-failure-atlas",
+    "SEBIT businessdevelopment clinician AI route owner",
+    "TUYZE TUSEB info health AI education route owner",
+    "medical-ai-failure-atlas health AI safety clinical AI safety"
+  ],
+  "reply_state": {
+    "hacettepe_health_informatics": "prior acknowledgement, no new substantive reply",
+    "hacettepe_health_management": "checked, no reply",
+    "acibadem_medical_ethics": "checked, no reply",
+    "sebit_route_owner": "checked, no reply",
+    "acibadem_case": "checked, no reply",
+    "tuyze_tuseb": "checked, no reply",
+    "outside_threads": "no separate route owner reply found"
+  },
+  "contains_patient_data": false,
+  "claims_application": false,
+  "claims_proposal": false,
+  "claims_intent_declaration": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_health_priority_fit": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_terms_acceptance": false,
+  "claims_payment": false,
+  "next_action": "Convert any real route owner reply into a gate specific fit note; if no reply arrives, verify one new hospital innovation or medical faculty route and create a source backed scout."
+}

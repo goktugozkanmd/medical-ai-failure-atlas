@@ -28,13 +28,14 @@ Start here:
 4. [TÜBİTAK 1711 SEBİT Route Owner Scout](docs/TUBITAK_1711_SEBIT_ROUTE_OWNER_SCOUT_20260618.md)
 5. [TÜBİTAK 1711 Acibadem CASE Demand Side Scout](docs/TUBITAK_1711_ACIBADEM_CASE_DEMAND_SIDE_SCOUT_20260618.md)
 6. [TÜYZE Education Route Owner Scout](docs/TUYZE_EDUCATION_ROUTE_OWNER_SCOUT_20260618.md)
-7. [Hospital and Medical Faculty Outreach Draft](docs/HOSPITAL_MEDICAL_FACULTY_OUTREACH_DRAFT_20260618.md)
-8. [Hacettepe Health Informatics Outreach Packet](docs/HACETTEPE_HEALTH_INFORMATICS_OUTREACH_PACKET_20260618.md)
-9. [Hacettepe Health Management AI Outreach Packet](docs/HACETTEPE_HEALTH_MANAGEMENT_AI_OUTREACH_PACKET_20260618.md)
-10. [Acibadem Medical Ethics AI Outreach Packet](docs/ACIBADEM_MEDICAL_ETHICS_AI_OUTREACH_PACKET_20260618.md)
-11. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
-12. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
-13. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+7. [TÜBİTAK 1711 Three Gate Consortium Fit Map](docs/TUBITAK_1711_THREE_GATE_CONSORTIUM_FIT_MAP_20260618.md)
+8. [Hospital and Medical Faculty Outreach Draft](docs/HOSPITAL_MEDICAL_FACULTY_OUTREACH_DRAFT_20260618.md)
+9. [Hacettepe Health Informatics Outreach Packet](docs/HACETTEPE_HEALTH_INFORMATICS_OUTREACH_PACKET_20260618.md)
+10. [Hacettepe Health Management AI Outreach Packet](docs/HACETTEPE_HEALTH_MANAGEMENT_AI_OUTREACH_PACKET_20260618.md)
+11. [Acibadem Medical Ethics AI Outreach Packet](docs/ACIBADEM_MEDICAL_ETHICS_AI_OUTREACH_PACKET_20260618.md)
+12. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
+13. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
+14. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
 
 Focus: health data fitness, decision support limits, source support, Turkish clinical context, failure mode disclosure, data governance route, and public claim hygiene.
 
