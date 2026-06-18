@@ -96,6 +96,7 @@ New visible build surfaces are now staged in this public repository:
 86. [Reviewer question maintainer public preview acceptance closeout digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md)
 87. [Reviewer question maintainer public preview acceptance archive index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md)
 88. [Reviewer question maintainer public preview acceptance archive release note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md)
+89. [Reviewer question maintainer public preview acceptance archive closure note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md)
 
 These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
 
@@ -152,6 +153,7 @@ The goal is to help model builders, clinical AI teams, and academic collaborator
 43. Reviewer question maintainer public preview acceptance closeout digest for public maintainer closeout checks without scoring or compatibility claims.
 44. Reviewer question maintainer public preview acceptance archive index for public maintainer archive navigation without scoring or compatibility claims.
 45. Reviewer question maintainer public preview acceptance archive release note for public maintainer archive release notation without scoring or compatibility claims.
+46. Reviewer question maintainer public preview acceptance archive closure note for public maintainer archive closure checks without scoring or compatibility claims.
 
 ## What this is
 
@@ -467,6 +469,12 @@ Generate reviewer question maintainer public preview acceptance archive release 
 make reviewer_question_maintainer_public_preview_acceptance_archive_release_note
 ```
 
+Generate reviewer question maintainer public preview acceptance archive closure note:
+
+```bash
+make reviewer_question_maintainer_public_preview_acceptance_archive_closure_note
+```
+
 Validate the assurance card template:
 
 ```bash
@@ -770,6 +778,8 @@ docs/
   reviewer_question_maintainer_public_preview_acceptance_archive_index_v0_1.json
   REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md
   reviewer_question_maintainer_public_preview_acceptance_archive_release_note_v0_1.json
+  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md
+  reviewer_question_maintainer_public_preview_acceptance_archive_closure_note_v0_1.json
   ASSURANCE_CARD_TEMPLATE_V0_1.md
   ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
   SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
