@@ -1,0 +1,49 @@
+{
+  "artifact": "tubitak_1711_sebit_route_owner_scout_20260618",
+  "date": "2026 06 18",
+  "status": "route owner scout, not an application",
+  "direct_health_fit": "weak",
+  "only_priority_fit": "smart education technologies",
+  "target_contact": "businessdevelopment@sebit.com.tr",
+  "target_source": "https://www.sebit.com/",
+  "public_sources": [
+    "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+    "https://www.sebit.com/",
+    "https://www.sebit.com.tr/",
+    "https://www.sebitlms.com/",
+    "https://www.sebitai.com/"
+  ],
+  "route_gates": [
+    {
+      "gate": "customer organization",
+      "state": "closed",
+      "reason": "no customer organization has committed"
+    },
+    {
+      "gate": "technology provider company",
+      "state": "scouting",
+      "reason": "SEBİT has a public business development route and education technology surface"
+    },
+    {
+      "gate": "research route",
+      "state": "closed",
+      "reason": "no university lab, center, public research center, or institute route is committed"
+    },
+    {
+      "gate": "clinical boundary",
+      "state": "education only",
+      "reason": "the work is clinician AI literacy and health AI safety education, not diagnosis, treatment, deployment, validation, or certification"
+    }
+  ],
+  "contains_patient_data": false,
+  "claims_submission": false,
+  "claims_intent_declaration": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_health_priority_fit": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_terms_acceptance": false,
+  "claims_payment": false
+}

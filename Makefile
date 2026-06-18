@@ -46,6 +46,7 @@ validate:
 	$(PYTHON) scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_fit_gate_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_named_scout_20260618.py
+	$(PYTHON) scripts/validate_tubitak_1711_sebit_route_owner_scout_20260618.py
 	$(PYTHON) scripts/validate_named_outreach_decision_matrix_20260618.py
 	$(PYTHON) scripts/validate_goktug_field_action_review_packet_20260618.py
 	$(PYTHON) scripts/validate_teknofest_public_share_clearance_packet_20260618.py
@@ -140,6 +141,9 @@ tubitak_1711_smart_education_fit_gate:
 
 tubitak_1711_smart_education_named_scout:
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_named_scout_20260618.py
+
+tubitak_1711_sebit_route_owner_scout:
+	$(PYTHON) scripts/validate_tubitak_1711_sebit_route_owner_scout_20260618.py
 
 named_outreach_decision_matrix:
 	$(PYTHON) scripts/generate_named_outreach_decision_matrix_20260618.py
