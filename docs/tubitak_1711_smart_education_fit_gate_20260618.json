@@ -1,0 +1,40 @@
+{
+  "artifact": "tubitak_1711_smart_education_fit_gate_20260618",
+  "status": "live call fit gate",
+  "official_source": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+  "call_opened": "15 June 2026",
+  "application_intake": "15 June 2026 to 18 September 2026, UTC plus 3",
+  "pre_registration_deadline": "14 September 2026 at 17:30",
+  "official_priority_areas": [
+    "smart production systems",
+    "smart agriculture, food and livestock",
+    "financial technologies",
+    "climate change and sustainability",
+    "smart education technologies"
+  ],
+  "direct_health_fit": "weak",
+  "only_adjacent_route_to_scout": "smart education technologies",
+  "route_hypothesis": {
+    "customer_organization": "medical faculty, hospital education unit, health informatics program, or continuing medical education body",
+    "technology_provider": "eligible AI or education technology company",
+    "research_route": "university research lab, health informatics unit, medical education unit, ethics unit, or public research route",
+    "open_source_sidecar": "Medical AI Failure Atlas and SourceCheckup Medical safety scenarios, source support checks, no ranking failure reports, clinician review protocols, and data quality training materials"
+  },
+  "fit_gates": [
+    "priority fit",
+    "customer need",
+    "technology provider",
+    "research route",
+    "formal action boundary"
+  ],
+  "blocks_application": true,
+  "blocks_intent_declaration": true,
+  "blocks_partner_commitment": true,
+  "contains_patient_data": false,
+  "claims_submission": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_health_priority_fit": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false
+}

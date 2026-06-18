@@ -44,6 +44,7 @@ validate:
 	$(PYTHON) scripts/validate_turkiye_health_ai_safety_readiness_kit_20260618.py
 	$(PYTHON) scripts/validate_teknofest_health_ai_safety_addendum_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py
+	$(PYTHON) scripts/validate_tubitak_1711_smart_education_fit_gate_20260618.py
 	$(PYTHON) scripts/validate_named_outreach_decision_matrix_20260618.py
 	$(PYTHON) scripts/validate_goktug_field_action_review_packet_20260618.py
 	$(PYTHON) scripts/validate_teknofest_public_share_clearance_packet_20260618.py
@@ -132,6 +133,9 @@ field_impact_packages: turkiye_health_ai_safety_readiness_kit teknofest_health_a
 tubitak_1711_ai_assurance_sidecar:
 	$(PYTHON) scripts/generate_tubitak_1711_ai_assurance_sidecar_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py
+
+tubitak_1711_smart_education_fit_gate:
+	$(PYTHON) scripts/validate_tubitak_1711_smart_education_fit_gate_20260618.py
 
 named_outreach_decision_matrix:
 	$(PYTHON) scripts/generate_named_outreach_decision_matrix_20260618.py
