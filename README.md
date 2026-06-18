@@ -16,6 +16,18 @@ Start here:
 
 Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, and clean claim language before project reports.
 
+## Türkiye Health AI Safety Readiness
+
+Public readiness companion for Turkish health AI teams aligning safety checks with visible TÜYZE signals around health data, medical decision support, big data, education, and collaboration readiness.
+
+Start here:
+
+1. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
+2. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
+3. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
+
+Focus: health data fitness, decision support limits, source support, Turkish clinical context, failure mode disclosure, data governance route, and public claim hygiene.
+
 ## 2026 06 16 public preview update
 
 New visible build surfaces are now staged in this public repository:

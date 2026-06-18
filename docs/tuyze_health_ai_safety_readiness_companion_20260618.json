@@ -1,0 +1,61 @@
+{
+  "artifact_id": "tuyze_health_ai_safety_readiness_companion_20260618",
+  "date": "2026 06 18",
+  "status": "public field readiness companion",
+  "official_sources": [
+    "https://tuyze.tuseb.gov.tr/"
+  ],
+  "source_facts": [
+    {
+      "id": "THSRC001",
+      "source": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The public site lists TÜYZE as the Türkiye Sağlık Veri Araştırmaları ve Yapay Zeka Uygulamaları Enstitüsü.",
+      "field_read": "Health AI safety readiness should center health data quality, source support, review readiness, and responsible claim language."
+    },
+    {
+      "id": "THSRC002",
+      "source": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The public site lists Büyük Veri Birimi, Tıbbi Karar Destek Sistemleri Birimi, and Akıllı Medikal Cihaz Teknolojileri Birimi.",
+      "field_read": "Safety readiness should cover data quality, decision support limitations, device adjacent risk, and human review handoff."
+    },
+    {
+      "id": "THSRC003",
+      "source": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The public site lists Sağlık Veri Organizasyonu Bilim Kurulu and Yapay Zeka Bilim Kurulu.",
+      "field_read": "Teams should separate technical model claims from data governance, clinical review, and source support claims."
+    },
+    {
+      "id": "THSRC004",
+      "source": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The public site reports Sağlıkta Yapay Zeka Seminerleri with Marmara University Faculty of Medicine and TÜSEB TÜYZE collaboration between 08 April and 20 May 2026.",
+      "field_read": "Clinician AI literacy is an active public signal and can be supported with open checklists."
+    },
+    {
+      "id": "THSRC005",
+      "source": "https://tuyze.tuseb.gov.tr/",
+      "checked_fact": "The public news feed includes 2026 institutional visits and collaboration signals, including HAVELSAN, Halk Sağlığı Genel Müdürlüğü, İzmir İl Sağlık Müdürlüğü, and sectoral AI clustering activity.",
+      "field_read": "Readiness work should be concrete enough for public institutions, hospitals, companies, and academic teams to reuse before a formal project route exists."
+    }
+  ],
+  "readiness_checks": [
+    "health_data_fitness",
+    "decision_support_limits",
+    "source_support",
+    "turkish_clinical_context",
+    "failure_mode_disclosure",
+    "data_governance_route",
+    "public_claim_hygiene"
+  ],
+  "source_fact_count": 5,
+  "readiness_check_count": 7,
+  "claims_official_tuyze_status": false,
+  "claims_official_tuseb_status": false,
+  "claims_endorsement": false,
+  "claims_partner_relationship": false,
+  "claims_application": false,
+  "claims_submission": false,
+  "contains_patient_data": false,
+  "claims_medical_advice": false,
+  "claims_clinical_deployment": false,
+  "claims_clinical_validation": false
+}
