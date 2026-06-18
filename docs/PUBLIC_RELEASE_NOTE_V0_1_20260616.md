@@ -96,6 +96,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 84. Reviewer question maintainer public preview acceptance archive public handoff note v0.1.
 85. Reviewer question maintainer public preview acceptance archive public handoff digest v0.1.
 86. Reviewer question maintainer public preview acceptance archive public handoff release index v0.1.
+87. Reviewer question maintainer public preview acceptance archive public handoff release note v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -187,6 +188,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 84. 6 reviewer question maintainer public preview acceptance archive public handoff note rows.
 85. 6 reviewer question maintainer public preview acceptance archive public handoff digest rows.
 86. 6 reviewer question maintainer public preview acceptance archive public handoff release index rows.
+87. 6 reviewer question maintainer public preview acceptance archive public handoff release note rows.
 
 ## Reproducible checks
 
@@ -271,6 +273,7 @@ make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_digest
 make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index
+make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note
 make sourcecheckup_contrib_v02
 make sourcecheckup_public_issue
 make sourcecheckup_expansion_dashboard
@@ -436,6 +439,7 @@ For global open source medical AI evaluation, this public preview gives:
 85. Reviewer question maintainer public preview acceptance archive public handoff note for public maintainer archive handoff without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 86. Reviewer question maintainer public preview acceptance archive public handoff digest for public maintainer archive handoff reading without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 87. Reviewer question maintainer public preview acceptance archive public handoff release index for public maintainer archive handoff navigation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
+88. Reviewer question maintainer public preview acceptance archive public handoff release note for public maintainer archive handoff notation without scoring, ranking, endpoint calls, patient data, compatibility claims, clinical validation, or endorsement claims.
 
 6 reviewer question maintainer public preview acceptance archive steward note rows.
 
@@ -451,10 +455,12 @@ For global open source medical AI evaluation, this public preview gives:
 
 6 reviewer question maintainer public preview acceptance archive public handoff release index rows.
 
+6 reviewer question maintainer public preview acceptance archive public handoff release note rows.
+
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 
 ## Next public build gates
 
-1. Add a reviewer question maintainer public preview acceptance archive public handoff release note without scoring or compatibility claims.
+1. Add a reviewer question maintainer public preview acceptance archive public handoff closure note without scoring or compatibility claims.
 2. External maintainer issue draft only after exact owner clearance.
 3. Model run plan files only after endpoint terms and cost are explicitly cleared.
