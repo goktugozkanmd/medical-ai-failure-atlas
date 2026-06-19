@@ -1,0 +1,99 @@
+{
+  "artifact": "Turkish Medical LLM Coverage Pressure Addendum",
+  "date": "2026 06 19",
+  "status": "public coverage pressure addendum",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "linked_issues": [132, 133, 134],
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_benchmark_examples": false,
+  "contains_answer_keys": false,
+  "contains_hidden_prompts": false,
+  "claims_turkish_medical_benchmark": false,
+  "claims_benchmark_result": false,
+  "claims_leaderboard_ranking": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_regulated_data_access": false,
+  "claims_patient_data_clearance": false,
+  "claims_procurement_evidence": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_endorsement": false,
+  "source_signals": [
+    {
+      "source_name": "BRIDGE",
+      "source_url": "https://www.nature.com/articles/s41551-026-01719-2",
+      "checked_signal": "multilingual real clinical text benchmark pressure",
+      "public_boundary": "does not prove Turkish clinical coverage"
+    },
+    {
+      "source_name": "HealthBench",
+      "source_url": "https://openai.com/tr-TR/index/healthbench/",
+      "checked_signal": "realistic health conversations, physician written rubrics, multilingual scenarios, uncertainty and global health criteria",
+      "public_boundary": "does not prove Turkish medical safety coverage"
+    },
+    {
+      "source_name": "TurkBench",
+      "source_url": "https://arxiv.org/html/2601.07020v1",
+      "checked_signal": "Turkish language benchmark pressure for culture, grammar, instruction following, safety, and content moderation gaps",
+      "public_boundary": "does not clear medical source support or clinical review"
+    },
+    {
+      "source_name": "Turkish MMLU article",
+      "source_url": "https://arxiv.org/html/2508.13044v1",
+      "checked_signal": "Turkish morphology and resource limited language evaluation pressure",
+      "public_boundary": "does not clear medical terminology safety"
+    }
+  ],
+  "coverage_questions": [
+    "Turkish language presence",
+    "Medical domain scope",
+    "Clinical context",
+    "Source support",
+    "Turkish terminology risk",
+    "Clinician review route",
+    "Data provenance",
+    "Ranking and score boundary",
+    "Public route fit"
+  ],
+  "coverage_rows": [
+    "TCPA001",
+    "TCPA002",
+    "TCPA003",
+    "TCPA004",
+    "TCPA005",
+    "TCPA006",
+    "TCPA007",
+    "TCPA008",
+    "TCPA009"
+  ],
+  "review_routes": [
+    "source review",
+    "language review",
+    "clinician review",
+    "data steward review",
+    "governance review",
+    "maintainer review",
+    "stop"
+  ],
+  "public_use_rules": [
+    "separate Turkish language capability from Turkish medical safety behavior",
+    "prevent Turkish coverage claims from outrunning evidence",
+    "route wording to reviewer roles before public claims",
+    "do not rank models",
+    "do not claim clinical validation",
+    "do not claim Turkish health system readiness",
+    "do not claim official route or partner approval"
+  ],
+  "next_public_action": "Turkish medical LLM coverage reviewer intake rows"
+}
