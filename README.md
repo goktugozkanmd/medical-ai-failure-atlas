@@ -15,8 +15,12 @@ This is the public review front door for the project:
 3. [Medical AI Safety Field Kit Send Approval Packet](docs/MEDICAL_AI_SAFETY_FIELD_KIT_SEND_APPROVAL_PACKET_20260619.md)
 4. [Medical AI Safety Field Kit Public Objection Ledger](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_LEDGER_20260619.md)
 5. [Medical AI Safety Field Kit Public Objection Intake](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_INTAKE_20260619.md)
+6. [Public Safe Failure Cards](docs/PUBLIC_SAFE_FAILURE_CARDS_20260619.md)
+7. [Public Safe Failure Cards launch seed](docs/PUBLIC_SAFE_FAILURE_CARDS_LAUNCH_SEED_20260619.md)
 
 The call is simple: pick one reviewer role, pick one platform lane, and add one concrete objection, missing safety check, failure mode, source support gap, Turkish wording risk, or field readiness gap.
+
+The Safe Failure Cards turn ten common medical AI safety traps into small public reviewer prompts. Use them to attack weak wording before it becomes trusted language.
 
 Boundary: no patient data, no clinical validation, no clinical deployment, no diagnosis or treatment advice, no benchmark ranking, no score certification, no source truth certification, no partner claim, no institution claim, and no endorsement.
 

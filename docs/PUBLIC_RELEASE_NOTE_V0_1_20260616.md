@@ -104,6 +104,7 @@ It is not clinical advice, not patient data, not clinical deployment, not clinic
 92. SourceCheckup Medical benchmark boundary delta note v0.1.
 93. Clinician AI literacy sandbox handoff micro module v0.1.
 94. SourceCheckup Medical source support delta queue v0.1.
+95. Public Safe Failure Cards v0.1.
 
 Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 
@@ -206,6 +207,7 @@ Dashboard file: `docs/PLATFORM_DASHBOARD_INDEX_V0_1.md`
 95. 6 clinician AI literacy sandbox handoff micro module steps.
 96. 6 SourceCheckup Medical source support delta queue rows.
 97. SourceCheckup Medical source claim walkthrough v0.1 with four synthetic decision path rows.
+98. 10 Public Safe Failure Cards for reviewer attack.
 
 ## Reproducible checks
 
@@ -473,6 +475,7 @@ For global open source medical AI evaluation, this public preview gives:
 93. SourceCheckup Medical benchmark boundary delta note for public benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
 94. Clinician AI literacy sandbox handoff micro module for public clinician education without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
 95. SourceCheckup Medical source support delta queue for source support review without source truth certification, endpoint, score, ranking, compatibility, equivalence, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
+96. Public Safe Failure Cards for synthetic reviewer attack without patient data, clinical advice, clinical validation, deployment, score, ranking, source truth certification, partner, institution, endorsement, formal application, payment, or terms claims.
 
 6 reviewer question maintainer public preview acceptance archive steward note rows.
 
@@ -507,6 +510,8 @@ For global open source medical AI evaluation, this public preview gives:
 6 clinician AI literacy sandbox handoff micro module steps.
 
 6 SourceCheckup Medical source support delta queue rows.
+
+10 Public Safe Failure Cards.
 
 This does not claim benchmark equivalence, clinical validation, or model superiority.
 

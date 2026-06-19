@@ -1,0 +1,110 @@
+{
+  "artifact": "public_safe_failure_cards_20260619",
+  "status": "public synthetic card pack for reviewer attack",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "No new substantive medical AI reply required action before build. Older T CAIREM route reply closed the direct meeting path and suggested public follow channels only.",
+  "active_thread_ids_checked": [
+    "19eda863ce89f083",
+    "19edaa3a3868fd0f",
+    "19edac07e13052fa",
+    "19edcafe5c2dfa60",
+    "19edb2e645ca1f6d",
+    "19edb491af3d687b",
+    "19edb64c4ae9fec6",
+    "19edb8289b165cc0",
+    "19edb9dc297ad804",
+    "19ee10ad385519d5",
+    "19ee125893972e6d",
+    "19edb48f891326e3"
+  ],
+  "targeted_search_count": 4,
+  "contains_patient_data": false,
+  "claims_clinical_advice": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "card_count": 10,
+  "cards": [
+    {
+      "card_id": "SFC001",
+      "platform_lane": "Medical AI Failure Atlas Global",
+      "unsafe_pattern": "Benchmark score becomes safety proof",
+      "reviewer_check": "Ask what evidence would be needed before public wording uses safety language.",
+      "stop_condition": "Block any claim that a score alone proves safety."
+    },
+    {
+      "card_id": "SFC002",
+      "platform_lane": "SourceCheckup Medical",
+      "unsafe_pattern": "Source link becomes source support",
+      "reviewer_check": "Ask whether the source supports the exact medical wording, population, care setting, date, and action boundary.",
+      "stop_condition": "Keep any unsupported source link in review."
+    },
+    {
+      "card_id": "SFC003",
+      "platform_lane": "TR MedLLM SafetyBench",
+      "unsafe_pattern": "Turkish wording sounds fluent but shifts risk",
+      "reviewer_check": "Ask what Turkish phrase changes the safety boundary.",
+      "stop_condition": "Block any term that can change clinical meaning across context until reviewed."
+    },
+    {
+      "card_id": "SFC004",
+      "platform_lane": "Turkish Clinical AI Assurance Lab",
+      "unsafe_pattern": "Demo success becomes hospital readiness",
+      "reviewer_check": "Ask which readiness gate is missing before hospital quality language is used.",
+      "stop_condition": "Block any hospital readiness claim without a documented readiness gate."
+    },
+    {
+      "card_id": "SFC005",
+      "platform_lane": "Medical AI Failure Atlas Global",
+      "unsafe_pattern": "Synthetic card becomes real case evidence",
+      "reviewer_check": "Ask whether the card is being used as a pattern seed or as evidence of frequency.",
+      "stop_condition": "Block any frequency or outcome claim from a synthetic card."
+    },
+    {
+      "card_id": "SFC006",
+      "platform_lane": "Clinician AI Literacy Academy Turkiye",
+      "unsafe_pattern": "Policy wording becomes clinical instruction",
+      "reviewer_check": "Ask whether the wording gives an action instruction that should remain under clinician review.",
+      "stop_condition": "Block any patient instruction derived from broad policy wording."
+    },
+    {
+      "card_id": "SFC007",
+      "platform_lane": "Health Data Quality and Label Audit Commons",
+      "unsafe_pattern": "Public dataset means data fitness",
+      "reviewer_check": "Ask what data fitness evidence is missing.",
+      "stop_condition": "Block any data fitness claim without label and provenance review."
+    },
+    {
+      "card_id": "SFC008",
+      "platform_lane": "Turkish Clinical AI Assurance Lab",
+      "unsafe_pattern": "Human review role is missing",
+      "reviewer_check": "Ask what reviewer role, trigger, authority, and record are missing.",
+      "stop_condition": "Block any human review claim if role and authority are undefined."
+    },
+    {
+      "card_id": "SFC009",
+      "platform_lane": "SourceCheckup Medical",
+      "unsafe_pattern": "Vendor language becomes medical assurance",
+      "reviewer_check": "Ask which vendor phrase is being converted into a medical assurance claim.",
+      "stop_condition": "Block any copied capability claim if it becomes a medical safety claim."
+    },
+    {
+      "card_id": "SFC010",
+      "platform_lane": "Turkish Clinical AI Assurance Lab",
+      "unsafe_pattern": "Sandbox route becomes deployment readiness",
+      "reviewer_check": "Ask whether the wording separates route exploration from clinical readiness.",
+      "stop_condition": "Block any deployment readiness wording unless the required formal process is complete and explicitly verified."
+    }
+  ],
+  "done_condition": "Ten synthetic cards are public, validator passes, and the README plus roadmap point reviewers to the card pack."
+}

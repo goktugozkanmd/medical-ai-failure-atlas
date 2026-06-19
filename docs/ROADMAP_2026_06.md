@@ -97,6 +97,7 @@ The repository is moving from a static failure atlas into a visible medical AI a
 65. Clinician AI literacy sandbox handoff micro module v0.1.
 66. SourceCheckup Medical source support delta queue v0.1.
 67. SourceCheckup Medical source claim walkthrough v0.1.
+68. Public Safe Failure Cards v0.1.
 
 ## External visibility sequence
 
@@ -125,3 +126,4 @@ This project will not claim:
 2. Prepare external maintainer issue drafts only after exact owner clearance.
 3. Add model run plan files only after endpoint terms and cost are explicitly cleared.
 4. Use the source claim walkthrough as the public demo link for reviewer critique requests.
+5. Use Public Safe Failure Cards as the short attack surface for reviewers who can give one missing gate, safer rewrite, or source support objection.

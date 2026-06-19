@@ -216,6 +216,9 @@ They remain issue template intake fields without scoring or compatibility claims
 104. [Clinician AI literacy sandbox handoff micro module JSON](clinician_ai_literacy_sandbox_handoff_micro_module_v0_1.json)
 105. [SourceCheckup Medical source support delta queue](SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
 106. [SourceCheckup Medical source support delta queue JSON](sourcecheckup_medical_source_support_delta_queue_v0_1.json)
+107. [Public Safe Failure Cards](PUBLIC_SAFE_FAILURE_CARDS_20260619.md)
+108. [Public Safe Failure Cards JSON](public_safe_failure_cards_20260619.json)
+109. [Public Safe Failure Cards launch seed](PUBLIC_SAFE_FAILURE_CARDS_LAUNCH_SEED_20260619.md)
 
 ## Platform map
 
