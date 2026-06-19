@@ -1,0 +1,84 @@
+{
+  "artifact": "SourceCheckup Medical Benchmark Source Support Worksheet",
+  "date": "2026 06 19",
+  "status": "public worksheet for benchmark adjacent source support review",
+  "linked_issues": [132, 133],
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "prior_acknowledgement_state": "Hacettepe health informatics acknowledgement only",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_benchmark_examples": false,
+  "contains_answer_keys": false,
+  "contains_hidden_prompts": false,
+  "claims_bridge_collaboration": false,
+  "claims_medhelm_collaboration": false,
+  "claims_healthbench_collaboration": false,
+  "claims_benchmark_result": false,
+  "claims_leaderboard_ranking": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_regulated_data_access": false,
+  "claims_patient_data_clearance": false,
+  "claims_procurement_evidence": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_endorsement": false,
+  "source_signals": [
+    {
+      "id": "SCSW_SOURCE_001",
+      "name": "BRIDGE article",
+      "source_url": "https://www.nature.com/articles/s41551-026-01719-2",
+      "checked_signal": "published on 17 June 2026 and describes 87 tasks from 59 real world clinical data sources across 9 languages, 8 task types, and 14 clinical specialties"
+    },
+    {
+      "id": "SCSW_SOURCE_002",
+      "name": "MedHELM",
+      "source_url": "https://medhelm.org/",
+      "checked_signal": "describes 121 clinical tasks, 22 subcategories, 31 datasets, and 5 categories"
+    },
+    {
+      "id": "SCSW_SOURCE_003",
+      "name": "HealthBench",
+      "source_url": "https://openai.com/index/healthbench/",
+      "checked_signal": "describes 5000 realistic health conversations, physician written rubrics, 262 physicians from 60 countries, multilingual and multi turn scenarios, and detailed rubric criteria"
+    }
+  ],
+  "worksheet_fields": [
+    "claim id",
+    "claim sentence",
+    "source surface",
+    "support state",
+    "uncertainty state",
+    "reviewer role",
+    "evidence needed",
+    "allowed public wording",
+    "blocked public claim",
+    "escalation route",
+    "stop condition"
+  ],
+  "example_rows": [
+    "SCSW001",
+    "SCSW002",
+    "SCSW003",
+    "SCSW004",
+    "SCSW005",
+    "SCSW006"
+  ],
+  "public_use_rules": [
+    "source existence and source support are separate states",
+    "benchmark public pages are context unless a formal benchmark result is actually present and cleared",
+    "do not copy benchmark examples, answer keys, hidden prompts, protected examples, private clinical text, or patient data",
+    "do not rank models",
+    "do not describe source support as source truth certification",
+    "do not publish if support state, uncertainty state, reviewer role, allowed wording, blocked claim, escalation route, or stop condition is missing"
+  ],
+  "next_public_action": "Turkish medical LLM coverage pressure addendum"
+}
