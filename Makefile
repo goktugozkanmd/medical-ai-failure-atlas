@@ -45,6 +45,7 @@ validate:
 	$(PYTHON) scripts/validate_teknofest_health_ai_safety_addendum_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_consortium_readiness_no_partner_gate_20260619.py
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_start_here_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_public_call_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_target_distribution_index_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_send_approval_packet_20260619.py
@@ -183,6 +184,10 @@ public_safe_failure_cards:
 
 safe_failure_card_issue_template:
 	$(PYTHON) scripts/validate_safe_failure_card_issue_template_20260619.py
+
+.PHONY: medical_ai_safety_field_kit_reviewer_start_here
+medical_ai_safety_field_kit_reviewer_start_here:
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_start_here_20260619.py
 
 turkiye_health_ai_safety_readiness_kit:
 	$(PYTHON) scripts/generate_turkiye_health_ai_safety_readiness_kit_20260618.py
