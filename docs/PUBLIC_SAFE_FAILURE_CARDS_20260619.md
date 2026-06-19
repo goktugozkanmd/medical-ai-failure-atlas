@@ -211,6 +211,8 @@ Missing gate:
 
 Safer wording:
 
+GitHub issue template: .github/ISSUE_TEMPLATE/safe_failure_card_objection.yml
+
 ## Done condition
 
 The pack is useful only if it produces concrete objections, missing gates, and safer rewrites. It is not a ranking tool, not a benchmark result, and not a clinical validation artifact.

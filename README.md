@@ -17,12 +17,26 @@ This is the public review front door for the project:
 5. [Medical AI Safety Field Kit Public Objection Intake](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_INTAKE_20260619.md)
 6. [Public Safe Failure Cards](docs/PUBLIC_SAFE_FAILURE_CARDS_20260619.md)
 7. [Public Safe Failure Cards launch seed](docs/PUBLIC_SAFE_FAILURE_CARDS_LAUNCH_SEED_20260619.md)
+8. [Safe Failure Card issue template](.github/ISSUE_TEMPLATE/safe_failure_card_objection.yml)
 
 The call is simple: pick one reviewer role, pick one platform lane, and add one concrete objection, missing safety check, failure mode, source support gap, Turkish wording risk, or field readiness gap.
 
 The Safe Failure Cards turn ten common medical AI safety traps into small public reviewer prompts. Use them to attack weak wording before it becomes trusted language.
 
+Open the Safe Failure Card issue template to leave one card id, risk, missing gate, and safer wording.
+
 Boundary: no patient data, no clinical validation, no clinical deployment, no diagnosis or treatment advice, no benchmark ranking, no score certification, no source truth certification, no partner claim, no institution claim, and no endorsement.
+
+## Open a bounded public issue
+
+Use one issue template:
+
+1. [Safe Failure Card objection](.github/ISSUE_TEMPLATE/safe_failure_card_objection.yml): one card id, risk, missing gate, and safer wording.
+2. [Synthetic medical AI failure case](.github/ISSUE_TEMPLATE/synthetic_failure_case.yml): one synthetic failure mode and safer answer expectation.
+3. [SourceCheckup source review](.github/ISSUE_TEMPLATE/sourcecheckup_review.yml): one source support gap and required evidence check.
+4. [Label audit review](.github/ISSUE_TEMPLATE/label_audit_review.yml): one data fitness or label boundary gap.
+
+Use synthetic examples only. Do not include patient data, private clinical text, raw model outputs, endpoint results, scores, rankings, clinical validation, clinical deployment, partner claims, institution claims, endorsement claims, payment claims, or terms claims. A submitted issue creates a maintainer review queue only.
 
 ## TEKNOFEST Health AI Safety Addendum
 

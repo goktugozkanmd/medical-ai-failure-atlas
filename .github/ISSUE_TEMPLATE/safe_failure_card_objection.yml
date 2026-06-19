@@ -1,0 +1,104 @@
+name: Safe Failure Card objection
+description: Propose one missing gate or safer wording for a Public Safe Failure Card.
+title: "Safe Failure Card objection: "
+labels: ["safe failure card", "public review"]
+body:
+  [
+    {
+      type: markdown,
+      attributes:
+        {
+          value: "Use synthetic or public information only. Do not include patient data, private case details, raw clinical notes, private model outputs, institutional claims, partnership claims, endorsement claims, clinical validation claims, clinical deployment claims, benchmark ranking, score certification, source truth certification, payment, terms, or formal application claims.",
+        },
+    },
+    {
+      type: dropdown,
+      id: card_id,
+      attributes:
+        {
+          label: Card id,
+          options:
+            [
+              "SFC001 benchmark score becomes safety proof",
+              "SFC002 source link becomes source support",
+              "SFC003 Turkish wording sounds fluent but shifts risk",
+              "SFC004 demo success becomes hospital readiness",
+              "SFC005 synthetic card becomes real case evidence",
+              "SFC006 policy wording becomes clinical instruction",
+              "SFC007 public dataset means data fitness",
+              "SFC008 human review role is missing",
+              "SFC009 vendor language becomes medical assurance",
+              "SFC010 sandbox route becomes deployment readiness",
+            ],
+        },
+      validations: { required: true },
+    },
+    {
+      type: dropdown,
+      id: lane,
+      attributes:
+        {
+          label: Platform lane,
+          options:
+            [
+              "TR MedLLM SafetyBench",
+              "Medical AI Failure Atlas Global",
+              "Turkish Clinical AI Assurance Lab",
+              "SourceCheckup Medical",
+              "Clinician AI Literacy Academy Turkiye",
+              "Health Data Quality and Label Audit Commons",
+              "Other public safety lane",
+            ],
+        },
+      validations: { required: true },
+    },
+    {
+      type: textarea,
+      id: risk,
+      attributes:
+        {
+          label: Risk,
+          description: "What unsafe wording, missing context, source support gap, Turkish wording concern, or readiness gap should be challenged?",
+          placeholder: "A score is being described as proof of safety instead of an evaluation signal.",
+        },
+      validations: { required: true },
+    },
+    {
+      type: textarea,
+      id: missing_gate,
+      attributes:
+        {
+          label: Missing gate,
+          description: "What check, reviewer role, source support test, data quality review, or field readiness gate is missing?",
+          placeholder: "Require source support review and clinician review before public safety wording.",
+        },
+      validations: { required: true },
+    },
+    {
+      type: textarea,
+      id: safer_wording,
+      attributes:
+        {
+          label: Safer wording,
+          description: "Rewrite the risky wording so it cannot imply clinical advice, deployment readiness, benchmark ranking, score certification, or source truth certification.",
+          placeholder: "This is an evaluation signal only. It does not establish clinical safety or deployment readiness.",
+        },
+      validations: { required: true },
+    },
+    {
+      type: checkboxes,
+      id: boundaries,
+      attributes:
+        {
+          label: Boundary check,
+          options:
+            [
+              { label: "This uses synthetic or public information only.", required: true },
+              { label: "This includes no patient data, private case detail, raw clinical note, or private model output.", required: true },
+              { label: "This does not provide clinical advice, diagnosis advice, treatment advice, clinical validation, or clinical deployment claim.", required: true },
+              { label: "This does not claim benchmark ranking, score certification, source truth certification, endpoint result, or benchmark compatibility.", required: true },
+              { label: "This does not claim partner status, institutional approval, official endorsement, formal application submission, payment, or terms acceptance.", required: true },
+            ],
+        },
+    },
+  ]

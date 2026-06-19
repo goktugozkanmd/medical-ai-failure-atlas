@@ -156,6 +156,7 @@ validate:
 	$(PYTHON) scripts/validate_sourcecheckup_example_expansion_dashboard_v0_2.py
 	$(PYTHON) scripts/validate_sourcecheckup_medical_source_claim_walkthrough_v0_1.py
 	$(PYTHON) scripts/validate_public_safe_failure_cards_20260619.py
+	$(PYTHON) scripts/validate_safe_failure_card_issue_template_20260619.py
 	$(PYTHON) scripts/validate_health_data_quality_card_v0_1.py
 	$(PYTHON) scripts/validate_boundary_notes_v0_1.py
 	$(PYTHON) scripts/validate_assurance_card_template_v0_1.py
@@ -179,6 +180,9 @@ platform_dashboard:
 
 public_safe_failure_cards:
 	$(PYTHON) scripts/validate_public_safe_failure_cards_20260619.py
+
+safe_failure_card_issue_template:
+	$(PYTHON) scripts/validate_safe_failure_card_issue_template_20260619.py
 
 turkiye_health_ai_safety_readiness_kit:
 	$(PYTHON) scripts/generate_turkiye_health_ai_safety_readiness_kit_20260618.py
