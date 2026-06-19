@@ -50,6 +50,7 @@ validate:
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_start_here_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_global_safety_claim_review_workbook_20260620.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_sprint_board_20260620.py
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_external_route_scout_board_20260620.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_public_call_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_target_distribution_index_20260619.py
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_send_approval_packet_20260619.py
@@ -198,6 +199,9 @@ medical_ai_safety_field_kit_global_safety_claim_review_workbook:
 
 medical_ai_safety_field_kit_reviewer_sprint_board:
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_sprint_board_20260620.py
+
+medical_ai_safety_field_kit_external_route_scout_board:
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_external_route_scout_board_20260620.py
 
 turkiye_health_ai_safety_readiness_kit:
 	$(PYTHON) scripts/generate_turkiye_health_ai_safety_readiness_kit_20260618.py

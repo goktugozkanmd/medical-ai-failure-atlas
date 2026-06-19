@@ -1,0 +1,67 @@
+{
+  "artifact": "medical_ai_safety_field_kit_external_route_scout_board",
+  "date": "2026-06-20",
+  "primary_issue": 153,
+  "workbook_url": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_GLOBAL_SAFETY_CLAIM_REVIEW_WORKBOOK_20260620.md",
+  "routes_checked": [
+    {
+      "url": "https://github.com/The-AI-Alliance/trust-safety-evals/issues/50",
+      "topic": "MedHELM taxonomy evaluations leaderboards and healthcare risk ranking",
+      "decision": "post",
+      "reason": "direct fit for a claim boundary checklist around benchmark rank and safety proof wording"
+    },
+    {
+      "url": "https://github.com/openai/simple-evals/issues/83",
+      "topic": "HealthBench medical category mapping",
+      "decision": "watch",
+      "reason": "recent and relevant, but the current thread asks for category mapping rather than safety claim review"
+    },
+    {
+      "url": "https://github.com/openai/simple-evals/issues/109",
+      "topic": "HealthBench uncertainty display",
+      "decision": "hold",
+      "reason": "statistics bug report where a workbook link would not directly answer the issue"
+    },
+    {
+      "url": "https://github.com/stanford-crfm/helm/issues/4187",
+      "topic": "MedHELM exact match scoring behavior",
+      "decision": "watch",
+      "reason": "technical scoring thread with maintainer guidance already present"
+    },
+    {
+      "url": "https://github.com/mlcommons/endpoints/issues/178",
+      "topic": "HealthBench integration",
+      "decision": "hold",
+      "reason": "issue body is too sparse for a workbook link"
+    },
+    {
+      "url": "https://github.com/YLab-Open/BRIDGE/issues/4",
+      "topic": "BRIDGE source support and benchmark misuse route",
+      "decision": "watch",
+      "reason": "existing project comment is already present, so a second outside comment should wait for reply"
+    }
+  ],
+  "outside_comment_cleared": true,
+  "cleared_outside_route": "https://github.com/The-AI-Alliance/trust-safety-evals/issues/50",
+  "cleared_public_action": "comment on issue 153 with the scout result",
+  "contributor_ladder": [
+    "route scout",
+    "risk mapper",
+    "comment drafter",
+    "maintainer closeout"
+  ],
+  "contains_patient_data": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "requires_tbys_action": false,
+  "requires_prodis_action": false
+}
