@@ -1,0 +1,99 @@
+{
+  "artifact": "MedHELM HealthBench BRIDGE Compatibility Note",
+  "date": "2026 06 19",
+  "status": "public compatibility note",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "source_anchors": [
+    {
+      "name": "MedHELM project page",
+      "source_url": "https://medhelm.org/",
+      "supports": "121 clinical tasks, clinician validated taxonomy, 22 subcategories, 31 datasets, 5 categories, open contribution route, and benchmark metric themes"
+    },
+    {
+      "name": "OpenAI HealthBench project page",
+      "source_url": "https://openai.com/index/healthbench/",
+      "supports": "5000 realistic health conversations, physician written rubrics, 48562 rubric criteria, open repository statement, and online example leakage warning"
+    },
+    {
+      "name": "BRIDGE GitHub repository",
+      "source_url": "https://github.com/YLab-Open/BRIDGE",
+      "supports": "87 real world clinical text tasks, 9 languages, more than one million samples, specialty and care stage coverage, open access and regulated access boundary"
+    }
+  ],
+  "compatibility_lanes": [
+    {
+      "lane": "Failure mode complement",
+      "public_artifact_question": "Does each row explain the unsafe response pattern rather than only mark a model answer as wrong",
+      "evidence_to_prepare": "Failure Atlas taxonomy row risk mechanism note reviewer question",
+      "blocked_claim": "Benchmark score"
+    },
+    {
+      "lane": "Source support",
+      "public_artifact_question": "Can every public medical or policy claim be traced to a source without implying clinical advice",
+      "evidence_to_prepare": "SourceCheckup claim row source URL support state uncertainty state",
+      "blocked_claim": "Source truth certification"
+    },
+    {
+      "lane": "Clinician review",
+      "public_artifact_question": "Is clinician review a visible gate for interpretation rather than a decoration after scoring",
+      "evidence_to_prepare": "Reviewer role table adjudication question disagreement capture",
+      "blocked_claim": "Clinical validation"
+    },
+    {
+      "lane": "No ranking public reporting",
+      "public_artifact_question": "Does the public output avoid ranking models when the evidence only supports safety inspection",
+      "evidence_to_prepare": "No ranking wording card blocked wording log release note boundary",
+      "blocked_claim": "Model superiority"
+    },
+    {
+      "lane": "Multilingual and Turkish readiness",
+      "public_artifact_question": "Is Turkish language scope treated as a coverage question rather than a translated afterthought",
+      "evidence_to_prepare": "Turkish specialty spread row language boundary note medical terminology review",
+      "blocked_claim": "Broad Turkish representativeness"
+    },
+    {
+      "lane": "Specialty and care stage coverage",
+      "public_artifact_question": "Are specialties document types and care stages recorded before broad medical AI claims are made",
+      "evidence_to_prepare": "Specialty spread dashboard document type label care stage label",
+      "blocked_claim": "General medical coverage"
+    },
+    {
+      "lane": "Data quality and label audit",
+      "public_artifact_question": "Are label provenance leakage missingness and regulated data boundaries visible",
+      "evidence_to_prepare": "Label audit row data quality card leakage statement regulated access note",
+      "blocked_claim": "Patient data clearance"
+    },
+    {
+      "lane": "Leakage and example protection",
+      "public_artifact_question": "Does the artifact avoid copying benchmark examples or ground truth into public text",
+      "evidence_to_prepare": "Example protection statement source summary public safe paraphrase",
+      "blocked_claim": "HealthBench example disclosure"
+    },
+    {
+      "lane": "Release boundary",
+      "public_artifact_question": "Can a reader distinguish a public companion note from an official benchmark contribution or submission",
+      "evidence_to_prepare": "Boundary paragraph issue body release note audit record",
+      "blocked_claim": "Official compatibility"
+    }
+  ],
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_healthbench_examples": false,
+  "claims_official_compatibility": false,
+  "claims_benchmark_submission": false,
+  "claims_leaderboard_submission": false,
+  "claims_model_ranking": false,
+  "claims_benchmark_score": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_regulatory_evidence": false,
+  "claims_medical_device_status": false
+}
