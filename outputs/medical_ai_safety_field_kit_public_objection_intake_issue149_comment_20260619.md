@@ -23,4 +23,4 @@ Template:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_INTAKE_20260619.md
 
-This is only a public routing and criticism surface. It is not evidence of formal review, approval, partnership, authority direction, clinical rollout readiness, safety proof, score meaning, source truth, or external endorsement.
+This is only a public routing and criticism surface. It is not evidence of formal review, approval, partnership, authority direction, clinical use claim, safety proof, score meaning, source truth, or external endorsement.

@@ -225,7 +225,7 @@ Template:
 
 {INTAKE_URL}
 
-This is only a public routing and criticism surface. It is not evidence of formal review, approval, partnership, authority direction, clinical rollout readiness, safety proof, score meaning, source truth, or external endorsement.
+This is only a public routing and criticism surface. It is not evidence of formal review, approval, partnership, authority direction, clinical use claim, safety proof, score meaning, source truth, or external endorsement.
 """
 
 
