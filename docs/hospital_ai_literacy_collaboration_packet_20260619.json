@@ -1,0 +1,97 @@
+{
+  "artifact": "Hospital AI Literacy Collaboration Packet",
+  "date": "2026 06 19",
+  "status": "public one page route owner packet",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_hospital_partner": false,
+  "claims_official_course": false,
+  "claims_accredited_training": false,
+  "claims_clinical_protocol": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_ethics_approval": false,
+  "claims_procurement_evidence": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_application": false,
+  "claims_proposal": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_official_role": false,
+  "source_anchors": [
+    {
+      "name": "Türkiye Clinical AI Assurance Lab Readiness Matrix",
+      "source_url": "docs/TURKIYE_CLINICAL_AI_ASSURANCE_LAB_READINESS_MATRIX_20260619.md"
+    },
+    {
+      "name": "Türkiye Clinician AI Safety Mini Curriculum",
+      "source_url": "docs/TURKIYE_CLINICIAN_AI_SAFETY_MINI_CURRICULUM_20260618.md"
+    },
+    {
+      "name": "Hospital AI Governance Intake Worksheet",
+      "source_url": "docs/HOSPITAL_AI_GOVERNANCE_INTAKE_WORKSHEET_20260619.md"
+    },
+    {
+      "name": "TÜSEB A4 UM notice",
+      "source_url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616"
+    },
+    {
+      "name": "TÜSEB A group call document",
+      "source_url": "https://files.tuseb.gov.tr/tuseb/files/dokumanlar/tuseb-2026projecagrilari-agrubu.pdf"
+    },
+    {
+      "name": "TÜBİTAK 1711 2026 call notice",
+      "source_url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi"
+    }
+  ],
+  "possible_review_owners": [
+    "medical faculty education",
+    "hospital quality",
+    "health informatics",
+    "medical ethics",
+    "simulation education",
+    "health data governance",
+    "research coordination",
+    "not fit"
+  ],
+  "review_steps": [
+    "scope check",
+    "literacy check",
+    "governance check",
+    "route decision"
+  ],
+  "review_objects": [
+    "readiness matrix",
+    "mini curriculum",
+    "governance intake worksheet",
+    "no ranking warning"
+  ],
+  "minimum_useful_outcomes": [
+    "correct owner named",
+    "not fit confirmed",
+    "missing evidence named",
+    "better public packet requested",
+    "bounded review meeting requested"
+  ],
+  "stop_conditions": [
+    "patient data",
+    "private hospital operational data",
+    "clinical workflow use",
+    "clinical validation wording",
+    "institutional endorsement wording",
+    "procurement or vendor evaluation wording",
+    "ethics approval implication",
+    "course approval or accreditation wording",
+    "funding or budget wording",
+    "formal application wording",
+    "partner commitment wording",
+    "official role wording",
+    "model ranking or score certification"
+  ],
+  "next_outward_action": "if route owner reply appears map this packet to the reply and choose the smallest truthful follow up"
+}
