@@ -45,6 +45,7 @@ validate:
 	$(PYTHON) scripts/validate_teknofest_health_ai_safety_addendum_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_ai_assurance_sidecar_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_consortium_readiness_no_partner_gate_20260619.py
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_public_call_20260619.py
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_fit_gate_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_named_scout_20260618.py
 	$(PYTHON) scripts/validate_tubitak_1711_sebit_route_owner_scout_20260618.py
@@ -301,6 +302,10 @@ tubitak_1711_ai_assurance_sidecar:
 tubitak_1711_consortium_readiness_no_partner_gate:
 	$(PYTHON) scripts/generate_tubitak_1711_consortium_readiness_no_partner_gate_20260619.py
 	$(PYTHON) scripts/validate_tubitak_1711_consortium_readiness_no_partner_gate_20260619.py
+
+medical_ai_safety_field_kit_public_call:
+	$(PYTHON) scripts/generate_medical_ai_safety_field_kit_public_call_20260619.py
+	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_public_call_20260619.py
 
 tubitak_1711_smart_education_fit_gate:
 	$(PYTHON) scripts/validate_tubitak_1711_smart_education_fit_gate_20260618.py

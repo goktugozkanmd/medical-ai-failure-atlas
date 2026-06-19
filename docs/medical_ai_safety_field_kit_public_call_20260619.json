@@ -1,0 +1,67 @@
+{
+  "artifact": "medical_ai_safety_field_kit_public_call_20260619",
+  "status": "public flagship call for clinical and technical reviewers",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_check": {
+    "checked_at": "2026 06 19 18:35 TRT",
+    "active_thread_ids_checked": [
+      "19edcafe5c2dfa60",
+      "19eda863ce89f083",
+      "19edaa3a3868fd0f",
+      "19edac07e13052fa",
+      "19edb2e645ca1f6d",
+      "19edb491af3d687b",
+      "19edb64c4ae9fec6",
+      "19edb8289b165cc0",
+      "19edb9dc297ad804"
+    ],
+    "targeted_searches_checked": [
+      "Gozdem Hacettepe medical ai failure atlas",
+      "Acibadem CASE SEBIT medical ai failure atlas",
+      "TUYZE TUSEB DEU KTU route owner no ranking",
+      "health data data steward TUBITAK TUSEB medical ai failure atlas",
+      "A4 UM TUSEB route fit info tuseb"
+    ],
+    "reply_state": "Earlier Hacettepe health informatics acknowledgement only. No new substantive route owner reply."
+  },
+  "platform_count": 6,
+  "platform_ids": [
+    "FK001",
+    "FK002",
+    "FK003",
+    "FK004",
+    "FK005",
+    "FK006"
+  ],
+  "review_role_count": 6,
+  "review_role_ids": [
+    "R001",
+    "R002",
+    "R003",
+    "R004",
+    "R005",
+    "R006"
+  ],
+  "boundary_count": 12,
+  "contains_patient_data": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_diagnosis_or_treatment_advice": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "public_call": {
+    "primary_action": "Comment on the public issue with one reviewer role and one concrete objection or missing safety check.",
+    "secondary_action": "Open a small issue that names one platform lane and one safety gap.",
+    "target_response_time": "twenty minutes"
+  },
+  "next_action": "Publish the public call issue and release, then use it as the single review link for targeted outreach after Goktug approves exact outbound messages."
+}

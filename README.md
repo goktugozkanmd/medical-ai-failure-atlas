@@ -4,6 +4,18 @@ Status: public v0.1 release.
 
 Date: 2026 06 13
 
+## Medical AI Safety Field Kit Public Call
+
+Start here if you are a clinician, health informatics reviewer, hospital quality reviewer, Turkish medical language reviewer, source support reviewer, or open model maintainer.
+
+This is the public review front door for the project:
+
+1. [Medical AI Safety Field Kit Public Call](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_CALL_20260619.md)
+
+The call is simple: pick one reviewer role, pick one platform lane, and add one concrete objection, missing safety check, failure mode, source support gap, Turkish wording risk, or field readiness gap.
+
+Boundary: no patient data, no clinical validation, no clinical deployment, no diagnosis or treatment advice, no benchmark ranking, no score certification, no source truth certification, no partner claim, no institution claim, and no endorsement.
+
 ## TEKNOFEST Health AI Safety Addendum
 
 Time sensitive public field note for teams preparing TEKNOFEST Sağlıkta Yapay Zeka project detail reports before 29 June 2026 at 17:00.
