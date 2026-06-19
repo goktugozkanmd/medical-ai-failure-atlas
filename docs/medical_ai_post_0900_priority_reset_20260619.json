@@ -1,0 +1,106 @@
+{
+  "artifact": "medical_ai_post_0900_priority_reset",
+  "date": "2026 06 19",
+  "timezone": "Europe Istanbul",
+  "checked_after_0900_local": true,
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_tubitak_application": false,
+  "claims_tuseb_application": false,
+  "claims_teknofest_submission": false,
+  "claims_ministry_route": false,
+  "claims_chai_affiliation": false,
+  "claims_medhelm_collaboration": false,
+  "claims_healthbench_collaboration": false,
+  "claims_bridge_collaboration": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_ethics_approval": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_endorsement": false,
+  "source_signals": [
+    {
+      "id": "PR001",
+      "name": "TÜBİTAK 1711 2026",
+      "source_url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+      "priority_meaning": "longer national consortium route through smart education and assurance education"
+    },
+    {
+      "id": "PR002",
+      "name": "TÜSEB A4 UM",
+      "source_url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616",
+      "priority_meaning": "urgent direct national health route if private eligibility and authority are true"
+    },
+    {
+      "id": "PR003",
+      "name": "TÜYZE health AI education and data route",
+      "source_url": "https://tuyze.tuseb.gov.tr/",
+      "priority_meaning": "language anchor for clinician AI literacy and data readiness"
+    },
+    {
+      "id": "PR004",
+      "name": "TEKNOFEST Sağlıkta Yapay Zeka",
+      "source_url": "https://www.teknofest.org/tr/yarismalar/saglikta-yapay-zeka-yarismasi/",
+      "priority_meaning": "public report safety companion opportunity before 29 June"
+    },
+    {
+      "id": "PR005",
+      "name": "Ministry health AI route signal",
+      "source_url": "https://sbsgm.saglik.gov.tr/TR-104172/yapay-zeka-ve-yenilikci-teknolojiler-daire-baskanligi.html",
+      "priority_meaning": "readiness language signal without approval claim"
+    },
+    {
+      "id": "PR006",
+      "name": "EU AI Act sandbox and governance pressure",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "priority_meaning": "sandbox readiness and documentation pressure"
+    },
+    {
+      "id": "PR007",
+      "name": "CHAI governance signal",
+      "source_url": "https://www.chai.org/",
+      "priority_meaning": "governance language anchor without affiliation"
+    },
+    {
+      "id": "PR008",
+      "name": "MedHELM benchmark signal",
+      "source_url": "https://medhelm.org/",
+      "priority_meaning": "workflow benchmark compatibility anchor without ranking"
+    },
+    {
+      "id": "PR009",
+      "name": "HealthBench signal",
+      "source_url": "https://openai.com/index/healthbench/",
+      "priority_meaning": "rubric and leakage protection anchor"
+    },
+    {
+      "id": "PR010",
+      "name": "BRIDGE signal",
+      "source_url": "https://www.nature.com/articles/s41551-026-01719-2",
+      "priority_meaning": "multilingual real world clinical text and specialty spread pressure"
+    }
+  ],
+  "national_priority_order": [
+    "TÜSEB A4 UM private eligibility and authority decision",
+    "TÜBİTAK 1711 smart education consortium route",
+    "TÜYZE and Ministry readiness language",
+    "TEKNOFEST detail report safety companion"
+  ],
+  "global_priority_order": [
+    "BRIDGE real world multilingual clinical text pressure",
+    "MedHELM workflow benchmark compatibility",
+    "HealthBench rubric and leakage protection",
+    "CHAI governance language",
+    "EU AI Act sandbox readiness"
+  ],
+  "next_public_action": "Global Benchmark Pressure Response"
+}
