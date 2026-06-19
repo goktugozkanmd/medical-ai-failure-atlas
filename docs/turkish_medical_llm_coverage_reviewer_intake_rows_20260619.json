@@ -1,0 +1,86 @@
+{
+  "artifact": "Turkish Medical LLM Coverage Reviewer Intake Rows",
+  "date": "2026 06 19",
+  "status": "public reviewer intake rows",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "linked_issues": [132, 133, 134, 135],
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_benchmark_examples": false,
+  "contains_answer_keys": false,
+  "contains_hidden_prompts": false,
+  "claims_turkish_medical_benchmark": false,
+  "claims_benchmark_result": false,
+  "claims_leaderboard_ranking": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_regulated_data_access": false,
+  "claims_patient_data_clearance": false,
+  "claims_institutional_approval": false,
+  "claims_partner": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_endorsement": false,
+  "source_signals": [
+    {
+      "source_name": "BRIDGE",
+      "source_url": "https://www.nature.com/articles/s41551-026-01719-2",
+      "intake_pressure": "ask whether the row is real clinical text, synthetic safety text, public article text, exam style text, or unsupported language only"
+    },
+    {
+      "source_name": "HealthBench",
+      "source_url": "https://openai.com/tr-TR/index/healthbench/",
+      "intake_pressure": "ask for reviewer role, rubric source, uncertainty handling, and public safety question boundary"
+    },
+    {
+      "source_name": "TurkBench",
+      "source_url": "https://arxiv.org/html/2601.07020v1",
+      "intake_pressure": "separate Turkish language and culture review from medical source support and clinician review"
+    },
+    {
+      "source_name": "Turkish MMLU article",
+      "source_url": "https://arxiv.org/html/2508.13044v1",
+      "intake_pressure": "ask whether Turkish morphology, abbreviations, suffixes, and terminology shift medical meaning"
+    }
+  ],
+  "intake_rows": [
+    "TMI001",
+    "TMI002",
+    "TMI003",
+    "TMI004",
+    "TMI005",
+    "TMI006",
+    "TMI007",
+    "TMI008",
+    "TMI009",
+    "TMI010"
+  ],
+  "reviewer_roles": [
+    "language reviewer",
+    "clinician reviewer",
+    "source reviewer",
+    "data steward",
+    "governance reviewer",
+    "maintainer"
+  ],
+  "output_fields": [
+    "Language state",
+    "Medical scope",
+    "Clinical context",
+    "Source support state",
+    "Terminology risk",
+    "Clinician review question",
+    "Data boundary",
+    "Ranking boundary",
+    "Public route fit",
+    "Release decision"
+  ],
+  "next_public_action": "Turkish medical LLM reviewer intake issue template"
+}
