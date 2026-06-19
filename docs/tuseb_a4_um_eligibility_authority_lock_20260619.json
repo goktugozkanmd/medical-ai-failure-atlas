@@ -1,0 +1,90 @@
+{
+  "title": "TÜSEB A4 UM Eligibility Authority Lock",
+  "date": "2026 06 19",
+  "status": "public eligibility and authority closure surface for possible TUSEB A4 UM aligned medical AI safety route before 30 June pre application cutoff, not an application",
+  "source_signals": [
+    {
+      "id": "LOCK001",
+      "name": "TÜSEB A4 UM official notice",
+      "url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616",
+      "checked_fact": "notice published on 16 June 2026 and aimed at medical branch specialists still fulfilling compulsory state service",
+      "field_read": "potentially relevant only if private personal service and specialty status are real"
+    },
+    {
+      "id": "LOCK002",
+      "name": "TÜSEB A group call document",
+      "url": "https://files.tuseb.gov.tr/tuseb/files/dokumanlar/tuseb-2026projecagrilari-agrubu.pdf",
+      "checked_fact": "pre application 15 June to 30 June, result notification 10 July, full application 13 July to 14 August, result notification 16 September",
+      "field_read": "urgent work is eligibility and authority closure before 30 June"
+    },
+    {
+      "id": "LOCK003",
+      "name": "TÜSEB project support public surface",
+      "url": "https://proje-destek.tuseb.gov.tr/a-grubu-proje-destekleri",
+      "checked_fact": "public A group project support surface exists while A4 UM notice points detailed action toward TBYS",
+      "field_read": "formal action needs correct route and account authority"
+    }
+  ],
+  "private_evidence_locks": [
+    "personal A4 UM eligibility",
+    "current institution authority",
+    "TBYS account authority",
+    "route fit",
+    "budget authority",
+    "ethics route",
+    "human reviewer role",
+    "public claim boundary"
+  ],
+  "green_light_conditions": [
+    "personal eligibility verified",
+    "institutional naming authority explicit",
+    "TBYS access and role correct",
+    "route fit supported",
+    "concept remains non patient data",
+    "no unsupported partner or approval claim needed",
+    "formal application decision made separately"
+  ],
+  "red_light_conditions": [
+    "personal eligibility false or unverified",
+    "TBYS role not authorized",
+    "institution cannot be named",
+    "route owner says not fit",
+    "concept requires patient data or clinical claims",
+    "budget or terms need unauthorised acceptance",
+    "public artifact used as unsupported application evidence"
+  ],
+  "fast_decision_questions": [
+    "Am I personally inside the A4 UM compulsory service target group today",
+    "Can my current institution be named in a pre application",
+    "Do I have TBYS access in the correct role for this call",
+    "Is there any institutional approval step before TBYS",
+    "Does the concept remain fully non patient data",
+    "Can the budget be left blank, minimal, or institutionally reviewed before entry",
+    "If TUSEB does not answer, do we still have enough official route certainty to continue"
+  ],
+  "minimum_concept_scope": [
+    "Turkish medical LLM failure mode capture using public or synthetic examples",
+    "source support checks for clinical claims",
+    "no ranking safety reporting",
+    "clinician AI literacy micro module",
+    "health data quality and label audit worksheet",
+    "human review protocol for non deployment evaluation"
+  ],
+  "current_decision": "eligibility and authority closure, not TBYS action",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_tuseb_application": false,
+  "claims_tbys_submission": false,
+  "claims_tuyze_proposal": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_budget_approval": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_ethics_approval": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_endorsement": false
+}
