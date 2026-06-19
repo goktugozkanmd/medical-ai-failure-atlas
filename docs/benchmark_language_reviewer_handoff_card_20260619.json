@@ -1,0 +1,134 @@
+{
+  "artifact": "Benchmark Language Reviewer Handoff Card",
+  "date": "2026 06 19",
+  "status": "public reviewer handoff card for benchmark based safety wording",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_healthbench_examples": false,
+  "claims_benchmark_result": false,
+  "claims_model_comparison": false,
+  "claims_model_ranking": false,
+  "claims_leaderboard_status": false,
+  "claims_score_certification": false,
+  "claims_procurement_evidence": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_partner": false,
+  "claims_official_role": false,
+  "claims_endorsement": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "source_anchors": [
+    {
+      "name": "No Ranking Benchmark Misuse Warning issue",
+      "source_url": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/124",
+      "supports": "public route for ten blocked benchmark misuse patterns"
+    },
+    {
+      "name": "MedHELM",
+      "source_url": "https://medhelm.org/",
+      "supports": "benchmark task, workflow, metric, and leaderboard context"
+    },
+    {
+      "name": "OpenAI HealthBench",
+      "source_url": "https://openai.com/index/healthbench/",
+      "supports": "rubric based health evaluation and leakage control context"
+    },
+    {
+      "name": "BRIDGE",
+      "source_url": "https://github.com/YLab-Open/BRIDGE",
+      "supports": "language, specialty, document type, care stage, and data boundary context"
+    },
+    {
+      "name": "CHAI AI Governance",
+      "source_url": "https://www.chai.org/workgroup/cross-cutting/ai-governance",
+      "supports": "governance lane framing for benchmark language review"
+    }
+  ],
+  "handoff_steps": [
+    {
+      "step": "Identify the proposed public sentence",
+      "reviewer_question": "what exact sentence will appear in public",
+      "required_record": [
+        "proposed sentence",
+        "target surface",
+        "intended audience",
+        "release owner"
+      ],
+      "blocked_state": "sentence is too vague to review"
+    },
+    {
+      "step": "Name the benchmark surface",
+      "reviewer_question": "which benchmark metric or score is being mentioned",
+      "required_record": [
+        "benchmark name",
+        "metric name if known",
+        "source URL",
+        "date checked"
+      ],
+      "blocked_state": "benchmark source is not named"
+    },
+    {
+      "step": "Convert score language into task language",
+      "reviewer_question": "what task user care setting and workflow does the statement actually support",
+      "required_record": [
+        "task context",
+        "user context",
+        "care setting",
+        "workflow boundary"
+      ],
+      "blocked_state": "score is still framed as general safety"
+    },
+    {
+      "step": "Check the blocked claim list",
+      "reviewer_question": "does the sentence imply any blocked misuse claim",
+      "required_record": [
+        "safety proof decision",
+        "procurement evidence decision",
+        "clinical validation decision",
+        "deployment readiness decision",
+        "example leakage decision"
+      ],
+      "blocked_state": "any blocked claim is present or ambiguous"
+    },
+    {
+      "step": "Request the evidence packet",
+      "reviewer_question": "what evidence would a reader need before trusting the public wording",
+      "required_record": [
+        "task map",
+        "source support row",
+        "data boundary note",
+        "clinical reviewer role",
+        "uncertainty statement",
+        "release boundary"
+      ],
+      "blocked_state": "evidence packet is missing and the sentence still sounds like a safety claim"
+    },
+    {
+      "step": "Protect examples and hidden test content",
+      "reviewer_question": "does the public text copy protected benchmark content",
+      "required_record": [
+        "example protection statement",
+        "contamination check",
+        "public safe summary",
+        "release note"
+      ],
+      "blocked_state": "benchmark example or answer content is exposed"
+    },
+    {
+      "step": "Add the no ranking wording",
+      "reviewer_question": "does the public sentence tell the reader what the benchmark can and cannot show",
+      "required_record": [
+        "no ranking boundary",
+        "uncertainty sentence",
+        "source support state",
+        "review owner"
+      ],
+      "blocked_state": "sentence still reads as ranking superiority or certified safety"
+    }
+  ]
+}
