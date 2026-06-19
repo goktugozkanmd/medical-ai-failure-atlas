@@ -1,0 +1,76 @@
+{
+  "artifact": "Failure Atlas Real Clinical Text Pressure Template",
+  "date": "2026 06 19",
+  "status": "public template for benchmark pressure around real clinical text",
+  "linked_issue": 132,
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "prior_acknowledgement_state": "Hacettepe health informatics acknowledgement only",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "contains_benchmark_examples": false,
+  "contains_answer_keys": false,
+  "contains_hidden_prompts": false,
+  "claims_bridge_collaboration": false,
+  "claims_medhelm_collaboration": false,
+  "claims_benchmark_result": false,
+  "claims_leaderboard_ranking": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_regulated_data_access": false,
+  "claims_patient_data_clearance": false,
+  "claims_procurement_evidence": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_endorsement": false,
+  "source_signals": [
+    {
+      "id": "FART001",
+      "name": "BRIDGE article",
+      "source_url": "https://www.nature.com/articles/s41551-026-01719-2",
+      "checked_signal": "published on 17 June 2026 and describes 87 tasks from 59 real world clinical data sources across 9 languages, 8 task types, and 14 clinical specialties"
+    },
+    {
+      "id": "FART002",
+      "name": "BRIDGE leaderboard surface",
+      "source_url": "https://huggingface.co/spaces/YLab-Open/BRIDGE-Medical-Leaderboard",
+      "checked_signal": "live leaderboard surface checked without using ranking, score, compatibility, or submission claims"
+    },
+    {
+      "id": "FART003",
+      "name": "MedHELM",
+      "source_url": "https://medhelm.org/",
+      "checked_signal": "describes 121 clinical tasks, 22 subcategories, 31 datasets, and 5 categories"
+    }
+  ],
+  "template_fields": [
+    "row id",
+    "task type",
+    "source type",
+    "specialty",
+    "document type",
+    "care stage",
+    "language and local context",
+    "data boundary",
+    "failure mechanism",
+    "reviewer question",
+    "evidence needed",
+    "public wording allowed",
+    "blocked public claim",
+    "stop condition"
+  ],
+  "public_use_rules": [
+    "synthetic or public source material unless a lawful private review route exists",
+    "do not copy benchmark examples, answer keys, hidden prompts, protected examples, private clinical text, or patient data",
+    "do not rank models",
+    "do not describe a benchmark score as clinical safety",
+    "do not publish if source support, reviewer role, data boundary, or stop condition is missing"
+  ],
+  "next_public_action": "SourceCheckup Medical benchmark source support worksheet"
+}
