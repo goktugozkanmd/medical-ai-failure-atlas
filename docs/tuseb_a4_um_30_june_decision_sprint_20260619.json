@@ -1,0 +1,65 @@
+{
+  "title": "TÜSEB A4 UM 30 June Decision Sprint",
+  "date": "2026 06 19",
+  "status": "public decision sprint for possible TUSEB A4 UM aligned medical AI safety route before 30 June pre application cutoff, not an application",
+  "source_signals": [
+    {
+      "id": "SPRINT001",
+      "name": "TÜSEB A4 UM official notice",
+      "url": "https://www.tuseb.gov.tr/haberler/tuseb-2026-a4-um-uzman-mecburi-hizmet-grubuna-yonelik-proje-cagrisi-acildi-20260616",
+      "checked_fact": "notice published on 16 June 2026 and aimed at medical branch specialists still fulfilling compulsory state service",
+      "field_read": "direct health research signal but not proof of eligibility or route authority"
+    },
+    {
+      "id": "SPRINT002",
+      "name": "TÜSEB A group call document",
+      "url": "https://files.tuseb.gov.tr/tuseb/files/dokumanlar/tuseb-2026projecagrilari-agrubu.pdf",
+      "checked_fact": "pre application 15 June to 30 June, result notification 10 July, full application 13 July to 14 August, result notification 16 September",
+      "field_read": "immediate field task is route and eligibility closure before 30 June"
+    },
+    {
+      "id": "SPRINT003",
+      "name": "TÜBİTAK 1711 contrast",
+      "url": "https://tubitak.gov.tr/tr/duyuru/1711-yapay-zeka-ekosistem-2026-yili-cagrisi-acildi",
+      "checked_fact": "smart education technologies priority exists and consortium plus intent letter structure is expected",
+      "field_read": "1711 remains a consortium lane while TUSEB A4 UM is the urgent health research eligibility lane"
+    }
+  ],
+  "decision_rows": [
+    "personal A4 UM eligibility",
+    "route owner",
+    "concept lane",
+    "institutional authority",
+    "TBYS action",
+    "patient data boundary",
+    "human review ownership",
+    "budget and payment",
+    "ethics path",
+    "public visibility"
+  ],
+  "minimum_concept_scope": [
+    "Turkish medical LLM failure mode capture using public or synthetic examples",
+    "source support checks for clinical claims",
+    "no ranking safety reporting",
+    "clinician AI literacy micro module",
+    "health data quality and label audit worksheet",
+    "human review protocol for non deployment evaluation"
+  ],
+  "current_decision": "route and eligibility closure, not proposal writing",
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_tuseb_application": false,
+  "claims_tbys_submission": false,
+  "claims_tuyze_proposal": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_budget_approval": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "claims_ethics_approval": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_endorsement": false
+}
