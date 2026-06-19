@@ -1,0 +1,48 @@
+{
+  "artifact": "medical_ai_safety_field_kit_reviewer_sprint_board",
+  "date": "2026 06 20",
+  "status": "public sprint board",
+  "primary_goal": "get one public objection that improves a safety boundary",
+  "routes": [
+    {
+      "name": "reviewer start page",
+      "url": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_REVIEWER_START_HERE_20260619.md"
+    },
+    {
+      "name": "main public intake",
+      "url": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/149"
+    },
+    {
+      "name": "source support starter",
+      "url": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150"
+    },
+    {
+      "name": "Turkish wording starter",
+      "url": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151"
+    },
+    {
+      "name": "hospital readiness starter",
+      "url": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152"
+    }
+  ],
+  "comment_shape": [
+    "Lane:",
+    "Risk:",
+    "Missing gate:",
+    "Safer wording:"
+  ],
+  "contains_patient_data": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "requires_tbys_action": false,
+  "requires_prodis_action": false
+}

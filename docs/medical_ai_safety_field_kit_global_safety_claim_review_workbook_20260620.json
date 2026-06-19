@@ -1,0 +1,40 @@
+{
+  "artifact": "medical_ai_safety_field_kit_global_safety_claim_review_workbook",
+  "date": "2026 06 20",
+  "status": "public workbook",
+  "primary_goal": "make weak safety language easier to attack before it becomes trusted public language",
+  "hub_issue": 149,
+  "starter_issues": [150, 151, 152],
+  "route_urls": [
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/149",
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150",
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151",
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152",
+    "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_REVIEWER_START_HERE_20260619.md"
+  ],
+  "review_lanes": [
+    "source support",
+    "Turkish wording",
+    "hospital readiness",
+    "benchmark misuse",
+    "data quality",
+    "reviewer role",
+    "governance wording"
+  ],
+  "safe_failure_cards_mapped": 10,
+  "objection_counting_rule": "Only visible public comments count",
+  "contains_patient_data": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "requires_tbys_action": false,
+  "requires_prodis_action": false
+}
