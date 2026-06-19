@@ -4,7 +4,7 @@ This starter is for one narrow public objection.
 
 Card:
 
-SFC005: synthetic card becomes real case evidence
+SFC005: synthetic card is mistaken for evidence
 
 Public starter:
 

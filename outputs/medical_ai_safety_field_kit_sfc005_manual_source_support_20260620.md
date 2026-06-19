@@ -14,7 +14,7 @@ The public SFC005 starter uses existing repository material only. It does not ci
 
 ## Claim support
 
-1. SFC005 meaning is supported by the Public Safe Failure Cards pack: synthetic card becomes real case evidence.
+1. SFC005 meaning is supported by the Public Safe Failure Cards pack as the synthetic evidence boundary card.
 2. The Global Workbook mapping was corrected to align with that canonical SFC005 meaning before any new public issue was opened.
 3. The new starter issue body links to issue `#149` instead of adding another owner comment to issue `#149`.
 

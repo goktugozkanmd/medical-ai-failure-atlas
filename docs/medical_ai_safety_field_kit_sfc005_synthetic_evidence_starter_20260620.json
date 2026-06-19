@@ -2,7 +2,7 @@
   "artifact": "medical_ai_safety_field_kit_sfc005_synthetic_evidence_starter",
   "date": "2026-06-20",
   "card_id": "SFC005",
-  "unsafe_pattern": "synthetic card becomes real case evidence",
+  "unsafe_pattern": "synthetic card is mistaken for evidence",
   "primary_goal": "get one public objection that blocks synthetic evidence overclaim wording",
   "public_doc": "docs/MEDICAL_AI_SAFETY_FIELD_KIT_SFC005_SYNTHETIC_EVIDENCE_STARTER_20260620.md",
   "primary_issue": 149,
