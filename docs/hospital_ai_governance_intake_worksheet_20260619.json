@@ -1,0 +1,111 @@
+{
+  "artifact": "Hospital AI Governance Intake Worksheet",
+  "date": "2026 06 19",
+  "status": "public intake worksheet",
+  "checked_after_reading_baglam2": true,
+  "checked_after_reading_trackers": true,
+  "checked_gmail_before_build": true,
+  "gmail_reply_state": "no new route owner reply",
+  "source_anchors": [
+    {
+      "name": "CHAI homepage",
+      "source_url": "https://www.chai.org/",
+      "supports": "responsible development deployment and oversight framing"
+    },
+    {
+      "name": "CHAI governance playbooks announcement",
+      "source_url": "https://www.chai.org/news/coalition-for-health-ai-chai-releases-comprehensive-governance-playbooks-to",
+      "supports": "eight governance elements baseline controls and health system implementation context"
+    },
+    {
+      "name": "CHAI AI Governance page",
+      "source_url": "https://www.chai.org/workgroup/cross-cutting/ai-governance",
+      "supports": "four core domains and five organizational process subdomains"
+    },
+    {
+      "name": "CHAI Responsible AI Guide page",
+      "source_url": "https://www.chai.org/workgroup/responsible-ai/responsible-ai-guide-raig-and-raig-executive-summary",
+      "supports": "ethics and quality assurance framing"
+    },
+    {
+      "name": "CHAI draft responsible health AI framework release",
+      "source_url": "https://www.chai.org/blog/chai-releases-draft-responsible-health-ai-framework-for-public-comment",
+      "supports": "assurance reporting checklists lifecycle and public reporting transparency"
+    }
+  ],
+  "intake_lanes": [
+    {
+      "lane": "AI policy",
+      "question": "What exact use is this AI work allowed to support",
+      "records": ["allowed use", "not allowed use", "public claim boundary", "owner who can change the scope"],
+      "blocked_claim": "policy approval"
+    },
+    {
+      "lane": "Organizational structures",
+      "question": "Who is responsible for review before any safety conclusion",
+      "records": ["clinical reviewer role", "data reviewer role", "source support reviewer role", "escalation route"],
+      "blocked_claim": "institutional governance adoption"
+    },
+    {
+      "lane": "Organizational resources",
+      "question": "What review time staff access and maintenance are needed before use",
+      "records": ["minimum staff", "review time", "source review capacity", "maintenance owner"],
+      "blocked_claim": "operational readiness"
+    },
+    {
+      "lane": "Responsible AI lifecycle management and use",
+      "question": "Is there a route from intake to review release correction and retirement",
+      "records": ["intake route", "review route", "release gate", "correction route", "retirement route"],
+      "blocked_claim": "deployment lifecycle completion"
+    },
+    {
+      "lane": "Risk and impact assessment",
+      "question": "Which users can be affected and what harm can happen if the system fails",
+      "records": ["failure mode", "affected user", "likely harm", "uncertainty", "required reviewer question"],
+      "blocked_claim": "safety proof"
+    },
+    {
+      "lane": "Responsible data management and use",
+      "question": "What data source label source leakage risk access limit and missingness are visible",
+      "records": ["data source", "label provenance", "leakage check", "access boundary", "missingness note"],
+      "blocked_claim": "patient data clearance"
+    },
+    {
+      "lane": "Third party management",
+      "question": "Are model vendor benchmark and tool claims below endorsement or procurement language",
+      "records": ["model or tool named", "vendor or benchmark named", "source support status", "blocked wording", "review owner"],
+      "blocked_claim": "vendor approval or procurement evidence"
+    },
+    {
+      "lane": "Education training and feedback",
+      "question": "Can clinicians and builders read the artifact without treating it as medical advice",
+      "records": ["intended learner", "learning goal", "feedback route", "reviewer question", "medical advice boundary"],
+      "blocked_claim": "clinical training certification"
+    },
+    {
+      "lane": "Public transparency and no ranking reporting",
+      "question": "Does the public output explain risk evidence without ranking models or implying a validated leaderboard",
+      "records": ["public risk statement", "evidence source", "uncertainty statement", "no ranking boundary", "release note"],
+      "blocked_claim": "score certification"
+    }
+  ],
+  "contains_patient_data": false,
+  "contains_private_operational_data": false,
+  "claims_chai_affiliation": false,
+  "claims_chai_membership": false,
+  "claims_chai_partner": false,
+  "claims_chai_endorsement": false,
+  "claims_joint_commission_endorsement": false,
+  "claims_certification": false,
+  "claims_legal_advice": false,
+  "claims_regulatory_evidence": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_patient_data_clearance": false,
+  "claims_procurement_evidence": false,
+  "claims_institutional_adoption": false,
+  "claims_model_ranking": false,
+  "claims_score_certification": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false
+}
