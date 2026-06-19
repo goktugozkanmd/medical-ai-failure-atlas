@@ -1,0 +1,53 @@
+{
+  "artifact": "medical_ai_safety_field_kit_one_objection_gateway",
+  "date": "2026-06-20",
+  "primary_goal": "convert outside readers into one bounded public objection",
+  "public_doc": "docs/MEDICAL_AI_SAFETY_FIELD_KIT_ONE_OBJECTION_GATEWAY_20260620.md",
+  "primary_issue": 149,
+  "routes": [
+    {
+      "role": "clinician reviewer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152",
+      "attack": "demo success starts to sound like hospital readiness"
+    },
+    {
+      "role": "turkish medical language reviewer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151",
+      "attack": "wording changes urgency certainty action boundary or responsibility"
+    },
+    {
+      "role": "source support reviewer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150",
+      "attack": "source link is treated as support for a stronger claim"
+    },
+    {
+      "role": "synthetic evidence reviewer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
+      "attack": "synthetic card is mistaken for evidence"
+    },
+    {
+      "role": "governance wording reviewer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_GLOBAL_SAFETY_CLAIM_REVIEW_WORKBOOK_20260620.md",
+      "attack": "wording sounds like approval readiness safety proof or deployment permission"
+    },
+    {
+      "role": "open model or benchmark maintainer",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_EXTERNAL_ROUTE_SCOUT_BOARD_20260620.md",
+      "attack": "benchmark result is used as a safety claim"
+    }
+  ],
+  "contains_patient_data": false,
+  "claims_clinical_validation": false,
+  "claims_clinical_deployment": false,
+  "claims_benchmark_ranking": false,
+  "claims_score_certification": false,
+  "claims_source_truth_certification": false,
+  "claims_partner": false,
+  "claims_institutional_approval": false,
+  "claims_endorsement": false,
+  "claims_formal_application": false,
+  "claims_payment": false,
+  "claims_terms_acceptance": false,
+  "requires_tbys_action": false,
+  "requires_prodis_action": false
+}
