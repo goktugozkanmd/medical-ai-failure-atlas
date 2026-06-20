@@ -12,27 +12,27 @@
     },
     {
       "role": "clinician reviewer",
-      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
       "attack": "demo success starts to sound like hospital readiness"
     },
     {
       "role": "turkish medical language reviewer",
-      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
       "attack": "wording changes urgency certainty action boundary or responsibility"
     },
     {
       "role": "source support reviewer",
-      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
       "attack": "source link is treated as support for a stronger claim"
     },
     {
       "role": "governance wording reviewer",
-      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_GLOBAL_SAFETY_CLAIM_REVIEW_WORKBOOK_20260620.md",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
       "attack": "wording sounds like approval readiness safety proof or deployment permission"
     },
     {
       "role": "open model or benchmark maintainer",
-      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_EXTERNAL_ROUTE_SCOUT_BOARD_20260620.md",
+      "target": "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
       "attack": "benchmark result is used as a safety claim"
     }
   ],

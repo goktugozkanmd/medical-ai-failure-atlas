@@ -55,3 +55,21 @@ Validation state:
 8. No patient data, clinical validation, clinical deployment, benchmark ranking, source truth certification, partner claim, institution claim, endorsement, formal application, payment, terms action, TBYS action, or PRODİS action was introduced.
 
 Allowed action: public GitHub commit after final diff and repository validation.
+
+## 2026 06 20 05:10 TRT lane consolidation audit
+
+Change: every specialist lane in the One Objection Gateway now lands on issue `#154` first. The gateway tells reviewers to name the lane in the comment, and the maintainer routes useful objections after the first outside comment arrives.
+
+Reason: issue `#154` still has zero outside comments, and sending clinician, Turkish language, source support, governance, or benchmark reviewers to separate starter routes split the first objection target.
+
+Validation state:
+
+1. Gateway validator passed and now checks that all six JSON routes target issue `#154`.
+2. Old specialist route links to issues `#150`, `#151`, `#152`, workbook, and route scout board were removed from the gateway landing instructions.
+3. Academic submission audit passed for the gateway Markdown outward prose.
+4. Formal reference extraction found zero references in the gateway Markdown.
+5. No e mail was sent.
+6. No social post was made.
+7. No owner comment, new issue, patient data, clinical validation, clinical deployment, benchmark ranking, source truth certification, partner claim, institution claim, endorsement, formal application, payment, terms action, TBYS action, or PRODİS action was introduced.
+
+Allowed action: public GitHub commit after final diff and repository validation.

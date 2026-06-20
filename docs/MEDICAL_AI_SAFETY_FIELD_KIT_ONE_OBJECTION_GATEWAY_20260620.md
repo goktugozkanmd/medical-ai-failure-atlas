@@ -20,7 +20,7 @@ https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 If you only have one sentence, put it there. The maintainer will route useful objections into the right card or gate.
 
-Or pick a specialist lane below.
+Or pick a specialist lane below and still post it in the same issue.
 
 Use this shape:
 
@@ -34,6 +34,12 @@ Safer wording:
 
 ## Choose One Lane
 
+Every lane lands in the same issue first:
+
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
+
+Name the lane in your comment. The maintainer will route useful objections into the right card or gate.
+
 1. Synthetic evidence reviewer
 
 Go here:
@@ -46,7 +52,7 @@ Attack this: a synthetic card is mistaken for evidence.
 
 Go here:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 Attack this: demo success starts to sound like hospital readiness.
 
@@ -54,7 +60,7 @@ Attack this: demo success starts to sound like hospital readiness.
 
 Go here:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 Attack this: Turkish clinical wording changes urgency, certainty, action boundary, or responsibility.
 
@@ -62,7 +68,7 @@ Attack this: Turkish clinical wording changes urgency, certainty, action boundar
 
 Go here:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 Attack this: a public source link is treated as support for a stronger claim than it can carry.
 
@@ -70,7 +76,7 @@ Attack this: a public source link is treated as support for a stronger claim tha
 
 Go here:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_GLOBAL_SAFETY_CLAIM_REVIEW_WORKBOOK_20260620.md
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 Attack this: wording sounds like approval, readiness, safety proof, or deployment permission.
 
@@ -78,7 +84,7 @@ Attack this: wording sounds like approval, readiness, safety proof, or deploymen
 
 Go here:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_EXTERNAL_ROUTE_SCOUT_BOARD_20260620.md
+https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
 Attack this: a benchmark or leaderboard result is being used as a safety claim.
 

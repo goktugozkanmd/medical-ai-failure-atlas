@@ -7,12 +7,12 @@ The gateway uses existing repository surfaces only.
 ## Source support
 
 1. Current main public intake is issue `#154`.
-2. Source support starter is issue `#150`.
-3. Turkish wording starter is issue `#151`.
-4. Hospital readiness starter is issue `#152`.
-5. Synthetic evidence starter is issue `#154`.
-6. Governance wording route is the Global Safety Claim Review Workbook.
-7. Open model or benchmark route is the External Route Scout Board.
+2. Every specialist lane in the gateway now lands on issue `#154` first.
+3. The maintainer can route useful objections into the source support starter, Turkish wording starter, hospital readiness starter, workbook, or external route scout board after a public objection appears.
+4. Source support starter remains issue `#150`.
+5. Turkish wording starter remains issue `#151`.
+6. Hospital readiness starter remains issue `#152`.
+7. Synthetic evidence starter remains issue `#154`.
 
 ## Boundary support
 

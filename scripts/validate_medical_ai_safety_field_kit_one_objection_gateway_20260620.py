@@ -20,9 +20,8 @@ REQUIRED_DOC_PHRASES = [
     "Medical AI Safety Field Kit One Objection Gateway",
     "The whole ask is one objection.",
     "Pick one role. Pick one lane. Leave one bounded objection",
-    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/150",
-    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/151",
-    "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/152",
+    "Every lane lands in the same issue first:",
+    "Name the lane in your comment.",
     "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
     "Count only outside comments as outside review.",
     "make medical_ai_safety_field_kit_one_objection_gateway",
@@ -123,6 +122,9 @@ def main() -> int:
             errors.append("Expected primary issue 154")
         if len(payload.get("routes", [])) != 6:
             errors.append("Expected six reviewer routes")
+        for index, route in enumerate(payload.get("routes", []), start=1):
+            if route.get("target") != "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154":
+                errors.append(f"Route {index} does not land on issue 154")
         for flag in REQUIRED_FALSE_FLAGS:
             if payload.get(flag) is not False:
                 errors.append(f"Expected false flag: {flag}")
