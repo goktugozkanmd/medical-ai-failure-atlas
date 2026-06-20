@@ -44,7 +44,7 @@ Reference extraction found zero formal references in the new outward artifacts.
 
 The public text makes no claim of patient data, clinical validation, clinical deployment, benchmark ranking, score certification, source truth certification, partner status, institutional approval, endorsement, formal application, payment, terms acceptance, TBYS action, PRODIS action, budget action, procurement action, route owner response, or official authority guidance.
 
-The workbook is a public review surface only. External review is not counted until a visible non owner public comment names a risk and a missing gate.
+The workbook is a public review surface only. External review is not counted until a visible third party account that is not maintaining this repository and is not posting through a project account names a risk and a missing gate. Maintainer, project account, and controlled seed comments do not count.
 
 ## Public action cleared
 

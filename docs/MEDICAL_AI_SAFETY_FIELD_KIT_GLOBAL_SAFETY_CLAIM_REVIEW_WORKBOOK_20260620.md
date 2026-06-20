@@ -214,7 +214,11 @@ Safer wording:
 
 ## Objection counting rule
 
-Only visible public comments count.
+Only visible third party comments count.
+
+A comment counts only when it comes from a person who is not maintaining this repository and is not posting through a project account.
+
+Maintainer, project account, and controlled seed comments do not count as outside review or external validation.
 
 Do not invent reviewer rows.
 
@@ -233,7 +237,7 @@ For each useful public objection:
 
 ## Done condition
 
-This workbook is useful when at least one non owner public comment identifies a risk and a missing gate.
+This workbook is useful when at least one visible third party account that is not maintaining this repository and is not posting through a project account identifies a risk and a missing gate.
 
 Until that happens, this is a public review surface, not evidence of review.
 

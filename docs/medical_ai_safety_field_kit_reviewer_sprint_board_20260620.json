@@ -2,7 +2,7 @@
   "artifact": "medical_ai_safety_field_kit_reviewer_sprint_board",
   "date": "2026 06 20",
   "status": "public sprint board",
-  "primary_goal": "get one public objection that improves a safety boundary",
+  "primary_goal": "get one true third party public objection that improves a safety boundary",
   "routes": [
     {
       "name": "reviewer start page",

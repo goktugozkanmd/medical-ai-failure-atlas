@@ -13,8 +13,11 @@ DATA = ROOT / "docs" / "medical_ai_safety_field_kit_one_objection_gateway_202606
 AUDIT = ROOT / "outputs" / "medical_ai_safety_field_kit_one_objection_gateway_public_action_audit_20260620.md"
 SOURCE_SUPPORT = ROOT / "outputs" / "medical_ai_safety_field_kit_one_objection_gateway_manual_source_support_20260620.md"
 LAUNCH = ROOT / "outputs" / "medical_ai_safety_field_kit_one_objection_gateway_manual_launch_seed_20260620.md"
+README = ROOT / "README.md"
+CONTRIBUTING = ROOT / "CONTRIBUTING.md"
+ISSUE_154_BODY = ROOT / "outputs" / "medical_ai_issue154_body_with_micro_brief_20260620.md"
 
-REQUIRED_FILES = [DOC, DATA, AUDIT, SOURCE_SUPPORT, LAUNCH]
+REQUIRED_FILES = [DOC, DATA, AUDIT, SOURCE_SUPPORT, LAUNCH, README, CONTRIBUTING, ISSUE_154_BODY]
 
 REQUIRED_DOC_PHRASES = [
     "Medical AI Safety Field Kit One Objection Gateway",
@@ -99,6 +102,9 @@ def main() -> int:
     audit_text = AUDIT.read_text(encoding="utf-8") if AUDIT.exists() else ""
     support_text = SOURCE_SUPPORT.read_text(encoding="utf-8") if SOURCE_SUPPORT.exists() else ""
     launch_text = LAUNCH.read_text(encoding="utf-8") if LAUNCH.exists() else ""
+    readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
+    contributing_text = CONTRIBUTING.read_text(encoding="utf-8") if CONTRIBUTING.exists() else ""
+    issue_154_text = ISSUE_154_BODY.read_text(encoding="utf-8") if ISSUE_154_BODY.exists() else ""
 
     for phrase in REQUIRED_DOC_PHRASES:
         if phrase.lower() not in doc_text.lower():
@@ -113,6 +119,13 @@ def main() -> int:
         errors.append("Launch seed missing controlled account test only boundary")
     if "Do not describe that comment as outside review, third party review, independent review, external validation, or the gateway success condition." not in launch_text:
         errors.append("Launch seed missing controlled account non success boundary")
+    boundary_phrase = "A maintainer or controlled seed can test the route, but it is not outside review and is not external validation."
+    if boundary_phrase not in readme_text:
+        errors.append("README missing outside review boundary")
+    if boundary_phrase not in contributing_text:
+        errors.append("CONTRIBUTING missing outside review boundary")
+    if boundary_phrase not in issue_154_text:
+        errors.append("Issue 154 body record missing outside review boundary")
 
     check_text("Doc", doc_text, errors)
     check_text("Audit", audit_text, errors)

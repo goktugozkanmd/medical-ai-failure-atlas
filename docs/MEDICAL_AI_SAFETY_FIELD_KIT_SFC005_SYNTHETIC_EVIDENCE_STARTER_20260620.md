@@ -90,7 +90,7 @@ Block public wording when it claims or implies:
 
 1. Route SFC005 comments into the main public intake.
 2. Convert repeated objections into a clearer Safe Failure Card note.
-3. Keep owner comments separate from non owner public review.
+3. Keep maintainer, project account, and controlled seed comments separate from true third party outside review.
 4. Do not count this as validation or field evidence.
 
 ## Boundary

@@ -26,7 +26,7 @@
     "governance wording"
   ],
   "safe_failure_cards_mapped": 10,
-  "objection_counting_rule": "Only visible public comments count",
+  "objection_counting_rule": "Only visible third party comments count",
   "contains_patient_data": false,
   "claims_clinical_validation": false,
   "claims_clinical_deployment": false,

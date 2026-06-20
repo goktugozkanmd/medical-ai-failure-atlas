@@ -26,7 +26,9 @@ REQUIRED_DOC_PHRASES = [
     "Synthetic walkthrough",
     "Reviewer comment templates",
     "Objection counting rule",
-    "Only visible public comments count",
+    "Only visible third party comments count",
+    "A comment counts only when it comes from a person who is not maintaining this repository and is not posting through a project account.",
+    "Maintainer, project account, and controlled seed comments do not count as outside review or external validation.",
     "Do not invent reviewer rows",
     "Maintainer closeout rule",
     "make medical_ai_safety_field_kit_global_safety_claim_review_workbook",
@@ -151,7 +153,7 @@ def main() -> int:
             errors.append("Starter issues must be 150 151 152")
         if payload.get("safe_failure_cards_mapped") != 10:
             errors.append("Expected ten Safe Failure Cards mapped")
-        if payload.get("objection_counting_rule") != "Only visible public comments count":
+        if payload.get("objection_counting_rule") != "Only visible third party comments count":
             errors.append("Unexpected objection counting rule")
         urls = set(payload.get("route_urls", []))
         for url in REQUIRED_URLS:

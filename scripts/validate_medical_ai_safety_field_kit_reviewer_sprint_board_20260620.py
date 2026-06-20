@@ -28,7 +28,9 @@ REQUIRED_PHRASES = [
     "Risk:",
     "Missing gate:",
     "Safer wording:",
-    "One public comment is enough",
+    "One visible third party comment is enough",
+    "not maintaining this repository and is not posting through a project account",
+    "controlled seed comments do not count as outside review or external validation",
     "Route each useful comment to one lane",
     "Use synthetic or public examples only",
     "make medical_ai_safety_field_kit_reviewer_sprint_board",
@@ -117,7 +119,12 @@ def main() -> int:
     for url in REQUIRED_URLS:
         if url not in doc_text:
             errors.append(f"Doc missing required URL: {url}")
-    for phrase in ["Done condition", "At least one non owner public comment", "Boundary"]:
+    for phrase in [
+        "Done condition",
+        "At least one visible third party account that is not maintaining this repository and is not posting through a project account",
+        "Maintainer, project account, and controlled seed comments do not count.",
+        "Boundary",
+    ]:
         if phrase.lower() not in issue_text.lower():
             errors.append(f"Issue body missing required phrase: {phrase}")
     for phrase in ["This release adds a public sprint board", "Hospital readiness starter issue 152", "Boundary"]:
@@ -132,7 +139,7 @@ def main() -> int:
         payload = json.loads(DATA.read_text(encoding="utf-8"))
         if payload.get("artifact") != "medical_ai_safety_field_kit_reviewer_sprint_board":
             errors.append("Unexpected artifact id")
-        if payload.get("primary_goal") != "get one public objection that improves a safety boundary":
+        if payload.get("primary_goal") != "get one true third party public objection that improves a safety boundary":
             errors.append("Unexpected primary goal")
         routes = payload.get("routes", [])
         if len(routes) != 5:

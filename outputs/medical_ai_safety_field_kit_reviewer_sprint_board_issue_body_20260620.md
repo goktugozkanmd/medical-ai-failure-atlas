@@ -25,7 +25,9 @@ Safer wording:
 
 Done condition:
 
-At least one non owner public comment names a risk and a missing gate.
+At least one visible third party account that is not maintaining this repository and is not posting through a project account names a risk and a missing gate.
+
+Maintainer, project account, and controlled seed comments do not count.
 
 Boundary:
 

@@ -51,7 +51,11 @@ Safer wording:
 
 ## What counts as done
 
-One public comment is enough when it names a risk and a missing gate.
+One visible third party comment is enough when it names a risk and a missing gate.
+
+It must come from a person who is not maintaining this repository and is not posting through a project account.
+
+Maintainer, project account, and controlled seed comments do not count as outside review or external validation.
 
 Good comments attack weak wording. They do not need to evaluate a model or solve the full system.
 
