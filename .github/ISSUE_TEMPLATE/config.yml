@@ -1,2 +1,2 @@
 blank_issues_enabled: false
-contact_links: [{ name: Project README, url: "https://github.com/v0id-lab/medical-ai-failure-atlas#readme", about: Read the project scope and safety boundaries before opening an issue. }]
+contact_links: [{ name: Two minute outside objection, url: "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154", about: Leave one bounded weak spot, missing gate, or safer wording on the current first outside objection issue. }, { name: Project README, url: "https://github.com/v0id-lab/medical-ai-failure-atlas#readme", about: Read the project scope and safety boundaries before opening an issue. }]

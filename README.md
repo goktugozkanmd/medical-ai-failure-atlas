@@ -10,11 +10,13 @@ Start here if you are a clinician, health informatics reviewer, hospital quality
 
 ## Two minute outside objection
 
-The current priority is one outside comment on issue 154:
+Open issue 154 and paste one small comment:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
-Use this shape:
+Do not read the full repo first. One sentence is enough if it names one weak spot.
+
+Use either the blank shape or the example shape. Change any line you want.
 
 ```text
 1. Link or section:
@@ -23,7 +25,14 @@ Use this shape:
 4. Optional evidence or example:
 ```
 
-Synthetic or public examples only.
+```text
+1. Link or section: README, Two minute outside objection
+2. What seems weak, confusing, overstated, or missing: The request asks for an outside objection, but it does not show how small a useful comment can be.
+3. What would make it clearer or more defensible: Say that one sentence is enough and that the maintainer will route the comment into the right card or gate.
+4. Optional evidence or example: A reviewer could comment only on unclear wording, source support, synthetic evidence, or readiness language.
+```
+
+Use synthetic or public examples only. Do not include patient data, private clinical text, raw private model output, clinical advice, validation, deployment, ranking, score certification, source truth certification, partner claims, institution claims, endorsement, payment, or terms action.
 
 This is the public review front door for the project:
 
