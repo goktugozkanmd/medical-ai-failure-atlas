@@ -18,7 +18,7 @@ Name one weak spot and give one safer wording or missing gate.
 
 No patient data. No clinical validation claim. No deployment claim. No ranking. No endorsement.
 
-## GitHub comment style for a Goktug controlled account
+## GitHub comment format test for a Goktug controlled account
 
 ```text
 Role:
@@ -32,4 +32,4 @@ Recommended first target:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
-Use a Goktug controlled account that is not the repository owner if the goal is to create the first outside style public objection.
+Use a Goktug controlled account only to test comment formatting or routing. Do not describe that comment as outside review, third party review, independent review, external validation, or the gateway success condition.

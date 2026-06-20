@@ -14,6 +14,8 @@ Open issue 154 and paste one small comment:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
+Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
+
 Do not read the full repo first. One sentence is enough if it names one weak spot.
 
 Use either the blank shape or the example shape. Change any line you want.

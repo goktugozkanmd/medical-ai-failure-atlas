@@ -18,6 +18,8 @@ Open the main intake:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
+Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
+
 If you only have one sentence, put it there. The maintainer will route useful objections into the right card or gate.
 
 Or pick a specialist lane below and still post it in the same issue.
@@ -110,11 +112,12 @@ Safer wording: This wording should be treated as a language safety check, not as
 
 ## Maintainer Rule
 
-1. Count only outside comments as outside review.
+1. Count only third party comments as outside review.
 2. Convert useful objections into clearer cards or workbook gates.
 3. If a comment names a real patient case, stop and remove the route risk.
 4. If a comment claims validation, deployment, approval, partnership, or institutional support, ask for safer wording.
 5. Do not turn a synthetic example into evidence.
+6. Do not count maintainer, project account, or controlled seed comments as external validation.
 
 ## Public Boundary
 

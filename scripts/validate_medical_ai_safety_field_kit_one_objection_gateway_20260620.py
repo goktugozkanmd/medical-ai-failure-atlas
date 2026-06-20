@@ -23,7 +23,9 @@ REQUIRED_DOC_PHRASES = [
     "Every lane lands in the same issue first:",
     "Name the lane in your comment.",
     "https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154",
-    "Count only outside comments as outside review.",
+    "Outside means a person who is not maintaining this repository and is not posting through a project account.",
+    "Count only third party comments as outside review.",
+    "Do not count maintainer, project account, or controlled seed comments as external validation.",
     "make medical_ai_safety_field_kit_one_objection_gateway",
 ]
 
@@ -52,6 +54,7 @@ FORBIDDEN = [
     "human" + "ized",
     "AI " + "detector",
     "submit" + "_audit",
+    "outside style public objection",
 ]
 
 REQUIRED_FALSE_FLAGS = [
@@ -106,6 +109,10 @@ def main() -> int:
         errors.append("Source support missing navigation claim boundary")
     if "manual post seed only" not in launch_text.lower():
         errors.append("Launch seed missing manual only boundary")
+    if "Use a Goktug controlled account only to test comment formatting or routing." not in launch_text:
+        errors.append("Launch seed missing controlled account test only boundary")
+    if "Do not describe that comment as outside review, third party review, independent review, external validation, or the gateway success condition." not in launch_text:
+        errors.append("Launch seed missing controlled account non success boundary")
 
     check_text("Doc", doc_text, errors)
     check_text("Audit", audit_text, errors)
