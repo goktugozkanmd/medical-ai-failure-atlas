@@ -18,6 +18,10 @@ Open the main intake:
 
 https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
 
+If you want the shortest shareable version first, use the outside reviewer micro brief:
+
+https://github.com/v0id-lab/medical-ai-failure-atlas/blob/main/docs/MEDICAL_AI_SAFETY_FIELD_KIT_OUTSIDE_REVIEWER_MICRO_BRIEF_20260620.md
+
 Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
 
 If you only have one sentence, put it there. The maintainer will route useful objections into the right card or gate.
