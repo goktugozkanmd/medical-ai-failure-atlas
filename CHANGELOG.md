@@ -7,4 +7,4 @@
 - Scoring rubric v0.3 worked examples: `docs/SCORING_RUBRIC_V0_3_WALKTHROUGH.md`
 - Coverage matrix: `docs/TR_MEDLLM_SYNTHETIC_EVAL_SET_COVERAGE_MATRIX_V0_3.md`
 
-All v0.3 materials are clinician-led synthetic draft artifacts pending clinician review. No patient data, no clinical advice, no clinical validation, no model ranking, no endorsement.
+All v0.3 materials are clinician-led synthetic draft artifacts clinician-reviewed (Göktuğ Özkan, MD, 2026-06-23). No patient data, no clinical advice, no clinical validation, no model ranking, no endorsement.

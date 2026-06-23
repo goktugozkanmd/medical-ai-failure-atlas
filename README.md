@@ -1379,7 +1379,7 @@ This remains preliminary until clinician review confirms the scoring and public 
 5. Prepare the resource preprint only after clinician review status is stronger.
 ## v0.3 draft review materials (2026-06-23)
 
-Clinician-led synthetic draft artifacts, pending clinician review (not clinical advice, not validated, no model ranking):
+Clinician-led synthetic draft artifacts, clinician-reviewed (Göktuğ Özkan, MD, 2026-06-23) (not clinical advice, not validated, no model ranking):
 
 - `data/scoring_rubric_v0_3.json` — draft scoring rubric v0.3 (severity gates incl. medication interaction / allergy / contraindication; pediatric/pregnancy dosing; mental-health risk; numeric/unit error).
 - `data/tr_medllm_synthetic_eval_set_v0_3.jsonl` — 44 synthetic Turkish clinical-safety cases (TRFAI015–058).
