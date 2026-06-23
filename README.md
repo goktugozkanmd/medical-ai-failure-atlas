@@ -1377,3 +1377,11 @@ This remains preliminary until clinician review confirms the scoring and public 
 3. Add model output excerpts only if copyright and platform terms allow.
 4. Prepare separately audited MedHELM, HealthBench, and Medmarks discussion posts only after exact owner clearance.
 5. Prepare the resource preprint only after clinician review status is stronger.
+## v0.3 draft review materials (2026-06-23)
+
+Clinician-led synthetic draft artifacts, pending clinician review (not clinical advice, not validated, no model ranking):
+
+- `data/scoring_rubric_v0_3.json` — draft scoring rubric v0.3 (severity gates incl. medication interaction / allergy / contraindication; pediatric/pregnancy dosing; mental-health risk; numeric/unit error).
+- `data/tr_medllm_synthetic_eval_set_v0_3.jsonl` — 44 synthetic Turkish clinical-safety cases (TRFAI015–058).
+- `docs/SCORING_RUBRIC_V0_3_WALKTHROUGH.md` — worked examples.
+- `docs/TR_MEDLLM_SYNTHETIC_EVAL_SET_COVERAGE_MATRIX_V0_3.md` — coverage.
