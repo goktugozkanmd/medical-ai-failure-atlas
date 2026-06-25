@@ -12,7 +12,7 @@ Start here if you are a clinician, health informatics reviewer, hospital quality
 
 Open issue 154 and paste one small comment:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
+https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/154
 
 Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
 
@@ -84,7 +84,7 @@ Start here:
 1. [TEKNOFEST Health AI Detail Report Final Gate](docs/TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618.md)
 2. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
 3. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
-4. [Repository public share issue](https://github.com/v0id-lab/medical-ai-failure-atlas/issues/92)
+4. [Repository public share issue](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/92)
 
 Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, final report language, and clean claim language before project reports.
 

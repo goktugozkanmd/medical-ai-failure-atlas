@@ -18,7 +18,7 @@ If you only have two minutes, do not open a new issue first.
 
 Use the current first objection issue:
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
+https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/154
 
 Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
 
