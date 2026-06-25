@@ -95,4 +95,5 @@ The right next move is still build and wait:
 
 ```bash
 make public_github_route_watchlist
+make public_github_route_live_check
 ```

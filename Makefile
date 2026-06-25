@@ -224,6 +224,10 @@ ai_alliance_medhelm_follow_up_prep:
 public_github_route_watchlist:
 	$(PYTHON) scripts/validate_public_github_route_watchlist_20260625.py
 
+.PHONY: public_github_route_live_check
+public_github_route_live_check:
+	$(PYTHON) scripts/check_public_github_route_live_state_20260625.py
+
 .PHONY: medical_ai_safety_field_kit_reviewer_start_here
 medical_ai_safety_field_kit_reviewer_start_here:
 	$(PYTHON) scripts/validate_medical_ai_safety_field_kit_reviewer_start_here_20260619.py

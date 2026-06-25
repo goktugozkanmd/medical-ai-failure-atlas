@@ -28,6 +28,7 @@ REQUIRED_DOC_PHRASES = [
     "The right next move is still build and wait",
     "Do not push a new public GitHub comment today.",
     "make public_github_route_watchlist",
+    "make public_github_route_live_check",
 ]
 
 REQUIRED_URLS = {
