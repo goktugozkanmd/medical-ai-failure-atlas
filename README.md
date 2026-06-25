@@ -88,6 +88,17 @@ Start here:
 
 Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, final report language, and clean claim language before project reports.
 
+## 2026 06 25 public route and report hygiene surfaces
+
+Current public navigation for the latest medical AI assurance work:
+
+1. [Health AI Assurance Opportunity Radar](docs/HEALTH_AI_ASSURANCE_OPPORTUNITY_RADAR_20260625.md): source checked opportunity map for TEKNOFEST, TÜBİTAK, TÜSEB, HealthBench, MedHELM, BRIDGE, CHAI, FDA, and EU health AI signals without application, partner, device, clinical validation, or compliance claims.
+2. [TEKNOFEST Health AI Report Claim Hygiene Checklist](docs/TEKNOFEST_HEALTH_AI_REPORT_CLAIM_HYGIENE_CHECKLIST_20260625.md): ten gate checklist for safer project report language before public report claims become stronger than the evidence supports.
+3. [AI Alliance MedHELM Follow Up Prep](docs/AI_ALLIANCE_MEDHELM_FOLLOW_UP_PREP_20260625.md): held response packet for The AI Alliance issue 50 that keeps acknowledgement separate from endorsement, adoption, compatibility, validation, or deployment.
+4. [Public GitHub Route Watchlist](docs/PUBLIC_GITHUB_ROUTE_WATCHLIST_20260625.md): live route state for The AI Alliance issue 50, lighteval pull request 1272, inspect ai pull request 4343, and issue 154.
+
+Boundary: these are public navigation and claim hygiene materials only. They are not submissions, applications, merge decisions, clinical validation, clinical deployment, partner status, institutional approval, endorsement, benchmark results, model rankings, payment, or terms action.
+
 ## Türkiye Health AI Safety Readiness
 
 Public readiness companion for Turkish health AI teams aligning safety checks with visible TÜYZE signals around health data, medical decision support, big data, education, and collaboration readiness.
