@@ -97,6 +97,8 @@ Current public navigation for the latest medical AI assurance work:
 3. [AI Alliance MedHELM Follow Up Prep](docs/AI_ALLIANCE_MEDHELM_FOLLOW_UP_PREP_20260625.md): held response packet for The AI Alliance issue 50 that keeps acknowledgement separate from endorsement, adoption, compatibility, validation, or deployment.
 4. [Public GitHub Route Watchlist](docs/PUBLIC_GITHUB_ROUTE_WATCHLIST_20260625.md): live route state for The AI Alliance issue 50, lighteval pull request 1272, inspect ai pull request 4343, and issue 154.
 
+Before using any route state in public text, run `make public_github_route_preflight`. It checks the watchlist, live GitHub route state, README surface links, and public release sanitation.
+
 Boundary: these are public navigation and claim hygiene materials only. They are not submissions, applications, merge decisions, clinical validation, clinical deployment, partner status, institutional approval, endorsement, benchmark results, model rankings, payment, or terms action.
 
 ## Türkiye Health AI Safety Readiness

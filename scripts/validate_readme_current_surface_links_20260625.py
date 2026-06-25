@@ -26,6 +26,9 @@ REQUIRED_PHRASES = [
     "The AI Alliance issue 50",
     "lighteval pull request 1272",
     "inspect ai pull request 4343",
+    "Before using any route state in public text",
+    "make public_github_route_preflight",
+    "live GitHub route state",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]
