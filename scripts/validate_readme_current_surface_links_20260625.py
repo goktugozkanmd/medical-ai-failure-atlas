@@ -35,6 +35,10 @@ REQUIRED_LINKS = {
     "docs/MEDICAL_INTELLIGENCE_ATLAS_V0_1_20260625.md",
     "docs/medical_intelligence_atlas_coverage_dashboard.md",
     "data/medical_intelligence_atlas_release_gate_v0_1_20260625.json",
+    "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
+    "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+    "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+    "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
 }
 
 REQUIRED_PHRASES = [
@@ -114,8 +118,21 @@ REQUIRED_PHRASES = [
     "Medical Intelligence Atlas Release Gate",
     "release gate for six Clinical Intelligence Stack layers",
     "synthetic boundary flags, source check state, and exact next action",
+    "Multilingual Medical Intelligence Source Check",
+    "paired Turkish English synthetic state check",
+    "language ambiguity, missing data preservation, action boundary preservation",
+    "source support preservation",
+    "Multilingual Medical Intelligence paired state examples",
+    "six paired Turkish English synthetic state rows",
+    "emergency, medication safety, chronic disease, pregnancy, laboratory interpretation, and follow up contexts",
+    "Multilingual Medical Intelligence source check index",
+    "repo local synthetic pair evidence, boundary flags, ready status, and exact next action",
+    "Multilingual Medical Intelligence paired state validator",
+    "six pairs, twelve states, boundary flags, cross language checks",
+    "private identifier absence, and forbidden claim absence",
     "make medical_intelligence_atlas",
-    "coverage dashboard, release gate, local artifact paths, and exact next action state",
+    "make multilingual_medical_intelligence_source_check",
+    "multilingual paired state source checks, and exact next action state",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]

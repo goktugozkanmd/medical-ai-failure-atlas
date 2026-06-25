@@ -99,7 +99,7 @@
       "output": "language context and ambiguity flags",
       "validator": "language context field must be explicit",
       "risk_gate": "translation must not add clinical certainty",
-      "next_build": "Turkish English paired state examples"
+      "next_build": "paired state drift regression set"
     },
     {
       "id": "mia_mmi_002",

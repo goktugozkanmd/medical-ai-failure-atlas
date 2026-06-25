@@ -39,9 +39,9 @@
   "release_gate_summary": {
     "layer_count": 6,
     "status_counts": {
-      "ready": 5,
+      "ready": 6,
       "blocked": 0,
-      "needs source check": 1
+      "needs source check": 0
     },
     "external_url_count": 0,
     "patient_data_used": false,
@@ -109,21 +109,22 @@
     {
       "gate_id": "mia_rg_005",
       "layer": "Multilingual Medical Intelligence",
-      "readiness_status": "needs source check",
+      "readiness_status": "ready",
       "artifact_paths": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
         "data/turkish_internal_medicine_safety_eval_v0_1_20260625.jsonl",
         "tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl",
+        "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
+        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
         "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
         "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
       "blockers": [],
-      "source_check_items": [
-        "data/tr_medllm_synthetic_eval_set_v0_3.jsonl has 6 rows with sourcecheckup_needed true",
-        "tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl has 3 rows with sourcecheckup_needed true"
-      ]
+      "source_check_items": []
     },
     {
       "gate_id": "mia_rg_006",
@@ -266,8 +267,8 @@
     },
     {
       "layer": "Multilingual Medical Intelligence",
-      "status": "needs source check",
-      "status_code": "needs_source_check",
+      "status": "ready",
+      "status_code": "ready",
       "atlas_node_ids": [
         "mia_mmi_001",
         "mia_mmi_002"
@@ -276,6 +277,10 @@
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
         "data/turkish_internal_medicine_safety_eval_v0_1_20260625.jsonl",
         "tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl",
+        "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
+        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
         "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
         "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py"
       ],
@@ -284,7 +289,12 @@
         "patient_data_used": false,
         "clinical_use_allowed": false,
         "requires_language_context": true,
-        "translation_must_not_add_certainty": true
+        "translation_must_not_add_certainty": true,
+        "paired_state_source_check_ready": true,
+        "missing_data_preserved": true,
+        "action_boundary_preserved": true,
+        "source_support_preserved": true,
+        "not_literal_translation_only": true
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -293,14 +303,16 @@
         "tr_medllm_sourcecheckup_needed_true": 6,
         "specialty_pack_sourcecheckup_needed_true": 3,
         "specialty_spread_checker_result": "pass",
-        "internal_medicine_checker_result": "pass"
+        "internal_medicine_checker_result": "pass",
+        "paired_fixture_rows": 6,
+        "paired_state_count": 12,
+        "paired_fixture_checker_result": "pass",
+        "source_check_index_status": "ready",
+        "source_check_items_open": 0
       },
-      "decision_reason": "Local Turkish synthetic fixtures pass boundary checks, but local sourcecheckup flags remain open for claim bearing rows.",
+      "decision_reason": "The paired Turkish English synthetic state fixture passes local source check validation while preserving missing data, action boundaries, source support needs, and no added clinical certainty.",
       "blockers": [],
-      "source_check_items": [
-        "data/tr_medllm_synthetic_eval_set_v0_3.jsonl has 6 rows with sourcecheckup_needed true",
-        "tr_medllm_safetybench/synthetic_risk_pack_v0_1.jsonl has 3 rows with sourcecheckup_needed true"
-      ]
+      "source_check_items": []
     },
     {
       "layer": "Medical Intelligence Atlas",

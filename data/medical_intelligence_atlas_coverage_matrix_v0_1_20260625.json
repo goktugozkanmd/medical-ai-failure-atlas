@@ -127,6 +127,30 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_paired_state_examples": {
+      "path": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+      "kind": "paired synthetic Turkish English clinical state examples",
+      "record_count": 6,
+      "paired_state_count": 12,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_source_check_index": {
+      "path": "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+      "kind": "machine readable source check index",
+      "record_count": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_source_check_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
+      "kind": "public source check documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -287,14 +311,18 @@
       "stack_runtime_artifact_ids": [
         "csl_fixture_normalized",
         "mmi_eval_rows",
+        "mmi_paired_state_examples",
+        "mmi_source_check_index",
         "stack_manifesto"
       ],
       "coverage_focus": [
         "language context field",
-        "Turkish synthetic evaluation rows",
-        "translation must not add certainty"
+        "paired Turkish English synthetic state rows",
+        "translation must not add certainty",
+        "missing data and source support preservation"
       ],
       "local_validation_refs": [
+        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
         "scripts/validate_clinical_state_language_v0_1.py",
         "scripts/validate_clinical_intelligence_stack_20260625.py"
       ],
@@ -305,18 +333,21 @@
       "layer": "Multilingual Medical Intelligence",
       "node_artifact": "plain clinical language gate",
       "stack_runtime_artifact_ids": [
-        "mmi_eval_rows",
+        "mmi_paired_state_examples",
+        "mmi_source_check_index",
+        "mmi_source_check_doc",
         "stack_manifesto"
       ],
       "coverage_focus": [
         "plain public wording boundary",
         "diagnosis and treatment instruction avoidance",
-        "education separated from care"
+        "education separated from care",
+        "action boundary preservation across Turkish and English"
       ],
       "local_validation_refs": [
-        "scripts/validate_clinical_intelligence_stack_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py"
       ],
-      "coverage_status": "fixture inventory coverage"
+      "coverage_status": "direct fixture coverage"
     },
     {
       "node_id": "mia_atlas_001",

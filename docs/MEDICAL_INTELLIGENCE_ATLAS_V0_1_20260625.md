@@ -143,7 +143,7 @@ Validator: language context field must be explicit
 
 Risk gate: translation must not add clinical certainty
 
-Next build: Turkish English paired state examples
+Next build: paired state drift regression set
 
 ### mia_mmi_002 Multilingual Medical Intelligence
 

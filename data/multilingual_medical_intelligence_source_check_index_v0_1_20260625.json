@@ -1,0 +1,133 @@
+{
+  "index_id": "multilingual_medical_intelligence_source_check_index_v0_1_20260625",
+  "index_type": "machine_readable_source_check_index",
+  "generated_date": "20260625",
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "target_release_gate_status": "ready",
+  "evidence_scope": "repo local synthetic pair check",
+  "scope": "Planned multilingual paired state fixture source checks for local synthetic Turkish English examples.",
+  "planned_paths": {
+    "paired_fixture": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+    "source_check_index": "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+    "paired_fixture_validator": "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
+    "public_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md"
+  },
+  "local_reference_paths": {
+    "atlas_registry": "data/medical_intelligence_atlas_v0_1_20260625.json",
+    "release_gate": "data/medical_intelligence_atlas_release_gate_v0_1_20260625.json",
+    "coverage_matrix": "data/medical_intelligence_atlas_coverage_matrix_v0_1_20260625.json",
+    "turkish_synthetic_eval_rows": "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
+    "internal_medicine_synthetic_eval_rows": "data/turkish_internal_medicine_safety_eval_v0_1_20260625.jsonl",
+    "existing_specialty_spread_validator": "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
+    "existing_internal_medicine_validator": "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py",
+    "existing_state_language_validator": "scripts/validate_clinical_state_language_v0_1.py"
+  },
+  "expected_domains": [
+    "emergency",
+    "medication safety",
+    "chronic disease",
+    "pregnancy",
+    "laboratory interpretation",
+    "follow up"
+  ],
+  "required_pair_checks": [
+    {
+      "check_id": "mmi_pair_001",
+      "requirement": "each pair has one Turkish synthetic state and one English synthetic state",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_002",
+      "requirement": "pair identifiers are unique and stable",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_003",
+      "requirement": "paired rows share the same synthetic case identifier and expected domain",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_004",
+      "requirement": "expected domain is one of the six expected_domains values",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_005",
+      "requirement": "language context is explicit on both sides of the pair",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_006",
+      "requirement": "translation preserves uncertainty and does not add clinical certainty",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_007",
+      "requirement": "source support requirement is present for claim bearing fields",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_008",
+      "requirement": "both sides keep synthetic_only true, patient_data_used false, and clinical_use_allowed false",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_009",
+      "requirement": "no external URLs or URL like strings are present",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_010",
+      "requirement": "public wording does not give diagnosis, treatment instruction, dosing instruction, or patient specific action",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_011",
+      "requirement": "boundary flags are equal across paired rows",
+      "expected_value": true
+    },
+    {
+      "check_id": "mmi_pair_012",
+      "requirement": "forbidden public claims are absent from fixture metadata and text fields",
+      "expected_value": true
+    }
+  ],
+  "boundary_flags": {
+    "external_urls_included": false,
+    "external_urls_allowed": false,
+    "patient_data_used": false,
+    "patient_data_allowed": false,
+    "synthetic_only": true,
+    "clinical_use_allowed": false,
+    "clinical_validation_claim_made": false,
+    "clinical_deployment_claim_made": false,
+    "model_ranking_claim_made": false,
+    "partner_claim_made": false,
+    "payment_claim_made": false,
+    "terms_claim_made": false,
+    "clinical_advice_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false
+  },
+  "claim_exclusions": {
+    "clinical_validation": true,
+    "clinical_deployment": true,
+    "model_ranking": true,
+    "partner": true,
+    "payment": true,
+    "terms": true
+  },
+  "release_gate_expectation": {
+    "target_status": "ready",
+    "ready_condition": "planned paired fixture passes local synthetic pair checks and boundary flags remain unchanged",
+    "blocking_condition": "any missing pair, missing domain, external URL, patient data flag, care use flag, or forbidden claim"
+  },
+  "source_check_decision": {
+    "status": "ready",
+    "evidence_scope": "repo local synthetic pair check",
+    "source_check_items_open": false,
+    "public_claim_expansion_allowed": false
+  },
+  "exact_next_action": "keeping paired state source checks current before public claim expansion",
+  "fixture_row_count": 6,
+  "paired_state_count": 12
+}
