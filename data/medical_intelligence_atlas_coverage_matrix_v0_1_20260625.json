@@ -17,7 +17,7 @@
     "atlas_registry": {
       "path": "data/medical_intelligence_atlas_v0_1_20260625.json",
       "kind": "atlas node registry",
-      "record_count": 16,
+      "record_count": 17,
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
@@ -498,6 +498,50 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_cross_language_source_support_scope_reconciliation_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic cross language source support scope reconciliation controls",
+      "record_count": 12,
+      "expected_pass_controls": 6,
+      "expected_fail_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "source_truth_certification_claim_made": false
+    },
+    "mmi_cross_language_source_support_scope_reconciliation_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.json",
+      "kind": "machine readable source support scope reconciliation report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "source_truth_certification_claim_made": false
+    },
+    "mmi_cross_language_source_support_scope_reconciliation_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_SUPPORT_SCOPE_RECONCILIATION_REPORT_V0_1_20260625.md",
+      "kind": "source support scope reconciliation documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "source_truth_certification_claim_made": false
+    },
+    "mmi_cross_language_source_support_scope_reconciliation_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py",
+      "kind": "source support scope reconciliation scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_source_support_scope_reconciliation_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py",
+      "kind": "source support scope reconciliation report validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -869,6 +913,31 @@
       "coverage_status": "direct fixture coverage"
     },
     {
+      "node_id": "mia_mmi_007",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language source support scope reconciliation controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_public_wording_rewrite_candidates",
+        "mmi_cross_language_source_support_scope_reconciliation_controls",
+        "mmi_cross_language_source_support_scope_reconciliation_report",
+        "mmi_cross_language_source_support_scope_reconciliation_report_doc",
+        "mmi_cross_language_source_support_scope_reconciliation_scorer",
+        "mmi_cross_language_source_support_scope_reconciliation_validator"
+      ],
+      "coverage_focus": [
+        "claim source support map preservation",
+        "source support need preservation",
+        "source limit preservation",
+        "unsupported source authority blocking",
+        "cross language source scope detachment blocking"
+      ],
+      "local_validation_refs": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage"
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -909,12 +978,16 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 15,
+    "expected_atlas_node_count": 17,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true
   },
-  "summary": {}
+  "summary": {
+    "atlas_node_count": 17,
+    "coverage_row_count": 17,
+    "source_artifact_count": 61
+  }
 }

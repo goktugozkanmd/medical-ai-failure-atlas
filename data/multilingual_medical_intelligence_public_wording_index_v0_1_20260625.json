@@ -51,7 +51,12 @@
     "cross_language_uncertainty_calibration_report_json": "data/multilingual_medical_intelligence_cross_language_uncertainty_calibration_report_v0_1_20260625.json",
     "cross_language_uncertainty_calibration_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_UNCERTAINTY_CALIBRATION_REPORT_V0_1_20260625.md",
     "cross_language_uncertainty_calibration_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_uncertainty_calibration_controls_v0_1_20260625.py",
-    "cross_language_uncertainty_calibration_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_uncertainty_calibration_report_v0_1_20260625.py"
+    "cross_language_uncertainty_calibration_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_uncertainty_calibration_report_v0_1_20260625.py",
+    "cross_language_source_support_scope_reconciliation_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.jsonl",
+    "cross_language_source_support_scope_reconciliation_report_json": "data/multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.json",
+    "cross_language_source_support_scope_reconciliation_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_SUPPORT_SCOPE_RECONCILIATION_REPORT_V0_1_20260625.md",
+    "cross_language_source_support_scope_reconciliation_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py",
+    "cross_language_source_support_scope_reconciliation_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -108,7 +113,14 @@
     "expected_cross_language_uncertainty_calibration_control_count": 12,
     "expected_cross_language_uncertainty_calibration_pass_controls": 6,
     "expected_cross_language_uncertainty_calibration_blocked_controls": 6,
-    "expected_cross_language_uncertainty_calibration_signal_types": 6
+    "expected_cross_language_uncertainty_calibration_signal_types": 6,
+    "cross_language_source_support_scope_reconciliation_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py --check",
+    "cross_language_source_support_scope_reconciliation_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py",
+    "expected_cross_language_source_support_scope_reconciliation_status": "local_fixture_pass",
+    "expected_cross_language_source_support_scope_reconciliation_control_count": 12,
+    "expected_cross_language_source_support_scope_reconciliation_pass_controls": 6,
+    "expected_cross_language_source_support_scope_reconciliation_blocked_controls": 6,
+    "expected_cross_language_source_support_scope_reconciliation_signal_types": 6
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -174,7 +186,15 @@
       "evidence gap closure detection",
       "reviewer state downgrade detection",
       "confidence score creation detection",
-      "uncertainty calibration clearance absence"
+      "uncertainty calibration clearance absence",
+      "cross language source support scope reconciliation control",
+      "English source scope broadening detection",
+      "Turkish source scope broadening detection",
+      "claim source mapping misalignment detection",
+      "source limit removal detection",
+      "unsupported source authority creation detection",
+      "cross language source scope detachment detection",
+      "source support scope clearance absence"
     ],
     "not_covered": [
       "clinical validation",
@@ -279,6 +299,21 @@
       "translation clearance absence",
       "uncertainty calibration clearance absence",
       "external publication clearance absence"
+    ],
+    "cross_language_source_support_scope_reconciliation_report": [
+      "twelve synthetic cross language source support scope reconciliation controls",
+      "six pass controls",
+      "six blocked controls",
+      "claim source support map shape",
+      "source candidate coverage",
+      "source row coverage",
+      "source truth certification absence",
+      "external publication clearance absence"
+    ],
+    "required_before_public_use": [
+      "run source support scope reconciliation scorer",
+      "run source support scope reconciliation report validator",
+      "confirm source truth certification absence before public use"
     ]
   },
   "planned_rows": [
@@ -440,38 +475,5 @@
       ]
     }
   ],
-  "next_build_suggestion": {
-    "suggested_action": "Add cross language source support scope reconciliation controls so translated variants preserve which source supports which claim, without broadening evidence scope.",
-    "required_before_public_use": [
-      "local row count check",
-      "ASCII text check",
-      "external URL absence check",
-      "patient data absence check",
-      "forbidden claim absence check",
-      "paired language boundary check",
-      "public wording negative control check",
-      "drift score report check",
-      "public wording drift score report freshness check",
-      "rewrite candidate fixture check",
-      "rewrite candidate score report check",
-      "rewrite candidate blocked count check",
-      "score certification absence check",
-      "source truth certification absence check",
-      "cross language ambiguity controls check",
-      "cross language ambiguity report freshness check",
-      "translation clearance absence check",
-      "cross language negation audience controls check",
-      "cross language negation audience report freshness check",
-      "audience role clearance absence check",
-      "cross language scope anchor controls check",
-      "cross language scope anchor report freshness check",
-      "scope anchor clearance absence check",
-      "cross language temporal progression controls check",
-      "cross language temporal progression report freshness check",
-      "temporal progression clearance absence check",
-      "cross language uncertainty calibration controls check",
-      "cross language uncertainty calibration report freshness check",
-      "uncertainty calibration clearance absence check"
-    ]
-  }
+  "next_build_suggestion": "cross language source recency and applicability controls"
 }

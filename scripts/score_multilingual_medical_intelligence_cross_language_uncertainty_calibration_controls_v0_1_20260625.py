@@ -514,7 +514,7 @@ def build_report(
             "not_allowed_use": "Patient care, clinical advice, translation clearance, uncertainty calibration clearance, external publication clearance, model ranking, or release claim.",
         },
         "blockers": [],
-        "exact_next_action": "Add cross language source support scope reconciliation controls so translated variants preserve which source supports which claim, without broadening evidence scope.",
+        "exact_next_action": "Add cross language source recency and applicability controls so translated variants preserve date, population, setting, and applicability limits before public reuse.",
     }
 
 

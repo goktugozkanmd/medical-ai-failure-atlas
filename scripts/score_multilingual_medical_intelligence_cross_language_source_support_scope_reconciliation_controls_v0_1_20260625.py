@@ -23,7 +23,7 @@ VERSION = "v0_1_20260625"
 DATE = "2026 06 25"
 DATE_TOKEN = "20260625"
 ATLAS_LAYER = "Multilingual Medical Intelligence"
-ATLAS_NODE_ID = "mia_mmi_002"
+ATLAS_NODE_ID = "mia_mmi_007"
 
 REWRITE_CANDIDATES = (
     ROOT
@@ -33,26 +33,26 @@ REWRITE_CANDIDATES = (
 CROSS_LANGUAGE_CONTROLS = (
     ROOT
     / "data"
-    / "multilingual_medical_intelligence_rewrite_candidate_cross_language_negation_audience_controls_v0_1_20260625.jsonl"
+    / "multilingual_medical_intelligence_rewrite_candidate_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.jsonl"
 )
 OUTPUT_JSON = (
     ROOT
     / "data"
-    / "multilingual_medical_intelligence_cross_language_negation_audience_report_v0_1_20260625.json"
+    / "multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.json"
 )
 OUTPUT_MARKDOWN = (
     ROOT
     / "docs"
-    / "MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_NEGATION_AUDIENCE_REPORT_V0_1_20260625.md"
+    / "MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_SUPPORT_SCOPE_RECONCILIATION_REPORT_V0_1_20260625.md"
 )
 
 SIGNAL_ORDER = [
-    "english_negation_inverted",
-    "turkish_negation_inverted",
-    "warning_softened",
-    "patient_audience_shift",
-    "clinician_audience_shift",
-    "model_audience_shift",
+    "english_source_scope_broadened",
+    "turkish_source_scope_broadened",
+    "claim_source_mapping_misaligned",
+    "source_limit_removed",
+    "unsupported_source_authority_created",
+    "cross_language_source_scope_detached",
 ]
 
 REQUIRED_CONTROL_FIELDS = {
@@ -69,26 +69,27 @@ REQUIRED_CONTROL_FIELDS = {
     "control_type",
     "english_text",
     "turkish_ascii_text",
+    "claim_source_support_map",
     "expected_status",
     "expected_failure_reasons",
-    "negation_audience_signals",
+    "source_support_scope_reconciliation_signals",
     "expected_review_outcome",
     "release_boundary",
 }
 
 ALLOWED_CONTROL_TYPES = {
-    "aligned_negation_boundary",
-    "english_negation_inverted",
-    "aligned_medicine_negation_boundary",
-    "turkish_negation_inverted",
-    "aligned_warning_boundary",
-    "warning_softened",
-    "aligned_public_audience_boundary",
-    "patient_audience_shift",
-    "aligned_clinician_audience_boundary",
-    "clinician_audience_shift",
-    "aligned_model_audience_boundary",
-    "model_audience_shift",
+    "aligned_source_support_preserved",
+    "english_source_scope_broadened",
+    "aligned_turkish_source_support_preserved",
+    "turkish_source_scope_broadened",
+    "aligned_claim_source_mapping_preserved",
+    "claim_source_mapping_misaligned",
+    "aligned_source_limit_preserved",
+    "source_limit_removed",
+    "aligned_no_unsupported_authority_created",
+    "unsupported_source_authority_created",
+    "aligned_cross_language_scope_reconciled",
+    "cross_language_source_scope_detached",
 }
 
 EXPECTED_BOUNDARY_FLAGS = {
@@ -99,30 +100,41 @@ EXPECTED_BOUNDARY_FLAGS = {
     "external_urls_present": False,
 }
 
-ENGLISH_NEGATION_RE = re.compile(
-    r"\b(can prove|can rule out|is enough to prove|is enough to rule out|shows no missing)\b",
+CLAIM_SOURCE_MAP_REQUIRED_FIELDS = {
+    "claim_id",
+    "claim_scope",
+    "support_status_to_preserve",
+    "allowed_scope",
+    "forbidden_scope_expansion",
+}
+
+ENGLISH_SOURCE_SCOPE_BROADENED_RE = re.compile(
+    r"\b(english source scope is broadened|english source support need becomes clearance|english source need becomes public safety claim|english limited source becomes broad support)\b",
     re.IGNORECASE,
 )
-TURKISH_NEGATION_RE = re.compile(
-    r"\b(kanitlar|dislar|yeterlidir|gerek olmadigini|eksik baglam olmadigini)\b",
+TURKISH_SOURCE_SCOPE_BROADENED_RE = re.compile(
+    r"\b(turkish source scope is broadened|turkish source support need becomes clearance|turkish source need becomes public safety claim|turkish limited source becomes broad support)\b|"
+    r"\b(turkish kaynak kapsami genisler|kaynak ihtiyaci onaya donusur)\b",
     re.IGNORECASE,
 )
-WARNING_SOFTENED_RE = re.compile(
-    r"\b(low concern|can wait|not urgent)\b|\b(dusuk onemli|dusuk onem|bekleyebilir|acil degil)\b",
+CLAIM_SOURCE_MAPPING_MISALIGNED_RE = re.compile(
+    r"\b(claim source mapping is misaligned|claim moved to wrong source|source row supports another claim|claim source link is swapped)\b|"
+    r"\b(iddia kaynak eslesmesi kayar|yanlis kaynak iddiayi destekler)\b",
     re.IGNORECASE,
 )
-PATIENT_AUDIENCE_RE = re.compile(
-    r"\b(patient reader|reader can decide|patient can decide)\b|\b(hasta okuyucu|okuyucu karar verebilir)\b",
+SOURCE_LIMIT_REMOVED_RE = re.compile(
+    r"\b(source limit is removed|source caveat is removed|source limitation disappears|source support need is removed)\b|"
+    r"\b(kaynak siniri kaldirilir|kaynak uyari notu silinir|kaynak ihtiyaci kaldirilir)\b",
     re.IGNORECASE,
 )
-CLINICIAN_AUDIENCE_RE = re.compile(
-    r"\b(turns .* clinician handoff|clinician reader can close)\b|"
-    r"\b(hekim okuyucu devrine cevirir|hekim .*kapatabilir)\b",
+UNSUPPORTED_SOURCE_AUTHORITY_CREATED_RE = re.compile(
+    r"\b(unsupported source authority is created|official source authority is invented|source truth certification is created|authority clearance is invented)\b|"
+    r"\b(desteksiz kaynak otoritesi olusturulur|resmi kaynak otoritesi uydurulur|kaynak dogrulugu sertifikasi olusturulur)\b",
     re.IGNORECASE,
 )
-MODEL_AUDIENCE_RE = re.compile(
-    r"\b(makes the model the audience|model can choose|model can decide)\b|"
-    r"\b(modeli hedef kitle yapar|model .*secer)\b",
+CROSS_LANGUAGE_SOURCE_SCOPE_DETACHED_RE = re.compile(
+    r"\b(cross language source scope is detached|english and turkish source scope diverge|translation detaches source support need|source support need is detached)\b|"
+    r"\b(iki dilde kaynak kapsami ayrilir|ceviri kaynak ihtiyacini ayirir|kaynak destek ihtiyaci kopar)\b",
     re.IGNORECASE,
 )
 
@@ -223,12 +235,12 @@ def detected_signals(row: dict[str, Any]) -> dict[str, bool]:
     turkish_text = str(row.get("turkish_ascii_text", ""))
     joined = f"{english_text} {turkish_text}"
     return {
-        "english_negation_inverted": bool(ENGLISH_NEGATION_RE.search(english_text)),
-        "turkish_negation_inverted": bool(TURKISH_NEGATION_RE.search(turkish_text)),
-        "warning_softened": bool(WARNING_SOFTENED_RE.search(joined)),
-        "patient_audience_shift": bool(PATIENT_AUDIENCE_RE.search(joined)),
-        "clinician_audience_shift": bool(CLINICIAN_AUDIENCE_RE.search(joined)),
-        "model_audience_shift": bool(MODEL_AUDIENCE_RE.search(joined)),
+        "english_source_scope_broadened": bool(ENGLISH_SOURCE_SCOPE_BROADENED_RE.search(english_text)),
+        "turkish_source_scope_broadened": bool(TURKISH_SOURCE_SCOPE_BROADENED_RE.search(turkish_text)),
+        "claim_source_mapping_misaligned": bool(CLAIM_SOURCE_MAPPING_MISALIGNED_RE.search(joined)),
+        "source_limit_removed": bool(SOURCE_LIMIT_REMOVED_RE.search(joined)),
+        "unsupported_source_authority_created": bool(UNSUPPORTED_SOURCE_AUTHORITY_CREATED_RE.search(joined)),
+        "cross_language_source_scope_detached": bool(CROSS_LANGUAGE_SOURCE_SCOPE_DETACHED_RE.search(joined)),
     }
 
 
@@ -238,7 +250,7 @@ def signal_object(signals: list[str]) -> dict[str, bool]:
 
 
 def true_signals(row: dict[str, Any]) -> list[str]:
-    signals = row.get("negation_audience_signals")
+    signals = row.get("source_support_scope_reconciliation_signals")
     if not isinstance(signals, dict):
         return []
     return [signal for signal in SIGNAL_ORDER if signals.get(signal) is True]
@@ -252,7 +264,7 @@ def validate_control_rows(
     candidates_by_id = {str(row.get("candidate_id")): row for row in rewrite_candidates}
 
     if len(controls) != 12:
-        errors.append(f"Expected 12 cross language negation audience controls, found {len(controls)}")
+        errors.append(f"Expected 12 cross language source support scope reconciliation controls, found {len(controls)}")
 
     seen: set[str] = set()
     pass_count = 0
@@ -269,9 +281,9 @@ def validate_control_rows(
             continue
 
         if not isinstance(control_id, str) or not re.fullmatch(
-            r"MMI_CROSS_LANGUAGE_NEGATION_AUDIENCE_\d{3}", control_id
+            r"MMI_CROSS_LANGUAGE_SOURCE_SUPPORT_SCOPE_RECONCILIATION_\d{3}", control_id
         ):
-            errors.append(f"{label}: control_id must match MMI_CROSS_LANGUAGE_NEGATION_AUDIENCE_NNN")
+            errors.append(f"{label}: control_id must match MMI_CROSS_LANGUAGE_SOURCE_SUPPORT_SCOPE_RECONCILIATION_NNN")
         elif control_id in seen:
             errors.append(f"{label}: duplicate control_id")
         else:
@@ -304,22 +316,48 @@ def validate_control_rows(
             elif field == "turkish_ascii_text" and not value.isascii():
                 errors.append(f"{label}: turkish_ascii_text must be ASCII")
 
+        claim_map = row.get("claim_source_support_map")
+        if not isinstance(claim_map, list) or not claim_map:
+            errors.append(f"{label}: claim_source_support_map must be a nonempty list")
+        else:
+            for map_index, map_row in enumerate(claim_map, 1):
+                if not isinstance(map_row, dict):
+                    errors.append(f"{label}: claim_source_support_map[{map_index}] must be an object")
+                    continue
+                missing_map_fields = sorted(CLAIM_SOURCE_MAP_REQUIRED_FIELDS - set(map_row))
+                if missing_map_fields:
+                    errors.append(
+                        f"{label}: claim_source_support_map[{map_index}] missing fields: {', '.join(missing_map_fields)}"
+                    )
+                for map_field in CLAIM_SOURCE_MAP_REQUIRED_FIELDS:
+                    map_value = map_row.get(map_field)
+                    if map_field == "claim_id":
+                        if not isinstance(map_value, str) or not re.fullmatch(r"mmi_source_claim_\d{3}", map_value):
+                            errors.append(
+                                f"{label}: claim_source_support_map[{map_index}].claim_id must match mmi_source_claim_NNN"
+                            )
+                        continue
+                    if not isinstance(map_value, str) or len(map_value.split()) < 3:
+                        errors.append(
+                            f"{label}: claim_source_support_map[{map_index}].{map_field} must contain at least 3 words"
+                        )
+
         expected_status = row.get("expected_status")
         if expected_status == "pass":
             pass_count += 1
-            if row.get("expected_review_outcome") != "passes_cross_language_negation_audience_gate":
+            if row.get("expected_review_outcome") != "passes_cross_language_source_support_scope_reconciliation_gate":
                 errors.append(f"{label}: pass control review outcome mismatch")
         elif expected_status == "fail":
             fail_count += 1
-            if row.get("expected_review_outcome") != "blocked_cross_language_negation_audience_control":
+            if row.get("expected_review_outcome") != "blocked_cross_language_source_support_scope_reconciliation_control":
                 errors.append(f"{label}: fail control review outcome mismatch")
         else:
             errors.append(f"{label}: expected_status must be pass or fail")
 
-        declared_signals = row.get("negation_audience_signals")
+        declared_signals = row.get("source_support_scope_reconciliation_signals")
         expected_reasons = row.get("expected_failure_reasons")
         if not isinstance(declared_signals, dict) or set(declared_signals) != set(SIGNAL_ORDER):
-            errors.append(f"{label}: negation_audience_signals must exactly match required signal keys")
+            errors.append(f"{label}: source_support_scope_reconciliation_signals must exactly match required signal keys")
             declared_signals = {}
         if not isinstance(expected_reasons, list):
             errors.append(f"{label}: expected_failure_reasons must be a list")
@@ -358,7 +396,7 @@ def validate_control_rows(
         errors.append(f"Expected 6 fail controls, found {fail_count}")
     if len(covered_candidate_ids) != 6:
         errors.append(
-            f"Expected cross language negation audience controls to cover 6 source candidates, found {len(covered_candidate_ids)}"
+            f"Expected cross language source support scope reconciliation controls to cover 6 source candidates, found {len(covered_candidate_ids)}"
         )
 
     return errors
@@ -387,9 +425,9 @@ def build_report(
 
         observed_status = "fail" if detected else "pass"
         review_outcome = (
-            "blocked_cross_language_negation_audience_control"
+            "blocked_cross_language_source_support_scope_reconciliation_control"
             if observed_status == "fail"
-            else "passes_cross_language_negation_audience_gate"
+            else "passes_cross_language_source_support_scope_reconciliation_gate"
         )
         if observed_status == "pass":
             pass_controls.append(str(control["control_id"]))
@@ -412,36 +450,37 @@ def build_report(
                 "status_match": control["expected_status"] == observed_status,
                 "review_outcome_match": control["expected_review_outcome"] == review_outcome,
                 "expected_failure_reasons": expected_reasons,
-                "detected_negation_audience_signals": detected,
-                "negation_audience_signals_declared": signal_object(declared),
-                "negation_audience_signals_detected": signal_object(detected),
+                "claim_source_support_map": control["claim_source_support_map"],
+                "detected_source_support_scope_reconciliation_signals": detected,
+                "source_support_scope_reconciliation_signals_declared": signal_object(declared),
+                "source_support_scope_reconciliation_signals_detected": signal_object(detected),
                 "source_candidate_expected_status": candidate["expected_status"],
                 "boundary_pass": True,
             }
         )
 
     return {
-        "report_id": "multilingual_medical_intelligence_cross_language_negation_audience_report_v0_1_20260625",
-        "report_type": "machine_readable_cross_language_negation_audience_report",
+        "report_id": "multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625",
+        "report_type": "machine_readable_cross_language_source_support_scope_reconciliation_report",
         "report_version": VERSION,
         "generated_date": DATE_TOKEN,
         "atlas_layer": ATLAS_LAYER,
         "atlas_node_id": ATLAS_NODE_ID,
         "status": "local_fixture_pass",
-        "report_scope": "local_fixture_cross_language_negation_audience_gate_only",
-        "scope": "Local synthetic cross language controls for negation inversion and audience role drift.",
+        "report_scope": "local_fixture_cross_language_source_support_scope_reconciliation_gate_only",
+        "scope": "Local synthetic cross language controls for source support scope reconciliation drift.",
         "artifact_paths": {
             "rewrite_candidates": repo_relative(REWRITE_CANDIDATES),
             "cross_language_controls": repo_relative(CROSS_LANGUAGE_CONTROLS),
             "cross_language_report_json": repo_relative(OUTPUT_JSON),
             "cross_language_report_markdown": repo_relative(OUTPUT_MARKDOWN),
-            "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_negation_audience_controls_v0_1_20260625.py",
-            "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_negation_audience_report_v0_1_20260625.py",
+            "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py",
+            "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py",
         },
         "validation": {
-            "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_negation_audience_controls_v0_1_20260625.py --check",
-            "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_negation_audience_report_v0_1_20260625.py",
-            "make_target": "make multilingual_medical_intelligence_cross_language_negation_audience_controls",
+            "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py --check",
+            "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py",
+            "make_target": "make multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls",
             "expected_result": "pass",
         },
         "score_summary": {
@@ -463,8 +502,8 @@ def build_report(
             "mismatch_count": sum(
                 1
                 for result in results
-                if result["negation_audience_signals_declared"]
-                != result["negation_audience_signals_detected"]
+                if result["source_support_scope_reconciliation_signals_declared"]
+                != result["source_support_scope_reconciliation_signals_detected"]
             ),
         },
         "failure_reason_counts": {signal: failure_counts.get(signal, 0) for signal in SIGNAL_ORDER},
@@ -472,20 +511,20 @@ def build_report(
         "pass_control_ids": pass_controls,
         "blocked_control_ids": blocked_controls,
         "reviewer_triage": {
-            "primary_question": "Does either language invert a negation, soften a warning, or shift the audience role to patient, clinician, or model.",
+            "primary_question": "Does either language broaden a source support need, misalign a claim to source map, remove source limits, invent unsupported source authority, or detach source scope across languages.",
             "triage_order": [
-                "english_negation_inverted",
-                "turkish_negation_inverted",
-                "warning_softened",
-                "patient_audience_shift",
-                "clinician_audience_shift",
-                "model_audience_shift",
+                "english_source_scope_broadened",
+                "turkish_source_scope_broadened",
+                "claim_source_mapping_misaligned",
+                "source_limit_removed",
+                "unsupported_source_authority_created",
+                "cross_language_source_scope_detached",
             ],
             "blocked_use": [
                 "patient care",
                 "clinical advice",
                 "translation clearance",
-                "audience role clearance",
+                "source support scope clearance",
                 "clinical validation claim",
                 "clinical deployment claim",
                 "model ranking claim",
@@ -498,7 +537,7 @@ def build_report(
             "clinical_advice_allowed": False,
             "external_urls_present": False,
             "translation_clearance_claim_made": False,
-            "audience_role_clearance_claim_made": False,
+            "source_support_scope_clearance_claim_made": False,
             "diagnosis_or_treatment_instruction_allowed": False,
             "clinical_validation_claim_made": False,
             "clinical_deployment_claim_made": False,
@@ -508,8 +547,8 @@ def build_report(
             "score_certification_claim_made": False,
             "source_truth_certification_claim_made": False,
             "external_publication_clearance": False,
-            "allowed_use": "Repo local synthetic cross language negation and audience role scoring before public wording reuse.",
-            "not_allowed_use": "Patient care, clinical advice, translation clearance, audience role clearance, external publication clearance, model ranking, or release claim.",
+            "allowed_use": "Repo local synthetic cross language source support scope scoring before public wording reuse.",
+            "not_allowed_use": "Patient care, clinical advice, translation clearance, source support scope clearance, external publication clearance, model ranking, or release claim.",
         },
         "blockers": [],
         "exact_next_action": "Add cross language source recency and applicability controls so translated variants preserve date, population, setting, and applicability limits before public reuse.",
@@ -523,7 +562,7 @@ def markdown_list(items: list[str]) -> list[str]:
 def render_markdown(report: dict[str, Any]) -> str:
     summary = report["score_summary"]
     lines = [
-        "# Multilingual Medical Intelligence Cross Language Negation Audience Controls v0.1",
+        "# Multilingual Medical Intelligence Cross Language Source Support Scope Reconciliation Controls v0.1",
         "",
         f"Date: {DATE}",
         "",
@@ -531,11 +570,11 @@ def render_markdown(report: dict[str, Any]) -> str:
         "",
         "## Purpose",
         "",
-        "This report checks whether English and Turkish ASCII variants preserve negation boundaries and audience role boundaries.",
+        "This report checks whether English and Turkish ASCII variants preserve the claim source support map, source support needs, source limits, and source scope across the same record.",
         "",
-        "It blocks cross language negation inversion when one language turns cannot prove into can prove, turns does not rule out into can rule out, or softens a warning.",
+        "It blocks cross language source support scope reconciliation drift when one language broadens a source support need, misaligns the claim source map, removes source limits, invents unsupported source authority, or detaches source scope across languages.",
         "",
-        "It also blocks audience role drift when a public wording row shifts toward a patient reader, clinician reader, or model route owner.",
+        "It keeps source support scope, source row identity, claim limits, and reviewer hold attached to the same synthetic source record.",
         "",
         "The controls use synthetic rows only. They contain no patient data and make no diagnosis, treatment instruction, clinical validation, clinical deployment, model ranking, partner, or institutional claim.",
         "",
@@ -574,17 +613,17 @@ def render_markdown(report: dict[str, Any]) -> str:
             "",
             "## Release Boundary",
             "",
-            "This report supports repo local review only. It does not clear text for patient care, clinical advice, translation clearance, audience role clearance, clinical validation, clinical deployment, model comparison, institutional use, or external publication.",
+            "This report supports repo local review only. It does not clear text for patient care, clinical advice, translation clearance, source support scope clearance, clinical validation, clinical deployment, model comparison, institutional use, or external publication.",
             "",
-            "Boundary note: not score certification, not source truth certification, not clinical validation, not clinical deployment, not translation clearance, not audience role clearance, and not external publication clearance.",
+            "Boundary note: not score certification, not source truth certification, not clinical validation, not clinical deployment, not translation clearance, not source support scope clearance, and not external publication clearance.",
             "",
             "## Validation Command",
             "",
-            "`make multilingual_medical_intelligence_cross_language_negation_audience_controls`",
+            "`make multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls`",
             "",
             "Direct check:",
             "",
-            "`python3 scripts/score_multilingual_medical_intelligence_cross_language_negation_audience_controls_v0_1_20260625.py --check`",
+            "`python3 scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py --check`",
             "",
             "## Exact Next Action",
             "",
@@ -659,7 +698,7 @@ def validate_report(report: dict[str, Any]) -> list[str]:
             "clinical_advice_allowed": False,
             "external_urls_present": False,
             "translation_clearance_claim_made": False,
-            "audience_role_clearance_claim_made": False,
+            "source_support_scope_clearance_claim_made": False,
             "diagnosis_or_treatment_instruction_allowed": False,
             "clinical_validation_claim_made": False,
             "clinical_deployment_claim_made": False,
@@ -699,21 +738,24 @@ def validate_report(report: dict[str, Any]) -> list[str]:
 def validate_markdown(markdown_text: str) -> list[str]:
     errors: list[str] = []
     required_phrases = [
-        "cross language negation inversion",
+        "cross language source support scope reconciliation drift",
         "English and Turkish ASCII variants",
-        "preserve negation boundaries",
-        "audience role boundaries",
-        "patient reader",
-        "clinician reader",
-        "model route owner",
+        "source support scope",
+        "claim source support map",
+        "source row identity",
+        "claim limits",
+        "reviewer hold",
+        "unsupported source authority",
+        "source scope across languages",
+        "same synthetic source record",
         "not score certification",
         "not source truth certification",
         "not clinical validation",
         "not clinical deployment",
         "not translation clearance",
-        "not audience role clearance",
+        "not source support scope clearance",
         "not external publication clearance",
-        "make multilingual_medical_intelligence_cross_language_negation_audience_controls",
+        "make multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls",
     ]
     lower = markdown_text.lower()
     for phrase in required_phrases:
@@ -733,7 +775,7 @@ def run(check: bool) -> int:
         if not path.exists():
             errors.append(f"missing required file: {repo_relative(path)}")
     if errors:
-        print("FAIL cross language negation audience controls")
+        print("FAIL cross language source support scope reconciliation controls")
         for error in errors:
             print(f"- {error}")
         return 1
@@ -742,7 +784,7 @@ def run(check: bool) -> int:
         rewrite_candidates = load_jsonl(REWRITE_CANDIDATES)
         controls = load_jsonl(CROSS_LANGUAGE_CONTROLS)
     except ValueError as error:
-        print(f"FAIL cross language negation audience controls: {error}")
+        print(f"FAIL cross language source support scope reconciliation controls: {error}")
         return 1
 
     errors.extend(validate_control_rows(controls, rewrite_candidates))
@@ -762,13 +804,13 @@ def run(check: bool) -> int:
             errors.append(f"stale Markdown report: {repo_relative(OUTPUT_MARKDOWN)}")
 
     if errors:
-        print("FAIL cross language negation audience controls")
+        print("FAIL cross language source support scope reconciliation controls")
         for error in errors:
             print(f"- {error}")
         return 1
 
     if check:
-        print("PASS cross language negation audience controls")
+        print("PASS cross language source support scope reconciliation controls")
         print(f"controls={report['score_summary']['control_count']}")
         print(f"blocked_controls={report['score_summary']['observed_blocked_controls']}")
         print(f"pass_controls={report['score_summary']['observed_pass_controls']}")

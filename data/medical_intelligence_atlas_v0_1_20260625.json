@@ -106,10 +106,10 @@
       "layer": "Multilingual Medical Intelligence",
       "artifact": "plain clinical language gate",
       "input": "synthetic public explanation",
-      "output": "plain language review status, local drift triage report, cross language ambiguity report, negation audience report, scope anchor report, temporal progression report, and uncertainty calibration report",
+      "output": "plain language review status, local drift triage report, cross language ambiguity report, negation audience report, scope anchor report, temporal progression report, uncertainty calibration report, and source support scope reconciliation report",
       "validator": "public wording cannot give diagnosis or treatment instruction, and rewrite plus cross language reports must remain local fixture only",
       "risk_gate": "public wording must separate education from care",
-      "next_build": "cross language source support scope reconciliation controls"
+      "next_build": "cross language source recency and applicability controls"
     },
     {
       "id": "mia_mmi_003",
@@ -119,7 +119,7 @@
       "output": "negation inversion and audience role drift report",
       "validator": "negation and audience role report must remain local fixture only and must block role shift or warning inversion signals",
       "risk_gate": "translation must not invert warnings or shift who is being addressed",
-      "next_build": "cross language source support scope reconciliation controls"
+      "next_build": "cross language source recency and applicability controls"
     },
     {
       "id": "mia_mmi_004",
@@ -129,7 +129,7 @@
       "output": "scope anchor drift report",
       "validator": "scope anchor report must remain local fixture only and must block missing variable erasure, actor role change, action boundary drift, or local context detachment",
       "risk_gate": "translation must not detach missing variables, actor role, action boundary, or local context from the same record",
-      "next_build": "cross language source support scope reconciliation controls"
+      "next_build": "cross language source recency and applicability controls"
     },
     {
       "id": "mia_mmi_005",
@@ -139,7 +139,7 @@
       "output": "temporal progression drift report",
       "validator": "temporal progression report must remain local fixture only and must block duration shift, sequence reversal, follow up timing removal, interval precision loss, or care instruction creation",
       "risk_gate": "translation must not shift duration, reverse sequence, remove follow up timing, lose interval precision, or create care instructions",
-      "next_build": "cross language source support scope reconciliation controls"
+      "next_build": "cross language source recency and applicability controls"
     },
     {
       "id": "mia_mmi_006",
@@ -149,7 +149,17 @@
       "output": "uncertainty calibration drift report",
       "validator": "uncertainty calibration report must remain local fixture only and must block confidence inflation, uncertainty marker removal, evidence gap closure, reviewer state downgrade, or confidence score creation",
       "risk_gate": "translation must not inflate confidence, remove uncertainty, close unresolved evidence, downgrade reviewer state, or create confidence scores",
-      "next_build": "cross language source support scope reconciliation controls"
+      "next_build": "cross language source recency and applicability controls"
+    },
+    {
+      "id": "mia_mmi_007",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "cross language source support scope reconciliation controls",
+      "input": "synthetic Turkish English source support scope reconciliation control rows",
+      "output": "source support scope reconciliation drift report",
+      "validator": "source support scope reconciliation report must remain local fixture only and must block source scope broadening, claim source mapping drift, source limit removal, unsupported source authority creation, or cross language source scope detachment",
+      "risk_gate": "translation must not broaden source support needs, misalign claim source maps, remove source limits, invent source authority, or detach source scope across languages",
+      "next_build": "cross language source recency and applicability controls"
     },
     {
       "id": "mia_atlas_001",

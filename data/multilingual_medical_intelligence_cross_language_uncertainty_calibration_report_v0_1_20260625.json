@@ -483,7 +483,7 @@
     },
     "mismatch_count": 0
   },
-  "exact_next_action": "Add cross language source support scope reconciliation controls so translated variants preserve which source supports which claim, without broadening evidence scope.",
+  "exact_next_action": "Add cross language source recency and applicability controls so translated variants preserve date, population, setting, and applicability limits before public reuse.",
   "failure_reason_counts": {
     "confidence_score_created": 1,
     "english_confidence_inflated": 1,

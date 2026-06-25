@@ -140,4 +140,4 @@ Direct check:
 
 ## Exact Next Action
 
-Add cross language source support scope reconciliation controls so translated variants preserve which source supports which claim, without broadening evidence scope.
+Add cross language source recency and applicability controls so translated variants preserve date, population, setting, and applicability limits before public reuse.
