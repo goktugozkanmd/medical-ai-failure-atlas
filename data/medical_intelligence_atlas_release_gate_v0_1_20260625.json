@@ -48,7 +48,7 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 18
+    "expected_atlas_node_count": 19
   },
   "release_gate_rows": [
     {
@@ -169,7 +169,12 @@
         "data/multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_RECENCY_APPLICABILITY_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_source_recency_applicability_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_source_conflict_provenance_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
@@ -183,14 +188,20 @@
         "mia_mmi_004",
         "mia_mmi_005",
         "mia_mmi_006",
-        "mia_mmi_008"
+        "mia_mmi_008",
+        "mia_mmi_009"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
         "cross_language_source_recency_applicability_controls": 12,
         "cross_language_source_recency_applicability_pass_controls": 6,
         "cross_language_source_recency_applicability_blocked_controls": 6,
-        "cross_language_source_recency_applicability_signal_types": 6
+        "cross_language_source_recency_applicability_signal_types": 6,
+        "cross_language_source_conflict_provenance_checker_result": "pass",
+        "cross_language_source_conflict_provenance_controls": 12,
+        "cross_language_source_conflict_provenance_pass_controls": 6,
+        "cross_language_source_conflict_provenance_blocked_controls": 6,
+        "cross_language_source_conflict_provenance_signal_types": 6
       },
       "boundary_flags": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -200,7 +211,15 @@
         "population_scope_broadening_blocked": true,
         "setting_scope_broadening_blocked": true,
         "applicability_limit_removal_blocked": true,
-        "source_recency_applicability_clearance_claim_made": false
+        "source_recency_applicability_clearance_claim_made": false,
+        "cross_language_source_conflict_provenance_report_ready": true,
+        "english_source_conflict_erasure_blocked": true,
+        "turkish_source_conflict_erasure_blocked": true,
+        "source_version_drift_blocked": true,
+        "provenance_chain_break_blocked": true,
+        "source_attribution_detachment_blocked": true,
+        "unsupported_conflict_resolution_blocked": true,
+        "source_conflict_provenance_clearance_claim_made": false
       },
       "synthetic_boundary": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -210,7 +229,15 @@
         "population_scope_broadening_blocked": true,
         "setting_scope_broadening_blocked": true,
         "applicability_limit_removal_blocked": true,
-        "source_recency_applicability_clearance_claim_made": false
+        "source_recency_applicability_clearance_claim_made": false,
+        "cross_language_source_conflict_provenance_report_ready": true,
+        "english_source_conflict_erasure_blocked": true,
+        "turkish_source_conflict_erasure_blocked": true,
+        "source_version_drift_blocked": true,
+        "provenance_chain_break_blocked": true,
+        "source_attribution_detachment_blocked": true,
+        "unsupported_conflict_resolution_blocked": true,
+        "source_conflict_provenance_clearance_claim_made": false
       },
       "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, and cross language controls through source recency and applicability pass validation while preserving source date, recency status, population scope, setting scope, applicability limits, reviewer state, no translation clearance, no source recency applicability clearance, no external publication clearance, and no score certification claim."
     },
@@ -365,7 +392,8 @@
         "mia_mmi_005",
         "mia_mmi_006",
         "mia_mmi_007",
-        "mia_mmi_008"
+        "mia_mmi_008",
+        "mia_mmi_009"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -425,7 +453,12 @@
         "data/multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_RECENCY_APPLICABILITY_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_source_recency_applicability_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_source_conflict_provenance_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -483,7 +516,15 @@
         "population_scope_broadening_blocked": true,
         "setting_scope_broadening_blocked": true,
         "applicability_limit_removal_blocked": true,
-        "source_recency_applicability_clearance_claim_made": false
+        "source_recency_applicability_clearance_claim_made": false,
+        "cross_language_source_conflict_provenance_report_ready": true,
+        "english_source_conflict_erasure_blocked": true,
+        "turkish_source_conflict_erasure_blocked": true,
+        "source_version_drift_blocked": true,
+        "provenance_chain_break_blocked": true,
+        "source_attribution_detachment_blocked": true,
+        "unsupported_conflict_resolution_blocked": true,
+        "source_conflict_provenance_clearance_claim_made": false
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -548,7 +589,12 @@
         "cross_language_source_recency_applicability_controls": 12,
         "cross_language_source_recency_applicability_pass_controls": 6,
         "cross_language_source_recency_applicability_blocked_controls": 6,
-        "cross_language_source_recency_applicability_signal_types": 6
+        "cross_language_source_recency_applicability_signal_types": 6,
+        "cross_language_source_conflict_provenance_checker_result": "pass",
+        "cross_language_source_conflict_provenance_controls": 12,
+        "cross_language_source_conflict_provenance_pass_controls": 6,
+        "cross_language_source_conflict_provenance_blocked_controls": 6,
+        "cross_language_source_conflict_provenance_signal_types": 6
       },
       "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, and cross language controls through source recency and applicability pass validation while preserving source date, recency status, population scope, setting scope, applicability limits, reviewer state, no translation clearance, no source recency applicability clearance, no external publication clearance, and no score certification claim.",
       "blockers": [],

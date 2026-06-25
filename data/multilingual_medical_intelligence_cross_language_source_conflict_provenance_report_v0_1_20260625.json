@@ -1,0 +1,735 @@
+{
+  "artifact_paths": {
+    "cross_language_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_source_conflict_provenance_controls_v0_1_20260625.jsonl",
+    "cross_language_report_json": "data/multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.json",
+    "cross_language_report_markdown": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_REPORT_V0_1_20260625.md",
+    "rewrite_candidates": "data/multilingual_medical_intelligence_public_wording_rewrite_candidates_v0_1_20260625.jsonl",
+    "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py",
+    "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
+  },
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_009",
+  "blocked_control_ids": [
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_002",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_004",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_006",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_008",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_010",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_012"
+  ],
+  "blockers": [],
+  "control_results": [
+    {
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_001",
+      "control_type": "aligned_source_conflict_status_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_001",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "emergency symptom public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_002",
+      "control_type": "english_source_conflict_erased",
+      "detected_source_conflict_provenance_signals": [
+        "english_source_conflict_erased"
+      ],
+      "expected_failure_reasons": [
+        "english_source_conflict_erased"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_001",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "emergency symptom public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": true,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": true,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_003",
+      "control_type": "aligned_turkish_source_conflict_status_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_002",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "medication safety public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_004",
+      "control_type": "turkish_source_conflict_erased",
+      "detected_source_conflict_provenance_signals": [
+        "turkish_source_conflict_erased"
+      ],
+      "expected_failure_reasons": [
+        "turkish_source_conflict_erased"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_002",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "medication safety public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": true,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": true,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "laboratory result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_005",
+      "control_type": "aligned_source_version_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_005",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "laboratory result public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "laboratory result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_006",
+      "control_type": "source_version_drifted",
+      "detected_source_conflict_provenance_signals": [
+        "source_version_drifted"
+      ],
+      "expected_failure_reasons": [
+        "source_version_drifted"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_005",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "laboratory result public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": true,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": true,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_007",
+      "control_type": "aligned_provenance_chain_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_006",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "follow up result public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_008",
+      "control_type": "provenance_chain_broken",
+      "detected_source_conflict_provenance_signals": [
+        "provenance_chain_broken"
+      ],
+      "expected_failure_reasons": [
+        "provenance_chain_broken"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_006",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "follow up result public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": true,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": true,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "source support excerpt wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_009",
+      "control_type": "aligned_source_attribution_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_007",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "source support excerpt public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "source support excerpt wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_010",
+      "control_type": "source_attribution_detached",
+      "detected_source_conflict_provenance_signals": [
+        "source_attribution_detached"
+      ],
+      "expected_failure_reasons": [
+        "source_attribution_detached"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_007",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "source support excerpt public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": true,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": true,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_011",
+      "control_type": "aligned_unresolved_conflict_reviewer_hold_preserved",
+      "detected_source_conflict_provenance_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_source_conflict_provenance_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_008",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "multilingual translation public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": false
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_012",
+      "control_type": "unsupported_conflict_resolution_created",
+      "detected_source_conflict_provenance_signals": [
+        "unsupported_conflict_resolution_created"
+      ],
+      "expected_failure_reasons": [
+        "unsupported_conflict_resolution_created"
+      ],
+      "expected_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_source_conflict_provenance_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_conflict_provenance_map": [
+        {
+          "allowed_scope": "preserve conflict version provenance only",
+          "attribution_to_preserve": "source row attribution remains attached",
+          "claim_id": "mmi_provenance_claim_008",
+          "conflicting_source_ids_to_preserve": "source A and source B remain paired",
+          "forbidden_conflict_resolution": "resolved conflict newer source trusted authority or cleared lineage",
+          "provenance_chain_to_preserve": "source row reviewer route retained",
+          "reviewer_hold_to_preserve": "reviewer hold remains unresolved",
+          "source_conflict_status_to_preserve": "conflicting source status unresolved",
+          "source_scope": "multilingual translation public wording",
+          "source_version_to_preserve": "version label remains unchanged"
+        }
+      ],
+      "source_conflict_provenance_signals_declared": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": true
+      },
+      "source_conflict_provenance_signals_detected": {
+        "english_source_conflict_erased": false,
+        "provenance_chain_broken": false,
+        "source_attribution_detached": false,
+        "source_version_drifted": false,
+        "turkish_source_conflict_erased": false,
+        "unsupported_conflict_resolution_created": true
+      },
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    }
+  ],
+  "cross_language_signal_counts": {
+    "declared_true": {
+      "english_source_conflict_erased": 1,
+      "provenance_chain_broken": 1,
+      "source_attribution_detached": 1,
+      "source_version_drifted": 1,
+      "turkish_source_conflict_erased": 1,
+      "unsupported_conflict_resolution_created": 1
+    },
+    "detected_true": {
+      "english_source_conflict_erased": 1,
+      "provenance_chain_broken": 1,
+      "source_attribution_detached": 1,
+      "source_version_drifted": 1,
+      "turkish_source_conflict_erased": 1,
+      "unsupported_conflict_resolution_created": 1
+    },
+    "mismatch_count": 0
+  },
+  "exact_next_action": "Add cross language reviewer conflict triage controls so unresolved source disagreements route to reviewer hold, compare, or reject states without creating clearance claims.",
+  "failure_reason_counts": {
+    "english_source_conflict_erased": 1,
+    "provenance_chain_broken": 1,
+    "source_attribution_detached": 1,
+    "source_version_drifted": 1,
+    "turkish_source_conflict_erased": 1,
+    "unsupported_conflict_resolution_created": 1
+  },
+  "generated_date": "20260625",
+  "pass_control_ids": [
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_001",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_003",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_005",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_007",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_009",
+    "MMI_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_011"
+  ],
+  "release_boundary": {
+    "allowed_use": "Repo local synthetic cross language source conflict and provenance scoring before public wording reuse.",
+    "clinical_advice_allowed": false,
+    "clinical_deployment_claim_made": false,
+    "clinical_use_allowed": false,
+    "clinical_validation_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "external_publication_clearance": false,
+    "external_urls_present": false,
+    "model_ranking_claim_made": false,
+    "model_superiority_claim_made": false,
+    "not_allowed_use": "Patient care, clinical advice, translation clearance, source conflict and provenance clearance, external publication clearance, model ranking, or release claim.",
+    "partner_or_institution_claim_made": false,
+    "patient_data_used": false,
+    "score_certification_claim_made": false,
+    "source_conflict_provenance_clearance_claim_made": false,
+    "source_truth_certification_claim_made": false,
+    "synthetic_only": true,
+    "translation_clearance_claim_made": false
+  },
+  "report_id": "multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625",
+  "report_scope": "local_fixture_cross_language_source_conflict_provenance_gate_only",
+  "report_type": "machine_readable_cross_language_source_conflict_provenance_report",
+  "report_version": "v0_1_20260625",
+  "reviewer_triage": {
+    "blocked_use": [
+      "patient care",
+      "clinical advice",
+      "translation clearance",
+      "source conflict and provenance clearance",
+      "clinical validation claim",
+      "clinical deployment claim",
+      "model ranking claim"
+    ],
+    "primary_question": "Does either language erase source conflict, drift source version, break provenance chain, detach attribution, or create unsupported conflict resolution.",
+    "triage_order": [
+      "english_source_conflict_erased",
+      "turkish_source_conflict_erased",
+      "source_version_drifted",
+      "provenance_chain_broken",
+      "source_attribution_detached",
+      "unsupported_conflict_resolution_created"
+    ]
+  },
+  "scope": "Local synthetic cross language controls for source conflict status, source version, attribution, provenance chain, and reviewer hold drift.",
+  "score_summary": {
+    "control_count": 12,
+    "expected_fail_controls": 6,
+    "expected_pass_controls": 6,
+    "observed_blocked_controls": 6,
+    "observed_pass_controls": 6,
+    "review_outcome_mismatch_count": 0,
+    "source_candidate_coverage_count": 6,
+    "source_row_coverage_count": 6,
+    "status_mismatch_count": 0
+  },
+  "status": "local_fixture_pass",
+  "validation": {
+    "expected_result": "pass",
+    "make_target": "make multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls",
+    "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py --check",
+    "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
+  }
+}

@@ -2,7 +2,7 @@
 
 Source data: `data/medical_intelligence_atlas_coverage_matrix_v0_1_20260625.json`
 
-Rows: 18
+Rows: 19
 
 Boundary: this dashboard uses the source coverage data only and does not assert clinical readiness.
 
@@ -20,7 +20,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 
 | Status | Rows |
 | --- | --- |
-| direct fixture coverage | 18 |
+| direct fixture coverage | 19 |
 
 ## Layer Coverage
 
@@ -31,7 +31,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 | Clinical Trajectory Engine | 2 | 2 |
 | Medical Intelligence Atlas | 2 | 2 |
 | Medical Reasoning Verifier | 2 | 2 |
-| Multilingual Medical Intelligence | 8 | 8 |
+| Multilingual Medical Intelligence | 9 | 9 |
 
 ## Open Gaps
 
@@ -57,5 +57,6 @@ No open gaps were found in the source data.
 | Multilingual Medical Intelligence | mia_mmi_006 | direct fixture coverage | cross language uncertainty calibration controls | ["cross_language_uncertainty_calibration_controls", "cross_language_uncertainty_calibration_report_json", "cross_language_uncertainty_calibration_report_doc", "cross_language_uncertainty_calibration_scorer", "cross_language_uncertainty_calibration_validator"] | ["uncertainty marker preservation", "unresolved evidence preservation", "reviewer state preservation", "confidence score creation drift", "uncertainty calibration clearance absence"] | ["scripts/score_multilingual_medical_intelligence_cross_language_uncertainty_calibration_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_uncertainty_calibration_report_v0_1_20260625.py"] |
 | Multilingual Medical Intelligence | mia_mmi_007 | direct fixture coverage | cross language source support scope reconciliation controls | ["mmi_public_wording_rewrite_candidates", "mmi_cross_language_source_support_scope_reconciliation_controls", "mmi_cross_language_source_support_scope_reconciliation_report", "mmi_cross_language_source_support_scope_reconciliation_report_doc", "mmi_cross_language_source_support_scope_reconciliation_scorer", "mmi_cross_language_source_support_scope_reconciliation_validator"] | ["claim source support map preservation", "source support need preservation", "source limit preservation", "unsupported source authority blocking", "cross language source scope detachment blocking"] | ["scripts/score_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_source_support_scope_reconciliation_report_v0_1_20260625.py"] |
 | Multilingual Medical Intelligence | mia_mmi_008 | direct fixture coverage | cross language source recency and applicability controls | ["mmi_public_wording_rewrite_candidates", "mmi_cross_language_source_recency_applicability_controls", "mmi_cross_language_source_recency_applicability_report", "mmi_cross_language_source_recency_applicability_report_doc", "mmi_cross_language_source_recency_applicability_scorer", "mmi_cross_language_source_recency_applicability_validator"] | ["source date preservation", "source recency status preservation", "population scope preservation", "setting scope preservation", "applicability limit preservation"] | ["scripts/score_multilingual_medical_intelligence_cross_language_source_recency_applicability_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_source_recency_applicability_report_v0_1_20260625.py"] |
-| Medical Intelligence Atlas | mia_atlas_001 | direct fixture coverage | node registry | ["atlas_registry", "stack_config", "atlas_markdown"] | ["eighteen atlas nodes", "input output validator risk gate and next build fields", "stack layer alignment"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py", "scripts/validate_clinical_intelligence_stack_20260625.py"] |
+| Multilingual Medical Intelligence | mia_mmi_009 | direct fixture coverage | cross language source conflict and provenance controls | ["mmi_cross_language_source_conflict_provenance_controls", "mmi_cross_language_source_conflict_provenance_report", "mmi_cross_language_source_conflict_provenance_report_doc", "mmi_cross_language_source_conflict_provenance_scorer", "mmi_cross_language_source_conflict_provenance_validator"] | ["twelve synthetic source conflict provenance controls", "six pass controls", "six blocked controls", "source conflict erasure blocking", "source version drift blocking", "provenance chain break blocking", "source attribution detachment blocking", "unsupported conflict resolution blocking"] | ["scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"] |
+| Medical Intelligence Atlas | mia_atlas_001 | direct fixture coverage | node registry | ["atlas_registry", "stack_config", "atlas_markdown"] | ["nineteen atlas nodes", "input output validator risk gate and next build fields", "stack layer alignment"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py", "scripts/validate_clinical_intelligence_stack_20260625.py"] |
 | Medical Intelligence Atlas | mia_atlas_002 | direct fixture coverage | release readiness map | ["atlas_registry", "atlas_markdown", "stack_config"] | ["ready blocked and needs source check release states", "validator bounded release status", "machine readable coverage matrix"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"] |
