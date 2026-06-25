@@ -16,6 +16,7 @@ REQUIRED_LINKS = {
     "docs/TEKNOFEST_HEALTH_AI_REPORT_CLAIM_HYGIENE_CHECKLIST_20260625.md",
     "docs/AI_ALLIANCE_MEDHELM_FOLLOW_UP_PREP_20260625.md",
     "docs/PUBLIC_GITHUB_ROUTE_WATCHLIST_20260625.md",
+    "docs/PUBLIC_VISIBILITY_CLAIM_GATE_20260625.md",
 }
 
 REQUIRED_PHRASES = [
@@ -29,6 +30,8 @@ REQUIRED_PHRASES = [
     "Before using any route state in public text",
     "make public_github_route_preflight",
     "live GitHub route state",
+    "public post, comment, outreach, and reply text gate",
+    "from turning into endorsement, acceptance, validation, or deployment claims",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]

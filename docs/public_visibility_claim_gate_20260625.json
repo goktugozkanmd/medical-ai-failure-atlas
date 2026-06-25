@@ -1,0 +1,41 @@
+{
+  "date": "2026 06 25",
+  "status": "local gate for public visibility text",
+  "scope": [
+    "LinkedIn posts",
+    "LinkedIn comments",
+    "GitHub issue comments",
+    "outreach replies",
+    "public summaries",
+    "README navigation text"
+  ],
+  "required_command_before_route_state": "make public_github_route_preflight",
+  "gate_rows": [
+    "If the text mentions a live GitHub route, recheck the route before writing the claim.",
+    "If the text mentions a reply, call it a reply or acknowledgement only.",
+    "If the text mentions a public comment, call it one comment only.",
+    "If the text mentions open source work, do not imply merge, acceptance, review completion, or maintainer approval.",
+    "If the text mentions medical AI evaluation, keep it at safety evaluation or claim hygiene level.",
+    "If the text invites review, ask for one concrete objection or one weak sentence."
+  ],
+  "blocked_claims": [
+    "endorsement",
+    "partnership",
+    "institutional support",
+    "clinical validation",
+    "clinical deployment",
+    "model superiority",
+    "score certification",
+    "patient data use",
+    "regulatory approval",
+    "terms or payment action"
+  ],
+  "allowed_wording": [
+    "A public comment was received.",
+    "A maintainer replied.",
+    "A route is open.",
+    "A local draft is ready.",
+    "A validator passed.",
+    "A reviewer can point to one weak sentence."
+  ]
+}
