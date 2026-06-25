@@ -261,6 +261,53 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_cross_language_ambiguity_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_ambiguity_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic cross language ambiguity control fixture",
+      "record_count": 12,
+      "expected_pass_controls": 6,
+      "expected_fail_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "translation_clearance_claim_made": false,
+      "score_certification_claim_made": false
+    },
+    "mmi_cross_language_ambiguity_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.json",
+      "kind": "machine readable cross language ambiguity report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "translation_clearance_claim_made": false,
+      "score_certification_claim_made": false
+    },
+    "mmi_cross_language_ambiguity_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_AMBIGUITY_REPORT_V0_1_20260625.md",
+      "kind": "cross language ambiguity report documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "translation_clearance_claim_made": false,
+      "score_certification_claim_made": false
+    },
+    "mmi_cross_language_ambiguity_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+      "kind": "cross language ambiguity scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_ambiguity_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py",
+      "kind": "cross language ambiguity report validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -459,7 +506,12 @@
         "mmi_public_wording_rewrite_candidate_score_report_doc",
         "mmi_public_wording_rewrite_candidate_scorer",
         "mmi_public_wording_rewrite_candidate_score_validator",
-        "stack_manifesto"
+        "stack_manifesto",
+        "mmi_cross_language_ambiguity_controls",
+        "mmi_cross_language_ambiguity_report",
+        "mmi_cross_language_ambiguity_report_doc",
+        "mmi_cross_language_ambiguity_scorer",
+        "mmi_cross_language_ambiguity_validator"
       ],
       "coverage_focus": [
         "eight synthetic public wording rows",
@@ -482,7 +534,14 @@
         "rewrite candidate pass and blocked counts",
         "rewrite candidate drift signal checks",
         "rewrite candidate external publication clearance boundary",
-        "score certification absence boundary"
+        "score certification absence boundary",
+        "cross language ambiguity controls",
+        "English and Turkish ASCII certainty shifts",
+        "source support shift detection",
+        "missing data softened detection",
+        "action boundary shifted detection",
+        "translation review removed detection",
+        "translation clearance absence boundary"
       ],
       "local_validation_refs": [
         "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
@@ -490,7 +549,9 @@
         "scripts/build_multilingual_medical_intelligence_public_wording_drift_score_report_v0_1_20260625.py",
         "scripts/validate_multilingual_medical_intelligence_public_wording_drift_score_report_v0_1_20260625.py",
         "scripts/score_multilingual_medical_intelligence_rewrite_candidates_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py",
+        "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
       ],
       "coverage_status": "direct fixture coverage"
     },

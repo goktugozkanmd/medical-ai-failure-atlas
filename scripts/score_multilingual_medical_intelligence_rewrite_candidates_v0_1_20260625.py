@@ -580,7 +580,7 @@ def build_report(
             "not_clinical_validation": True,
         },
         "blockers": [],
-        "exact_next_action": "Expand the rewrite candidate scorer with cross language ambiguity controls that detect added certainty across translation variants.",
+        "exact_next_action": "Add cross language negation and audience role controls so translations cannot invert warnings or shift who the wording addresses.",
     }
 
 

@@ -106,10 +106,10 @@
       "layer": "Multilingual Medical Intelligence",
       "artifact": "plain clinical language gate",
       "input": "synthetic public explanation",
-      "output": "plain language review status and local drift triage report",
-      "validator": "public wording cannot give diagnosis or treatment instruction, and drift triage report must remain local fixture only",
+      "output": "plain language review status, local drift triage report, and cross language ambiguity report",
+      "validator": "public wording cannot give diagnosis or treatment instruction, and rewrite plus cross language ambiguity reports must remain local fixture only",
       "risk_gate": "public wording must separate education from care",
-      "next_build": "cross language ambiguity controls for rewrite candidate drift scorer"
+      "next_build": "cross language negation and audience role controls"
     },
     {
       "id": "mia_atlas_001",

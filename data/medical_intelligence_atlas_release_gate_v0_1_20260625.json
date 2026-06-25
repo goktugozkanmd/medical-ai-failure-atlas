@@ -133,7 +133,12 @@
         "data/multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_REWRITE_CANDIDATE_SCORE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_rewrite_candidates_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_ambiguity_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_AMBIGUITY_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
@@ -310,7 +315,12 @@
         "data/multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_REWRITE_CANDIDATE_SCORE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_rewrite_candidates_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_ambiguity_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_AMBIGUITY_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -331,7 +341,10 @@
         "rewrite_candidate_external_publication_clearance": false,
         "score_certification_claim_made": false,
         "source_truth_certification_claim_made": false,
-        "external_publication_clearance": false
+        "external_publication_clearance": false,
+        "cross_language_ambiguity_report_ready": true,
+        "translation_clearance_claim_made": false,
+        "cross_language_external_publication_clearance": false
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -361,9 +374,14 @@
         "rewrite_candidate_pass_candidates": 8,
         "rewrite_candidate_blocked_candidates": 8,
         "rewrite_candidate_source_row_coverage": 8,
-        "rewrite_candidate_critical_action_boundary_candidates": 4
+        "rewrite_candidate_critical_action_boundary_candidates": 4,
+        "cross_language_ambiguity_checker_result": "pass",
+        "cross_language_ambiguity_controls": 12,
+        "cross_language_ambiguity_pass_controls": 6,
+        "cross_language_ambiguity_blocked_controls": 6,
+        "cross_language_ambiguity_signal_types": 6
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, local drift triage report, and rewrite candidate scorer pass validation while preserving missing data, action boundaries, source support needs, no added clinical certainty, no external publication clearance, and no score certification claim.",
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, local drift triage report, rewrite candidate scorer, and cross language ambiguity controls pass validation while preserving missing data, action boundaries, source support needs, no added clinical certainty, no translation clearance, no external publication clearance, and no score certification claim.",
       "blockers": [],
       "source_check_items": []
     },

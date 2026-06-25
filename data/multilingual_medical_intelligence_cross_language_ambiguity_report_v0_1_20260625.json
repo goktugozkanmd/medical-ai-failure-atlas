@@ -1,0 +1,565 @@
+{
+  "artifact_paths": {
+    "cross_language_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_ambiguity_controls_v0_1_20260625.jsonl",
+    "cross_language_report_json": "data/multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.json",
+    "cross_language_report_markdown": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_AMBIGUITY_REPORT_V0_1_20260625.md",
+    "rewrite_candidates": "data/multilingual_medical_intelligence_public_wording_rewrite_candidates_v0_1_20260625.jsonl",
+    "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+    "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
+  },
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_002",
+  "blocked_control_ids": [
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_002",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_004",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_006",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_008",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_010",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_012"
+  ],
+  "blockers": [],
+  "control_results": [
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_missing_data_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_001",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": true,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": true,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "english_added_certainty",
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_002",
+      "detected_ambiguity_signals": [
+        "english_added_certainty"
+      ],
+      "expected_failure_reasons": [
+        "english_added_certainty"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_medicine_context_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_003",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": true
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": true
+      },
+      "ambiguity_type": "turkish_added_certainty",
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_004",
+      "detected_ambiguity_signals": [
+        "turkish_added_certainty"
+      ],
+      "expected_failure_reasons": [
+        "turkish_added_certainty"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_source_support_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "chronic monitoring wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_005",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_003",
+      "source_state_pair_id": "MMI_PAIR_003",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": true,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": true,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "source_support_shift",
+      "boundary_pass": true,
+      "clinical_domain": "chronic monitoring wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_006",
+      "detected_ambiguity_signals": [
+        "source_support_shift"
+      ],
+      "expected_failure_reasons": [
+        "source_support_shift"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_003",
+      "source_state_pair_id": "MMI_PAIR_003",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_sensitive_context_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "pregnancy symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_007",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_007",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_004",
+      "source_row_id": "MMI_PUBLIC_WORDING_004",
+      "source_state_pair_id": "MMI_PAIR_004",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": true,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": true,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "missing_data_softened",
+      "boundary_pass": true,
+      "clinical_domain": "pregnancy symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_008",
+      "detected_ambiguity_signals": [
+        "missing_data_softened"
+      ],
+      "expected_failure_reasons": [
+        "missing_data_softened"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_007",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_004",
+      "source_row_id": "MMI_PUBLIC_WORDING_004",
+      "source_state_pair_id": "MMI_PAIR_004",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_action_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_009",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": true,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": true,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "action_boundary_shifted",
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_010",
+      "detected_ambiguity_signals": [
+        "action_boundary_shifted"
+      ],
+      "expected_failure_reasons": [
+        "action_boundary_shifted"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": false,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "aligned_translation_review_boundary",
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_011",
+      "detected_ambiguity_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "passes_cross_language_ambiguity_gate",
+      "expected_status": "pass",
+      "observed_review_outcome": "passes_cross_language_ambiguity_gate",
+      "observed_status": "pass",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    },
+    {
+      "ambiguity_signals_declared": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": true,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_signals_detected": {
+        "action_boundary_shifted": false,
+        "english_added_certainty": false,
+        "missing_data_softened": false,
+        "source_support_shift": false,
+        "translation_review_removed": true,
+        "turkish_added_certainty": false
+      },
+      "ambiguity_type": "translation_review_removed",
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_AMBIGUITY_012",
+      "detected_ambiguity_signals": [
+        "translation_review_removed"
+      ],
+      "expected_failure_reasons": [
+        "translation_review_removed"
+      ],
+      "expected_review_outcome": "blocked_cross_language_ambiguity_control",
+      "expected_status": "fail",
+      "observed_review_outcome": "blocked_cross_language_ambiguity_control",
+      "observed_status": "fail",
+      "review_outcome_match": true,
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true
+    }
+  ],
+  "cross_language_signal_counts": {
+    "declared_true": {
+      "action_boundary_shifted": 1,
+      "english_added_certainty": 1,
+      "missing_data_softened": 1,
+      "source_support_shift": 1,
+      "translation_review_removed": 1,
+      "turkish_added_certainty": 1
+    },
+    "detected_true": {
+      "action_boundary_shifted": 1,
+      "english_added_certainty": 1,
+      "missing_data_softened": 1,
+      "source_support_shift": 1,
+      "translation_review_removed": 1,
+      "turkish_added_certainty": 1
+    },
+    "mismatch_count": 0
+  },
+  "exact_next_action": "Add cross language negation and audience role controls so translations cannot invert warnings or shift who the wording addresses.",
+  "failure_reason_counts": {
+    "action_boundary_shifted": 1,
+    "english_added_certainty": 1,
+    "missing_data_softened": 1,
+    "source_support_shift": 1,
+    "translation_review_removed": 1,
+    "turkish_added_certainty": 1
+  },
+  "generated_date": "20260625",
+  "pass_control_ids": [
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_001",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_003",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_005",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_007",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_009",
+    "MMI_CROSS_LANGUAGE_AMBIGUITY_011"
+  ],
+  "release_boundary": {
+    "allowed_use": "Repo local synthetic cross language ambiguity scoring before public wording reuse.",
+    "clinical_advice_allowed": false,
+    "clinical_deployment_claim_made": false,
+    "clinical_use_allowed": false,
+    "clinical_validation_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "external_publication_clearance": false,
+    "external_urls_present": false,
+    "model_ranking_claim_made": false,
+    "model_superiority_claim_made": false,
+    "not_allowed_use": "Patient care, clinical advice, translation clearance, external publication clearance, model ranking, or release claim.",
+    "partner_or_institution_claim_made": false,
+    "patient_data_used": false,
+    "score_certification_claim_made": false,
+    "source_truth_certification_claim_made": false,
+    "synthetic_only": true,
+    "translation_clearance_claim_made": false
+  },
+  "report_id": "multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625",
+  "report_scope": "local_fixture_cross_language_ambiguity_gate_only",
+  "report_type": "machine_readable_cross_language_ambiguity_report",
+  "report_version": "v0_1_20260625",
+  "reviewer_triage": {
+    "blocked_use": [
+      "patient care",
+      "clinical advice",
+      "translation clearance",
+      "clinical validation claim",
+      "clinical deployment claim",
+      "model ranking claim"
+    ],
+    "primary_question": "Does either language variant add certainty, weaken source support, soften missing data, shift action boundary, or remove translation review.",
+    "triage_order": [
+      "action_boundary_shifted",
+      "translation_review_removed",
+      "source_support_shift",
+      "missing_data_softened",
+      "english_added_certainty",
+      "turkish_added_certainty"
+    ]
+  },
+  "scope": "Local synthetic cross language ambiguity controls for rewrite candidate public wording.",
+  "score_summary": {
+    "control_count": 12,
+    "expected_fail_controls": 6,
+    "expected_pass_controls": 6,
+    "observed_blocked_controls": 6,
+    "observed_pass_controls": 6,
+    "review_outcome_mismatch_count": 0,
+    "source_candidate_coverage_count": 6,
+    "source_row_coverage_count": 6,
+    "status_mismatch_count": 0
+  },
+  "status": "local_fixture_pass",
+  "validation": {
+    "expected_result": "pass",
+    "make_target": "make multilingual_medical_intelligence_cross_language_ambiguity_controls",
+    "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py --check",
+    "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
+  }
+}

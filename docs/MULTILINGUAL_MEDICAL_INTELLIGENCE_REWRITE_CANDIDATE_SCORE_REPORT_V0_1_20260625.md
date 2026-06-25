@@ -140,4 +140,4 @@ Direct check:
 
 ## Exact Next Action
 
-Expand the rewrite candidate scorer with cross language ambiguity controls that detect added certainty across translation variants.
+Add cross language negation and audience role controls so translations cannot invert warnings or shift who the wording addresses.

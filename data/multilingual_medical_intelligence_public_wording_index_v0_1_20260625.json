@@ -26,7 +26,12 @@
     "rewrite_candidate_score_report_json": "data/multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.json",
     "rewrite_candidate_score_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_REWRITE_CANDIDATE_SCORE_REPORT_V0_1_20260625.md",
     "rewrite_candidate_scorer": "scripts/score_multilingual_medical_intelligence_rewrite_candidates_v0_1_20260625.py",
-    "rewrite_candidate_score_validator": "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py"
+    "rewrite_candidate_score_validator": "scripts/validate_multilingual_medical_intelligence_rewrite_candidate_score_report_v0_1_20260625.py",
+    "cross_language_ambiguity_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_ambiguity_controls_v0_1_20260625.jsonl",
+    "cross_language_ambiguity_report_json": "data/multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.json",
+    "cross_language_ambiguity_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_AMBIGUITY_REPORT_V0_1_20260625.md",
+    "cross_language_ambiguity_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py",
+    "cross_language_ambiguity_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -48,7 +53,14 @@
     "expected_rewrite_candidate_count": 16,
     "expected_rewrite_candidate_pass_count": 8,
     "expected_rewrite_candidate_blocked_count": 8,
-    "expected_rewrite_candidate_source_row_coverage": 8
+    "expected_rewrite_candidate_source_row_coverage": 8,
+    "cross_language_ambiguity_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_ambiguity_controls_v0_1_20260625.py --check",
+    "cross_language_ambiguity_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_ambiguity_report_v0_1_20260625.py",
+    "expected_cross_language_ambiguity_status": "local_fixture_pass",
+    "expected_cross_language_ambiguity_control_count": 12,
+    "expected_cross_language_ambiguity_pass_controls": 6,
+    "expected_cross_language_ambiguity_blocked_controls": 6,
+    "expected_cross_language_ambiguity_signal_types": 6
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -78,7 +90,13 @@
       "missing data disclosure",
       "source support status",
       "translation certainty guard",
-      "blocked claim notice"
+      "blocked claim notice",
+      "cross language ambiguity control",
+      "English certainty shift detection",
+      "Turkish ASCII certainty shift detection",
+      "source support shift detection",
+      "missing data softening detection",
+      "translation review removal detection"
     ],
     "not_covered": [
       "clinical validation",
@@ -113,6 +131,19 @@
       "candidate drift signal counts",
       "candidate failure reason counts",
       "reviewer triage without score certification",
+      "external publication clearance absence"
+    ],
+    "cross_language_ambiguity_report": [
+      "twelve synthetic cross language ambiguity controls",
+      "six pass controls",
+      "six blocked controls",
+      "English added certainty signal",
+      "Turkish ASCII added certainty signal",
+      "source support shift signal",
+      "missing data softened signal",
+      "action boundary shifted signal",
+      "translation review removed signal",
+      "translation clearance absence",
       "external publication clearance absence"
     ]
   },
@@ -276,7 +307,7 @@
     }
   ],
   "next_build_suggestion": {
-    "suggested_action": "Expand the rewrite candidate scorer with cross language ambiguity controls that detect added certainty across translation variants.",
+    "suggested_action": "Add cross language negation and audience role controls so translations cannot invert warnings or shift who the wording addresses.",
     "required_before_public_use": [
       "local row count check",
       "ASCII text check",
@@ -291,7 +322,10 @@
       "rewrite candidate score report check",
       "rewrite candidate blocked count check",
       "score certification absence check",
-      "source truth certification absence check"
+      "source truth certification absence check",
+      "cross language ambiguity controls check",
+      "cross language ambiguity report freshness check",
+      "translation clearance absence check"
     ]
   }
 }
