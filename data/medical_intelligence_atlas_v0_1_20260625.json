@@ -109,7 +109,7 @@
       "output": "plain language review status",
       "validator": "public wording cannot give diagnosis or treatment instruction",
       "risk_gate": "public wording must separate education from care",
-      "next_build": "public wording fixture bank"
+      "next_build": "public wording drift negative controls"
     },
     {
       "id": "mia_atlas_001",

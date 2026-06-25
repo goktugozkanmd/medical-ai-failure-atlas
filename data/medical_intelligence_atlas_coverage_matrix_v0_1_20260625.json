@@ -151,6 +151,30 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_public_wording_bank": {
+      "path": "data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
+      "kind": "synthetic public wording fixture bank",
+      "record_count": 8,
+      "source_pair_count": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_public_wording_index": {
+      "path": "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+      "kind": "machine readable public wording index",
+      "record_count": 8,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_public_wording_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
+      "kind": "public wording bank documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -336,16 +360,23 @@
         "mmi_paired_state_examples",
         "mmi_source_check_index",
         "mmi_source_check_doc",
+        "mmi_public_wording_bank",
+        "mmi_public_wording_index",
+        "mmi_public_wording_doc",
         "stack_manifesto"
       ],
       "coverage_focus": [
+        "eight synthetic public wording rows",
         "plain public wording boundary",
         "diagnosis and treatment instruction avoidance",
         "education separated from care",
+        "missing data preservation",
+        "source support preservation",
         "action boundary preservation across Turkish and English"
       ],
       "local_validation_refs": [
-        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py"
       ],
       "coverage_status": "direct fixture coverage"
     },

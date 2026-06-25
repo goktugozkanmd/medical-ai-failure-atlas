@@ -119,7 +119,11 @@
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
         "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
         "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
-        "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py"
+        "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py",
+        "data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
+        "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
@@ -282,7 +286,11 @@
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_SOURCE_CHECK_V0_1_20260625.md",
         "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
         "scripts/validate_tr_medllm_specialty_spread_v0_1.py",
-        "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py"
+        "scripts/validate_internal_medicine_ai_safety_strategy_20260625.py",
+        "data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
+        "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -294,7 +302,9 @@
         "missing_data_preserved": true,
         "action_boundary_preserved": true,
         "source_support_preserved": true,
-        "not_literal_translation_only": true
+        "not_literal_translation_only": true,
+        "public_wording_bank_ready": true,
+        "diagnosis_or_treatment_instruction_absent": true
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -308,9 +318,12 @@
         "paired_state_count": 12,
         "paired_fixture_checker_result": "pass",
         "source_check_index_status": "ready",
-        "source_check_items_open": 0
+        "source_check_items_open": 0,
+        "public_wording_rows": 8,
+        "public_wording_source_pair_count": 6,
+        "public_wording_checker_result": "pass"
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture passes local source check validation while preserving missing data, action boundaries, source support needs, and no added clinical certainty.",
+      "decision_reason": "The paired Turkish English synthetic state fixture and public wording bank pass local validation while preserving missing data, action boundaries, source support needs, and no added clinical certainty.",
       "blockers": [],
       "source_check_items": []
     },

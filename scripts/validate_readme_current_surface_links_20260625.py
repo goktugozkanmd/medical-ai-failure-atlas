@@ -39,6 +39,9 @@ REQUIRED_LINKS = {
     "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
     "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
     "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",
+    "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
+    "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+    "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py",
 }
 
 REQUIRED_PHRASES = [
@@ -130,9 +133,19 @@ REQUIRED_PHRASES = [
     "Multilingual Medical Intelligence paired state validator",
     "six pairs, twelve states, boundary flags, cross language checks",
     "private identifier absence, and forbidden claim absence",
+    "Multilingual Medical Intelligence Public Wording Bank",
+    "eight synthetic Turkish English public wording rows",
+    "plain clinical language, missing data, source support, and action boundaries",
+    "without diagnosis or treatment instruction",
+    "Multilingual Medical Intelligence public wording index",
+    "source pair coverage, boundary flags, validation command, ready status, and next build",
+    "Multilingual Medical Intelligence public wording validator",
+    "all six paired source state examples",
+    "ASCII Turkish wording, private identifier absence, URL absence, forbidden claim absence, and patient facing instruction absence",
     "make medical_intelligence_atlas",
     "make multilingual_medical_intelligence_source_check",
-    "multilingual paired state source checks, and exact next action state",
+    "make multilingual_medical_intelligence_public_wording_bank",
+    "multilingual paired state source checks, public wording bank checks, and exact next action state",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]

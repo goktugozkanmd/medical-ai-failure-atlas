@@ -1,0 +1,239 @@
+{
+  "index_id": "multilingual_medical_intelligence_public_wording_index_v0_1_20260625",
+  "index_type": "machine_readable_public_wording_bank_index",
+  "generated_date": "20260625",
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_002",
+  "scope": "Public wording bank for plain clinical language gates using synthetic local artifacts only.",
+  "status": "ready",
+  "row_count": 8,
+  "artifact_paths": {
+    "public_wording_index": "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+    "paired_state_examples": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
+    "source_check_index": "data/multilingual_medical_intelligence_source_check_index_v0_1_20260625.json",
+    "atlas_registry": "data/medical_intelligence_atlas_v0_1_20260625.json",
+    "coverage_matrix": "data/medical_intelligence_atlas_coverage_matrix_v0_1_20260625.json",
+    "release_gate": "data/medical_intelligence_atlas_release_gate_v0_1_20260625.json",
+    "public_wording_bank": "data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
+    "public_wording_validator": "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py",
+    "public_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md"
+  },
+  "validation": {
+    "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
+    "expected_index_result": "object",
+    "bank_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
+    "expected_bank_row_count": 8,
+    "expected_bank_result": "pass"
+  },
+  "safety_boundaries": {
+    "synthetic_only": true,
+    "patient_data_used": false,
+    "patient_data_allowed": false,
+    "external_urls_included": false,
+    "external_urls_allowed": false,
+    "clinical_use_allowed": false,
+    "clinical_advice_allowed": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "dosing_instruction_allowed": false,
+    "reassurance_for_waiting_allowed": false,
+    "clinical_validation_claim_made": false,
+    "clinical_deployment_claim_made": false,
+    "model_superiority_claim_made": false,
+    "partner_claim_made": false,
+    "institution_claim_made": false
+  },
+  "coverage_intent": {
+    "primary_goal": "Map eight public wording rows to plain language boundary checks before any public wording is used outside the repo.",
+    "language_scope": "Turkish English ASCII wording plans",
+    "covered_boundaries": [
+      "synthetic scope disclosure",
+      "patient data exclusion",
+      "education separated from care",
+      "uncertainty preservation",
+      "missing data disclosure",
+      "source support status",
+      "translation certainty guard",
+      "blocked claim notice"
+    ],
+    "not_covered": [
+      "clinical validation",
+      "clinical deployment",
+      "model comparison",
+      "partner statement",
+      "institution statement",
+      "real patient example"
+    ],
+    "source_pair_coverage": "All six paired Turkish English synthetic state examples are represented by at least one row."
+  },
+  "planned_rows": [
+    {
+      "row_id": "mmi_public_wording_001",
+      "slot": "synthetic_scope_disclosure",
+      "coverage_focus": "public text states synthetic scope only",
+      "source_artifact_refs": [
+        "paired_state_examples",
+        "source_check_index"
+      ],
+      "required_boundaries": [
+        "synthetic_only",
+        "patient_data_used_false",
+        "clinical_use_allowed_false"
+      ],
+      "blocked_outputs": [
+        "real patient example",
+        "clinical deployment language",
+        "external URL"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_002",
+      "slot": "patient_data_boundary",
+      "coverage_focus": "public text keeps patient data exclusion explicit",
+      "source_artifact_refs": [
+        "paired_state_examples",
+        "release_gate"
+      ],
+      "required_boundaries": [
+        "patient_data_used_false",
+        "patient_data_allowed_false",
+        "external_urls_allowed_false"
+      ],
+      "blocked_outputs": [
+        "private identifier",
+        "patient history",
+        "care record claim"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_003",
+      "slot": "education_care_boundary",
+      "coverage_focus": "public text separates education from care",
+      "source_artifact_refs": [
+        "atlas_registry",
+        "coverage_matrix"
+      ],
+      "required_boundaries": [
+        "clinical_use_allowed_false",
+        "clinical_advice_allowed_false",
+        "diagnosis_or_treatment_instruction_allowed_false"
+      ],
+      "blocked_outputs": [
+        "diagnosis instruction",
+        "treatment instruction",
+        "patient specific action"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_004",
+      "slot": "uncertainty_preservation",
+      "coverage_focus": "public text preserves uncertainty in both languages",
+      "source_artifact_refs": [
+        "paired_state_examples",
+        "source_check_index"
+      ],
+      "required_boundaries": [
+        "no_added_certainty",
+        "missing_data_preserved",
+        "action_boundary_preserved"
+      ],
+      "blocked_outputs": [
+        "false certainty",
+        "reassurance for waiting",
+        "risk removal"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_005",
+      "slot": "missing_data_disclosure",
+      "coverage_focus": "public text names missing data as a limitation",
+      "source_artifact_refs": [
+        "paired_state_examples",
+        "coverage_matrix"
+      ],
+      "required_boundaries": [
+        "missing_data_required",
+        "source_support_required",
+        "clinical_use_allowed_false"
+      ],
+      "blocked_outputs": [
+        "complete data implication",
+        "care pathway claim",
+        "safety proof claim"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_006",
+      "slot": "source_support_status",
+      "coverage_focus": "public text says source support is required for claim bearing use",
+      "source_artifact_refs": [
+        "source_check_index",
+        "release_gate"
+      ],
+      "required_boundaries": [
+        "source_support_preserved",
+        "external_urls_allowed_false",
+        "public_claim_expansion_allowed_false"
+      ],
+      "blocked_outputs": [
+        "unsupported source claim",
+        "official guidance claim",
+        "URL citation"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_007",
+      "slot": "translation_certainty_guard",
+      "coverage_focus": "public text avoids adding certainty during Turkish English wording",
+      "source_artifact_refs": [
+        "paired_state_examples",
+        "source_check_index"
+      ],
+      "required_boundaries": [
+        "language_context_explicit",
+        "no_added_certainty",
+        "action_boundary_preserved"
+      ],
+      "blocked_outputs": [
+        "stronger English claim",
+        "stronger Turkish claim",
+        "changed action boundary"
+      ]
+    },
+    {
+      "row_id": "mmi_public_wording_008",
+      "slot": "blocked_claim_notice",
+      "coverage_focus": "public text keeps forbidden public claim types out",
+      "source_artifact_refs": [
+        "atlas_registry",
+        "release_gate",
+        "coverage_matrix"
+      ],
+      "required_boundaries": [
+        "clinical_validation_claim_made_false",
+        "clinical_deployment_claim_made_false",
+        "model_superiority_claim_made_false",
+        "partner_claim_made_false",
+        "institution_claim_made_false"
+      ],
+      "blocked_outputs": [
+        "clinical validation claim",
+        "clinical deployment claim",
+        "model superiority claim",
+        "partner claim",
+        "institution claim"
+      ]
+    }
+  ],
+  "next_build_suggestion": {
+    "suggested_action": "Add public wording drift negative controls that should fail when missing data, source support, or action boundary language is removed.",
+    "required_before_public_use": [
+      "local row count check",
+      "ASCII text check",
+      "external URL absence check",
+      "patient data absence check",
+      "forbidden claim absence check",
+      "paired language boundary check",
+      "public wording negative control check"
+    ]
+  }
+}
