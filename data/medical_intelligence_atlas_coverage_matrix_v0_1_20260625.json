@@ -175,6 +175,15 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_public_wording_drift_negative_controls": {
+      "path": "data/multilingual_medical_intelligence_public_wording_drift_negative_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic public wording drift negative controls",
+      "record_count": 8,
+      "expected_fail_count": 8,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -362,6 +371,7 @@
         "mmi_source_check_doc",
         "mmi_public_wording_bank",
         "mmi_public_wording_index",
+        "mmi_public_wording_drift_negative_controls",
         "mmi_public_wording_doc",
         "stack_manifesto"
       ],
@@ -372,7 +382,12 @@
         "education separated from care",
         "missing data preservation",
         "source support preservation",
-        "action boundary preservation across Turkish and English"
+        "action boundary preservation across Turkish and English",
+        "eight expected fail drift controls",
+        "missing data removal failure checks",
+        "source support weakening failure checks",
+        "certainty increase failure checks",
+        "patient facing instruction failure checks"
       ],
       "local_validation_refs": [
         "scripts/validate_multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.py",

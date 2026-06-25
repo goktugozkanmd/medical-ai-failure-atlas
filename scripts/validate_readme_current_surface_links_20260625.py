@@ -42,6 +42,7 @@ REQUIRED_LINKS = {
     "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
     "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
     "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py",
+    "data/multilingual_medical_intelligence_public_wording_drift_negative_controls_v0_1_20260625.jsonl",
 }
 
 REQUIRED_PHRASES = [
@@ -142,10 +143,14 @@ REQUIRED_PHRASES = [
     "Multilingual Medical Intelligence public wording validator",
     "all six paired source state examples",
     "ASCII Turkish wording, private identifier absence, URL absence, forbidden claim absence, and patient facing instruction absence",
+    "Multilingual Medical Intelligence public wording drift negative controls",
+    "eight expected fail rewrite controls",
+    "missing data removal, source support weakening, certainty increase, patient facing instruction, and diagnosis or treatment instruction drift",
     "make medical_intelligence_atlas",
     "make multilingual_medical_intelligence_source_check",
     "make multilingual_medical_intelligence_public_wording_bank",
-    "multilingual paired state source checks, public wording bank checks, and exact next action state",
+    "checks both passing rows and expected fail drift controls",
+    "multilingual paired state source checks, public wording bank checks, drift negative controls, and exact next action state",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]

@@ -16,14 +16,17 @@
     "release_gate": "data/medical_intelligence_atlas_release_gate_v0_1_20260625.json",
     "public_wording_bank": "data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
     "public_wording_validator": "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py",
-    "public_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md"
+    "public_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_PUBLIC_WORDING_BANK_V0_1_20260625.md",
+    "drift_negative_controls": "data/multilingual_medical_intelligence_public_wording_drift_negative_controls_v0_1_20260625.jsonl"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
     "expected_index_result": "object",
     "bank_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py data/multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.jsonl",
     "expected_bank_row_count": 8,
-    "expected_bank_result": "pass"
+    "expected_bank_result": "pass",
+    "expected_drift_negative_control_count": 8,
+    "drift_negative_controls_checked_by": "scripts/validate_multilingual_medical_intelligence_public_wording_bank_v0_1_20260625.py"
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -63,7 +66,14 @@
       "institution statement",
       "real patient example"
     ],
-    "source_pair_coverage": "All six paired Turkish English synthetic state examples are represented by at least one row."
+    "source_pair_coverage": "All six paired Turkish English synthetic state examples are represented by at least one row.",
+    "drift_negative_controls": [
+      "missing data removed",
+      "source support weakened",
+      "certainty increased",
+      "patient facing instruction added",
+      "diagnosis or treatment instruction added"
+    ]
   },
   "planned_rows": [
     {
@@ -225,7 +235,7 @@
     }
   ],
   "next_build_suggestion": {
-    "suggested_action": "Add public wording drift negative controls that should fail when missing data, source support, or action boundary language is removed.",
+    "suggested_action": "Add a compact public wording drift score report that summarizes pass rows, fail controls, and failure reasons for reviewer triage.",
     "required_before_public_use": [
       "local row count check",
       "ASCII text check",
@@ -233,7 +243,8 @@
       "patient data absence check",
       "forbidden claim absence check",
       "paired language boundary check",
-      "public wording negative control check"
+      "public wording negative control check",
+      "drift score report check"
     ]
   }
 }

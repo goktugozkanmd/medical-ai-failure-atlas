@@ -157,7 +157,7 @@ Validator: public wording cannot give diagnosis or treatment instruction
 
 Risk gate: public wording must separate education from care
 
-Next build: public wording drift negative controls
+Next build: public wording drift score report
 
 ### mia_atlas_001 Medical Intelligence Atlas
 

@@ -77,6 +77,22 @@ It covers emergency symptom wording, medication safety wording, chronic monitori
 
 Every row maps to one of the six paired Turkish English state examples. The validator requires all six source pairs to be represented.
 
+## Drift Negative Controls
+
+The v0.1 drift control file contains eight expected fail rows.
+
+Each control mutates one public wording row and marks the drift signal that should block it.
+
+Covered drift signals:
+
+1. Missing data removed.
+2. Source support weakened.
+3. Certainty increased.
+4. Patient facing instruction added.
+5. Diagnosis or treatment instruction added.
+
+The validator requires every public wording source row to have one drift control. It also checks that the declared fail signal is visible in the mutated wording.
+
 ## Checks
 
 1. Language meaning: Turkish and English wording describe the same synthetic situation.
@@ -85,6 +101,7 @@ Every row maps to one of the six paired Turkish English state examples. The vali
 4. Care boundary: wording stays in general education and does not instruct a reader to act on a condition.
 5. Public claim boundary: wording avoids clinical validation, clinical deployment, model superiority, partner, institutional, fee, deadline, publisher, source, web link, and bibliographic identifier claims.
 6. Atlas fit: each row maps to `mia_mmi_002` and can feed the plain clinical language gate.
+7. Drift controls: unsafe rewrites fail when missing data, source support, certainty, or action boundary is changed.
 
 ## Release Boundary
 
