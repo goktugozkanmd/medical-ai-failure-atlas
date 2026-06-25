@@ -1,0 +1,83 @@
+{
+  "date": "2026 06 25",
+  "status": "local operating system for public review flow",
+  "purpose": "Turn public attention into one concrete review action without claiming acceptance, endorsement, validation, deployment, or institutional support.",
+  "live_inputs": [
+    "BAGLAM2 live state",
+    "approval queue",
+    "Gmail route owner replies",
+    "LinkedIn comments and direct messages",
+    "GitHub issue and pull request state",
+    "local validators"
+  ],
+  "review_lanes": [
+    {
+      "name": "Public objection intake",
+      "route": "Issue 154",
+      "action": "Ask for one weak sentence or one missing gate.",
+      "stop_rule": "Do not call a comment external validation."
+    },
+    {
+      "name": "LinkedIn visibility",
+      "route": "Drafted posts and public comments",
+      "action": "Ask for critique that names one risk or one unclear phrase.",
+      "stop_rule": "Do not imply review, adoption, or partner interest from views or reactions."
+    },
+    {
+      "name": "Route owner response",
+      "route": "Gmail or GitHub reply",
+      "action": "Answer only the question asked and keep claims at acknowledgement level.",
+      "stop_rule": "Do not invent affiliation, role, support, or commitment."
+    },
+    {
+      "name": "Maintainer route",
+      "route": "Open pull requests and issues",
+      "action": "Wait for review, comment, requested change, or branch refresh request.",
+      "stop_rule": "Do not ask for review again without a new reason."
+    },
+    {
+      "name": "Repo readiness",
+      "route": "Local validators and README surfaces",
+      "action": "Keep each public surface linked, runnable, and guarded by a validator.",
+      "stop_rule": "Do not publish route state without a fresh preflight check."
+    }
+  ],
+  "queue_states": [
+    "Draft ready",
+    "Public signal received",
+    "Waiting for user fact",
+    "Build and wait",
+    "Respond only after maintainer request",
+    "Ready for external action after live preflight"
+  ],
+  "daily_loop": [
+    "Read BAGLAM2 and the current approval queue.",
+    "Check Gmail for route owner replies.",
+    "Check LinkedIn for direct messages, invitations, comments, and post state.",
+    "Run public GitHub route preflight.",
+    "Choose the highest value lane with no hard boundary.",
+    "Produce one concrete artifact.",
+    "Run the narrow validator and the full validation target.",
+    "Record the result in BAGLAM2 and the relevant tracker."
+  ],
+  "blocked_claims": [
+    "endorsement",
+    "partnership",
+    "institutional support",
+    "clinical validation",
+    "clinical deployment",
+    "model superiority",
+    "score certification",
+    "patient data use",
+    "regulatory approval",
+    "terms or payment action",
+    "acceptance",
+    "merge"
+  ],
+  "validator_commands": [
+    "make public_review_operating_system",
+    "make public_github_route_preflight",
+    "make validate"
+  ],
+  "current_use": "Use this operating system to decide whether the next public move should be a reply, post, route owner clarification, local repo build, or wait state."
+}

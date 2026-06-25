@@ -97,6 +97,7 @@ Current public navigation for the latest medical AI assurance work:
 3. [AI Alliance MedHELM Follow Up Prep](docs/AI_ALLIANCE_MEDHELM_FOLLOW_UP_PREP_20260625.md): held response packet for The AI Alliance issue 50 that keeps acknowledgement separate from endorsement, adoption, compatibility, validation, or deployment.
 4. [Public GitHub Route Watchlist](docs/PUBLIC_GITHUB_ROUTE_WATCHLIST_20260625.md): live route state for The AI Alliance issue 50, lighteval pull request 1272, inspect ai pull request 4343, and issue 154.
 5. [Public Visibility Claim Gate](docs/PUBLIC_VISIBILITY_CLAIM_GATE_20260625.md): public post, comment, outreach, and reply text gate that keeps comments, replies, open routes, and local drafts from turning into endorsement, acceptance, validation, or deployment claims.
+6. [Public Review Operating System](docs/PUBLIC_REVIEW_OPERATING_SYSTEM_20260625.md): generated public review flow that connects BAGLAM2, Gmail, LinkedIn, GitHub route state, issue 154, validators, and one artifact per loop.
 
 Before using any route state in public text, run `make public_github_route_preflight`. It checks the watchlist, live GitHub route state, README surface links, and public release sanitation.
 

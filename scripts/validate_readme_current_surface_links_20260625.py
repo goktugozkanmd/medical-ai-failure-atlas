@@ -17,6 +17,7 @@ REQUIRED_LINKS = {
     "docs/AI_ALLIANCE_MEDHELM_FOLLOW_UP_PREP_20260625.md",
     "docs/PUBLIC_GITHUB_ROUTE_WATCHLIST_20260625.md",
     "docs/PUBLIC_VISIBILITY_CLAIM_GATE_20260625.md",
+    "docs/PUBLIC_REVIEW_OPERATING_SYSTEM_20260625.md",
 }
 
 REQUIRED_PHRASES = [
@@ -32,6 +33,8 @@ REQUIRED_PHRASES = [
     "live GitHub route state",
     "public post, comment, outreach, and reply text gate",
     "from turning into endorsement, acceptance, validation, or deployment claims",
+    "generated public review flow",
+    "one artifact per loop",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]
