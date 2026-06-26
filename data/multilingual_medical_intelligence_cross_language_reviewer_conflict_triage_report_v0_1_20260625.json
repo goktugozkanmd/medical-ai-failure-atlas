@@ -1,0 +1,784 @@
+{
+  "artifact_paths": {
+    "cross_language_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.jsonl",
+    "cross_language_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.json",
+    "cross_language_report_markdown": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_REPORT_V0_1_20260625.md",
+    "rewrite_candidates": "data/multilingual_medical_intelligence_public_wording_rewrite_candidates_v0_1_20260625.jsonl",
+    "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py",
+    "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
+  },
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_010",
+  "blocked_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_002",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_004",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_006",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_008",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_010",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_012"
+  ],
+  "blockers": [],
+  "control_results": [
+    {
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_001",
+      "control_type": "aligned_reviewer_hold_state_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "reviewer_hold",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "reviewer_hold",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_001",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "triage_state_to_preserve": "reviewer hold state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "emergency symptom wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_002",
+      "control_type": "english_reviewer_hold_removed",
+      "detected_reviewer_conflict_triage_signals": [
+        "english_reviewer_hold_removed"
+      ],
+      "expected_failure_reasons": [
+        "english_reviewer_hold_removed"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_001",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": true,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": true,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_003",
+      "control_type": "aligned_turkish_reviewer_hold_state_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "reviewer_hold",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "reviewer_hold",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_002",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "triage_state_to_preserve": "reviewer hold state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "medication safety wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_004",
+      "control_type": "turkish_reviewer_hold_removed",
+      "detected_reviewer_conflict_triage_signals": [
+        "turkish_reviewer_hold_removed"
+      ],
+      "expected_failure_reasons": [
+        "turkish_reviewer_hold_removed"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_002",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": true,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": true,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "laboratory result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_005",
+      "control_type": "aligned_compare_route_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "compare",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "compare",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_005",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "triage_state_to_preserve": "compare source rows state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "laboratory result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_006",
+      "control_type": "compare_route_collapsed",
+      "detected_reviewer_conflict_triage_signals": [
+        "compare_route_collapsed"
+      ],
+      "expected_failure_reasons": [
+        "compare_route_collapsed"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_005",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": true,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": true,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_007",
+      "control_type": "aligned_reject_route_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_006",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "follow up result wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_008",
+      "control_type": "reject_route_softened",
+      "detected_reviewer_conflict_triage_signals": [
+        "reject_route_softened"
+      ],
+      "expected_failure_reasons": [
+        "reject_route_softened"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_006",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": true,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": true,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "source support excerpt wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_009",
+      "control_type": "aligned_unresolved_conflict_state_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "reviewer_hold",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "reviewer_hold",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_007",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "triage_state_to_preserve": "reviewer hold state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "source support excerpt wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_010",
+      "control_type": "unresolved_conflict_cleared",
+      "detected_reviewer_conflict_triage_signals": [
+        "unresolved_conflict_cleared"
+      ],
+      "expected_failure_reasons": [
+        "unresolved_conflict_cleared"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_007",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": true
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": true
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_011",
+      "control_type": "aligned_triage_state_label_preserved",
+      "detected_reviewer_conflict_triage_signals": [],
+      "expected_failure_reasons": [],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "pass",
+      "expected_triage_state": "compare",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "pass",
+      "observed_triage_state": "compare",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_008",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "triage_state_to_preserve": "compare source rows state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": false,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true,
+      "triage_state_match": true
+    },
+    {
+      "boundary_pass": true,
+      "clinical_domain": "multilingual translation wording",
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_012",
+      "control_type": "triage_state_mislabeled",
+      "detected_reviewer_conflict_triage_signals": [
+        "triage_state_mislabeled"
+      ],
+      "expected_failure_reasons": [
+        "triage_state_mislabeled"
+      ],
+      "expected_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "expected_status": "fail",
+      "expected_triage_state": "reject",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_conflict_triage_state",
+      "observed_status": "fail",
+      "observed_triage_state": "reject",
+      "review_outcome_match": true,
+      "reviewer_conflict_triage_map": [
+        {
+          "allowed_triage_state": "hold compare or reject",
+          "claim_id": "mmi_triage_claim_008",
+          "compare_route_to_preserve": "compare source rows before reuse",
+          "conflict_status_to_triage": "unresolved source disagreement needs triage",
+          "forbidden_non_triage_state": "cleared approved resolved reuse",
+          "reject_route_to_preserve": "reject route remains available",
+          "reviewer_decision_boundary": "reviewer decision required before reuse",
+          "reviewer_hold_state_to_preserve": "reviewer hold remains active",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "triage_state_to_preserve": "reject disagreement state label"
+        }
+      ],
+      "reviewer_conflict_triage_signals_declared": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": true,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "reviewer_conflict_triage_signals_detected": {
+        "compare_route_collapsed": false,
+        "english_reviewer_hold_removed": false,
+        "reject_route_softened": false,
+        "triage_state_mislabeled": true,
+        "turkish_reviewer_hold_removed": false,
+        "unresolved_conflict_cleared": false
+      },
+      "source_candidate_expected_status": "pass",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "status_match": true,
+      "triage_state_match": true
+    }
+  ],
+  "cross_language_signal_counts": {
+    "declared_true": {
+      "compare_route_collapsed": 1,
+      "english_reviewer_hold_removed": 1,
+      "reject_route_softened": 1,
+      "triage_state_mislabeled": 1,
+      "turkish_reviewer_hold_removed": 1,
+      "unresolved_conflict_cleared": 1
+    },
+    "detected_true": {
+      "compare_route_collapsed": 1,
+      "english_reviewer_hold_removed": 1,
+      "reject_route_softened": 1,
+      "triage_state_mislabeled": 1,
+      "turkish_reviewer_hold_removed": 1,
+      "unresolved_conflict_cleared": 1
+    },
+    "mismatch_count": 0
+  },
+  "exact_next_action": "Add cross language reviewer decision rationale controls so reviewer hold, compare, and reject routes preserve rationale, owner, and unresolved state without creating authority claims.",
+  "failure_reason_counts": {
+    "compare_route_collapsed": 1,
+    "english_reviewer_hold_removed": 1,
+    "reject_route_softened": 1,
+    "triage_state_mislabeled": 1,
+    "turkish_reviewer_hold_removed": 1,
+    "unresolved_conflict_cleared": 1
+  },
+  "generated_date": "20260625",
+  "pass_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_001",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_003",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_005",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_007",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_009",
+    "MMI_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_011"
+  ],
+  "release_boundary": {
+    "allowed_use": "Repo local synthetic cross language reviewer conflict triage scoring before public wording reuse.",
+    "clinical_advice_allowed": false,
+    "clinical_deployment_claim_made": false,
+    "clinical_use_allowed": false,
+    "clinical_validation_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "external_publication_clearance": false,
+    "external_urls_present": false,
+    "model_ranking_claim_made": false,
+    "model_superiority_claim_made": false,
+    "not_allowed_use": "Patient care, clinical advice, translation clearance, reviewer conflict triage clearance, external publication clearance, model ranking, or release claim.",
+    "partner_or_institution_claim_made": false,
+    "patient_data_used": false,
+    "reviewer_conflict_triage_clearance_claim_made": false,
+    "score_certification_claim_made": false,
+    "source_truth_certification_claim_made": false,
+    "synthetic_only": true,
+    "translation_clearance_claim_made": false
+  },
+  "report_id": "multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625",
+  "report_scope": "local_fixture_cross_language_reviewer_conflict_triage_gate_only",
+  "report_type": "machine_readable_cross_language_reviewer_conflict_triage_report",
+  "report_version": "v0_1_20260625",
+  "reviewer_triage": {
+    "blocked_use": [
+      "patient care",
+      "clinical advice",
+      "translation clearance",
+      "reviewer conflict triage clearance",
+      "clinical validation claim",
+      "clinical deployment claim",
+      "model ranking claim"
+    ],
+    "primary_question": "Does either language remove reviewer hold, collapse compare route, soften reject route, clear unresolved conflict, or relabel triage state.",
+    "triage_order": [
+      "english_reviewer_hold_removed",
+      "turkish_reviewer_hold_removed",
+      "compare_route_collapsed",
+      "reject_route_softened",
+      "unresolved_conflict_cleared",
+      "triage_state_mislabeled"
+    ]
+  },
+  "scope": "Local synthetic cross language controls for reviewer hold, compare, reject, unresolved conflict, and triage label drift.",
+  "score_summary": {
+    "control_count": 12,
+    "expected_fail_controls": 6,
+    "expected_pass_controls": 6,
+    "observed_blocked_controls": 6,
+    "observed_pass_controls": 6,
+    "review_outcome_mismatch_count": 0,
+    "source_candidate_coverage_count": 6,
+    "source_row_coverage_count": 6,
+    "status_mismatch_count": 0,
+    "triage_state_mismatch_count": 0
+  },
+  "status": "local_fixture_pass",
+  "triage_state_counts": {
+    "expected": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    },
+    "observed": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    }
+  },
+  "validation": {
+    "expected_result": "pass",
+    "make_target": "make multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls",
+    "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py --check",
+    "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
+  }
+}

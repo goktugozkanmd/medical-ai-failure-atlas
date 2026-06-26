@@ -143,7 +143,7 @@ Validator: language context field must be explicit
 
 Risk gate: translation must not add clinical certainty
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_002 Multilingual Medical Intelligence
 
@@ -157,7 +157,7 @@ Validator: public wording cannot give diagnosis or treatment instruction, and re
 
 Risk gate: public wording must separate education from care
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_003 Multilingual Medical Intelligence
 
@@ -171,7 +171,7 @@ Validator: negation and audience role report must remain local fixture only and 
 
 Risk gate: translation must not invert warnings or shift who is being addressed
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_004 Multilingual Medical Intelligence
 
@@ -185,7 +185,7 @@ Validator: scope anchor report must remain local fixture only and must block mis
 
 Risk gate: translation must not detach missing variables, actor role, action boundary, or local context from the same record
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_005 Multilingual Medical Intelligence
 
@@ -199,7 +199,7 @@ Validator: temporal progression report must remain local fixture only and must b
 
 Risk gate: translation must not shift duration, reverse sequence, remove follow up timing, lose interval precision, or create care instructions
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_006 Multilingual Medical Intelligence
 
@@ -213,7 +213,7 @@ Validator: uncertainty calibration report must remain local fixture only and mus
 
 Risk gate: translation must not inflate confidence, remove uncertainty, close unresolved evidence, downgrade reviewer state, or create confidence scores
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_007 Multilingual Medical Intelligence
 
@@ -227,7 +227,7 @@ Validator: source support scope reconciliation report must remain local fixture 
 
 Risk gate: translation must not broaden source support needs, misalign claim source maps, remove source limits, invent source authority, or detach source scope across languages
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_008 Multilingual Medical Intelligence
 
@@ -241,7 +241,7 @@ Validator: source recency applicability report must remain local fixture only an
 
 Risk gate: translation must not shift source date, inflate recency status, broaden population or setting, or remove applicability limits
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
 
 ### mia_mmi_009 Multilingual Medical Intelligence
 
@@ -255,7 +255,21 @@ Validator: source conflict provenance report must remain local fixture only and 
 
 Risk gate: translation must not erase source conflict, drift source version, break provenance chain, detach attribution, or create unsupported conflict resolution
 
-Next build: cross language reviewer conflict triage controls
+Next build: cross language reviewer decision rationale controls
+
+### mia_mmi_010 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer conflict triage controls
+
+Input: synthetic Turkish English reviewer conflict triage control rows
+
+Output: reviewer conflict triage routing report
+
+Validator: reviewer conflict triage report must remain local fixture only and must route unresolved source disagreements to reviewer hold, compare, or reject without clearance claims
+
+Risk gate: translation must not remove reviewer hold, collapse compare route, soften reject route, clear unresolved conflict, or relabel triage state as clearance
+
+Next build: cross language reviewer decision rationale controls
 
 ### mia_atlas_001 Medical Intelligence Atlas
 

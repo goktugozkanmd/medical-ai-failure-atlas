@@ -66,7 +66,12 @@
     "cross_language_source_conflict_provenance_report_json": "data/multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.json",
     "cross_language_source_conflict_provenance_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_REPORT_V0_1_20260625.md",
     "cross_language_source_conflict_provenance_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py",
-    "cross_language_source_conflict_provenance_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
+    "cross_language_source_conflict_provenance_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py",
+    "cross_language_reviewer_conflict_triage_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_conflict_triage_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.json",
+    "cross_language_reviewer_conflict_triage_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_conflict_triage_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py",
+    "cross_language_reviewer_conflict_triage_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -142,7 +147,15 @@
     "expected_cross_language_source_conflict_provenance_control_count": 12,
     "expected_cross_language_source_conflict_provenance_pass_controls": 6,
     "expected_cross_language_source_conflict_provenance_blocked_controls": 6,
-    "expected_cross_language_source_conflict_provenance_signal_types": 6
+    "expected_cross_language_source_conflict_provenance_signal_types": 6,
+    "cross_language_reviewer_conflict_triage_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_conflict_triage_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_conflict_triage_status": "local_fixture_pass",
+    "expected_cross_language_reviewer_conflict_triage_control_count": 12,
+    "expected_cross_language_reviewer_conflict_triage_pass_controls": 6,
+    "expected_cross_language_reviewer_conflict_triage_blocked_controls": 6,
+    "expected_cross_language_reviewer_conflict_triage_signal_types": 6,
+    "expected_cross_language_reviewer_conflict_triage_triage_state_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -359,6 +372,13 @@
       "provenance chain preservation",
       "reviewer hold preservation",
       "unsupported conflict resolution blocking"
+    ],
+    "cross_language_reviewer_conflict_triage_report": [
+      "reviewer hold route preservation",
+      "compare route preservation",
+      "reject route preservation",
+      "unresolved conflict state preservation",
+      "triage state label preservation"
     ]
   },
   "planned_rows": [
@@ -520,5 +540,5 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer conflict triage controls"
+  "next_build_suggestion": "cross language reviewer decision rationale controls"
 }

@@ -34,7 +34,7 @@
     "config": "data/medical_intelligence_atlas_v0_1_20260625.json",
     "checker": "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
     "expected_layer_count": 6,
-    "expected_node_count": 16
+    "expected_node_count": 20
   },
   "release_gate_summary": {
     "layer_count": 6,
@@ -48,7 +48,7 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 19
+    "expected_atlas_node_count": 20
   },
   "release_gate_rows": [
     {
@@ -174,22 +174,28 @@
         "data/multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_SOURCE_CONFLICT_PROVENANCE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_source_conflict_provenance_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_source_conflict_provenance_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
       "blockers": [],
       "source_check_items": [],
       "atlas_node_ids": [
-        "mia_mmi_007",
         "mia_mmi_001",
         "mia_mmi_002",
         "mia_mmi_003",
         "mia_mmi_004",
         "mia_mmi_005",
         "mia_mmi_006",
+        "mia_mmi_007",
         "mia_mmi_008",
-        "mia_mmi_009"
+        "mia_mmi_009",
+        "mia_mmi_010"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -201,7 +207,13 @@
         "cross_language_source_conflict_provenance_controls": 12,
         "cross_language_source_conflict_provenance_pass_controls": 6,
         "cross_language_source_conflict_provenance_blocked_controls": 6,
-        "cross_language_source_conflict_provenance_signal_types": 6
+        "cross_language_source_conflict_provenance_signal_types": 6,
+        "cross_language_reviewer_conflict_triage_checker_result": "pass",
+        "cross_language_reviewer_conflict_triage_controls": 12,
+        "cross_language_reviewer_conflict_triage_pass_controls": 6,
+        "cross_language_reviewer_conflict_triage_blocked_controls": 6,
+        "cross_language_reviewer_conflict_triage_signal_types": 6,
+        "cross_language_reviewer_conflict_triage_triage_states": 3
       },
       "boundary_flags": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -219,7 +231,15 @@
         "provenance_chain_break_blocked": true,
         "source_attribution_detachment_blocked": true,
         "unsupported_conflict_resolution_blocked": true,
-        "source_conflict_provenance_clearance_claim_made": false
+        "source_conflict_provenance_clearance_claim_made": false,
+        "cross_language_reviewer_conflict_triage_report_ready": true,
+        "english_reviewer_hold_removal_blocked": true,
+        "turkish_reviewer_hold_removal_blocked": true,
+        "compare_route_collapse_blocked": true,
+        "reject_route_softening_blocked": true,
+        "unresolved_conflict_clearance_blocked": true,
+        "triage_state_mislabeling_blocked": true,
+        "reviewer_conflict_triage_clearance_claim_made": false
       },
       "synthetic_boundary": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -237,9 +257,17 @@
         "provenance_chain_break_blocked": true,
         "source_attribution_detachment_blocked": true,
         "unsupported_conflict_resolution_blocked": true,
-        "source_conflict_provenance_clearance_claim_made": false
+        "source_conflict_provenance_clearance_claim_made": false,
+        "cross_language_reviewer_conflict_triage_report_ready": true,
+        "english_reviewer_hold_removal_blocked": true,
+        "turkish_reviewer_hold_removal_blocked": true,
+        "compare_route_collapse_blocked": true,
+        "reject_route_softening_blocked": true,
+        "unresolved_conflict_clearance_blocked": true,
+        "triage_state_mislabeling_blocked": true,
+        "reviewer_conflict_triage_clearance_claim_made": false
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, and cross language controls through source recency and applicability pass validation while preserving source date, recency status, population scope, setting scope, applicability limits, reviewer state, no translation clearance, no source recency applicability clearance, no external publication clearance, and no score certification claim."
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, and reviewer conflict triage controls pass validation while preserving reviewer hold, compare, reject, unresolved state, no translation clearance, no reviewer conflict triage clearance, no external publication clearance, and no score certification claim."
     },
     {
       "gate_id": "mia_rg_006",
@@ -393,7 +421,8 @@
         "mia_mmi_006",
         "mia_mmi_007",
         "mia_mmi_008",
-        "mia_mmi_009"
+        "mia_mmi_009",
+        "mia_mmi_010"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -524,7 +553,15 @@
         "provenance_chain_break_blocked": true,
         "source_attribution_detachment_blocked": true,
         "unsupported_conflict_resolution_blocked": true,
-        "source_conflict_provenance_clearance_claim_made": false
+        "source_conflict_provenance_clearance_claim_made": false,
+        "cross_language_reviewer_conflict_triage_report_ready": true,
+        "english_reviewer_hold_removal_blocked": true,
+        "turkish_reviewer_hold_removal_blocked": true,
+        "compare_route_collapse_blocked": true,
+        "reject_route_softening_blocked": true,
+        "unresolved_conflict_clearance_blocked": true,
+        "triage_state_mislabeling_blocked": true,
+        "reviewer_conflict_triage_clearance_claim_made": false
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -594,7 +631,13 @@
         "cross_language_source_conflict_provenance_controls": 12,
         "cross_language_source_conflict_provenance_pass_controls": 6,
         "cross_language_source_conflict_provenance_blocked_controls": 6,
-        "cross_language_source_conflict_provenance_signal_types": 6
+        "cross_language_source_conflict_provenance_signal_types": 6,
+        "cross_language_reviewer_conflict_triage_checker_result": "pass",
+        "cross_language_reviewer_conflict_triage_controls": 12,
+        "cross_language_reviewer_conflict_triage_pass_controls": 6,
+        "cross_language_reviewer_conflict_triage_blocked_controls": 6,
+        "cross_language_reviewer_conflict_triage_signal_types": 6,
+        "cross_language_reviewer_conflict_triage_triage_states": 3
       },
       "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, and cross language controls through source recency and applicability pass validation while preserving source date, recency status, population scope, setting scope, applicability limits, reviewer state, no translation clearance, no source recency applicability clearance, no external publication clearance, and no score certification claim.",
       "blockers": [],
@@ -608,8 +651,23 @@
         "unsupported_source_authority_creation_blocked": true,
         "cross_language_source_scope_detachment_blocked": true,
         "source_support_scope_clearance_claim_made": false,
-        "source_truth_certification_claim_made": false
-      }
+        "source_truth_certification_claim_made": false,
+        "cross_language_reviewer_conflict_triage_report_ready": true,
+        "english_reviewer_hold_removal_blocked": true,
+        "turkish_reviewer_hold_removal_blocked": true,
+        "compare_route_collapse_blocked": true,
+        "reject_route_softening_blocked": true,
+        "unresolved_conflict_clearance_blocked": true,
+        "triage_state_mislabeling_blocked": true,
+        "reviewer_conflict_triage_clearance_claim_made": false
+      },
+      "artifact_paths": [
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
+      ]
     },
     {
       "layer": "Medical Intelligence Atlas",
