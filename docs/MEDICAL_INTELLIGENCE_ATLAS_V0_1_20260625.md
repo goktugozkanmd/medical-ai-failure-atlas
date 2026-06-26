@@ -1461,6 +1461,20 @@ Risk gate: archive reuse release handoff closure archive reuse release handoff c
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive
 
+### mia_mmi_096 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls
+
+Input: closure ready archive reuse release handoff closure archive reuse release handoff closure archive reuse packets, source attachment map, archive snapshot, reopenability state, and downstream reuse boundary
+
+Output: archived archive reuse release handoff closure archive reuse release handoff closure archive reuse packets with source attachments, archive snapshot, and reopenability preserved before downstream reuse review
+
+Validator: each MMI 096 archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the archive reuse release handoff closure archive reuse release handoff closure archive reuse packet
+
+Risk gate: archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
