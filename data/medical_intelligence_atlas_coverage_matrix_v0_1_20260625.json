@@ -1555,6 +1555,26 @@
     "mmi_047_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_validator": {
       "path": "scripts/validate_mmi_047_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py",
       "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls": {
+      "path": "data/mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.jsonl",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report": {
+      "path": "data/mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_doc": {
+      "path": "docs/MMI_048_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_scorer": {
+      "path": "scripts/score_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_validator": {
+      "path": "scripts/validate_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py",
+      "source_type": "repo local synthetic control artifact"
     }
   },
   "coverage_rows": [
@@ -3237,6 +3257,52 @@
       ]
     },
     {
+      "node_id": "mia_mmi_048",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_doc",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_scorer",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_validator"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "primary_artifact": "docs/MMI_048_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
+      "validator": "scripts/validate_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py",
+      "coverage_focus": [
+        "closure archive reuse release handoff closure archive reuse release handoff controls",
+        "source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability preservation before downstream handoff",
+        "authority clearance validation deployment ranking partner institution regulatory publication and clinical use clearance overclaim blocking"
+      ],
+      "local_validation_refs": [
+        "scripts/score_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py"
+      ],
+      "artifact_keys": [
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_doc",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_scorer",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_validator"
+      ],
+      "source_artifact_paths": [
+        "data/mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.jsonl",
+        "data/mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
+        "docs/MMI_048_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py"
+      ],
+      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
+      "source_artifact_keys": [
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_doc",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_scorer",
+        "mmi_048_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_validator"
+      ]
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -3277,24 +3343,24 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 57,
+    "expected_atlas_node_count": 58,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 57,
-    "expected_source_artifact_count": 261,
-    "expected_node_count": 57
+    "expected_coverage_row_count": 58,
+    "expected_source_artifact_count": 266,
+    "expected_node_count": 58
   },
   "summary": {
-    "atlas_node_count": 57,
-    "coverage_row_count": 57,
-    "source_artifact_count": 261
+    "atlas_node_count": 58,
+    "coverage_row_count": 58,
+    "source_artifact_count": 266
   },
   "expected_counts": {
-    "expected_atlas_node_count": 57,
-    "expected_coverage_row_count": 57,
-    "expected_source_artifact_count": 261
+    "expected_atlas_node_count": 58,
+    "expected_coverage_row_count": 58,
+    "expected_source_artifact_count": 266
   }
 }
