@@ -761,6 +761,20 @@ Risk gate: closure archive reuse release handoff closure archive reuse release h
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls
 
+### mia_mmi_046 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls
+
+Input: handed off closure archive reuse release handoff closure archive reuse release packet, source attachment map, archive snapshot, reopenability state, and closure boundary
+
+Output: closed closure archive reuse release handoff closure archive reuse release handoff packet with source attachments and reopenability preserved before downstream reuse
+
+Validator: each MMI 046 closure archive reuse release handoff closure archive reuse release handoff closure archive control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability or block the closure packet
+
+Risk gate: closure archive reuse release handoff closure archive reuse release handoff closure packets cannot imply authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
