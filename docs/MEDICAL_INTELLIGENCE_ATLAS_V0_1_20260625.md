@@ -1027,6 +1027,20 @@ Risk gate: handoff packets cannot imply authority, clearance, publication readin
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure
 
+### mia_mmi_065 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls
+
+Input: handed off closure archive reuse release handoff packets, source attachment map, archive snapshot, reopenability state, and downstream closure boundary
+
+Output: closed closure archive reuse release handoff closure packets with source attachments, archive snapshot, and reopenability preserved before downstream archive review
+
+Validator: each MMI 065 closure control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the closure packet
+
+Risk gate: closure packets cannot imply authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

@@ -2009,6 +2009,26 @@
     "mmi_064_closure_archive_reuse_release_chain_064_handoff_validator": {
       "path": "scripts/validate_mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.py",
       "status": "present"
+    },
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls": {
+      "path": "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.jsonl",
+      "status": "ready"
+    },
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report": {
+      "path": "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.json",
+      "status": "ready"
+    },
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_doc": {
+      "path": "docs/MMI_065_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_065_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+      "status": "ready"
+    },
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_scorer": {
+      "path": "scripts/score_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.py",
+      "status": "ready"
+    },
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_validator": {
+      "path": "scripts/validate_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.py",
+      "status": "ready"
     }
   },
   "coverage_rows": [
@@ -4495,6 +4515,54 @@
       ]
     },
     {
+      "layer": "Multilingual Medical Intelligence",
+      "node_id": "mia_mmi_065",
+      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls",
+      "coverage_status": "direct fixture coverage",
+      "evidence": "",
+      "validator": "scripts/validate_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.py",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_doc",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_scorer",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_validator"
+      ],
+      "coverage_focus": [
+        "sixteen synthetic closure archive reuse release handoff closure controls",
+        "source attachment and archive snapshot preservation during closure",
+        "authority or clearance claim absence"
+      ],
+      "local_validation_refs": [
+        "scripts/score_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.py"
+      ],
+      "source_artifact_keys": [
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_doc",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_scorer",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_validator"
+      ],
+      "source_artifacts": "",
+      "primary_artifact": "docs/MMI_065_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_065_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+      "artifact_keys": [
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_doc",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_scorer",
+        "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.jsonl",
+        "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.json",
+        "docs/MMI_065_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_065_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.py"
+      ]
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -4504,7 +4572,7 @@
         "atlas_markdown"
       ],
       "coverage_focus": [
-        "sixty four atlas nodes",
+        "seventy five atlas nodes",
         "input output validator risk gate and next build fields",
         "stack layer alignment"
       ],
@@ -4535,28 +4603,28 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 74,
+    "expected_atlas_node_count": 75,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 74,
-    "expected_source_artifact_count": 346,
-    "expected_node_count": 74
+    "expected_coverage_row_count": 75,
+    "expected_source_artifact_count": 351,
+    "expected_node_count": 75
   },
   "summary": {
-    "atlas_node_count": 74,
-    "coverage_row_count": 74,
-    "source_artifact_count": 346
+    "atlas_node_count": 75,
+    "coverage_row_count": 75,
+    "source_artifact_count": 351
   },
   "expected_counts": {
-    "expected_atlas_node_count": 74,
-    "expected_coverage_row_count": 74,
-    "expected_source_artifact_count": 346,
-    "expected_node_count": 74,
-    "atlas_node_count": 74,
-    "coverage_row_count": 74,
-    "source_artifact_count": 346
+    "expected_atlas_node_count": 75,
+    "expected_coverage_row_count": 75,
+    "expected_source_artifact_count": 351,
+    "expected_node_count": 75,
+    "atlas_node_count": 75,
+    "coverage_row_count": 75,
+    "source_artifact_count": 351
   }
 }

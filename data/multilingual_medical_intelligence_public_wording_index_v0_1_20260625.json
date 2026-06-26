@@ -341,7 +341,12 @@
     "mmi_064_closure_archive_reuse_release_chain_064_handoff_report": "data/mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.json",
     "mmi_064_closure_archive_reuse_release_chain_064_handoff_report_doc": "docs/MMI_064_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_064_HANDOFF_REPORT_V0_1_20260625.md",
     "mmi_064_closure_archive_reuse_release_chain_064_handoff_scorer": "scripts/score_mmi_064_closure_archive_reuse_release_chain_064_handoff_controls_v0_1_20260625.py",
-    "mmi_064_closure_archive_reuse_release_chain_064_handoff_validator": "scripts/validate_mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.py"
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_validator": "scripts/validate_mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.py",
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls": "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.jsonl",
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report": "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.json",
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_doc": "docs/MMI_065_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_065_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_scorer": "scripts/score_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_controls_v0_1_20260625.py",
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_validator": "scripts/validate_mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1593,6 +1598,11 @@
       "synthetic repo controls only",
       "source attachment and archive reopenability boundaries during handoff",
       "authority or clearance claims are blocked"
+    ],
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report": [
+      "synthetic repo controls only",
+      "source attachment and archive reopenability boundaries during closure",
+      "authority or clearance claims are blocked"
     ]
   },
   "report_index": {
@@ -1788,6 +1798,10 @@
     "mmi_064_closure_archive_reuse_release_chain_064_handoff_report": [
       "data/mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.json",
       "docs/MMI_064_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_064_HANDOFF_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report": [
+      "data/mmi_065_closure_archive_reuse_release_chain_065_handoff_closure_report_v0_1_20260625.json",
+      "docs/MMI_065_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_065_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md"
     ]
   }
 }
