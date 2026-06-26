@@ -27,7 +27,7 @@ EXPECTED_LAYERS = {
 }
 ALLOWED_READINESS_STATUSES = {"ready", "blocked", "needs source check"}
 EXPECTED_RISK_GATE = "public release cannot outrun validators"
-EXPECTED_ATLAS_NODE_COUNT = 44
+EXPECTED_ATLAS_NODE_COUNT = 45
 
 ROW_KEYS = ("release_gate_rows", "gate_rows", "readiness_rows", "layers", "rows")
 NEXT_ACTION_KEYS = ("expected_next_action", "exact_next_action")
