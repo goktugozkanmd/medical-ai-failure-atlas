@@ -749,6 +749,48 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_replay_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic reviewer handoff replay controls",
+      "record_count": 12,
+      "expected_pass_count": 6,
+      "expected_fail_count": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_replay_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.json",
+      "kind": "machine readable reviewer handoff replay report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "reviewer_handoff_replay_clearance_claim_made": false
+    },
+    "mmi_cross_language_reviewer_handoff_replay_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_REPORT_V0_1_20260625.md",
+      "kind": "reviewer handoff replay documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_replay_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py",
+      "kind": "deterministic reviewer handoff replay scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_replay_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py",
+      "kind": "reviewer handoff replay report validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -1279,6 +1321,37 @@
       ]
     },
     {
+      "layer": "Multilingual Medical Intelligence",
+      "node_id": "mia_mmi_013",
+      "coverage_status": "direct fixture coverage",
+      "artifact": "cross language reviewer handoff replay controls",
+      "evidence": [
+        "mmi_cross_language_reviewer_handoff_replay_controls",
+        "mmi_cross_language_reviewer_handoff_replay_report",
+        "mmi_cross_language_reviewer_handoff_replay_report_doc",
+        "mmi_cross_language_reviewer_handoff_replay_scorer",
+        "mmi_cross_language_reviewer_handoff_replay_validator"
+      ],
+      "coverage_focus": [
+        "twelve synthetic reviewer handoff replay controls",
+        "six pass controls",
+        "six blocked controls",
+        "recheck trace preservation",
+        "appeal context preservation",
+        "route owner handoff preservation",
+        "rationale preservation",
+        "reviewer owner preservation",
+        "unresolved state preservation",
+        "route state preservation",
+        "evidence summary preservation",
+        "authority claim absence"
+      ],
+      "validator": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py"
+      ]
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -1319,7 +1392,7 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 19,
+    "expected_atlas_node_count": 23,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
@@ -1327,8 +1400,8 @@
     "requires_boundary_flags": true
   },
   "summary": {
-    "atlas_node_count": 22,
-    "coverage_row_count": 22,
-    "source_artifact_count": 86
+    "atlas_node_count": 23,
+    "coverage_row_count": 23,
+    "source_artifact_count": 91
   }
 }

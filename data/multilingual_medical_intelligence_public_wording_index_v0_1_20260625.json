@@ -81,7 +81,12 @@
     "cross_language_reviewer_handoff_packet_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.json",
     "cross_language_reviewer_handoff_packet_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_PACKET_REPORT_V0_1_20260625.md",
     "cross_language_reviewer_handoff_packet_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
-    "cross_language_reviewer_handoff_packet_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py"
+    "cross_language_reviewer_handoff_packet_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py",
+    "cross_language_reviewer_handoff_replay_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_handoff_replay_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.json",
+    "cross_language_reviewer_handoff_replay_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_handoff_replay_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py",
+    "cross_language_reviewer_handoff_replay_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -181,7 +186,15 @@
     "expected_cross_language_reviewer_handoff_packet_pass_controls": 6,
     "expected_cross_language_reviewer_handoff_packet_blocked_controls": 6,
     "expected_cross_language_reviewer_handoff_packet_signal_types": 6,
-    "expected_cross_language_reviewer_handoff_packet_decision_route_types": 3
+    "expected_cross_language_reviewer_handoff_packet_decision_route_types": 3,
+    "cross_language_reviewer_handoff_replay_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_handoff_replay_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_handoff_replay_status": "local_fixture_pass",
+    "expected_cross_language_reviewer_handoff_replay_control_count": 12,
+    "expected_cross_language_reviewer_handoff_replay_pass_controls": 6,
+    "expected_cross_language_reviewer_handoff_replay_blocked_controls": 6,
+    "expected_cross_language_reviewer_handoff_replay_signal_types": 6,
+    "expected_cross_language_reviewer_handoff_replay_decision_route_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -573,7 +586,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer handoff replay controls",
+  "next_build_suggestion": "cross language reviewer replay audit trail controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -583,12 +596,24 @@
       "authority claim absence"
     ],
     "required_before_public_use": [
-      "run reviewer handoff packet scorer",
-      "run reviewer handoff packet report validator",
-      "confirm reviewer handoff packet clearance absence before public use"
+      "run reviewer handoff replay scorer",
+      "run reviewer handoff replay report validator",
+      "confirm reviewer handoff replay clearance absence before public use"
     ],
     "cross_language_reviewer_handoff_packet_report": [
       "reviewer handoff packet preservation",
+      "rationale preservation",
+      "reviewer owner preservation",
+      "unresolved state preservation",
+      "route state preservation",
+      "evidence summary preservation",
+      "authority claim absence"
+    ],
+    "cross_language_reviewer_handoff_replay_report": [
+      "reviewer handoff replay reproducibility",
+      "packet recheck trace preservation",
+      "appeal context preservation",
+      "route owner handoff preservation",
       "rationale preservation",
       "reviewer owner preservation",
       "unresolved state preservation",

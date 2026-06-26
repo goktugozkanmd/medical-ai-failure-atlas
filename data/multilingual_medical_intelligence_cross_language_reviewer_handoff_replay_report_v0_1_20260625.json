@@ -1,0 +1,821 @@
+{
+  "report_id": "multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625",
+  "report_type": "machine_readable_cross_language_reviewer_handoff_replay_report",
+  "report_version": "v0_1_20260625",
+  "generated_date": "20260625",
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_013",
+  "status": "local_fixture_pass",
+  "report_scope": "local_fixture_cross_language_reviewer_handoff_replay_gate_only",
+  "scope": "Local synthetic cross language controls for reviewer handoff replay reproducibility across recheck, appeal, route owner handoff, and authority claim drift.",
+  "artifact_paths": {
+    "rewrite_candidates": "data/multilingual_medical_intelligence_public_wording_rewrite_candidates_v0_1_20260625.jsonl",
+    "cross_language_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.jsonl",
+    "cross_language_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.json",
+    "cross_language_report_markdown": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_REPORT_V0_1_20260625.md",
+    "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py",
+    "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py"
+  },
+  "validation": {
+    "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py --check",
+    "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py",
+    "make_target": "make multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls",
+    "expected_result": "pass"
+  },
+  "score_summary": {
+    "control_count": 12,
+    "expected_pass_controls": 6,
+    "expected_fail_controls": 6,
+    "observed_pass_controls": 6,
+    "observed_blocked_controls": 6,
+    "source_candidate_coverage_count": 6,
+    "source_row_coverage_count": 6,
+    "status_mismatch_count": 0,
+    "decision_route_mismatch_count": 0,
+    "review_outcome_mismatch_count": 0
+  },
+  "decision_route_counts": {
+    "expected": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    },
+    "observed": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    }
+  },
+  "cross_language_signal_counts": {
+    "declared_true": {
+      "english_replay_packet_removed": 1,
+      "turkish_replay_packet_removed": 1,
+      "recheck_trace_removed": 1,
+      "appeal_context_removed": 1,
+      "route_owner_handoff_missing": 1,
+      "authority_claim_created": 1
+    },
+    "detected_true": {
+      "english_replay_packet_removed": 1,
+      "turkish_replay_packet_removed": 1,
+      "recheck_trace_removed": 1,
+      "appeal_context_removed": 1,
+      "route_owner_handoff_missing": 1,
+      "authority_claim_created": 1
+    },
+    "mismatch_count": 0
+  },
+  "failure_reason_counts": {
+    "english_replay_packet_removed": 1,
+    "turkish_replay_packet_removed": 1,
+    "recheck_trace_removed": 1,
+    "appeal_context_removed": 1,
+    "route_owner_handoff_missing": 1,
+    "authority_claim_created": 1
+  },
+  "control_results": [
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_001",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "clinical_domain": "emergency symptom wording",
+      "control_type": "aligned_english_replay_packet_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_001",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "replay_stage_to_preserve": "packet recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reviewer hold route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_002",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "clinical_domain": "emergency symptom wording",
+      "control_type": "english_replay_packet_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "english_replay_packet_removed"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_001",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "replay_stage_to_preserve": "packet recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "english_replay_packet_removed"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": true,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": true,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_003",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "clinical_domain": "medication safety wording",
+      "control_type": "aligned_turkish_replay_packet_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_002",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "replay_stage_to_preserve": "appeal recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reviewer hold route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_004",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "clinical_domain": "medication safety wording",
+      "control_type": "turkish_replay_packet_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "turkish_replay_packet_removed"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_002",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "replay_stage_to_preserve": "appeal recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "turkish_replay_packet_removed"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": true,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": true,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_005",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "clinical_domain": "laboratory result wording",
+      "control_type": "aligned_recheck_trace_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "compare",
+      "observed_decision_route": "compare",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_005",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "replay_stage_to_preserve": "packet recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "compare source route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_006",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "clinical_domain": "laboratory result wording",
+      "control_type": "recheck_trace_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "recheck_trace_removed"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_005",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "replay_stage_to_preserve": "packet recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "recheck_trace_removed"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": true,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": true,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_007",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "clinical_domain": "follow up result wording",
+      "control_type": "aligned_appeal_context_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_006",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "replay_stage_to_preserve": "appeal recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reviewer hold route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_008",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "clinical_domain": "follow up result wording",
+      "control_type": "appeal_context_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "appeal_context_removed"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_006",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "replay_stage_to_preserve": "appeal recheck stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "appeal_context_removed"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": true,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": true,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_009",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "clinical_domain": "source support excerpt wording",
+      "control_type": "aligned_route_owner_handoff_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "compare",
+      "observed_decision_route": "compare",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_007",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "replay_stage_to_preserve": "route owner handoff stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "compare source route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_010",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "clinical_domain": "source support excerpt wording",
+      "control_type": "route_owner_handoff_missing",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "route_owner_handoff_missing"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_007",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "replay_stage_to_preserve": "route owner handoff stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "route_owner_handoff_missing"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": true,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": true,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_011",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "clinical_domain": "multilingual translation wording",
+      "control_type": "aligned_authority_claim_absent",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_008",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "replay_stage_to_preserve": "route owner handoff stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_012",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "clinical_domain": "multilingual translation wording",
+      "control_type": "authority_claim_created",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_handoff_replay_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "authority_claim_created"
+      ],
+      "reviewer_handoff_replay_map": [
+        {
+          "claim_id": "mmi_replay_claim_008",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "replay_stage_to_preserve": "route owner handoff stage",
+          "rationale_to_preserve": "decision reason stays reproducible",
+          "reviewer_owner_to_preserve": "source reviewer owner stays visible",
+          "unresolved_state_to_preserve": "unresolved disagreement stays visible",
+          "decision_route_to_preserve": "reject reuse route",
+          "evidence_summary_to_preserve": "short evidence summary stays attached",
+          "appeal_context_to_preserve": "appeal context stays attached",
+          "route_owner_handoff_to_preserve": "route owner handoff stays visible",
+          "replay_boundary": "local replay packet only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before replay review"
+        }
+      ],
+      "detected_reviewer_handoff_replay_signals": [
+        "authority_claim_created"
+      ],
+      "reviewer_handoff_replay_signals_declared": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": true
+      },
+      "reviewer_handoff_replay_signals_detected": {
+        "english_replay_packet_removed": false,
+        "turkish_replay_packet_removed": false,
+        "recheck_trace_removed": false,
+        "appeal_context_removed": false,
+        "route_owner_handoff_missing": false,
+        "authority_claim_created": true
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    }
+  ],
+  "pass_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_001",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_003",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_005",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_007",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_009",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_011"
+  ],
+  "blocked_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_002",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_004",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_006",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_008",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_010",
+    "MMI_CROSS_LANGUAGE_REVIEWER_HANDOFF_REPLAY_012"
+  ],
+  "reviewer_handoff_replay": {
+    "primary_question": "Does either language remove the replay packet, remove recheck trace, remove appeal context, drop route owner handoff, or create authority claim.",
+    "decision_order": [
+      "english_replay_packet_removed",
+      "turkish_replay_packet_removed",
+      "recheck_trace_removed",
+      "appeal_context_removed",
+      "route_owner_handoff_missing",
+      "authority_claim_created"
+    ],
+    "blocked_use": [
+      "patient care",
+      "clinical advice",
+      "translation clearance",
+      "reviewer handoff replay clearance",
+      "clinical validation claim",
+      "clinical deployment claim",
+      "model ranking claim"
+    ]
+  },
+  "release_boundary": {
+    "synthetic_only": true,
+    "patient_data_used": false,
+    "clinical_use_allowed": false,
+    "clinical_advice_allowed": false,
+    "external_urls_present": false,
+    "translation_clearance_claim_made": false,
+    "reviewer_handoff_replay_clearance_claim_made": false,
+    "authority_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "clinical_validation_claim_made": false,
+    "clinical_deployment_claim_made": false,
+    "model_superiority_claim_made": false,
+    "model_ranking_claim_made": false,
+    "partner_or_institution_claim_made": false,
+    "score_certification_claim_made": false,
+    "source_truth_certification_claim_made": false,
+    "external_publication_clearance": false,
+    "allowed_use": "Repo local synthetic cross language reviewer handoff replay scoring before public wording reuse.",
+    "not_allowed_use": "Patient care, clinical advice, translation clearance, reviewer handoff replay clearance, external publication clearance, model ranking, or authority claim."
+  },
+  "blockers": [],
+  "exact_next_action": "Add cross language reviewer replay audit trail controls so replay attempts, comparison result, owner signoff state, and unresolved branch remain reproducible without authority claim."
+}

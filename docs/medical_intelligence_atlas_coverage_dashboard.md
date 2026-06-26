@@ -2,7 +2,7 @@
 
 Source data: `data/medical_intelligence_atlas_coverage_matrix_v0_1_20260625.json`
 
-Rows: 22
+Rows: 23
 
 Boundary: this dashboard uses the source coverage data only and does not assert clinical readiness.
 
@@ -20,7 +20,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 
 | Status | Rows |
 | --- | --- |
-| direct fixture coverage | 22 |
+| direct fixture coverage | 23 |
 
 ## Layer Coverage
 
@@ -31,7 +31,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 | Clinical Trajectory Engine | 2 | 2 |
 | Medical Intelligence Atlas | 2 | 2 |
 | Medical Reasoning Verifier | 2 | 2 |
-| Multilingual Medical Intelligence | 12 | 12 |
+| Multilingual Medical Intelligence | 13 | 13 |
 
 ## Open Gaps
 
@@ -61,5 +61,6 @@ No open gaps were found in the source data.
 | Multilingual Medical Intelligence | mia_mmi_010 |  | direct fixture coverage |  |  | cross language reviewer conflict triage controls | ["mmi_cross_language_reviewer_conflict_triage_controls", "mmi_cross_language_reviewer_conflict_triage_report", "mmi_cross_language_reviewer_conflict_triage_report_doc", "mmi_cross_language_reviewer_conflict_triage_scorer", "mmi_cross_language_reviewer_conflict_triage_validator"] | ["twelve synthetic reviewer conflict triage controls", "six pass controls", "six blocked controls", "reviewer hold route preservation", "compare route preservation", "reject route preservation", "unresolved conflict state preservation", "triage state label preservation"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"] |
 | Multilingual Medical Intelligence | mia_mmi_011 | cross language reviewer decision rationale controls | direct fixture coverage | ["mmi_cross_language_reviewer_decision_rationale_controls", "mmi_cross_language_reviewer_decision_rationale_report", "mmi_cross_language_reviewer_decision_rationale_report_doc", "mmi_cross_language_reviewer_decision_rationale_scorer", "mmi_cross_language_reviewer_decision_rationale_validator"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py"] |  |  | ["twelve synthetic reviewer decision rationale controls", "six pass controls", "six blocked controls", "decision rationale preservation", "reviewer owner preservation", "unresolved state preservation", "decision boundary preservation", "authority claim absence"] |  |
 | Multilingual Medical Intelligence | mia_mmi_012 | cross language reviewer handoff packet controls | direct fixture coverage | ["mmi_cross_language_reviewer_handoff_packet_controls", "mmi_cross_language_reviewer_handoff_packet_report", "mmi_cross_language_reviewer_handoff_packet_report_doc", "mmi_cross_language_reviewer_handoff_packet_scorer", "mmi_cross_language_reviewer_handoff_packet_validator"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py"] |  |  | ["twelve synthetic reviewer handoff packet controls", "six pass controls", "six blocked controls", "rationale preservation", "reviewer owner preservation", "unresolved state preservation", "route state preservation", "evidence summary preservation", "authority claim absence"] |  |
+| Multilingual Medical Intelligence | mia_mmi_013 | cross language reviewer handoff replay controls | direct fixture coverage | ["mmi_cross_language_reviewer_handoff_replay_controls", "mmi_cross_language_reviewer_handoff_replay_report", "mmi_cross_language_reviewer_handoff_replay_report_doc", "mmi_cross_language_reviewer_handoff_replay_scorer", "mmi_cross_language_reviewer_handoff_replay_validator"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_replay_report_v0_1_20260625.py"] |  |  | ["twelve synthetic reviewer handoff replay controls", "six pass controls", "six blocked controls", "recheck trace preservation", "appeal context preservation", "route owner handoff preservation", "rationale preservation", "reviewer owner preservation", "unresolved state preservation", "route state preservation", "evidence summary preservation", "authority claim absence"] |  |
 | Medical Intelligence Atlas | mia_atlas_001 |  | direct fixture coverage |  |  | node registry | ["atlas_registry", "stack_config", "atlas_markdown"] | ["twenty two atlas nodes", "input output validator risk gate and next build fields", "stack layer alignment"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py", "scripts/validate_clinical_intelligence_stack_20260625.py"] |
 | Medical Intelligence Atlas | mia_atlas_002 |  | direct fixture coverage |  |  | release readiness map | ["atlas_registry", "atlas_markdown", "stack_config"] | ["ready blocked and needs source check release states", "validator bounded release status", "machine readable coverage matrix"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"] |
