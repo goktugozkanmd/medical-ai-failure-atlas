@@ -4263,15 +4263,15 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 69,
+    "expected_atlas_node_count": 70,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 69,
-    "expected_source_artifact_count": 321,
-    "expected_node_count": 69
+    "expected_coverage_row_count": 70,
+    "expected_source_artifact_count": 326,
+    "expected_node_count": 70
   },
   "summary": {
     "atlas_node_count": 70,
@@ -4279,10 +4279,10 @@
     "source_artifact_count": 326
   },
   "expected_counts": {
-    "expected_atlas_node_count": 69,
-    "expected_coverage_row_count": 69,
-    "expected_source_artifact_count": 321,
-    "expected_node_count": 69,
+    "expected_atlas_node_count": 70,
+    "expected_coverage_row_count": 70,
+    "expected_source_artifact_count": 326,
+    "expected_node_count": 70,
     "atlas_node_count": 70,
     "coverage_row_count": 70,
     "source_artifact_count": 326
