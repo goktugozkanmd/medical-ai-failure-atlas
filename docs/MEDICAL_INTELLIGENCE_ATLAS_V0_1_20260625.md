@@ -803,6 +803,20 @@ Risk gate: closure archive reuse release handoff closure archive reuse release h
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff controls
 
+### mia_mmi_049 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff controls
+
+Input: released closure archive reuse release handoff closure archive reuse release handoff closure archive reuse packet, source attachment map, archive snapshot, reopenability state, and handoff boundary
+
+Output: handed off closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release packet with source attachments and reopenability preserved before downstream closure
+
+Validator: each MMI 049 closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability or block the handed off packet
+
+Risk gate: closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff packets cannot imply authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
