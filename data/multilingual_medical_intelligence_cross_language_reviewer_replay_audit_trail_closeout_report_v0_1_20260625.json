@@ -1,0 +1,797 @@
+{
+  "report_id": "multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625",
+  "report_type": "machine_readable_cross_language_reviewer_replay_audit_trail_closeout_report",
+  "report_version": "v0_1_20260625",
+  "generated_date": "20260625",
+  "atlas_layer": "Multilingual Medical Intelligence",
+  "atlas_node_id": "mia_mmi_015",
+  "status": "local_fixture_pass",
+  "report_scope": "local_fixture_cross_language_reviewer_replay_audit_trail_closeout_gate_only",
+  "scope": "Local synthetic cross language controls for reviewer replay audit trail closeout reproducibility across closeout decision, dissent note, owner final state, unresolved branch closure boundary, closure comparison result, and authority claim drift.",
+  "artifact_paths": {
+    "rewrite_candidates": "data/multilingual_medical_intelligence_public_wording_rewrite_candidates_v0_1_20260625.jsonl",
+    "cross_language_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.jsonl",
+    "cross_language_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.json",
+    "cross_language_report_markdown": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_REPORT_V0_1_20260625.md",
+    "scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.py",
+    "validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.py"
+  },
+  "validation": {
+    "scorer_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.py --check",
+    "validator_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.py",
+    "make_target": "make multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_controls",
+    "expected_result": "pass"
+  },
+  "score_summary": {
+    "control_count": 12,
+    "expected_pass_controls": 6,
+    "expected_fail_controls": 6,
+    "observed_pass_controls": 6,
+    "observed_blocked_controls": 6,
+    "source_candidate_coverage_count": 6,
+    "source_row_coverage_count": 6,
+    "status_mismatch_count": 0,
+    "decision_route_mismatch_count": 0,
+    "review_outcome_mismatch_count": 0
+  },
+  "decision_route_counts": {
+    "expected": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    },
+    "observed": {
+      "compare": 2,
+      "reject": 7,
+      "reviewer_hold": 3
+    }
+  },
+  "cross_language_signal_counts": {
+    "declared_true": {
+      "closeout_decision_removed": 1,
+      "dissent_note_removed": 1,
+      "owner_final_state_removed": 1,
+      "unresolved_branch_closure_boundary_removed": 1,
+      "closure_comparison_result_removed": 1,
+      "authority_claim_created": 1
+    },
+    "detected_true": {
+      "closeout_decision_removed": 1,
+      "dissent_note_removed": 1,
+      "owner_final_state_removed": 1,
+      "unresolved_branch_closure_boundary_removed": 1,
+      "closure_comparison_result_removed": 1,
+      "authority_claim_created": 1
+    },
+    "mismatch_count": 0
+  },
+  "failure_reason_counts": {
+    "closeout_decision_removed": 1,
+    "dissent_note_removed": 1,
+    "owner_final_state_removed": 1,
+    "unresolved_branch_closure_boundary_removed": 1,
+    "closure_comparison_result_removed": 1,
+    "authority_claim_created": 1
+  },
+  "control_results": [
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_001",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "clinical_domain": "emergency symptom wording",
+      "control_type": "aligned_closeout_decision_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_001",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reviewer hold closeout route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_002",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_001",
+      "source_row_id": "MMI_PUBLIC_WORDING_001",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_001",
+      "clinical_domain": "emergency symptom wording",
+      "control_type": "closeout_decision_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "closeout_decision_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_001",
+          "source_scope": "emergency symptom wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "closeout_decision_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": true,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": true,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_003",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "clinical_domain": "medication safety wording",
+      "control_type": "aligned_dissent_note_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_002",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reviewer hold closeout route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_004",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_003",
+      "source_row_id": "MMI_PUBLIC_WORDING_002",
+      "source_state_pair_id": "MMI_PAIR_002",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_002",
+      "clinical_domain": "medication safety wording",
+      "control_type": "dissent_note_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "dissent_note_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_002",
+          "source_scope": "medication safety wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "dissent_note_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": true,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": true,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_005",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "clinical_domain": "laboratory result wording",
+      "control_type": "aligned_closure_comparison_result_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "compare",
+      "observed_decision_route": "compare",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_003",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "compare before closeout route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_006",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_009",
+      "source_row_id": "MMI_PUBLIC_WORDING_005",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_005",
+      "clinical_domain": "laboratory result wording",
+      "control_type": "closure_comparison_result_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "closure_comparison_result_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_003",
+          "source_scope": "laboratory result wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "closure_comparison_result_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": true,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": true,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_007",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "clinical_domain": "follow up result wording",
+      "control_type": "aligned_owner_final_state_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reviewer_hold",
+      "observed_decision_route": "reviewer_hold",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_004",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reviewer hold closeout route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_008",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_011",
+      "source_row_id": "MMI_PUBLIC_WORDING_006",
+      "source_state_pair_id": "MMI_PAIR_006",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_006",
+      "clinical_domain": "follow up result wording",
+      "control_type": "owner_final_state_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "owner_final_state_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_004",
+          "source_scope": "follow up result wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "owner_final_state_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": true,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": true,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_009",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "clinical_domain": "source support excerpt wording",
+      "control_type": "aligned_unresolved_branch_closure_boundary_preserved",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "compare",
+      "observed_decision_route": "compare",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_005",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "compare before closeout route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_010",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_013",
+      "source_row_id": "MMI_PUBLIC_WORDING_007",
+      "source_state_pair_id": "MMI_PAIR_005",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_007",
+      "clinical_domain": "source support excerpt wording",
+      "control_type": "unresolved_branch_closure_boundary_removed",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "unresolved_branch_closure_boundary_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_005",
+          "source_scope": "source support excerpt wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "unresolved_branch_closure_boundary_removed"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": true,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": true,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_011",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "clinical_domain": "multilingual translation wording",
+      "control_type": "aligned_authority_claim_absent",
+      "expected_status": "pass",
+      "observed_status": "pass",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_006",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": false
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    },
+    {
+      "control_id": "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_012",
+      "source_candidate_id": "MMI_PUBLIC_WORDING_REWRITE_CANDIDATE_015",
+      "source_row_id": "MMI_PUBLIC_WORDING_008",
+      "source_state_pair_id": "MMI_PAIR_001",
+      "source_negative_control_id": "MMI_PUBLIC_WORDING_DRIFT_NEG_008",
+      "clinical_domain": "multilingual translation wording",
+      "control_type": "authority_claim_created",
+      "expected_status": "fail",
+      "observed_status": "fail",
+      "expected_decision_route": "reject",
+      "observed_decision_route": "reject",
+      "decision_route_match": true,
+      "expected_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "observed_review_outcome": "routes_to_cross_language_reviewer_replay_audit_trail_closeout_state",
+      "status_match": true,
+      "review_outcome_match": true,
+      "expected_failure_reasons": [
+        "authority_claim_created"
+      ],
+      "reviewer_replay_audit_trail_closeout_map": [
+        {
+          "claim_id": "mmi_replay_closeout_claim_006",
+          "source_scope": "multilingual translation wording synthetic disagreement",
+          "closeout_decision_to_preserve": "closeout decision remains explicit",
+          "dissent_note_to_preserve": "dissent note remains attached",
+          "owner_final_state_to_preserve": "owner final state remains visible",
+          "unresolved_branch_closure_boundary_to_preserve": "unresolved branch closure boundary remains explicit",
+          "closure_comparison_result_to_preserve": "closure comparison result remains attached",
+          "decision_route_to_preserve": "reject closeout reuse route",
+          "closeout_boundary": "local closeout record only",
+          "forbidden_authority_claim": "authority approval or official clearance",
+          "reuse_boundary": "no public reuse before closeout review"
+        }
+      ],
+      "detected_reviewer_replay_audit_trail_closeout_signals": [
+        "authority_claim_created"
+      ],
+      "reviewer_replay_audit_trail_closeout_signals_declared": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": true
+      },
+      "reviewer_replay_audit_trail_closeout_signals_detected": {
+        "closeout_decision_removed": false,
+        "dissent_note_removed": false,
+        "owner_final_state_removed": false,
+        "unresolved_branch_closure_boundary_removed": false,
+        "closure_comparison_result_removed": false,
+        "authority_claim_created": true
+      },
+      "source_candidate_expected_status": "pass",
+      "boundary_pass": true
+    }
+  ],
+  "pass_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_001",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_003",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_005",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_007",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_009",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_011"
+  ],
+  "blocked_control_ids": [
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_002",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_004",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_006",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_008",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_010",
+    "MMI_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_012"
+  ],
+  "reviewer_replay_audit_trail_closeout": {
+    "primary_question": "Does either language remove closeout decision, remove dissent note, remove owner final state, remove unresolved branch closure boundary, remove closure comparison result, or create authority claim.",
+    "decision_order": [
+      "closeout_decision_removed",
+      "dissent_note_removed",
+      "owner_final_state_removed",
+      "unresolved_branch_closure_boundary_removed",
+      "closure_comparison_result_removed",
+      "authority_claim_created"
+    ],
+    "blocked_use": [
+      "patient care",
+      "clinical advice",
+      "translation clearance",
+      "reviewer replay audit trail closeout clearance",
+      "clinical validation claim",
+      "clinical deployment claim",
+      "model ranking claim"
+    ]
+  },
+  "release_boundary": {
+    "synthetic_only": true,
+    "patient_data_used": false,
+    "clinical_use_allowed": false,
+    "clinical_advice_allowed": false,
+    "external_urls_present": false,
+    "translation_clearance_claim_made": false,
+    "reviewer_replay_audit_trail_closeout_clearance_claim_made": false,
+    "authority_claim_made": false,
+    "diagnosis_or_treatment_instruction_allowed": false,
+    "clinical_validation_claim_made": false,
+    "clinical_deployment_claim_made": false,
+    "model_superiority_claim_made": false,
+    "model_ranking_claim_made": false,
+    "partner_or_institution_claim_made": false,
+    "score_certification_claim_made": false,
+    "source_truth_certification_claim_made": false,
+    "external_publication_clearance": false,
+    "allowed_use": "Repo local synthetic cross language reviewer replay audit trail closeout scoring before public wording reuse.",
+    "not_allowed_use": "Patient care, clinical advice, translation clearance, reviewer replay audit trail closeout clearance, external publication clearance, model ranking, or authority claim."
+  },
+  "blockers": [],
+  "exact_next_action": "Add cross language reviewer closeout ledger export controls so closeout decision, dissent note, owner final state, closure comparison result, and unresolved branch closure boundary remain exportable without authority or clearance claim."
+}

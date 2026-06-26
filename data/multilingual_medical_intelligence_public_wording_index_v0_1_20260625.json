@@ -91,7 +91,12 @@
     "cross_language_reviewer_replay_audit_trail_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.json",
     "cross_language_reviewer_replay_audit_trail_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_REPORT_V0_1_20260625.md",
     "cross_language_reviewer_replay_audit_trail_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_controls_v0_1_20260625.py",
-    "cross_language_reviewer_replay_audit_trail_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.py"
+    "cross_language_reviewer_replay_audit_trail_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.py",
+    "cross_language_reviewer_replay_audit_trail_closeout_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_replay_audit_trail_closeout_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.json",
+    "cross_language_reviewer_replay_audit_trail_closeout_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_CLOSEOUT_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_replay_audit_trail_closeout_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.py",
+    "cross_language_reviewer_replay_audit_trail_closeout_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -207,7 +212,15 @@
     "expected_cross_language_reviewer_replay_audit_trail_pass_controls": 6,
     "expected_cross_language_reviewer_replay_audit_trail_blocked_controls": 6,
     "expected_cross_language_reviewer_replay_audit_trail_signal_types": 6,
-    "expected_cross_language_reviewer_replay_audit_trail_decision_route_types": 3
+    "expected_cross_language_reviewer_replay_audit_trail_decision_route_types": 3,
+    "cross_language_reviewer_replay_audit_trail_closeout_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_replay_audit_trail_closeout_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_closeout_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_status": "local_fixture_pass",
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_control_count": 12,
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_pass_controls": 6,
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_blocked_controls": 6,
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_signal_types": 6,
+    "expected_cross_language_reviewer_replay_audit_trail_closeout_decision_route_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -614,7 +627,10 @@
       "confirm reviewer handoff replay clearance absence before public use",
       "run reviewer replay audit trail scorer",
       "run reviewer replay audit trail report validator",
-      "confirm reviewer replay audit trail clearance absence before public use"
+      "confirm reviewer replay audit trail clearance absence before public use",
+      "run reviewer replay audit trail closeout scorer",
+      "run reviewer replay audit trail closeout report validator",
+      "confirm reviewer replay audit trail closeout clearance absence before public use"
     ],
     "cross_language_reviewer_handoff_packet_report": [
       "reviewer handoff packet preservation",
@@ -644,6 +660,15 @@
       "owner signoff state preservation",
       "unresolved branch preservation",
       "decision route preservation",
+      "authority claim absence"
+    ],
+    "cross_language_reviewer_replay_audit_trail_closeout_report": [
+      "reviewer replay audit trail closeout reproducibility",
+      "closeout decision preservation",
+      "dissent note preservation",
+      "owner final state preservation",
+      "unresolved branch closure boundary preservation",
+      "closure comparison result preservation",
       "authority claim absence"
     ]
   }

@@ -232,6 +232,16 @@
       "next_build": "cross language reviewer replay audit trail closeout controls"
     },
     {
+      "id": "mia_mmi_015",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "cross language reviewer replay audit trail closeout controls",
+      "input": "synthetic Turkish English reviewer replay audit trail closeout control rows",
+      "output": "reviewer replay audit trail closeout reproducibility report",
+      "validator": "reviewer replay audit trail closeout report must remain local fixture only and must preserve closeout decision, dissent note, owner final state, closure comparison result, unresolved branch closure boundary, and authority claim absence across reviewer hold, compare, and reject routes",
+      "risk_gate": "translation must not remove closeout decision, remove dissent note, remove owner final state, erase unresolved branch closure boundary, remove closure comparison result, or create authority claims",
+      "next_build": "cross language reviewer closeout ledger export controls"
+    },
+    {
       "id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "artifact": "node registry",

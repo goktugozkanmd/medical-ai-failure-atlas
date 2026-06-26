@@ -327,6 +327,20 @@ Risk gate: translation must not remove audit trail, remove comparison result, re
 
 Next build: cross language reviewer replay audit trail closeout controls
 
+### mia_mmi_015 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer replay audit trail closeout controls
+
+Input: synthetic Turkish English reviewer replay audit trail closeout control rows
+
+Output: reviewer replay audit trail closeout reproducibility report
+
+Validator: reviewer replay audit trail closeout report must remain local fixture only and must preserve closeout decision, dissent note, owner final state, closure comparison result, unresolved branch closure boundary, and authority claim absence across reviewer hold, compare, and reject routes
+
+Risk gate: translation must not remove closeout decision, remove dissent note, remove owner final state, erase unresolved branch closure boundary, remove closure comparison result, or create authority claims
+
+Next build: cross language reviewer closeout ledger export controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
