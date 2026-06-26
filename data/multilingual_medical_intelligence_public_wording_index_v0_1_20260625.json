@@ -361,7 +361,12 @@
     "mmi_068_archive_reuse_release_gate_report": "data/mmi_068_archive_reuse_release_gate_report_v0_1_20260625.json",
     "mmi_068_archive_reuse_release_gate_report_doc": "docs/MMI_068_ARCHIVE_REUSE_RELEASE_GATE_REPORT_V0_1_20260625.md",
     "mmi_068_archive_reuse_release_gate_scorer": "scripts/score_mmi_068_archive_reuse_release_gate_controls_v0_1_20260625.py",
-    "mmi_068_archive_reuse_release_gate_validator": "scripts/validate_mmi_068_archive_reuse_release_gate_report_v0_1_20260625.py"
+    "mmi_068_archive_reuse_release_gate_validator": "scripts/validate_mmi_068_archive_reuse_release_gate_report_v0_1_20260625.py",
+    "mmi_069_archive_reuse_release_handoff_gate_controls": "data/mmi_069_archive_reuse_release_handoff_gate_controls_v0_1_20260625.jsonl",
+    "mmi_069_archive_reuse_release_handoff_gate_report": "data/mmi_069_archive_reuse_release_handoff_gate_report_v0_1_20260625.json",
+    "mmi_069_archive_reuse_release_handoff_gate_report_doc": "docs/MMI_069_ARCHIVE_REUSE_RELEASE_HANDOFF_GATE_REPORT_V0_1_20260625.md",
+    "mmi_069_archive_reuse_release_handoff_gate_scorer": "scripts/score_mmi_069_archive_reuse_release_handoff_gate_controls_v0_1_20260625.py",
+    "mmi_069_archive_reuse_release_handoff_gate_validator": "scripts/validate_mmi_069_archive_reuse_release_handoff_gate_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1633,6 +1638,11 @@
       "synthetic repo controls only",
       "source attachment and archive reopenability boundaries during archive reuse release",
       "authority or clearance claims are blocked"
+    ],
+    "mmi_069_archive_reuse_release_handoff_gate_report": [
+      "synthetic repo controls only",
+      "source attachment and archive reopenability boundaries during archive reuse release handoff",
+      "no patient data clinical advice validation deployment ranking superiority partner institution regulatory publication authority or clearance claim"
     ]
   },
   "report_index": {
@@ -1844,6 +1854,10 @@
     "mmi_068_archive_reuse_release_gate_report": [
       "data/mmi_068_archive_reuse_release_gate_report_v0_1_20260625.json",
       "docs/MMI_068_ARCHIVE_REUSE_RELEASE_GATE_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_069_archive_reuse_release_handoff_gate_report": [
+      "data/mmi_069_archive_reuse_release_handoff_gate_report_v0_1_20260625.json",
+      "docs/MMI_069_ARCHIVE_REUSE_RELEASE_HANDOFF_GATE_REPORT_V0_1_20260625.md"
     ]
   }
 }
