@@ -141,7 +141,12 @@
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_v0_1_20260625.json",
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_REPORT_V0_1_20260625.md",
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_controls_v0_1_20260625.py",
-    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_v0_1_20260625.py"
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_v0_1_20260625.py",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_v0_1_20260625.json",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_controls_v0_1_20260625.py",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -337,7 +342,15 @@
     "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_pass_controls": 8,
     "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_blocked_controls": 8,
     "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_signal_types": 8,
-    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_decision_route_types": 3
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_decision_route_types": 3,
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_status": "pass",
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_control_count": 16,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_pass_controls": 8,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_blocked_controls": 8,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_signal_types": 8,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_decision_route_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -551,7 +564,10 @@
       "confirm source date population setting and applicability limits before public use",
       "run release handoff scorer",
       "run release handoff report validator",
-      "confirm no handoff clearance claim before public use"
+      "confirm no handoff clearance claim before public use",
+      "run release handoff closure scorer",
+      "run release handoff closure report validator",
+      "confirm no release handoff closure authority or clearance claim"
     ],
     "cross_language_source_recency_applicability_report": [
       "twelve synthetic cross language source recency and applicability controls",
@@ -610,7 +626,8 @@
       "archive snapshot replay archive rollup release handoff preservation",
       "archive reopenability replay archive rollup release handoff preservation",
       "authority or clearance claim absence"
-    ]
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report": "keeps release handoff closure packets tied to source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability without authority or clearance claim"
   },
   "planned_rows": [
     {
@@ -771,7 +788,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure controls",
+  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -903,6 +920,16 @@
       "archive snapshot preservation during handoff reuse",
       "archive reopenability preservation during handoff reuse",
       "authority or clearance claim absence"
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report": [
+      "sixteen synthetic reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure controls",
+      "eight pass controls",
+      "eight blocked controls",
+      "eight replay archive rollup release handoff closure signal types",
+      "reviewer hold compare reject routing during handoff closure",
+      "archive snapshot preservation during handoff closure",
+      "archive reopenability preservation during handoff closure",
+      "authority or clearance claim absence"
     ]
   },
   "report_index": {
@@ -938,6 +965,10 @@
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report": [
       "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_report_v0_1_20260625.json",
       "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_REPORT_V0_1_20260625.md"
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report": [
+      "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_report_v0_1_20260625.json",
+      "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md"
     ]
   }
 }
