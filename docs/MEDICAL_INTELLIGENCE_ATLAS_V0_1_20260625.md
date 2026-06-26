@@ -285,6 +285,20 @@ Risk gate: translation must not remove rationale, change reviewer owner, erase u
 
 Next build: cross language reviewer handoff packet controls
 
+### mia_mmi_012 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer handoff packet controls
+
+Input: synthetic Turkish English reviewer handoff packet control rows
+
+Output: reviewer handoff packet routing report
+
+Validator: reviewer handoff packet report must remain local fixture only and must preserve rationale, reviewer owner, unresolved state, route, evidence summary, and authority claim absence across reviewer hold, compare, and reject routes
+
+Risk gate: translation must not remove handoff packet, remove evidence summary, drift route state, drop reviewer owner, or create authority claims
+
+Next build: cross language reviewer handoff replay controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

@@ -17,7 +17,7 @@
     "atlas_registry": {
       "path": "data/medical_intelligence_atlas_v0_1_20260625.json",
       "kind": "atlas node registry",
-      "record_count": 21,
+      "record_count": 22,
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
@@ -708,6 +708,47 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_packet_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic reviewer handoff packet controls",
+      "record_count": 12,
+      "expected_pass_controls": 6,
+      "expected_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_packet_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.json",
+      "kind": "machine readable reviewer handoff packet report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_packet_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_PACKET_REPORT_V0_1_20260625.md",
+      "kind": "reviewer handoff packet documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_packet_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
+      "kind": "reviewer handoff packet scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_handoff_packet_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py",
+      "kind": "reviewer handoff packet validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -1210,6 +1251,34 @@
       ]
     },
     {
+      "layer": "Multilingual Medical Intelligence",
+      "node_id": "mia_mmi_012",
+      "coverage_status": "direct fixture coverage",
+      "artifact": "cross language reviewer handoff packet controls",
+      "evidence": [
+        "mmi_cross_language_reviewer_handoff_packet_controls",
+        "mmi_cross_language_reviewer_handoff_packet_report",
+        "mmi_cross_language_reviewer_handoff_packet_report_doc",
+        "mmi_cross_language_reviewer_handoff_packet_scorer",
+        "mmi_cross_language_reviewer_handoff_packet_validator"
+      ],
+      "coverage_focus": [
+        "twelve synthetic reviewer handoff packet controls",
+        "six pass controls",
+        "six blocked controls",
+        "rationale preservation",
+        "reviewer owner preservation",
+        "unresolved state preservation",
+        "route state preservation",
+        "evidence summary preservation",
+        "authority claim absence"
+      ],
+      "validator": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py"
+      ]
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -1219,7 +1288,7 @@
         "atlas_markdown"
       ],
       "coverage_focus": [
-        "twenty atlas nodes",
+        "twenty two atlas nodes",
         "input output validator risk gate and next build fields",
         "stack layer alignment"
       ],
@@ -1258,8 +1327,8 @@
     "requires_boundary_flags": true
   },
   "summary": {
-    "atlas_node_count": 19,
-    "coverage_row_count": 19,
-    "source_artifact_count": 71
+    "atlas_node_count": 22,
+    "coverage_row_count": 22,
+    "source_artifact_count": 86
   }
 }

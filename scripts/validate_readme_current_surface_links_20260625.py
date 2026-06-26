@@ -102,6 +102,11 @@ REQUIRED_LINKS = {
     "data/multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.json",
     "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
     "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py",
+    "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.jsonl",
+    "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_PACKET_REPORT_V0_1_20260625.md",
+    "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.json",
+    "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
+    "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py",
 }
 
 REQUIRED_PHRASES = [
@@ -176,7 +181,7 @@ REQUIRED_PHRASES = [
     "machine readable repo construction map",
     "build nodes, validators, risk gates, release states, and exact next builds",
     "Medical Intelligence Atlas Coverage Dashboard",
-    "maps twenty one atlas nodes to local runtime artifacts",
+    "maps twenty two atlas nodes to local runtime artifacts",
     "validators, coverage focus, and open gap state",
     "Medical Intelligence Atlas Release Gate",
     "release gate for six Clinical Intelligence Stack layers",
@@ -347,6 +352,10 @@ REQUIRED_PHRASES = [
     "Multilingual Medical Intelligence cross language reviewer decision rationale scorer",
     "rationale removal, reviewer owner drift, unresolved state erasure, decision boundary broadening, and authority claim creation",
     "Multilingual Medical Intelligence cross language reviewer decision rationale validator",
+    "Multilingual Medical Intelligence cross language reviewer handoff packet controls",
+    "reviewer handoff packet signal types",
+    "evidence summary removal",
+    "make multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls",
     "reviewer decision rationale map shape",
     "make multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls",
     "six reviewer decision rationale signal types",
@@ -358,8 +367,8 @@ REQUIRED_PHRASES = [
     "make medical_intelligence_atlas",
     "make multilingual_medical_intelligence_source_check",
     "make multilingual_medical_intelligence_public_wording_bank",
-    "checks passing rows, expected fail drift controls, drift signal counts, failure reason counts, reviewer triage, rewrite candidate scoring, blocked candidate counts, cross language ambiguity controls, cross language negation audience controls, cross language scope anchor controls, cross language temporal progression controls, cross language uncertainty calibration controls, cross language source support scope reconciliation controls, cross language source recency applicability controls, cross language source conflict provenance controls, cross language reviewer conflict triage controls, cross language reviewer decision rationale controls, and translation clearance absence without score certification",
-    "multilingual paired state source checks, public wording bank checks, drift negative controls, public wording drift score report, rewrite candidate score report, cross language ambiguity report, cross language negation audience report, cross language scope anchor report, cross language temporal progression report, cross language uncertainty calibration report, cross language source support scope reconciliation report, cross language source recency applicability report, source conflict provenance report, reviewer conflict triage report, reviewer decision rationale report, and exact next action state",
+    "checks passing rows, expected fail drift controls, drift signal counts, failure reason counts, reviewer triage, rewrite candidate scoring, blocked candidate counts, cross language ambiguity controls, cross language negation audience controls, cross language scope anchor controls, cross language temporal progression controls, cross language uncertainty calibration controls, cross language source support scope reconciliation controls, cross language source recency applicability controls, cross language source conflict provenance controls, cross language reviewer conflict triage controls, cross language reviewer decision rationale controls, cross language reviewer handoff packet controls, and translation clearance absence without score certification",
+    "multilingual paired state source checks, public wording bank checks, drift negative controls, public wording drift score report, rewrite candidate score report, cross language ambiguity report, cross language negation audience report, cross language scope anchor report, cross language temporal progression report, cross language uncertainty calibration report, cross language source support scope reconciliation report, cross language source recency applicability report, source conflict provenance report, reviewer conflict triage report, reviewer decision rationale report, reviewer handoff packet report, and exact next action state",
     "public navigation and claim hygiene materials only",
     "not submissions, applications, merge decisions",
 ]

@@ -184,7 +184,12 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_DECISION_RATIONALE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_PACKET_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
@@ -201,7 +206,8 @@
         "mia_mmi_008",
         "mia_mmi_009",
         "mia_mmi_010",
-        "mia_mmi_011"
+        "mia_mmi_011",
+        "mia_mmi_012"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -225,7 +231,13 @@
         "cross_language_reviewer_decision_rationale_pass_controls": 6,
         "cross_language_reviewer_decision_rationale_blocked_controls": 6,
         "cross_language_reviewer_decision_rationale_signal_types": 6,
-        "cross_language_reviewer_decision_rationale_decision_routes": 3
+        "cross_language_reviewer_decision_rationale_decision_routes": 3,
+        "cross_language_reviewer_handoff_packet_checker_result": "pass",
+        "cross_language_reviewer_handoff_packet_controls": 12,
+        "cross_language_reviewer_handoff_packet_pass_controls": 6,
+        "cross_language_reviewer_handoff_packet_blocked_controls": 6,
+        "cross_language_reviewer_handoff_packet_signal_types": 6,
+        "cross_language_reviewer_handoff_packet_decision_routes": 3
       },
       "boundary_flags": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -260,7 +272,14 @@
         "decision_boundary_broadening_blocked": true,
         "authority_claim_creation_blocked": true,
         "reviewer_decision_rationale_clearance_claim_made": false,
-        "authority_claim_made": false
+        "authority_claim_made": false,
+        "cross_language_reviewer_handoff_packet_report_ready": true,
+        "english_handoff_packet_removal_blocked": true,
+        "turkish_handoff_packet_removal_blocked": true,
+        "evidence_summary_removal_blocked": true,
+        "route_state_drift_blocked": true,
+        "reviewer_owner_missing_blocked": true,
+        "reviewer_handoff_packet_clearance_claim_made": false
       },
       "synthetic_boundary": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -295,9 +314,16 @@
         "decision_boundary_broadening_blocked": true,
         "authority_claim_creation_blocked": true,
         "reviewer_decision_rationale_clearance_claim_made": false,
-        "authority_claim_made": false
+        "authority_claim_made": false,
+        "cross_language_reviewer_handoff_packet_report_ready": true,
+        "english_handoff_packet_removal_blocked": true,
+        "turkish_handoff_packet_removal_blocked": true,
+        "evidence_summary_removal_blocked": true,
+        "route_state_drift_blocked": true,
+        "reviewer_owner_missing_blocked": true,
+        "reviewer_handoff_packet_clearance_claim_made": false
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, and reviewer decision rationale controls pass validation while preserving rationale, owner, unresolved state, reviewer hold, compare, reject, no authority claim, no translation clearance, no reviewer decision rationale clearance, no external publication clearance, and no score certification claim."
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, and reviewer handoff packet controls pass validation while preserving rationale, owner, unresolved state, route, evidence summary, reviewer hold, compare, reject, no authority claim, no translation clearance, no reviewer handoff packet clearance, no external publication clearance, and no score certification claim."
     },
     {
       "gate_id": "mia_rg_006",
@@ -453,7 +479,8 @@
         "mia_mmi_008",
         "mia_mmi_009",
         "mia_mmi_010",
-        "mia_mmi_011"
+        "mia_mmi_011",
+        "mia_mmi_012"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -528,7 +555,12 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_DECISION_RATIONALE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_HANDOFF_PACKET_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_handoff_packet_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -611,7 +643,14 @@
         "decision_boundary_broadening_blocked": true,
         "authority_claim_creation_blocked": true,
         "reviewer_decision_rationale_clearance_claim_made": false,
-        "authority_claim_made": false
+        "authority_claim_made": false,
+        "cross_language_reviewer_handoff_packet_report_ready": true,
+        "english_handoff_packet_removal_blocked": true,
+        "turkish_handoff_packet_removal_blocked": true,
+        "evidence_summary_removal_blocked": true,
+        "route_state_drift_blocked": true,
+        "reviewer_owner_missing_blocked": true,
+        "reviewer_handoff_packet_clearance_claim_made": false
       },
       "gate_inputs": {
         "tr_medllm_rows": 44,
@@ -693,9 +732,15 @@
         "cross_language_reviewer_decision_rationale_pass_controls": 6,
         "cross_language_reviewer_decision_rationale_blocked_controls": 6,
         "cross_language_reviewer_decision_rationale_signal_types": 6,
-        "cross_language_reviewer_decision_rationale_decision_routes": 3
+        "cross_language_reviewer_decision_rationale_decision_routes": 3,
+        "cross_language_reviewer_handoff_packet_checker_result": "pass",
+        "cross_language_reviewer_handoff_packet_controls": 12,
+        "cross_language_reviewer_handoff_packet_pass_controls": 6,
+        "cross_language_reviewer_handoff_packet_blocked_controls": 6,
+        "cross_language_reviewer_handoff_packet_signal_types": 6,
+        "cross_language_reviewer_handoff_packet_decision_routes": 3
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, and reviewer decision rationale controls pass validation while preserving rationale, owner, unresolved state, reviewer hold, compare, reject, no authority claim, no translation clearance, no reviewer decision rationale clearance, no external publication clearance, and no score certification claim.",
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, and reviewer handoff packet controls pass validation while preserving rationale, owner, unresolved state, route, evidence summary, reviewer hold, compare, reject, no authority claim, no translation clearance, no reviewer handoff packet clearance, no external publication clearance, and no score certification claim.",
       "blockers": [],
       "source_check_items": [],
       "boundary_flags": {

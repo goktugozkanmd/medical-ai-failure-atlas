@@ -202,6 +202,16 @@
       "next_build": "cross language reviewer handoff packet controls"
     },
     {
+      "id": "mia_mmi_012",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "cross language reviewer handoff packet controls",
+      "input": "synthetic Turkish English reviewer handoff packet control rows",
+      "output": "reviewer handoff packet routing report",
+      "validator": "reviewer handoff packet report must remain local fixture only and must preserve rationale, reviewer owner, unresolved state, route, evidence summary, and authority claim absence across reviewer hold, compare, and reject routes",
+      "risk_gate": "translation must not remove handoff packet, remove evidence summary, drift route state, drop reviewer owner, or create authority claims",
+      "next_build": "cross language reviewer handoff replay controls"
+    },
+    {
       "id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "artifact": "node registry",
