@@ -481,6 +481,20 @@ Risk gate: exception replay archive rollup release handoff closure cannot create
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive controls
 
+### mia_mmi_026 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive controls
+
+Input: closed handoff closure packets entering archive reuse with source attachment and reopenability state
+
+Output: reopenable replay exception archive rollup release handoff closure archive packet before reuse
+
+Validator: release handoff closure archive controls must keep source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot reopenability and authority or clearance claim absence attached during archive reuse
+
+Risk gate: exception replay archive rollup release handoff closure archive cannot create clearance or make archived handoff closure packets unreopenable
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
