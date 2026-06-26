@@ -1635,6 +1635,26 @@
     "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_validator": {
       "path": "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py",
       "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls": {
+      "path": "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.jsonl",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report": {
+      "path": "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.json",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_doc": {
+      "path": "docs/MMI_052_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_scorer": {
+      "path": "scripts/score_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.py",
+      "source_type": "repo local synthetic control artifact"
+    },
+    "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_validator": {
+      "path": "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py",
+      "source_type": "repo local synthetic control artifact"
     }
   },
   "coverage_rows": [
@@ -3501,6 +3521,52 @@
       ]
     },
     {
+      "node_id": "mia_mmi_052",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_doc",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_scorer",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_validator"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "primary_artifact": "docs/MMI_052_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
+      "validator": "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py",
+      "coverage_focus": [
+        "closure archive reuse release handoff closure archive reuse release handoff controls",
+        "source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability preservation during downstream reuse",
+        "authority clearance validation deployment ranking partner institution regulatory publication and clinical use clearance overclaim blocking"
+      ],
+      "local_validation_refs": [
+        "scripts/score_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py"
+      ],
+      "artifact_keys": [
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_doc",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_scorer",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_validator"
+      ],
+      "source_artifact_paths": [
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.json",
+        "docs/MMI_052_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py"
+      ],
+      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "source_artifact_keys": [
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_doc",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_scorer",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_validator"
+      ]
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -3541,24 +3607,24 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 61,
+    "expected_atlas_node_count": 62,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 61,
-    "expected_source_artifact_count": 281,
-    "expected_node_count": 61
+    "expected_coverage_row_count": 62,
+    "expected_source_artifact_count": 286,
+    "expected_node_count": 62
   },
   "summary": {
-    "atlas_node_count": 61,
-    "coverage_row_count": 61,
-    "source_artifact_count": 281
+    "atlas_node_count": 62,
+    "coverage_row_count": 62,
+    "source_artifact_count": 286
   },
   "expected_counts": {
-    "expected_atlas_node_count": 61,
-    "expected_coverage_row_count": 61,
-    "expected_source_artifact_count": 281
+    "expected_atlas_node_count": 62,
+    "expected_coverage_row_count": 62,
+    "expected_source_artifact_count": 286
   }
 }

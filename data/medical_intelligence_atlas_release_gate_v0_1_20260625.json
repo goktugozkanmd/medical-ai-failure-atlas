@@ -28,13 +28,13 @@
       "machine_meaning": "A local artifact marks source support as needed before claim bearing public use."
     }
   ],
-  "expected_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+  "expected_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
   "expected_risk_gate": "public release cannot outrun validators",
   "atlas_layer_source": {
     "config": "data/medical_intelligence_atlas_v0_1_20260625.json",
     "checker": "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
     "expected_layer_count": 6,
-    "expected_node_count": 61
+    "expected_node_count": 62
   },
   "release_gate_summary": {
     "layer_count": 6,
@@ -48,7 +48,7 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 61
+    "expected_atlas_node_count": 62
   },
   "release_gate_rows": [
     {
@@ -62,7 +62,7 @@
         "scripts/validate_clinical_state_language_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -76,7 +76,7 @@
         "scripts/validate_clinical_trajectory_engine_transitions_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -89,7 +89,7 @@
         "scripts/score_medical_reasoning_verifier_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -103,7 +103,7 @@
         "scripts/simulate_agentic_medicine_sandbox_event_flow_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -384,10 +384,15 @@
         "data/mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.json",
         "docs/MMI_051_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py"
+        "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py",
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.json",
+        "docs/MMI_052_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": [],
       "atlas_node_ids": [
@@ -741,7 +746,13 @@
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_pass_controls": 8,
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_blocked_controls": 8,
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_signal_types": 8,
-        "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3
+        "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_checker_result": "pass",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_control_count": 16,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_pass_controls": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_blocked_controls": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_signal_types": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_decision_route_types": 3
       },
       "boundary_flags": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -1083,11 +1094,11 @@
         "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 61
+        "atlas_nodes": 62
       }
     }
   ],
@@ -1121,7 +1132,7 @@
       "decision_reason": "The schema, source fixture, normalized fixture, and local checker pass on synthetic records with missing data and source support fields present.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     },
     {
       "layer": "Clinical Trajectory Engine",
@@ -1154,7 +1165,7 @@
       "decision_reason": "The transition fixture checker passes with state and transition boundaries, missing variable coverage, and red flag coverage.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     },
     {
       "layer": "Medical Reasoning Verifier",
@@ -1184,7 +1195,7 @@
       "decision_reason": "The scoring check matches expected pass and fail controls; expected fail rows are verifier controls, not release blockers.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     },
     {
       "layer": "Agentic Medicine Sandbox",
@@ -1217,7 +1228,7 @@
       "decision_reason": "The event fixture checker passes role order and safety flags; source checker events remain bounded as unresolved checks.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     },
     {
       "layer": "Multilingual Medical Intelligence",
@@ -1274,7 +1285,8 @@
         "mia_mmi_048",
         "mia_mmi_049",
         "mia_mmi_050",
-        "mia_mmi_051"
+        "mia_mmi_051",
+        "mia_mmi_052"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -1549,7 +1561,12 @@
         "data/mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.json",
         "docs/MMI_051_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py"
+        "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py",
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.json",
+        "docs/MMI_052_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -1756,7 +1773,16 @@
         "unresolved_branch_closure_boundary_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
         "archive_snapshot_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
         "archive_reopenability_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
-        "reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_clearance_claim_made": false
+        "reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_clearance_claim_made": false,
+        "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report_ready": true,
+        "source_closeout_id_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "exported_ledger_row_id_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "owner_final_state_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "dissent_note_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "unresolved_branch_closure_boundary_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "archive_snapshot_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "archive_reopenability_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_loss_blocked": true,
+        "reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_clearance_claim_made": false
       },
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -2056,9 +2082,15 @@
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_pass_controls": 8,
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_blocked_controls": 8,
         "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_signal_types": 8,
-        "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3
+        "mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_checker_result": "pass",
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_control_count": 16,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_pass_controls": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_blocked_controls": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_signal_types": 8,
+        "mmi_052_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_decision_route_types": 3
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence, and reviewer closeout ledger reconciliation controls pass validation while preserving source closeout state to exported ledger row comparison without authority or clearance claim. Reviewer closeout ledger reconciliation exception controls pass validation while keeping source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, and authority or clearance claim absence attached to exceptions. Reviewer closeout ledger reconciliation exception replay controls pass validation while keeping exception attachments reproducible across recheck and handoff without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay closeout controls pass validation while closing replayed exception attachments after recheck and handoff without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive controls pass validation while keeping closed replay exception attachments reopenable in archive snapshots without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup controls pass validation while keeping archived replay exception rollup summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release controls pass validation while keeping archived rollup release summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff controls pass validation while keeping released rollup handoff summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure controls pass validation while keeping handoff closure packets tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff controls pass validation while keeping reuse release handoff packets tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls pass validation while closing reuse release handoff packets with source attachments and reopenability preserved, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive controls pass validation while preserving source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability inside the closure archive layer, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls pass validation while closing reuse release handoff packets before downstream archive with source attachments and reopenability preserved, and blocking clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims.",
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence, and reviewer closeout ledger reconciliation controls pass validation while preserving source closeout state to exported ledger row comparison without authority or clearance claim. Reviewer closeout ledger reconciliation exception controls pass validation while keeping source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, and authority or clearance claim absence attached to exceptions. Reviewer closeout ledger reconciliation exception replay controls pass validation while keeping exception attachments reproducible across recheck and handoff without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay closeout controls pass validation while closing replayed exception attachments after recheck and handoff without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive controls pass validation while keeping closed replay exception attachments reopenable in archive snapshots without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup controls pass validation while keeping archived replay exception rollup summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release controls pass validation while keeping archived rollup release summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff controls pass validation while keeping released rollup handoff summaries tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure controls pass validation while keeping handoff closure packets tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability without authority or clearance claim. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff controls pass validation while keeping reuse release handoff packets tied to source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls pass validation while closing reuse release handoff packets with source attachments and reopenability preserved, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive controls pass validation while preserving source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability inside the closure archive layer, and blocking natural clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls pass validation while closing reuse release handoff packets before downstream archive with source attachments and reopenability preserved, and blocking clinical validation, deployment, model ranking, partner, institution, regulatory, publication, authority, or clearance overclaims. Reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse controls pass validation while preserving source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability during archived packet reuse without authority or clearance claim.",
       "blockers": [],
       "source_check_items": [],
       "boundary_flags": {
@@ -2431,7 +2463,7 @@
         "scripts/score_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
         "scripts/validate_mmi_051_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py"
       ],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     },
     {
       "layer": "Medical Intelligence Atlas",
@@ -2455,7 +2487,7 @@
       },
       "gate_inputs": {
         "checker_result": "pass",
-        "atlas_nodes": 61,
+        "atlas_nodes": 62,
         "relationships": 5,
         "release_states": 3,
         "release_gate_fixture_present": true
@@ -2463,8 +2495,8 @@
       "decision_reason": "The atlas registry checker passes and this fixture supplies machine readable layer release decisions.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
     }
   ],
-  "exact_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls"
+  "exact_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release controls"
 }
