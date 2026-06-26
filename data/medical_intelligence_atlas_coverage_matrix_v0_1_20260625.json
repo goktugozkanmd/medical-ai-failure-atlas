@@ -2604,6 +2604,51 @@
       "patient_data_used": false,
       "clinical_use_allowed": false,
       "artifact_id": "mmi_080_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_validator"
+    },
+    "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls": {
+      "path": "data/mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic Turkish English controls",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls"
+    },
+    "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report": {
+      "path": "data/mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.json",
+      "kind": "machine readable MMI report",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report"
+    },
+    "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_doc": {
+      "path": "docs/MMI_081_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
+      "kind": "Markdown MMI report",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_doc"
+    },
+    "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_scorer": {
+      "path": "scripts/score_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
+      "kind": "deterministic MMI scorer",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_scorer"
+    },
+    "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_validator": {
+      "path": "scripts/validate_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py",
+      "kind": "MMI report validator",
+      "record_count": 1,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_validator"
     }
   },
   "coverage_rows": [
@@ -5571,7 +5616,7 @@
       ],
       "primary_artifact": "docs/MMI_075_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
       "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure controls",
-      "open_gap": "next archive step not yet represented"
+      "open_gap": "archive step represented by MMI 076"
     },
     {
       "node_id": "mia_mmi_076",
@@ -5607,7 +5652,7 @@
       ],
       "primary_artifact": "docs/MMI_076_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
       "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive controls",
-      "open_gap": "next reuse step not yet represented"
+      "open_gap": "reuse step represented by MMI 077"
     },
     {
       "node_id": "mia_mmi_077",
@@ -5643,7 +5688,7 @@
       ],
       "primary_artifact": "docs/MMI_077_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_REPORT_V0_1_20260625.md",
       "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse controls",
-      "open_gap": "next release step not yet represented"
+      "open_gap": "release step represented by MMI 078"
     },
     {
       "node_id": "mia_mmi_078",
@@ -5751,7 +5796,43 @@
       ],
       "primary_artifact": "docs/MMI_080_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
       "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
-      "open_gap": "next archive step not yet represented"
+      "open_gap": "archive step represented by MMI 081"
+    },
+    {
+      "node_id": "mia_mmi_081",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_doc",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_scorer",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_validator"
+      ],
+      "coverage_focus": "archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_doc",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_scorer",
+        "mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.json",
+        "docs/MMI_081_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_081_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_081_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
+      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls",
+      "open_gap": "next reuse step not yet represented"
     },
     {
       "node_id": "mia_atlas_001",
@@ -5763,7 +5844,7 @@
         "atlas_markdown"
       ],
       "coverage_focus": [
-        "ninety atlas nodes",
+        "ninety one atlas nodes",
         "input output validator risk gate and next build fields",
         "stack layer alignment"
       ],
@@ -5794,28 +5875,28 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 90,
+    "expected_atlas_node_count": 91,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 90,
-    "expected_source_artifact_count": 426,
-    "expected_node_count": 90
+    "expected_coverage_row_count": 91,
+    "expected_source_artifact_count": 431,
+    "expected_node_count": 91
   },
   "summary": {
-    "atlas_node_count": 90,
-    "coverage_row_count": 90,
-    "source_artifact_count": 426
+    "atlas_node_count": 91,
+    "coverage_row_count": 91,
+    "source_artifact_count": 431
   },
   "expected_counts": {
-    "expected_atlas_node_count": 90,
-    "expected_coverage_row_count": 90,
-    "expected_source_artifact_count": 426,
-    "expected_node_count": 90,
-    "atlas_node_count": 90,
-    "coverage_row_count": 90,
-    "source_artifact_count": 426
+    "expected_atlas_node_count": 91,
+    "expected_coverage_row_count": 91,
+    "expected_source_artifact_count": 431,
+    "expected_node_count": 91,
+    "atlas_node_count": 91,
+    "coverage_row_count": 91,
+    "source_artifact_count": 431
   }
 }

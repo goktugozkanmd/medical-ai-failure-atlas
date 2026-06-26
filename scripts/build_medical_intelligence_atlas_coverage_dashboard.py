@@ -20,6 +20,13 @@ SUPPORTED_SUFFIXES = {".json", ".jsonl", ".csv", ".tsv"}
 ROW_KEYS = ("coverage", "coverage_rows", "coverage_items", "rows", "nodes")
 STATUS_DONE_VALUES = {"covered", "complete", "done", "pass", "passed", "ready"}
 STATUS_OPEN_MARKERS = {"blocked", "gap", "missing", "needs", "partial"}
+OPEN_GAP_OPEN_MARKERS = {
+    "blocked",
+    "missing",
+    "needs",
+    "not_yet_represented",
+    "unresolved",
+}
 
 EXTERNAL_URL_RE = re.compile(r"https?://|www\.", re.IGNORECASE)
 FORBIDDEN_TEXT_RE = re.compile(
@@ -234,7 +241,7 @@ def ordered_columns(rows: list[dict[str, Any]]) -> list[str]:
         ("coverage_status", "status", "state"),
         ("evidence", "evidence_file", "source_file", "artifact_path"),
         ("validator", "validation", "check"),
-        ("blocker", "gap", "missing", "next_action"),
+        ("blocker", "gap", "missing", "next_action", "open_gap"),
     ]
     columns: list[str] = []
     for candidates in preferred_candidates:
@@ -282,13 +289,25 @@ def status_is_covered(status: str) -> bool:
     return False
 
 
+def open_gap_is_unresolved(value: str) -> bool:
+    normalized = normalize_key(value)
+    if not normalized:
+        return False
+    if any(marker in normalized for marker in OPEN_GAP_OPEN_MARKERS):
+        return True
+    if "represented_by" in normalized:
+        return False
+    return True
+
+
 def render_dashboard(
     data_path: Path, metadata: dict[str, Any], rows: list[dict[str, Any]]
 ) -> str:
     layer_field = find_field(rows, ("layer", "domain", "area"))
     status_field = find_field(rows, ("coverage_status", "status", "state"))
     node_field = find_field(rows, ("node_id", "node", "id", "target_id"))
-    blocker_field = find_field(rows, ("blocker", "gap", "missing", "next_action"))
+    blocker_field = find_field(rows, ("blocker", "gap", "missing", "next_action", "open_gap"))
+    blocker_field_name = normalize_key(blocker_field or "")
 
     lines = [
         "# Medical Intelligence Atlas Coverage Dashboard",
@@ -352,7 +371,10 @@ def render_dashboard(
             status = cell(row.get(status_field)) if status_field else ""
             blocker = cell(row.get(blocker_field)) if blocker_field else ""
             is_done = status_is_covered(status)
-            if blocker or (status and not is_done):
+            blocker_open = bool(blocker)
+            if blocker_field_name == "open_gap":
+                blocker_open = open_gap_is_unresolved(blocker)
+            if blocker_open or (status and not is_done):
                 open_rows.append(
                     [
                         row.get(layer_field, "") if layer_field else "",
