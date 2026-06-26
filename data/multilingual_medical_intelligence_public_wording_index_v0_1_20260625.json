@@ -491,7 +491,12 @@
     "mmi_094_archive_reuse_release_handoff_gate_report": "data/mmi_094_archive_reuse_release_handoff_gate_report_v0_1_20260625.json",
     "mmi_094_archive_reuse_release_handoff_gate_report_doc": "docs/MMI_094_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md",
     "mmi_094_archive_reuse_release_handoff_gate_scorer": "scripts/score_mmi_094_archive_reuse_release_handoff_gate_controls_v0_1_20260625.py",
-    "mmi_094_archive_reuse_release_handoff_gate_validator": "scripts/validate_mmi_094_archive_reuse_release_handoff_gate_report_v0_1_20260625.py"
+    "mmi_094_archive_reuse_release_handoff_gate_validator": "scripts/validate_mmi_094_archive_reuse_release_handoff_gate_report_v0_1_20260625.py",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_controls": "data/mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_controls_v0_1_20260625.jsonl",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report": "data/mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report_v0_1_20260625.json",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report_doc": "docs/MMI_095_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_scorer": "scripts/score_mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_controls_v0_1_20260625.py",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_validator": "scripts/validate_mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1169,7 +1174,8 @@
     "mmi_091_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_control": "preserve source attachments, archive snapshot, and reopenability while archiving closed archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff packets",
     "mmi_092_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_control": "preserve source attachments, archive snapshot, and reopenability while reusing archived archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive packets",
     "mmi_093_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_control": "preserve source attachments, archive snapshot, and reopenability while releasing reused archive reuse release handoff closure archive reuse release handoff closure archive reuse packets",
-    "mmi_094_archive_reuse_release_handoff_gate_control": "preserve source attachments, archive snapshot, and reopenability while handing off released archive reuse release handoff closure archive reuse release handoff closure archive reuse packets"
+    "mmi_094_archive_reuse_release_handoff_gate_control": "preserve source attachments, archive snapshot, and reopenability while handing off released archive reuse release handoff closure archive reuse release handoff closure archive reuse packets",
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_control": "preserve source attachments, archive snapshot, and reopenability while closing handed off archive reuse release handoff closure archive reuse release handoff closure archive reuse packets"
   },
   "planned_rows": [
     {
@@ -1330,7 +1336,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure",
+  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -1916,6 +1922,11 @@
       "synthetic repo controls only",
       "source attachment and archive reopenability boundaries during archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff",
       "no patient data clinical advice validation deployment ranking superiority partner institution regulatory publication authority or clearance claim"
+    ],
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report": [
+      "synthetic repo controls only",
+      "source attachment and archive reopenability boundaries during archive reuse release handoff closure archive reuse release handoff closure archive reuse release handoff closure",
+      "no patient data clinical advice validation deployment ranking superiority partner institution regulatory publication authority or clearance claim"
     ]
   },
   "report_index": {
@@ -2231,6 +2242,10 @@
     "mmi_094_archive_reuse_release_handoff_gate_report": [
       "data/mmi_094_archive_reuse_release_handoff_gate_report_v0_1_20260625.json",
       "docs/MMI_094_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report": [
+      "data/mmi_095_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_report_v0_1_20260625.json",
+      "docs/MMI_095_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_REPORT_V0_1_20260625.md"
     ]
   }
 }
