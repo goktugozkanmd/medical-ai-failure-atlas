@@ -355,6 +355,20 @@ Risk gate: translation must not remove closeout decision export, remove dissent 
 
 Next build: cross language reviewer closeout ledger reconciliation controls
 
+### mia_mmi_017 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation controls
+
+Input: synthetic Turkish English reviewer closeout ledger reconciliation control rows
+
+Output: reviewer closeout ledger reconciliation reproducibility report
+
+Validator: reviewer closeout ledger reconciliation report must remain local fixture only and must match closeout decision, dissent note, owner final state, unresolved branch closure boundary, closure comparison result, and authority or clearance claim absence between source closeout and exported ledger rows
+
+Risk gate: translation must not create closeout decision mismatch, dissent note mismatch, owner final state mismatch, unresolved branch closure boundary mismatch, closure comparison result mismatch, or authority or clearance claims during closeout ledger reconciliation
+
+Next build: cross language reviewer closeout ledger reconciliation exception controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

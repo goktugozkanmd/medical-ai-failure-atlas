@@ -917,6 +917,48 @@
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic reviewer closeout ledger reconciliation controls",
+      "record_count": 12,
+      "expected_pass_count": 6,
+      "expected_fail_count": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.json",
+      "kind": "machine readable reviewer closeout ledger reconciliation report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "reviewer_closeout_ledger_reconciliation_clearance_claim_made": false
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_REPORT_V0_1_20260625.md",
+      "kind": "reviewer closeout ledger reconciliation documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py",
+      "kind": "deterministic reviewer closeout ledger reconciliation scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py",
+      "kind": "reviewer closeout ledger reconciliation report validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -1544,6 +1586,28 @@
       "coverage_status": "direct fixture coverage"
     },
     {
+      "node_id": "mia_mmi_017",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_controls",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report_doc",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_scorer",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_validator"
+      ],
+      "coverage_focus": [
+        "twelve synthetic reviewer closeout ledger reconciliation controls",
+        "source closeout decision dissent note owner final state unresolved branch closure boundary and closure comparison reconciliation",
+        "authority or clearance claim absence and reviewer hold compare reject routing"
+      ],
+      "local_validation_refs": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage"
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -1584,18 +1648,18 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 26,
+    "expected_atlas_node_count": 27,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 26,
-    "expected_source_artifact_count": 106
+    "expected_coverage_row_count": 27,
+    "expected_source_artifact_count": 111
   },
   "summary": {
-    "atlas_node_count": 26,
-    "coverage_row_count": 26,
-    "source_artifact_count": 106
+    "atlas_node_count": 27,
+    "coverage_row_count": 27,
+    "source_artifact_count": 111
   }
 }

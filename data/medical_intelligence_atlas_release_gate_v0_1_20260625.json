@@ -34,7 +34,7 @@
     "config": "data/medical_intelligence_atlas_v0_1_20260625.json",
     "checker": "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
     "expected_layer_count": 6,
-    "expected_node_count": 26
+    "expected_node_count": 27
   },
   "release_gate_summary": {
     "layer_count": 6,
@@ -48,7 +48,7 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 26
+    "expected_atlas_node_count": 27
   },
   "release_gate_rows": [
     {
@@ -209,7 +209,12 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_EXPORT_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
       "next_action": "keep repo local checker and boundary evidence current before release change",
@@ -231,7 +236,8 @@
         "mia_mmi_013",
         "mia_mmi_014",
         "mia_mmi_015",
-        "mia_mmi_016"
+        "mia_mmi_016",
+        "mia_mmi_017"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -285,7 +291,13 @@
         "cross_language_reviewer_closeout_ledger_export_pass_controls": 6,
         "cross_language_reviewer_closeout_ledger_export_blocked_controls": 6,
         "cross_language_reviewer_closeout_ledger_export_signal_types": 6,
-        "cross_language_reviewer_closeout_ledger_export_decision_routes": 3
+        "cross_language_reviewer_closeout_ledger_export_decision_routes": 3,
+        "cross_language_reviewer_closeout_ledger_reconciliation_checker_result": "pass",
+        "cross_language_reviewer_closeout_ledger_reconciliation_controls": 12,
+        "cross_language_reviewer_closeout_ledger_reconciliation_pass_controls": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_blocked_controls": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_signal_types": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_decision_routes": 3
       },
       "boundary_flags": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -342,7 +354,14 @@
         "closure_comparison_result_export_removal_blocked": true,
         "unresolved_branch_closure_boundary_export_removal_blocked": true,
         "reviewer_closeout_ledger_export_clearance_claim_made": false,
-        "authority_or_clearance_claim_made": false
+        "authority_or_clearance_claim_made": false,
+        "cross_language_reviewer_closeout_ledger_reconciliation_report_ready": true,
+        "closeout_decision_reconciliation_mismatch_blocked": true,
+        "dissent_note_reconciliation_mismatch_blocked": true,
+        "owner_final_state_reconciliation_mismatch_blocked": true,
+        "unresolved_branch_closure_boundary_reconciliation_mismatch_blocked": true,
+        "closure_comparison_result_reconciliation_mismatch_blocked": true,
+        "reviewer_closeout_ledger_reconciliation_clearance_claim_made": false
       },
       "synthetic_boundary": {
         "cross_language_source_recency_applicability_report_ready": true,
@@ -408,7 +427,7 @@
         "reviewer_closeout_ledger_export_clearance_claim_made": false,
         "authority_or_clearance_claim_made": false
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence."
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence, and reviewer closeout ledger reconciliation controls pass validation while preserving source closeout state to exported ledger row comparison without authority or clearance claim."
     },
     {
       "gate_id": "mia_rg_006",
@@ -569,7 +588,8 @@
         "mia_mmi_013",
         "mia_mmi_014",
         "mia_mmi_015",
-        "mia_mmi_016"
+        "mia_mmi_016",
+        "mia_mmi_017"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -895,9 +915,15 @@
         "cross_language_reviewer_closeout_ledger_export_pass_controls": 6,
         "cross_language_reviewer_closeout_ledger_export_blocked_controls": 6,
         "cross_language_reviewer_closeout_ledger_export_signal_types": 6,
-        "cross_language_reviewer_closeout_ledger_export_decision_routes": 3
+        "cross_language_reviewer_closeout_ledger_export_decision_routes": 3,
+        "cross_language_reviewer_closeout_ledger_reconciliation_checker_result": "pass",
+        "cross_language_reviewer_closeout_ledger_reconciliation_controls": 12,
+        "cross_language_reviewer_closeout_ledger_reconciliation_pass_controls": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_blocked_controls": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_signal_types": 6,
+        "cross_language_reviewer_closeout_ledger_reconciliation_decision_routes": 3
       },
-      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence.",
+      "decision_reason": "The paired Turkish English synthetic state fixture, public wording bank, drift negative controls, rewrite candidate scorer, source controls, provenance controls, reviewer conflict triage controls, reviewer decision rationale controls, reviewer handoff packet controls, reviewer handoff replay controls, reviewer replay audit trail controls, reviewer replay audit trail closeout controls, and reviewer closeout ledger export controls pass validation while preserving closeout decision export, dissent note export, owner final state export, closure comparison result export, unresolved branch closure boundary export, and authority or clearance claim absence, and reviewer closeout ledger reconciliation controls pass validation while preserving source closeout state to exported ledger row comparison without authority or clearance claim.",
       "blockers": [],
       "source_check_items": [],
       "boundary_flags": {
@@ -932,7 +958,14 @@
         "closure_comparison_result_export_removal_blocked": true,
         "unresolved_branch_closure_boundary_export_removal_blocked": true,
         "reviewer_closeout_ledger_export_clearance_claim_made": false,
-        "authority_or_clearance_claim_made": false
+        "authority_or_clearance_claim_made": false,
+        "cross_language_reviewer_closeout_ledger_reconciliation_report_ready": true,
+        "closeout_decision_reconciliation_mismatch_blocked": true,
+        "dissent_note_reconciliation_mismatch_blocked": true,
+        "owner_final_state_reconciliation_mismatch_blocked": true,
+        "unresolved_branch_closure_boundary_reconciliation_mismatch_blocked": true,
+        "closure_comparison_result_reconciliation_mismatch_blocked": true,
+        "reviewer_closeout_ledger_reconciliation_clearance_claim_made": false
       },
       "artifact_paths": [
         "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.jsonl",
@@ -949,7 +982,12 @@
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_REPLAY_AUDIT_TRAIL_REPORT_V0_1_20260625.md",
         "data/multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.json",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_replay_audit_trail_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py"
       ]
     },
     {
@@ -974,7 +1012,7 @@
       },
       "gate_inputs": {
         "checker_result": "pass",
-        "atlas_nodes": 25,
+        "atlas_nodes": 27,
         "relationships": 5,
         "release_states": 3,
         "release_gate_fixture_present": true

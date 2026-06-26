@@ -101,7 +101,12 @@
     "cross_language_reviewer_closeout_ledger_export_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.json",
     "cross_language_reviewer_closeout_ledger_export_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_EXPORT_REPORT_V0_1_20260625.md",
     "cross_language_reviewer_closeout_ledger_export_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_controls_v0_1_20260625.py",
-    "cross_language_reviewer_closeout_ledger_export_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.py"
+    "cross_language_reviewer_closeout_ledger_export_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.py",
+    "cross_language_reviewer_closeout_ledger_reconciliation_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_closeout_ledger_reconciliation_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.json",
+    "cross_language_reviewer_closeout_ledger_reconciliation_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_closeout_ledger_reconciliation_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py",
+    "cross_language_reviewer_closeout_ledger_reconciliation_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -233,7 +238,15 @@
     "expected_cross_language_reviewer_closeout_ledger_export_pass_controls": 6,
     "expected_cross_language_reviewer_closeout_ledger_export_blocked_controls": 6,
     "expected_cross_language_reviewer_closeout_ledger_export_signal_types": 6,
-    "expected_cross_language_reviewer_closeout_ledger_export_decision_route_types": 3
+    "expected_cross_language_reviewer_closeout_ledger_export_decision_route_types": 3,
+    "cross_language_reviewer_closeout_ledger_reconciliation_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_closeout_ledger_reconciliation_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_status": "local_fixture_pass",
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_control_count": 12,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_pass_controls": 6,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_blocked_controls": 6,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_signal_types": 6,
+    "expected_cross_language_reviewer_closeout_ledger_reconciliation_decision_route_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -625,7 +638,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation controls",
+  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -646,7 +659,10 @@
       "confirm reviewer replay audit trail closeout clearance absence before public use",
       "run reviewer closeout ledger export scorer",
       "run reviewer closeout ledger export report validator",
-      "confirm reviewer closeout ledger export clearance absence before public use"
+      "confirm reviewer closeout ledger export clearance absence before public use",
+      "run reviewer closeout ledger reconciliation scorer",
+      "run reviewer closeout ledger reconciliation report validator",
+      "confirm reviewer closeout ledger reconciliation clearance absence before public use"
     ],
     "cross_language_reviewer_handoff_packet_report": [
       "reviewer handoff packet preservation",
@@ -694,6 +710,15 @@
       "owner final state export preservation",
       "closure comparison result export preservation",
       "unresolved branch closure boundary export preservation",
+      "authority or clearance claim absence"
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_report": [
+      "reviewer closeout ledger reconciliation reproducibility",
+      "closeout decision reconciliation",
+      "dissent note reconciliation",
+      "owner final state reconciliation",
+      "unresolved branch closure boundary reconciliation",
+      "closure comparison result reconciliation",
       "authority or clearance claim absence"
     ]
   }
