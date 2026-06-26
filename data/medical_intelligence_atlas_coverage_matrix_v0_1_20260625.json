@@ -3253,7 +3253,7 @@
     {
       "node_id": "mia_mmi_047",
       "layer": "Multilingual Medical Intelligence",
-      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls controls",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
       "stack_runtime_artifact_ids": [
         "mmi_047_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_controls",
         "mmi_047_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_report",

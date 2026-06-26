@@ -554,7 +554,7 @@
     {
       "id": "mia_mmi_047",
       "layer": "Multilingual Medical Intelligence",
-      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls controls",
+      "artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
       "input": "archived closure archive reuse release handoff closure archive reuse release handoff closure packet, source attachment map, archive snapshot, reopenability state, and reuse boundary",
       "output": "reused closure archive reuse release handoff closure archive reuse release handoff closure archive packet with source attachments and reopenability preserved before downstream release",
       "validator": "each MMI 047 closure archive reuse release handoff closure archive reuse release handoff closure archive reuse control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch closure boundary, archive snapshot, and reopenability or block the reuse packet",

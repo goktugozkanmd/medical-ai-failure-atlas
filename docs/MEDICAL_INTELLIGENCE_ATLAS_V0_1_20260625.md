@@ -777,7 +777,7 @@ Next build: cross language reviewer closeout ledger reconciliation exception rep
 
 ### mia_mmi_047 Multilingual Medical Intelligence
 
-Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls controls
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls
 
 Input: archived closure archive reuse release handoff closure archive reuse release handoff closure packet, source attachment map, archive snapshot, reopenability state, and reuse boundary
 
