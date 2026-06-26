@@ -71,7 +71,12 @@
     "cross_language_reviewer_conflict_triage_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.json",
     "cross_language_reviewer_conflict_triage_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CONFLICT_TRIAGE_REPORT_V0_1_20260625.md",
     "cross_language_reviewer_conflict_triage_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_controls_v0_1_20260625.py",
-    "cross_language_reviewer_conflict_triage_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
+    "cross_language_reviewer_conflict_triage_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py",
+    "cross_language_reviewer_decision_rationale_controls": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.jsonl",
+    "cross_language_reviewer_decision_rationale_report_json": "data/multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.json",
+    "cross_language_reviewer_decision_rationale_report_doc": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_DECISION_RATIONALE_REPORT_V0_1_20260625.md",
+    "cross_language_reviewer_decision_rationale_scorer": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
+    "cross_language_reviewer_decision_rationale_validator": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -155,7 +160,15 @@
     "expected_cross_language_reviewer_conflict_triage_pass_controls": 6,
     "expected_cross_language_reviewer_conflict_triage_blocked_controls": 6,
     "expected_cross_language_reviewer_conflict_triage_signal_types": 6,
-    "expected_cross_language_reviewer_conflict_triage_triage_state_types": 3
+    "expected_cross_language_reviewer_conflict_triage_triage_state_types": 3,
+    "cross_language_reviewer_decision_rationale_score_command": "python3 scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py --check",
+    "cross_language_reviewer_decision_rationale_validation_command": "python3 scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py",
+    "expected_cross_language_reviewer_decision_rationale_status": "local_fixture_pass",
+    "expected_cross_language_reviewer_decision_rationale_control_count": 12,
+    "expected_cross_language_reviewer_decision_rationale_pass_controls": 6,
+    "expected_cross_language_reviewer_decision_rationale_blocked_controls": 6,
+    "expected_cross_language_reviewer_decision_rationale_signal_types": 6,
+    "expected_cross_language_reviewer_decision_rationale_decision_route_types": 3
   },
   "safety_boundaries": {
     "synthetic_only": true,
@@ -229,7 +242,14 @@
       "source limit removal detection",
       "unsupported source authority creation detection",
       "cross language source scope detachment detection",
-      "source support scope clearance absence"
+      "source support scope clearance absence",
+      "cross language reviewer decision rationale control",
+      "decision rationale preservation",
+      "reviewer owner preservation",
+      "unresolved state preservation",
+      "decision boundary preservation",
+      "authority claim absence",
+      "reviewer decision rationale clearance absence"
     ],
     "not_covered": [
       "clinical validation",
@@ -540,5 +560,19 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer decision rationale controls"
+  "next_build_suggestion": "cross language reviewer handoff packet controls",
+  "artifact_claims": {
+    "cross_language_reviewer_decision_rationale_report": [
+      "reviewer decision rationale preservation",
+      "reviewer owner preservation",
+      "unresolved state preservation",
+      "decision boundary preservation",
+      "authority claim absence"
+    ],
+    "required_before_public_use": [
+      "run reviewer decision rationale scorer",
+      "run reviewer decision rationale report validator",
+      "confirm reviewer decision rationale clearance absence before public use"
+    ]
+  }
 }

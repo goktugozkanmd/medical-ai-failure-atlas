@@ -17,7 +17,7 @@
     "atlas_registry": {
       "path": "data/medical_intelligence_atlas_v0_1_20260625.json",
       "kind": "atlas node registry",
-      "record_count": 20,
+      "record_count": 21,
       "synthetic_only": true,
       "patient_data_used": false,
       "clinical_use_allowed": false
@@ -667,6 +667,47 @@
       "source_status": "repo local",
       "patient_data_used": false,
       "external_url_present": false
+    },
+    "mmi_cross_language_reviewer_decision_rationale_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic reviewer decision rationale controls",
+      "record_count": 12,
+      "expected_pass_controls": 6,
+      "expected_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_decision_rationale_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.json",
+      "kind": "machine readable reviewer decision rationale report",
+      "control_count": 12,
+      "observed_pass_controls": 6,
+      "observed_blocked_controls": 6,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_decision_rationale_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_DECISION_RATIONALE_REPORT_V0_1_20260625.md",
+      "kind": "reviewer decision rationale documentation",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_decision_rationale_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
+      "kind": "reviewer decision rationale scorer",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
+    },
+    "mmi_cross_language_reviewer_decision_rationale_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py",
+      "kind": "reviewer decision rationale validator",
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false
     }
   },
   "coverage_rows": [
@@ -1140,6 +1181,33 @@
         "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_conflict_triage_report_v0_1_20260625.py"
       ],
       "coverage_status": "direct fixture coverage"
+    },
+    {
+      "layer": "Multilingual Medical Intelligence",
+      "node_id": "mia_mmi_011",
+      "coverage_status": "direct fixture coverage",
+      "artifact": "cross language reviewer decision rationale controls",
+      "evidence": [
+        "mmi_cross_language_reviewer_decision_rationale_controls",
+        "mmi_cross_language_reviewer_decision_rationale_report",
+        "mmi_cross_language_reviewer_decision_rationale_report_doc",
+        "mmi_cross_language_reviewer_decision_rationale_scorer",
+        "mmi_cross_language_reviewer_decision_rationale_validator"
+      ],
+      "coverage_focus": [
+        "twelve synthetic reviewer decision rationale controls",
+        "six pass controls",
+        "six blocked controls",
+        "decision rationale preservation",
+        "reviewer owner preservation",
+        "unresolved state preservation",
+        "decision boundary preservation",
+        "authority claim absence"
+      ],
+      "validator": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_decision_rationale_report_v0_1_20260625.py"
+      ]
     },
     {
       "node_id": "mia_atlas_001",
