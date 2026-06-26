@@ -28,13 +28,13 @@
       "machine_meaning": "A local artifact marks source support as needed before claim bearing public use."
     }
   ],
-  "expected_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+  "expected_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
   "expected_risk_gate": "public release cannot outrun validators",
   "atlas_layer_source": {
     "config": "data/medical_intelligence_atlas_v0_1_20260625.json",
     "checker": "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
     "expected_layer_count": 6,
-    "expected_node_count": 43
+    "expected_node_count": 44
   },
   "release_gate_summary": {
     "layer_count": 6,
@@ -48,7 +48,7 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 43
+    "expected_atlas_node_count": 44
   },
   "release_gate_rows": [
     {
@@ -62,7 +62,7 @@
         "scripts/validate_clinical_state_language_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -76,7 +76,7 @@
         "scripts/validate_clinical_trajectory_engine_transitions_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -89,7 +89,7 @@
         "scripts/score_medical_reasoning_verifier_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -103,7 +103,7 @@
         "scripts/simulate_agentic_medicine_sandbox_event_flow_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": []
     },
@@ -294,10 +294,15 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": [],
       "atlas_node_ids": [
@@ -333,7 +338,8 @@
         "mia_mmi_030",
         "mia_mmi_031",
         "mia_mmi_032",
-        "mia_mmi_033"
+        "mia_mmi_033",
+        "mia_mmi_034"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -822,11 +828,11 @@
         "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls",
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 43
+        "atlas_nodes": 44
       }
     }
   ],
@@ -860,7 +866,7 @@
       "decision_reason": "The schema, source fixture, normalized fixture, and local checker pass on synthetic records with missing data and source support fields present.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     },
     {
       "layer": "Clinical Trajectory Engine",
@@ -893,7 +899,7 @@
       "decision_reason": "The transition fixture checker passes with state and transition boundaries, missing variable coverage, and red flag coverage.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     },
     {
       "layer": "Medical Reasoning Verifier",
@@ -923,7 +929,7 @@
       "decision_reason": "The scoring check matches expected pass and fail controls; expected fail rows are verifier controls, not release blockers.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     },
     {
       "layer": "Agentic Medicine Sandbox",
@@ -956,7 +962,7 @@
       "decision_reason": "The event fixture checker passes role order and safety flags; source checker events remain bounded as unresolved checks.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     },
     {
       "layer": "Multilingual Medical Intelligence",
@@ -995,7 +1001,8 @@
         "mia_mmi_030",
         "mia_mmi_031",
         "mia_mmi_032",
-        "mia_mmi_033"
+        "mia_mmi_033",
+        "mia_mmi_034"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -1180,7 +1187,12 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -1857,9 +1869,14 @@
         "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
         "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md",
         "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_controls_v0_1_20260625.py",
-        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py"
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.py",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.jsonl",
+        "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.json",
+        "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md",
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.py"
       ],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     },
     {
       "layer": "Medical Intelligence Atlas",
@@ -1883,7 +1900,7 @@
       },
       "gate_inputs": {
         "checker_result": "pass",
-        "atlas_nodes": 43,
+        "atlas_nodes": 44,
         "relationships": 5,
         "release_states": 3,
         "release_gate_fixture_present": true
@@ -1891,8 +1908,8 @@
       "decision_reason": "The atlas registry checker passes and this fixture supplies machine readable layer release decisions.",
       "blockers": [],
       "source_check_items": [],
-      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+      "next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
     }
   ],
-  "exact_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff controls"
+  "exact_next_action": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure controls"
 }

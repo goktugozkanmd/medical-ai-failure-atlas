@@ -1113,6 +1113,15 @@
       "closure archive reuse release reopenability preservation",
       "natural clinical validation deployment ranking partner institution regulatory publication authority clearance and clinical use clearance overclaim blocking",
       "repo local synthetic review only"
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_controls": [
+      "sixteen Turkish English synthetic controls",
+      "eight pass controls",
+      "eight blocked controls",
+      "closure archive reuse release handoff source attachment preservation",
+      "closure archive reuse release handoff reopenability preservation",
+      "natural clinical validation deployment ranking partner institution regulatory publication authority clearance and clinical use clearance overclaim blocking",
+      "repo local synthetic review only"
     ]
   },
   "report_index": {
@@ -1184,6 +1193,10 @@
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report": [
       "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_report_v0_1_20260625.json",
       "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_REPORT_V0_1_20260625.md"
+    ],
+    "cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report": [
+      "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_report_v0_1_20260625.json",
+      "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_CLOSURE_ARCHIVE_REUSE_RELEASE_HANDOFF_REPORT_V0_1_20260625.md"
     ]
   }
 }
