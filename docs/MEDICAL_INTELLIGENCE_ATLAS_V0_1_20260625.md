@@ -313,6 +313,20 @@ Risk gate: translation must not remove replay packet, remove recheck trace, remo
 
 Next build: cross language reviewer replay audit trail controls
 
+### mia_mmi_014 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer replay audit trail controls
+
+Input: synthetic Turkish English reviewer replay audit trail control rows
+
+Output: reviewer replay audit trail reproducibility report
+
+Validator: reviewer replay audit trail report must remain local fixture only and must preserve replay attempt, comparison result, owner signoff state, unresolved branch, route, and authority claim absence across reviewer hold, compare, and reject routes
+
+Risk gate: translation must not remove audit trail, remove comparison result, remove owner signoff state, erase unresolved branch, or create authority claims
+
+Next build: cross language reviewer replay audit trail closeout controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
