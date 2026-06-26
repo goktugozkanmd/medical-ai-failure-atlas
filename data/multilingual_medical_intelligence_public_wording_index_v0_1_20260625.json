@@ -196,7 +196,12 @@
     "mmi_035_closure_report_json": "data/mmi_035_closure_report_v0_1_20260625.json",
     "mmi_035_closure_report_doc": "docs/MMI_035_CLOSURE_REPORT_V0_1_20260625.md",
     "mmi_035_closure_scorer": "scripts/score_mmi_035_closure_controls_v0_1_20260625.py",
-    "mmi_035_closure_validator": "scripts/validate_mmi_035_closure_report_v0_1_20260625.py"
+    "mmi_035_closure_validator": "scripts/validate_mmi_035_closure_report_v0_1_20260625.py",
+    "mmi_036_closure_archive_controls": "data/mmi_036_closure_archive_controls_v0_1_20260625.jsonl",
+    "mmi_036_closure_archive_report_json": "data/mmi_036_closure_archive_report_v0_1_20260625.json",
+    "mmi_036_closure_archive_report_doc": "docs/MMI_036_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md",
+    "mmi_036_closure_archive_scorer": "scripts/score_mmi_036_closure_archive_controls_v0_1_20260625.py",
+    "mmi_036_closure_archive_validator": "scripts/validate_mmi_036_closure_archive_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -757,6 +762,11 @@
       "closure archive reuse release handoff closure reproducibility",
       "source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability preservation before closure archive",
       "authority clearance regulatory publication clinical use validation deployment ranking partner and institution overclaim blocking"
+    ],
+    "mmi_036_closure_archive_report": [
+      "closure archive reproducibility",
+      "source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability preservation before archive reuse",
+      "authority or clearance claim absence before downstream archive reuse"
     ]
   },
   "planned_rows": [
@@ -918,7 +928,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive controls",
+  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure archive reuse release handoff closure archive reuse controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -1151,6 +1161,13 @@
       "closure archive reuse release handoff closure reopenability preservation",
       "natural clinical validation deployment ranking partner institution regulatory publication authority clearance and clinical use clearance overclaim blocking",
       "repo local synthetic review only"
+    ],
+    "mmi_036_closure_archive_controls": [
+      "sixteen Turkish English synthetic controls",
+      "eight pass controls",
+      "eight blocked controls",
+      "archive snapshot and reopenability preservation",
+      "authority or clearance claim absence"
     ]
   },
   "report_index": {
@@ -1230,6 +1247,10 @@
     "mmi_035_closure_report": [
       "data/mmi_035_closure_report_v0_1_20260625.json",
       "docs/MMI_035_CLOSURE_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_036_closure_archive_report": [
+      "data/mmi_036_closure_archive_report_v0_1_20260625.json",
+      "docs/MMI_036_CLOSURE_ARCHIVE_REPORT_V0_1_20260625.md"
     ]
   }
 }
