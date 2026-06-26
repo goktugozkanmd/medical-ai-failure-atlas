@@ -2,7 +2,7 @@
 
 Source data: `data/medical_intelligence_atlas_coverage_matrix_v0_1_20260625.json`
 
-Rows: 28
+Rows: 29
 
 Boundary: this dashboard uses the source coverage data only and does not assert clinical readiness.
 
@@ -20,7 +20,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 
 | Status | Rows |
 | --- | --- |
-| direct fixture coverage | 28 |
+| direct fixture coverage | 29 |
 
 ## Layer Coverage
 
@@ -31,7 +31,7 @@ Boundary: this dashboard uses the source coverage data only and does not assert 
 | Clinical Trajectory Engine | 2 | 2 |
 | Medical Intelligence Atlas | 2 | 2 |
 | Medical Reasoning Verifier | 2 | 2 |
-| Multilingual Medical Intelligence | 18 | 18 |
+| Multilingual Medical Intelligence | 19 | 19 |
 
 ## Open Gaps
 
@@ -67,5 +67,6 @@ No open gaps were found in the source data.
 | Multilingual Medical Intelligence | mia_mmi_016 |  | direct fixture coverage |  |  | cross language reviewer closeout ledger export controls | ["mmi_cross_language_reviewer_closeout_ledger_export_controls", "mmi_cross_language_reviewer_closeout_ledger_export_report", "mmi_cross_language_reviewer_closeout_ledger_export_report_doc", "mmi_cross_language_reviewer_closeout_ledger_export_scorer", "mmi_cross_language_reviewer_closeout_ledger_export_validator"] | ["twelve synthetic reviewer closeout ledger export controls", "closeout decision dissent note owner final state closure comparison and unresolved branch closure boundary export preservation", "authority or clearance claim absence and reviewer hold compare reject routing"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_export_report_v0_1_20260625.py"] |
 | Multilingual Medical Intelligence | mia_mmi_017 |  | direct fixture coverage |  |  | cross language reviewer closeout ledger reconciliation controls | ["mmi_cross_language_reviewer_closeout_ledger_reconciliation_controls", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_report_doc", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_scorer", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_validator"] | ["twelve synthetic reviewer closeout ledger reconciliation controls", "source closeout decision dissent note owner final state unresolved branch closure boundary and closure comparison reconciliation", "authority or clearance claim absence and reviewer hold compare reject routing"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_report_v0_1_20260625.py"] |
 | Multilingual Medical Intelligence | mia_mmi_018 |  | direct fixture coverage |  |  | cross language reviewer closeout ledger reconciliation exception controls | ["mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_controls", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_report", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_report_doc", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_scorer", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_validator"] | ["twelve synthetic reviewer closeout ledger reconciliation exception controls", "source closeout id exported ledger row id owner final state dissent note and unresolved branch closure boundary attachment", "authority or clearance claim absence and reviewer hold compare reject routing"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_report_v0_1_20260625.py"] |
+| Multilingual Medical Intelligence | mia_mmi_019 |  | direct fixture coverage |  |  | cross language reviewer closeout ledger reconciliation exception replay controls | ["mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_controls", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_report", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_report_doc", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_scorer", "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_validator"] | ["twelve synthetic reviewer closeout ledger reconciliation exception replay controls", "source closeout id exported ledger row id owner final state dissent note and unresolved branch closure boundary replay reproducibility", "authority or clearance claim absence and reviewer hold compare reject routing"] | ["scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_controls_v0_1_20260625.py", "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_report_v0_1_20260625.py"] |
 | Medical Intelligence Atlas | mia_atlas_001 |  | direct fixture coverage |  |  | node registry | ["atlas_registry", "stack_config", "atlas_markdown"] | ["twenty two atlas nodes", "input output validator risk gate and next build fields", "stack layer alignment"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py", "scripts/validate_clinical_intelligence_stack_20260625.py"] |
 | Medical Intelligence Atlas | mia_atlas_002 |  | direct fixture coverage |  |  | release readiness map | ["atlas_registry", "atlas_markdown", "stack_config"] | ["ready blocked and needs source check release states", "validator bounded release status", "machine readable coverage matrix"] | ["scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"] |

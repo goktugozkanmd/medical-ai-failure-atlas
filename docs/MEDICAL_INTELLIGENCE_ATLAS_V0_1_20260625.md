@@ -383,6 +383,20 @@ Risk gate: translation must not detach source closeout id, detach exported ledge
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay controls
 
+### mia_mmi_019 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay controls
+
+Input: reconciliation exception rows with recheck and handoff replay state
+
+Output: reproducible exception attachments before recheck and handoff reuse
+
+Validator: replay controls must keep source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary and authority or clearance claim absence reproducible
+
+Risk gate: exception replay cannot create clearance or close unresolved branch
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay closeout controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
