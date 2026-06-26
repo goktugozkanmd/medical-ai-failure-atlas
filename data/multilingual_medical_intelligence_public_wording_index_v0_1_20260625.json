@@ -336,7 +336,12 @@
     "mmi_063_closure_archive_reuse_release_chain_063_release_report": "data/mmi_063_closure_archive_reuse_release_chain_063_release_report_v0_1_20260625.json",
     "mmi_063_closure_archive_reuse_release_chain_063_release_report_doc": "docs/MMI_063_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_063_RELEASE_REPORT_V0_1_20260625.md",
     "mmi_063_closure_archive_reuse_release_chain_063_release_scorer": "scripts/score_mmi_063_closure_archive_reuse_release_chain_063_release_controls_v0_1_20260625.py",
-    "mmi_063_closure_archive_reuse_release_chain_063_release_validator": "scripts/validate_mmi_063_closure_archive_reuse_release_chain_063_release_report_v0_1_20260625.py"
+    "mmi_063_closure_archive_reuse_release_chain_063_release_validator": "scripts/validate_mmi_063_closure_archive_reuse_release_chain_063_release_report_v0_1_20260625.py",
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_controls": "data/mmi_064_closure_archive_reuse_release_chain_064_handoff_controls_v0_1_20260625.jsonl",
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_report": "data/mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.json",
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_report_doc": "docs/MMI_064_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_064_HANDOFF_REPORT_V0_1_20260625.md",
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_scorer": "scripts/score_mmi_064_closure_archive_reuse_release_chain_064_handoff_controls_v0_1_20260625.py",
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_validator": "scripts/validate_mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1152,7 +1157,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff controls",
+  "next_build_suggestion": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff closure archive reuse release handoff closure",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -1583,6 +1588,11 @@
       "synthetic repo controls only",
       "source attachment and archive reopenability boundaries during release",
       "authority or clearance claims are blocked"
+    ],
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_report": [
+      "synthetic repo controls only",
+      "source attachment and archive reopenability boundaries during handoff",
+      "authority or clearance claims are blocked"
     ]
   },
   "report_index": {
@@ -1774,6 +1784,10 @@
     "mmi_063_closure_archive_reuse_release_chain_063_release_report": [
       "data/mmi_063_closure_archive_reuse_release_chain_063_release_report_v0_1_20260625.json",
       "docs/MMI_063_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_063_RELEASE_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_064_closure_archive_reuse_release_chain_064_handoff_report": [
+      "data/mmi_064_closure_archive_reuse_release_chain_064_handoff_report_v0_1_20260625.json",
+      "docs/MMI_064_CLOSURE_ARCHIVE_REUSE_RELEASE_CHAIN_064_HANDOFF_REPORT_V0_1_20260625.md"
     ]
   }
 }
