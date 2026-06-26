@@ -439,6 +439,20 @@ Risk gate: exception replay archive rollup cannot create clearance or make archi
 
 Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release controls
 
+### mia_mmi_023 Multilingual Medical Intelligence
+
+Artifact: cross language reviewer closeout ledger reconciliation exception replay archive rollup release controls
+
+Input: archived replay exception rollup summary rows with release reuse and reopenability state
+
+Output: reopenable replay exception archive rollup release summary before handoff reuse
+
+Validator: replay archive rollup release controls must keep source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot reopenability and authority or clearance claim absence attached before release reuse
+
+Risk gate: exception replay archive rollup release cannot create clearance or make released rollup summaries unreopenable
+
+Next build: cross language reviewer closeout ledger reconciliation exception replay archive rollup release handoff controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

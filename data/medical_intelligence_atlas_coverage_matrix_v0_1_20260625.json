@@ -1158,6 +1158,57 @@
         "clinical_use_allowed": false,
         "clinical_advice_allowed": false
       }
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_controls": {
+      "path": "data/multilingual_medical_intelligence_rewrite_candidate_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic reviewer closeout ledger reconciliation exception replay archive rollup release controls",
+      "boundary_flags": {
+        "synthetic_only": true,
+        "patient_data_used": false,
+        "clinical_use_allowed": false,
+        "clinical_advice_allowed": false
+      }
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report": {
+      "path": "data/multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report_v0_1_20260625.json",
+      "kind": "machine readable reviewer closeout ledger reconciliation exception replay archive rollup release report",
+      "boundary_flags": {
+        "synthetic_only": true,
+        "patient_data_used": false,
+        "clinical_use_allowed": false,
+        "clinical_advice_allowed": false,
+        "reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_clearance_claim_made": false
+      }
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report_doc": {
+      "path": "docs/MULTILINGUAL_MEDICAL_INTELLIGENCE_CROSS_LANGUAGE_REVIEWER_CLOSEOUT_LEDGER_RECONCILIATION_EXCEPTION_REPLAY_ARCHIVE_ROLLUP_RELEASE_REPORT_V0_1_20260625.md",
+      "kind": "generated reviewer closeout ledger reconciliation exception replay archive rollup release report",
+      "boundary_flags": {
+        "synthetic_only": true,
+        "patient_data_used": false,
+        "clinical_use_allowed": false,
+        "clinical_advice_allowed": false
+      }
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_scorer": {
+      "path": "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_controls_v0_1_20260625.py",
+      "kind": "deterministic reviewer closeout ledger reconciliation exception replay archive rollup release scorer",
+      "boundary_flags": {
+        "synthetic_only": true,
+        "patient_data_used": false,
+        "clinical_use_allowed": false,
+        "clinical_advice_allowed": false
+      }
+    },
+    "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_validator": {
+      "path": "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report_v0_1_20260625.py",
+      "kind": "reviewer closeout ledger reconciliation exception replay archive rollup release report validator",
+      "boundary_flags": {
+        "synthetic_only": true,
+        "patient_data_used": false,
+        "clinical_use_allowed": false,
+        "clinical_advice_allowed": false
+      }
     }
   },
   "coverage_rows": [
@@ -1917,6 +1968,28 @@
       "coverage_status": "direct fixture coverage"
     },
     {
+      "node_id": "mia_mmi_023",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "cross language reviewer closeout ledger reconciliation exception replay archive rollup release controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_controls",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report_doc",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_scorer",
+        "mmi_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_validator"
+      ],
+      "coverage_focus": [
+        "sixteen synthetic reviewer closeout ledger reconciliation exception replay archive rollup release controls",
+        "source closeout id exported ledger row id owner final state dissent note unresolved branch closure boundary archive snapshot and reopenability preservation before release reuse",
+        "authority or clearance claim absence and reviewer hold compare reject routing before archive rollup release handoff"
+      ],
+      "local_validation_refs": [
+        "scripts/score_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_controls_v0_1_20260625.py",
+        "scripts/validate_multilingual_medical_intelligence_cross_language_reviewer_closeout_ledger_reconciliation_exception_replay_archive_rollup_release_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage"
+    },
+    {
       "node_id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "node_artifact": "node registry",
@@ -1926,7 +1999,7 @@
         "atlas_markdown"
       ],
       "coverage_focus": [
-        "twenty four atlas nodes",
+        "thirty three atlas nodes",
         "input output validator risk gate and next build fields",
         "stack layer alignment"
       ],
@@ -1957,18 +2030,18 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 32,
+    "expected_atlas_node_count": 33,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 32,
-    "expected_source_artifact_count": 136
+    "expected_coverage_row_count": 33,
+    "expected_source_artifact_count": 141
   },
   "summary": {
-    "atlas_node_count": 32,
-    "coverage_row_count": 32,
-    "source_artifact_count": 136
+    "atlas_node_count": 33,
+    "coverage_row_count": 33,
+    "source_artifact_count": 141
   }
 }

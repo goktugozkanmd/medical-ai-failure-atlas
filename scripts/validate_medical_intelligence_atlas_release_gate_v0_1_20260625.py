@@ -27,6 +27,7 @@ EXPECTED_LAYERS = {
 }
 ALLOWED_READINESS_STATUSES = {"ready", "blocked", "needs source check"}
 EXPECTED_RISK_GATE = "public release cannot outrun validators"
+EXPECTED_ATLAS_NODE_COUNT = 33
 
 ROW_KEYS = ("release_gate_rows", "gate_rows", "readiness_rows", "layers", "rows")
 NEXT_ACTION_KEYS = ("expected_next_action", "exact_next_action")
@@ -265,6 +266,13 @@ def validate_status_vocabulary(payload: dict[str, Any], rows: list[dict[str, Any
             errors.append("release_gate_summary.status_counts must be an object")
         if summary.get("source_check_rule") != EXPECTED_SOURCE_CHECK_RULE:
             errors.append(f"release_gate_summary.source_check_rule must exactly equal: {EXPECTED_SOURCE_CHECK_RULE}")
+        if summary.get("expected_atlas_node_count") != EXPECTED_ATLAS_NODE_COUNT:
+            errors.append(f"release_gate_summary.expected_atlas_node_count must be {EXPECTED_ATLAS_NODE_COUNT}")
+
+    atlas_layer_source = payload.get("atlas_layer_source")
+    if isinstance(atlas_layer_source, dict):
+        if atlas_layer_source.get("expected_node_count") != EXPECTED_ATLAS_NODE_COUNT:
+            errors.append(f"atlas_layer_source.expected_node_count must be {EXPECTED_ATLAS_NODE_COUNT}")
 
 
 def validate_source_policy(payload: dict[str, Any], errors: list[str]) -> None:
@@ -301,6 +309,14 @@ def validate_boundary_gate(row: dict[str, Any], label: str, errors: list[str]) -
     for key, expected in expected_flags.items():
         if boundary.get(key) is not expected:
             errors.append(f"{label}: synthetic_boundary.{key} must be {expected}")
+
+
+def validate_gate_inputs(row: dict[str, Any], label: str, errors: list[str]) -> None:
+    gate_inputs = row.get("gate_inputs")
+    if not isinstance(gate_inputs, dict):
+        return
+    if "atlas_nodes" in gate_inputs and gate_inputs.get("atlas_nodes") != EXPECTED_ATLAS_NODE_COUNT:
+        errors.append(f"{label}: gate_inputs.atlas_nodes must be {EXPECTED_ATLAS_NODE_COUNT}")
 
 
 def validate_next_action(
@@ -366,6 +382,7 @@ def validate_rows(rows: list[dict[str, Any]], expected_next_action: str | None, 
             validate_boundary_gate(row, label, errors)
         elif risk_gate != EXPECTED_RISK_GATE:
             errors.append(f"{label}: risk_gate must exactly equal: {EXPECTED_RISK_GATE}")
+        validate_gate_inputs(row, label, errors)
 
     missing_layers = sorted(EXPECTED_LAYERS - layers)
     extra_layers = sorted(layers - EXPECTED_LAYERS)
