@@ -3999,6 +3999,51 @@
       "patient_data_used": false,
       "clinical_use_allowed": false,
       "artifact_id": "mmi_111_chain_archive_validator"
+    },
+    "mmi_112_chain_reuse_controls": {
+      "path": "data/mmi_112_chain_reuse_controls_v0_1_20260625.jsonl",
+      "kind": "synthetic Turkish English controls",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_112_chain_reuse_controls"
+    },
+    "mmi_112_chain_reuse_report": {
+      "path": "data/mmi_112_chain_reuse_report_v0_1_20260625.json",
+      "kind": "machine readable MMI report",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_112_chain_reuse_report"
+    },
+    "mmi_112_chain_reuse_report_doc": {
+      "path": "docs/MMI_112_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+      "kind": "Markdown MMI report",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_112_chain_reuse_report_doc"
+    },
+    "mmi_112_chain_reuse_scorer": {
+      "path": "scripts/score_mmi_112_chain_reuse_controls_v0_1_20260625.py",
+      "kind": "deterministic MMI scorer",
+      "record_count": 16,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_112_chain_reuse_scorer"
+    },
+    "mmi_112_chain_reuse_validator": {
+      "path": "scripts/validate_mmi_112_chain_reuse_report_v0_1_20260625.py",
+      "kind": "MMI report validator",
+      "record_count": 1,
+      "synthetic_only": true,
+      "patient_data_used": false,
+      "clinical_use_allowed": false,
+      "artifact_id": "mmi_112_chain_reuse_validator"
     }
   },
   "coverage_rows": [
@@ -8262,7 +8307,43 @@
       ],
       "primary_artifact": "docs/MMI_111_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
       "artifact": "MMI 111 chain archive controls",
-      "open_gap": "next reuse step not yet represented"
+      "open_gap": "reuse step represented by MMI 112"
+    },
+    {
+      "node_id": "mia_mmi_112",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "MMI 112 chain reuse controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_112_chain_reuse_controls",
+        "mmi_112_chain_reuse_report",
+        "mmi_112_chain_reuse_report_doc",
+        "mmi_112_chain_reuse_scorer",
+        "mmi_112_chain_reuse_validator"
+      ],
+      "coverage_focus": "reuse review source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_112_chain_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_112_chain_reuse_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_112_chain_reuse_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_112_chain_reuse_controls",
+        "mmi_112_chain_reuse_report",
+        "mmi_112_chain_reuse_report_doc",
+        "mmi_112_chain_reuse_scorer",
+        "mmi_112_chain_reuse_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_112_chain_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_112_chain_reuse_report_v0_1_20260625.json",
+        "docs/MMI_112_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_112_chain_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_112_chain_reuse_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_112_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+      "artifact": "MMI 112 chain reuse controls",
+      "open_gap": "next release step not yet represented"
     },
     {
       "node_id": "mia_atlas_001",
@@ -8301,35 +8382,35 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 121,
+    "expected_atlas_node_count": 122,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": true,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 121,
-    "expected_source_artifact_count": 581,
-    "expected_node_count": 121,
-    "atlas_node_count": 121,
-    "coverage_row_count": 121,
-    "source_artifact_count": 581
+    "expected_coverage_row_count": 122,
+    "expected_source_artifact_count": 586,
+    "expected_node_count": 122,
+    "atlas_node_count": 122,
+    "coverage_row_count": 122,
+    "source_artifact_count": 586
   },
   "summary": {
-    "atlas_node_count": 121,
-    "coverage_row_count": 121,
-    "source_artifact_count": 581,
-    "expected_atlas_node_count": 121,
-    "expected_node_count": 121,
-    "expected_coverage_row_count": 121,
-    "expected_source_artifact_count": 581
+    "atlas_node_count": 122,
+    "coverage_row_count": 122,
+    "source_artifact_count": 586,
+    "expected_atlas_node_count": 122,
+    "expected_node_count": 122,
+    "expected_coverage_row_count": 122,
+    "expected_source_artifact_count": 586
   },
   "expected_counts": {
-    "expected_atlas_node_count": 121,
-    "expected_coverage_row_count": 121,
-    "expected_source_artifact_count": 581,
-    "expected_node_count": 121,
-    "atlas_node_count": 121,
-    "coverage_row_count": 121,
-    "source_artifact_count": 581
+    "expected_atlas_node_count": 122,
+    "expected_coverage_row_count": 122,
+    "expected_source_artifact_count": 586,
+    "expected_node_count": 122,
+    "atlas_node_count": 122,
+    "coverage_row_count": 122,
+    "source_artifact_count": 586
   }
 }
