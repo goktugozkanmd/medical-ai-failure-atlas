@@ -4789,7 +4789,12 @@
     "mmi_146_chain_archive_report": "data/mmi_146_chain_archive_report_v0_1_20260625.json",
     "mmi_146_chain_archive_report_doc": "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
     "mmi_146_chain_archive_scorer": "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
-    "mmi_146_chain_archive_validator": "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
+    "mmi_146_chain_archive_validator": "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py",
+    "mmi_147_chain_reuse_controls": "data/mmi_147_chain_reuse_controls_v0_1_20260625.jsonl",
+    "mmi_147_chain_reuse_report": "data/mmi_147_chain_reuse_report_v0_1_20260625.json",
+    "mmi_147_chain_reuse_report_doc": "docs/MMI_147_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+    "mmi_147_chain_reuse_scorer": "scripts/score_mmi_147_chain_reuse_controls_v0_1_20260625.py",
+    "mmi_147_chain_reuse_validator": "scripts/validate_mmi_147_chain_reuse_report_v0_1_20260625.py"
   },
   "coverage_rows": [
     {
@@ -10914,7 +10919,7 @@
       ],
       "primary_artifact": "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
       "artifact": "MMI 146 chain archive controls",
-      "open_gap": "next reuse step not yet represented",
+      "open_gap": "reuse step represented by MMI 147",
       "required_artifacts": [
         "mmi_146_chain_archive_controls",
         "mmi_146_chain_archive_report",
@@ -10936,41 +10941,98 @@
         "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
         "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
       ]
+    },
+    {
+      "node_id": "mia_mmi_147",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "MMI 147 chain reuse controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_147_chain_reuse_controls",
+        "mmi_147_chain_reuse_report",
+        "mmi_147_chain_reuse_report_doc",
+        "mmi_147_chain_reuse_scorer",
+        "mmi_147_chain_reuse_validator"
+      ],
+      "coverage_focus": "reuse review source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_147_chain_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_147_chain_reuse_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_147_chain_reuse_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_147_chain_reuse_controls",
+        "mmi_147_chain_reuse_report",
+        "mmi_147_chain_reuse_report_doc",
+        "mmi_147_chain_reuse_scorer",
+        "mmi_147_chain_reuse_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_147_chain_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_147_chain_reuse_report_v0_1_20260625.json",
+        "docs/MMI_147_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_147_chain_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_147_chain_reuse_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_147_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+      "artifact": "MMI 147 chain reuse controls",
+      "open_gap": "next release step not yet represented",
+      "required_artifacts": [
+        "mmi_147_chain_reuse_controls",
+        "mmi_147_chain_reuse_report",
+        "mmi_147_chain_reuse_report_doc",
+        "mmi_147_chain_reuse_scorer",
+        "mmi_147_chain_reuse_validator"
+      ],
+      "source_artifact_ids": [
+        "mmi_147_chain_reuse_controls",
+        "mmi_147_chain_reuse_report",
+        "mmi_147_chain_reuse_report_doc",
+        "mmi_147_chain_reuse_scorer",
+        "mmi_147_chain_reuse_validator"
+      ],
+      "source_artifact_paths": [
+        "data/mmi_147_chain_reuse_controls_v0_1_20260625.jsonl",
+        "data/mmi_147_chain_reuse_report_v0_1_20260625.json",
+        "docs/MMI_147_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_147_chain_reuse_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_147_chain_reuse_report_v0_1_20260625.py"
+      ]
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 155,
+    "expected_atlas_node_count": 157,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
-    "requires_each_atlas_node_once": 138,
+    "requires_each_atlas_node_once": 157,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 155,
-    "expected_source_artifact_count": 751,
-    "expected_node_count": 155,
-    "atlas_node_count": 155,
-    "coverage_row_count": 155,
-    "source_artifact_count": 751
+    "expected_coverage_row_count": 157,
+    "expected_source_artifact_count": 761,
+    "expected_node_count": 157,
+    "atlas_node_count": 157,
+    "coverage_row_count": 157,
+    "source_artifact_count": 761
   },
   "summary": {
-    "atlas_node_count": 156,
-    "coverage_row_count": 156,
-    "source_artifact_count": 756,
-    "expected_atlas_node_count": 156,
-    "expected_node_count": 156,
-    "expected_coverage_row_count": 156,
-    "expected_source_artifact_count": 756,
-    "node_count": 156
+    "atlas_node_count": 157,
+    "coverage_row_count": 157,
+    "source_artifact_count": 761,
+    "expected_atlas_node_count": 157,
+    "expected_node_count": 157,
+    "expected_coverage_row_count": 157,
+    "expected_source_artifact_count": 761,
+    "node_count": 157
   },
   "expected_counts": {
-    "expected_atlas_node_count": 156,
-    "expected_coverage_row_count": 156,
-    "expected_source_artifact_count": 756,
-    "expected_node_count": 156,
-    "atlas_node_count": 156,
-    "coverage_row_count": 156,
-    "source_artifact_count": 756,
-    "coverage_rows": 156,
-    "source_artifacts": 756
+    "expected_atlas_node_count": 157,
+    "expected_coverage_row_count": 157,
+    "expected_source_artifact_count": 761,
+    "expected_node_count": 157,
+    "atlas_node_count": 157,
+    "coverage_row_count": 157,
+    "source_artifact_count": 761,
+    "coverage_rows": 157,
+    "source_artifacts": 761
   }
 }
