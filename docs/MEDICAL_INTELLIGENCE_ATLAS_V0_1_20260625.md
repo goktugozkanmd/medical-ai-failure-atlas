@@ -2819,6 +2819,20 @@ Risk gate: MMI 190 chain closure packets cannot imply patient data, clinical adv
 
 Next build: MMI 191 chain archive controls
 
+### mia_mmi_191 Multilingual Medical Intelligence
+
+Artifact: MMI 191 chain archive controls
+
+Input: MMI 190 closure reviewed archived packets
+
+Output: chain archive review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved
+
+Validator: each MMI 191 chain archive control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the archive packet
+
+Risk gate: MMI 191 chain archive packets cannot imply patient data, clinical advice, clinical validation, clinical deployment, model ranking, model superiority, partner, institutional, regulatory, publication, authority, clearance, or outward use without user approval
+
+Next build: MMI 192 chain reuse controls
+
 ## Relationships
 
 ### Clinical State Language to Clinical Trajectory Engine
