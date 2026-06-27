@@ -20,6 +20,8 @@ Live BAGLAM2, portfolio trackers, active Gmail outreach threads, and targeted Gm
 4. Keep all examples synthetic.
 5. Do not add patient text, diagnosis advice, treatment advice, institutional statements, partner statements, or clinical deployment claims.
 
+Safe Failure Card issue template: `.github/ISSUE_TEMPLATE/safe_failure_card_objection.yml`
+
 ## Card schema
 
 Each card has these fields:

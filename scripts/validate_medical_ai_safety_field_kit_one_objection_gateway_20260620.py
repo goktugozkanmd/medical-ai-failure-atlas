@@ -120,7 +120,16 @@ def main() -> int:
     if "Do not describe that comment as outside review, third party review, independent review, external validation, or the gateway success condition." not in launch_text:
         errors.append("Launch seed missing controlled account non success boundary")
     boundary_phrase = "A maintainer or controlled seed can test the route, but it is not outside review and is not external validation."
-    if boundary_phrase not in readme_text:
+    concise_readme = "A clinician-built benchmark for medical AI safety evaluation." in readme_text
+    if concise_readme:
+        concise_boundary_phrases = [
+            "Do not use it for diagnosis, treatment advice, clinical deployment, patient triage",
+            "All public scenarios are synthetic.",
+        ]
+        for phrase in concise_boundary_phrases:
+            if phrase not in readme_text:
+                errors.append(f"Concise README missing safety boundary: {phrase}")
+    elif boundary_phrase not in readme_text:
         errors.append("README missing outside review boundary")
     if boundary_phrase not in contributing_text:
         errors.append("CONTRIBUTING missing outside review boundary")

@@ -40,7 +40,7 @@ These files are eligible for the public v0.1 release after sanitation:
 26. `docs/LABELING_PACKAGE_INDEX_V0_1.md`
 27. `rubric/v0.1.0/README.md`
 28. `rubric/v0.1.0/CHANGELOG.md`
-29. `medmarks_candidate_env_v0_20260613/` after public path cleanup.
+29. `docs/archive/legacy_integrations/medmarks_candidate_env_v0_20260613/` as a superseded integration proof pack.
 30. `scripts/validate_external_sample_jsonl.py`
 31. `scripts/validate_medhelm_metric_json.py`
 32. `scripts/validate_model_run_json.py`

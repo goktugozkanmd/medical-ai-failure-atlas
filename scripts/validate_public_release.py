@@ -561,346 +561,379 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
 
     readme = root / "README.md"
     readme_text = readme.read_text(encoding="utf-8") if readme.exists() else ""
+    skip_legacy_readme_checks = False
     if readme.exists():
-        if "failure_atlas/public/INDEX.md" not in readme_text:
+        concise_readme = "A clinician-built benchmark for medical AI safety evaluation." in readme_text
+        skip_legacy_readme_checks = concise_readme
+        if concise_readme:
+            readme_lines = readme_text.splitlines()
+            required_concise_fragments = [
+                "![Demo screenshot placeholder](docs/assets/demo-placeholder.svg)",
+                "## Table of Contents",
+                "## Quick Start",
+                "## What Is Inside",
+                "## Who Is This For",
+                "## License",
+                "Apache-2.0",
+                "CC-BY-4.0",
+                "## Citation",
+                "docs/LEADERBOARD_PLAN.md",
+                "failure_atlas/public/INDEX.md",
+                "failure_atlas/public/METHODOLOGY.md",
+                "Raw model outputs and logs are not included",
+            ]
+            if len(readme_lines) > 300:
+                fail(errors, f"README must be 300 lines or fewer, found {len(readme_lines)}")
+            for fragment in required_concise_fragments:
+                if fragment not in readme_text:
+                    fail(errors, f"Concise README missing required fragment: {fragment}")
+            retired_front_door_terms = [
+                "Two minute outside objection",
+                "Medical AI Safety Field Kit Public Call",
+                "Open a bounded public issue",
+            ]
+            for term in retired_front_door_terms:
+                if term in readme_text:
+                    fail(errors, f"Concise README still contains retired front door term: {term}")
+        if not skip_legacy_readme_checks and "failure_atlas/public/INDEX.md" not in readme_text:
             fail(errors, "README must link to failure_atlas/public/INDEX.md")
-        if "failure_atlas/public/METHODOLOGY.md" not in readme_text:
+        if not skip_legacy_readme_checks and "failure_atlas/public/METHODOLOGY.md" not in readme_text:
             fail(errors, "README must link to failure_atlas/public/METHODOLOGY.md")
-        if "Raw model outputs and logs are not included" not in readme_text:
+        if not skip_legacy_readme_checks and "Raw model outputs and logs are not included" not in readme_text:
             fail(errors, "README must state that raw model outputs and logs are not included")
-        if "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the SourceCheckup public contributor issue guide")
-        if "make sourcecheckup_public_issue" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_public_issue" not in readme_text:
             fail(errors, "README must document the SourceCheckup public issue validation command")
-        if "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/PLATFORM_DASHBOARD_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the platform dashboard index")
-        if "make platform_dashboard" not in readme_text:
+        if not skip_legacy_readme_checks and "make platform_dashboard" not in readme_text:
             fail(errors, "README must document the platform dashboard validation command")
-        if "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md" not in readme_text:
             fail(errors, "README must link to the TR MedLLM specialty spread dashboard")
-        if "make tr_medllm_specialty_dashboard" not in readme_text:
+        if not skip_legacy_readme_checks and "make tr_medllm_specialty_dashboard" not in readme_text:
             fail(errors, "README must document the TR MedLLM specialty dashboard command")
-        if "sourcecheckup/build/source_claim_example_expansion_v0_2.md" not in readme_text:
+        if not skip_legacy_readme_checks and "sourcecheckup/build/source_claim_example_expansion_v0_2.md" not in readme_text:
             fail(errors, "README must link to the SourceCheckup expansion dashboard")
-        if "make sourcecheckup_expansion_dashboard" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_expansion_dashboard" not in readme_text:
             fail(errors, "README must document the SourceCheckup expansion dashboard command")
-        if "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the clinician literacy release gate lesson map")
-        if "make clinician_literacy_map" not in readme_text:
+        if not skip_legacy_readme_checks and "make clinician_literacy_map" not in readme_text:
             fail(errors, "README must document the clinician literacy lesson map command")
-        if "docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the assurance release gate example map")
-        if "make assurance_release_gate_map" not in readme_text:
+        if not skip_legacy_readme_checks and "make assurance_release_gate_map" not in readme_text:
             fail(errors, "README must document the assurance release gate map command")
-        if "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the SourceCheckup TR MedLLM assurance routing map")
-        if "make sourcecheckup_tr_medllm_routing" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_tr_medllm_routing" not in readme_text:
             fail(errors, "README must document the SourceCheckup TR MedLLM routing command")
-        if "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md" not in readme_text:
             fail(errors, "README must link to the source review worksheets")
-        if "make source_review_worksheets" not in readme_text:
+        if not skip_legacy_readme_checks and "make source_review_worksheets" not in readme_text:
             fail(errors, "README must document the source review worksheets command")
-        if "docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the red flag warning checklist")
-        if "make red_flag_warning_checklist" not in readme_text:
+        if not skip_legacy_readme_checks and "make red_flag_warning_checklist" not in readme_text:
             fail(errors, "README must document the red flag warning checklist command")
-        if "docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the warning sign reviewer role table")
-        if "make warning_sign_role_table" not in readme_text:
+        if not skip_legacy_readme_checks and "make warning_sign_role_table" not in readme_text:
             fail(errors, "README must document the warning sign reviewer role table command")
-        if "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md" not in readme_text:
             fail(errors, "README must link to red flag contributor examples")
-        if "make red_flag_contributor_examples" not in readme_text:
+        if not skip_legacy_readme_checks and "make red_flag_contributor_examples" not in readme_text:
             fail(errors, "README must document the red flag contributor examples command")
-        if "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md" not in readme_text:
             fail(errors, "README must link to SourceCheckup Turkish institutional wording examples")
-        if "make sourcecheckup_turkish_institutional_wording" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_turkish_institutional_wording" not in readme_text:
             fail(errors, "README must document the SourceCheckup Turkish institutional wording command")
-        if "docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md" not in readme_text:
             fail(errors, "README must link to SourceCheckup repo run guide")
-        if "make sourcecheckup_repo_run_guide" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_repo_run_guide" not in readme_text:
             fail(errors, "README must document the SourceCheckup repo run guide command")
-        if "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question public release index")
-        if "make reviewer_question_release_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_release_index" not in readme_text:
             fail(errors, "README must document the reviewer question public release index command")
-        if "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question public contributor digest")
-        if "make reviewer_question_contributor_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_contributor_digest" not in readme_text:
             fail(errors, "README must document the reviewer question public contributor digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer handoff notes")
-        if "make reviewer_question_maintainer_handoff" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_handoff" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer handoff command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer closeout digest")
-        if "make reviewer_question_maintainer_closeout_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_closeout_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer closeout digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer release readiness digest")
-        if "make reviewer_question_maintainer_release_readiness_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_release_readiness_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer release readiness digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer evidence map")
-        if "make reviewer_question_maintainer_evidence_map" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_evidence_map" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer evidence map command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer audit trail packet")
-        if "make reviewer_question_maintainer_audit_trail_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_audit_trail_packet" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer audit trail packet command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer release candidate summary")
-        if "make reviewer_question_maintainer_release_candidate_summary" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_release_candidate_summary" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer release candidate summary command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview decision log")
-        if "make reviewer_question_maintainer_public_preview_decision_log" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_decision_log" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview decision log command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview handoff summary")
-        if "make reviewer_question_maintainer_public_preview_handoff_summary" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_handoff_summary" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview handoff summary command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview closure checklist")
-        if "make reviewer_question_maintainer_public_preview_closure_checklist" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_closure_checklist" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview closure checklist command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview archive digest")
-        if "make reviewer_question_maintainer_public_preview_archive_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_archive_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview archive digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview index rollup")
-        if "make reviewer_question_maintainer_public_preview_index_rollup" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_index_rollup" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview index rollup command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview repository navigation note")
-        if "make reviewer_question_maintainer_public_preview_repository_navigation_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_repository_navigation_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview repository navigation note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview release card")
-        if "make reviewer_question_maintainer_public_preview_release_card" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_release_card" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview release card command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview contributor route note")
-        if "make reviewer_question_maintainer_public_preview_contributor_route_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_contributor_route_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview contributor route note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview issue template route note")
-        if "make reviewer_question_maintainer_public_preview_issue_template_route_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_issue_template_route_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview issue template route note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview maintainer acceptance checklist")
-        if "make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview maintainer acceptance checklist command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance closeout digest")
-        if "make reviewer_question_maintainer_public_preview_acceptance_closeout_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_closeout_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance closeout digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive index")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_index" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive index command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive release note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_release_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_release_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive release note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive closure note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_closure_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_closure_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive closure note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_FINAL_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_FINAL_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive final index")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_final_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_final_index" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive final index command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_HANDOFF_PACKET_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_HANDOFF_PACKET_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive handoff packet")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_handoff_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_handoff_packet" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive handoff packet command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive steward note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_steward_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_steward_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive steward note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive steward index")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_steward_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_steward_index" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive steward index command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive stewardship closeout")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive stewardship closeout command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive stewardship digest")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive stewardship digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff digest")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_digest" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff digest command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff release index")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff release index command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff release note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff release note command")
-        if "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the reviewer question maintainer public preview acceptance archive public handoff closure note")
-        if "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note" not in readme_text:
             fail(errors, "README must document the reviewer question maintainer public preview acceptance archive public handoff closure note command")
-        if "docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md" not in readme_text:
             fail(errors, "README must link to the current medical AI intelligence priority update")
-        if "make current_medical_ai_intelligence_priority_update" not in readme_text:
+        if not skip_legacy_readme_checks and "make current_medical_ai_intelligence_priority_update" not in readme_text:
             fail(errors, "README must document the current medical AI intelligence priority update command")
-        if "docs/TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the Türkiye AI ethics status gate note")
-        if "make turkiye_ai_ethics_status_gate_note" not in readme_text:
+        if not skip_legacy_readme_checks and "make turkiye_ai_ethics_status_gate_note" not in readme_text:
             fail(errors, "README must document the Türkiye AI ethics status gate note command")
-        if "docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the TR clinical AI assurance sandbox readiness gate checklist")
-        if "make tr_clinical_ai_assurance_sandbox_readiness_gate" not in readme_text:
+        if not skip_legacy_readme_checks and "make tr_clinical_ai_assurance_sandbox_readiness_gate" not in readme_text:
             fail(errors, "README must document the TR clinical AI assurance sandbox readiness gate command")
-        if "docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the SourceCheckup Medical benchmark boundary delta note")
-        if "make sourcecheckup_medical_benchmark_boundary_delta" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_medical_benchmark_boundary_delta" not in readme_text:
             fail(errors, "README must document the SourceCheckup Medical benchmark boundary delta command")
-        if "make paired_sandbox_boundary_delta" not in readme_text:
+        if not skip_legacy_readme_checks and "make paired_sandbox_boundary_delta" not in readme_text:
             fail(errors, "README must document the paired sandbox boundary delta command")
-        if "docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the clinician AI literacy sandbox handoff micro module")
-        if "make clinician_ai_literacy_sandbox_handoff_micro_module" not in readme_text:
+        if not skip_legacy_readme_checks and "make clinician_ai_literacy_sandbox_handoff_micro_module" not in readme_text:
             fail(errors, "README must document the clinician AI literacy sandbox handoff micro module command")
-        if "docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the SourceCheckup Medical source support delta queue")
-        if "make sourcecheckup_medical_source_support_delta_queue" not in readme_text:
+        if not skip_legacy_readme_checks and "make sourcecheckup_medical_source_support_delta_queue" not in readme_text:
             fail(errors, "README must document the SourceCheckup Medical source support delta queue command")
-        if "make paired_literacy_source_support_delta" not in readme_text:
+        if not skip_legacy_readme_checks and "make paired_literacy_source_support_delta" not in readme_text:
             fail(errors, "README must document the paired literacy source support delta command")
-        if "docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md" not in readme_text:
             fail(errors, "README must link to the field impact opportunity radar")
-        if "docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md" not in readme_text:
             fail(errors, "README must link to the Türkiye Health AI Safety Readiness Kit")
-        if "make turkiye_health_ai_safety_readiness_kit" not in readme_text:
+        if not skip_legacy_readme_checks and "make turkiye_health_ai_safety_readiness_kit" not in readme_text:
             fail(errors, "README must document the Türkiye Health AI Safety Readiness Kit command")
-        if "docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md" not in readme_text:
             fail(errors, "README must link to the TEKNOFEST Health AI Safety Addendum")
-        if "make teknofest_health_ai_safety_addendum" not in readme_text:
+        if not skip_legacy_readme_checks and "make teknofest_health_ai_safety_addendum" not in readme_text:
             fail(errors, "README must document the TEKNOFEST Health AI Safety Addendum command")
-        if "make field_impact_packages" not in readme_text:
+        if not skip_legacy_readme_checks and "make field_impact_packages" not in readme_text:
             fail(errors, "README must document the field impact packages command")
-        if "docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md" not in readme_text:
             fail(errors, "README must link to the TÜBİTAK 1711 AI Assurance Sidecar")
-        if "make tubitak_1711_ai_assurance_sidecar" not in readme_text:
+        if not skip_legacy_readme_checks and "make tubitak_1711_ai_assurance_sidecar" not in readme_text:
             fail(errors, "README must document the TÜBİTAK 1711 AI Assurance Sidecar command")
-        if "docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md" not in readme_text:
             fail(errors, "README must link to the named outreach decision matrix")
-        if "make named_outreach_decision_matrix" not in readme_text:
+        if not skip_legacy_readme_checks and "make named_outreach_decision_matrix" not in readme_text:
             fail(errors, "README must document the named outreach decision matrix command")
-        if "make field_opportunity_decision_packages" not in readme_text:
+        if not skip_legacy_readme_checks and "make field_opportunity_decision_packages" not in readme_text:
             fail(errors, "README must document the field opportunity decision packages command")
-        if "docs/GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md" not in readme_text:
             fail(errors, "README must link to the Goktug field action review packet")
-        if "make goktug_field_action_review_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make goktug_field_action_review_packet" not in readme_text:
             fail(errors, "README must document the Goktug field action review packet command")
-        if "docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md" not in readme_text:
             fail(errors, "README must link to the TEKNOFEST public share clearance packet")
-        if "make teknofest_public_share_clearance_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make teknofest_public_share_clearance_packet" not in readme_text:
             fail(errors, "README must document the TEKNOFEST public share clearance packet command")
-        if "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit reviewer role table")
-        if "make label_audit_role_table" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_role_table" not in readme_text:
             fail(errors, "README must document the label audit reviewer role table command")
-        if "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit public contributor issue guide")
-        if "make label_audit_public_issue" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_public_issue" not in readme_text:
             fail(errors, "README must document the label audit public issue validation command")
-        if "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit example intake rows")
-        if "make label_audit_examples" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_examples" not in readme_text:
             fail(errors, "README must document the label audit example intake command")
-        if "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit example dashboard")
-        if "make label_audit_dashboard" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_dashboard" not in readme_text:
             fail(errors, "README must document the label audit example dashboard command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer triage board")
-        if "make label_audit_triage" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_triage" not in readme_text:
             fail(errors, "README must document the label audit maintainer triage command")
-        if "docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit public wording decision log")
-        if "make label_audit_wording_log" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_wording_log" not in readme_text:
             fail(errors, "README must document the label audit public wording decision command")
-        if "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit release gate checklist")
-        if "make label_audit_release_gates" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_release_gates" not in readme_text:
             fail(errors, "README must document the label audit release gate checklist command")
-        if "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit release gate outcome dashboard")
-        if "make label_audit_outcome_dashboard" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_outcome_dashboard" not in readme_text:
             fail(errors, "README must document the label audit release gate outcome dashboard command")
-        if "docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit release note packet")
-        if "make label_audit_release_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_release_packet" not in readme_text:
             fail(errors, "README must document the label audit release note packet command")
-        if "docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit public changelog")
-        if "make label_audit_changelog" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_changelog" not in readme_text:
             fail(errors, "README must document the label audit public changelog command")
-        if "docs/label_audit/LABEL_AUDIT_PUBLIC_RELEASE_INDEX_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_PUBLIC_RELEASE_INDEX_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit public release index")
-        if "make label_audit_release_index" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_release_index" not in readme_text:
             fail(errors, "README must document the label audit public release index command")
-        if "docs/label_audit/LABEL_AUDIT_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit public contributor digest")
-        if "make label_audit_contributor_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_contributor_digest" not in readme_text:
             fail(errors, "README must document the label audit public contributor digest command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_HANDOFF_NOTES_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_HANDOFF_NOTES_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer handoff notes")
-        if "make label_audit_maintainer_handoff" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_handoff" not in readme_text:
             fail(errors, "README must document the label audit maintainer handoff command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer closeout digest")
-        if "make label_audit_maintainer_closeout_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_closeout_digest" not in readme_text:
             fail(errors, "README must document the label audit maintainer closeout digest command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer release readiness digest")
-        if "make label_audit_maintainer_release_readiness_digest" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_release_readiness_digest" not in readme_text:
             fail(errors, "README must document the label audit maintainer release readiness digest command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer evidence map")
-        if "make label_audit_maintainer_evidence_map" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_evidence_map" not in readme_text:
             fail(errors, "README must document the label audit maintainer evidence map command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer audit trail packet")
-        if "make label_audit_maintainer_audit_trail_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_audit_trail_packet" not in readme_text:
             fail(errors, "README must document the label audit maintainer audit trail packet command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer release candidate summary")
-        if "make label_audit_maintainer_release_candidate_summary" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_release_candidate_summary" not in readme_text:
             fail(errors, "README must document the label audit maintainer release candidate summary command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer public preview decision log")
-        if "make label_audit_maintainer_public_preview_decision_log" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_public_preview_decision_log" not in readme_text:
             fail(errors, "README must document the label audit maintainer public preview decision log command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer public preview handoff summary")
-        if "make label_audit_maintainer_public_preview_handoff_summary" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_public_preview_handoff_summary" not in readme_text:
             fail(errors, "README must document the label audit maintainer public preview handoff summary command")
-        if "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md" not in readme_text:
             fail(errors, "README must link to the label audit maintainer public preview closure checklist")
-        if "make label_audit_maintainer_public_preview_closure_checklist" not in readme_text:
+        if not skip_legacy_readme_checks and "make label_audit_maintainer_public_preview_closure_checklist" not in readme_text:
             fail(errors, "README must document the label audit maintainer public preview closure checklist command")
-        if "docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md" not in readme_text:
             fail(errors, "README must link to the BİLGE readiness queue")
-        if "make bilge_readiness_queue" not in readme_text:
+        if not skip_legacy_readme_checks and "make bilge_readiness_queue" not in readme_text:
             fail(errors, "README must document the BİLGE readiness queue command")
-        if "docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md" not in readme_text:
+        if not skip_legacy_readme_checks and "docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md" not in readme_text:
             fail(errors, "README must link to the TÜBİTAK 1711 collaboration readiness packet")
-        if "make tubitak_1711_readiness_packet" not in readme_text:
+        if not skip_legacy_readme_checks and "make tubitak_1711_readiness_packet" not in readme_text:
             fail(errors, "README must document the TÜBİTAK 1711 readiness packet command")
 
     prompt_files = [

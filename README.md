@@ -1,413 +1,89 @@
-# Clinician led medical AI safety evaluation
+# Medical AI Failure Atlas
 
-Status: public v0.1 release.
+A clinician-built benchmark for medical AI safety evaluation.
 
-Date: 2026 06 13
+![Demo screenshot placeholder](docs/assets/demo-placeholder.svg)
 
-## Medical AI Safety Field Kit Public Call
+Medical AI Failure Atlas is a synthetic benchmark for testing whether medical AI systems handle safety critical wording, missing variables, escalation boundaries, and source support. A clinician created the cases so model builders can see failure patterns that matter in medical review without using patient data. The project gives researchers, evaluators, and open source maintainers a practical way to inspect medical safety behavior before public claims or downstream use.
 
-Start here if you are a clinician, health informatics reviewer, hospital quality reviewer, Turkish medical language reviewer, source support reviewer, or open model maintainer.
+## Table of Contents
 
-## Two minute outside objection
+1. [Quick Start](#quick-start)
+2. [What This Evaluates](#what-this-evaluates)
+3. [What Is Inside](#what-is-inside)
+4. [Repository Structure](#repository-structure)
+5. [Example Workflows](#example-workflows)
+6. [Who Is This For](#who-is-this-for)
+7. [Safety Boundaries](#safety-boundaries)
+8. [Roadmap](#roadmap)
+9. [Contributing](#contributing)
+10. [License](#license)
+11. [Citation](#citation)
 
-Open issue 154 and paste one small comment:
+## Quick Start
 
-https://github.com/v0id-lab/medical-ai-failure-atlas/issues/154
+Run the public checks and generate the current leaderboard preview:
 
-Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+python3 -m pip install -r leaderboard/requirements.txt
+make validate-public leaderboard_report
+```
 
-Do not read the full repo first. One sentence is enough if it names one weak spot.
+Run the local leaderboard app:
 
-Use either the blank shape or the example shape. Change any line you want.
+```bash
+python3 leaderboard/app.py
+```
+
+## What This Evaluates
+
+The benchmark focuses on failure modes that clinicians and safety reviewers need to catch before a model answer becomes trusted language:
+
+1. Missing clinical variables.
+2. Unsafe escalation wording.
+3. Overconfident protocol language.
+4. Weak source support.
+5. Confusing Turkish medical wording.
+6. Claims that sound like validation, deployment, ranking, or endorsement without evidence.
+
+The public release uses synthetic scenarios only. It does not contain patient records, private clinical text, raw private model logs, or clinical deployment evidence. Raw model outputs and logs are not included in the public release.
+
+The public prompt files currently form a 70 row prompt set across the v1, hard 30, and scale 30 prompt files.
+
+## What Is Inside
+
+| Area | Path | Purpose |
+| --- | --- | --- |
+| Synthetic evaluation data | `data/` | Prompt sets, scenario banks, scoring rubrics, and public synthetic samples. |
+| Failure atlas | [`failure_atlas/public/`](failure_atlas/public/INDEX.md) | Taxonomy preview, case intake schema, [methodology](failure_atlas/public/METHODOLOGY.md), and review queue. |
+| SourceCheckup Medical | `sourcecheckup/` | Source support checks for medical AI answers and public claim review. |
+| Turkish MedLLM safety bench | `tr_medllm_safetybench/` | Turkish medical language risk pack and specialty spread summary. |
+| Leaderboard preview | `leaderboard/` | Synthetic no ranking report template and deployable Space app. |
+| Review rubric | `rubric/v0.1.0/` | Frozen clinician review definitions for the first rubric version. |
+| Validation scripts | `scripts/` | Deterministic checks for data shape, release boundaries, and generated reports. |
+| Documentation | `docs/` | Method notes, release cards, governance worksheets, and archived field work. |
+
+## Repository Structure
 
 ```text
-1. Link or section:
-2. What seems weak, confusing, overstated, or missing:
-3. What would make it clearer or more defensible:
-4. Optional evidence or example:
+medical-ai-failure-atlas/
+  data/                         synthetic scenario and rubric files
+  failure_atlas/public/         public taxonomy and case intake materials
+  leaderboard/                  preview report and HuggingFace Space app
+  rubric/v0.1.0/                clinician review rubric
+  scripts/                      validators, runners, and report generators
+  sourcecheckup/                source support review tool
+  tr_medllm_safetybench/        Turkish medical LLM safety pack
+  docs/                         documentation and planning notes
 ```
 
-```text
-1. Link or section: README, Two minute outside objection
-2. What seems weak, confusing, overstated, or missing: The request asks for an outside objection, but it does not show how small a useful comment can be.
-3. What would make it clearer or more defensible: Say that one sentence is enough and that the maintainer will route the comment into the right card or gate.
-4. Optional evidence or example: A reviewer could comment only on unclear wording, source support, synthetic evidence, or readiness language.
-```
+## Example Workflows
 
-Use synthetic or public examples only. Do not include patient data, private clinical text, raw private model output, clinical advice, validation, deployment, ranking, score certification, source truth certification, partner claims, institution claims, endorsement, payment, or terms action.
-
-This is the public review front door for the project:
-
-1. [Medical AI Safety Field Kit Outside Reviewer Micro Brief](docs/MEDICAL_AI_SAFETY_FIELD_KIT_OUTSIDE_REVIEWER_MICRO_BRIEF_20260620.md)
-2. [Medical AI Safety Field Kit Issue 154 Public Comment Router](docs/MEDICAL_AI_SAFETY_FIELD_KIT_ISSUE154_PUBLIC_COMMENT_ROUTER_20260620.md)
-3. [Medical AI Safety Field Kit One Objection Gateway](docs/MEDICAL_AI_SAFETY_FIELD_KIT_ONE_OBJECTION_GATEWAY_20260620.md)
-4. [Medical AI Safety Field Kit Reviewer Start Here](docs/MEDICAL_AI_SAFETY_FIELD_KIT_REVIEWER_START_HERE_20260619.md)
-5. [Medical AI Safety Field Kit Global Safety Claim Review Workbook](docs/MEDICAL_AI_SAFETY_FIELD_KIT_GLOBAL_SAFETY_CLAIM_REVIEW_WORKBOOK_20260620.md)
-6. [Medical AI Safety Field Kit Reviewer Sprint Board](docs/MEDICAL_AI_SAFETY_FIELD_KIT_REVIEWER_SPRINT_BOARD_20260620.md)
-7. [Medical AI Safety Field Kit External Route Scout Board](docs/MEDICAL_AI_SAFETY_FIELD_KIT_EXTERNAL_ROUTE_SCOUT_BOARD_20260620.md)
-8. [Medical AI Safety Field Kit SFC005 Synthetic Evidence Starter](docs/MEDICAL_AI_SAFETY_FIELD_KIT_SFC005_SYNTHETIC_EVIDENCE_STARTER_20260620.md)
-9. [Medical AI Safety Field Kit Public Call](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_CALL_20260619.md)
-10. [Medical AI Safety Field Kit Target Distribution Index](docs/MEDICAL_AI_SAFETY_FIELD_KIT_TARGET_DISTRIBUTION_INDEX_20260619.md)
-11. [Medical AI Safety Field Kit Send Approval Packet](docs/MEDICAL_AI_SAFETY_FIELD_KIT_SEND_APPROVAL_PACKET_20260619.md)
-12. [Medical AI Safety Field Kit Public Objection Ledger](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_LEDGER_20260619.md)
-13. [Medical AI Safety Field Kit Public Objection Intake](docs/MEDICAL_AI_SAFETY_FIELD_KIT_PUBLIC_OBJECTION_INTAKE_20260619.md)
-14. [Public Safe Failure Cards](docs/PUBLIC_SAFE_FAILURE_CARDS_20260619.md)
-15. [Public Safe Failure Cards launch seed](docs/PUBLIC_SAFE_FAILURE_CARDS_LAUNCH_SEED_20260619.md)
-16. [Safe Failure Card issue template](.github/ISSUE_TEMPLATE/safe_failure_card_objection.yml)
-
-The call is simple: pick one reviewer role, pick one platform lane, and add one concrete objection, missing safety check, failure mode, source support gap, Turkish wording risk, or field readiness gap.
-
-The Safe Failure Cards turn ten common medical AI safety traps into small public reviewer prompts. Use them to attack weak wording before it becomes trusted language.
-
-Open the Safe Failure Card issue template to leave one card id, risk, missing gate, and safer wording.
-
-Boundary: no patient data, no clinical validation, no clinical deployment, no diagnosis or treatment advice, no benchmark ranking, no score certification, no source truth certification, no partner claim, no institution claim, and no endorsement.
-
-## Open a bounded public issue
-
-Use one issue template:
-
-1. [Safe Failure Card objection](.github/ISSUE_TEMPLATE/safe_failure_card_objection.yml): one card id, risk, missing gate, and safer wording.
-2. [Synthetic medical AI failure case](.github/ISSUE_TEMPLATE/synthetic_failure_case.yml): one synthetic failure mode and safer answer expectation.
-3. [SourceCheckup source review](.github/ISSUE_TEMPLATE/sourcecheckup_review.yml): one source support gap and required evidence check.
-4. [Evidence concern](.github/ISSUE_TEMPLATE/evidence_concern.yml): one reproducible concern about model behavior, evaluation design, documentation, release quality, or evidence support.
-5. [Label audit review](.github/ISSUE_TEMPLATE/label_audit_review.yml): one data fitness or label boundary gap.
-
-Use synthetic examples only. Do not include patient data, private clinical text, raw model outputs, endpoint results, scores, rankings, clinical validation, clinical deployment, partner claims, institution claims, endorsement claims, payment claims, or terms claims. A submitted issue creates a maintainer review queue only.
-
-## TEKNOFEST Health AI Safety Addendum
-
-Time sensitive public field note for teams preparing TEKNOFEST Sağlıkta Yapay Zeka project detail reports before 29 June 2026 at 17:00.
-
-Start here:
-
-1. [TEKNOFEST Health AI Detail Report Final Gate](docs/TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618.md)
-2. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
-3. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
-4. [Repository public share issue](https://github.com/v0id-lab/medical-ai-failure-atlas/issues/92)
-
-Focus: genetic variant model risk checks, label uncertainty, data leakage, source support, population limits, human review, final report language, and clean claim language before project reports.
-
-## Türkiye Health AI Safety Readiness
-
-Public readiness companion for Turkish health AI teams aligning safety checks with visible TÜYZE signals around health data, medical decision support, big data, education, and collaboration readiness.
-
-Start here:
-
-1. [Türkiye Health AI Safety Outreach Roadmap](docs/TURKIYE_HEALTH_AI_SAFETY_OUTREACH_ROADMAP_20260618.md)
-2. [Türkiye Health AI Safety Route Owner Map](docs/TURKIYE_HEALTH_AI_SAFETY_ROUTE_OWNER_MAP_20260618.md)
-3. [Türkiye Health AI Safety Field Readiness Dashboard](docs/TURKIYE_HEALTH_AI_SAFETY_FIELD_READINESS_DASHBOARD_20260618.md)
-4. [Türkiye Clinician AI Safety Mini Curriculum](docs/TURKIYE_CLINICIAN_AI_SAFETY_MINI_CURRICULUM_20260618.md)
-5. [Türkiye No Ranking Medical AI Assurance Card](docs/TURKIYE_NO_RANKING_MEDICAL_AI_ASSURANCE_CARD_20260618.md)
-6. [Türkiye Health Data Steward Scout](docs/TURKIYE_HEALTH_DATA_STEWARD_SCOUT_20260618.md)
-7. [Türkiye Health AI Funding Route Fit Memo](docs/TURKIYE_HEALTH_AI_FUNDING_ROUTE_FIT_MEMO_20260618.md)
-8. [TÜSEB A4 UM Medical AI Safety Concept Gate](docs/TUSEB_A4_UM_MEDICAL_AI_SAFETY_CONCEPT_GATE_20260619.md)
-9. [TÜSEB Route Fit Question Packet](docs/TUSEB_ROUTE_FIT_QUESTION_PACKET_20260619.md)
-10. [TÜSEB A4 UM TÜYZE Non Patient Data Concept Note](docs/TUSEB_A4_UM_TUYZE_NON_PATIENT_DATA_CONCEPT_NOTE_20260619.md)
-11. [Türkiye Health AI Safety Handoff Index](docs/TURKIYE_HEALTH_AI_SAFETY_HANDOFF_INDEX_20260619.md)
-12. [Türkiye Health AI Safety Follow Up Decision Gate](docs/TURKIYE_HEALTH_AI_SAFETY_FOLLOW_UP_DECISION_GATE_20260619.md)
-13. [Global Health AI Opportunity Radar](docs/GLOBAL_HEALTH_AI_OPPORTUNITY_RADAR_20260619.md)
-14. [Medical AI Post 0900 Priority Reset](docs/MEDICAL_AI_POST_0900_PRIORITY_RESET_20260619.md)
-15. [Global Benchmark Pressure Response](docs/GLOBAL_BENCHMARK_PRESSURE_RESPONSE_20260619.md)
-16. [Failure Atlas Real Clinical Text Pressure Template](docs/FAILURE_ATLAS_REAL_CLINICAL_TEXT_PRESSURE_TEMPLATE_20260619.md)
-17. [SourceCheckup Medical Benchmark Source Support Worksheet](docs/SOURCECHECKUP_MEDICAL_BENCHMARK_SOURCE_SUPPORT_WORKSHEET_20260619.md)
-18. [Turkish Medical LLM Coverage Pressure Addendum](docs/TURKISH_MEDICAL_LLM_COVERAGE_PRESSURE_ADDENDUM_20260619.md)
-19. [Turkish Medical LLM Coverage Reviewer Intake Rows](docs/TURKISH_MEDICAL_LLM_COVERAGE_REVIEWER_INTAKE_ROWS_20260619.md)
-20. [Turkish Medical LLM Reviewer Issue Template](docs/TURKISH_MEDICAL_LLM_REVIEWER_ISSUE_TEMPLATE_20260619.md)
-21. [Turkish Medical LLM Issue Triage Examples](docs/TURKISH_MEDICAL_LLM_ISSUE_TRIAGE_EXAMPLES_20260619.md)
-22. [SourceCheckup Medical Turkish Source Support Examples](docs/SOURCECHECKUP_MEDICAL_TURKISH_SOURCE_SUPPORT_EXAMPLES_20260619.md)
-23. [SourceCheckup Medical Turkish Language Source Support Dashboard](docs/SOURCECHECKUP_MEDICAL_TURKISH_LANGUAGE_SOURCE_SUPPORT_DASHBOARD_20260619.md)
-24. [SourceCheckup Medical Turkish Release Gate Row Pack](docs/SOURCECHECKUP_MEDICAL_TURKISH_RELEASE_GATE_ROW_PACK_20260619.md)
-25. [SourceCheckup Medical Turkish Release Gate Outcome Examples](docs/SOURCECHECKUP_MEDICAL_TURKISH_RELEASE_GATE_OUTCOME_EXAMPLES_20260619.md)
-26. [SourceCheckup Medical Turkish Release Note Closure Checklist](docs/SOURCECHECKUP_MEDICAL_TURKISH_RELEASE_NOTE_CLOSURE_CHECKLIST_20260619.md)
-27. [SourceCheckup Medical Turkish Maintainer Handoff Digest](docs/SOURCECHECKUP_MEDICAL_TURKISH_MAINTAINER_HANDOFF_DIGEST_20260619.md)
-28. [SourceCheckup Medical Turkish Maintainer Digest Index Card](docs/SOURCECHECKUP_MEDICAL_TURKISH_MAINTAINER_DIGEST_INDEX_CARD_20260619.md)
-29. [EU AI Act Health AI Sandbox Readiness Crosswalk](docs/EU_AI_ACT_HEALTH_AI_SANDBOX_READINESS_CROSSWALK_20260619.md)
-30. [MedHELM HealthBench BRIDGE Compatibility Note](docs/MEDHELM_HEALTHBENCH_BRIDGE_COMPATIBILITY_NOTE_20260619.md)
-31. [CHAI Governance Companion Note](docs/CHAI_GOVERNANCE_COMPANION_NOTE_20260619.md)
-32. [Hospital AI Governance Intake Worksheet](docs/HOSPITAL_AI_GOVERNANCE_INTAKE_WORKSHEET_20260619.md)
-33. [No Ranking Benchmark Misuse Warning](docs/NO_RANKING_BENCHMARK_MISUSE_WARNING_20260619.md)
-34. [Benchmark Language Reviewer Handoff Card](docs/BENCHMARK_LANGUAGE_REVIEWER_HANDOFF_CARD_20260619.md)
-35. [Türkiye Clinical AI Assurance Lab Readiness Matrix](docs/TURKIYE_CLINICAL_AI_ASSURANCE_LAB_READINESS_MATRIX_20260619.md)
-36. [Hospital AI Literacy Collaboration Packet](docs/HOSPITAL_AI_LITERACY_COLLABORATION_PACKET_20260619.md)
-37. [TÜSEB A4 UM 30 June Decision Sprint](docs/TUSEB_A4_UM_30_JUNE_DECISION_SPRINT_20260619.md)
-38. [TÜSEB A4 UM Eligibility Authority Lock](docs/TUSEB_A4_UM_ELIGIBILITY_AUTHORITY_LOCK_20260619.md)
-39. [TÜSEB A4 UM Go No Go Packet](docs/TUSEB_A4_UM_GO_NO_GO_PACKET_20260619.md)
-40. [TÜSEB A4 UM Private Decision Checklist](docs/TUSEB_A4_UM_PRIVATE_DECISION_CHECKLIST_20260619.md)
-41. [TÜSEB A4 UM Private Evidence Closure Note](docs/TUSEB_A4_UM_PRIVATE_EVIDENCE_CLOSURE_NOTE_20260619.md)
-42. [Route Owner Acknowledgement Follow Up Decision Memo](docs/ROUTE_OWNER_ACKNOWLEDGEMENT_FOLLOW_UP_DECISION_MEMO_20260619.md)
-43. [TÜBİTAK 1711 Smart Education Fit Gate](docs/TUBITAK_1711_SMART_EDUCATION_FIT_GATE_20260618.md)
-44. [TÜBİTAK 1711 Smart Education Named Scout](docs/TUBITAK_1711_SMART_EDUCATION_NAMED_SCOUT_20260618.md)
-45. [TÜBİTAK 1711 SEBİT Route Owner Scout](docs/TUBITAK_1711_SEBIT_ROUTE_OWNER_SCOUT_20260618.md)
-46. [TÜBİTAK 1711 Acibadem CASE Demand Side Scout](docs/TUBITAK_1711_ACIBADEM_CASE_DEMAND_SIDE_SCOUT_20260618.md)
-47. [TÜYZE Education Route Owner Scout](docs/TUYZE_EDUCATION_ROUTE_OWNER_SCOUT_20260618.md)
-48. [TÜBİTAK 1711 Three Gate Consortium Fit Map](docs/TUBITAK_1711_THREE_GATE_CONSORTIUM_FIT_MAP_20260618.md)
-49. [TÜBİTAK 1711 Consortium Readiness No Partner Gate](docs/TUBITAK_1711_CONSORTIUM_READINESS_NO_PARTNER_GATE_20260619.md)
-50. [DEÜ Digital Medicine Board Route Owner Scout](docs/DEU_DIGITAL_MEDICINE_BOARD_ROUTE_OWNER_SCOUT_20260618.md)
-51. [KTÜ AI Simulation Congress Route Owner Scout](docs/KTU_AI_SIMULATION_CONGRESS_ROUTE_OWNER_SCOUT_20260618.md)
-52. [Hospital and Medical Faculty Outreach Draft](docs/HOSPITAL_MEDICAL_FACULTY_OUTREACH_DRAFT_20260618.md)
-53. [Hacettepe Health Informatics Outreach Packet](docs/HACETTEPE_HEALTH_INFORMATICS_OUTREACH_PACKET_20260618.md)
-54. [Hacettepe Health Management AI Outreach Packet](docs/HACETTEPE_HEALTH_MANAGEMENT_AI_OUTREACH_PACKET_20260618.md)
-55. [Acibadem Medical Ethics AI Outreach Packet](docs/ACIBADEM_MEDICAL_ETHICS_AI_OUTREACH_PACKET_20260618.md)
-56. [TÜYZE Health AI Safety Readiness Companion](docs/TUYZE_HEALTH_AI_SAFETY_READINESS_COMPANION_20260618.md)
-57. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
-58. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
-59. [TEKNOFEST Health AI Detail Report Final Gate](docs/TEKNOFEST_HEALTH_AI_DETAIL_REPORT_FINAL_GATE_20260618.md)
-
-Focus: health data fitness, decision support limits, source support, Turkish clinical context, failure mode disclosure, data governance route, and public claim hygiene.
-
-Field surfaces: TÜYZE adjacent readiness, Turkish medical faculty clinician AI literacy, Turkish hospital AI readiness, TÜSEB proposal readiness, TÜBİTAK public AI ecosystem monitoring, TEKNOFEST health AI team safety, and open source medical AI contributors.
-
-## 2026 06 16 public preview update
-
-New visible build surfaces are now staged in this public repository:
-
-1. TR MedAI Safety Suite public release card.
-2. [SourceCheckup Medical public demo matrix](docs/sourcecheckup/PUBLIC_DEMO_MATRIX_20260616.md)
-3. Turkish Clinical AI Assurance Lab governance matrix.
-4. Clinician AI Literacy 30 minute Turkish facilitator packet.
-5. [Runnable SourceCheckup Medical tool](sourcecheckup/README.md)
-6. [Failure Atlas taxonomy public preview](failure_atlas/public/TAXONOMY_PREVIEW_20260616.md)
-7. [SourceCheckup workflow example](sourcecheckup/WORKFLOW_EXAMPLE_20260616.md)
-8. [June 2026 public roadmap](docs/ROADMAP_2026_06.md)
-9. [No ranking leaderboard design](docs/LEADERBOARD_DESIGN_V0_1.md)
-10. [Synthetic report row contributor guide](docs/CONTRIBUTOR_GUIDE_SYNTHETIC_REPORT_ROWS_V0_1.md)
-11. [Failure Atlas case intake checklist](failure_atlas/public/CASE_INTAKE_CHECKLIST_V0_1.md)
-12. [SourceCheckup contributor checklist v0.2](docs/sourcecheckup/CONTRIBUTOR_CHECKLIST_V0_2.md)
-13. [Failure Atlas taxonomy dashboard](failure_atlas/public/build/taxonomy_dashboard_v0_1.md)
-14. [TR MedLLM synthetic risk pack](tr_medllm_safetybench/README.md)
-15. [Clinician review queue](failure_atlas/public/build/clinician_review_queue_v0_1.md)
-16. [Public infrastructure release note v0.1](docs/PUBLIC_RELEASE_NOTE_V0_1_20260616.md)
-17. [Clinician review protocol v0.1](docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md)
-18. [Health data quality and label audit card v0.1](docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md)
-19. [MedHELM boundary note v0.1](docs/MEDHELM_BOUNDARY_NOTE_V0_1.md)
-20. [Medmarks boundary note v0.1](docs/MEDMARKS_BOUNDARY_NOTE_V0_1.md)
-21. [Medical language model assurance card template v0.1](docs/ASSURANCE_CARD_TEMPLATE_V0_1.md)
-22. [SourceCheckup public contributor issue guide v0.1](docs/sourcecheckup/PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md)
-23. [Six platform dashboard index v0.1](docs/PLATFORM_DASHBOARD_INDEX_V0_1.md)
-24. [TR MedLLM specialty spread dashboard v0.1](tr_medllm_safetybench/build/specialty_spread_dashboard_v0_1.md)
-25. [SourceCheckup source claim example expansion v0.2](sourcecheckup/build/source_claim_example_expansion_v0_2.md)
-26. [Clinician literacy release gate lesson map v0.1](docs/CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md)
-27. [Assurance release gate example map v0.1](docs/ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md)
-28. [SourceCheckup TR MedLLM assurance routing map v0.1](docs/SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md)
-29. [Source review worksheets v0.1](docs/SOURCE_REVIEW_WORKSHEETS_V0_1.md)
-30. [Red flag source locator and warning sign checklist v0.1](docs/RED_FLAG_WARNING_CHECKLIST_V0_1.md)
-31. [Red flag source locator contributor examples v0.1](docs/sourcecheckup/RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md)
-32. [Warning sign reviewer role table v0.1](docs/WARNING_SIGN_REVIEWER_ROLE_TABLE_V0_1.md)
-33. [Label audit reviewer role table v0.1](docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md)
-34. [Label audit public contributor issue guide v0.1](docs/label_audit/PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md)
-35. [Label audit example intake rows v0.1](docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md)
-36. [Label audit example dashboard v0.1](docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md)
-37. [Label audit maintainer triage board v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md)
-38. [Label audit public wording decision log v0.1](docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md)
-39. [Label audit release gate checklist v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md)
-40. [Label audit release gate outcome dashboard v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md)
-41. [Label audit release note packet v0.1](docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md)
-42. [Label audit public changelog v0.1](docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md)
-43. [Label audit public release index v0.1](docs/label_audit/LABEL_AUDIT_PUBLIC_RELEASE_INDEX_V0_1.md)
-44. [Label audit public contributor digest v0.1](docs/label_audit/LABEL_AUDIT_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md)
-45. [Label audit maintainer handoff notes v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_HANDOFF_NOTES_V0_1.md)
-46. [Label audit maintainer closeout digest v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md)
-47. [Label audit maintainer release readiness digest v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
-48. [Label audit maintainer evidence map v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md)
-49. [Label audit maintainer audit trail packet v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
-50. [Label audit maintainer release candidate summary v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md)
-51. [Label audit maintainer public preview decision log v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md)
-52. [Label audit maintainer public preview handoff summary v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
-53. [Label audit maintainer public preview closure checklist v0.1](docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
-54. [BİLGE readiness queue v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/BILGE_READINESS_QUEUE_V0_1.md)
-55. [TÜBİTAK 1711 collaboration readiness packet v0.1](docs/tr%2Dmedai%2Dsafety%2Dsuite/TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md)
-56. [SourceCheckup Turkish institutional wording examples v0.1](docs/sourcecheckup/SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md)
-57. [SourceCheckup repo run guide v0.1](docs/sourcecheckup/SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md)
-58. [HealthBench and MedHELM mapping note v0.1](docs/HEALTHBENCH_MEDHELM_MAPPING_NOTE_V0_1.md)
-59. [Benchmark style reviewer questions v0.1](docs/BENCHMARK_STYLE_REVIEWER_QUESTIONS_V0_1.md)
-60. [Contributor issue template reviewer questions v0.1](docs/CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md)
-61. [Reviewer question intake examples v0.1](docs/REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md)
-62. [Reviewer question intake triage board v0.1](docs/REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md)
-63. [Reviewer question public wording decision log v0.1](docs/REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md)
-64. [Reviewer question release gate checklist v0.1](docs/REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md)
-65. [Reviewer question release gate outcome dashboard v0.1](docs/REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md)
-66. [Reviewer question public release packet v0.1](docs/REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md)
-67. [Reviewer question public changelog v0.1](docs/REVIEWER_QUESTION_PUBLIC_CHANGELOG_V0_1.md)
-68. [Reviewer question public release index v0.1](docs/REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md)
-69. [Reviewer question public contributor digest v0.1](docs/REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md)
-70. [Reviewer question maintainer handoff notes v0.1](docs/REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md)
-71. [Reviewer question maintainer closeout digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md)
-72. [Reviewer question maintainer release readiness digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md)
-73. [Reviewer question maintainer evidence map v0.1](docs/REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md)
-74. [Reviewer question maintainer audit trail packet v0.1](docs/REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md)
-75. [Reviewer question maintainer release candidate summary v0.1](docs/REVIEWER_QUESTION_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md)
-76. [Reviewer question maintainer public preview decision log v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md)
-77. [Reviewer question maintainer public preview handoff summary v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md)
-78. [Reviewer question maintainer public preview closure checklist v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
-79. [Reviewer question maintainer public preview archive digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md)
-80. [Reviewer question maintainer public preview index rollup v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md)
-81. [Reviewer question maintainer public preview repository navigation note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md)
-82. [Reviewer question maintainer public preview release card v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md)
-83. [Reviewer question maintainer public preview contributor route note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md)
-84. [Reviewer question maintainer public preview issue template route note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md)
-85. [Reviewer question maintainer public preview maintainer acceptance checklist v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md)
-86. [Reviewer question maintainer public preview acceptance closeout digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md)
-87. [Reviewer question maintainer public preview acceptance archive index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md)
-88. [Reviewer question maintainer public preview acceptance archive release note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md)
-89. [Reviewer question maintainer public preview acceptance archive closure note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md)
-90. [Reviewer question maintainer public preview acceptance archive final index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_FINAL_INDEX_V0_1.md)
-91. [Reviewer question maintainer public preview acceptance archive handoff packet v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_HANDOFF_PACKET_V0_1.md)
-92. [Reviewer question maintainer public preview acceptance archive steward note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_NOTE_V0_1.md)
-93. [Reviewer question maintainer public preview acceptance archive steward index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md)
-94. [Reviewer question maintainer public preview acceptance archive stewardship closeout v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md)
-95. [Reviewer question maintainer public preview acceptance archive stewardship digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md)
-96. [Reviewer question maintainer public preview acceptance archive public handoff note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md)
-97. [Reviewer question maintainer public preview acceptance archive public handoff digest v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md)
-98. [Reviewer question maintainer public preview acceptance archive public handoff release index v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md)
-99. [Reviewer question maintainer public preview acceptance archive public handoff release note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md)
-100. [Reviewer question maintainer public preview acceptance archive public handoff closure note v0.1](docs/REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md)
-101. [Current medical AI intelligence priority update v0.1](docs/CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md)
-102. [Türkiye AI ethics status gate note v0.1](docs/TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md)
-103. [TR clinical AI assurance sandbox readiness gate checklist v0.1](docs/TR_CLINICAL_AI_ASSURANCE_SANDBOX_READINESS_GATE_CHECKLIST_V0_1.md)
-104. [SourceCheckup Medical benchmark boundary delta note v0.1](docs/SOURCECHECKUP_MEDICAL_BENCHMARK_BOUNDARY_DELTA_NOTE_V0_1.md)
-105. [Clinician AI literacy sandbox handoff micro module v0.1](docs/CLINICIAN_AI_LITERACY_SANDBOX_HANDOFF_MICRO_MODULE_V0_1.md)
-106. [SourceCheckup Medical source support delta queue v0.1](docs/SOURCECHECKUP_MEDICAL_SOURCE_SUPPORT_DELTA_QUEUE_V0_1.md)
-107. [Field impact opportunity radar](docs/FIELD_IMPACT_OPPORTUNITY_RADAR_20260618.md)
-108. [Türkiye Health AI Safety Readiness Kit](docs/TURKIYE_HEALTH_AI_SAFETY_READINESS_KIT_20260618.md)
-109. [TEKNOFEST Health AI Safety Addendum](docs/TEKNOFEST_HEALTH_AI_SAFETY_ADDENDUM_20260618.md)
-110. [TÜBİTAK 1711 AI Assurance Sidecar](docs/TUBITAK_1711_AI_ASSURANCE_SIDECAR_20260618.md)
-111. [Named outreach decision matrix](docs/NAMED_OUTREACH_DECISION_MATRIX_20260618.md)
-112. [Goktug Field Action Review Packet](docs/GOKTUG_FIELD_ACTION_REVIEW_PACKET_20260618.md)
-113. [TEKNOFEST Public Share Clearance Packet](docs/TEKNOFEST_PUBLIC_SHARE_CLEARANCE_PACKET_20260618.md)
-
-These are public preview artifacts for open medical AI evaluation infrastructure. They use synthetic examples only. They are not clinical advice, not patient data, not clinical deployment, not clinical validation, not a model safety proof, and not an official institutional or national program endorsement.
-
-## Purpose
-
-This project builds physician authored synthetic draft evaluation resources for medical AI systems across medicine, pending final clinician review.
-
-The goal is to help model builders, clinical AI teams, and academic collaborators inspect whether model answers are safe, calibrated, evidence aware, and useful before clinical use.
-
-## Current contents
-
-1. A 150 scenario synthetic medicine wide case bank.
-2. A 70 row prompt set across pilot, hard thirty, and V3 scale prompts.
-3. A V0.2 taxonomy that defines the route toward a larger draft benchmark structure.
-4. A physician authored scoring rubric.
-5. Two completed internal model run layers across three models.
-6. 180 captured raw outputs kept internal.
-7. Preliminary strict triage tables.
-8. Three legacy draft Failure Atlas entries plus a public summary index for raw withheld cases.
-9. MedHELM oriented metric draft.
-10. Medmarks style local proof pack.
-11. Versioned labeling and review workflow with a 24 row pilot inter rater review subset.
-12. Internal reviewer form, source key, and adjudication log templates for the pilot subset, held out of public release until raw output redistribution is cleared.
-13. Scripts for validation, model capture, scoring dry run, benchmark report generation, and public candidate sanitation.
-14. A 14 row Turkish synthetic risk pack with specialty spread rows across cardiology, endocrinology, nephrology, infectious diseases, geriatrics, and pregnancy medication safety.
-15. A HealthBench and MedHELM oriented mapping note that blocks compatibility, ranking, validation, deployment, and endorsement claims.
-16. A benchmark style reviewer question set that links SourceCheckup and Failure Atlas rows to review questions without scoring or compatibility claims.
-17. Contributor issue template reviewer question fields for SourceCheckup and Failure Atlas public intake without scoring or compatibility claims.
-18. Reviewer question intake examples for SourceCheckup and Failure Atlas issue templates without scoring or compatibility claims.
-19. Reviewer question intake triage board for maintainer actions and public wording decisions without scoring or compatibility claims.
-20. Reviewer question public wording decision log for blocked wording and allowed public wording without scoring or compatibility claims.
-21. Reviewer question release gate checklist for pass and block states without scoring or compatibility claims.
-22. Reviewer question release gate outcome dashboard for current pass and block outcomes without scoring or compatibility claims.
-23. Reviewer question public release packet for one maintainer facing surface without scoring or compatibility claims.
-24. Reviewer question public changelog for chronological maintainer record without scoring or compatibility claims.
-25. Reviewer question public release index for one contributor entry point without scoring or compatibility claims.
-26. Reviewer question public contributor digest for compact contributor orientation without scoring or compatibility claims.
-27. Reviewer question maintainer handoff notes for bounded maintainer review without scoring or compatibility claims.
-28. Reviewer question maintainer closeout digest for public preview closeout without scoring or compatibility claims.
-29. Reviewer question maintainer release readiness digest for public preview readiness without scoring or compatibility claims.
-30. Reviewer question maintainer evidence map for public preview evidence tracing without scoring or compatibility claims.
-31. Reviewer question maintainer audit trail packet for public preview audit tracing without scoring or compatibility claims.
-32. Reviewer question maintainer release candidate summary for public preview candidate review without scoring or compatibility claims.
-33. Reviewer question maintainer public preview decision log for public preview decisions without scoring or compatibility claims.
-34. Reviewer question maintainer public preview handoff summary for public preview reviewer actions without scoring or compatibility claims.
-35. Reviewer question maintainer public preview closure checklist for closeable public preview checks without scoring or compatibility claims.
-36. Reviewer question maintainer public preview archive digest for compact public preview trace without scoring or compatibility claims.
-37. Reviewer question maintainer public preview index rollup for one maintainer navigation surface without scoring or compatibility claims.
-38. Reviewer question maintainer public preview repository navigation note for ordered public preview reading without scoring or compatibility claims.
-39. Reviewer question maintainer public preview release card for compact public preview positioning without scoring or compatibility claims.
-40. Reviewer question maintainer public preview contributor route note for public contributor proposal routing without scoring or compatibility claims.
-41. Reviewer question maintainer public preview issue template route note for public proposal field routing without scoring or compatibility claims.
-42. Reviewer question maintainer public preview maintainer acceptance checklist for public maintainer acceptance checks without scoring or compatibility claims.
-43. Reviewer question maintainer public preview acceptance closeout digest for public maintainer closeout checks without scoring or compatibility claims.
-44. Reviewer question maintainer public preview acceptance archive index for public maintainer archive navigation without scoring or compatibility claims.
-45. Reviewer question maintainer public preview acceptance archive release note for public maintainer archive release notation without scoring or compatibility claims.
-46. Reviewer question maintainer public preview acceptance archive closure note for public maintainer archive closure checks without scoring or compatibility claims.
-47. Reviewer question maintainer public preview acceptance archive final index for public maintainer final archive navigation without scoring or compatibility claims.
-48. Reviewer question maintainer public preview acceptance archive handoff packet for public maintainer archive handoff without scoring or compatibility claims.
-49. Reviewer question maintainer public preview acceptance archive public handoff release note for public maintainer archive handoff notation without scoring or compatibility claims.
-50. Reviewer question maintainer public preview acceptance archive public handoff closure note for public maintainer archive handoff closure without scoring or compatibility claims.
-51. Current medical AI intelligence priority update for source checked public priority revision without submission or endorsement claims.
-52. Türkiye AI ethics status gate note for local ethics signal separation without submission approval or national rule claims.
-53. TR clinical AI assurance sandbox readiness gate checklist for public sandbox readiness discussion without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
-54. SourceCheckup Medical benchmark boundary delta note for benchmark style literacy without compatibility, equivalence, endpoint, score, ranking, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
-55. Clinician AI literacy sandbox handoff micro module for public clinician education without patient data, clinical validation, deployment, endpoint, score, ranking, route access, submission, official role, payment, terms, or endorsement claims.
-56. SourceCheckup Medical source support delta queue for source support review without source truth certification, endpoint, score, ranking, compatibility, equivalence, patient data, clinical validation, deployment, route access, submission, official role, payment, terms, or endorsement claims.
-57. Field impact opportunity radar for TÜBİTAK, TÜYZE, TEKNOFEST, CHAI, and MedHELM aligned public field moves without submission, partner, clinical validation, deployment, official role, payment, terms, or endorsement claims.
-58. Türkiye Health AI Safety Readiness Kit for TÜYZE style review readiness without patient data, clinical validation, deployment, official role, partner, submission, payment, terms, or endorsement claims.
-59. TEKNOFEST Health AI Safety Addendum for health AI teams without official TEKNOFEST endorsement, submission, patient data, clinical validation, deployment, partner, payment, terms, or route access claims.
-60. TÜBİTAK 1711 AI Assurance Sidecar for adjacent AI assurance scouting without health priority fit, application, intent declaration, partner, budget, payment, terms, official role, endorsement, patient data, clinical validation, or deployment claims.
-61. TÜBİTAK 1711 Consortium Readiness No Partner Gate for keeping the education adjacent route visible without application, PRODİS action, intent declaration, YZE meeting request, partner, institution, health priority fit, budget, terms, payment, patient data, clinical validation, deployment, ranking, score, or endorsement claims.
-62. Named outreach decision matrix for TÜYZE, TEKNOFEST, TÜBİTAK 1711, CHAI, and MedHELM routes without email, submission, application, partner, official role, endorsement, patient data, clinical validation, or deployment claims.
-63. Goktug Field Action Review Packet for choosing between TÜYZE readiness outreach, TEKNOFEST public share, and TÜBİTAK 1711 consortium scouting without email, public post, submission, application, partner, official role, endorsement, patient data, clinical validation, deployment, payment, or terms claims.
-64. TEKNOFEST Public Share Clearance Packet for reviewable public share text candidates without public post, email, submission, application, official TEKNOFEST role, endorsement, team relationship, patient data, medical advice, clinical validation, deployment, payment, or terms claims.
-65. TEKNOFEST Health AI Detail Report Final Gate for report language review before the public detail report deadline without official TEKNOFEST role, endorsement, submission, application, partner, patient data, medical advice, clinical validation, deployment, model ranking, payment, or terms claims.
-66. Türkiye Health Data Steward Scout for source checked data quality route owner discovery without Ministry of Health endorsement, TÜSEB endorsement, official role, route access, partner, application, proposal, patient data, private operational data, clinical validation, deployment, ranking, payment, or terms claims.
-67. Global Benchmark Pressure Response for turning BRIDGE, MedHELM, HealthBench, CHAI, and EU AI Act pressure into Failure Atlas, SourceCheckup, Turkish coverage, clinician review, label audit, sandbox readiness, and no ranking contribution lanes without collaboration, compliance, benchmark result, leaderboard, patient data, clinical validation, deployment, partner, payment, terms, or endorsement claims.
-
-## What this is
-
-1. A clinician led evaluation and feedback resource.
-2. A starting point for medical AI safety evaluation work.
-3. A structure for open source model feedback.
-4. A collaboration seed for labs that work on medical language models.
-
-## What this is not
-
-1. It is not clinical advice.
-2. It is not patient data.
-3. It is not a claim that any model is safe for clinical use.
-4. It is not a final external validation study.
-
-## Failure Atlas public summaries
-
-Start with [failure_atlas/public/INDEX.md](failure_atlas/public/INDEX.md). The methodology note is [failure_atlas/public/METHODOLOGY.md](failure_atlas/public/METHODOLOGY.md).
-
-These summaries intentionally do not include raw model outputs, full prompts, model scores, model rankings, or clinical validation claims. They are for evaluation design discussion only.
-
-## License and citation
-
-Code is licensed under the Apache License, Version 2.0.
-
-Synthetic scenario data, documentation, evaluation cards, and other non code text are licensed under Creative Commons Attribution 4.0 International unless otherwise noted.
-
-Raw model outputs and logs are not included in the public v0.1 release.
-
-Citation metadata is provided in `CITATION.cff`.
-
-## Quick start
-
-Run the public validation check:
+Validate the public release:
 
 ```bash
-make validate
-```
-
-Run the public SourceCheckup Medical preview:
-
-```bash
-make sourcecheckup
-```
-
-Run the larger SourceCheckup v0.2 example set:
-
-```bash
-make sourcecheckup_v02
-```
-
-Validate the no ranking leaderboard template:
-
-```bash
-make leaderboard
+make validate-public
 ```
 
 Generate the no ranking leaderboard report:
@@ -416,972 +92,76 @@ Generate the no ranking leaderboard report:
 make leaderboard_report
 ```
 
-Generate the Failure Atlas case intake report:
+Run an OpenAI compatible endpoint against a prompt set:
 
 ```bash
-make case_intake
+python3 scripts/run_prompt_set_openai_compatible_v2.py --help
 ```
 
-Generate the Failure Atlas taxonomy dashboard:
+Run a Hugging Face Transformers model against a prompt set:
 
 ```bash
-make taxonomy_dashboard
+python3 scripts/run_prompt_set_hf_transformers_v2.py --help
 ```
 
-Validate the TR MedLLM synthetic risk pack:
+Run the benchmark review pipeline:
 
 ```bash
-make tr_medllm_pack
+python3 scripts/benchmark_runner.py --help
 ```
 
-Validate the TR MedLLM specialty spread:
+## Who Is This For
 
-```bash
-make tr_medllm_specialty_spread
-```
-
-Generate the TR MedLLM specialty spread dashboard:
-
-```bash
-make tr_medllm_specialty_dashboard
-```
-
-Generate the clinician review queue:
-
-```bash
-make clinician_review_queue
-```
-
-Validate the clinician review protocol:
-
-```bash
-make clinician_review_protocol
-```
-
-Generate the clinician literacy release gate lesson map:
-
-```bash
-make clinician_literacy_map
-```
-
-Validate the public release note:
-
-```bash
-make release_note
-```
-
-Validate the health data quality and label audit card:
-
-```bash
-make health_data_quality_card
-```
-
-Validate the MedHELM and Medmarks boundary notes:
-
-```bash
-make boundary_notes
-```
-
-Generate the HealthBench and MedHELM mapping note:
-
-```bash
-make healthbench_medhelm_mapping
-```
-
-Generate the TR clinical AI assurance sandbox readiness gate checklist:
-
-```bash
-make tr_clinical_ai_assurance_sandbox_readiness_gate
-```
-
-Generate the SourceCheckup Medical benchmark boundary delta note:
-
-```bash
-make sourcecheckup_medical_benchmark_boundary_delta
-```
-
-Generate the paired sandbox readiness and benchmark boundary delta notes:
-
-```bash
-make paired_sandbox_boundary_delta
-```
-
-Generate the clinician AI literacy sandbox handoff micro module:
-
-```bash
-make clinician_ai_literacy_sandbox_handoff_micro_module
-```
-
-Generate the SourceCheckup Medical source support delta queue:
-
-```bash
-make sourcecheckup_medical_source_support_delta_queue
-```
-
-Generate the paired clinician literacy and source support delta notes:
-
-```bash
-make paired_literacy_source_support_delta
-```
-
-Generate the Türkiye Health AI Safety Readiness Kit:
-
-```bash
-make turkiye_health_ai_safety_readiness_kit
-```
-
-Generate the TEKNOFEST Health AI Safety Addendum:
-
-```bash
-make teknofest_health_ai_safety_addendum
-```
-
-Generate the field impact packages:
-
-```bash
-make field_impact_packages
-```
-
-Generate the TÜBİTAK 1711 AI assurance sidecar:
-
-```bash
-make tubitak_1711_ai_assurance_sidecar
-```
-
-Generate the named outreach decision matrix:
-
-```bash
-make named_outreach_decision_matrix
-```
-
-Generate the field opportunity decision packages:
-
-```bash
-make field_opportunity_decision_packages
-```
-
-Generate the Goktug field action review packet:
-
-```bash
-make goktug_field_action_review_packet
-```
-
-Generate the TEKNOFEST public share clearance packet:
-
-```bash
-make teknofest_public_share_clearance_packet
-```
-
-Generate the benchmark style reviewer questions:
-
-```bash
-make benchmark_reviewer_questions
-```
-
-Validate the reviewer question issue template fields:
-
-```bash
-make reviewer_question_issue_templates
-```
-
-Generate reviewer question intake examples:
-
-```bash
-make reviewer_question_intake_examples
-```
-
-Generate reviewer question intake triage board:
-
-```bash
-make reviewer_question_intake_triage
-```
-
-Generate reviewer question public wording decision log:
-
-```bash
-make reviewer_question_wording_log
-```
-
-Generate reviewer question release gate checklist:
-
-```bash
-make reviewer_question_release_gates
-```
-
-Generate reviewer question release gate outcome dashboard:
-
-```bash
-make reviewer_question_gate_outcomes
-```
-
-Generate reviewer question public release packet:
-
-```bash
-make reviewer_question_release_packet
-```
-
-Generate reviewer question public changelog:
-
-```bash
-make reviewer_question_changelog
-```
-
-Generate reviewer question public release index:
-
-```bash
-make reviewer_question_release_index
-```
-
-Generate reviewer question public contributor digest:
-
-```bash
-make reviewer_question_contributor_digest
-```
-
-Generate reviewer question maintainer handoff notes:
-
-```bash
-make reviewer_question_maintainer_handoff
-```
-
-Generate reviewer question maintainer closeout digest:
-
-```bash
-make reviewer_question_maintainer_closeout_digest
-```
-
-Generate reviewer question maintainer release readiness digest:
-
-```bash
-make reviewer_question_maintainer_release_readiness_digest
-```
-
-Generate reviewer question maintainer evidence map:
-
-```bash
-make reviewer_question_maintainer_evidence_map
-```
-
-Generate reviewer question maintainer audit trail packet:
-
-```bash
-make reviewer_question_maintainer_audit_trail_packet
-```
-
-Generate reviewer question maintainer release candidate summary:
-
-```bash
-make reviewer_question_maintainer_release_candidate_summary
-```
-
-Generate reviewer question maintainer public preview decision log:
-
-```bash
-make reviewer_question_maintainer_public_preview_decision_log
-```
-
-Generate reviewer question maintainer public preview handoff summary:
-
-```bash
-make reviewer_question_maintainer_public_preview_handoff_summary
-```
-
-Generate reviewer question maintainer public preview closure checklist:
-
-```bash
-make reviewer_question_maintainer_public_preview_closure_checklist
-```
-
-Generate reviewer question maintainer public preview archive digest:
-
-```bash
-make reviewer_question_maintainer_public_preview_archive_digest
-```
-
-Generate reviewer question maintainer public preview index rollup:
-
-```bash
-make reviewer_question_maintainer_public_preview_index_rollup
-```
-
-Generate reviewer question maintainer public preview repository navigation note:
-
-```bash
-make reviewer_question_maintainer_public_preview_repository_navigation_note
-```
-
-Generate reviewer question maintainer public preview release card:
-
-```bash
-make reviewer_question_maintainer_public_preview_release_card
-```
-
-Generate reviewer question maintainer public preview contributor route note:
-
-```bash
-make reviewer_question_maintainer_public_preview_contributor_route_note
-```
-
-Generate reviewer question maintainer public preview issue template route note:
-
-```bash
-make reviewer_question_maintainer_public_preview_issue_template_route_note
-```
-
-Generate reviewer question maintainer public preview maintainer acceptance checklist:
-
-```bash
-make reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist
-```
-
-Generate reviewer question maintainer public preview acceptance closeout digest:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_closeout_digest
-```
-
-Generate reviewer question maintainer public preview acceptance archive index:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_index
-```
-
-Generate reviewer question maintainer public preview acceptance archive release note:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_release_note
-```
-
-Generate reviewer question maintainer public preview acceptance archive closure note:
+1. Open source model maintainers who want medical safety feedback without patient data.
+2. Benchmark teams comparing model behavior across safety gates.
+3. Clinicians reviewing model answers for escalation, wording, and source support risk.
+4. Medical AI researchers who need transparent synthetic cases and reproducible checks.
+5. Turkish medical AI contributors who need a benchmark that includes Turkish clinical wording risks.
 
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_closure_note
-```
-
-Generate reviewer question maintainer public preview acceptance archive final index:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_final_index
-```
-
-Generate reviewer question maintainer public preview acceptance archive handoff packet:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_handoff_packet
-```
-
-Generate reviewer question maintainer public preview acceptance archive steward note:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_steward_note
-```
-
-Generate reviewer question maintainer public preview acceptance archive steward index:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_steward_index
-```
-
-Generate reviewer question maintainer public preview acceptance archive stewardship closeout:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout
-```
-
-Generate reviewer question maintainer public preview acceptance archive stewardship digest:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest
-```
-
-Generate reviewer question maintainer public preview acceptance archive public handoff note:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note
-```
-
-Generate reviewer question maintainer public preview acceptance archive public handoff digest:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_digest
-```
-
-Generate reviewer question maintainer public preview acceptance archive public handoff release index:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index
-```
-
-Generate reviewer question maintainer public preview acceptance archive public handoff release note:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note
-```
-
-Generate reviewer question maintainer public preview acceptance archive public handoff closure note:
-
-```bash
-make reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note
-```
-
-Generate current medical AI intelligence priority update:
-
-```bash
-make current_medical_ai_intelligence_priority_update
-```
-
-Generate Türkiye AI ethics status gate note:
-
-```bash
-make turkiye_ai_ethics_status_gate_note
-```
-
-Validate the assurance card template:
-
-```bash
-make assurance_card_template
-```
-
-Generate the assurance release gate example map:
-
-```bash
-make assurance_release_gate_map
-```
-
-Generate the SourceCheckup TR MedLLM assurance routing map:
-
-```bash
-make sourcecheckup_tr_medllm_routing
-```
-
-Generate the source review worksheets:
-
-```bash
-make source_review_worksheets
-```
-
-Generate the red flag source locator and warning sign checklist:
-
-```bash
-make red_flag_warning_checklist
-```
-
-Validate SourceCheckup contribution examples:
-
-```bash
-make sourcecheckup_contrib_v02
-```
-
-Generate the red flag source locator contributor examples:
-
-```bash
-make red_flag_contributor_examples
-```
-
-Generate the SourceCheckup Turkish institutional wording examples:
-
-```bash
-make sourcecheckup_turkish_institutional_wording
-```
-
-Run the SourceCheckup repo doctor and run guide:
-
-```bash
-make sourcecheckup_repo_run_guide
-```
-
-Generate the warning sign reviewer role table:
-
-```bash
-make warning_sign_role_table
-```
-
-Generate the label audit reviewer role table:
-
-```bash
-make label_audit_role_table
-```
-
-Validate the label audit public contributor issue route:
-
-```bash
-make label_audit_public_issue
-```
-
-Generate the label audit example intake rows:
-
-```bash
-make label_audit_examples
-```
-
-Generate the label audit example dashboard:
-
-```bash
-make label_audit_dashboard
-```
-
-Generate the label audit maintainer triage board:
-
-```bash
-make label_audit_triage
-```
-
-Generate the label audit public wording decision log:
-
-```bash
-make label_audit_wording_log
-```
-
-Generate the label audit release gate checklist:
-
-```bash
-make label_audit_release_gates
-```
-
-Generate the label audit release gate outcome dashboard:
-
-```bash
-make label_audit_outcome_dashboard
-```
-
-Generate the label audit release note packet:
-
-```bash
-make label_audit_release_packet
-```
-
-Generate the label audit public changelog:
-
-```bash
-make label_audit_changelog
-```
-
-Generate the label audit public release index:
-
-```bash
-make label_audit_release_index
-```
-
-Generate the label audit public contributor digest:
-
-```bash
-make label_audit_contributor_digest
-```
-
-Generate the label audit maintainer handoff notes:
-
-```bash
-make label_audit_maintainer_handoff
-```
-
-Generate the label audit maintainer closeout digest:
-
-```bash
-make label_audit_maintainer_closeout_digest
-```
-
-Generate the label audit maintainer release readiness digest:
-
-```bash
-make label_audit_maintainer_release_readiness_digest
-```
-
-Generate the label audit maintainer evidence map:
-
-```bash
-make label_audit_maintainer_evidence_map
-```
+## Safety Boundaries
 
-Generate the label audit maintainer audit trail packet:
+Use this repository for research, evaluation, documentation review, and model development feedback.
 
-```bash
-make label_audit_maintainer_audit_trail_packet
-```
-
-Generate the label audit maintainer release candidate summary:
-
-```bash
-make label_audit_maintainer_release_candidate_summary
-```
-
-Generate the label audit maintainer public preview decision log:
-
-```bash
-make label_audit_maintainer_public_preview_decision_log
-```
-
-Generate the label audit maintainer public preview handoff summary:
-
-```bash
-make label_audit_maintainer_public_preview_handoff_summary
-```
-
-Generate the label audit maintainer public preview closure checklist:
-
-```bash
-make label_audit_maintainer_public_preview_closure_checklist
-```
+Do not use it for diagnosis, treatment advice, clinical deployment, patient triage, regulatory approval, ranking claims, score certification, source truth certification, partner claims, institution claims, or endorsement claims.
 
-Generate the BİLGE readiness queue:
+All public scenarios are synthetic. If you contribute examples, use synthetic or public information only.
 
-```bash
-make bilge_readiness_queue
-```
+## Roadmap
 
-Generate the TÜBİTAK 1711 collaboration readiness packet:
+The next public work is narrow and practical:
 
-```bash
-make tubitak_1711_readiness_packet
-```
+1. Deploy the interactive leaderboard on HuggingFace Spaces.
+2. Add a documented result schema for model runs.
+3. Keep the leaderboard focused on safety gates instead of model ranking.
+4. Expand clinician reviewed synthetic cases after rubric review.
+5. Add clearer bridges to common evaluation stacks.
 
-Generate the TÜBİTAK 1711 consortium readiness no partner gate:
+See [docs/LEADERBOARD_PLAN.md](docs/LEADERBOARD_PLAN.md) for the Space deployment plan.
 
-```bash
-make tubitak_1711_consortium_readiness_no_partner_gate
-```
+## Contributing
 
-Validate the SourceCheckup public contributor issue route:
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use synthetic examples only and keep claims narrow. A useful contribution usually adds one clear failure case, one source support check, one validator fix, or one documentation improvement.
 
-```bash
-make sourcecheckup_public_issue
-```
+## License
 
-Generate the SourceCheckup source claim expansion dashboard:
+Code in this repository is licensed under Apache-2.0.
 
-```bash
-make sourcecheckup_expansion_dashboard
-```
+Synthetic scenario data, documentation, evaluation cards, and other non code text are licensed under CC-BY-4.0 unless a file says otherwise.
 
-Validate the six platform dashboard index:
+See [LICENSE](LICENSE) for the full license notice.
 
-```bash
-make platform_dashboard
-```
+## Citation
 
-## Folder structure
+If you use this resource, cite:
 
-```text
-data/
-  scenario_taxonomy_v0_2.tsv
-  scenario_bank_v1.tsv
-  scenario_bank_v2_hard_addendum.tsv
-  scenario_bank_v3_scale_seed.tsv
-  prompt_set_v1.tsv
-  prompt_set_v2_hard_30.tsv
-  prompt_set_v3_scale_30.tsv
-  inter_rater_review_subset_v0_1.tsv
-  failure_atlas_external_sample_v0_1.jsonl
-  medhelm_remote_rescue_metric_v0_1.json
-  scoring_rubric_v0_1.json
-docs/
-  clinician_evaluation_rubric.md
-  failure_atlas_entry_001_insulin_sick_day_wording_draft.md
-  failure_atlas_entry_002_protocol_overprecision_draft.md
-  failure_atlas_entry_003_remote_rescue_protocols_draft.md
-  MEDHELM_CROSSWALK_DRAFT.md
-  MEDHELM_REMOTE_RESCUE_BOUNDARY_METRIC_PACKAGE_DRAFT.md
-  MEDMARKS_COMPATIBILITY_DRAFT.md
-  LABEL_DEFINITION_LOCK_V0_1.md
-  CLINICIAN_REVIEW_DISAGREEMENT_PROTOCOL_V0_1.md
-  INTER_RATER_REVIEW_SUBSET_PLAN_V0_1.md
-  LABELING_PACKAGE_INDEX_V0_1.md
-  HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md
-  MEDHELM_BOUNDARY_NOTE_V0_1.md
-  MEDMARKS_BOUNDARY_NOTE_V0_1.md
-  CONTRIBUTOR_ISSUE_TEMPLATE_REVIEWER_QUESTIONS_V0_1.md
-  REVIEWER_QUESTION_INTAKE_EXAMPLES_V0_1.md
-  reviewer_question_intake_examples_v0_1.json
-  REVIEWER_QUESTION_INTAKE_TRIAGE_BOARD_V0_1.md
-  reviewer_question_intake_triage_board_v0_1.json
-  REVIEWER_QUESTION_PUBLIC_WORDING_DECISION_LOG_V0_1.md
-  reviewer_question_public_wording_decision_log_v0_1.json
-  REVIEWER_QUESTION_RELEASE_GATE_CHECKLIST_V0_1.md
-  reviewer_question_release_gate_checklist_v0_1.json
-  REVIEWER_QUESTION_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md
-  reviewer_question_release_gate_outcome_dashboard_v0_1.json
-  REVIEWER_QUESTION_PUBLIC_RELEASE_PACKET_V0_1.md
-  reviewer_question_public_release_packet_v0_1.json
-  REVIEWER_QUESTION_PUBLIC_CHANGELOG_V0_1.md
-  reviewer_question_public_changelog_v0_1.json
-  REVIEWER_QUESTION_PUBLIC_RELEASE_INDEX_V0_1.md
-  reviewer_question_public_release_index_v0_1.json
-  REVIEWER_QUESTION_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md
-  reviewer_question_public_contributor_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_HANDOFF_NOTES_V0_1.md
-  reviewer_question_maintainer_handoff_notes_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md
-  reviewer_question_maintainer_closeout_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md
-  reviewer_question_maintainer_release_readiness_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_EVIDENCE_MAP_V0_1.md
-  reviewer_question_maintainer_evidence_map_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md
-  reviewer_question_maintainer_audit_trail_packet_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md
-  reviewer_question_maintainer_release_candidate_summary_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md
-  reviewer_question_maintainer_public_preview_decision_log_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md
-  reviewer_question_maintainer_public_preview_handoff_summary_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md
-  reviewer_question_maintainer_public_preview_closure_checklist_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ARCHIVE_DIGEST_V0_1.md
-  reviewer_question_maintainer_public_preview_archive_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_INDEX_ROLLUP_V0_1.md
-  reviewer_question_maintainer_public_preview_index_rollup_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_REPOSITORY_NAVIGATION_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_RELEASE_CARD_V0_1.md
-  reviewer_question_maintainer_public_preview_release_card_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_CONTRIBUTOR_ROUTE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_contributor_route_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ISSUE_TEMPLATE_ROUTE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_issue_template_route_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_MAINTAINER_ACCEPTANCE_CHECKLIST_V0_1.md
-  reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_CLOSEOUT_DIGEST_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_INDEX_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_index_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_RELEASE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_release_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_CLOSURE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_closure_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_FINAL_INDEX_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_final_index_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_HANDOFF_PACKET_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_handoff_packet_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_steward_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARD_INDEX_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_steward_index_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_CLOSEOUT_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_closeout_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_STEWARDSHIP_DIGEST_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_stewardship_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_DIGEST_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_digest_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_INDEX_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_index_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_RELEASE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_release_note_v0_1.json
-  REVIEWER_QUESTION_MAINTAINER_PUBLIC_PREVIEW_ACCEPTANCE_ARCHIVE_PUBLIC_HANDOFF_CLOSURE_NOTE_V0_1.md
-  reviewer_question_maintainer_public_preview_acceptance_archive_public_handoff_closure_note_v0_1.json
-  CURRENT_MEDICAL_AI_INTELLIGENCE_PRIORITY_UPDATE_20260618_V0_1.md
-  current_medical_ai_intelligence_priority_update_20260618_v0_1.json
-  TURKIYE_AI_ETHICS_STATUS_GATE_NOTE_V0_1.md
-  turkiye_ai_ethics_status_gate_note_v0_1.json
-  ASSURANCE_CARD_TEMPLATE_V0_1.md
-  ASSURANCE_RELEASE_GATE_EXAMPLE_MAP_V0_1.md
-  SOURCECHECKUP_TR_MEDLLM_ASSURANCE_ROUTING_MAP_V0_1.md
-  SOURCE_REVIEW_WORKSHEETS_V0_1.md
-  RED_FLAG_WARNING_CHECKLIST_V0_1.md
-  PLATFORM_DASHBOARD_INDEX_V0_1.md
-  CLINICIAN_LITERACY_RELEASE_GATE_LESSON_MAP_V0_1.md
-  BILGE_READINESS_QUEUE_V0_1.md
-  bilge_readiness_queue_v0_1.json
-  TUBITAK_1711_COLLABORATION_READINESS_PACKET_V0_1.md
-  tubitak_1711_collaboration_readiness_packet_v0_1.json
-  assurance_card_template_v0_1.json
-  assurance_release_gate_example_map_v0_1.json
-  sourcecheckup_tr_medllm_assurance_routing_map_v0_1.json
-  source_review_worksheets_v0_1.json
-  red_flag_warning_checklist_v0_1.json
-  clinician_literacy_release_gate_lesson_map_v0_1.json
-  scoring_model_v0_1.md
-  sourcecheckup/
-    CONTRIBUTOR_CHECKLIST_V0_2.md
-    PUBLIC_CONTRIBUTOR_ISSUE_V0_1.md
-    RED_FLAG_SOURCE_LOCATOR_CONTRIBUTOR_EXAMPLES_V0_1.md
-    SOURCECHECKUP_TURKISH_INSTITUTIONAL_WORDING_EXAMPLES_V0_1.md
-    sourcecheckup_turkish_institutional_wording_examples_v0_1.json
-    SOURCECHECKUP_REPO_RUN_GUIDE_V0_1.md
-    sourcecheckup_repo_run_guide_v0_1.json
-    sourcecheckup_repo_doctor_v0_1.json
-  label_audit/
-    PUBLIC_LABEL_AUDIT_CONTRIBUTOR_ISSUE_V0_1.md
-    LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md
-    label_audit_example_intake_v0_1.json
-    LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md
-    label_audit_example_dashboard_v0_1.json
-    LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md
-    label_audit_maintainer_triage_board_v0_1.json
-    LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md
-    label_audit_public_wording_decision_log_v0_1.json
-    LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md
-    label_audit_release_gate_checklist_v0_1.json
-    LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md
-    label_audit_release_gate_outcome_dashboard_v0_1.json
-    LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md
-    label_audit_release_note_packet_v0_1.json
-    LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md
-    label_audit_public_changelog_v0_1.json
-    LABEL_AUDIT_PUBLIC_RELEASE_INDEX_V0_1.md
-    label_audit_public_release_index_v0_1.json
-    LABEL_AUDIT_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md
-    label_audit_public_contributor_digest_v0_1.json
-    LABEL_AUDIT_MAINTAINER_HANDOFF_NOTES_V0_1.md
-    label_audit_maintainer_handoff_notes_v0_1.json
-    LABEL_AUDIT_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md
-    label_audit_maintainer_closeout_digest_v0_1.json
-    LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md
-    label_audit_maintainer_release_readiness_digest_v0_1.json
-sourcecheckup/
-  build/
-    source_claim_example_expansion_v0_2.md
-  review_queue/
-    source_claim_review_queue_v0_1.jsonl
-failure_atlas/
-  public/
-    INDEX.md
-    METHODOLOGY.md
-tr_medllm_safetybench/
-  README.md
-  build/
-    specialty_spread_dashboard_v0_1.md
-  synthetic_risk_pack_v0_1.jsonl
-rubric/
-  v0.1.0/
-medmarks_candidate_env_v0_20260613/
-  configs/
-  environments/
-  VALIDATION_REPORT.md
-scripts/
-  benchmark_runner.py
-  validate_external_sample_jsonl.py
-  validate_medhelm_metric_json.py
-  validate_model_run_json.py
-  validate_public_release.py
-  validate_scoring_rubric_v0_1.py
-  validate_assurance_card_template_v0_1.py
-  validate_assurance_release_gate_example_map_v0_1.py
-  validate_red_flag_warning_checklist_v0_1.py
-  validate_red_flag_contributor_examples_v0_1.py
-  generate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
-  validate_sourcecheckup_turkish_institutional_wording_examples_v0_1.py
-  sourcecheckup_repo_doctor_v0_1.py
-  generate_sourcecheckup_repo_run_guide_v0_1.py
-  validate_sourcecheckup_repo_run_guide_v0_1.py
-  validate_benchmark_reviewer_question_issue_templates_v0_1.py
-  generate_reviewer_question_intake_examples_v0_1.py
-  validate_reviewer_question_intake_examples_v0_1.py
-  generate_reviewer_question_intake_triage_board_v0_1.py
-  validate_reviewer_question_intake_triage_board_v0_1.py
-  generate_reviewer_question_public_wording_decision_log_v0_1.py
-  validate_reviewer_question_public_wording_decision_log_v0_1.py
-  generate_reviewer_question_release_gate_checklist_v0_1.py
-  validate_reviewer_question_release_gate_checklist_v0_1.py
-  generate_reviewer_question_release_gate_outcome_dashboard_v0_1.py
-  validate_reviewer_question_release_gate_outcome_dashboard_v0_1.py
-  generate_reviewer_question_public_release_packet_v0_1.py
-  validate_reviewer_question_public_release_packet_v0_1.py
-  generate_reviewer_question_public_changelog_v0_1.py
-  validate_reviewer_question_public_changelog_v0_1.py
-  generate_reviewer_question_public_release_index_v0_1.py
-  validate_reviewer_question_public_release_index_v0_1.py
-  generate_reviewer_question_public_contributor_digest_v0_1.py
-  validate_reviewer_question_public_contributor_digest_v0_1.py
-  generate_reviewer_question_maintainer_handoff_notes_v0_1.py
-  validate_reviewer_question_maintainer_handoff_notes_v0_1.py
-  generate_reviewer_question_maintainer_closeout_digest_v0_1.py
-  validate_reviewer_question_maintainer_closeout_digest_v0_1.py
-  generate_reviewer_question_maintainer_release_readiness_digest_v0_1.py
-  validate_reviewer_question_maintainer_release_readiness_digest_v0_1.py
-  generate_reviewer_question_maintainer_evidence_map_v0_1.py
-  validate_reviewer_question_maintainer_evidence_map_v0_1.py
-  generate_reviewer_question_maintainer_audit_trail_packet_v0_1.py
-  validate_reviewer_question_maintainer_audit_trail_packet_v0_1.py
-  generate_reviewer_question_maintainer_release_candidate_summary_v0_1.py
-  validate_reviewer_question_maintainer_release_candidate_summary_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_decision_log_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_decision_log_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_handoff_summary_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_handoff_summary_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_closure_checklist_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_closure_checklist_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_archive_digest_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_archive_digest_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_index_rollup_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_index_rollup_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_repository_navigation_note_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_release_card_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_release_card_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_contributor_route_note_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_contributor_route_note_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_issue_template_route_note_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_issue_template_route_note_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_maintainer_acceptance_checklist_v0_1.py
-  generate_reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.py
-  validate_reviewer_question_maintainer_public_preview_acceptance_closeout_digest_v0_1.py
-  validate_tr_medllm_specialty_spread_v0_1.py
-  validate_tr_medllm_specialty_dashboard_v0_1.py
-  validate_sourcecheckup_example_expansion_dashboard_v0_2.py
-  validate_clinician_literacy_release_gate_lesson_map_v0_1.py
-  generate_bilge_readiness_queue_v0_1.py
-  validate_bilge_readiness_queue_v0_1.py
-  generate_tubitak_1711_collaboration_readiness_packet_v0_1.py
-  validate_tubitak_1711_collaboration_readiness_packet_v0_1.py
-  run_prompt_set_openai_compatible_v2.py
-  run_prompt_set_hf_transformers_v2.py
-CONTRIBUTING.md
+```bibtex
+@dataset{ozkan2026medical_ai_failure_atlas,
+  title = {Medical AI Failure Atlas},
+  author = {Ozkan, Goktug},
+  year = {2026},
+  version = {0.1.0},
+  url = {https://github.com/goktugozkanmd/medical-ai-failure-atlas}
+}
 ```
-
-## Current signal
-
-The first ten prompts were run on three models. The early signal is not mainly missed diagnosis. The more useful signal is calibration: protocol over detail, broad antibiotic alternatives, uneven evidence verification, incomplete uncertainty handling, and medication wording risk.
-
-The hard addendum and V3 scale seed have completed internal model run layers. The public release contains the scenario banks, rubric, external sample, and draft atlas entries, but not raw model outputs.
-
-Hard thirty run:
-
-The hard thirty prompt set was run on three models and produced 90 raw outputs. Local JSON validation passed for all three model files. Strict preliminary triage found 2 high priority rows and 30 medium priority rows. The strongest immediate Failure Atlas candidate is insulin sick day wording risk in scenario `H008`.
-
-Failure Atlas public summary layer:
-
-The public raw withheld summary index is `failure_atlas/public/INDEX.md`. The public methodology note is `failure_atlas/public/METHODOLOGY.md`. These files summarize selected failure patterns without raw outputs, model scores, or model rankings.
-
-Legacy draft atlas entries remain in `docs/failure_atlas_entry_001_insulin_sick_day_wording_draft.md`, `docs/failure_atlas_entry_002_protocol_overprecision_draft.md`, and `docs/failure_atlas_entry_003_remote_rescue_protocols_draft.md`. They are draft notes, not clinical advice or validation claims.
-
-The first external ecosystem sample is in `data/failure_atlas_external_sample_v0_1.jsonl`. It contains three synthetic cases mapped toward MedHELM and Medmarks discussion routes.
-
-The first MedHELM oriented metric draft is in `data/medhelm_remote_rescue_metric_v0_1.json` and `docs/MEDHELM_REMOTE_RESCUE_BOUNDARY_METRIC_PACKAGE_DRAFT.md`.
-
-The first Medmarks style local proof pack is in `medmarks_candidate_env_v0_20260613/`.
-
-Labeling and review workflow:
-
-`LABELING.md` defines the current labeling workflow. The first versioned rubric package is under `rubric/v0.1.0/`. The 24 row pilot inter rater review subset is in `data/inter_rater_review_subset_v0_1.tsv`. Internal reviewer forms are generated locally but are not included in the public release while raw model output redistribution remains uncleared.
-
-Benchmark runner:
-
-`scripts/benchmark_runner.py`
-
-The runner validates prompt rows, synthetic scenario banks, raw model captures, the internal scoring rubric, and strict triage files. It writes preliminary review artifacts under `benchmark_report/`, including per row scores, model summary, gate summary, clinician review queue, Failure Atlas candidate JSONL, and a run report. These are preliminary triage signals only, not final clinical performance scores.
-
-Public release boundaries are tracked in `PUBLIC_RELEASE_BOUNDARY_V0_1.md` and `RELEASE_MANIFEST_V0_1_DRAFT.md`.
-
-Dataset and evaluation card draft:
-
-`DATASET_EVALUATION_CARD_V0_1_DRAFT.md`
-
-This remains preliminary until clinician review confirms the scoring and public wording.
-
-## Next release gate
-
-1. Review the 6 high priority rows.
-2. Review repeated medium priority clusters for Failure Atlas patterns.
-3. Add model output excerpts only if copyright and platform terms allow.
-4. Prepare separately audited MedHELM, HealthBench, and Medmarks discussion posts only after exact owner clearance.
-5. Prepare the resource preprint only after clinician review status is stronger.
-## v0.3 draft review materials (2026-06-23)
-
-Clinician-led synthetic draft artifacts, clinician-reviewed (Göktuğ Özkan, MD, 2026-06-23) (not clinical advice, not validated, no model ranking):
 
-- `data/scoring_rubric_v0_3.json` — draft scoring rubric v0.3 (severity gates incl. medication interaction / allergy / contraindication; pediatric/pregnancy dosing; mental-health risk; numeric/unit error).
-- `data/tr_medllm_synthetic_eval_set_v0_3.jsonl` — 44 synthetic Turkish clinical-safety cases (TRFAI015–058).
-- `docs/SCORING_RUBRIC_V0_3_WALKTHROUGH.md` — worked examples.
-- `docs/TR_MEDLLM_SYNTHETIC_EVAL_SET_COVERAGE_MATRIX_V0_3.md` — coverage.
+The repository also includes machine readable citation metadata in [CITATION.cff](CITATION.cff).
