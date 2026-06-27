@@ -6,7 +6,7 @@
   "atlas_node_id": "mia_mmi_002",
   "scope": "Public wording bank for plain clinical language gates using synthetic local artifacts only.",
   "status": "ready",
-  "row_count": 679,
+  "row_count": 684,
   "artifact_paths": {
     "public_wording_index": "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
     "paired_state_examples": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
@@ -686,7 +686,12 @@
     "mmi_133_chain_release_report": "data/mmi_133_chain_release_report_v0_1_20260625.json",
     "mmi_133_chain_release_report_doc": "docs/MMI_133_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
     "mmi_133_chain_release_scorer": "scripts/score_mmi_133_chain_release_controls_v0_1_20260625.py",
-    "mmi_133_chain_release_validator": "scripts/validate_mmi_133_chain_release_report_v0_1_20260625.py"
+    "mmi_133_chain_release_validator": "scripts/validate_mmi_133_chain_release_report_v0_1_20260625.py",
+    "mmi_134_chain_handoff_controls": "data/mmi_134_chain_handoff_controls_v0_1_20260625.jsonl",
+    "mmi_134_chain_handoff_report": "data/mmi_134_chain_handoff_report_v0_1_20260625.json",
+    "mmi_134_chain_handoff_report_doc": "docs/MMI_134_CHAIN_HANDOFF_REPORT_V0_1_20260625.md",
+    "mmi_134_chain_handoff_scorer": "scripts/score_mmi_134_chain_handoff_controls_v0_1_20260625.py",
+    "mmi_134_chain_handoff_validator": "scripts/validate_mmi_134_chain_handoff_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1403,7 +1408,8 @@
     "mmi_130_chain_closure_control": "MMI 130 chain closure control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream closure review.",
     "mmi_131_chain_archive_control": "MMI 131 chain archive control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream archive review.",
     "mmi_132_chain_reuse_control": "MMI 132 chain reuse control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream reuse review.",
-    "mmi_133_chain_release_control": "MMI 133 chain release control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream release review."
+    "mmi_133_chain_release_control": "MMI 133 chain release control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream release review.",
+    "mmi_134_chain_handoff_control": "MMI 134 chain handoff control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream handoff review."
   },
   "planned_rows": [
     {
@@ -1564,7 +1570,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "MMI 134 chain handoff controls",
+  "next_build_suggestion": "MMI 135 chain closure controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -2261,7 +2267,8 @@
     "mmi_130_chain_closure_report": "MMI 130 chain closure report is local synthetic evidence only and cannot be used as clinical validation, clinical deployment, model superiority, partner status, institution approval, authority approval, clearance, or publication readiness.",
     "mmi_131_chain_archive_report": "MMI 131 chain archive report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain archive signal types without patient data or external source claim.",
     "mmi_132_chain_reuse_report": "MMI 132 chain reuse report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain reuse signal types without patient data or external source claim.",
-    "mmi_133_chain_release_report": "MMI 133 chain release report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain release signal types without patient data or external source claim."
+    "mmi_133_chain_release_report": "MMI 133 chain release report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain release signal types without patient data or external source claim.",
+    "mmi_134_chain_handoff_report": "MMI 134 chain handoff report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain handoff signal types without patient data or external source claim."
   },
   "report_index": {
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_report": [
@@ -2756,6 +2763,12 @@
       "report_markdown": "docs/MMI_133_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
       "validator": "scripts/validate_mmi_133_chain_release_report_v0_1_20260625.py",
       "make_target": "make mmi_133_chain_release_controls"
+    },
+    "mmi_134_chain_handoff_report": {
+      "report_json": "data/mmi_134_chain_handoff_report_v0_1_20260625.json",
+      "report_markdown": "docs/MMI_134_CHAIN_HANDOFF_REPORT_V0_1_20260625.md",
+      "validator": "scripts/validate_mmi_134_chain_handoff_report_v0_1_20260625.py",
+      "make_target": "make mmi_134_chain_handoff_controls"
     }
   }
 }
