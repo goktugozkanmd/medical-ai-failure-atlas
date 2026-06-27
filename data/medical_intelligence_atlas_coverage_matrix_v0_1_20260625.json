@@ -4394,6 +4394,41 @@
       "layer": "Multilingual Medical Intelligence",
       "description": "MMI 122 chain reuse report validator",
       "artifact_id": "mmi_122_chain_reuse_validator"
+    },
+    "mmi_123_chain_release_controls": {
+      "path": "data/mmi_123_chain_release_controls_v0_1_20260625.jsonl",
+      "type": "jsonl",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 123 chain release synthetic Turkish English controls",
+      "artifact_id": "mmi_123_chain_release_controls"
+    },
+    "mmi_123_chain_release_report": {
+      "path": "data/mmi_123_chain_release_report_v0_1_20260625.json",
+      "type": "json",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 123 chain release machine report",
+      "artifact_id": "mmi_123_chain_release_report"
+    },
+    "mmi_123_chain_release_report_doc": {
+      "path": "docs/MMI_123_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+      "type": "markdown",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 123 chain release markdown report",
+      "artifact_id": "mmi_123_chain_release_report_doc"
+    },
+    "mmi_123_chain_release_scorer": {
+      "path": "scripts/score_mmi_123_chain_release_controls_v0_1_20260625.py",
+      "type": "python",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 123 chain release scorer",
+      "artifact_id": "mmi_123_chain_release_scorer"
+    },
+    "mmi_123_chain_release_validator": {
+      "path": "scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py",
+      "type": "python",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 123 chain release report validator",
+      "artifact_id": "mmi_123_chain_release_validator"
     }
   },
   "coverage_rows": [
@@ -9116,7 +9151,7 @@
       ],
       "primary_artifact": "docs/MMI_122_CHAIN_REUSE_REPORT_V0_1_20260625.md",
       "artifact": "MMI 122 chain reuse controls",
-      "open_gap": "next release step not yet represented",
+      "open_gap": "release step represented by MMI 123",
       "required_artifacts": [
         "mmi_122_chain_reuse_controls",
         "mmi_122_chain_reuse_report",
@@ -9137,6 +9172,63 @@
         "docs/MMI_122_CHAIN_REUSE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_122_chain_reuse_controls_v0_1_20260625.py",
         "scripts/validate_mmi_122_chain_reuse_report_v0_1_20260625.py"
+      ]
+    },
+    {
+      "node_id": "mia_mmi_123",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "MMI 123 chain release controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_123_chain_release_controls",
+        "mmi_123_chain_release_report",
+        "mmi_123_chain_release_report_doc",
+        "mmi_123_chain_release_scorer",
+        "mmi_123_chain_release_validator"
+      ],
+      "coverage_focus": "release review source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_123_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_123_chain_release_controls",
+        "mmi_123_chain_release_report",
+        "mmi_123_chain_release_report_doc",
+        "mmi_123_chain_release_scorer",
+        "mmi_123_chain_release_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_123_chain_release_controls_v0_1_20260625.jsonl",
+        "data/mmi_123_chain_release_report_v0_1_20260625.json",
+        "docs/MMI_123_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_123_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_123_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+      "artifact": "MMI 123 chain release controls",
+      "open_gap": "next handoff step not yet represented",
+      "required_artifacts": [
+        "mmi_123_chain_release_controls",
+        "mmi_123_chain_release_report",
+        "mmi_123_chain_release_report_doc",
+        "mmi_123_chain_release_scorer",
+        "mmi_123_chain_release_validator"
+      ],
+      "source_artifact_ids": [
+        "mmi_123_chain_release_controls",
+        "mmi_123_chain_release_report",
+        "mmi_123_chain_release_report_doc",
+        "mmi_123_chain_release_scorer",
+        "mmi_123_chain_release_validator"
+      ],
+      "source_artifact_paths": [
+        "data/mmi_123_chain_release_controls_v0_1_20260625.jsonl",
+        "data/mmi_123_chain_release_report_v0_1_20260625.json",
+        "docs/MMI_123_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_123_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py"
       ]
     },
     {
@@ -9176,38 +9268,38 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 132,
+    "expected_atlas_node_count": 133,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
-    "requires_each_atlas_node_once": 132,
+    "requires_each_atlas_node_once": 133,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 132,
-    "expected_source_artifact_count": 636,
-    "expected_node_count": 132,
-    "atlas_node_count": 132,
-    "coverage_row_count": 132,
-    "source_artifact_count": 636
+    "expected_coverage_row_count": 133,
+    "expected_source_artifact_count": 641,
+    "expected_node_count": 133,
+    "atlas_node_count": 133,
+    "coverage_row_count": 133,
+    "source_artifact_count": 641
   },
   "summary": {
-    "atlas_node_count": 132,
-    "coverage_row_count": 132,
-    "source_artifact_count": 636,
-    "expected_atlas_node_count": 132,
-    "expected_node_count": 132,
-    "expected_coverage_row_count": 132,
-    "expected_source_artifact_count": 636,
-    "node_count": 132
+    "atlas_node_count": 133,
+    "coverage_row_count": 133,
+    "source_artifact_count": 641,
+    "expected_atlas_node_count": 133,
+    "expected_node_count": 133,
+    "expected_coverage_row_count": 133,
+    "expected_source_artifact_count": 641,
+    "node_count": 133
   },
   "expected_counts": {
-    "expected_atlas_node_count": 132,
-    "expected_coverage_row_count": 132,
-    "expected_source_artifact_count": 636,
-    "expected_node_count": 132,
-    "atlas_node_count": 132,
-    "coverage_row_count": 132,
-    "source_artifact_count": 636,
-    "coverage_rows": 132,
-    "source_artifacts": 636
+    "expected_atlas_node_count": 133,
+    "expected_coverage_row_count": 133,
+    "expected_source_artifact_count": 641,
+    "expected_node_count": 133,
+    "atlas_node_count": 133,
+    "coverage_row_count": 133,
+    "source_artifact_count": 641,
+    "coverage_rows": 133,
+    "source_artifacts": 641
   }
 }
