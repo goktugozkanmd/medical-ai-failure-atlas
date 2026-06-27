@@ -2259,6 +2259,20 @@ Risk gate: MMI 152 chain reuse packets cannot imply patient data use, clinical a
 
 Next build: MMI 153 chain release controls
 
+### mia_mmi_153 Multilingual Medical Intelligence
+
+Artifact: MMI 153 chain release controls
+
+Input: MMI 152 reuse reviewed archived packets
+
+Output: chain release review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved
+
+Validator: each MMI 153 chain release control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the release packet
+
+Risk gate: MMI 153 chain release packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: MMI 154 chain handoff controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

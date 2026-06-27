@@ -781,7 +781,12 @@
     "mmi_152_chain_reuse_report": "data/mmi_152_chain_reuse_report_v0_1_20260625.json",
     "mmi_152_chain_reuse_report_doc": "docs/MMI_152_CHAIN_REUSE_REPORT_V0_1_20260625.md",
     "mmi_152_chain_reuse_scorer": "scripts/score_mmi_152_chain_reuse_controls_v0_1_20260625.py",
-    "mmi_152_chain_reuse_validator": "scripts/validate_mmi_152_chain_reuse_report_v0_1_20260625.py"
+    "mmi_152_chain_reuse_validator": "scripts/validate_mmi_152_chain_reuse_report_v0_1_20260625.py",
+    "mmi_153_chain_release_controls": "data/mmi_153_chain_release_controls_v0_1_20260625.jsonl",
+    "mmi_153_chain_release_report": "data/mmi_153_chain_release_report_v0_1_20260625.json",
+    "mmi_153_chain_release_report_doc": "docs/MMI_153_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+    "mmi_153_chain_release_scorer": "scripts/score_mmi_153_chain_release_controls_v0_1_20260625.py",
+    "mmi_153_chain_release_validator": "scripts/validate_mmi_153_chain_release_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1518,7 +1523,8 @@
     "mmi_149_chain_handoff_control": "preserve source attachments and archive reopenability during downstream handoff review without authority or clearance claim.",
     "mmi_150_chain_closure_report": "MMI 150 chain closure report covers closure review source attachment preservation, archive snapshot preservation, reopenability preservation, and authority or clearance overclaim blocking.",
     "mmi_151_chain_archive_report": "MMI 151 chain archive report covers archive review source attachment preservation, archive snapshot preservation, reopenability preservation, and authority or clearance overclaim blocking.",
-    "mmi_152_chain_reuse_report": "MMI 152 chain reuse report covers reuse review source attachment preservation, archive snapshot preservation, reopenability preservation, and authority or clearance overclaim blocking."
+    "mmi_152_chain_reuse_report": "MMI 152 chain reuse report covers reuse review source attachment preservation, archive snapshot preservation, reopenability preservation, and authority or clearance overclaim blocking.",
+    "mmi_153_chain_release_report": "MMI 153 chain release report covers release review source attachment preservation, archive snapshot preservation, reopenability preservation, and authority or clearance overclaim blocking."
   },
   "planned_rows": [
     {
@@ -1679,7 +1685,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "MMI 153 chain release controls",
+  "next_build_suggestion": "MMI 154 chain handoff controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -2395,7 +2401,8 @@
     "mmi_149_chain_handoff_report": "MMI 149 chain handoff report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain handoff signal types without patient data or external source claim.",
     "mmi_150_chain_closure_report": "MMI 150 chain closure report is a local synthetic fixture only and makes no clinical validation, deployment, model superiority, partner, institution, authority, clearance, publication, or outward use claim.",
     "mmi_151_chain_archive_report": "MMI 151 chain archive report is a local synthetic fixture only and makes no clinical validation, deployment, model superiority, partner, institution, authority, clearance, publication, or outward use claim.",
-    "mmi_152_chain_reuse_report": "MMI 152 chain reuse report is a local synthetic fixture only and makes no clinical validation, deployment, model superiority, partner, institution, authority, clearance, publication, or outward use claim."
+    "mmi_152_chain_reuse_report": "MMI 152 chain reuse report is a local synthetic fixture only and makes no clinical validation, deployment, model superiority, partner, institution, authority, clearance, publication, or outward use claim.",
+    "mmi_153_chain_release_report": "MMI 153 chain release report is a local synthetic fixture only and makes no clinical validation, deployment, model superiority, partner, institution, authority, clearance, publication, or outward use claim."
   },
   "report_index": {
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_report": [
@@ -3007,6 +3014,13 @@
       "scorer": "scripts/score_mmi_152_chain_reuse_controls_v0_1_20260625.py",
       "validator": "scripts/validate_mmi_152_chain_reuse_report_v0_1_20260625.py",
       "controls": "data/mmi_152_chain_reuse_controls_v0_1_20260625.jsonl"
+    },
+    "mmi_153_chain_release_report": {
+      "json": "data/mmi_153_chain_release_report_v0_1_20260625.json",
+      "markdown": "docs/MMI_153_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+      "scorer": "scripts/score_mmi_153_chain_release_controls_v0_1_20260625.py",
+      "validator": "scripts/validate_mmi_153_chain_release_report_v0_1_20260625.py",
+      "controls": "data/mmi_153_chain_release_controls_v0_1_20260625.jsonl"
     }
   }
 }
