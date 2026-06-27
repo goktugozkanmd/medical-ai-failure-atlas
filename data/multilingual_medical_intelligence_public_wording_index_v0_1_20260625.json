@@ -601,7 +601,12 @@
     "mmi_116_chain_archive_report": "data/mmi_116_chain_archive_report_v0_1_20260625.json",
     "mmi_116_chain_archive_report_doc": "docs/MMI_116_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
     "mmi_116_chain_archive_scorer": "scripts/score_mmi_116_chain_archive_controls_v0_1_20260625.py",
-    "mmi_116_chain_archive_validator": "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py"
+    "mmi_116_chain_archive_validator": "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py",
+    "mmi_117_chain_reuse_controls": "data/mmi_117_chain_reuse_controls_v0_1_20260625.jsonl",
+    "mmi_117_chain_reuse_report": "data/mmi_117_chain_reuse_report_v0_1_20260625.json",
+    "mmi_117_chain_reuse_report_doc": "docs/MMI_117_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+    "mmi_117_chain_reuse_scorer": "scripts/score_mmi_117_chain_reuse_controls_v0_1_20260625.py",
+    "mmi_117_chain_reuse_validator": "scripts/validate_mmi_117_chain_reuse_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1301,7 +1306,8 @@
     "mmi_113_chain_release_control": "preserve source attachments, archive snapshot, and reopenability while release reviewing reuse reviewed archived packets",
     "mmi_114_chain_handoff_control": "preserve source attachments, archive snapshot, and reopenability while handoff reviewing release reviewed archived packets",
     "mmi_115_chain_closure_control": "preserve source attachments, archive snapshot, and reopenability while closure reviewing handoff reviewed archived packets",
-    "mmi_116_chain_archive_control": "preserve source attachments, archive snapshot, and reopenability while archive reviewing closure reviewed archived packets"
+    "mmi_116_chain_archive_control": "preserve source attachments, archive snapshot, and reopenability while archive reviewing closure reviewed archived packets",
+    "mmi_117_chain_reuse_control": "preserve source attachments, archive snapshot, and reopenability while reuse reviewing archive reviewed archived packets"
   },
   "planned_rows": [
     {
@@ -1462,7 +1468,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "MMI 117 chain reuse controls",
+  "next_build_suggestion": "MMI 118 chain release controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -2142,7 +2148,8 @@
     "mmi_113_chain_release_report": "MMI 113 chain release report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic release review.",
     "mmi_114_chain_handoff_report": "MMI 114 chain handoff report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic handoff review.",
     "mmi_115_chain_closure_report": "MMI 115 chain closure report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic closure review.",
-    "mmi_116_chain_archive_report": "MMI 116 chain archive report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic archive review."
+    "mmi_116_chain_archive_report": "MMI 116 chain archive report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic archive review.",
+    "mmi_117_chain_reuse_report": "MMI 117 chain reuse report preserves source attachment, archive snapshot, and reopenability boundaries for local synthetic reuse review."
   },
   "report_index": {
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_report": [
@@ -2545,6 +2552,10 @@
     "mmi_116_chain_archive_report": [
       "data/mmi_116_chain_archive_report_v0_1_20260625.json",
       "docs/MMI_116_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md"
+    ],
+    "mmi_117_chain_reuse_report": [
+      "data/mmi_117_chain_reuse_report_v0_1_20260625.json",
+      "docs/MMI_117_CHAIN_REUSE_REPORT_V0_1_20260625.md"
     ]
   }
 }
