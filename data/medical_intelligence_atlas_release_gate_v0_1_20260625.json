@@ -28,13 +28,13 @@
       "machine_meaning": "A local artifact marks source support as needed before claim bearing public use."
     }
   ],
-  "expected_next_action": "MMI 146 chain archive controls",
+  "expected_next_action": "MMI 147 chain reuse controls",
   "expected_risk_gate": "public release cannot outrun validators",
   "atlas_layer_source": {
     "config": "data/medical_intelligence_atlas_v0_1_20260625.json",
     "checker": "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
     "expected_layer_count": 6,
-    "expected_node_count": 155
+    "expected_node_count": 156
   },
   "release_gate_summary": {
     "layer_count": 6,
@@ -48,8 +48,8 @@
     "clinical_use_allowed": false,
     "synthetic_only": true,
     "source_check_rule": "Source flags stay open unless repo local source review evidence exists.",
-    "expected_atlas_node_count": 155,
-    "expected_node_count": 155
+    "expected_atlas_node_count": 156,
+    "expected_node_count": 156
   },
   "release_gate_rows": [
     {
@@ -63,18 +63,18 @@
         "scripts/validate_clinical_state_language_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "atlas_node_ids": [
           "mia_csl_001",
           "mia_csl_002"
         ]
       },
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls",
       "atlas_node_ids": [
         "mia_csl_001",
         "mia_csl_002"
@@ -90,18 +90,18 @@
         "scripts/validate_clinical_trajectory_engine_transitions_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "atlas_node_ids": [
           "mia_cte_001",
           "mia_cte_002"
         ]
       },
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls",
       "atlas_node_ids": [
         "mia_cte_001",
         "mia_cte_002"
@@ -116,18 +116,18 @@
         "scripts/score_medical_reasoning_verifier_v0_1.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "atlas_node_ids": [
           "mia_mrv_001",
           "mia_mrv_002"
         ]
       },
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls",
       "atlas_node_ids": [
         "mia_mrv_001",
         "mia_mrv_002"
@@ -143,18 +143,18 @@
         "scripts/simulate_agentic_medicine_sandbox_event_flow_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "atlas_node_ids": [
           "mia_ams_001",
           "mia_ams_002"
         ]
       },
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls",
       "atlas_node_ids": [
         "mia_ams_001",
         "mia_ams_002"
@@ -907,10 +907,15 @@
         "data/mmi_145_chain_closure_report_v0_1_20260625.json",
         "docs/MMI_145_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_145_chain_closure_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py"
+        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py",
+        "data/mmi_146_chain_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_146_chain_archive_report_v0_1_20260625.json",
+        "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "atlas_node_ids": [
@@ -1058,7 +1063,8 @@
         "mia_mmi_142",
         "mia_mmi_143",
         "mia_mmi_144",
-        "mia_mmi_145"
+        "mia_mmi_145",
+        "mia_mmi_146"
       ],
       "gate_inputs": {
         "cross_language_source_recency_applicability_checker_result": "pass",
@@ -1366,7 +1372,8 @@
           "mia_mmi_142",
           "mia_mmi_143",
           "mia_mmi_144",
-          "mia_mmi_145"
+          "mia_mmi_145",
+          "mia_mmi_146"
         ],
         "mmi_037_closure_archive_reuse_checker_result": "pass",
         "mmi_037_closure_archive_reuse_control_count": 16,
@@ -1488,7 +1495,7 @@
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_blocked_controls": 8,
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_signal_types": 8,
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3,
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_checker_result": "pass",
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_control_count": 16,
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_pass_controls": 8,
@@ -2806,10 +2813,15 @@
         "data/mmi_145_chain_closure_report_v0_1_20260625.json",
         "docs/MMI_145_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_145_chain_closure_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py"
+        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py",
+        "data/mmi_146_chain_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_146_chain_archive_report_v0_1_20260625.json",
+        "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
       ],
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls"
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls"
     },
     {
       "gate_id": "mia_rg_006",
@@ -2821,18 +2833,18 @@
         "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py"
       ],
       "risk_gate": "public release cannot outrun validators",
-      "next_action": "MMI 146 chain archive controls",
+      "next_action": "MMI 147 chain reuse controls",
       "blockers": [],
       "source_check_items": [],
       "gate_inputs": {
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "atlas_node_ids": [
           "mia_atlas_001",
           "mia_atlas_002"
         ]
       },
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls",
       "atlas_node_ids": [
         "mia_atlas_001",
         "mia_atlas_002"
@@ -3144,7 +3156,8 @@
         "mia_mmi_142",
         "mia_mmi_143",
         "mia_mmi_144",
-        "mia_mmi_145"
+        "mia_mmi_145",
+        "mia_mmi_146"
       ],
       "local_artifacts": [
         "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
@@ -3864,7 +3877,12 @@
         "data/mmi_145_chain_closure_report_v0_1_20260625.json",
         "docs/MMI_145_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_145_chain_closure_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py"
+        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py",
+        "data/mmi_146_chain_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_146_chain_archive_report_v0_1_20260625.json",
+        "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
       ],
       "synthetic_boundary": {
         "synthetic_only": true,
@@ -4393,7 +4411,8 @@
           "mia_mmi_142",
           "mia_mmi_143",
           "mia_mmi_144",
-          "mia_mmi_145"
+          "mia_mmi_145",
+          "mia_mmi_146"
         ],
         "mmi_037_closure_archive_reuse_checker_result": "pass",
         "mmi_037_closure_archive_reuse_control_count": 16,
@@ -4509,7 +4528,7 @@
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_blocked_controls": 8,
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_signal_types": 8,
         "mmi_056_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_decision_route_types": 3,
-        "atlas_nodes": 155,
+        "atlas_nodes": 156,
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_checker_result": "pass",
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_control_count": 16,
         "mmi_057_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_release_handoff_closure_archive_reuse_pass_controls": 8,
@@ -6073,11 +6092,16 @@
         "data/mmi_145_chain_closure_report_v0_1_20260625.json",
         "docs/MMI_145_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
         "scripts/score_mmi_145_chain_closure_controls_v0_1_20260625.py",
-        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py"
+        "scripts/validate_mmi_145_chain_closure_report_v0_1_20260625.py",
+        "data/mmi_146_chain_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_146_chain_archive_report_v0_1_20260625.json",
+        "docs/MMI_146_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_146_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_146_chain_archive_report_v0_1_20260625.py"
       ],
-      "next_action": "MMI 146 chain archive controls",
-      "expected_next_action": "MMI 146 chain archive controls",
-      "exact_next_action": "MMI 146 chain archive controls"
+      "next_action": "MMI 147 chain reuse controls",
+      "expected_next_action": "MMI 147 chain reuse controls",
+      "exact_next_action": "MMI 147 chain reuse controls"
     },
     {
       "layer": "Medical Intelligence Atlas",
@@ -6118,5 +6142,5 @@
       "exact_next_action": "MMI 146 chain archive controls"
     }
   ],
-  "exact_next_action": "MMI 146 chain archive controls"
+  "exact_next_action": "MMI 147 chain reuse controls"
 }
