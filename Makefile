@@ -7670,3 +7670,8 @@ mmi_175_chain_closure_controls:
 mmi_176_chain_archive_controls:
 	$(PYTHON) scripts/score_mmi_176_chain_archive_controls_v0_1_20260625.py --check
 	$(PYTHON) scripts/validate_mmi_176_chain_archive_report_v0_1_20260625.py
+
+.PHONY: mmi_177_chain_reuse_controls
+mmi_177_chain_reuse_controls:
+	$(PYTHON) scripts/score_mmi_177_chain_reuse_controls_v0_1_20260625.py --check
+	$(PYTHON) scripts/validate_mmi_177_chain_reuse_report_v0_1_20260625.py
