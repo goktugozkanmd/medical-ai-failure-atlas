@@ -6,7 +6,7 @@
   "atlas_node_id": "mia_mmi_002",
   "scope": "Public wording bank for plain clinical language gates using synthetic local artifacts only.",
   "status": "ready",
-  "row_count": 909,
+  "row_count": 914,
   "artifact_paths": {
     "public_wording_index": "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
     "paired_state_examples": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
@@ -951,7 +951,12 @@
     "mmi_186_chain_archive_report": "data/mmi_186_chain_archive_report_v0_1_20260625.json",
     "mmi_186_chain_archive_report_doc": "docs/MMI_186_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
     "mmi_186_chain_archive_scorer": "scripts/score_mmi_186_chain_archive_controls_v0_1_20260625.py",
-    "mmi_186_chain_archive_validator": "scripts/validate_mmi_186_chain_archive_report_v0_1_20260625.py"
+    "mmi_186_chain_archive_validator": "scripts/validate_mmi_186_chain_archive_report_v0_1_20260625.py",
+    "mmi_187_chain_reuse_controls": "data/mmi_187_chain_reuse_controls_v0_1_20260625.jsonl",
+    "mmi_187_chain_reuse_report": "data/mmi_187_chain_reuse_report_v0_1_20260625.json",
+    "mmi_187_chain_reuse_report_doc": "docs/MMI_187_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+    "mmi_187_chain_reuse_scorer": "scripts/score_mmi_187_chain_reuse_controls_v0_1_20260625.py",
+    "mmi_187_chain_reuse_validator": "scripts/validate_mmi_187_chain_reuse_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1722,10 +1727,11 @@
     "mmi_183_chain_release_report": "release review source attachment preservation and overclaim blocking",
     "mmi_184_chain_handoff_report": "handoff review source attachment preservation and overclaim blocking",
     "mmi_185_chain_closure_report": "closure review source attachment preservation and overclaim blocking",
-    "mmi_186_chain_archive_report": "archive review source attachment preservation and overclaim blocking"
+    "mmi_186_chain_archive_report": "archive review source attachment preservation and overclaim blocking",
+    "mmi_187_chain_reuse_report": "reuse review source attachment preservation and overclaim blocking"
   },
-  "planned_rows": 884,
-  "next_build_suggestion": "MMI 187 chain reuse controls",
+  "planned_rows": 889,
+  "next_build_suggestion": "MMI 188 chain release controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -2475,7 +2481,8 @@
     "mmi_183_chain_release_report": "MMI 183 chain release controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only.",
     "mmi_184_chain_handoff_report": "MMI 184 chain handoff controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only.",
     "mmi_185_chain_closure_report": "MMI 185 chain closure controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only.",
-    "mmi_186_chain_archive_report": "MMI 186 chain archive controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only."
+    "mmi_186_chain_archive_report": "MMI 186 chain archive controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only.",
+    "mmi_187_chain_reuse_report": "MMI 187 chain reuse controls preserve source attachments, archive snapshot, and reopenability while blocking authority or clearance claims in synthetic local review only."
   },
   "report_index": {
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_report": [
@@ -3192,6 +3199,7 @@
     "mmi_183_chain_release_report": "docs/MMI_183_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
     "mmi_184_chain_handoff_report": "docs/MMI_184_CHAIN_HANDOFF_REPORT_V0_1_20260625.md",
     "mmi_185_chain_closure_report": "docs/MMI_185_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
-    "mmi_186_chain_archive_report": "docs/MMI_186_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md"
+    "mmi_186_chain_archive_report": "docs/MMI_186_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+    "mmi_187_chain_reuse_report": "docs/MMI_187_CHAIN_REUSE_REPORT_V0_1_20260625.md"
   }
 }
