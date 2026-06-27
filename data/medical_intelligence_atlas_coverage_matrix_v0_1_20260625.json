@@ -4149,6 +4149,41 @@
       "layer": "Multilingual Medical Intelligence",
       "description": "MMI 115 chain closure report validator",
       "artifact_id": "mmi_115_chain_closure_validator"
+    },
+    "mmi_116_chain_archive_controls": {
+      "path": "data/mmi_116_chain_archive_controls_v0_1_20260625.jsonl",
+      "type": "jsonl controls",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 116 chain archive synthetic Turkish English controls",
+      "artifact_id": "mmi_116_chain_archive_controls"
+    },
+    "mmi_116_chain_archive_report": {
+      "path": "data/mmi_116_chain_archive_report_v0_1_20260625.json",
+      "type": "machine report",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 116 chain archive machine report",
+      "artifact_id": "mmi_116_chain_archive_report"
+    },
+    "mmi_116_chain_archive_report_doc": {
+      "path": "docs/MMI_116_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+      "type": "markdown report",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 116 chain archive markdown report",
+      "artifact_id": "mmi_116_chain_archive_report_doc"
+    },
+    "mmi_116_chain_archive_scorer": {
+      "path": "scripts/score_mmi_116_chain_archive_controls_v0_1_20260625.py",
+      "type": "python scorer",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 116 chain archive scorer",
+      "artifact_id": "mmi_116_chain_archive_scorer"
+    },
+    "mmi_116_chain_archive_validator": {
+      "path": "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py",
+      "type": "python validator",
+      "layer": "Multilingual Medical Intelligence",
+      "description": "MMI 116 chain archive report validator",
+      "artifact_id": "mmi_116_chain_archive_validator"
     }
   },
   "coverage_rows": [
@@ -8556,7 +8591,43 @@
       ],
       "primary_artifact": "docs/MMI_115_CHAIN_CLOSURE_REPORT_V0_1_20260625.md",
       "artifact": "MMI 115 chain closure controls",
-      "open_gap": "next archive step not yet represented"
+      "open_gap": "archive step represented by MMI 116"
+    },
+    {
+      "node_id": "mia_mmi_116",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "MMI 116 chain archive controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_116_chain_archive_controls",
+        "mmi_116_chain_archive_report",
+        "mmi_116_chain_archive_report_doc",
+        "mmi_116_chain_archive_scorer",
+        "mmi_116_chain_archive_validator"
+      ],
+      "coverage_focus": "archive review source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_116_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_116_chain_archive_controls",
+        "mmi_116_chain_archive_report",
+        "mmi_116_chain_archive_report_doc",
+        "mmi_116_chain_archive_scorer",
+        "mmi_116_chain_archive_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_116_chain_archive_controls_v0_1_20260625.jsonl",
+        "data/mmi_116_chain_archive_report_v0_1_20260625.json",
+        "docs/MMI_116_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_116_chain_archive_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_116_chain_archive_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_116_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
+      "artifact": "MMI 116 chain archive controls",
+      "open_gap": "next reuse step not yet represented"
     },
     {
       "node_id": "mia_atlas_001",
@@ -8567,7 +8638,7 @@
         "stack_config",
         "atlas_markdown"
       ],
-      "coverage_focus": "['one hundred fifteen atlas nodes', 'input output validator risk gate and next build fields', 'stack layer alignment']",
+      "coverage_focus": "['one hundred twenty six atlas nodes', 'input output validator risk gate and next build fields', 'stack layer alignment']",
       "local_validation_refs": [
         "scripts/validate_medical_intelligence_atlas_v0_1_20260625.py",
         "scripts/validate_clinical_intelligence_stack_20260625.py"
@@ -8595,35 +8666,38 @@
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 125,
+    "expected_atlas_node_count": 126,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
-    "requires_each_atlas_node_once": true,
+    "requires_each_atlas_node_once": 126,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
-    "expected_coverage_row_count": 125,
-    "expected_source_artifact_count": 601,
-    "expected_node_count": 125,
-    "atlas_node_count": 125,
-    "coverage_row_count": 125,
-    "source_artifact_count": 601
+    "expected_coverage_row_count": 126,
+    "expected_source_artifact_count": 606,
+    "expected_node_count": 126,
+    "atlas_node_count": 126,
+    "coverage_row_count": 126,
+    "source_artifact_count": 606
   },
   "summary": {
-    "atlas_node_count": 125,
-    "coverage_row_count": 125,
-    "source_artifact_count": 601,
-    "expected_atlas_node_count": 125,
-    "expected_node_count": 125,
-    "expected_coverage_row_count": 125,
-    "expected_source_artifact_count": 601
+    "atlas_node_count": 126,
+    "coverage_row_count": 126,
+    "source_artifact_count": 606,
+    "expected_atlas_node_count": 126,
+    "expected_node_count": 126,
+    "expected_coverage_row_count": 126,
+    "expected_source_artifact_count": 606,
+    "node_count": 126
   },
   "expected_counts": {
-    "expected_atlas_node_count": 125,
-    "expected_coverage_row_count": 125,
-    "expected_source_artifact_count": 601,
-    "expected_node_count": 125,
-    "atlas_node_count": 125,
-    "coverage_row_count": 125,
-    "source_artifact_count": 601
+    "expected_atlas_node_count": 126,
+    "expected_coverage_row_count": 126,
+    "expected_source_artifact_count": 606,
+    "expected_node_count": 126,
+    "atlas_node_count": 126,
+    "coverage_row_count": 126,
+    "source_artifact_count": 606,
+    "coverage_rows": 126,
+    "source_artifacts": 606
   }
 }
