@@ -6,7 +6,7 @@
   "atlas_node_id": "mia_mmi_002",
   "scope": "Public wording bank for plain clinical language gates using synthetic local artifacts only.",
   "status": "ready",
-  "row_count": 694,
+  "row_count": 699,
   "artifact_paths": {
     "public_wording_index": "data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
     "paired_state_examples": "data/multilingual_medical_intelligence_paired_state_examples_v0_1_20260625.jsonl",
@@ -701,7 +701,12 @@
     "mmi_136_chain_archive_report": "data/mmi_136_chain_archive_report_v0_1_20260625.json",
     "mmi_136_chain_archive_report_doc": "docs/MMI_136_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
     "mmi_136_chain_archive_scorer": "scripts/score_mmi_136_chain_archive_controls_v0_1_20260625.py",
-    "mmi_136_chain_archive_validator": "scripts/validate_mmi_136_chain_archive_report_v0_1_20260625.py"
+    "mmi_136_chain_archive_validator": "scripts/validate_mmi_136_chain_archive_report_v0_1_20260625.py",
+    "mmi_137_chain_reuse_controls": "data/mmi_137_chain_reuse_controls_v0_1_20260625.jsonl",
+    "mmi_137_chain_reuse_report": "data/mmi_137_chain_reuse_report_v0_1_20260625.json",
+    "mmi_137_chain_reuse_report_doc": "docs/MMI_137_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+    "mmi_137_chain_reuse_scorer": "scripts/score_mmi_137_chain_reuse_controls_v0_1_20260625.py",
+    "mmi_137_chain_reuse_validator": "scripts/validate_mmi_137_chain_reuse_report_v0_1_20260625.py"
   },
   "validation": {
     "index_validation_command": "python3 -m json.tool data/multilingual_medical_intelligence_public_wording_index_v0_1_20260625.json",
@@ -1421,7 +1426,8 @@
     "mmi_133_chain_release_control": "MMI 133 chain release control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream release review.",
     "mmi_134_chain_handoff_control": "MMI 134 chain handoff control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream handoff review.",
     "mmi_135_chain_closure_control": "MMI 135 chain closure control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream closure review.",
-    "mmi_136_chain_archive_control": "MMI 136 chain archive control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream archive review."
+    "mmi_136_chain_archive_control": "MMI 136 chain archive control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream archive review.",
+    "mmi_137_chain_reuse_control": "MMI 137 chain reuse control blocks loss of source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, archive reopenability, and authority or clearance claims during downstream reuse review."
   },
   "planned_rows": [
     {
@@ -1582,7 +1588,7 @@
       ]
     }
   ],
-  "next_build_suggestion": "MMI 137 chain reuse controls",
+  "next_build_suggestion": "MMI 138 chain release controls",
   "artifact_claims": {
     "cross_language_reviewer_decision_rationale_report": [
       "reviewer decision rationale preservation",
@@ -2282,7 +2288,8 @@
     "mmi_133_chain_release_report": "MMI 133 chain release report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain release signal types without patient data or external source claim.",
     "mmi_134_chain_handoff_report": "MMI 134 chain handoff report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain handoff signal types without patient data or external source claim.",
     "mmi_135_chain_closure_report": "MMI 135 chain closure report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain closure signal types without patient data or external source claim.",
-    "mmi_136_chain_archive_report": "MMI 136 chain archive report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain archive signal types without patient data or external source claim."
+    "mmi_136_chain_archive_report": "MMI 136 chain archive report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain archive signal types without patient data or external source claim.",
+    "mmi_137_chain_reuse_report": "MMI 137 chain reuse report records sixteen local synthetic controls, eight expected pass controls, eight expected blocked controls, and eight chain reuse signal types without patient data or external source claim."
   },
   "report_index": {
     "cross_language_reviewer_closeout_ledger_reconciliation_exception_report": [
@@ -2795,6 +2802,12 @@
       "report_markdown": "docs/MMI_136_CHAIN_ARCHIVE_REPORT_V0_1_20260625.md",
       "validator": "scripts/validate_mmi_136_chain_archive_report_v0_1_20260625.py",
       "make_target": "make mmi_136_chain_archive_controls"
+    },
+    "mmi_137_chain_reuse_report": {
+      "report_json": "data/mmi_137_chain_reuse_report_v0_1_20260625.json",
+      "report_markdown": "docs/MMI_137_CHAIN_REUSE_REPORT_V0_1_20260625.md",
+      "validator": "scripts/validate_mmi_137_chain_reuse_report_v0_1_20260625.py",
+      "make_target": "make mmi_137_chain_reuse_controls"
     }
   }
 }
