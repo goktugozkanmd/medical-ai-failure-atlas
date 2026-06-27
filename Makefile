@@ -7715,3 +7715,8 @@ mmi_184_chain_handoff_controls:
 mmi_185_chain_closure_controls:
 	$(PYTHON) scripts/score_mmi_185_chain_closure_controls_v0_1_20260625.py --check
 	$(PYTHON) scripts/validate_mmi_185_chain_closure_report_v0_1_20260625.py
+
+.PHONY: mmi_186_chain_archive_controls
+mmi_186_chain_archive_controls:
+	$(PYTHON) scripts/score_mmi_186_chain_archive_controls_v0_1_20260625.py --check
+	$(PYTHON) scripts/validate_mmi_186_chain_archive_report_v0_1_20260625.py
