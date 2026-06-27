@@ -1844,7 +1844,18 @@
       "validator": "each MMI 173 chain release control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the release packet",
       "risk_gate": "MMI 173 chain release packets cannot imply patient data, clinical advice, clinical validation, clinical deployment, model ranking, model superiority, partner, institutional, regulatory, publication, authority, clearance, or outward use without user approval",
       "next_build": "MMI 174 chain handoff controls",
-      "open_gap": "next handoff step not yet represented"
+      "open_gap": "handoff step represented by MMI 174"
+    },
+    {
+      "id": "mia_mmi_174",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "MMI 174 chain handoff controls",
+      "input": "MMI 173 release reviewed archived packets",
+      "output": "chain handoff review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved",
+      "validator": "each MMI 174 chain handoff control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the handoff packet",
+      "risk_gate": "MMI 174 chain handoff packets cannot imply patient data, clinical advice, clinical validation, clinical deployment, model ranking, model superiority, partner, institutional, regulatory, publication, authority, clearance, or outward use without user approval",
+      "next_build": "MMI 175 chain closure controls",
+      "open_gap": "next closure step not yet represented"
     }
   ],
   "relationships": [
