@@ -28,7 +28,7 @@ EXPECTED_LAYERS = {
 }
 ALLOWED_READINESS_STATUSES = {"ready", "blocked", "needs source check"}
 EXPECTED_RISK_GATE = "public release cannot outrun validators"
-EXPECTED_ATLAS_NODE_COUNT = 123
+EXPECTED_ATLAS_NODE_COUNT = 124
 
 ROW_KEYS = ("release_gate_rows", "gate_rows", "readiness_rows", "layers", "rows")
 NEXT_ACTION_KEYS = ("expected_next_action", "exact_next_action")
@@ -368,6 +368,37 @@ def validate_atlas_node_id_continuity(rows: list[dict[str, Any]], errors: list[s
                 errors.append(f"{layer}: gate_inputs.atlas_node_ids must match Medical Intelligence Atlas node ids")
 
 
+def validate_mmi_layer_mirrors_release_gate(payload: dict[str, Any], errors: list[str]) -> None:
+    release_rows = payload.get("release_gate_rows")
+    layers = payload.get("layers")
+    if not isinstance(release_rows, list) or not isinstance(layers, list):
+        return
+
+    mmi_row = next(
+        (row for row in release_rows if isinstance(row, dict) and row.get("layer") == "Multilingual Medical Intelligence"),
+        None,
+    )
+    mmi_layer = next(
+        (row for row in layers if isinstance(row, dict) and row.get("layer") == "Multilingual Medical Intelligence"),
+        None,
+    )
+    if not isinstance(mmi_row, dict) or not isinstance(mmi_layer, dict):
+        return
+
+    if mmi_layer.get("atlas_node_ids") != mmi_row.get("atlas_node_ids"):
+        errors.append("Multilingual Medical Intelligence layer atlas_node_ids must mirror the release gate row")
+
+    for key in ("next_action", "expected_next_action", "exact_next_action"):
+        if mmi_layer.get(key) != mmi_row.get(key):
+            errors.append(f"Multilingual Medical Intelligence layer {key} must mirror the release gate row")
+
+    row_blob = json.dumps(mmi_row, ensure_ascii=False)
+    layer_blob = json.dumps(mmi_layer, ensure_ascii=False)
+    for token in ("mia_mmi_113", "mia_mmi_114", "mmi_113_chain_release", "mmi_114_chain_handoff"):
+        if token in row_blob and token not in layer_blob:
+            errors.append(f"Multilingual Medical Intelligence layer must include release gate evidence token: {token}")
+
+
 def validate_next_action(
     row: dict[str, Any],
     label: str,
@@ -467,6 +498,7 @@ def main() -> int:
         validate_source_policy(payload, errors)
         validate_rows(rows, expected_next_action, errors)
         validate_atlas_node_id_continuity(rows, errors)
+        validate_mmi_layer_mirrors_release_gate(payload, errors)
         validate_forbidden_claim_absence(payload, rows, errors)
 
     if errors:
