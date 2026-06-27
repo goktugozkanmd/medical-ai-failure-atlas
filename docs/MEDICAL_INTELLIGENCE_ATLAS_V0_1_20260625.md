@@ -2147,6 +2147,20 @@ Risk gate: MMI 144 chain handoff packets cannot imply patient data use, clinical
 
 Next build: MMI 145 chain closure controls
 
+### mia_mmi_145 Multilingual Medical Intelligence
+
+Artifact: MMI 145 chain closure controls
+
+Input: MMI 144 handoff reviewed archived packets
+
+Output: chain closure review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved
+
+Validator: each MMI 145 chain closure control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the closure packet
+
+Risk gate: MMI 145 chain closure packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: MMI 146 chain archive controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry

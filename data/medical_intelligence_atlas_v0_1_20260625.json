@@ -1532,6 +1532,16 @@
       "next_build": "MMI 145 chain closure controls"
     },
     {
+      "id": "mia_mmi_145",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "MMI 145 chain closure controls",
+      "input": "MMI 144 handoff reviewed archived packets",
+      "output": "chain closure review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved",
+      "validator": "each MMI 145 chain closure control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the closure packet",
+      "risk_gate": "MMI 145 chain closure packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance",
+      "next_build": "MMI 146 chain archive controls"
+    },
+    {
       "id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "artifact": "node registry",
