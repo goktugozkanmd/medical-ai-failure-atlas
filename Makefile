@@ -266,6 +266,8 @@ validate:
 	$(PYTHON) scripts/validate_mmi_123_chain_release_report_v0_1_20260625.py
 	$(PYTHON) scripts/score_mmi_124_chain_handoff_controls_v0_1_20260625.py --check
 	$(PYTHON) scripts/validate_mmi_124_chain_handoff_report_v0_1_20260625.py
+	$(PYTHON) scripts/score_mmi_125_chain_closure_controls_v0_1_20260625.py --check
+	$(PYTHON) scripts/validate_mmi_125_chain_closure_report_v0_1_20260625.py
 	$(PYTHON) scripts/validate_clinical_intelligence_stack_global_target_map_20260625.py
 	$(PYTHON) scripts/validate_medical_intelligence_atlas_v0_1_20260625.py
 	$(PYTHON) scripts/build_medical_intelligence_atlas_coverage_dashboard.py --check
@@ -7418,3 +7420,8 @@ mmi_123_chain_release_controls:
 mmi_124_chain_handoff_controls:
 	$(PYTHON) scripts/score_mmi_124_chain_handoff_controls_v0_1_20260625.py --check
 	$(PYTHON) scripts/validate_mmi_124_chain_handoff_report_v0_1_20260625.py
+
+.PHONY: mmi_125_chain_closure_controls
+mmi_125_chain_closure_controls:
+	$(PYTHON) scripts/score_mmi_125_chain_closure_controls_v0_1_20260625.py --check
+	$(PYTHON) scripts/validate_mmi_125_chain_closure_report_v0_1_20260625.py

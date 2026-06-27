@@ -1332,6 +1332,16 @@
       "next_build": "MMI 125 chain closure controls"
     },
     {
+      "id": "mia_mmi_125",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "MMI 125 chain closure controls",
+      "input": "handoff reviewed archived packets, source attachment map, archive snapshot, reopenability state, and downstream closure boundary",
+      "output": "closure reviewed archived packets with source attachments, archive snapshot, and reopenability preserved during downstream closure review",
+      "validator": "each MMI 125 chain closure control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the closure packet",
+      "risk_gate": "MMI 125 chain closure packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance",
+      "next_build": "MMI 126 chain archive controls"
+    },
+    {
       "id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "artifact": "node registry",

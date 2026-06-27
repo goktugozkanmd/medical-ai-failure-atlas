@@ -1867,6 +1867,20 @@ Risk gate: MMI 124 chain handoff packets cannot imply patient data use, clinical
 
 Next build: MMI 125 chain closure controls
 
+### mia_mmi_125 Multilingual Medical Intelligence
+
+Artifact: MMI 125 chain closure controls
+
+Input: handoff reviewed archived packets, source attachment map, archive snapshot, reopenability state, and downstream closure boundary
+
+Output: closure reviewed archived packets with source attachments, archive snapshot, and reopenability preserved during downstream closure review
+
+Validator: each MMI 125 chain closure control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the closure packet
+
+Risk gate: MMI 125 chain closure packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance
+
+Next build: MMI 126 chain archive controls
+
 ### mia_atlas_001 Medical Intelligence Atlas
 
 Artifact: node registry
