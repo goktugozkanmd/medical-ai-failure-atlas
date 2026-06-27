@@ -1672,6 +1672,16 @@
       "next_build": "MMI 159 chain handoff controls"
     },
     {
+      "id": "mia_mmi_159",
+      "layer": "Multilingual Medical Intelligence",
+      "artifact": "MMI 159 chain handoff controls",
+      "input": "MMI 158 release reviewed archived packets",
+      "output": "chain handoff review packet with source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability preserved",
+      "validator": "each MMI 159 chain handoff control must preserve source closeout id, exported ledger row id, owner final state, dissent note, unresolved branch archive boundary, archive snapshot, and reopenability or block the handoff packet",
+      "risk_gate": "MMI 159 chain handoff packets cannot imply patient data use, clinical advice, authority, clearance, publication readiness, clinical validation, clinical deployment, model ranking, model superiority, partner approval, institutional backing, regulatory approval, or clinical use clearance",
+      "next_build": "MMI 160 chain closure controls"
+    },
+    {
       "id": "mia_atlas_001",
       "layer": "Medical Intelligence Atlas",
       "artifact": "node registry",
