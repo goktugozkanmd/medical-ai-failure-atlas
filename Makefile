@@ -7626,3 +7626,8 @@ mmi_166_chain_archive_controls:
 mmi_167_chain_reuse_controls:
 	$(PYTHON) scripts/score_mmi_167_chain_reuse_controls_v0_1_20260625.py --check
 	$(PYTHON) scripts/validate_mmi_167_chain_reuse_report_v0_1_20260625.py
+
+.PHONY: mmi_168_chain_release_controls
+mmi_168_chain_release_controls:
+	$(PYTHON) scripts/score_mmi_168_chain_release_controls_v0_1_20260625.py --check
+	$(PYTHON) scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py

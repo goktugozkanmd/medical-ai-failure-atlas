@@ -4894,7 +4894,12 @@
     "mmi_167_chain_reuse_report": "data/mmi_167_chain_reuse_report_v0_1_20260625.json",
     "mmi_167_chain_reuse_report_doc": "docs/MMI_167_CHAIN_REUSE_REPORT_V0_1_20260625.md",
     "mmi_167_chain_reuse_scorer": "scripts/score_mmi_167_chain_reuse_controls_v0_1_20260625.py",
-    "mmi_167_chain_reuse_validator": "scripts/validate_mmi_167_chain_reuse_report_v0_1_20260625.py"
+    "mmi_167_chain_reuse_validator": "scripts/validate_mmi_167_chain_reuse_report_v0_1_20260625.py",
+    "mmi_168_chain_release_controls": "data/mmi_168_chain_release_controls_v0_1_20260625.jsonl",
+    "mmi_168_chain_release_report": "data/mmi_168_chain_release_report_v0_1_20260625.json",
+    "mmi_168_chain_release_report_doc": "docs/MMI_168_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+    "mmi_168_chain_release_scorer": "scripts/score_mmi_168_chain_release_controls_v0_1_20260625.py",
+    "mmi_168_chain_release_validator": "scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py"
   },
   "coverage_rows": [
     {
@@ -12216,7 +12221,7 @@
       ],
       "primary_artifact": "docs/MMI_167_CHAIN_REUSE_REPORT_V0_1_20260625.md",
       "artifact": "MMI 167 chain reuse controls",
-      "open_gap": "next release step not yet represented",
+      "open_gap": "release step represented by MMI 168",
       "required_artifacts": [
         "mmi_167_chain_reuse_controls",
         "mmi_167_chain_reuse_report",
@@ -12238,17 +12243,74 @@
         "scripts/score_mmi_167_chain_reuse_controls_v0_1_20260625.py",
         "scripts/validate_mmi_167_chain_reuse_report_v0_1_20260625.py"
       ]
+    },
+    {
+      "node_id": "mia_mmi_168",
+      "layer": "Multilingual Medical Intelligence",
+      "node_artifact": "MMI 168 chain release controls",
+      "stack_runtime_artifact_ids": [
+        "mmi_168_chain_release_controls",
+        "mmi_168_chain_release_report",
+        "mmi_168_chain_release_report_doc",
+        "mmi_168_chain_release_scorer",
+        "mmi_168_chain_release_validator"
+      ],
+      "coverage_focus": "release review source attachment preservation and overclaim blocking",
+      "local_validation_refs": [
+        "scripts/score_mmi_168_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py"
+      ],
+      "coverage_status": "direct fixture coverage",
+      "validator": "scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py",
+      "source_artifact_refs": [
+        "mmi_168_chain_release_controls",
+        "mmi_168_chain_release_report",
+        "mmi_168_chain_release_report_doc",
+        "mmi_168_chain_release_scorer",
+        "mmi_168_chain_release_validator"
+      ],
+      "local_artifacts": [
+        "data/mmi_168_chain_release_controls_v0_1_20260625.jsonl",
+        "data/mmi_168_chain_release_report_v0_1_20260625.json",
+        "docs/MMI_168_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_168_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py"
+      ],
+      "primary_artifact": "docs/MMI_168_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+      "artifact": "MMI 168 chain release controls",
+      "open_gap": "next handoff step not yet represented",
+      "required_artifacts": [
+        "mmi_168_chain_release_controls",
+        "mmi_168_chain_release_report",
+        "mmi_168_chain_release_report_doc",
+        "mmi_168_chain_release_scorer",
+        "mmi_168_chain_release_validator"
+      ],
+      "source_artifact_ids": [
+        "mmi_168_chain_release_controls",
+        "mmi_168_chain_release_report",
+        "mmi_168_chain_release_report_doc",
+        "mmi_168_chain_release_scorer",
+        "mmi_168_chain_release_validator"
+      ],
+      "source_artifact_paths": [
+        "data/mmi_168_chain_release_controls_v0_1_20260625.jsonl",
+        "data/mmi_168_chain_release_report_v0_1_20260625.json",
+        "docs/MMI_168_CHAIN_RELEASE_REPORT_V0_1_20260625.md",
+        "scripts/score_mmi_168_chain_release_controls_v0_1_20260625.py",
+        "scripts/validate_mmi_168_chain_release_report_v0_1_20260625.py"
+      ]
     }
   ],
   "matrix_checks": {
-    "expected_atlas_node_count": 177,
+    "expected_atlas_node_count": 178,
     "expected_stack_layer_count": 6,
     "requires_all_referenced_artifacts_to_exist": true,
     "requires_each_atlas_node_once": 173,
     "requires_no_external_url_strings": true,
     "requires_boundary_flags": true,
     "expected_coverage_row_count": 177,
-    "expected_source_artifact_count": 861,
+    "expected_source_artifact_count": 866,
     "expected_node_count": 177,
     "atlas_node_count": 177,
     "coverage_row_count": 177,
@@ -12258,24 +12320,24 @@
     "atlas_node_count": 177,
     "coverage_row_count": 177,
     "source_artifact_count": 861,
-    "expected_atlas_node_count": 177,
+    "expected_atlas_node_count": 178,
     "expected_node_count": 177,
     "expected_coverage_row_count": 177,
-    "expected_source_artifact_count": 861,
+    "expected_source_artifact_count": 866,
     "node_count": 177,
-    "coverage_rows": 177,
-    "source_artifacts": 861
+    "coverage_rows": 178,
+    "source_artifacts": 866
   },
   "expected_counts": {
-    "expected_atlas_node_count": 177,
+    "expected_atlas_node_count": 178,
     "expected_coverage_row_count": 177,
-    "expected_source_artifact_count": 861,
+    "expected_source_artifact_count": 866,
     "expected_node_count": 177,
     "atlas_node_count": 177,
     "coverage_row_count": 177,
     "source_artifact_count": 861,
-    "coverage_rows": 177,
-    "source_artifacts": 861,
+    "coverage_rows": 178,
+    "source_artifacts": 866,
     "node_count": 177
   }
 }
