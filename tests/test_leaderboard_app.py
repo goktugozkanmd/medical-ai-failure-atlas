@@ -109,6 +109,22 @@ def test_normalize_huggingface_link_rejects_invalid_repo_segments() -> None:
             raise AssertionError(f"Expected invalid HuggingFace repo segment to fail: {link}")
 
 
+def test_normalize_huggingface_link_rejects_private_token_patterns() -> None:
+    fake_github_token = "gh" + "o_" + "a" * 20
+    fake_openai_token = "sk" + "-proj-" + "a" * 20
+    for link in (
+        f"https://huggingface.co/org/{fake_github_token}",
+        f"https://huggingface.co/org/{fake_openai_token}",
+        "https://huggingface.co/org/model?access_token=" + "a" * 16,
+    ):
+        try:
+            normalize_huggingface_link(link)
+        except ValueError as exc:
+            assert "private data pattern: credential-like token" in str(exc)
+        else:
+            raise AssertionError(f"Expected private token pattern to fail: {link}")
+
+
 def test_coerce_score_limits_public_submission_scores() -> None:
     assert coerce_score("89.126", "Safety score") == 89.13
 
@@ -258,6 +274,26 @@ def test_submit_model_blocks_private_data_patterns(tmp_path: Path) -> None:
     )
 
     assert message == "Submission not saved. Benchmark notes include private data pattern: credential-like token."
+    assert table == []
+    assert "No submissions yet" in updated
+    assert not store_path.exists()
+
+    fake_token_path = "gh" + "o_" + "a" * 20
+    message, table, updated = submit_model(
+        "Test Model",
+        f"https://huggingface.co/org/{fake_token_path}",
+        80,
+        70,
+        60,
+        "",
+        reachability_checker=reachable,
+        store_path=store_path,
+    )
+
+    assert (
+        message
+        == "Submission not saved. HuggingFace link includes private data pattern: credential-like token."
+    )
     assert table == []
     assert "No submissions yet" in updated
     assert not store_path.exists()
@@ -685,6 +721,11 @@ def test_leaderboard_state_hides_existing_rows_that_fail_public_display_rules(tm
     scores = invalid_unexpected_score["benchmark_scores"]
     assert isinstance(scores, dict)
     scores["overall_score"] = 99
+    invalid_private_link = submission_row(
+        model_name="Private Link",
+        huggingface_link="https://huggingface.co/org/" + ("gh" + "o_" + "a" * 20),
+        row_id="6" * 32,
+    )
     visible = submission_row(
         model_name="Visible Model",
         huggingface_link="https://huggingface.co/org/visible-model",
@@ -700,6 +741,7 @@ def test_leaderboard_state_hides_existing_rows_that_fail_public_display_rules(tm
                     invalid_private_note,
                     invalid_unexpected_field,
                     invalid_unexpected_score,
+                    invalid_private_link,
                     visible,
                 ],
             }

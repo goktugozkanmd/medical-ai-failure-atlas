@@ -16,6 +16,7 @@ It does not provide clinical advice, clinical validation, source truth certifica
 
 The submission form accepts HuggingFace model repository links only. Spaces, datasets, and file paths are rejected.
 Model names and notes must not include contact details, long numeric identifiers, patient data, clinical validation claims, or ranking claims.
+Credential-like strings are rejected in model names, notes, and repository links.
 
 Submitted rows are written to the JSON store available to the running app. Enable persistent Space storage, or export the JSON store before rebuilds, if public submissions need to survive runtime restarts.
 
