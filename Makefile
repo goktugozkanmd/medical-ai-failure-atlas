@@ -180,6 +180,8 @@ validate:
 	$(PYTHON) scripts/validate_tr_medllm_specialty_dashboard_v0_1.py
 	$(PYTHON) scripts/validate_platform_dashboard_index_v0_1.py
 	$(PYTHON) scripts/validate_public_release_note_v0_1.py
+	find . -type d -name __pycache__ -prune -exec rm -rf {} +
+	find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
 	$(PYTHON) scripts/validate_public_release.py --root .
 
 validate-public: validate

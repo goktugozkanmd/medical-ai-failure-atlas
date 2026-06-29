@@ -33,3 +33,4 @@ include = ["failure_atlas*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
