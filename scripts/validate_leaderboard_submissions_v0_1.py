@@ -45,8 +45,9 @@ def parse_timestamp(value: object, label: str, errors: list[str]) -> datetime | 
         fail(errors, f"{label}: timestamp must be ISO 8601")
         return None
 
-    if parsed.tzinfo is None:
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
         fail(errors, f"{label}: timestamp must include timezone")
+        return None
     return parsed
 
 

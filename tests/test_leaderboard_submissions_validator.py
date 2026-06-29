@@ -55,6 +55,46 @@ def test_validate_store_requires_latest_first_submission_order() -> None:
     )
 
 
+def test_validate_store_rejects_timezone_less_submission_timestamps_without_crashing() -> None:
+    timezone_less = valid_row(2)
+    timezone_less["submitted_at"] = "2026-06-27T02:00:00"
+    aware = valid_row(1)
+    aware["submitted_at"] = "2026-06-27T01:00:00Z"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [timezone_less, aware],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].submitted_at: timestamp must include timezone" in errors
+
+
+def test_validate_store_rejects_timezone_less_first_submitted_timestamp_without_crashing() -> None:
+    row = valid_row(1)
+    row["first_submitted_at"] = "2026-06-27T00:00:00"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].first_submitted_at: timestamp must include timezone" in errors
+
+
+def test_validate_store_rejects_timezone_less_last_updated_without_crashing() -> None:
+    row = valid_row(1)
+    store = {
+        "last_updated": "2026-06-27T02:00:00",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "last_updated: timestamp must include timezone" in errors
+
+
 def test_validate_store_requires_generated_hex_submission_id() -> None:
     row = valid_row(1)
     row["id"] = "row-1"
