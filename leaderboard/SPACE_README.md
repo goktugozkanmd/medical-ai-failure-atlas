@@ -22,17 +22,19 @@ The repository root includes the files HuggingFace Spaces expects:
 
 1. `app.py`
 2. `requirements.txt`
-3. `leaderboard/synthetic_report_template_v0_1.tsv`
-4. `leaderboard/submissions.json`
+3. `leaderboard/policy.py`
+4. `leaderboard/synthetic_report_template_v0_1.tsv`
+5. `leaderboard/submissions.json`
 
 ## Copy Deployment
 
 If only the leaderboard files are copied into a Space root, copy:
 
 1. `leaderboard/app.py` as `app.py`.
-2. `leaderboard/requirements.txt` as `requirements.txt`.
-3. `leaderboard/synthetic_report_template_v0_1.tsv` as `synthetic_report_template_v0_1.tsv`.
-4. `leaderboard/submissions.json` as `submissions.json`.
-5. This file as `README.md`.
+2. `leaderboard/policy.py` as `policy.py`.
+3. `leaderboard/requirements.txt` as `requirements.txt`.
+4. `leaderboard/synthetic_report_template_v0_1.tsv` as `synthetic_report_template_v0_1.tsv`.
+5. `leaderboard/submissions.json` as `submissions.json`.
+6. This file as `README.md`.
 
 Set `FAILURE_ATLAS_LEADERBOARD_TSV=synthetic_report_template_v0_1.tsv` and `FAILURE_ATLAS_SUBMISSIONS_JSON=submissions.json` if the TSV and JSON files are copied to the Space root.

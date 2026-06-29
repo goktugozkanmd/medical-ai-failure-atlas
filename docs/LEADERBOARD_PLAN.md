@@ -19,11 +19,12 @@ The current leaderboard folder contains:
 3. `scripts/validate_leaderboard_submissions_v0_1.py`, the pending submission store validator.
 4. `scripts/generate_leaderboard_report_v0_1.py`, the Markdown report generator.
 5. `leaderboard/app.py`, a Gradio app with synthetic preview and pending review submission tabs.
-6. `leaderboard/requirements.txt`, the Python dependency file for the app.
-7. `leaderboard/SPACE_README.md`, the Space metadata and copy instructions.
-8. `leaderboard/submissions.json`, the JSON store for contributor supplied rows.
-9. `app.py`, the repository root Space entrypoint.
-10. `requirements.txt`, the repository root Space dependency file.
+6. `leaderboard/policy.py`, the shared submission policy used by both the app and validator.
+7. `leaderboard/requirements.txt`, the Python dependency file for the app.
+8. `leaderboard/SPACE_README.md`, the Space metadata and copy instructions.
+9. `leaderboard/submissions.json`, the JSON store for contributor supplied rows.
+10. `app.py`, the repository root Space entrypoint.
+11. `requirements.txt`, the repository root Space dependency file.
 
 HuggingFace Spaces supports Gradio apps, repository based deployment, `app.py`, `requirements.txt`, and README YAML configuration. Official docs checked:
 
@@ -92,22 +93,24 @@ The next version should add:
 1. Create a new HuggingFace Space and choose Gradio as the SDK.
 2. Deploy the repository root directly, or copy `leaderboard/SPACE_README.md` to the Space root as `README.md`.
 3. For copy deployment, copy `leaderboard/app.py` as `app.py`.
-4. For copy deployment, copy `leaderboard/requirements.txt` as `requirements.txt`.
-5. Copy `leaderboard/synthetic_report_template_v0_1.tsv` and `leaderboard/submissions.json`.
-6. Set `FAILURE_ATLAS_LEADERBOARD_TSV=synthetic_report_template_v0_1.tsv` and `FAILURE_ATLAS_SUBMISSIONS_JSON=submissions.json` if the files are copied to the Space root.
-7. Confirm the Space builds on CPU Basic.
-8. Add the Space URL to the repo README after the first successful build.
+4. For copy deployment, copy `leaderboard/policy.py` as `policy.py`.
+5. For copy deployment, copy `leaderboard/requirements.txt` as `requirements.txt`.
+6. Copy `leaderboard/synthetic_report_template_v0_1.tsv` and `leaderboard/submissions.json`.
+7. Set `FAILURE_ATLAS_LEADERBOARD_TSV=synthetic_report_template_v0_1.tsv` and `FAILURE_ATLAS_SUBMISSIONS_JSON=submissions.json` if the files are copied to the Space root.
+8. Confirm the Space builds on CPU Basic.
+9. Add the Space URL to the repo README after the first successful build.
 
 ## Code Needed
 
 Already added:
 
 1. `leaderboard/app.py` for the interactive preview.
-2. `leaderboard/requirements.txt` for Gradio.
-3. `leaderboard/SPACE_README.md` for Space metadata.
-4. Root `app.py` and `requirements.txt` for direct repository deployment.
-5. `leaderboard/submissions.json` for pending review contributor rows.
-6. `scripts/validate_leaderboard_submissions_v0_1.py` for submission store safety checks.
+2. `leaderboard/policy.py` for shared submission safety rules.
+3. `leaderboard/requirements.txt` for Gradio.
+4. `leaderboard/SPACE_README.md` for Space metadata.
+5. Root `app.py` and `requirements.txt` for direct repository deployment.
+6. `leaderboard/submissions.json` for pending review contributor rows.
+7. `scripts/validate_leaderboard_submissions_v0_1.py` for submission store safety checks.
 
 Still needed for a full public leaderboard:
 
@@ -130,7 +133,7 @@ Still needed for a full public leaderboard:
 
 1. `make leaderboard_report` passes.
 2. `python3 scripts/validate_leaderboard_submissions_v0_1.py` passes.
-3. `python3 -m py_compile leaderboard/app.py` passes.
+3. `PYTHONPYCACHEPREFIX=/tmp/medical_ai_failure_atlas_pycache python3 -m py_compile leaderboard/app.py leaderboard/policy.py` passes.
 4. The Space loads the TSV without editing data files.
 5. Filters work for all current gate values.
 6. The boundary note is visible before the table.

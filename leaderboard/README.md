@@ -13,6 +13,7 @@ The submission form accepts HuggingFace model repository links only; Spaces, dat
 | --- | --- |
 | `synthetic_report_template_v0_1.tsv` | Current preview rows. |
 | `app.py` | Gradio app module for local use or HuggingFace Spaces. |
+| `policy.py` | Shared safety policy for submission validation and the app. |
 | `submissions.json` | JSON store for submitted model rows. |
 | `requirements.txt` | App dependency file. |
 | `SPACE_README.md` | Metadata and copy instructions for the Space repository. |
@@ -45,6 +46,8 @@ From the repository root, the HuggingFace Spaces entrypoint also works:
 python3 -m pip install -r requirements.txt
 python3 app.py
 ```
+
+For copy deployment, place `leaderboard/policy.py` beside the copied `app.py` so the Space and validator use the same submission policy.
 
 ## Deployment Plan
 

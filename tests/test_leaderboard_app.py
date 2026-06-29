@@ -293,3 +293,15 @@ def test_load_submission_store_accepts_legacy_list(tmp_path: Path) -> None:
 
     assert store["last_updated"] is None
     assert store["submissions"] == [{"model_name": "legacy"}]
+
+
+def test_last_updated_markdown_falls_back_to_latest_submission_timestamp() -> None:
+    store = {
+        "last_updated": None,
+        "submissions": [
+            {"submitted_at": "2026-06-27T10:00:00Z"},
+            {"submitted_at": "2026-06-27T11:00:00Z"},
+        ],
+    }
+
+    assert leaderboard_app.last_updated_markdown(store) == "**Last Updated:** 2026-06-27 11:00:00 UTC"
