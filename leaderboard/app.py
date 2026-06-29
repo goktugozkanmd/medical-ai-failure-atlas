@@ -87,7 +87,8 @@ BOUNDARY_NOTE = (
 SUBMISSION_BOUNDARY_NOTE = (
     "Submitted rows are contributor supplied and pending review. Scores shown here "
     "are not clinical validation, source truth certification, a model ranking, or a "
-    "clinical use claim. Rows are ordered by latest submission time, not by score."
+    "clinical use claim. Rows are ordered by latest submission time, not by score. "
+    "The JSON store is local to the running app unless persistent Space storage is enabled."
 )
 
 
@@ -258,6 +259,19 @@ def latest_submission_timestamp(submissions: list[object]) -> object:
     return max(timestamps) if timestamps else None
 
 
+def normalized_legacy_timestamp(value: object, latest_allowed: str) -> str | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        latest = datetime.fromisoformat(latest_allowed.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None or latest.tzinfo is None or parsed > latest:
+        return None
+    return parsed.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
 def last_updated_markdown(store: dict[str, object] | None = None) -> str:
     store = store or load_submission_store()
     submissions = store.get("submissions", [])
@@ -407,9 +421,11 @@ def submit_model(
                     existing_id = existing.get("id")
                     if is_valid_submission_id(existing_id):
                         entry["id"] = str(existing_id)
-                    entry["first_submitted_at"] = str(
-                        existing.get("first_submitted_at", existing.get("submitted_at", now))
+                    legacy_first_submitted_at = normalized_legacy_timestamp(
+                        existing.get("first_submitted_at") or existing.get("submitted_at"),
+                        now,
                     )
+                    entry["first_submitted_at"] = legacy_first_submitted_at or now
                     submissions[index] = entry
                     updated = True
                     break

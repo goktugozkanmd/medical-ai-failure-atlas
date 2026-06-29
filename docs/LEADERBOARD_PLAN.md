@@ -68,6 +68,8 @@ The next result schema should add these columns before the first public model ru
 
 Contributor submitted rows are stored separately in `leaderboard/submissions.json`. They remain pending review, are ordered by latest submission time, and must use HuggingFace model repository links rather than Spaces, datasets, or nested file paths.
 
+For a public Space, the JSON submission store should use persistent Space storage or be exported before rebuilds. Without persistent storage, submitted rows can reset when the runtime is rebuilt.
+
 ## Space UI
 
 The first Space contains:
@@ -97,8 +99,9 @@ The next version should add:
 5. For copy deployment, copy `leaderboard/requirements.txt` as `requirements.txt`.
 6. Copy `leaderboard/synthetic_report_template_v0_1.tsv` and `leaderboard/submissions.json`.
 7. Set `FAILURE_ATLAS_LEADERBOARD_TSV=synthetic_report_template_v0_1.tsv` and `FAILURE_ATLAS_SUBMISSIONS_JSON=submissions.json` if the files are copied to the Space root.
-8. Confirm the Space builds on CPU Basic.
-9. Add the Space URL to the repo README after the first successful build.
+8. Enable persistent Space storage if public submissions should survive runtime rebuilds.
+9. Confirm the Space builds on CPU Basic.
+10. Add the Space URL to the repo README after the first successful build.
 
 ## Code Needed
 

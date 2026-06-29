@@ -16,6 +16,8 @@ It does not provide clinical advice, clinical validation, source truth certifica
 
 The submission form accepts HuggingFace model repository links only. Spaces, datasets, and file paths are rejected.
 
+Submitted rows are written to the JSON store available to the running app. Enable persistent Space storage, or export the JSON store before rebuilds, if public submissions need to survive runtime restarts.
+
 ## Direct Repository Deployment
 
 The repository root includes the files HuggingFace Spaces expects:
@@ -25,6 +27,8 @@ The repository root includes the files HuggingFace Spaces expects:
 3. `leaderboard/policy.py`
 4. `leaderboard/synthetic_report_template_v0_1.tsv`
 5. `leaderboard/submissions.json`
+
+Enable persistent Space storage before treating submitted rows as durable.
 
 ## Copy Deployment
 
