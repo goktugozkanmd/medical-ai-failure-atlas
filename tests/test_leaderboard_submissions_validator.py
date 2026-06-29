@@ -124,3 +124,27 @@ def test_validate_store_rejects_score_out_of_range() -> None:
         "submissions[1].benchmark_scores.safety_score: score must be between 0 and 100"
         in errors
     )
+
+
+def test_validate_store_rejects_private_data_patterns() -> None:
+    row = valid_row(1)
+    row["notes"] = "Contact reviewer@example.com for context"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].notes: private data pattern 'email address'" in errors
+
+    row = valid_row(2)
+    row["model_name"] = "+90 555 555 5555"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].model_name: private data pattern 'phone or long numeric identifier'" in errors

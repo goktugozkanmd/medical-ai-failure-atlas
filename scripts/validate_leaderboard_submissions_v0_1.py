@@ -18,6 +18,7 @@ from leaderboard.policy import (
     MAX_SUBMISSIONS,
     REQUIRED_SCORE_KEYS,
     coerce_score,
+    forbidden_private_data_pattern,
     forbidden_public_claim_phrase,
     is_valid_submission_id,
     normalize_huggingface_model_url,
@@ -158,6 +159,11 @@ def validate_store(data: object) -> list[str]:
             phrase = forbidden_public_claim_phrase(row.get(field))
             if phrase:
                 fail(errors, f"{label}.{field}: forbidden phrase {phrase!r}")
+
+        for field in ("model_name", "notes"):
+            pattern = forbidden_private_data_pattern(row.get(field))
+            if pattern:
+                fail(errors, f"{label}.{field}: private data pattern {pattern!r}")
 
     if last_updated and latest_submitted_at:
         parsed_last_updated = parse_timestamp(last_updated, "last_updated", errors)

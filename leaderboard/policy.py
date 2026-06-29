@@ -47,6 +47,11 @@ FORBIDDEN_PUBLIC_CLAIM_PHRASES = [
     "patient data",
 ]
 
+PRIVATE_DATA_PATTERNS = [
+    (re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE), "email address"),
+    (re.compile(r"\b(?:\+?\d[\s().-]*){10,}\b"), "phone or long numeric identifier"),
+]
+
 
 def is_valid_submission_id(value: object) -> bool:
     return isinstance(value, str) and bool(SUBMISSION_ID_PATTERN.fullmatch(value))
@@ -88,6 +93,15 @@ def forbidden_public_claim_phrase(value: object) -> str | None:
     for phrase in FORBIDDEN_PUBLIC_CLAIM_PHRASES:
         if phrase in lower:
             return phrase
+    return None
+
+
+def forbidden_private_data_pattern(value: object) -> str | None:
+    if not isinstance(value, str):
+        return None
+    for pattern, label in PRIVATE_DATA_PATTERNS:
+        if pattern.search(value):
+            return label
     return None
 
 

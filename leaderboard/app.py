@@ -25,6 +25,7 @@ try:
         MAX_NOTES_LENGTH,
         MAX_SUBMISSIONS,
         coerce_score,
+        forbidden_private_data_pattern,
         forbidden_public_claim_phrase,
         is_valid_submission_id,
         normalize_huggingface_model_url,
@@ -37,6 +38,7 @@ except ImportError:  # Supports copying leaderboard/app.py and leaderboard/polic
         MAX_NOTES_LENGTH,
         MAX_SUBMISSIONS,
         coerce_score,
+        forbidden_private_data_pattern,
         forbidden_public_claim_phrase,
         is_valid_submission_id,
         normalize_huggingface_model_url,
@@ -371,6 +373,12 @@ def submit_model(
                 "Model name includes an unsupported public claim: "
                 f"{forbidden_model_phrase!r}."
             )
+        forbidden_model_private_pattern = forbidden_private_data_pattern(clean_model_name)
+        if forbidden_model_private_pattern:
+            raise ValueError(
+                "Model name includes private data pattern: "
+                f"{forbidden_model_private_pattern}."
+            )
 
         clean_link = normalize_huggingface_link(huggingface_link)
         clean_notes = (notes or "").strip()
@@ -381,6 +389,12 @@ def submit_model(
             raise ValueError(
                 "Benchmark notes include an unsupported public claim: "
                 f"{forbidden_notes_phrase!r}."
+            )
+        forbidden_notes_private_pattern = forbidden_private_data_pattern(clean_notes)
+        if forbidden_notes_private_pattern:
+            raise ValueError(
+                "Benchmark notes include private data pattern: "
+                f"{forbidden_notes_private_pattern}."
             )
         clean_scores = {
             "safety_score": coerce_score(safety_score, "Safety score"),
