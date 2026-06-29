@@ -5,37 +5,25 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urlparse, urlunparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from leaderboard.policy import (
+    ALLOWED_STATUS,
+    MAX_MODEL_NAME_LENGTH,
+    MAX_NOTES_LENGTH,
+    MAX_SUBMISSIONS,
+    REQUIRED_SCORE_KEYS,
+    coerce_score,
+    forbidden_public_claim_phrase,
+    normalize_huggingface_model_url,
+)
+
+
 SUBMISSIONS = ROOT / "leaderboard" / "submissions.json"
-
-MAX_MODEL_NAME_LENGTH = 120
-MAX_HF_LINK_LENGTH = 240
-MAX_NOTES_LENGTH = 1000
-MAX_SUBMISSIONS = 100
-
-REQUIRED_SCORE_KEYS = [
-    "safety_score",
-    "source_support_score",
-    "clinical_boundary_score",
-]
-
-ALLOWED_STATUS = {"pending review"}
-
-FORBIDDEN_TEXT = [
-    "clinical advice",
-    "clinical validation",
-    "clinically validated",
-    "safe for clinical use",
-    "approved for clinical use",
-    "regulatory approved",
-    "best model",
-    "model ranking",
-    "source truth certification",
-    "patient data",
-]
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -58,49 +46,14 @@ def parse_timestamp(value: object, label: str, errors: list[str]) -> datetime | 
     return parsed
 
 
-def normalized_huggingface_model_url(value: str) -> str | None:
-    if len(value) > MAX_HF_LINK_LENGTH:
-        return None
-
-    parsed = urlparse(value)
-    host = parsed.netloc.lower()
-    if parsed.scheme != "https" or host not in {"huggingface.co", "www.huggingface.co"}:
-        return None
-    if parsed.params or parsed.query or parsed.fragment:
-        return None
-
-    path_segments = [segment for segment in parsed.path.split("/") if segment]
-    if not path_segments:
-        return None
-    if path_segments[0].lower() in {"datasets", "spaces"}:
-        return None
-    if len(path_segments) > 2:
-        return None
-
-    return urlunparse(("https", "huggingface.co", "/" + "/".join(path_segments), "", "", ""))
-
-
-def contains_forbidden_text(value: object) -> str | None:
-    if not isinstance(value, str):
-        return None
-    lower = value.lower()
-    for phrase in FORBIDDEN_TEXT:
-        if phrase in lower:
-            return phrase
-    return None
-
-
 def validate_score(value: object, label: str, errors: list[str]) -> None:
-    if isinstance(value, bool):
-        fail(errors, f"{label}: score must be numeric")
-        return
     try:
-        score = float(value)
-    except (TypeError, ValueError):
-        fail(errors, f"{label}: score must be numeric")
-        return
-    if not 0 <= score <= 100:
-        fail(errors, f"{label}: score must be between 0 and 100")
+        coerce_score(value, label)
+    except ValueError as exc:
+        if "between 0 and 100" in str(exc):
+            fail(errors, f"{label}: score must be between 0 and 100")
+        else:
+            fail(errors, f"{label}: score must be numeric")
 
 
 def validate_store(data: object) -> list[str]:
@@ -148,15 +101,17 @@ def validate_store(data: object) -> list[str]:
         if not isinstance(link, str) or not link.strip():
             fail(errors, f"{label}.huggingface_link: missing link")
         else:
-            normalized = normalized_huggingface_model_url(link)
-            if normalized is None:
+            try:
+                normalized = normalize_huggingface_model_url(link)
+            except ValueError:
                 fail(errors, f"{label}.huggingface_link: must be a normalized HuggingFace model URL")
-            elif normalized != link:
-                fail(errors, f"{label}.huggingface_link: must be stored as {normalized}")
-            elif link in seen_links:
-                fail(errors, f"{label}.huggingface_link: duplicate link {link}")
             else:
-                seen_links.add(link)
+                if normalized != link:
+                    fail(errors, f"{label}.huggingface_link: must be stored as {normalized}")
+                elif link in seen_links:
+                    fail(errors, f"{label}.huggingface_link: duplicate link {link}")
+                else:
+                    seen_links.add(link)
 
         status = row.get("status")
         if status not in ALLOWED_STATUS:
@@ -197,7 +152,7 @@ def validate_store(data: object) -> list[str]:
             fail(errors, f"{label}.huggingface_status: missing reachability status")
 
         for field in ("model_name", "notes", "status"):
-            phrase = contains_forbidden_text(row.get(field))
+            phrase = forbidden_public_claim_phrase(row.get(field))
             if phrase:
                 fail(errors, f"{label}.{field}: forbidden phrase {phrase!r}")
 

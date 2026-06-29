@@ -10,13 +10,35 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse, urlunparse
 from urllib.request import Request, urlopen
 
 try:
     import gradio as gr
 except ImportError:  # Allows syntax and data helper checks without Gradio installed.
     gr = None
+
+try:
+    from leaderboard.policy import (
+        FORBIDDEN_PUBLIC_CLAIM_PHRASES,
+        MAX_HF_LINK_LENGTH,
+        MAX_MODEL_NAME_LENGTH,
+        MAX_NOTES_LENGTH,
+        MAX_SUBMISSIONS,
+        coerce_score,
+        forbidden_public_claim_phrase,
+        normalize_huggingface_model_url,
+    )
+except ImportError:  # Supports copying leaderboard/app.py and leaderboard/policy.py to a Space root.
+    from policy import (  # type: ignore[no-redef]
+        FORBIDDEN_PUBLIC_CLAIM_PHRASES,
+        MAX_HF_LINK_LENGTH,
+        MAX_MODEL_NAME_LENGTH,
+        MAX_NOTES_LENGTH,
+        MAX_SUBMISSIONS,
+        coerce_score,
+        forbidden_public_claim_phrase,
+        normalize_huggingface_model_url,
+    )
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -33,22 +55,6 @@ CONTRIBUTION_GUIDE_URL = os.getenv(
     f"{GITHUB_REPO_URL}/blob/main/CONTRIBUTING.md",
 ).rstrip("/")
 STORE_LOCK = threading.Lock()
-MAX_MODEL_NAME_LENGTH = 120
-MAX_HF_LINK_LENGTH = 240
-MAX_NOTES_LENGTH = 1000
-MAX_SUBMISSIONS = 100
-FORBIDDEN_PUBLIC_CLAIM_PHRASES = [
-    "clinical advice",
-    "clinical validation",
-    "clinically validated",
-    "safe for clinical use",
-    "approved for clinical use",
-    "regulatory approved",
-    "best model",
-    "model ranking",
-    "source truth certification",
-    "patient data",
-]
 
 DISPLAY_COLUMNS = [
     "run_id",
@@ -241,12 +247,22 @@ def format_last_updated(value: object) -> str:
     return parsed.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
+def latest_submission_timestamp(submissions: list[object]) -> object:
+    timestamps = [
+        str(row.get("submitted_at", ""))
+        for row in submissions
+        if isinstance(row, dict) and row.get("submitted_at")
+    ]
+    return max(timestamps) if timestamps else None
+
+
 def last_updated_markdown(store: dict[str, object] | None = None) -> str:
     store = store or load_submission_store()
     submissions = store.get("submissions", [])
     if not isinstance(submissions, list) or not submissions:
         return "**Last Updated:** No submissions yet"
-    return f"**Last Updated:** {format_last_updated(store.get('last_updated'))}"
+    last_updated = store.get("last_updated") or latest_submission_timestamp(submissions)
+    return f"**Last Updated:** {format_last_updated(last_updated)}"
 
 
 def summary_markdown(rows: list[dict[str, str]]) -> str:
@@ -277,42 +293,7 @@ def update_table(
 
 
 def normalize_huggingface_link(link: str | None) -> str:
-    candidate = (link or "").strip()
-    if not candidate:
-        raise ValueError("HuggingFace link is required.")
-    if len(candidate) > MAX_HF_LINK_LENGTH:
-        raise ValueError(f"HuggingFace link must be {MAX_HF_LINK_LENGTH} characters or fewer.")
-    if "://" not in candidate:
-        candidate = f"https://{candidate}"
-
-    parsed = urlparse(candidate)
-    host = parsed.netloc.lower()
-    if parsed.scheme != "https" or host not in {"huggingface.co", "www.huggingface.co"}:
-        raise ValueError("HuggingFace link must start with https://huggingface.co/.")
-    path_segments = [segment for segment in parsed.path.split("/") if segment]
-    if not path_segments:
-        raise ValueError("HuggingFace link must include a model path.")
-    if path_segments[0].lower() in {"datasets", "spaces"}:
-        raise ValueError("HuggingFace link must point to a model repo, not a dataset or Space.")
-    if len(path_segments) > 2:
-        raise ValueError(
-            "HuggingFace link must point to a model repo path like "
-            "https://huggingface.co/org/model."
-        )
-
-    normalized_host = "huggingface.co"
-    normalized_path = "/" + "/".join(path_segments)
-    return urlunparse(("https", normalized_host, normalized_path, "", "", ""))
-
-
-def forbidden_public_claim_phrase(value: object) -> str | None:
-    if not isinstance(value, str):
-        return None
-    lower = value.lower()
-    for phrase in FORBIDDEN_PUBLIC_CLAIM_PHRASES:
-        if phrase in lower:
-            return phrase
-    return None
+    return normalize_huggingface_model_url(link)
 
 
 def reachable_url(url: str) -> tuple[bool, str]:
@@ -338,18 +319,6 @@ def reachable_url(url: str) -> tuple[bool, str]:
         except OSError as exc:
             last_error = str(exc)
     return False, last_error
-
-
-def coerce_score(value: object, label: str) -> float:
-    if isinstance(value, bool):
-        raise ValueError(f"{label} must be a number.")
-    try:
-        score = float(value)
-    except (TypeError, ValueError) as exc:
-        raise ValueError(f"{label} must be a number.") from exc
-    if not 0 <= score <= 100:
-        raise ValueError(f"{label} must be between 0 and 100.")
-    return round(score, 2)
 
 
 def leaderboard_state(path: Path | None = None) -> tuple[list[list[str]], str]:
