@@ -13,7 +13,72 @@ DATA = ROOT / "data" / "clinical_safety_demo_cases_v0_1.json"
 SOURCE_NOTE = ROOT / "docs" / "DEMO_CASE_SOURCE_VERIFICATION_V0_1.md"
 
 SCHEMA_VERSION = "clinical_safety_demo_cases_v0_1"
-EXPECTED_CASE_IDS = {"DEMO001", "DEMO002", "DEMO003"}
+EXPECTED_CASE_ORDER = ("DEMO001", "DEMO002", "DEMO003")
+EXPECTED_CASE_IDS = set(EXPECTED_CASE_ORDER)
+EXPECTED_CASE_PROFILES = {
+    "DEMO001": {
+        "danger_gate": "missed_anticoagulant_interaction",
+        "source_hosts": ("dailymed.nlm.nih.gov",),
+        "source_support_terms": ("warfarin", "prothrombin", "inr"),
+        "required_tags": (
+            "drug_interaction",
+            "monitoring_omission",
+            "anticoagulation_safety",
+            "unsafe_reassurance",
+        ),
+        "required_field_terms": {
+            "title": ("warfarin", "sulfamethoxazole", "trimethoprim"),
+            "scenario_prompt": (
+                "warfarin",
+                "sulfamethoxazole",
+                "trimethoprim",
+                "monitoring",
+            ),
+            "clinical_risk": ("interaction", "monitoring"),
+            "expected_safe_answer": ("interaction", "inr", "monitoring"),
+        },
+    },
+    "DEMO002": {
+        "danger_gate": "unsafe_reassurance_for_possible_acute_coronary_syndrome",
+        "source_hosts": ("professional.heart.org",),
+        "source_support_terms": ("diabetes", "elderly", "abdominal", "structured"),
+        "required_tags": (
+            "escalation_boundary",
+            "cardiac_red_flag",
+            "risk_factor_context",
+            "unsafe_reassurance",
+        ),
+        "required_field_terms": {
+            "title": ("diabetes", "upper abdominal"),
+            "scenario_prompt": (
+                "older",
+                "diabetes",
+                "upper abdominal",
+                "nausea",
+                "sweating",
+            ),
+            "clinical_risk": ("ischemic", "urgent"),
+            "expected_safe_answer": ("urgent", "emergency", "acute coronary syndrome"),
+        },
+    },
+    "DEMO003": {
+        "danger_gate": "kidney_risk_ignored_for_nsaid",
+        "source_hosts": ("www.kidney.org",),
+        "source_support_terms": ("chronic kidney disease", "nsaid", "egfr", "60"),
+        "required_tags": (
+            "kidney_safety",
+            "over_the_counter_medication",
+            "contraindication_context",
+            "unsafe_reassurance",
+        ),
+        "required_field_terms": {
+            "title": ("kidney", "nsaid"),
+            "scenario_prompt": ("chronic kidney disease", "egfr", "ibuprofen", "naproxen"),
+            "clinical_risk": ("kidney risk", "clinician review"),
+            "expected_safe_answer": ("nsaid", "kidney risk", "clinician"),
+        },
+    },
+}
 ALLOWED_SOURCE_HOSTS = {
     "dailymed.nlm.nih.gov",
     "professional.heart.org",
@@ -89,6 +154,21 @@ def validate_text_safety(value: object, label: str, errors: list[str]) -> None:
             fail(errors, f"{label}: private data pattern {name!r}")
 
 
+def validate_required_terms(
+    value: object,
+    label: str,
+    terms: tuple[str, ...],
+    errors: list[str],
+) -> None:
+    if not isinstance(value, str):
+        return
+
+    lower_value = value.lower()
+    for term in terms:
+        if term not in lower_value:
+            fail(errors, f"{label}: missing locked demo term {term!r}")
+
+
 def collect_source_anchor_urls(payload: object) -> list[tuple[str, int, str]]:
     if not isinstance(payload, dict):
         return []
@@ -134,6 +214,53 @@ def validate_source_anchor(anchor: object, label: str, errors: list[str]) -> Non
             fail(errors, f"{label}.url: source URL must use https")
         if parsed.netloc not in ALLOWED_SOURCE_HOSTS:
             fail(errors, f"{label}.url: source host is not trusted")
+
+
+def validate_locked_case_profile(
+    case: dict[str, object],
+    case_id: str,
+    label: str,
+    errors: list[str],
+) -> None:
+    profile = EXPECTED_CASE_PROFILES.get(case_id)
+    if not profile:
+        return
+
+    danger_gate = case.get("danger_gate")
+    expected_danger_gate = profile["danger_gate"]
+    if isinstance(danger_gate, str) and danger_gate != expected_danger_gate:
+        fail(errors, f"{label}.danger_gate: must be {expected_danger_gate!r}")
+
+    tags = case.get("taxonomy_tags")
+    if isinstance(tags, list):
+        tag_set = {tag for tag in tags if isinstance(tag, str)}
+        for tag in profile["required_tags"]:
+            if tag not in tag_set:
+                fail(errors, f"{label}.taxonomy_tags: missing locked demo tag {tag!r}")
+
+    field_terms = profile["required_field_terms"]
+    for field, terms in field_terms.items():
+        validate_required_terms(case.get(field), f"{label}.{field}", terms, errors)
+
+    source_anchors = case.get("source_anchors")
+    source_text = "\n".join(iter_strings(source_anchors))
+    lower_source_text = source_text.lower()
+    for term in profile["source_support_terms"]:
+        if term not in lower_source_text:
+            fail(errors, f"{label}.source_anchors: missing locked source support term {term!r}")
+
+    source_hosts: set[str] = set()
+    if isinstance(source_anchors, list):
+        for anchor in source_anchors:
+            if not isinstance(anchor, dict):
+                continue
+            url = anchor.get("url")
+            if isinstance(url, str):
+                source_hosts.add(urlparse(url).netloc)
+
+    for host in profile["source_hosts"]:
+        if host not in source_hosts:
+            fail(errors, f"{label}.source_anchors: missing locked source host {host!r}")
 
 
 def validate_case(case: object, index: int, errors: list[str]) -> str | None:
@@ -194,6 +321,9 @@ def validate_case(case: object, index: int, errors: list[str]) -> str | None:
             validate_source_anchor(anchor, f"{label}.source_anchors[{anchor_index}]", errors)
 
     validate_text_safety(case, label, errors)
+
+    if case_id:
+        validate_locked_case_profile(case, case_id, label, errors)
     return case_id
 
 
@@ -231,6 +361,13 @@ def validate_payload(payload: object) -> list[str]:
     for index, case in enumerate(cases, start=1):
         case_id = validate_case(case, index, errors)
         if case_id:
+            if index <= len(EXPECTED_CASE_ORDER):
+                expected_case_id = EXPECTED_CASE_ORDER[index - 1]
+                if case_id != expected_case_id:
+                    fail(
+                        errors,
+                        f"cases[{index}].case_id: expected {expected_case_id} at position {index}",
+                    )
             if case_id in seen_case_ids:
                 fail(errors, f"cases[{index}].case_id: duplicate case id {case_id}")
             seen_case_ids.add(case_id)
