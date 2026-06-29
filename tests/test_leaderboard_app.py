@@ -101,6 +101,14 @@ def test_submission_text_limits_block_oversized_public_rows(tmp_path: Path) -> N
     else:
         raise AssertionError("Expected oversized HuggingFace link to fail")
 
+    too_long_after_scheme = "huggingface.co/" + "m" * (MAX_HF_LINK_LENGTH - len("huggingface.co/"))
+    try:
+        normalize_huggingface_link(too_long_after_scheme)
+    except ValueError as exc:
+        assert f"{MAX_HF_LINK_LENGTH} characters or fewer" in str(exc)
+    else:
+        raise AssertionError("Expected normalized oversized HuggingFace link to fail")
+
     message, table, updated = submit_model(
         "Test Model",
         "https://huggingface.co/org/model",

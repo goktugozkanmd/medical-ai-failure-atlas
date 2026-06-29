@@ -83,7 +83,10 @@ def normalize_huggingface_model_url(link: str | None) -> str:
         )
 
     normalized_path = "/" + "/".join(path_segments)
-    return urlunparse(("https", "huggingface.co", normalized_path, "", "", ""))
+    normalized = urlunparse(("https", "huggingface.co", normalized_path, "", "", ""))
+    if len(normalized) > MAX_HF_LINK_LENGTH:
+        raise ValueError(f"HuggingFace link must be {MAX_HF_LINK_LENGTH} characters or fewer.")
+    return normalized
 
 
 def forbidden_public_claim_phrase(value: object) -> str | None:
