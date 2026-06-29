@@ -15,6 +15,7 @@ This Space shows synthetic preview rows and contributor supplied model submissio
 It does not provide clinical advice, clinical validation, source truth certification, partner claims, institution claims, or endorsement claims. Submitted scores are pending review and rows are ordered by latest submission time, not by score.
 
 The submission form accepts HuggingFace model repository links only. Spaces, datasets, and file paths are rejected.
+Model names and notes must not include contact details, long numeric identifiers, patient data, clinical validation claims, or ranking claims.
 
 Submitted rows are written to the JSON store available to the running app. Enable persistent Space storage, or export the JSON store before rebuilds, if public submissions need to survive runtime restarts.
 

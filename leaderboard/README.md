@@ -6,6 +6,7 @@ The preview is not clinical advice, not a clinical validation table, not a model
 
 Contributor submitted rows are pending review and are ordered by latest submission time, not by score.
 The submission form accepts HuggingFace model repository links only; Spaces, datasets, and file paths are rejected.
+Model names and notes must not include contact details, long numeric identifiers, patient data, clinical validation claims, or ranking claims.
 
 ## Files
 

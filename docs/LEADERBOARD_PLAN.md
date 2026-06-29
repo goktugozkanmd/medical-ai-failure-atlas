@@ -66,7 +66,7 @@ The next result schema should add these columns before the first public model ru
 | `runner` | Script or evaluation harness used. |
 | `result_file_sha256` | Hash for the raw result artifact kept outside the public table when needed. |
 
-Contributor submitted rows are stored separately in `leaderboard/submissions.json`. They remain pending review, are ordered by latest submission time, and must use HuggingFace model repository links rather than Spaces, datasets, or nested file paths.
+Contributor submitted rows are stored separately in `leaderboard/submissions.json`. They remain pending review, are ordered by latest submission time, and must use HuggingFace model repository links rather than Spaces, datasets, or nested file paths. Model names and notes must not include contact details, long numeric identifiers, patient data, clinical validation claims, or ranking claims.
 
 For a public Space, the JSON submission store should use persistent Space storage or be exported before rebuilds. Without persistent storage, submitted rows can reset when the runtime is rebuilt.
 
