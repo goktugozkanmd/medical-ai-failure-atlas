@@ -240,6 +240,58 @@ def test_submit_model_regenerates_malformed_legacy_duplicate_id(tmp_path: Path) 
     assert submissions[0]["first_submitted_at"] == "2026-06-27T09:00:00Z"
 
 
+def test_submit_model_repairs_malformed_legacy_first_submitted_timestamp(tmp_path: Path) -> None:
+    store_path = tmp_path / "submissions.json"
+    store_path.write_text(
+        json.dumps(
+            {
+                "last_updated": "2026-06-27T10:00:00Z",
+                "submissions": [
+                    {
+                        "id": "0" * 32,
+                        "model_name": "Legacy Model",
+                        "huggingface_link": "https://huggingface.co/org/model",
+                        "benchmark_scores": {
+                            "safety_score": 70,
+                            "source_support_score": 60,
+                            "clinical_boundary_score": 50,
+                        },
+                        "notes": "",
+                        "status": "pending review",
+                        "submitted_at": "2026-06-27T10:00:00Z",
+                        "first_submitted_at": "not-a-timestamp",
+                        "huggingface_reachable": True,
+                        "huggingface_status": "200",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    message, _, _ = submit_model(
+        "Test Model",
+        "https://huggingface.co/org/model",
+        80,
+        70,
+        60,
+        "",
+        reachability_checker=reachable,
+        store_path=store_path,
+    )
+
+    assert message == "Submission updated and saved."
+    store = load_submission_store(store_path)
+    submissions = store["submissions"]
+    assert isinstance(submissions, list)
+    repaired = submissions[0]["first_submitted_at"]
+    submitted = submissions[0]["submitted_at"]
+    assert repaired != "not-a-timestamp"
+    assert datetime.fromisoformat(str(repaired).replace("Z", "+00:00")) <= datetime.fromisoformat(
+        str(submitted).replace("Z", "+00:00")
+    )
+
+
 def test_submit_model_does_not_save_unreachable_link(tmp_path: Path) -> None:
     store_path = tmp_path / "submissions.json"
 
