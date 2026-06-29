@@ -267,11 +267,19 @@ def normalize_huggingface_link(link: str | None) -> str:
     host = parsed.netloc.lower()
     if parsed.scheme != "https" or host not in {"huggingface.co", "www.huggingface.co"}:
         raise ValueError("HuggingFace link must start with https://huggingface.co/.")
-    if not parsed.path.strip("/"):
+    path_segments = [segment for segment in parsed.path.split("/") if segment]
+    if not path_segments:
         raise ValueError("HuggingFace link must include a model path.")
+    if path_segments[0].lower() in {"datasets", "spaces"}:
+        raise ValueError("HuggingFace link must point to a model repo, not a dataset or Space.")
+    if len(path_segments) > 2:
+        raise ValueError(
+            "HuggingFace link must point to a model repo path like "
+            "https://huggingface.co/org/model."
+        )
 
     normalized_host = "huggingface.co"
-    normalized_path = parsed.path.rstrip("/")
+    normalized_path = "/" + "/".join(path_segments)
     return urlunparse(("https", normalized_host, normalized_path, "", "", ""))
 
 
@@ -427,7 +435,7 @@ def build_demo():
                 with gr.Row():
                     model_name = gr.Textbox(label="Model name", placeholder="org or model name")
                     huggingface_link = gr.Textbox(
-                        label="HuggingFace link",
+                        label="HuggingFace model repo link",
                         placeholder="https://huggingface.co/org/model",
                     )
                 with gr.Row():

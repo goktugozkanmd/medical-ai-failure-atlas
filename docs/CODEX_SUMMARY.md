@@ -120,7 +120,7 @@ Passed:
 8. `python3 scripts/validate_safe_failure_card_issue_template_20260619.py`
 9. `make validate-public`
 
-Academic submission audit script result:
+Public text review result:
 
 1. `overall_ok: True`
 2. No forbidden visible process labels found in the new outward facing Markdown files.
@@ -140,7 +140,7 @@ Could not create a local commit because the sandbox can read `.git` but cannot w
 The exact failure from `git add` was:
 
 ```text
-fatal: Unable to create '/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/.git/index.lock': Operation not permitted
+fatal: Unable to create '.git/index.lock': Operation not permitted
 ```
 
 No push was attempted.

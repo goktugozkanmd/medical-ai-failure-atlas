@@ -14,6 +14,8 @@ This Space shows synthetic preview rows and contributor supplied model submissio
 
 It does not provide clinical advice, clinical validation, source truth certification, partner claims, institution claims, or endorsement claims. Submitted scores are pending review and rows are ordered by latest submission time, not by score.
 
+The submission form accepts HuggingFace model repository links only. Spaces, datasets, and file paths are rejected.
+
 ## Direct Repository Deployment
 
 The repository root includes the files HuggingFace Spaces expects:

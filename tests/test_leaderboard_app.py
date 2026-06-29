@@ -26,11 +26,32 @@ def unreachable(url: str) -> tuple[bool, str]:
 
 
 def test_normalize_huggingface_link_requires_https_model_path() -> None:
+    assert normalize_huggingface_link("huggingface.co/model-name/") == "https://huggingface.co/model-name"
     assert normalize_huggingface_link("huggingface.co/org/model/") == "https://huggingface.co/org/model"
     assert (
         normalize_huggingface_link("https://www.huggingface.co/org/model?revision=main")
         == "https://huggingface.co/org/model"
     )
+
+
+def test_normalize_huggingface_link_rejects_non_model_repo_paths() -> None:
+    for link in (
+        "https://huggingface.co/spaces/org/demo",
+        "https://huggingface.co/datasets/org/data",
+    ):
+        try:
+            normalize_huggingface_link(link)
+        except ValueError as exc:
+            assert "model repo" in str(exc)
+        else:
+            raise AssertionError(f"Expected non-model path to fail: {link}")
+
+    try:
+        normalize_huggingface_link("https://huggingface.co/org/model/blob/main/config.json")
+    except ValueError as exc:
+        assert "https://huggingface.co/org/model" in str(exc)
+    else:
+        raise AssertionError("Expected nested HuggingFace file path to fail")
 
 
 def test_coerce_score_limits_public_submission_scores() -> None:

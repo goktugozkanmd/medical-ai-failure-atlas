@@ -5,6 +5,7 @@ This folder contains the synthetic no ranking leaderboard preview for Medical AI
 The preview is not clinical advice, not a clinical validation table, not a model ranking, and not a model safety claim.
 
 Contributor submitted rows are pending review and are ordered by latest submission time, not by score.
+The submission form accepts HuggingFace model repository links only; Spaces, datasets, and file paths are rejected.
 
 ## Files
 
