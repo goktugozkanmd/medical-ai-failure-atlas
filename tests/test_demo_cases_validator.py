@@ -4,7 +4,7 @@ import copy
 import json
 from pathlib import Path
 
-from scripts.validate_demo_cases_v0_1 import DATA, validate_payload
+from scripts.validate_demo_cases_v0_1 import DATA, SOURCE_NOTE, validate_files, validate_payload
 
 
 def load_seed_payload() -> dict[str, object]:
@@ -67,6 +67,17 @@ def test_demo_cases_rejects_private_contact_details() -> None:
     errors = validate_payload(payload)
 
     assert "cases[3]: private data pattern 'email address'" in errors
+
+
+def test_demo_cases_source_note_must_contain_anchor_urls(tmp_path: Path) -> None:
+    note = SOURCE_NOTE.read_text(encoding="utf-8")
+    url = load_seed_payload()["cases"][0]["source_anchors"][0]["url"]
+    source_note = tmp_path / "DEMO_CASE_SOURCE_VERIFICATION_V0_1.md"
+    source_note.write_text(note.replace(url, "https://dailymed.nlm.nih.gov/"), encoding="utf-8")
+
+    errors = validate_files(source_note_path=source_note)
+
+    assert "source verification note: missing source URL for DEMO001 anchor 1" in errors
 
 
 def test_demo_cases_data_path_is_versioned_json() -> None:

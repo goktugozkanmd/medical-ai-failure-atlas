@@ -89,6 +89,34 @@ def validate_text_safety(value: object, label: str, errors: list[str]) -> None:
             fail(errors, f"{label}: private data pattern {name!r}")
 
 
+def collect_source_anchor_urls(payload: object) -> list[tuple[str, int, str]]:
+    if not isinstance(payload, dict):
+        return []
+
+    cases = payload.get("cases")
+    if not isinstance(cases, list):
+        return []
+
+    urls: list[tuple[str, int, str]] = []
+    for case_index, case in enumerate(cases, start=1):
+        if not isinstance(case, dict):
+            continue
+        case_id = case.get("case_id")
+        if not isinstance(case_id, str) or not case_id.strip():
+            case_id = f"cases[{case_index}]"
+
+        anchors = case.get("source_anchors")
+        if not isinstance(anchors, list):
+            continue
+        for anchor_index, anchor in enumerate(anchors, start=1):
+            if not isinstance(anchor, dict):
+                continue
+            url = anchor.get("url")
+            if isinstance(url, str) and url.strip():
+                urls.append((case_id, anchor_index, url.strip()))
+    return urls
+
+
 def validate_source_anchor(anchor: object, label: str, errors: list[str]) -> None:
     if not isinstance(anchor, dict):
         fail(errors, f"{label}: source anchor must be an object")
@@ -233,6 +261,13 @@ def validate_files(data_path: Path = DATA, source_note_path: Path = SOURCE_NOTE)
         for case_id in EXPECTED_CASE_IDS:
             if case_id not in note_text:
                 fail(errors, f"source verification note: missing {case_id}")
+        for case_id, anchor_index, url in collect_source_anchor_urls(payload):
+            if url not in note_text:
+                fail(
+                    errors,
+                    "source verification note: missing source URL "
+                    f"for {case_id} anchor {anchor_index}",
+                )
         validate_text_safety(note_text, "source verification note", errors)
 
     return errors
