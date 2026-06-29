@@ -115,8 +115,12 @@ def validate_store(data: object) -> list[str]:
         else:
             try:
                 normalized = normalize_huggingface_model_url(link)
-            except ValueError:
-                fail(errors, f"{label}.huggingface_link: must be a normalized HuggingFace model URL")
+            except ValueError as exc:
+                message = str(exc)
+                if "private data pattern" in message:
+                    fail(errors, f"{label}.huggingface_link: {message}")
+                else:
+                    fail(errors, f"{label}.huggingface_link: must be a normalized HuggingFace model URL")
             else:
                 if normalized != link:
                     fail(errors, f"{label}.huggingface_link: must be stored as {normalized}")

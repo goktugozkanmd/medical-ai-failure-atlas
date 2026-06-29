@@ -111,6 +111,9 @@ def normalize_huggingface_model_url(link: str | None) -> str:
         raise ValueError("HuggingFace link is required.")
     if len(candidate) > MAX_HF_LINK_LENGTH:
         raise ValueError(f"HuggingFace link must be {MAX_HF_LINK_LENGTH} characters or fewer.")
+    private_pattern = forbidden_private_data_pattern(candidate)
+    if private_pattern:
+        raise ValueError(f"HuggingFace link includes private data pattern: {private_pattern}.")
     if "://" not in candidate:
         candidate = f"https://{candidate}"
 
@@ -136,6 +139,9 @@ def normalize_huggingface_model_url(link: str | None) -> str:
     normalized = urlunparse(("https", "huggingface.co", normalized_path, "", "", ""))
     if len(normalized) > MAX_HF_LINK_LENGTH:
         raise ValueError(f"HuggingFace link must be {MAX_HF_LINK_LENGTH} characters or fewer.")
+    private_pattern = forbidden_private_data_pattern(normalized)
+    if private_pattern:
+        raise ValueError(f"HuggingFace link includes private data pattern: {private_pattern}.")
 
     if any(not is_valid_huggingface_repo_segment(segment) for segment in path_segments):
         raise ValueError(
