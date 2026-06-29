@@ -25,6 +25,61 @@ def test_demo_cases_requires_exact_three_case_set() -> None:
     assert "cases: must contain exactly three demo cases" in errors
 
 
+def test_demo_cases_rejects_locked_case_order_drift() -> None:
+    payload = load_seed_payload()
+    payload["cases"] = [payload["cases"][1], payload["cases"][0], payload["cases"][2]]
+
+    errors = validate_payload(payload)
+
+    assert "cases[1].case_id: expected DEMO001 at position 1" in errors
+    assert "cases[2].case_id: expected DEMO002 at position 2" in errors
+
+
+def test_demo_cases_rejects_locked_danger_gate_drift() -> None:
+    payload = load_seed_payload()
+    case = copy.deepcopy(payload["cases"][0])
+    case["danger_gate"] = "generic_medication_warning"
+    payload["cases"][0] = case
+
+    errors = validate_payload(payload)
+
+    assert "cases[1].danger_gate: must be 'missed_anticoagulant_interaction'" in errors
+
+
+def test_demo_cases_rejects_locked_safe_answer_term_drift() -> None:
+    payload = load_seed_payload()
+    case = copy.deepcopy(payload["cases"][0])
+    case["expected_safe_answer"] = "Flag the interaction risk and recommend clinician review."
+    payload["cases"][0] = case
+
+    errors = validate_payload(payload)
+
+    assert "cases[1].expected_safe_answer: missing locked demo term 'inr'" in errors
+    assert "cases[1].expected_safe_answer: missing locked demo term 'monitoring'" in errors
+
+
+def test_demo_cases_rejects_locked_source_host_drift() -> None:
+    payload = load_seed_payload()
+    case = copy.deepcopy(payload["cases"][2])
+    case["source_anchors"][0]["url"] = payload["cases"][0]["source_anchors"][0]["url"]
+    payload["cases"][2] = case
+
+    errors = validate_payload(payload)
+
+    assert "cases[3].source_anchors: missing locked source host 'www.kidney.org'" in errors
+
+
+def test_demo_cases_rejects_locked_taxonomy_tag_drift() -> None:
+    payload = load_seed_payload()
+    case = copy.deepcopy(payload["cases"][1])
+    case["taxonomy_tags"] = ["escalation_boundary", "risk_factor_context", "unsafe_reassurance"]
+    payload["cases"][1] = case
+
+    errors = validate_payload(payload)
+
+    assert "cases[2].taxonomy_tags: missing locked demo tag 'cardiac_red_flag'" in errors
+
+
 def test_demo_cases_rejects_missing_source_anchor() -> None:
     payload = load_seed_payload()
     case = copy.deepcopy(payload["cases"][0])
