@@ -69,6 +69,11 @@ PRIVATE_DATA_PATTERNS = [
         "credential-like token",
     ),
     (re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b"), "credential-like token"),
+    (re.compile(r"\bbearer\s+[A-Za-z0-9._~+/=-]{16,}\b", re.IGNORECASE), "credential-like token"),
+    (
+        re.compile(r"\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\b"),
+        "credential-like token",
+    ),
     (
         re.compile(
             r"\b(?:api[_\s-]?key|access[_\s-]?token|secret|password)"

@@ -213,6 +213,28 @@ def test_validate_store_rejects_private_data_patterns() -> None:
 
     assert "submissions[1].notes: private data pattern 'credential-like token'" in errors
 
+    row = valid_row(4)
+    row["notes"] = "Authorization: Bearer abcdefghijklmnopqrstuvwxyz123456"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].notes: private data pattern 'credential-like token'" in errors
+
+    row = valid_row(5)
+    row["notes"] = "token eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdWJtaXNzaW9uIn0.signaturepayload123"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].notes: private data pattern 'credential-like token'" in errors
+
 
 def test_validate_store_rejects_unexpected_submission_fields() -> None:
     row = valid_row(1)
