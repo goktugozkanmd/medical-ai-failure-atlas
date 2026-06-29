@@ -249,6 +249,33 @@ def test_validate_store_rejects_private_data_patterns() -> None:
     assert "submissions[1].notes: private data pattern 'credential-like token'" in errors
 
 
+def test_validate_store_rejects_unsafe_public_text_patterns() -> None:
+    row = valid_row(1)
+    row["model_name"] = "Model <script>"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert (
+        "submissions[1].model_name: unsafe public text pattern "
+        "'HTML or Markdown delimiter'"
+    ) in errors
+
+    row = valid_row(2)
+    row["notes"] = "line one\nline two"
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].notes: unsafe public text pattern 'control character'" in errors
+
+
 def test_validate_store_rejects_unexpected_submission_fields() -> None:
     row = valid_row(1)
     row["raw_model_output"] = "synthetic answer draft"

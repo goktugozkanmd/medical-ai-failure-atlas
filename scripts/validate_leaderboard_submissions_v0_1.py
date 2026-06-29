@@ -24,6 +24,7 @@ from leaderboard.policy import (
     forbidden_public_claim_phrase,
     is_valid_submission_id,
     normalize_huggingface_model_url,
+    unsafe_public_text_pattern,
 )
 
 
@@ -176,6 +177,9 @@ def validate_store(data: object) -> list[str]:
             pattern = forbidden_private_data_pattern(row.get(field))
             if pattern:
                 fail(errors, f"{label}.{field}: private data pattern {pattern!r}")
+            pattern = unsafe_public_text_pattern(row.get(field))
+            if pattern:
+                fail(errors, f"{label}.{field}: unsafe public text pattern {pattern!r}")
 
     if last_updated and latest_submitted_at:
         parsed_last_updated = parse_timestamp(last_updated, "last_updated", errors)

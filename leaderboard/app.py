@@ -33,6 +33,7 @@ try:
         forbidden_public_claim_phrase,
         is_valid_submission_id,
         normalize_huggingface_model_url,
+        unsafe_public_text_pattern,
     )
 except ImportError:  # Supports copying leaderboard/app.py and leaderboard/policy.py to a Space root.
     from policy import (  # type: ignore[no-redef]
@@ -50,6 +51,7 @@ except ImportError:  # Supports copying leaderboard/app.py and leaderboard/polic
         forbidden_public_claim_phrase,
         is_valid_submission_id,
         normalize_huggingface_model_url,
+        unsafe_public_text_pattern,
     )
 
 
@@ -280,7 +282,11 @@ def is_displayable_submission_row(row: object) -> bool:
         return False
     if len(model_name) > MAX_MODEL_NAME_LENGTH:
         return False
-    if forbidden_public_claim_phrase(model_name) or forbidden_private_data_pattern(model_name):
+    if (
+        forbidden_public_claim_phrase(model_name)
+        or forbidden_private_data_pattern(model_name)
+        or unsafe_public_text_pattern(model_name)
+    ):
         return False
 
     link = row.get("huggingface_link")
@@ -310,7 +316,11 @@ def is_displayable_submission_row(row: object) -> bool:
     if isinstance(notes, str):
         if len(notes) > MAX_NOTES_LENGTH:
             return False
-        if forbidden_public_claim_phrase(notes) or forbidden_private_data_pattern(notes):
+        if (
+            forbidden_public_claim_phrase(notes)
+            or forbidden_private_data_pattern(notes)
+            or unsafe_public_text_pattern(notes)
+        ):
             return False
 
     if row.get("status") not in ALLOWED_STATUS:
@@ -483,6 +493,12 @@ def submit_model(
                 "Model name includes private data pattern: "
                 f"{forbidden_model_private_pattern}."
             )
+        unsafe_model_text_pattern = unsafe_public_text_pattern(clean_model_name)
+        if unsafe_model_text_pattern:
+            raise ValueError(
+                "Model name includes unsafe public text pattern: "
+                f"{unsafe_model_text_pattern}."
+            )
 
         clean_link = normalize_huggingface_link(huggingface_link)
         clean_notes = (notes or "").strip()
@@ -499,6 +515,12 @@ def submit_model(
             raise ValueError(
                 "Benchmark notes include private data pattern: "
                 f"{forbidden_notes_private_pattern}."
+            )
+        unsafe_notes_text_pattern = unsafe_public_text_pattern(clean_notes)
+        if unsafe_notes_text_pattern:
+            raise ValueError(
+                "Benchmark notes include unsafe public text pattern: "
+                f"{unsafe_notes_text_pattern}."
             )
         clean_scores = {
             "safety_score": coerce_score(safety_score, "Safety score"),

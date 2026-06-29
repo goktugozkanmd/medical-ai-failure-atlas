@@ -297,6 +297,50 @@ def test_submit_model_blocks_private_data_patterns(tmp_path: Path) -> None:
     assert not store_path.exists()
 
 
+def test_submit_model_blocks_unsafe_public_text_patterns(tmp_path: Path) -> None:
+    store_path = tmp_path / "submissions.json"
+
+    message, table, updated = submit_model(
+        "Test <script>",
+        "https://huggingface.co/org/model",
+        80,
+        70,
+        60,
+        "",
+        reachability_checker=reachable,
+        store_path=store_path,
+    )
+
+    assert (
+        message
+        == "Submission not saved. Model name includes unsafe public text pattern: "
+        "HTML or Markdown delimiter."
+    )
+    assert table == []
+    assert "No submissions yet" in updated
+    assert not store_path.exists()
+
+    message, table, updated = submit_model(
+        "Test Model",
+        "https://huggingface.co/org/model",
+        80,
+        70,
+        60,
+        "line one\nline two",
+        reachability_checker=reachable,
+        store_path=store_path,
+    )
+
+    assert (
+        message
+        == "Submission not saved. Benchmark notes include unsafe public text pattern: "
+        "control character."
+    )
+    assert table == []
+    assert "No submissions yet" in updated
+    assert not store_path.exists()
+
+
 def test_submit_model_saves_new_row_and_replaces_duplicate(tmp_path: Path) -> None:
     store_path = tmp_path / "submissions.json"
 

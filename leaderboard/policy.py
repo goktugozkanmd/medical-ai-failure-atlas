@@ -85,6 +85,11 @@ PRIVATE_DATA_PATTERNS = [
     ),
 ]
 
+UNSAFE_PUBLIC_TEXT_PATTERNS = [
+    (re.compile(r"[<>`]"), "HTML or Markdown delimiter"),
+    (re.compile(r"[\x00-\x1f\x7f]"), "control character"),
+]
+
 
 def is_valid_submission_id(value: object) -> bool:
     return isinstance(value, str) and bool(SUBMISSION_ID_PATTERN.fullmatch(value))
@@ -155,6 +160,15 @@ def forbidden_private_data_pattern(value: object) -> str | None:
     if not isinstance(value, str):
         return None
     for pattern, label in PRIVATE_DATA_PATTERNS:
+        if pattern.search(value):
+            return label
+    return None
+
+
+def unsafe_public_text_pattern(value: object) -> str | None:
+    if not isinstance(value, str):
+        return None
+    for pattern, label in UNSAFE_PUBLIC_TEXT_PATTERNS:
         if pattern.search(value):
             return label
     return None
