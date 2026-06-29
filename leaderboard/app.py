@@ -292,6 +292,8 @@ def is_displayable_submission_row(row: object) -> bool:
     scores = row.get("benchmark_scores")
     if not isinstance(scores, dict):
         return False
+    if set(scores) - set(REQUIRED_SCORE_KEYS):
+        return False
     for score_key in REQUIRED_SCORE_KEYS:
         try:
             coerce_score(scores.get(score_key), score_key)

@@ -518,6 +518,14 @@ def test_leaderboard_state_hides_existing_rows_that_fail_public_display_rules(tm
         row_id="3" * 32,
     )
     invalid_unexpected_field["raw_model_output"] = "synthetic answer draft"
+    invalid_unexpected_score = submission_row(
+        model_name="Unexpected Score Field",
+        huggingface_link="https://huggingface.co/org/unexpected-score-field",
+        row_id="5" * 32,
+    )
+    scores = invalid_unexpected_score["benchmark_scores"]
+    assert isinstance(scores, dict)
+    scores["overall_score"] = 99
     visible = submission_row(
         model_name="Visible Model",
         huggingface_link="https://huggingface.co/org/visible-model",
@@ -532,6 +540,7 @@ def test_leaderboard_state_hides_existing_rows_that_fail_public_display_rules(tm
                     invalid_claim,
                     invalid_private_note,
                     invalid_unexpected_field,
+                    invalid_unexpected_score,
                     visible,
                 ],
             }

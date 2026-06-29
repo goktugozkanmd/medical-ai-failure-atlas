@@ -126,6 +126,19 @@ def test_validate_store_rejects_score_out_of_range() -> None:
     )
 
 
+def test_validate_store_rejects_unexpected_score_fields() -> None:
+    row = valid_row(1)
+    row["benchmark_scores"]["overall_score"] = 99
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].benchmark_scores.overall_score: unexpected score field" in errors
+
+
 def test_validate_store_rejects_private_data_patterns() -> None:
     row = valid_row(1)
     row["notes"] = "Contact reviewer@example.com for context"

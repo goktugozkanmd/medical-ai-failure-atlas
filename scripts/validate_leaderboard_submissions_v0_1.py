@@ -131,6 +131,9 @@ def validate_store(data: object) -> list[str]:
         if not isinstance(scores, dict):
             fail(errors, f"{label}.benchmark_scores: must be an object")
         else:
+            unexpected_score_keys = sorted(set(scores) - set(REQUIRED_SCORE_KEYS))
+            for score_key in unexpected_score_keys:
+                fail(errors, f"{label}.benchmark_scores.{score_key}: unexpected score field")
             for score_key in REQUIRED_SCORE_KEYS:
                 validate_score(scores.get(score_key), f"{label}.benchmark_scores.{score_key}", errors)
 
