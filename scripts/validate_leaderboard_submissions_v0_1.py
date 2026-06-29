@@ -121,6 +121,8 @@ def validate_store(data: object) -> list[str]:
 
     seen_ids: set[str] = set()
     seen_links: set[str] = set()
+    previous_submitted_at: datetime | None = None
+    latest_submitted_at: datetime | None = None
 
     for index, row in enumerate(submissions, start=1):
         label = f"submissions[{index}]"
@@ -174,6 +176,13 @@ def validate_store(data: object) -> list[str]:
             fail(errors, f"{label}.notes: exceeds {MAX_NOTES_LENGTH} characters")
 
         submitted_at = parse_timestamp(row.get("submitted_at"), f"{label}.submitted_at", errors)
+        if submitted_at:
+            if previous_submitted_at and submitted_at > previous_submitted_at:
+                fail(errors, f"{label}.submitted_at: submissions must be ordered latest first")
+            previous_submitted_at = submitted_at
+            if latest_submitted_at is None or submitted_at > latest_submitted_at:
+                latest_submitted_at = submitted_at
+
         first_submitted_at = row.get("first_submitted_at")
         if first_submitted_at:
             first_parsed = parse_timestamp(first_submitted_at, f"{label}.first_submitted_at", errors)
@@ -191,6 +200,11 @@ def validate_store(data: object) -> list[str]:
             phrase = contains_forbidden_text(row.get(field))
             if phrase:
                 fail(errors, f"{label}.{field}: forbidden phrase {phrase!r}")
+
+    if last_updated and latest_submitted_at:
+        parsed_last_updated = parse_timestamp(last_updated, "last_updated", errors)
+        if parsed_last_updated and parsed_last_updated < latest_submitted_at:
+            fail(errors, "last_updated: cannot be earlier than the latest submission")
 
     return errors
 
