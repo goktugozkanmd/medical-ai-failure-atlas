@@ -22,6 +22,7 @@ No file in this directory was edited during the 2026 06 27 repository cleanup.
 | `failure_atlas_external_sample_v0_1.jsonl` | Public synthetic sample rows. |
 | `tr_medllm_synthetic_eval_set_v0_3.jsonl` | Turkish medical LLM synthetic evaluation set. |
 | `inter_rater_review_subset_v0_1.tsv` | Held out review subset. |
+| `clinical_safety_demo_cases_v0_1.json` | Source anchored three case demo set for the public safety gate format. |
 
 ## Rubric and Taxonomy Files
 
