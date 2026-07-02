@@ -35,13 +35,13 @@ Large language models (LLMs) are increasingly proposed for clinical settings.
 General benchmarks such as MMLU~\cite{hendrycks2021mmlu} measure knowledge
 retrieval, but medical safety failures often manifest as wording, escalation
 boundary, source support, and clinical framing errors that exam accuracy metrics
-do not capture~\cite{wornow2023healthbench}.
+do not capture~\cite{wornow2025healthbench}.
 
 Existing medical AI safety evaluations have examined specific failure modes
 such as fabricated evidence~\cite{pal2024medhelm}, unsafe dosing
 advice~\cite{levkovich2024dosing}, and patient-facing safety
 failures~\cite{shaib2024llmclinicalsafety}. Single-model assessments of
-GPT-4~\cite{lee2023benefitslimitsgpt4} and Med-PaLM
+GPT-4~\cite{nori2023gpt4medical,lee2023benefitslimitsgpt4} and Med-PaLM
 2~\cite{singhal2023medpalm2} in clinical tasks have been published, but
 most open benchmarks lack a structured clinician-reviewed severity layer that
 separates wording problems from safety-critical framing errors.
@@ -182,8 +182,8 @@ MedFailBench is complementary to general medical benchmarks (MMLU, HealthBench,
 MedHELM). Those benchmarks measure knowledge and accuracy. MedFailBench measures
 clinical boundary risk. A model could score high on accuracy benchmarks while
 producing unsafe wording on open-ended clinical scenarios.
-Specialized Turkish-language medical NLP evaluations~\cite{tsai2024trmedicaleval}
-and literature surveys~\cite{kılıc2024turkhangi} provide context for the national
+Specialized Turkish-language medical NLP evaluations~\cite{tsai2025trmmmu}
+and literature surveys~\cite{kuly2024turkhangi} provide context for the national
 dimension of this work.
 
 \subsection{Relation to Turkish AI Strategy}

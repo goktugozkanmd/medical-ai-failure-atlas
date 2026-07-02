@@ -1,6 +1,12 @@
 # Changelog
 
-## v0.2.1b — 2026-07-02 21:00 (community infra + data section)
+## v0.2.1b — 2026-07-02 22:00 (reference audit + arXiv ID fixes)
+- Reference hallucination audit: 4/13 arXiv IDs verified wrong via Crossref/arXiv API.
+  Fixed: wornow2025healthbench (was SoundStorm), nori2023gpt4medical (was neutrino physics),
+  tsai2025trmmmu (was axion physics). Removed unverifiable arXiv ID from pal2024medhelm.
+- Updated preprint citation keys and references.bib. All 13 references now point to
+  real, verified arXiv IDs or journal DOIs.
+- CHANGELOG, roadmap, and BAGLAM2 updated.
 - Added GitHub Discussions welcome post (#183), synthetic case template,
   CONTRIBUTING.md onboarding flow, and issue #182 progress comment.
 - Created `docs/templates/SYNTHETIC_CASE_TEMPLATE.md`.
