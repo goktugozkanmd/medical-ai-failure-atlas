@@ -16,20 +16,21 @@
 
 ## ArXiv Format Gereksinimleri
 
-1. **LaTeX kaynağı:** main.tex şu an arXiv uyumlu mı?
-   - `hyperref` — sorunsuz
-   - `authblk` — yüklü, arXiv TeX Live'da var
-   - `booktabs`, `amsmath`, `enumitem` — standart paketler
-   - Tek dosya mı yoksa references.bib ayrı mı? Şu an ayrı (`\bibliography{references}`).
-   - arXiv için bib dosyası ayrı yüklenebilir (`.bbl` ön-derleme de kabul edilir).
+1. **LaTeX kaynağı:** main.tex (310 satır, arXiv uyumlu)
+   - `hyperref`, `authblk`, `booktabs`, `amsmath`, `enumitem`, `graphicx` — standart paketler
+   - Tek dosya + `references.bib` (110 satır, 13 referans)
+   - `.bbl` ön-derleme kabul edilir; ayrı yükleme de mümkün
 
-2. **Resimler/figures:** main.tex'te figure yok. Gerekirse eklenmeli.
+2. **Resimler/figures:** mevcut — `preprint/figures/severity_distribution.pdf` (Figure 1).
+   `main.tex`'te `\includegraphics` ile referans verilmiş.
 
 3. **Referanslar:** 13 referans, tüm arXiv ID'leri doğrulandı (22:00 audit).
    - `pal2024medhelm` arXiv ID'siz — "Preprint; arXiv ID not verified" notu var.
    - DOI'siz journal referansları (`levkovich2024dosing`) crossref doğrulaması gerektirir.
 
 4. **Abstract:** 74 kelime, arXiv sınırı (1920 karakter) içinde.
+
+5. **AI disclosure:** eklendi (AI-Assisted Writing Disclosure section, main.tex'te).
 
 ## Submit Öncesi Checklist
 

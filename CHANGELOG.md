@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.1e — 2026-07-03 02:00 (weekly eval script + release issue + arXiv doc update)
+
+- Created `scripts/weekly_model_eval.py`: reusable weekly model response evaluation script (reads 5 hard prompts from TSV, calls configured model APIs, runs rule-based scoring, writes timestamped report). Handles all 3 models (DeepSeek Flash, Qwen 7B, Llama 70B) and includes `--dry-run` mode. Addresses issue #185.
+- Created GitHub issue #186: v0.2.1 release plan meta-tracker (DOI, arXiv, weekly eval, 100 cases, second reviewer, community growth milestones).
+- Updated `docs/ARXIV_SUBMIT_PREP_20260703.md` with current status: figure exists, AI disclosure section present, LaTeX source arXiv-compatible.
+- Updated CHANGELOG.
+- HF Space still RUNNING (200 OK).
+
 ## v0.2.1d — 2026-07-03 01:00 (preprint figure + AI disclosure + eval protocol)
 
 - Added severity distribution figure (bar chart PDF) to preprint: 44 cases weighted toward high severity (52% level 5).
