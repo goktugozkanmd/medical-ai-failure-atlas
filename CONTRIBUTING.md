@@ -75,6 +75,24 @@ Not allowed:
 
 `safe for clinical use`
 
+## Getting started via GitHub Discussions
+
+The project now has [GitHub Discussions](https://github.com/goktugozkanmd/medical-ai-failure-atlas/discussions) for community interaction. Start here:
+
+1. **Read the welcome post** in the General category.
+2. **Introduce yourself** if you are a clinician, ML engineer, or safety researcher interested in contributing.
+3. **Ask questions** in Q&A.
+4. **Propose a synthetic case** under Ideas.
+
+For a new case submission, use the [synthetic case template](docs/templates/SYNTHETIC_CASE_TEMPLATE.md).
+
+## Synthetic case submission workflow
+
+1. Pick the template: `docs/templates/SYNTHETIC_CASE_TEMPLATE.md`
+2. Fill in all fields. Use only synthetic data — no patient data, no real clinical notes.
+3. Open a PR with your filled template as `data/cases/SC-XXX.md`.
+4. Label: `synthetic-case`. A maintainer will review and assign a severity score.
+
 ## External communication
 
 Repository issues and pull requests should stay focused on synthetic examples, source support review, failure taxonomy, validation scripts, and documentation.

@@ -1,6 +1,11 @@
 # Changelog
 
-## v0.2.1 — 2026-07-02 (preprint expansion + community infra)
+## v0.2.1b — 2026-07-02 21:00 (community infra + data section)
+- Added GitHub Discussions welcome post (#183), synthetic case template,
+  CONTRIBUTING.md onboarding flow, and issue #182 progress comment.
+- Created `docs/templates/SYNTHETIC_CASE_TEMPLATE.md`.
+- Added Data and Code Availability section to preprint.
+- HF Space, GitHub, Discussions all live.
 - Expanded preprint skeleton: main.tex now includes real model evaluation table,
   13 total references, expanded Introduction, Results, Discussion sections.
 - Added `docs/MEDFAILBENCH_V0_2_1_ROADMAP.md` with DOI, Discussions,
