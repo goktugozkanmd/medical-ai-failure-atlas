@@ -107,6 +107,7 @@ MedFailBench preprint'ini arXiv'e yükle.
 | Zenodo DOI | Yüksek | G hesabı | 30 dk |
 | CONTRIBUTING.md güncelle | Orta | Yok | 20 dk |
 | ~~Reference hallucination audit~~ | Kritik | Yok | ✅ 22:00 |
+| ~~Preprint Discussion genişletme~~ | Orta | Yok | ✅ 23:00 |
 | Haftalık eval script | Orta | API key | 1-2 saat |
 | ArXiv submit | Yüksek | DOI | 1 saat |
 | İkinci klinisyen review | Düşük | Gönüllü | 1-2 hafta |
