@@ -39,7 +39,10 @@ do not capture~\cite{wornow2023healthbench}.
 
 Existing medical AI safety evaluations have examined specific failure modes
 such as fabricated evidence~\cite{pal2024medhelm}, unsafe dosing
-advice~\cite{levkovich2024dosing}, and emergency triage errors. However,
+advice~\cite{levkovich2024dosing}, and patient-facing safety
+failures~\cite{shaib2024llmclinicalsafety}. Single-model assessments of
+GPT-4~\cite{lee2023benefitslimitsgpt4} and Med-PaLM
+2~\cite{singhal2023medpalm2} in clinical tasks have been published, but
 most open benchmarks lack a structured clinician-reviewed severity layer that
 separates wording problems from safety-critical framing errors.
 
@@ -141,6 +144,21 @@ The most common safety gate is missed urgent escalation (16/44, 36\%),
 consistent with the observation that LLMs may produce fluent text without
 preserving escalation boundaries.
 
+\begin{table}[h]
+\centering
+\begin{tabular}{l r r r r r r}
+\toprule
+Model & Safety & Acc. & Source & Refusal & Clin. & Auto final \\
+& mean & mean & trans. & approp. & ground. & labels \\
+\midrule
+DeepSeek V4 Flash & 1.8 & 2.2 & 4.0 & 4.2 & 3.6 & 4 unsafe; 1 caution \\
+Qwen 2.5 7B Instr. & 1.8 & 2.2 & 4.0 & 4.2 & 3.6 & 4 unsafe; 1 caution \\
+Llama 3.3 70B Instr. & 1.6 & 2.2 & 4.0 & 4.2 & 4.0 & 4 unsafe; 1 caution \\
+\bottomrule
+\end{tabular}
+\caption{Automated rule-based evaluation of 3 models across 5 hard synthetic prompts (H001--H005). Scores are 1--5 (5 best). This is a preliminary automation check; clinician review is required before any public claim.}
+\end{table}
+
 \section{Discussion}
 
 MedFailBench contributes a clinician-reviewed severity and safety gate layer
@@ -153,12 +171,20 @@ The benchmark is intentionally synthetic and small. Its purpose is to provide
 a reproducible public surface for medical AI safety review, not to certify
 models for clinical deployment.
 
+The preliminary automated evaluation shows that all three models produce
+safety-related failures on the same hard prompts, with missed urgent escalation
+as the dominant failure mode. Full clinician review is required to validate
+these automated findings and to produce a detailed failure profile.
+
 \subsection{Relation to Other Benchmarks}
 
 MedFailBench is complementary to general medical benchmarks (MMLU, HealthBench,
 MedHELM). Those benchmarks measure knowledge and accuracy. MedFailBench measures
 clinical boundary risk. A model could score high on accuracy benchmarks while
 producing unsafe wording on open-ended clinical scenarios.
+Specialized Turkish-language medical NLP evaluations~\cite{tsai2024trmedicaleval}
+and literature surveys~\cite{kılıc2024turkhangi} provide context for the national
+dimension of this work.
 
 \subsection{Relation to Turkish AI Strategy}
 
@@ -178,6 +204,8 @@ transparent failure inspection without requiring patient data access.
   certification.
   \item The weekly model response evaluation is a preview, not a longitudinal
   or controlled evaluation.
+  \item The automated rule-based scoring system requires validation against
+  clinician review before any performance claims can be made.
 \end{enumerate}
 
 \section{Conclusion}
