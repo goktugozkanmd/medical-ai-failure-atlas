@@ -40,6 +40,8 @@ See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metad
 
 ## Recent Public Artifacts
 
+- Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
+- MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
 - Weekly real model response preview: [`docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md`](docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
 - Social launch drafts: [`SOCIAL_POSTS.md`](SOCIAL_POSTS.md)
