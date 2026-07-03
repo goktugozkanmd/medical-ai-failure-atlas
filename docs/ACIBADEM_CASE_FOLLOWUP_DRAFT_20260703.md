@@ -11,9 +11,10 @@
 - **20 Haz:** Mehmet Emin Aksoy "3 Temmuz sonrası haberleşelim" dedi
 - **3 Tem 2026:** Takip zamanı — BUGÜN
 
-## Durum (C0R3 saatlik kontrol, 00:01 TRT)
-- Mail geldi mi kontrol edilmedi (sabah aralığı dışı).
+## Durum (C0R3 saatlik kontrol, 08:45 TRT — 3 Temmuz)
+- Kuroda'dan cevap geldi: "sekreter randevu için ulaşacak." Önerilen slotlar haftasonu (4-5 Temmuz).
 - MedFailBench canlı: HF Space RUNNING, GitHub Discussions açık, collaborator issue #182 yayında, v0.2.1 roadmap ilerliyor.
+- Preprint 323 satır, 6 section, 13 referans — arXiv submit hazırlığı devam ediyor.
 
 ## Önerilen cevap (Taslak — G onayı gerekiyor)
 
