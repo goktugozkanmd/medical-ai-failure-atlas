@@ -8,7 +8,7 @@
 | Adım | Durum | Not |
 |------|-------|-----|
 | Abstract ≤1920 chars | ✅ | 74 words, arXiv-compliant |
-| LaTeX compiles (`make -C preprint`) | 🔄 | CI workflow var, PR'de otomatik dene |
+| LaTeX compiles (`make -C preprint`) | ❌ | `pdflatex` not found. Install: `brew install --cask mactex-no-gui` |
 | Figure 1 (severity distribution) | ✅ | `preprint/figures/severity_distribution.pdf` |
 | AI-Assisted Writing Disclosure | ✅ | `main.tex` Section |
 | Preprint sections complete | ✅ | 310 lines, 6 sections, 13 references, 2 figures/tables |
@@ -34,7 +34,7 @@
 | GitHub Discussions açık | ✅ | #183 welcome post yayında |
 | CONTRIBUTING.md onboarding | ✅ | Güncellendi |
 | Synthetic case template | ✅ | `docs/templates/SYNTHETIC_CASE_TEMPLATE.md` |
-| Issue labels (good-first-issue, vs.) | 🔄 | README'de belirtildi, GitHub'da eklenebilir |
+| Issue labels (good-first-issue, vs.) | ✅ | #187, #188 etiketli issue'lar açıldı. Label: `good first issue`, `documentation`, `data` |
 | Collaboration brief | ✅ | `docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md` |
 | Collaborator call (#182) | ✅ | Açık, roadmap yorumu eklendi |
 
