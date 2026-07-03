@@ -9,6 +9,15 @@
 - All URLs 200 OK (HF Space, GitHub, HF Runtime).
 - Next queue: 7 new work candidates for upcoming runs.
 
+## v0.2.1e+ (current development)
+
+- Switched preprint build from pdflatex to tectonic (`brew install tectonic`).
+- Fixed Makefile for tectonic compatibility. LaTeX compilation now works (78.8 KB PDF).
+- Updated KURODA_MEETING_PREP with G's prep checklist and suggested pre-readings.
+- Updated V0_2_1_RELEASE_CHECKLIST: LaTeX compile blocker resolved.
+- Added preprint build artifacts to .gitignore.
+- AHTBE 2026 registration prep doc created ($550, deadline July 6).
+
 ## v0.2.1f — 2026-07-03 03:00 (release checklist + roadmap update)
 - Created `docs/V0_2_1_RELEASE_CHECKLIST.md`: comprehensive single-source release tracker covering preprint, Zenodo DOI, community, weekly eval, expansion, and visibility. Structured as tabular checklist with status per step.
 - Updated `docs/MEDFAILBENCH_V0_2_1_ROADMAP.md`: status header, timeline table (all completed items ✅ with run timestamps), next-best-actions refreshed with 5 new work candidates.

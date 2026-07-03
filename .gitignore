@@ -8,3 +8,9 @@ raw_outputs/
 logs/
 .github/workflows/
 FLAGSHIP_7DAY_PLAN.md
+preprint/main.pdf
+preprint/*.aux
+preprint/*.bbl
+preprint/*.blg
+preprint/*.log
+preprint/*.out

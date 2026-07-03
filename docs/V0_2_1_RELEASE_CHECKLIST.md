@@ -8,7 +8,7 @@
 | Adım | Durum | Not |
 |------|-------|-----|
 | Abstract ≤1920 chars | ✅ | 74 words, arXiv-compliant |
-| LaTeX compiles (`make -C preprint`) | ❌ | `pdflatex` not found. Install: `brew install --cask mactex-no-gui` |
+| LaTeX compiles (`make -C preprint`) | ✅ | Switched to tectonic (`brew install tectonic`), PDF üretildi (78.8 KB) |
 | Figure 1 (severity distribution) | ✅ | `preprint/figures/severity_distribution.pdf` |
 | AI-Assisted Writing Disclosure | ✅ | `main.tex` Section |
 | Preprint sections complete | ✅ | 310 lines, 6 sections, 13 references, 2 figures/tables |

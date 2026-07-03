@@ -26,8 +26,10 @@
 | Sertifika | İstenirse talep edilecek |
 | MedFailBench demo | GitHub + HF Space üzerinden canlı gösterilebilir |
 | Kuroda'nın ilgi alanı | Medical informatics, clinical LLM (NBCE summarization 2411.08586), privacy-preserving analytics (2604.21491), CADx (1708.05897) |
+| **G'nin hazır etmesi gerekenler** | Zoom link/ID/pass kayıtlı; MedFailBench HF Space açık; GitHub Discussions gösterilebilir |
+| **Ön okuma** | Kuroda 2411.08586 (EMR summarization) — MedFailBench ile bridge; 2604.21491 (DP analytics) — safety overlap |
 
-## Önerilen Konuşma Akışı
+## Önerilen Konuşma Akışı (Genişletilmiş)
 
 1. Kendini tanıt (2 dk) — İç hastalıkları + medical AI safety
 2. MedFailBench demo (5 dk) — canlı benchmark, severity rubric, leaderboard
