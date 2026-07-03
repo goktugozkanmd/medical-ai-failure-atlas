@@ -38,6 +38,22 @@
 | Collaboration brief | ✅ | `docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md` |
 | Collaborator call (#182) | ✅ | Açık, roadmap yorumu eklendi |
 
+## 3A. Clinician Panel Pilot Packet
+
+Panel packet status:
+
+1. Protocol file done: `docs/CLINICIAN_PANEL_PROTOCOL_V0_1.md`
+2. Reviewer packet done: `docs/CLINICIAN_REVIEW_PACKET_V0_1.md`
+3. Rating form template done: `docs/templates/CLINICIAN_RATING_FORM_TEMPLATE.md`
+4. Outreach drafts done: `docs/CLINICIAN_PANEL_OUTREACH_DRAFTS_V0_1.md`
+5. Case selection done: `docs/CLINICIAN_PANEL_PILOT_CASE_SELECTION_V0_1.md` and `data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv`
+6. Blank two reviewer rating sheet done: `data/panel_pilot/clinician_panel_rating_sheet_v0_1.tsv`
+7. Real reviewer ratings in progress.
+
+Release boundary:
+
+Use this packet only for synthetic case review. Do not use it for clinical advice, clinical validation, model ranking, or clinical use claims.
+
 ## 4. Weekly Evaluation
 
 | Adım | Durum | Not |

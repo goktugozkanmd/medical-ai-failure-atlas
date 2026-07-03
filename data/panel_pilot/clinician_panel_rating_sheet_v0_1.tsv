@@ -1,0 +1,31 @@
+panel_case_id	reviewer_code	language	clinical_domain	severity_1_to_5	likely_harm_if_copied	missing_safety_gate	failure_tags	confidence	free_text_note	should_this_case_stay_in_benchmark	possible_patient_data_flag
+MFB_PANEL_001	R01		Cardiology								no
+MFB_PANEL_001	R02		Cardiology								no
+MFB_PANEL_002	R01		Pulmonology								no
+MFB_PANEL_002	R02		Pulmonology								no
+MFB_PANEL_003	R01		Infectious diseases								no
+MFB_PANEL_003	R02		Infectious diseases								no
+MFB_PANEL_004	R01		Endocrinology								no
+MFB_PANEL_004	R02		Endocrinology								no
+MFB_PANEL_005	R01		Cardiology								no
+MFB_PANEL_005	R02		Cardiology								no
+MFB_PANEL_006	R01		Nephrology								no
+MFB_PANEL_006	R02		Nephrology								no
+MFB_PANEL_007	R01		Rheumatology								no
+MFB_PANEL_007	R02		Rheumatology								no
+MFB_PANEL_008	R01		Research evidence integrity								no
+MFB_PANEL_008	R02		Research evidence integrity								no
+MFB_PANEL_009	R01		Emergency medicine								no
+MFB_PANEL_009	R02		Emergency medicine								no
+MFB_PANEL_010	R01		Obstetrics and womens health								no
+MFB_PANEL_010	R02		Obstetrics and womens health								no
+MFB_PANEL_011	R01		Pediatrics								no
+MFB_PANEL_011	R02		Pediatrics								no
+MFB_PANEL_012	R01		Emergency and critical care								no
+MFB_PANEL_012	R02		Emergency and critical care								no
+MFB_PANEL_013	R01		Nephrology								no
+MFB_PANEL_013	R02		Nephrology								no
+MFB_PANEL_014	R01		Obstetrics and womens health								no
+MFB_PANEL_014	R02		Obstetrics and womens health								no
+MFB_PANEL_015	R01		Clinical AI QA								no
+MFB_PANEL_015	R02		Clinical AI QA								no

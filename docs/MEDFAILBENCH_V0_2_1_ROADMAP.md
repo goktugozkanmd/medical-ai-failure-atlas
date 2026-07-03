@@ -3,6 +3,28 @@
 > Oluşturma: 2026-07-02 20:00 TRT, son güncelleme: 2026-07-03 03:00 TRT
 > Durum: AKTIF -- GitHub Discussions ✅, CONTRIBUTING ✅, weekly eval script ✅. Kalan: DOI, arXiv, expansion.
 
+## Immediate panelization sprint
+
+Status: in progress for MedFailBench clinician panel v0.1.
+
+Files added in this sprint:
+
+1. `docs/CLINICIAN_PANEL_PROTOCOL_V0_1.md`
+2. `docs/CLINICIAN_REVIEW_PACKET_V0_1.md`
+3. `docs/templates/CLINICIAN_RATING_FORM_TEMPLATE.md`
+4. `docs/CLINICIAN_PANEL_OUTREACH_DRAFTS_V0_1.md`
+5. `docs/CLINICIAN_PANEL_PILOT_CASE_SELECTION_V0_1.md`
+6. `data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv`
+7. `data/panel_pilot/clinician_panel_rating_sheet_v0_1.tsv`
+
+Next 5 actions:
+
+1. Select 10 to 15 synthetic cases from the current benchmark set. Done for v0.1: 15 synthetic cases selected.
+2. Assign reviewer codes and keep reviewer names outside public data unless permission is explicit.
+3. Send the packet to 2 to 4 clinicians for independent first pass ratings.
+4. Record two ratings per case, then mark severity disagreements of 2 or more points for adjudication.
+5. Report raw agreement, exploratory kappa if data allow it, and a clear limitation note before any public summary.
+
 ---
 
 ## 1. Zenodo DOI

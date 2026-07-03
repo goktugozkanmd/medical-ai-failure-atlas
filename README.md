@@ -152,6 +152,18 @@ Do not use it for diagnosis, treatment advice, clinical deployment, patient tria
 
 All public scenarios are synthetic. If you contribute examples, use synthetic or public information only.
 
+## Clinician Panel Pilot
+
+MedFailBench is adding a small clinician panel pilot for synthetic cases. The v0.1 packet uses 2 to 4 reviewers, two independent ratings per case, severity 1 to 5, disagreement handling, and exploratory inter rater agreement reporting.
+
+The panel pilot does not use patient data and does not support clinical advice or clinical use claims.
+
+1. Protocol: [`docs/CLINICIAN_PANEL_PROTOCOL_V0_1.md`](docs/CLINICIAN_PANEL_PROTOCOL_V0_1.md)
+2. Reviewer packet: [`docs/CLINICIAN_REVIEW_PACKET_V0_1.md`](docs/CLINICIAN_REVIEW_PACKET_V0_1.md)
+3. Rating form template: [`docs/templates/CLINICIAN_RATING_FORM_TEMPLATE.md`](docs/templates/CLINICIAN_RATING_FORM_TEMPLATE.md)
+4. Outreach drafts: [`docs/CLINICIAN_PANEL_OUTREACH_DRAFTS_V0_1.md`](docs/CLINICIAN_PANEL_OUTREACH_DRAFTS_V0_1.md)
+5. Pilot case selection: [`docs/CLINICIAN_PANEL_PILOT_CASE_SELECTION_V0_1.md`](docs/CLINICIAN_PANEL_PILOT_CASE_SELECTION_V0_1.md)
+
 ## Roadmap
 
 The next public work is narrow and practical:
