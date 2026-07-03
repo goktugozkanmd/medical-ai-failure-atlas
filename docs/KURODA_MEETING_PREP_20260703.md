@@ -1,21 +1,18 @@
 # Kuroda Meeting Prep Brief
-# Date: 2026-07-03 08:45 TRT
-# Status: PREP — Kuroda sekreteri randevu için ulaşacak
+# Date: 2026-07-03 09:00 TRT (güncellendi)
+# Status: ✅ MEETING CONFIRMED — yarın 4 Temmuz Cumartesi 13:00 TRT
 
 ---
 
 ## Son Durum
 
-- **Kuroda'dan 2 Temmuz 17:47 JST cevap:** "Our secretary will contact you soon for the appointment."
-- **Önerilen slotlar (G tarafından):**
-  - 4 Temmuz Cumartesi 13:00 TRT / 19:00 JST
-  - 5 Temmuz Pazar 13:00 TRT / 19:00 JST
-- **Sekreter henüz ulaşmadı** (son kontrol: 8:45 TRT, 3 Temmuz Cuma)
-
-## Aksiyon
-
-- Sekreter bugün (3 Temmuz Cuma) ulaşırsa, G'nin haftasonu slotlarına hazır olması gerek.
-- Görüşme odağı: **2 haftalık akademik/observational ziyaret**, clinician-led LLM safety/evaluation, MedFailBench demo.
+- **Furusawa (Kuroda sekreteri) 3 Temmuz 13:29 JST (07:29 TRT) mail attı.**
+- **Zoom meeting ayarlandı:**
+  - Tarih: **4 Temmuz Cumartesi**
+  - Saat: **13:00 TRT / 19:00 JST**
+  - Link: https://kyoto-u-edu.zoom.us/j/87325572878?pwd=Qa8jyKo2NiQXdJB0mMPCVLykhxG69L.1
+  - Meeting ID: 873 2557 2878
+  - Pass Code: 823060
 
 ## Hazırlık Notları
 
@@ -28,6 +25,7 @@
 | Davet mektubu | Gerekli — Kuroda onayı bekleniyor |
 | Sertifika | İstenirse talep edilecek |
 | MedFailBench demo | GitHub + HF Space üzerinden canlı gösterilebilir |
+| Kuroda'nın ilgi alanı | Medical informatics, clinical LLM (NBCE summarization 2411.08586), privacy-preserving analytics (2604.21491), CADx (1708.05897) |
 
 ## Önerilen Konuşma Akışı
 
@@ -36,3 +34,11 @@
 3. Kyoto ziyareti beklentisi (3 dk) — ne görmek istediği, katkı
 4. Pratik sorular (2 dk) — tarih, fee, davet mektubu, sertifika
 5. Sonraki adımlar (2 dk)
+
+## Önemli
+
+- Kuroda'nın kendisi de klinisyen (MD) — ortak dil var
+- Lab'ı: Kyoto University Hospital, Div. Medical IT & Admin. Plan.
+- Son arXiv: 2604.21491 (DP + Cox regression, 2026), 2411.08586 (clinical EMR summarization with 7B LLM, 2024)
+- G'nin Zoom'da hazır olması gerek: link, Meeting ID, Pass Code kaydedilmeli
+- G hesabından Zoom'a katılmak için: `https://kyoto-u-edu.zoom.us/j/87325572878?pwd=Qa8jyKo2NiQXdJB0mMPCVLykhxG69L.1`
