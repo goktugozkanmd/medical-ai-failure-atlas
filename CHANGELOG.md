@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.2.1g — 2026-07-03 04:00 (preprint community review workflow + limitations expansion)
+
+- Expanded preprint Future Work with dedicated community review workflow paragraph: structured discussion templates, monthly release batching, CHANGELOG attribution.
+- Broadened Limitations: collaborator call for second reviewer (#182), 100-case expansion target for v0.2.1, Discussions workflow stress-test caveat.
+- main.tex: 310 → 326 lines with 7 limitation items. LaTeX structure intact.
+- Updated V0_2_1_RELEASE_CHECKLIST.md, arXiv submit prep doc.
+- All URLs 200 OK (HF Space, GitHub, HF Runtime).
+- Next queue: 7 new work candidates for upcoming runs.
+
 ## v0.2.1f — 2026-07-03 03:00 (release checklist + roadmap update)
 - Created `docs/V0_2_1_RELEASE_CHECKLIST.md`: comprehensive single-source release tracker covering preprint, Zenodo DOI, community, weekly eval, expansion, and visibility. Structured as tabular checklist with status per step.
 - Updated `docs/MEDFAILBENCH_V0_2_1_ROADMAP.md`: status header, timeline table (all completed items ✅ with run timestamps), next-best-actions refreshed with 5 new work candidates.

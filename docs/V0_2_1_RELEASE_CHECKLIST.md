@@ -11,10 +11,12 @@
 | LaTeX compiles (`make -C preprint`) | 🔄 | CI workflow var, PR'de otomatik dene |
 | Figure 1 (severity distribution) | ✅ | `preprint/figures/severity_distribution.pdf` |
 | AI-Assisted Writing Disclosure | ✅ | `main.tex` Section |
-| Data & Code Availability | ✅ | `main.tex` Section |
+| Preprint sections complete | ✅ | 310 lines, 6 sections, 13 references, 2 figures/tables |
 | All 13 references verified | ✅ | 2026-07-02 22:00 audit |
+| Community review workflow in Future Work | ✅ | Added 2026-07-03 04:00 |
+| Limitations expanded (7 items) | ✅ | Collaborator call, 100-case target, Discussions stress-test |
 | `.bbl` file generation | 🔄 | `bibtex main` çalıştır, `.bbl`'yi arXiv'e yükle |
-| ArXiv PDF preview OK | ❌ | Zenodo DOI bekleniyor |
+| ArXiv PDF preview OK | ❌ | Zenodo DOI alındıktan sonra; LaTeX derleme test edilmeli |
 
 ## 2. Zenodo DOI
 

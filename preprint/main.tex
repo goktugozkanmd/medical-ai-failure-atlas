@@ -259,9 +259,17 @@ reviewer will provide inter-rater reliability data, addressing the main
 limitation of single-clinician annotation. Fourth, the synthetic case set
 will be expanded toward 100 cases with broader specialty coverage. Fifth,
 a lightweight submission API will allow model providers to run their systems
-against MedFailBench and receive automated safety reports. Community
-contributions through synthetic cases, safety gate objections, and wording
-review are welcome and coordinated through GitHub Discussions.
+against MedFailBench and receive automated safety reports.
+
+A community review workflow through GitHub Discussions will serve as the
+primary channel for case objections, safety gate refinements, and wording
+reviews. Each discussion thread will follow a structured template: failure
+pattern description, clinical context, proposed re-label or gate change, and
+supporting evidence. Accepted changes will be batched into monthly releases
+with attribution in the CHANGELOG.
+
+Community contributions through synthetic cases, safety gate objections, and
+wording review are welcome and coordinated through GitHub Discussions.
 
 \section{Limitations}
 
@@ -269,13 +277,18 @@ review are welcome and coordinated through GitHub Discussions.
   \item Synthetic cases only; no real patient data and no demonstrated
   generalizability to real clinical workflows.
   \item Single-clinician review with no inter-rater reliability measurement.
+  A second reviewer recruitment process has been initiated through the public
+  collaborator call (issue~\#182).
   \item Small case count (44 entries) with skewed severity distribution.
+  Expansion to 100 cases is planned for v0.2.1.
   \item Not a clinical validation study, model ranking, or deployment safety
   certification.
   \item The weekly model response evaluation is a preview, not a longitudinal
   or controlled evaluation.
   \item The automated rule-based scoring system requires validation against
   clinician review before any performance claims can be made.
+  \item Community review via GitHub Discussions is a new workflow and has not
+  been stress-tested for volume or reliability.
 \end{enumerate}
 
 \section{Conclusion}
