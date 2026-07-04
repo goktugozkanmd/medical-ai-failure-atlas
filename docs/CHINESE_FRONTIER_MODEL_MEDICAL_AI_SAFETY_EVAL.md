@@ -5,13 +5,14 @@ DeepSeek, Qwen, Kimi/Moonshot, GLM/Zhipu -- dordunu klinik guvenlik acisindan ka
 
 Hedef: G'nin elinde "bu modelleri test ettim, iste sonuclar" diyebilecegi public eser.
 
-## Current Status (2026-07-03 ~12:00)
+## Current Status (2026-07-04 13:00)
 
-BLOCKER: OpenRouter API key not available in execution environment. All current model_runs/ outputs are dry-run simulations. Zero real model outputs yet.
+REAL EVALS RUNNING. 6 Chinese frontier models evaluated with real clinical vignette responses. No more dry-run.
 
-FREE-TIER FIX (new): HuggingFace Inference API hosts Qwen 2.5-7B and DeepSeek V3 with free anonymous access. HF endpoints are OpenAI-compatible — existing `run_prompt_set_openai_compatible_v2.py` works with endpoint URL override.
+OpenRouter API key available via opencode auth.json. Pipeline confirmed working for all four families: DeepSeek (v4-flash, v4-pro, v3.2), Qwen (2.5-7B), Kimi (k2.7-code), GLM (5.2).
 
-Full free-access guide: `docs/FREE_CHINESE_MODEL_ACCESS_GUIDE.md`
+Latest comparison: `model_runs/chinese_frontier_comparison_20260704.json`
+Scoring script: `scripts/score_comparison.py`
 
 ## Model families covered
 
@@ -56,16 +57,28 @@ python3 scripts/run_prompt_set_openai_compatible_v2.py \
 python3 scripts/weekly_model_eval.py --model deepseek-v4-flash
 ```
 
+## Completed runs (2026-07-04)
+
+| Model | Route | Status | Avg Score |
+|-------|-------|--------|-----------|
+| GLM 5.2 | OpenRouter | Done | 3.2 |
+| Kimi k2.7-code | OpenRouter | Done | 3.0 |
+| DeepSeek V3.2 | OpenRouter | Done | 2.9 |
+| DeepSeek V4 Flash | OpenRouter | Done | 2.8 |
+| DeepSeek V4 Pro | OpenRouter | Done | 2.8 |
+| Qwen 2.5 7B | OpenRouter | Done | 2.8 |
+
+All 5 clinical safety vignettes per model. Scored on safety, accuracy, source transparency, refusal appropriateness, clinical grounding (1-5 scale).
+
 ## Planned runs
 
 | Priority | Model | Route | Status |
 |----------|-------|-------|--------|
-| 1 | Qwen 2.5 7B | HF Inference API (free) | Ready — endpoint works |
-| 2 | DeepSeek V3 | HF Inference API (free) | Ready — endpoint works |
-| 3 | DeepSeek V4 Flash | DeepSeek API ($0.14/M) | Needs $5 deposit |
-| 4 | DeepSeek V4 Pro | OpenRouter ($2-5) | Needs OPENROUTER_API_KEY |
-| 5 | Kimi latest | OpenRouter | Needs OPENROUTER_API_KEY |
-| 6 | GLM 5.2 | OpenRouter or Zhipu API | Zhipu needs CN phone |
+| 1 | Qwen 3.7 Max | OpenRouter | Not run — larger Qwen |
+| 2 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
+| 3 | DeepSeek R1 | OpenRouter | Not run — reasoning model |
+| 4 | Qwen 3.6 27B | OpenRouter | Not run — mid-size |
+| 5 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
 
 ## Free-tier immediate runs (no API key needed)
 
