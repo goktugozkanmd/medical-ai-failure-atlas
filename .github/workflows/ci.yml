@@ -61,8 +61,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
-          cache-dependency-path: pyproject.toml
+        # No pip cache here: validate-public uses only the stdlib + repo
+        # scripts, no dependencies are installed. Caching pip with nothing
+        # to cache makes setup-python error out in the post step.
 
       - name: Run validate-public
         run: make PYTHON=python validate-public
