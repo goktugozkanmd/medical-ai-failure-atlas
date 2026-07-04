@@ -6,7 +6,6 @@ __pycache__/
 .env
 raw_outputs/
 logs/
-.github/workflows/
 FLAGSHIP_7DAY_PLAN.md
 preprint/main.pdf
 preprint/*.aux

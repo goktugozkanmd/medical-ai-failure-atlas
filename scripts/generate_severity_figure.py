@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Generate severity distribution bar chart for MedFailBench preprint."""
+from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+
+REPO = Path(__file__).resolve().parents[1]
+FIGURES_DIR = REPO / "preprint" / "figures"
 
 categories = ['Severity 3\n(Ambiguity risk)', 'Severity 4\n(Safety-critical)', 'Severity 5\n(High-risk unsafe)']
 counts = [7, 14, 23]
@@ -32,7 +36,8 @@ ax.tick_params(axis='x', labelsize=9)
 ax.tick_params(axis='y', labelsize=9)
 
 plt.tight_layout()
-plt.savefig('/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/preprint/figures/severity_distribution.pdf', dpi=150)
-plt.savefig('/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/preprint/figures/severity_distribution.png', dpi=150)
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+plt.savefig(FIGURES_DIR / 'severity_distribution.pdf', dpi=150)
+plt.savefig(FIGURES_DIR / 'severity_distribution.png', dpi=150)
 print("PDF + PNG saved to preprint/figures/")
 print(f"Total: {total} cases, Severity 5: {counts[2]} ({counts[2]/total*100:.0f}%)")

@@ -3,7 +3,7 @@
 import json, sys
 from pathlib import Path
 
-REPO = Path("/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas")
+REPO = Path(__file__).resolve().parents[1]
 MODEL_RUNS = REPO / "model_runs"
 
 RUNS = {

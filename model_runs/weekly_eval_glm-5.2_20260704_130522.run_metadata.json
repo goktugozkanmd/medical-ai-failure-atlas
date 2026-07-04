@@ -15,7 +15,7 @@
   },
   "prompt_tsv": "/private/tmp/prompt_set_5.tsv",
   "prompt_tsv_sha256": "7175929806b850acbb6795b4c7f1c52ee96ca194ee0ef8a2e41dc5efa23ea0f3",
-  "raw_output_json": "/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/model_runs/weekly_eval_glm-5.2_20260704_130522.json",
+  "raw_output_json": "model_runs/weekly_eval_glm-5.2_20260704_130522.json",
   "raw_output_sha256": "05c2f0c9efad2dab219ec7e821ea5345a30a2660c7fa180e2e58ec96ebf29f9b",
   "row_counts": {
     "expected": 5,
