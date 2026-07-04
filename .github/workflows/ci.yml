@@ -112,11 +112,14 @@ jobs:
           print(f'OK: {len(cited)} citations all defined in references.bib')
           PY
 
-      - name: Build PDF with tectonic
-        uses: VincentDnl/tectonic-action@v1.0.2
+      - name: Set up tectonic
+        uses: WtfJoke/setup-tectonic@v3
         with:
-          working_directory: preprint
-          file: main.tex
+          tectonic-version: 0.15.0
+
+      - name: Build PDF with tectonic
+        working-directory: preprint
+        run: tectonic main.tex
 
       - name: Verify PDF produced
         run: |
