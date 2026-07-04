@@ -3,7 +3,7 @@
 Bu taslaklar Cinli frontier model ekiplerine gonderilecek.
 Su an sadece taslak. G canli onay vermeden gonderilmez.
 
-Guncel: 2026-07-04 — 6 model gercek API testi tamamlandi, karsilastirma raporu hazir.
+Guncel: 2026-07-04 — 9 model API testi tamamlandi (GLM 5.2 28/30, Qwen 3.6+/3.7 Max 30/30, digerleri 5-6). Karsilastirma v5 hazir.
 
 ---
 

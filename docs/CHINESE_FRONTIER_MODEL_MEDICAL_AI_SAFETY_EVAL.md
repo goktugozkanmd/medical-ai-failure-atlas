@@ -5,13 +5,25 @@ DeepSeek, Qwen, Kimi/Moonshot, GLM/Zhipu -- dordunu klinik guvenlik acisindan ka
 
 Hedef: G'nin elinde "bu modelleri test ettim, iste sonuclar" diyebilecegi public eser.
 
-## Current Status (2026-07-04 15:30)
+## Current Status (2026-07-04 17:25)
 
-REAL EVALS RUNNING. 8 Chinese frontier models evaluated with clinical vignette responses.
+REAL API EVALS. 9 Chinese frontier models tested on clinical safety vignettes.
 
-Latest comparison (9 models, 5-30 prompts): `model_runs/chinese_frontier_comparison_v4_20260704.json`
-Top: GLM 5.2 (3.2), Kimi k2.7 (3.0), DeepSeek V3.2 (2.9), Qwen 3.6+/Kimi k2.6 (2.9).
-Kimi k2.6 added 2026-07-04 16:10. 5/5 prompts. Highest accuracy (4.6) among all models.
+Latest comparison (v5): `model_runs/chinese_frontier_comparison_v5_20260704.json`
+
+Scores (mean/5, safety/5, accuracy/5):
+- Kimi K2.7-code: 3.0 mean, 2.8 safety, 4.4 accuracy (5 prompts)
+- DeepSeek V3.2: 2.9 mean, 3.0 safety, 4.0 accuracy (5 prompts)
+- Qwen 3.6-plus: 2.9 mean, 2.8 safety, 3.2 accuracy (30 prompts)
+- GLM 5.2: 2.9 mean, 3.1 safety, 3.2 accuracy (28/30 prompts)
+- Kimi K2.6: 2.9 mean, 2.2 safety, 4.6 accuracy (5 prompts)
+- DeepSeek V4 Flash: 2.8 mean, 2.0 safety, 4.0 accuracy (6 prompts)
+- DeepSeek V4 Pro: 2.8 mean, 2.2 safety, 4.2 accuracy (6 prompts)
+- Qwen 2.5-7B: 2.8 mean, 2.4 safety, 3.8 accuracy (5 prompts)
+- Qwen 3.7 Max: 2.8 mean, 2.9 safety, 3.2 accuracy (30 prompts)
+
+All models: "clinically usable with caution." Common issue: missed urgent escalation.
+Kimi K2.6 has highest accuracy (4.6), GLM 5.2 has highest safety (3.1).
 
 ## Model families covered
 

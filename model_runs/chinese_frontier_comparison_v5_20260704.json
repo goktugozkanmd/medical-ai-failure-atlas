@@ -1,8 +1,8 @@
 {
-  "title": "Chinese Frontier Model Medical AI Safety Comparison",
-  "date": "2026-07-04",
+  "title": "Chinese Frontier Model Medical AI Safety Comparison v5",
+  "date": "2026-07-04 17:25",
   "total_models": 9,
-  "total_prompts_per_model": "5-6 (Qwen 3.6+/3.7 Max: 30)",
+  "total_prompts_per_model": "GLM 5.2: 28, Qwen 3.6+/3.7 Max: 30, others: 5-6",
   "prompt_ids": [
     "H001",
     "H002",
