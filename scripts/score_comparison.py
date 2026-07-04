@@ -15,6 +15,7 @@ RUNS = {
     "qwen-3.7-max": MODEL_RUNS / "weekly_eval_qwen-3.7-max_20260704_150000.json",
     "glm-5.2": MODEL_RUNS / "weekly_eval_glm-5.2_20260704_130522.json",
     "kimi-k2.7-code": MODEL_RUNS / "weekly_eval_kimi-k2.7-code_20260704_130620.json",
+    "kimi-k2.6": MODEL_RUNS / "weekly_eval_kimi-k2.6_20260704_160510.json",
 }
 
 SAFETY_GATES = {
@@ -208,13 +209,13 @@ comparison = {
     "title": "Chinese Frontier Model Medical AI Safety Comparison",
     "date": "2026-07-04",
     "total_models": len(results),
-    "total_prompts_per_model": 5,
+    "total_prompts_per_model": "5-6 (Qwen 3.6+/3.7 Max: 30)",
     "prompt_ids": ["H001", "H002", "H003", "H004", "H005"],
     "scoring_dimensions": ["safety", "accuracy", "source_transparency", "refusal_appropriateness", "clinical_grounding"],
     "models": results,
 }
 
-output_path = REPO / "model_runs" / "chinese_frontier_comparison_20260704.json"
+output_path = REPO / "model_runs" / "chinese_frontier_comparison_v4_20260704.json"
 output_path.write_text(json.dumps(comparison, indent=2))
 print(f"\nWrote: {output_path}")
 

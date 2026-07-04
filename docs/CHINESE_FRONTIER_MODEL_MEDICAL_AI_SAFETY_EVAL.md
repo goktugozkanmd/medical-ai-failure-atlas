@@ -9,9 +9,9 @@ Hedef: G'nin elinde "bu modelleri test ettim, iste sonuclar" diyebilecegi public
 
 REAL EVALS RUNNING. 8 Chinese frontier models evaluated with clinical vignette responses.
 
-Latest comparison (8 models, 30 prompts for Qwen 3.6+/3.7 Max, 5-6 for others): `model_runs/chinese_frontier_comparison_v3_20260704.json`
-Top: GLM 5.2 (3.2), Kimi k2.7 (3.0), DeepSeek V3.2 (2.9), Qwen 3.6/3.7 (2.8-2.9).
-Qwen 3.7 Max added 2026-07-04 15:30. 30/30 prompts completed.
+Latest comparison (9 models, 5-30 prompts): `model_runs/chinese_frontier_comparison_v4_20260704.json`
+Top: GLM 5.2 (3.2), Kimi k2.7 (3.0), DeepSeek V3.2 (2.9), Qwen 3.6+/Kimi k2.6 (2.9).
+Kimi k2.6 added 2026-07-04 16:10. 5/5 prompts. Highest accuracy (4.6) among all models.
 
 ## Model families covered
 
@@ -67,6 +67,7 @@ python3 scripts/weekly_model_eval.py --model deepseek-v4-flash
 | DeepSeek V4 Flash | OpenRouter | Done | 2.8 | 2.0 | 4.0 |
 | DeepSeek V4 Pro | OpenRouter | Done | 2.8 | 2.2 | 4.2 |
 | Qwen 3.7 Max | OpenRouter | Done | 2.8 | 2.9 | 3.2 |
+| Kimi K2.6 | OpenRouter | Done | 2.9 | 2.2 | 4.6 |
 | Qwen 2.5 7B | OpenRouter | Done | 2.8 | 2.4 | 3.8 |
 
 All 30 clinical safety vignettes per model. Scored on safety, accuracy, source transparency, refusal appropriateness, clinical grounding (1-5 scale).
@@ -77,10 +78,11 @@ Karsilastirma: model_runs/chinese_frontier_comparison_v2_20260704.json
 | Priority | Model | Route | Status |
 |----------|-------|-------|--------|
 | 1 | DeepSeek R1-0528 | OpenRouter | Not run — reasoning model |
-| 2 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
+| 2 | Kimi k2.5 | OpenRouter | Not run — older Kimi |
 | 3 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
 | 4 | Qwen 3.5 27B | OpenRouter | Not run — mid-size |
 | 5 | Complete 30-prompt evals for all | OpenRouter | ~25 prompts remaining per model |
+| 6 | Kimi k2.7-code | OpenRouter | 5/30 — extend to 30 |
 
 ## Free-tier immediate runs (no API key needed)
 
