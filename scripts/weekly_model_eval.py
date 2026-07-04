@@ -127,6 +127,10 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> str:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            # HF router (and other OpenAI-compatible gateways) reject the
+            # default Python urllib User-Agent with HTTP 403. Use a real
+            # browser-style UA so the request is accepted.
+            "User-Agent": "MedFailBench-eval/0.1 (+https://github.com/goktugozkanmd/medical-ai-failure-atlas)",
         },
         method="POST",
     )
