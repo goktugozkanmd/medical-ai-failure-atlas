@@ -1,41 +1,67 @@
 {
   "schema_version": "open_model_run_v2",
   "runner_name": "run_prompt_set_openai_compatible_v2",
-  "created_or_updated_at_utc": "2026-07-04T13:08:02Z",
+  "created_or_updated_at_utc": "2026-07-04T14:25:34Z",
   "model_id": "moonshotai/kimi-k2.6",
   "provider_route": "openai_compatible_chat_completions",
   "base_url": "https://openrouter.ai/api/v1",
   "generation_settings": {
     "temperature": 0.0,
-    "timeout_seconds": 60.0,
-    "sleep_seconds": 2.0,
+    "timeout_seconds": 180.0,
+    "sleep_seconds": 1.0,
     "max_attempts": 3,
     "retry_base_seconds": 2.0,
     "retry_max_seconds": 30.0
   },
-  "prompt_tsv": "/private/tmp/prompts_5.tsv",
-  "prompt_tsv_sha256": "7175929806b850acbb6795b4c7f1c52ee96ca194ee0ef8a2e41dc5efa23ea0f3",
-  "raw_output_json": "model_runs/weekly_eval_kimi-k2.6_20260704_160510.json",
-  "raw_output_sha256": "e998693cfc0fe0570cbda66e03f8fbfe512dbd7d132fe870c95d44e4e99598d0",
+  "prompt_tsv": "/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/data/prompt_set_v2_hard_30.tsv",
+  "prompt_tsv_sha256": "7579e66bf18bb614ac717cae7c49221c6e413465dbf7fba344abb69e5b0d2520",
+  "raw_output_json": "/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/model_runs/weekly_eval_kimi-k2.6_20260704_160510.json",
+  "raw_output_sha256": "b51c07dab2b74488e410a2558e95dbf9ea7880368e48e5b4220b1e4f0dae1688",
   "row_counts": {
-    "expected": 5,
-    "completed": 5,
-    "pending": 0
+    "expected": 30,
+    "completed": 6,
+    "pending": 24
   },
-  "completion_status": "completed",
+  "completion_status": "partial",
   "scenario_order": [
     "H001",
     "H002",
     "H003",
     "H004",
-    "H005"
+    "H005",
+    "H006",
+    "H007",
+    "H008",
+    "H009",
+    "H010",
+    "H011",
+    "H012",
+    "H013",
+    "H014",
+    "H015",
+    "H016",
+    "H017",
+    "H018",
+    "H019",
+    "H020",
+    "H021",
+    "H022",
+    "H023",
+    "H024",
+    "H025",
+    "H026",
+    "H027",
+    "H028",
+    "H029",
+    "H030"
   ],
   "completed_scenario_ids": [
     "H001",
     "H002",
     "H003",
     "H004",
-    "H005"
+    "H005",
+    "H006"
   ],
   "per_scenario": [
     {
@@ -60,26 +86,149 @@
       "answer_sha256": "632d72465e3921afaf2d8702df1b99fa02f982650b44d147fed25fc58ea5648e"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T13:07:05Z",
-      "ended_at_utc": "2026-07-04T13:07:24Z",
-      "latency_ms": 19637,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H004",
       "prompt_sha256": "433bb2b0c84363df0c7e3d1f3ce01146aad3520ac5375f74286d19892be31e92",
       "answer_sha256": "f7e0c55c324bf6595bf48c643f8c7bab85831ea3a63e8028e09496b65b92ec25"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T13:07:26Z",
-      "ended_at_utc": "2026-07-04T13:08:02Z",
-      "latency_ms": 35639,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H005",
       "prompt_sha256": "151e9ebee2454105672231838beadbf0a11483b5fa1c53e608b7718d0f956bac",
       "answer_sha256": "511100a10956d0bab751c659d10df41b3247f419d2ffa5be81fab0c0c45d3592"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-04T14:24:03Z",
+      "ended_at_utc": "2026-07-04T14:25:34Z",
+      "latency_ms": 91267,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "H006",
+      "prompt_sha256": "c928ee83b49666a3a0f706789fb727ac302aa5c322043d011da2454519150d7c",
+      "answer_sha256": "b1268fc572cb1e82a76f92849a288833b02c68d3fddd775a061ba1e6717701d1"
+    },
+    {
+      "scenario_id": "H007",
+      "prompt_sha256": "f7d6df9dd8fdc58620845c3c613fa796d89d1372dfee5f8386fabb1be6099b53",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H008",
+      "prompt_sha256": "0c0ce2f73243751618095cb025b8e6eb3e65972e388e1a62f210b960049a802d",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H009",
+      "prompt_sha256": "97e8cf55e07d7efc668dc069134e1ef9df5a6365237e68cef3a30835bc5aa2a5",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H010",
+      "prompt_sha256": "b6be2b7a71f8e86915c797168d1bb49b79f62f5675ed120b155c419fd6adf64f",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H011",
+      "prompt_sha256": "5b9fabe4bf2c5d37e53f8ca8388fd32a0b8ac42570e0eaaf21cf263f7fe8ab5f",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H012",
+      "prompt_sha256": "c33b4359a2e204548e7eddc344b9bd2833e35674b957e8c73a1fe82162f65686",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H013",
+      "prompt_sha256": "4b27b4ef70851453d9b41c29aaada256ec7e0e9bee4c799a8e734eadddcc9da4",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H014",
+      "prompt_sha256": "65e4667a16e28fea7ce2c86d4f1b53cae849005d761d636918c82cc96d11ab3d",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H015",
+      "prompt_sha256": "ab1d97eeffc40ffc33c562575e6af0265e411dc9d493deafdea2c6c2f8d1ddac",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H016",
+      "prompt_sha256": "af3707201364a768a52de9c29917761d65174c3aecb59d390f6215b1b457f638",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H017",
+      "prompt_sha256": "cf0118c5e1bd8c47ed864e6217d533f89d82db078b9faed493a4bfff9fb384e0",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H018",
+      "prompt_sha256": "14768cd1d988ddc3c920e115490e182ea29564943d64e7fca3994500ca6c00df",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H019",
+      "prompt_sha256": "045dd7834937d58f8907a3bce72946f5fef8104df537447326cd08a8150efac5",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H020",
+      "prompt_sha256": "537cffb61336ba8f68c3854d314bbc946b4752245067a9f09cc4126fc4ffaae4",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H021",
+      "prompt_sha256": "7b3b87fccf6c942f50bac8e5adecbf2fe8b00b5336d9a8ec1ba997e7feb90a47",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H022",
+      "prompt_sha256": "764d46bf0d3fead81235a710518310515ceda47166d867c9ad5da73e823916b5",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H023",
+      "prompt_sha256": "0a10ce0c106f0a49aefd6c864fdb4d32136d191c0a44d839d8e9da7be7f3d3b1",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H024",
+      "prompt_sha256": "8a255b48b90c60d1b5e7e1981bb256e0f0ee58dee2845fe32302b5bfc099167a",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H025",
+      "prompt_sha256": "6c15fc62e0904d0dc636bdbe8a5addf974ab500aa7cc57d1d9a0044a3c45d7e2",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H026",
+      "prompt_sha256": "298e72b473acb7aa68ca0f0718171c34954202a086d699c5aed08966c90f7155",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H027",
+      "prompt_sha256": "b9c0c7fe19af613a00737036838e47e54f70f6bfc2124a9c080a4a9cddb6c16f",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H028",
+      "prompt_sha256": "886c9c17f5bf7bd877110638bedd8a34bddbae4223c928636e91a1b9bf23fbba",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H029",
+      "prompt_sha256": "dacd5cc42519a39cd9091028340f2c93e27ec03ae88c445e8e866aef5df550ca",
+      "status": "pending"
+    },
+    {
+      "scenario_id": "H030",
+      "prompt_sha256": "31652c2385d44fe62d7912415be232738df023fbc856da2369c7c1c06f72ad4b",
+      "status": "pending"
     }
   ],
   "secret_policy": "API keys are not stored in this sidecar."
