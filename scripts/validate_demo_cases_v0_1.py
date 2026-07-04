@@ -344,7 +344,10 @@ def validate_payload(payload: object) -> list[str]:
             if phrase not in lower_intended_use:
                 fail(errors, f"intended_use: missing boundary phrase {phrase!r}")
 
-    if payload.get("source_verification_note") != str(SOURCE_NOTE.relative_to(ROOT)):
+    # Compare with POSIX-style separators so the check is portable across
+    # Windows (\), macOS/Linux (/) and CI runners. The seed JSON stores a
+    # forward-slash relative path.
+    if payload.get("source_verification_note") != SOURCE_NOTE.relative_to(ROOT).as_posix():
         fail(errors, "source_verification_note: must point to the visible source note")
 
     cases = payload.get("cases")

@@ -13,7 +13,7 @@ Detayli rehber: `docs/FREE_CHINESE_MODEL_ACCESS_GUIDE.md`
 ### Adim 1: Qwen 2.5-7B HF uzerinden test (5 dk)
 
 ```bash
-cd /Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas
+cd medical-ai-failure-atlas   # from the parent of the repo
 
 python3 scripts/run_prompt_set_openai_compatible_v2.py \
   --prompts data/prompt_set_v2_hard_30.tsv \

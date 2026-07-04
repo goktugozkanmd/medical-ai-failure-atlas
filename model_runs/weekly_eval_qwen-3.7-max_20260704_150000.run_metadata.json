@@ -13,9 +13,9 @@
     "retry_base_seconds": 2.0,
     "retry_max_seconds": 30.0
   },
-  "prompt_tsv": "/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/data/prompt_set_v2_hard_30.tsv",
+  "prompt_tsv": "data/prompt_set_v2_hard_30.tsv",
   "prompt_tsv_sha256": "7579e66bf18bb614ac717cae7c49221c6e413465dbf7fba344abb69e5b0d2520",
-  "raw_output_json": "/Users/goktugozkan/Desktop/C0R3/medical-ai-failure-atlas/model_runs/weekly_eval_qwen-3.7-max_20260704_150000.json",
+  "raw_output_json": "model_runs/weekly_eval_qwen-3.7-max_20260704_150000.json",
   "raw_output_sha256": "73805e19f84e1a32948f86f324bd046fdeb854aaff9b91c7ac0482a29dfb5388",
   "row_counts": {
     "expected": 30,
