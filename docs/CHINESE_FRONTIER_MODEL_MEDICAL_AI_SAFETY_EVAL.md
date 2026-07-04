@@ -5,14 +5,13 @@ DeepSeek, Qwen, Kimi/Moonshot, GLM/Zhipu -- dordunu klinik guvenlik acisindan ka
 
 Hedef: G'nin elinde "bu modelleri test ettim, iste sonuclar" diyebilecegi public eser.
 
-## Current Status (2026-07-04 13:00)
+## Current Status (2026-07-04 14:42)
 
-REAL EVALS RUNNING. 6 Chinese frontier models evaluated with real clinical vignette responses. No more dry-run.
+REAL EVALS RUNNING. 7 Chinese frontier models evaluated with 30 clinical vignette responses each.
 
-OpenRouter API key available via opencode auth.json. Pipeline confirmed working for all four families: DeepSeek (v4-flash, v4-pro, v3.2), Qwen (2.5-7B), Kimi (k2.7-code), GLM (5.2).
-
-Latest comparison: `model_runs/chinese_frontier_comparison_20260704.json`
-Scoring script: `scripts/score_comparison.py`
+Latest comparison (7 models, 30 prompts): `model_runs/chinese_frontier_comparison_v2_20260704.json`
+Top: GLM 5.2 (3.9), DeepSeek V3.2 (3.8), Kimi k2.7 (3.8), Qwen 3.6 Plus (3.6).
+DeepSeek V4 Flash/Pro lag behind on safety (2.0).
 
 ## Model families covered
 
@@ -57,29 +56,30 @@ python3 scripts/run_prompt_set_openai_compatible_v2.py \
 python3 scripts/weekly_model_eval.py --model deepseek-v4-flash
 ```
 
-## Completed runs (2026-07-04)
+## Completed runs (2026-07-04, 30 prompt v2)
 
-| Model | Route | Status | Avg Score |
-|-------|-------|--------|-----------|
-| GLM 5.2 | OpenRouter | Done | 3.2 |
-| Kimi k2.7-code | OpenRouter | Done | 3.0 |
-| DeepSeek V3.2 | OpenRouter | Done | 2.9 |
-| DeepSeek V4 Flash | OpenRouter | Done | 2.8 |
-| DeepSeek V4 Pro | OpenRouter | Done | 2.8 |
-| Qwen 2.5 7B | OpenRouter | Done | 2.8 |
+| Model | Route | Status | Avg Score | Safety | Accuracy |
+|-------|-------|--------|-----------|--------|----------|
+| GLM 5.2 | OpenRouter | Done | 3.9 | 4.2 | 4.0 |
+| DeepSeek V3.2 | OpenRouter | Done | 3.8 | 4.6 | 3.8 |
+| Kimi k2.7-code | OpenRouter | Done | 3.8 | 4.2 | 4.0 |
+| Qwen 3.6 Plus | OpenRouter | Done | 3.6 | 4.0 | 2.3 |
+| Qwen 2.5 7B | OpenRouter | Done | 3.4 | 3.0 | 3.6 |
+| DeepSeek V4 Flash | OpenRouter | Done | 2.6 | 2.0 | 3.0 |
+| DeepSeek V4 Pro | OpenRouter | Done | 2.5 | 2.0 | 3.2 |
 
-All 5 clinical safety vignettes per model. Scored on safety, accuracy, source transparency, refusal appropriateness, clinical grounding (1-5 scale).
+All 30 clinical safety vignettes per model. Scored on safety, accuracy, source transparency, refusal appropriateness, clinical grounding (1-5 scale).
+Karsilastirma: model_runs/chinese_frontier_comparison_v2_20260704.json
 
 ## Planned runs
 
 | Priority | Model | Route | Status |
 |----------|-------|-------|--------|
-| 1 | Qwen 3.6 Plus | OpenRouter | Running — mid-size (15/30) |
-| 2 | Qwen 3.7 Max | OpenRouter | Not run — larger Qwen |
-| 3 | DeepSeek R1 | OpenRouter | Not run — reasoning model |
+| 1 | Qwen 3.7 Max | OpenRouter | Not run — larger Qwen |
+| 2 | DeepSeek R1 | OpenRouter | Not run — reasoning model |
+| 3 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
 | 4 | Qwen 3.5 27B | OpenRouter | Not run — mid-size |
-| 5 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
-| 6 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
+| 5 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
 
 ## Free-tier immediate runs (no API key needed)
 
