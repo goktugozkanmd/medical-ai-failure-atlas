@@ -85,6 +85,55 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  preprint:
+    name: build preprint (tectonic)
+    runs-on: ubuntu-latest
+    # Verify the arXiv-bound LaTeX compiles on every change. Catches preamble
+    # breakage, missing figures, and undefined references before submission.
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check citation integrity
+        run: |
+          python - <<'PY'
+          import re
+          tex = open('preprint/main.tex', encoding='utf-8').read()
+          bib = open('preprint/references.bib', encoding='utf-8').read()
+          cited = {k.strip() for m in re.finditer(r'\\cite\{([^}]+)\}', tex) for k in m.group(1).split(',')}
+          defined = set(re.findall(r'@\w+\{([^,\s]+)', bib))
+          missing = cited - defined
+          if missing:
+              raise SystemExit(f'FAIL: {len(missing)} citation(s) missing from references.bib: {sorted(missing)}')
+          print(f'OK: {len(cited)} citations all defined in references.bib')
+          PY
+
+      - name: Set up tectonic
+        uses: WtfJoke/setup-tectonic@v3
+        with:
+          tectonic-version: 0.15.0
+
+      - name: Build PDF with tectonic
+        working-directory: preprint
+        run: tectonic main.tex
+
+      - name: Verify PDF produced
+        run: |
+          test -f preprint/main.pdf || { echo "FAIL: main.pdf not produced"; exit 1; }
+          echo "OK: preprint/main.pdf built ($(stat -c%s preprint/main.pdf) bytes)"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: preprint-pdf
+          path: preprint/main.pdf
+          retention-days: 30
+
+
   # Weekly real (non-DRY-RUN) model eval. Runs only if HF_TOKEN secret is set;
   # otherwise skips gracefully so the workflow never goes red for a missing
   # credential. Replaces the silent DRY-RUN pattern that produced simulated
