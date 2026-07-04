@@ -11,6 +11,8 @@ RUNS = {
     "deepseek-v4-pro": MODEL_RUNS / "weekly_eval_deepseek-v4-pro_20260704_120507.json",
     "deepseek-v3.2": MODEL_RUNS / "weekly_eval_deepseek-v3.2_20260704_130631.json",
     "qwen-2.5-7b": MODEL_RUNS / "weekly_eval_qwen-2.5-7b-instruct_20260704_130519.json",
+    "qwen-3.6-plus": MODEL_RUNS / "weekly_eval_qwen-3.6-plus_20260704_140751.json",
+    "qwen-3.7-max": MODEL_RUNS / "weekly_eval_qwen-3.7-max_20260704_150000.json",
     "glm-5.2": MODEL_RUNS / "weekly_eval_glm-5.2_20260704_130522.json",
     "kimi-k2.7-code": MODEL_RUNS / "weekly_eval_kimi-k2.7-code_20260704_130620.json",
 }
