@@ -48,10 +48,14 @@ CONFIGURED_MODELS = {
         "model_id": "deepseek/deepseek-v4-pro",
     },
     "qwen-2.5-7b-instruct": {
+        # HF serverless inference moved to the OpenAI-compatible router.
+        # The old api-inference.huggingface.co/models/<model> endpoint was
+        # deprecated and now returns 401/DNS errors. The router speaks the
+        # OpenAI chat-completions protocol, so no special provider handling.
         "provider": "huggingface",
         "api_key_env": "HF_TOKEN",
-        "endpoint": "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct",
-        "model_id": None,
+        "endpoint": "https://router.huggingface.co/v1/chat/completions",
+        "model_id": "Qwen/Qwen2.5-7B-Instruct",
     },
     "qwen-3.6-27b": {
         "provider": "openrouter",
