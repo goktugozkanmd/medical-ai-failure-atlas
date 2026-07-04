@@ -41,11 +41,23 @@ CONFIGURED_MODELS = {
         "endpoint": "https://openrouter.ai/api/v1/chat/completions",
         "model_id": "deepseek/deepseek-v4-flash",
     },
+    "deepseek-v4-pro": {
+        "provider": "openrouter",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "model_id": "deepseek/deepseek-v4-pro",
+    },
     "qwen-2.5-7b-instruct": {
         "provider": "huggingface",
         "api_key_env": "HF_TOKEN",
         "endpoint": "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct",
         "model_id": None,
+    },
+    "qwen-3.6-27b": {
+        "provider": "openrouter",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "model_id": "qwen/qwen3.6-27b",
     },
     "llama-3.3-70b-instruct": {
         "provider": "openrouter",
@@ -53,7 +65,25 @@ CONFIGURED_MODELS = {
         "endpoint": "https://openrouter.ai/api/v1/chat/completions",
         "model_id": "meta-llama/llama-3.3-70b-instruct",
     },
+    "kimi-latest": {
+        "provider": "openrouter",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "model_id": "moonshotai/kimi-latest",
+    },
+    "glm-5.2": {
+        "provider": "openrouter",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "model_id": "z-ai/glm-5.2",
+    },
 }
+
+CHINESE_FRONTIER_MODEL_KEYS = [
+    "deepseek-v4-flash", "deepseek-v4-pro",
+    "qwen-2.5-7b-instruct", "qwen-3.6-27b",
+    "kimi-latest", "glm-5.2",
+]
 
 HARD_PROMPT_IDS = ["H001", "H002", "H003", "H004", "H005"]
 
@@ -185,11 +215,15 @@ def generate_report(model_key: str, prompt_results: list) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="MedFailBench Weekly Model Evaluation")
     parser.add_argument("--model", choices=list(CONFIGURED_MODELS.keys()), help="Run single model only")
+    parser.add_argument("--chinese", action="store_true", help="Run all Chinese frontier models")
     parser.add_argument("--dry-run", action="store_true", help="Scoring only, no API calls")
     args = parser.parse_args()
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    models_to_run = [args.model] if args.model else list(CONFIGURED_MODELS.keys())
+    if args.chinese:
+        models_to_run = CHINESE_FRONTIER_MODEL_KEYS
+    else:
+        models_to_run = [args.model] if args.model else list(CONFIGURED_MODELS.keys())
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     summary = []
