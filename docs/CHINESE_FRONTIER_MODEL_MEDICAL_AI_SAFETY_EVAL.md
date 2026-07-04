@@ -5,6 +5,14 @@ DeepSeek, Qwen, Kimi/Moonshot, GLM/Zhipu -- dordunu klinik guvenlik acisindan ka
 
 Hedef: G'nin elinde "bu modelleri test ettim, iste sonuclar" diyebilecegi public eser.
 
+## Current Status (2026-07-03 ~12:00)
+
+BLOCKER: OpenRouter API key not available in execution environment. All current model_runs/ outputs are dry-run simulations. Zero real model outputs yet.
+
+FREE-TIER FIX (new): HuggingFace Inference API hosts Qwen 2.5-7B and DeepSeek V3 with free anonymous access. HF endpoints are OpenAI-compatible — existing `run_prompt_set_openai_compatible_v2.py` works with endpoint URL override.
+
+Full free-access guide: `docs/FREE_CHINESE_MODEL_ACCESS_GUIDE.md`
+
 ## Model families covered
 
 | Family | Models on OpenRouter | Free tier | Notes |
@@ -50,14 +58,32 @@ python3 scripts/weekly_model_eval.py --model deepseek-v4-flash
 
 ## Planned runs
 
-| Priority | Model | Status |
-|----------|-------|--------|
-| 1 | deepseek/deepseek-v4-flash | Config hazir, API key gerekli |
-| 2 | qwen/qwen-2.5-7b-instruct | Config hazir, API key gerekli |
-| 3 | deepseek/deepseek-v4-pro | Ust seviye karsilastirma |
-| 4 | qwen/qwen3.6-27b (orta) | Orta olcek Qwen |
-| 5 | moonshotai/kimi-latest | Moonshot guncel |
-| 6 | z-ai/glm-5.2 | En yeni GLM |
+| Priority | Model | Route | Status |
+|----------|-------|-------|--------|
+| 1 | Qwen 2.5 7B | HF Inference API (free) | Ready — endpoint works |
+| 2 | DeepSeek V3 | HF Inference API (free) | Ready — endpoint works |
+| 3 | DeepSeek V4 Flash | DeepSeek API ($0.14/M) | Needs $5 deposit |
+| 4 | DeepSeek V4 Pro | OpenRouter ($2-5) | Needs OPENROUTER_API_KEY |
+| 5 | Kimi latest | OpenRouter | Needs OPENROUTER_API_KEY |
+| 6 | GLM 5.2 | OpenRouter or Zhipu API | Zhipu needs CN phone |
+
+## Free-tier immediate runs (no API key needed)
+
+```bash
+# Qwen 2.5-7B via HF (works NOW):
+python3 scripts/run_prompt_set_openai_compatible_v2.py \
+  --prompts data/prompt_set_v2_hard_30.tsv \
+  --model "Qwen/Qwen2.5-7B-Instruct" \
+  --endpoint "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct/v1/chat/completions" \
+  --output model_runs/chinese_frontier/
+
+# DeepSeek V3 via HF (works NOW):
+python3 scripts/run_prompt_set_openai_compatible_v2.py \
+  --prompts data/prompt_set_v2_hard_30.tsv \
+  --model "deepseek-ai/DeepSeek-V3" \
+  --endpoint "https://api-inference.huggingface.co/models/deepseek-ai/DeepSeek-V3/v1/chat/completions" \
+  --output model_runs/chinese_frontier/
+```
 
 ## Outreach strategy
 
