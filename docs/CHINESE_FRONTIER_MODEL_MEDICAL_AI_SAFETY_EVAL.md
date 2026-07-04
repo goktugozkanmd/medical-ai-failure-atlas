@@ -74,11 +74,12 @@ All 5 clinical safety vignettes per model. Scored on safety, accuracy, source tr
 
 | Priority | Model | Route | Status |
 |----------|-------|-------|--------|
-| 1 | Qwen 3.7 Max | OpenRouter | Not run — larger Qwen |
-| 2 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
+| 1 | Qwen 3.6 Plus | OpenRouter | Running — mid-size (15/30) |
+| 2 | Qwen 3.7 Max | OpenRouter | Not run — larger Qwen |
 | 3 | DeepSeek R1 | OpenRouter | Not run — reasoning model |
-| 4 | Qwen 3.6 27B | OpenRouter | Not run — mid-size |
-| 5 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
+| 4 | Qwen 3.5 27B | OpenRouter | Not run — mid-size |
+| 5 | Kimi k2.6 | OpenRouter | Not run — older Kimi |
+| 6 | GLM 5v Turbo | OpenRouter | Not run — multimodal |
 
 ## Free-tier immediate runs (no API key needed)
 
