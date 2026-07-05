@@ -80,3 +80,25 @@ They also need to ask: “what safety boundary failed?”
 MedFailBench now has a live demo, model submission flow, collaborator call, and first real model-response preview across 3 models / 5 hard clinical prompts.
 
 Not a ranking. A failure-mode atlas.
+
+---
+
+## LinkedIn / X — 2026-07-05 v0.2.1: DOI, 100 cases, real eval
+
+MedFailBench v0.2.1 is out with a persistent DOI (10.5281/zenodo.21205535), 100 clinician-reviewed synthetic cases across 10 specialty domains, and a CI-integrated weekly pipeline producing real (non-simulated) model responses.
+
+What changed since v0.2.0:
+- 44 → 100 synthetic cases (cardiology, emergency, endocrinology, neurology, nephrology, GI/hepatology, OB/women's health, geriatrics/polypharmacy, infectious diseases, source integrity)
+- DRY-RUN era is over: Qwen 2.5-7B and Llama 3.1-8B now produce genuine outputs every week via a CI job
+- Persistent Zenodo DOI for citation
+- arXiv-ready preprint (built automatically on every PR)
+- main branch protection — every change goes through PR + required CI checks
+- Second clinician reviewer onboarded for inter-rater reliability data
+
+Two real-model preview scores (rule-based, pending clinician panel validation):
+- Qwen 2.5-7B: safety 52.0, source support 40.0, clinical boundary 63.2
+- Llama 3.1-8B: safety 60.0, source support 56.0, clinical boundary 63.2
+
+Not clinical advice. Not a model ranking. Not clinical validation. A clinician-built infrastructure for inspecting medical AI failure modes.
+
+Cite as: Göktug Özkan. MedFailBench v0.2.1. Zenodo. https://doi.org/10.5281/zenodo.21205535
