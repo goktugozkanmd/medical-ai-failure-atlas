@@ -2,7 +2,7 @@
 
 A clinician-built benchmark for medical AI safety evaluation.
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](pyproject.toml) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![HF Space](https://img.shields.io/badge/HuggingFace%20Space-live-green)](https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](pyproject.toml) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![HF Space](https://img.shields.io/badge/HuggingFace%20Space-live-green)](https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21205535-blue)](https://doi.org/10.5281/zenodo.21205535)
 
 ![Medical AI Failure Atlas demo screenshot](docs/assets/demo-screenshot.png)
 <!-- Legacy validator anchor: ![Demo screenshot placeholder](docs/assets/demo-placeholder.svg) -->

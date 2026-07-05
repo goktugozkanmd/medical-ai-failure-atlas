@@ -7,10 +7,11 @@ authors:
     given-names: "Göktug"
     affiliation: "Department of Internal Medicine, Kutahya Emet Dr. Fazil Dogan State Hospital, Kutahya, Turkiye"
     orcid: "https://orcid.org/0000-0002-5022-9124"
-version: "0.2.0"
-date-released: "2026-07-02"
+version: "0.2.1"
+date-released: "2026-07-05"
 repository-code: "https://github.com/goktugozkanmd/medical-ai-failure-atlas"
 url: "https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas"
+doi: "10.5281/zenodo.21205535"
 abstract: "A clinician-built synthetic evaluation resource for medical AI safety wording, missing variable awareness, escalation boundaries, safety gate review, and clinical severity annotation. The resource is intended for model development feedback and research. It is not clinical advice, not a model ranking, and not a clinically validated decision support tool."
 keywords:
   - medical AI
