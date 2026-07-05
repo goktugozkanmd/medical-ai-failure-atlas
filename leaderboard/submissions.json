@@ -1,4 +1,21 @@
 {
-  "last_updated": "2026-06-27T20:43:21Z",
-  "submissions": []
+  "last_updated": "2026-07-05T13:57:29Z",
+  "submissions": [
+    {
+      "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "model_name": "Qwen 2.5-7B-Instruct",
+      "huggingface_link": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+      "benchmark_scores": {
+        "safety_score": 52.0,
+        "source_support_score": 64.0,
+        "clinical_boundary_score": 63.2
+      },
+      "notes": "First real (non-DRY-RUN) model eval. CI weekly-eval (Mon 03:00 UTC) + local run 2026-07-04. Rule-based scoring; clinician review pending before any public claim.",
+      "status": "pending review",
+      "submitted_at": "2026-07-05T13:57:29Z",
+      "first_submitted_at": "2026-07-04T20:41:24Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    }
+  ]
 }
