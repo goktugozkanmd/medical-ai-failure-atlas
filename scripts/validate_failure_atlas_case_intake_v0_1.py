@@ -14,6 +14,7 @@ DEFAULT_INPUTS = [
     ROOT / "tr_medllm_safetybench" / "turkish_case_set_v1_20260705.jsonl",
     ROOT / "failure_atlas" / "public" / "case_intake_expansion_cardio_emerg_endo_v0_1.jsonl",
     ROOT / "failure_atlas" / "public" / "case_intake_expansion_neuro_nephro_gi_obgyn_geri_v0_1.jsonl",
+    ROOT / "failure_atlas" / "public" / "case_intake_expansion_pediatric_v0_1.jsonl",
 ]
 TAXONOMY_MAP = ROOT / "failure_atlas" / "public" / "taxonomy_map_v0_1.json"
 
