@@ -81,9 +81,9 @@ jobs:
           fetch-depth: 0
 
       - name: gitleaks
+        # No config-path: gitleaks-action v2 auto-discovers .gitleaks.toml
+        # in the repo root. Passing config-path crashes the SARIF upload step.
         uses: gitleaks/gitleaks-action@v2
-        with:
-          config-path: .gitleaks.toml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
