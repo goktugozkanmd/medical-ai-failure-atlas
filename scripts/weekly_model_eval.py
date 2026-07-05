@@ -57,6 +57,14 @@ CONFIGURED_MODELS = {
         "endpoint": "https://router.huggingface.co/v1/chat/completions",
         "model_id": "Qwen/Qwen2.5-7B-Instruct",
     },
+    "llama-3.1-8b-instruct": {
+        # Meta Llama 3.1 8B — verified available on HF router with the same
+        # HF_TOKEN used for Qwen. Adds a non-Chinese-frontier baseline.
+        "provider": "huggingface",
+        "api_key_env": "HF_TOKEN",
+        "endpoint": "https://router.huggingface.co/v1/chat/completions",
+        "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+    },
     "qwen-3.6-27b": {
         "provider": "openrouter",
         "api_key_env": "OPENROUTER_API_KEY",
