@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
-## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 3/5 kapı ölçütü hazır (çoğu onay bekler)
-## SON GÜNCELLEME: 2026-07-05 19:00 TRT (Neonhawk, ZCode)
+## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır (çoğu onay bekler)
+## SON GÜNCELLEME: 2026-07-05 20:30 TRT (Neonhawk, ZCode)
 
 > Bu dosya Codex'in her iterasyonda güncellediği canlı durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md (değişmez, önce o okunur).
@@ -8,10 +8,10 @@
 ---
 
 ### FAZ KAPISI DURUMU (Faz 1) — YAYINLANABİLİR METODOLOJİ
-- [ ] ≥2 hekimli panel FİİLEN çalışıyor: ≥20 vaka en az 2 bağımsız hekimce derecelendirildi + kappa raporlandı. → Hoca puanlama bekleniyor (24 vaka hazır, kappa script: PR #207)
-- [ ] Türkçe vaka seti v1: 25-40 vaka, panel-etiketli, severity-stratifiye, kaynak-bağlı. → YAPILMADI (tıbbi çeviri gerektiriyor, G onayı)
+- [ ] ≥2 hekimli panel FİİLEN çalışıyor: ≥20 vaka en az 2 bağımsız hekimce derecelendirildi + kappa raporlandı. → Hoca puanlama bekleniyor (24 vaka hazır, kappa script: PR #207, reviewer 2 formu: PR #206)
+- [x] Türkçe vaka seti v1: 25-40 vaka, panel-etiketli, severity-stratifiye, kaynak-bağlı. → DONE: 36 Türkçe vaka TRFAI100-135 (PR #210). Toplam 136 vaka (100 EN + 36 TR).
 - [x] arXiv/medRxiv preprint DRAFT tamam → submit ONAY BEKLEYEN. → arXiv paketi hazır (PR #204), preprint derleniyor (PR #192)
-- [ ] UK AISI Inspect Evals'a ≥2 merge edilmiş bakım/bug-fix PR'ı. → YAPILMADI
+- [ ] UK AISI Inspect Evals'a ≥2 merge edilmiş bakım/bug-fix PR'ı. → YAPILMADI (dış repo, issue #1235 aday)
 - [x] MedHELM köprü issue'su hazır → açma ONAY BEKLEYEN. → Issue #208 açıldı, spec hazır
 
 ### FAZ KAPISI DURUMU (Faz 0) — TAMAMLANDI ✅ (2026-07-05)
