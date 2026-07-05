@@ -1,0 +1,21 @@
+# gitleaks configuration
+# Extends the default ruleset (gitleaks-action loads default automatically when
+# this file uses `extend`).
+extend = true
+
+[allowlist]
+description = "Allowed false positives for medical-ai-failure-atlas"
+
+# The variable name DATA_NAME_TOKEN (a string constant for a file-name prefix,
+# not a credential) trips the generic "TOKEN = <value>" rule. The file that
+# contained it has been deleted, but gitleaks scans git history.
+regexes = [
+  'DATA_NAME_TOKEN',
+  'DASHBOARD_NAME_TOKEN',
+]
+
+# Known non-secret path strings that match secret-like patterns.
+paths = [
+  'medical_intelligence_atlas_coverage_dashboard',
+  'medical_intelligence_atlas_coverage',
+]
