@@ -38,11 +38,14 @@ python3 app.py
 
 See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metadata and deployment boundaries.
 
-## Recent Public Artifacts
+## Recent Public Artifacts (v0.2.1)
 
+- Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
+- 100 synthetic clinician-reviewed cases across 10 specialty domains (cardiology, emergency and critical care, endocrinology, neurology, nephrology, gastroenterology and hepatology, obstetrics and women's health, geriatrics and polypharmacy, infectious diseases, source integrity).
+- Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses; Qwen 2.5-7B is the first live model.
+- arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic).
 - Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
-- Weekly real model response preview: [`docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md`](docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
 - Social launch drafts: [`SOCIAL_POSTS.md`](SOCIAL_POSTS.md)
 
