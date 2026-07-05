@@ -51,6 +51,14 @@ See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metad
 
 ## Quick Start
 
+**New here?** Run the one-file walkthrough (no model API calls, works offline):
+
+```bash
+python examples/usage_walkthrough.py
+```
+
+It loads the synthetic case set, summarizes the taxonomy, scores a sample answer with the rule-based rubric, and prints a readable summary table.
+
 Run the public checks and generate the current leaderboard preview:
 
 ```bash
