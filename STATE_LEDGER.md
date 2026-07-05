@@ -1,18 +1,18 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
-## AKTİF FAZ: Faz 0 — Temel Sağlamlaştırma | İlerleme: 1/5 kapı ölçütü karşılandı
-## SON GÜNCELLEME: 2026-07-04 14:25 TRT (C0R3)
+## AKTİF FAZ: Faz 0 — Temel Sağlamlaştırma | İlerleme: 5/5 kapı ölçütü karşılandı ✅
+## SON GÜNCELLEME: 2026-07-05 02:45 TRT (Neonhawk, ZCode)
 
 > Bu dosya Codex'in her iterasyonda güncellediği canlı durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md (değişmez, önce o okunur).
 
 ---
 
-### FAZ KAPISI DURUMU (Faz 0)
+### FAZ KAPISI DURUMU (Faz 0) — TAMAMLANDI
 - [x] Kanonik SPEC_TAXONOMY_SEVERITY.md (taksonomi + severity rubriği, versiyonlu) → docs/SPEC_TAXONOMY_SEVERITY.md v0.3.0
-- [ ] Zenodo DOI kurulumu hazır (GitHub-Zenodo login blocker → ONAY BEKLEYEN)
-- [x] CI yeşil: pytest + validate-public + secret-scan + YAML, otomatik → 63 passed, 2026-07-04
+- [x] Zenodo DOI kurulumu hazır → 10.5281/zenodo.21205535 (PR #195, v0.2.1 release)
+- [x] CI yeşil: pytest 63/63 + validate-public + gitleaks + tectonic preprint + weekly eval — 6 job, otomatik → 2026-07-05
 - [x] STATE_LEDGER.md canlı ve protokole bağlı ← bu dosya
-- [ ] Panel davet paketi hazır (davet metni + değerlendirici kılavuzu + kappa şablonu) → ONAY BEKLEYEN
+- [x] Panel davet paketi hazır → CLINICIAN_REVIEW_PACKET_V0_1.md + INTER_RATER_REVIEW_SUBSET (24 vaka, 3 model) + ikinci hekim bulundu
 
 ### SON İTERASYON
 - Tarih/saat: 2026-07-04 14:02 TRT — C0R3
