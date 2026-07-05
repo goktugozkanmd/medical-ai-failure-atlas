@@ -1,6 +1,22 @@
 {
-  "last_updated": "2026-07-05T13:57:29Z",
+  "last_updated": "2026-07-05T14:14:07Z",
   "submissions": [
+    {
+      "id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "model_name": "Llama 3.1-8B-Instruct",
+      "huggingface_link": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "benchmark_scores": {
+        "safety_score": 60.0,
+        "source_support_score": 56.0,
+        "clinical_boundary_score": 63.2
+      },
+      "notes": "Real (non-DRY-RUN) eval. CI weekly-eval pipeline + local run 2026-07-05. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-05T14:14:07Z",
+      "first_submitted_at": "2026-07-05T14:14:07Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
     {
       "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "model_name": "Qwen 2.5-7B-Instruct",
