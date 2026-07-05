@@ -23,11 +23,12 @@ We present a clinician-built synthetic benchmark and failure atlas that labels
 medical AI errors by severity (1--5) and safety gate type (missed urgent
 escalation, unsafe remote dosing, unsafe discharge reassurance, evidence
 fabrication, unsafe protocol execution, source support gap). The current public
-release contains 44 clinician-reviewed synthetic cases with severity annotations,
-a live HuggingFace leaderboard preview, a safety gate taxonomy, a clinical
-severity rubric, and the first real model response evaluation covering 3 models
-across 5 hard prompts. No patient data, no clinical validation claims, no model
-rankings. MedFailBench is released under Apache-2.0 and CC-BY-4.0.
+release (v0.2.1) contains 100 clinician-reviewed synthetic cases with severity
+annotations, a live HuggingFace leaderboard preview, a safety gate taxonomy, a
+clinical severity rubric, and a real model response evaluation produced by a
+weekly automated pipeline. No patient data, no clinical validation claims, no
+model rankings. MedFailBench is released under Apache-2.0 and CC-BY-4.0 and
+carries the Zenodo DOI 10.5281/zenodo.21205535.
 \end{abstract}
 
 \section{Introduction}
@@ -162,29 +163,31 @@ All synthetic cases are licensed under CC-BY-4.0; code is Apache-2.0.
 
 The current public release includes:
 \begin{enumerate}[noitemsep]
-  \item A synthetic-only case set with 44 clinician-reviewed entries.
+  \item A synthetic-only case set with 100 clinician-reviewed entries spanning
+        cardiology, emergency and critical care, endocrinology, neurology,
+        nephrology, gastroenterology and hepatology, obstetrics and women's
+        health, geriatrics and polypharmacy, infectious diseases, and source
+        integrity.
   \item A safety gate taxonomy with 6 defined gate types.
   \item A clinical severity rubric with 5 levels.
   \item A live HuggingFace leaderboard preview with model submission form.
-  \item A first weekly model response evaluation covering 3 models x 5 prompts.
+  \item A weekly automated real-model evaluation pipeline (CI-integrated),
+        currently producing genuine Qwen 2.5-7B responses across 5 hard
+        prompts; extendable to additional models via provider API keys.
   \item A collaboration brief and contribution guide with issue templates.
+  \item A persistent Zenodo DOI (10.5281/zenodo.21205535) for citation.
 \end{enumerate}
 
-All cases are severity-annotated. The distribution is weighted toward higher
-severity: 23 of 44 cases (52\%) are level 5 (high-risk unsafe framing).
-The most common safety gate is missed urgent escalation (16/44, 36\%),
-consistent with the observation that LLMs may produce fluent text without
-preserving escalation boundaries.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/severity_distribution.pdf}
-\caption{Clinical severity distribution of the 44 synthetic cases in MedFailBench v0.2.0.
-Severity levels follow the rubric in Table~1. The majority of cases (52\%) are level 5
-(high-risk unsafe framing), reflecting the benchmark's focus on safety-critical failure
-patterns.}
-\label{fig:severity}
-\end{figure}
+All cases are risk-axis annotated. The distribution is weighted toward
+safety-critical risk axes: false reassurance and medication safety each
+account for 21 of 100 cases, followed by rare-danger under-triage (15).
+The most common safety gate is missed urgent escalation, consistent with
+the observation that LLMs may produce fluent text without preserving
+escalation boundaries. Clinical domain coverage is balanced across ten
+specialty areas (cardiology, emergency and critical care, endocrinology,
+neurology, nephrology, gastroenterology and hepatology, obstetrics and
+women's health, geriatrics and polypharmacy, infectious diseases, and
+source integrity), with ten cases each in the eight core domains.
 
 \begin{table}[h]
 \centering
@@ -198,7 +201,7 @@ Qwen 2.5 7B Instr. & 1.8 & 2.2 & 4.0 & 4.2 & 3.6 & 4 unsafe; 1 caution \\
 Llama 3.3 70B Instr. & 1.6 & 2.2 & 4.0 & 4.2 & 4.0 & 4 unsafe; 1 caution \\
 \bottomrule
 \end{tabular}
-\caption{Automated rule-based evaluation of 3 models across 5 hard synthetic prompts (H001--H005). Scores are 1--5 (5 best). This is a preliminary automation check; clinician review is required before any public claim.}
+\caption{Automated rule-based evaluation of Chinese-frontier models across 5 hard synthetic prompts (H001--H005). Scores are 1--5 (5 best). v0.2.1 introduces a CI-integrated weekly pipeline producing real (non-simulated) model responses; Qwen 2.5-7B is the first model with genuine outputs. Clinician review is required before any public claim.}
 \end{table}
 
 \section{Discussion}
@@ -279,8 +282,9 @@ wording review are welcome and coordinated through GitHub Discussions.
   \item Single-clinician review with no inter-rater reliability measurement.
   A second reviewer recruitment process has been initiated through the public
   collaborator call (issue~\#182).
-  \item Small case count (44 entries) with skewed severity distribution.
-  Expansion to 100 cases is planned for v0.2.1.
+  \item Case count (100 entries in v0.2.1) remains synthetic-only and
+  single-reviewer; inter-rater reliability data from a second clinician
+  reviewer is in progress.
   \item Not a clinical validation study, model ranking, or deployment safety
   certification.
   \item The weekly model response evaluation is a preview, not a longitudinal
@@ -307,7 +311,8 @@ MedFailBench is released as an open resource under Apache-2.0 and CC-BY-4.0.
 \bibliography{references}
 
 \section*{Data and Code Availability}
-MedFailBench v0.2.0 is released under Apache-2.0 and CC-BY-4.0.
+MedFailBench v0.2.1 is released under Apache-2.0 and CC-BY-4.0.
+The persistent DOI is 10.5281/zenodo.21205535.
 All source code, synthetic cases, evaluation data, and the live leaderboard
 preview are available at \url{https://github.com/goktugozkanmd/medical-ai-failure-atlas}
 and \url{https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas}.
