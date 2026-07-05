@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUTS = [
     ROOT / "failure_atlas" / "public" / "case_intake_examples_v0_1.jsonl",
     ROOT / "tr_medllm_safetybench" / "synthetic_risk_pack_v0_1.jsonl",
+    ROOT / "tr_medllm_safetybench" / "turkish_case_set_v1_20260705.jsonl",
     ROOT / "failure_atlas" / "public" / "case_intake_expansion_cardio_emerg_endo_v0_1.jsonl",
     ROOT / "failure_atlas" / "public" / "case_intake_expansion_neuro_nephro_gi_obgyn_geri_v0_1.jsonl",
 ]
