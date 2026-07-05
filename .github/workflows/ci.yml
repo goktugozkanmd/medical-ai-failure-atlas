@@ -156,7 +156,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run real eval (Qwen 2.5-7B via HF router)
+      - name: Run real eval (Qwen 2.5-7B and Llama 3.1-8B via HF router)
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
@@ -164,9 +164,10 @@ jobs:
             echo "HF_TOKEN not set — skipping real eval (add the secret to enable)."
             exit 0
           fi
-          # Single HF-backed model. Other Chinese-frontier models need
-          # OPENROUTER_API_KEY; add that secret to extend coverage.
+          # HF-backed models. Other frontier models need OPENROUTER_API_KEY;
+          # add that secret to extend coverage.
           python scripts/weekly_model_eval.py --model qwen-2.5-7b-instruct
+          python scripts/weekly_model_eval.py --model llama-3.1-8b-instruct
 
       - name: Upload eval results
         if: always()
