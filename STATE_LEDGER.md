@@ -1,44 +1,52 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
-## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır (çoğu onay bekler)
-## SON GÜNCELLEME: 2026-07-05 20:30 TRT (Neonhawk, ZCode)
+## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
+## SON GÜNCELLEME: 2026-07-06 18:29 TRT (C0R3)
 
-> Bu dosya Codex'in her iterasyonda güncellediği canlı durum defteridir.
-> Ana şartname: CODEX_3YEAR_BUILD_LOOP.md (değişmez, önce o okunur).
+> Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
+> Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
 
 ---
 
 ### FAZ KAPISI DURUMU (Faz 1) — YAYINLANABİLİR METODOLOJİ
-- [ ] ≥2 hekimli panel FİİLEN çalışıyor: ≥20 vaka en az 2 bağımsız hekimce derecelendirildi + kappa raporlandı. → Hoca puanlama bekleniyor (24 vaka hazır, kappa script: PR #207, reviewer 2 formu: PR #206)
-- [x] Türkçe vaka seti v1: 25-40 vaka, panel-etiketli, severity-stratifiye, kaynak-bağlı. → DONE: 36 Türkçe vaka TRFAI100-135 (PR #210). Toplam 136 vaka (100 EN + 36 TR).
-- [x] arXiv/medRxiv preprint DRAFT tamam → submit ONAY BEKLEYEN. → arXiv paketi hazır (PR #204), preprint derleniyor (PR #192)
-- [ ] UK AISI Inspect Evals'a ≥2 merge edilmiş bakım/bug-fix PR'ı. → YAPILMADI (dış repo, issue #1235 aday)
-- [x] MedHELM köprü issue'su hazır → açma ONAY BEKLEYEN. → Issue #208 açıldı, spec hazır
+- [ ] ≥2 hekimli panel fiilen çalışıyor: ≥20 vaka en az 2 bağımsız hekimce derecelendirildi + kappa raporlandı. → Şu an single-physician / clinician-authored metodoloji; dış klinisyen panel validasyonu bekliyor.
+- [x] Türkçe vaka seti v1 / TR-EN safety drift preview materyali hazır. → Aktif dashboard: 241 tracked rows; validation tier ayrımı korunacak.
+- [x] arXiv/medRxiv preprint draft hazır. → arXiv endorsement bekliyor; DOI/GitHub release mevcut.
+- [ ] UK AISI Inspect Evals'a ≥2 merge edilmiş bakım/bug-fix PR'ı. → PR/issue hattı upstream review bekliyor.
+- [x] MedHELM köprü hattı hazır. → Discussion/adapter demo/spec var; dış takipte canlı kaynak kontrolü şart.
 
-### FAZ KAPISI DURUMU (Faz 0) — TAMAMLANDI ✅ (2026-07-05)
-- [x] Kanonik SPEC_TAXONOMY_SEVERITY.md v0.3.0
-- [x] Zenodo DOI 10.5281/zenodo.21205535 (PR #195)
-- [x] CI yeşil: 6 job otomatik (pytest 63/63, validate-public, gitleaks, tectonic preprint, weekly eval)
+### FAZ KAPISI DURUMU (Faz 0) — TAMAMLANDI ✅
+- [x] Kanonik taksonomi/rubrik
+- [x] Zenodo DOI 10.5281/zenodo.21205535
+- [x] CI yeşil
 - [x] STATE_LEDGER.md canlı
-- [x] Panel davet paketi hazır + ikinci hekim bulundu
+- [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON İTERASYON
-- Tarih/saat: 2026-07-04 14:02 TRT — C0R3
+- Tarih/saat: 2026-07-06 18:29 TRT — C0R3
 - Yapılanlar:
-  - OUTREACH_QWEN_KIMI_DEEPSEEK.md güncellendi: 6 model gerçek skor eklendi, placeholder kaldırıldı
-  - Qwen 3.6-plus eval başlatıldı (OpenRouter, 30 prompt, ~19/30 tamamlandı, devam ediyor)
-- Doğrulama: outreach commit dc9dfc0 push edildi
-- Commit: dc9dfc0 (outreach), Çin frontier doc güncellemesi henüz commit edilmedi
+  - GLM/Mercury'nin ürettiği draftlar silinmeden temizlendi ve public-risk hataları düzeltildi.
+  - `clinician-reviewed` gibi riskli ifadeler current public dosyalarda `clinician-authored` / reviewer-pending çizgisine çekildi.
+  - 10-model public leaderboard ile 11-row historical worst-case JSON ayrımı README'de netleştirildi.
+  - `docs/HARD_FINDINGS_V0_2_1.md` oluşturuldu.
+  - `docs/CHINESE_FRONTIER_SAFETY_REPORT.md` oluşturuldu.
+  - `docs/MODEL_TEAM_FEEDBACK_OUTREACH.md` oluşturuldu.
+  - Model failure cards ve model-team feedback draftları tutuldu, ama dış gönderim onay bekler.
+- Doğrulama:
+  - `python3 -m pytest -q` → 63 passed.
+  - `make validate-public` → PASS, warnings 0.
+  - `git diff --cached --check` → temiz.
+  - staged secret/dangerous-code scan → temiz.
+- Commit: bu değişiklik seti final review sonrası commit/push edilecek.
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
-1. [P0-IN-PROGRESS] Qwen 3.6-plus eval tamamlansın → 7-model karşılaştırma raporu ekle
-2. [P1] Qwen 3.7 Max eval başlat (en büyük Qwen)
-3. [P1] DeepSeek R1 eval başlat (reasoning model, Çin frontier ailesinde önemli)
-4. [P2] HF Space Chinese frontier karşılaştırma tablosu güncelle
-5. [P2] Panel davet paketi taslağını iyileştir (bloker: ONAY BEKLEYEN)
-
-### BİRİKMİŞ KUYRUK
-Bkz. CODEX_3YEAR_BUILD_LOOP.md Bölüm 6 — Faz 0 kuyruğu.
+1. [P0] Final independent review sonucu PASS ise commit + push.
+2. [P0] GitHub'da README linkleri ve yeni docs dosyaları canlı doğrula.
+3. [P0] Dış post/outreach yok: Qwen/DeepSeek/GLM/Kimi taslakları G onayı bekler.
+4. [P1] MedHELM postuna gerçek paired TR/EN model output örneği eklemeden dışarı atma.
+5. [P1] TR/EN paired drift promptlarını gerçek model çıktısıyla koştur, preprint'e güvenli subsection ekle.
+6. [P1] Inspect Evals upstream review durumunu canlı kontrol et.
 
 ### ESKALASYON / BLOCKER
-- Zenodo DOI: GitHub-Zenodo login Göktuğ'un web oturumunu gerektiriyor (Faz 0 kapı ölçütü). .zenodo.json, CITATION.cff hazır. Login ONAY BEKLEYEN.
-- Panel davet gönderimi: ONAY BEKLEYEN. Paket hazır ama G canlı onay vermeden gönderilmez.
+- Dış gönderim/onay: mail, sosyal post, GitHub dış issue/comment, model ekibi outreach → G onayı olmadan yapılmaz.
+- arXiv: endorsement bekliyor; tanıdık yoksa DOI/GitHub release zaten cite edilebilir.
+- MedHELM draft: gerçek paired model-output örneği eklenmeden public discussion'a taşınmaz.

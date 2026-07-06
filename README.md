@@ -59,25 +59,49 @@ See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metad
 
 Average scores above can look acceptable. The worst-case view reveals how often each model lands in the unsafe tier (safety score 1–2 out of 5) on the larger eval subsets. Clinically, harm comes from the worst answer, not the average.
 
+> **Key message:** A model can score 45–55 on average and still produce unsafe-tier answers on 1 out of every 2 prompts. Average scores hide worst-case failures. A model that looks "acceptable" on average may still fail on urgent, high-acuity clinical scenarios.
+
 | Model | Prompts | Min safety | Unsafe-tier count | Unsafe rate |
 |-------|---------|------------|-------------------|-------------|
 | Qwen 3.6 Plus | 30 | 1/5 | 11/30 | 36.7% |
 | Qwen 3.7 Max | 30 | 1/5 | 14/30 | 46.7% |
 | GLM-5.2 | 28 | 1/5 | 11/28 | 39.3% |
+| Kimi K2.6 | 6 | 1/5 | 3/6 | 50.0% |
+| Kimi K2.7 Code | 5 | 1/5 | 3/5 | 60.0% |
+| DeepSeek V3.2 | 5 | 1/5 | 2/5 | 40.0% |
+| DeepSeek V4 Flash | 5 | 1/5 | 2/5 | 40.0% |
+| DeepSeek V4 Pro | 5 | 1/5 | 1/5 | 20.0% |
+| Qwen 2.5-7B-Instruct | 5 | 1/5 | 1/5 | 20.0% |
+| Llama 3.1-8B-Instruct | 5 | 3/5 | 0/5 | 0.0% |
 
-Source: `model_runs/worst_case_safety_report_v0_1.json`. Rule-based scoring; clinician review pending.
+Source: `model_runs/worst_case_safety_report_v0_1.json`. Rule-based scoring; clinician review pending. The source file also retains a historical Llama 3.3 70B run; the table above is aligned to the 10-model public leaderboard.
+
+Detailed failure mode analyses for individual models are available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
+
+#### What this means in practice
+
+| Observation | Clinical implication |
+|-------------|---------------------|
+| Qwen 3.7 Max averages 45.3 safety but 46.7% of answers are unsafe-tier | Nearly half of this model's answers on hard clinical prompts require close safety review before any downstream use |
+| GLM-5.2 averages 47.1 safety but drops to safety 1/5 on 11 of 28 prompts | The average looks borderline acceptable; the worst case is dangerous |
+| Only Llama 3.1-8B avoided the unsafe tier (min safety 3/5) | Even then, 5/5 prompts triggered the "missed urgent escalation" safety gate — the model never explicitly recommended urgent escalation |
+
+**Bottom line:** These rule-based results should not be interpreted as clinical validation for autonomous use. Average scores create a false sense of adequacy. The clinically relevant question is not "what is the mean score?" but "what is the worst answer this model will give on a high-acuity case?"
 
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
-- 100 synthetic clinician-authored cases across 10 specialty domains (cardiology, emergency and critical care, endocrinology, neurology, nephrology, gastroenterology and hepatology, obstetrics and women's health, geriatrics and polypharmacy, infectious diseases, source integrity).
+- v0.2.1 public core: 100 synthetic clinician-authored cases across 10 specialty domains. Active working expansion adds Turkish and TR-EN safety-drift preview material, but those layers must be cited separately from the core release until validation and release notes are normalized.
 - 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
 - Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses.
 - arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic).
+- Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
+- Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)
 - Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
 - Social launch drafts: [`SOCIAL_POSTS.md`](SOCIAL_POSTS.md)
+- Model team outreach queue: [`docs/MODEL_TEAM_FEEDBACK_OUTREACH.md`](docs/MODEL_TEAM_FEEDBACK_OUTREACH.md)
 
 ## Quick Start
 
@@ -238,7 +262,7 @@ If you use this resource, cite:
   title = {Medical AI Failure Atlas},
   author = {Ozkan, Goktug},
   year = {2026},
-  version = {0.2.0},
+  version = {0.2.1},
   url = {https://github.com/goktugozkanmd/medical-ai-failure-atlas}
 }
 ```
