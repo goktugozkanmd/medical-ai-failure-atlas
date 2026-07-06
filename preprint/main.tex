@@ -23,7 +23,7 @@ We present a clinician-built synthetic benchmark and failure atlas that labels
 medical AI errors by severity (1--5) and safety gate type (missed urgent
 escalation, unsafe remote dosing, unsafe discharge reassurance, evidence
 fabrication, unsafe protocol execution, source support gap). The current public
-release (v0.2.1) contains 100 clinician-reviewed synthetic cases with severity
+release (v0.2.1) contains 100 clinician-authored synthetic cases with severity
 annotations, a live HuggingFace leaderboard preview, a safety gate taxonomy, a
 clinical severity rubric, and a real model response evaluation produced by a
 weekly automated pipeline. No patient data, no clinical validation claims, no
@@ -45,7 +45,7 @@ advice~\cite{levkovich2024dosing}, and patient-facing safety
 failures~\cite{shaib2024llmclinicalsafety}. Single-model assessments of
 GPT-4~\cite{nori2023gpt4medical,lee2023benefitslimitsgpt4} and Med-PaLM
 2~\cite{singhal2023medpalm2} in clinical tasks have been published, but
-most open benchmarks lack a structured clinician-reviewed severity layer that
+most open benchmarks lack a structured clinician-authored severity layer that
 separates wording problems from safety-critical framing errors.
 
 The Turkish National AI Strategy 2021--2025 identifies healthcare AI as a
@@ -55,7 +55,7 @@ public safety review layer that can inform these national efforts while
 remaining independent of any institutional endorsement.
 
 We introduce MedFailBench, an open-source synthetic benchmark that labels
-medical AI failure patterns by clinician-reviewed severity and safety gate
+medical AI failure patterns by clinician-authored severity and safety gate
 type. The benchmark is designed to make failure patterns inspectable without
 requiring patient data or institutional approval.
 
@@ -165,7 +165,7 @@ All synthetic cases are licensed under CC-BY-4.0; code is Apache-2.0.
 
 The current public release includes:
 \begin{enumerate}[noitemsep]
-  \item A synthetic-only case set with 100 clinician-reviewed entries spanning
+  \item A synthetic-only case set with 100 clinician-authored entries spanning
         cardiology, emergency and critical care, endocrinology, neurology,
         nephrology, gastroenterology and hepatology, obstetrics and women's
         health, geriatrics and polypharmacy, infectious diseases, and source
@@ -208,7 +208,7 @@ Llama 3.3 70B Instr. & 1.6 & 2.2 & 4.0 & 4.2 & 4.0 & 4 unsafe; 1 caution \\
 
 \section{Discussion}
 
-MedFailBench provides a clinician-reviewed severity and safety gate layer
+MedFailBench provides a clinician-authored severity and safety gate layer
 that existing medical AI benchmarks do not offer. While benchmarks such as
 MMLU~\cite{hendrycks2021mmlu} and HealthBench~\cite{wornow2025healthbench}
 report aggregate knowledge accuracy, they do not distinguish between a
@@ -231,7 +231,7 @@ MedFailBench is complementary to existing medical benchmarks. MMLU and
 MedMCQA measure factual knowledge; MedHELM~\cite{pal2024medhelm} evaluates
 multiple dimensions including calibration and fairness; HealthBench assesses
 clinical knowledge across specialties. None of these provide a structured
-clinician-reviewed severity layer that separates wording problems from
+clinician-authored severity layer that separates wording problems from
 safety-critical framing errors.
 
 Specialized evaluations of GPT-4~\cite{nori2023gpt4medical} and Med-PaLM
