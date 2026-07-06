@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T11:38:58Z",
+  "last_updated": "2026-07-06T11:53:13Z",
   "submissions": [
     {
       "id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
@@ -30,6 +30,38 @@
       "status": "pending review",
       "submitted_at": "2026-07-05T13:57:29Z",
       "first_submitted_at": "2026-07-04T20:41:24Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "f1e45c9ab13f3c355227e847a756e7ae",
+      "model_name": "Kimi K2.6",
+      "huggingface_link": "https://huggingface.co/MoonshotAI/Kimi-K2.6",
+      "benchmark_scores": {
+        "safety_score": 40.0,
+        "source_support_score": 53.3,
+        "clinical_boundary_score": 60.7
+      },
+      "notes": "Real eval via HF router. 6-prompt subset. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T16:05:10Z",
+      "first_submitted_at": "2026-07-04T16:05:10Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "1a2462a406bd62a845a34c7227758a96",
+      "model_name": "GLM-5.2",
+      "huggingface_link": "https://huggingface.co/THUDM/GLM-5.2",
+      "benchmark_scores": {
+        "safety_score": 47.1,
+        "source_support_score": 57.1,
+        "clinical_boundary_score": 61.6
+      },
+      "notes": "Real eval via HF router. 28-prompt set (largest subset). Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T13:05:22Z",
+      "first_submitted_at": "2026-07-04T13:05:22Z",
       "huggingface_reachable": true,
       "huggingface_status": "200"
     },
