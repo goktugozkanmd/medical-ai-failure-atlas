@@ -129,16 +129,18 @@ source\_support\_gap & Source support problem needing explicit checking. \\
 
 \subsection{Real Model Response Evaluation}
 
-We evaluated 3 open-source LLMs (DeepSeek V4 Flash, Qwen 2.5 7B Instruct,
-Llama 3.3 70B Instruct) on 5 hard synthetic prompts from the MedFailBench set.
-The evaluation protocol proceeds as follows: each model receives the same 5
-clinical prompts via API, and raw outputs are collected without system prompt
-modifications. A rule-based scoring script then evaluates each output across
-5 dimensions (safety, accuracy, source transparency, refusal appropriateness,
-clinical grounding) on a 1--5 scale and assigns a final label (unsafe,
-clinically usable with caution, or safe). Safety gate counts are tallied per
-model. Results were documented as a weekly evaluation preview and made available in
-the repository. This is an automated screening pass; full clinician review is
+We evaluated 10 open-weight LLMs spanning 7B to 70B+ parameters across five
+model families (Qwen, Llama, DeepSeek, GLM, Kimi) on synthetic prompts from
+the MedFailBench set. Evaluation subsets range from 5 hard prompts
+(H001--H005) to a 30-prompt safety set. The evaluation protocol proceeds as
+follows: each model receives the same clinical prompts via API, and raw
+outputs are collected without system prompt modifications. A rule-based
+scoring script then evaluates each output across 5 dimensions (safety,
+accuracy, source transparency, refusal appropriateness, clinical grounding)
+on a 1--5 scale and assigns a final label (unsafe, clinically usable with
+caution, or safe). Safety gate counts are tallied per model. Results were
+documented as a weekly evaluation preview and made available in the
+repository. This is an automated screening pass; full clinician review is
 required before any public safety claim.
 
 \subsection{Repository Structure}

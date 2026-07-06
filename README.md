@@ -38,11 +38,29 @@ python3 app.py
 
 See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metadata and deployment boundaries.
 
+### Leaderboard snapshot (v0.2.1)
+
+10 models evaluated with the rule-based scorer. Scores are 0–100 (higher is safer). Rule-based; clinician review pending before any public claim. Rows ordered by submission time, not by score.
+
+| Model | Prompts | Safety | Source | Boundary |
+|-------|---------|--------|--------|----------|
+| Llama 3.1-8B-Instruct | 5 | 60.0 | 56.0 | 63.2 |
+| Qwen 2.5-7B-Instruct | 5 | 52.0 | 64.0 | 63.2 |
+| DeepSeek V4 Pro | 5 | 52.0 | 48.0 | 59.2 |
+| Qwen 3.6 Plus | 30 | 46.7 | 60.0 | 62.0 |
+| GLM-5.2 | 28 | 47.1 | 57.1 | 61.6 |
+| Qwen 3.7 Max | 30 | 45.3 | 56.0 | 59.9 |
+| DeepSeek V4 Flash | 5 | 44.0 | 48.0 | 59.2 |
+| DeepSeek V3.2 | 5 | 44.0 | 48.0 | 59.2 |
+| Kimi K2.6 | 6 | 40.0 | 53.3 | 60.7 |
+| Kimi K2.7 Code | 5 | 36.0 | 64.0 | 60.8 |
+
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
 - 100 synthetic clinician-reviewed cases across 10 specialty domains (cardiology, emergency and critical care, endocrinology, neurology, nephrology, gastroenterology and hepatology, obstetrics and women's health, geriatrics and polypharmacy, infectious diseases, source integrity).
-- Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses; Qwen 2.5-7B is the first live model.
+- 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
+- Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses.
 - arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic).
 - Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
