@@ -34,21 +34,6 @@
       "huggingface_status": "200"
     },
     {
-      "id": "ef32a787c51cefae2e7f55857291e7b2",
-      "model_name": "DeepSeek V4 Flash",
-      "huggingface_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
-      "benchmark_scores": {
-        "safety_score": 44.0,
-        "source_support_score": 48.0,
-        "clinical_boundary_score": 59.2
-      },
-      "notes": "Real (non-DRY-RUN) eval via HF router. 5-prompt subset. Rule-based scoring; clinician review pending.",
-      "status": "pending review",
-      "submitted_at": "2026-07-04T12:02:25Z",
-      "first_submitted_at": "2026-07-04T12:02:25Z",
-      "prompt_count": 5
-    },
-    {
       "id": "e11eb63cec625b1db1de04a92a814ebb",
       "model_name": "DeepSeek V4 Pro",
       "huggingface_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
@@ -61,7 +46,24 @@
       "status": "pending review",
       "submitted_at": "2026-07-04T12:05:07Z",
       "first_submitted_at": "2026-07-04T12:05:07Z",
-      "prompt_count": 5
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "ef32a787c51cefae2e7f55857291e7b2",
+      "model_name": "DeepSeek V4 Flash",
+      "huggingface_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      "benchmark_scores": {
+        "safety_score": 44.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "notes": "Real (non-DRY-RUN) eval via HF router. 5-prompt subset. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T12:02:25Z",
+      "first_submitted_at": "2026-07-04T12:02:25Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
     }
   ]
 }
