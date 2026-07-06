@@ -238,6 +238,22 @@ their findings are not packaged as open, reusable benchmark artifacts with
 inspectable failure labels. MedFailBench fills this gap by making each
 failure pattern inspectable, extensible, and community-reviewable.
 
+Recent concurrent work has validated the synthetic-case methodology at
+scale. Auger et al.~\cite{auger2026dissecting} used 10{,}000 synthetic
+clinical cases to dissect frontier-model reasoning failures and reported
+100\% synthetic case realism confirmed by subspecialist review and 99.8\%
+automated evaluation accuracy, independently confirming that synthetic
+clinical case evaluation with automated scoring is a valid and scalable
+methodology. MedSafe-Dx~\cite{medsafedx2026} approaches diagnostic safety
+via simulated clinician--patient conversation, while
+MedCheck~\cite{medcheck2026} audited 56 medical LLM benchmarks and found
+systemic evaluation methodology issues. MedFailBench is positioned
+complementarily: where these efforts emphasize scale (Auger et al.),
+conversation realism (MedSafe-Dx), or benchmark auditing (MedCheck),
+MedFailBench contributes an open, clinician-built safety-gate taxonomy with
+per-case severity labels, multilingual coverage (English + Turkish), and a
+transparent rule-based scoring rubric released as a reusable artifact.
+
 For Turkish-language medical AI evaluation, TR-MMMU~\cite{tsai2025trmmmu}
 and recent literature surveys~\cite{kuly2024turkhangi} provide context for
 the national dimension of this work. MedFailBench extends these efforts by
