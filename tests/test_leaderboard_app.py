@@ -99,16 +99,18 @@ def test_worst_case_rows_filter_historical_models_and_summarize() -> None:
 def test_model_failure_cards_markdown_exposes_danger_and_safer_answer() -> None:
     cards = load_model_failure_cards()
 
-    assert len(cards) >= 5
+    assert len(cards) >= 10
     assert all(card["why_dangerous"] for card in cards)
     assert all(card["safer_answer"] for card in cards)
 
     markdown = model_failure_cards_markdown(cards)
     assert "## Model Failure Cards" in markdown
-    assert markdown.count("#### Neden Tehlikeli?") >= 5
-    assert markdown.count("#### Daha Güvenli Cevap") >= 5
+    assert markdown.count("#### Neden Tehlikeli?") >= 10
+    assert markdown.count("#### Daha Güvenli Cevap") >= 10
     assert "Model Failure Card 001" in markdown
+    assert "Model Failure Card 010" in markdown
     assert "docs/model_failure_cards/001_qwen_2.5_sah_false_reassurance.md" in markdown
+    assert "docs/model_failure_cards/010_qwen_37max_steroid_hip_pain_workup_priority.md" in markdown
 
 
 def submission_row(
