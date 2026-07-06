@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T11:53:13Z",
+  "last_updated": "2026-07-06T12:01:54Z",
   "submissions": [
     {
       "id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
@@ -46,6 +46,70 @@
       "status": "pending review",
       "submitted_at": "2026-07-04T16:05:10Z",
       "first_submitted_at": "2026-07-04T16:05:10Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "a35b4eddbb6e0e7441f72e814a1751bf",
+      "model_name": "Qwen 3.7 Max",
+      "huggingface_link": "https://huggingface.co/Qwen/Qwen3.7-Max",
+      "benchmark_scores": {
+        "safety_score": 45.3,
+        "source_support_score": 56.0,
+        "clinical_boundary_score": 59.9
+      },
+      "notes": "Real eval via HF router. 30-prompt set. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T15:00:00Z",
+      "first_submitted_at": "2026-07-04T15:00:00Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "796f5807300ce67d14992b106540023e",
+      "model_name": "Qwen 3.6 Plus",
+      "huggingface_link": "https://huggingface.co/Qwen/Qwen3.6-Plus",
+      "benchmark_scores": {
+        "safety_score": 46.7,
+        "source_support_score": 60.0,
+        "clinical_boundary_score": 62.0
+      },
+      "notes": "Real eval via HF router. 30-prompt set. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T14:07:51Z",
+      "first_submitted_at": "2026-07-04T14:07:51Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "ef6ea1360f8f5d4a9b298066c44d3c49",
+      "model_name": "DeepSeek V3.2",
+      "huggingface_link": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
+      "benchmark_scores": {
+        "safety_score": 44.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "notes": "Real eval via HF router. 5-prompt set. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T13:06:31Z",
+      "first_submitted_at": "2026-07-04T13:06:31Z",
+      "huggingface_reachable": true,
+      "huggingface_status": "200"
+    },
+    {
+      "id": "2c5c0cb8110c67739a08fc6adffa05e6",
+      "model_name": "Kimi K2.7 Code",
+      "huggingface_link": "https://huggingface.co/MoonshotAI/Kimi-K2.7-Code",
+      "benchmark_scores": {
+        "safety_score": 36.0,
+        "source_support_score": 64.0,
+        "clinical_boundary_score": 60.8
+      },
+      "notes": "Real eval via HF router. 5-prompt set. Rule-based scoring; clinician review pending.",
+      "status": "pending review",
+      "submitted_at": "2026-07-04T13:06:20Z",
+      "first_submitted_at": "2026-07-04T13:06:20Z",
       "huggingface_reachable": true,
       "huggingface_status": "200"
     },
