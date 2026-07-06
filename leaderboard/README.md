@@ -17,6 +17,8 @@ Credential-like strings are rejected in model names, notes, and repository links
 | `app.py` | Gradio app module for local use or HuggingFace Spaces. |
 | `policy.py` | Shared safety policy for submission validation and the app. |
 | `submissions.json` | JSON store for submitted model rows. |
+| `../model_runs/worst_case_safety_report_v0_1.json` | Worst-case safety view used by the Space. |
+| `../docs/model_failure_cards/` | Public model failure cards shown in the Space. |
 | `requirements.txt` | App dependency file. |
 | `SPACE_README.md` | Metadata and copy instructions for the Space repository. |
 | `build/synthetic_report_v0_1.md` | Generated Markdown report. |
@@ -49,7 +51,7 @@ python3 -m pip install -r requirements.txt
 python3 app.py
 ```
 
-For copy deployment, place `leaderboard/policy.py` beside the copied `app.py` so the Space and validator use the same submission policy.
+For copy deployment, place `leaderboard/policy.py` beside the copied `app.py` so the Space and validator use the same submission policy. Also copy the worst-case report JSON and `docs/model_failure_cards/`, or set `FAILURE_ATLAS_WORST_CASE_JSON` and `FAILURE_ATLAS_FAILURE_CARDS_DIR` to their deployed paths; otherwise the related sections show unavailable-runtime notes.
 
 ## Deployment Plan
 

@@ -5,6 +5,7 @@ import csv
 import html as html_lib
 import json
 import os
+import re
 import threading
 import uuid
 from collections import Counter
@@ -61,7 +62,9 @@ ROOT = APP_DIR.parent if APP_DIR.name == "leaderboard" else APP_DIR
 LEADERBOARD_DIR = ROOT / "leaderboard" if (ROOT / "leaderboard").exists() else APP_DIR
 DEFAULT_RESULTS = LEADERBOARD_DIR / "synthetic_report_template_v0_1.tsv"
 DEFAULT_SUBMISSIONS = LEADERBOARD_DIR / "submissions.json"
+DEFAULT_WORST_CASE_REPORT = ROOT / "model_runs" / "worst_case_safety_report_v0_1.json"
 DEFAULT_CASES = ROOT / "data" / "tr_medllm_synthetic_eval_set_v0_3.jsonl"
+DEFAULT_FAILURE_CARDS_DIR = ROOT / "docs" / "model_failure_cards"
 GITHUB_REPO_URL = os.getenv(
     "FAILURE_ATLAS_GITHUB_REPO_URL",
     "https://github.com/goktugozkanmd/medical-ai-failure-atlas",
@@ -91,6 +94,14 @@ SUBMISSION_COLUMNS = [
     "clinical_boundary_score",
     "status",
     "submitted_at",
+]
+
+WORST_CASE_COLUMNS = [
+    "model",
+    "prompts",
+    "min_safety",
+    "unsafe_tier_count",
+    "unsafe_rate",
 ]
 
 BOUNDARY_NOTE = (
@@ -132,12 +143,28 @@ def submissions_path() -> Path:
     return DEFAULT_SUBMISSIONS
 
 
+def worst_case_report_path() -> Path:
+    configured = os.getenv("FAILURE_ATLAS_WORST_CASE_JSON")
+    if configured:
+        candidate = Path(configured)
+        return candidate if candidate.is_absolute() else ROOT / candidate
+    return DEFAULT_WORST_CASE_REPORT
+
+
 def cases_path() -> Path:
     configured = os.getenv("FAILURE_ATLAS_CASES_JSONL")
     if configured:
         candidate = Path(configured)
         return candidate if candidate.is_absolute() else ROOT / candidate
     return DEFAULT_CASES
+
+
+def failure_cards_dir() -> Path:
+    configured = os.getenv("FAILURE_ATLAS_FAILURE_CARDS_DIR")
+    if configured:
+        candidate = Path(configured)
+        return candidate if candidate.is_absolute() else ROOT / candidate
+    return DEFAULT_FAILURE_CARDS_DIR
 
 
 def load_case_rows(path: Path | None = None) -> list[dict[str, object]]:
@@ -153,6 +180,179 @@ def load_case_rows(path: Path | None = None) -> list[dict[str, object]]:
             if isinstance(row, dict):
                 rows.append(row)
     return rows
+
+
+def load_worst_case_report(path: Path | None = None) -> list[dict[str, object]]:
+    target = path or worst_case_report_path()
+    if not target.exists():
+        return []
+    with target.open(encoding="utf-8") as handle:
+        payload = json.load(handle)
+    models = payload.get("models", []) if isinstance(payload, dict) else []
+    return [row for row in models if isinstance(row, dict)]
+
+
+def model_slug(value: object) -> str:
+    text = str(value or "").strip().lower()
+    text = re.sub(r"\s+", "-", text)
+    text = re.sub(r"[^a-z0-9.\-]+", "-", text)
+    text = re.sub(r"-+", "-", text)
+    return text.strip("-")
+
+
+def public_leaderboard_model_slugs(submissions: list[dict[str, object]]) -> set[str]:
+    return {model_slug(row.get("model_name")) for row in submissions if row.get("model_name")}
+
+
+def as_float(value: object, default: float = 0.0) -> float:
+    if not isinstance(value, (int, float, str)):
+        return default
+    try:
+        return float(value)
+    except ValueError:
+        return default
+
+
+def as_int(value: object, default: int = 0) -> int:
+    if not isinstance(value, (int, float, str)):
+        return default
+    try:
+        return int(value)
+    except ValueError:
+        return default
+
+
+def worst_case_display_rows(
+    report_rows: list[dict[str, object]] | None = None,
+    submissions: list[dict[str, object]] | None = None,
+) -> list[dict[str, object]]:
+    report_rows = report_rows if report_rows is not None else load_worst_case_report()
+    if submissions is None:
+        store = load_submission_store()
+        raw_submissions = store.get("submissions", [])
+        submissions = displayable_submission_rows(raw_submissions if isinstance(raw_submissions, list) else [])
+    public_slugs = public_leaderboard_model_slugs(submissions)
+    rows = [row for row in report_rows if model_slug(row.get("model")) in public_slugs]
+    return sorted(
+        rows,
+        key=lambda row: (-as_float(row.get("unsafe_rate")), str(row.get("model", ""))),
+    )
+
+
+def worst_case_to_table(rows: list[dict[str, object]]) -> list[list[str]]:
+    table: list[list[str]] = []
+    for row in rows:
+        n = as_int(row.get("n"))
+        unsafe_count = as_int(row.get("unsafe_count"))
+        unsafe_rate = as_float(row.get("unsafe_rate"))
+        worst_safety = row.get("worst_safety", "")
+        table.append(
+            [
+                str(row.get("model", "")),
+                str(n),
+                f"{worst_safety}/5" if worst_safety != "" else "",
+                f"{unsafe_count}/{n}" if n else str(unsafe_count),
+                f"{unsafe_rate:.1f}%",
+            ]
+        )
+    return table
+
+
+def worst_case_summary_markdown(rows: list[dict[str, object]]) -> str:
+    if not rows:
+        return (
+            "## Worst-case safety\n\n"
+            "Worst-case report is not available in this runtime. "
+            "This section uses synthetic, rule-based results only when the JSON report is present."
+        )
+    total = len(rows)
+    unsafe_models = sum(1 for row in rows if as_int(row.get("unsafe_count")) > 0)
+    highest = max(rows, key=lambda row: as_float(row.get("unsafe_rate")))
+    return "\n".join(
+        [
+            "## Worst-case safety",
+            "",
+            "Average scores can hide unsafe-tier answers. This view shows each model's minimum safety score and the share of prompts scoring 1-2/5.",
+            "",
+            f"Current public leaderboard match: **{total} models**. Models with at least one unsafe-tier answer: **{unsafe_models}/{total}**.",
+            "",
+            f"Highest unsafe-tier rate in this snapshot: **{highest.get('model', '')}**: **{as_float(highest.get('unsafe_rate')):.1f}%** on **{as_int(highest.get('n'))}** prompts.",
+            "",
+            "Rule-based scoring; synthetic cases only; external clinician validation pending. This is a triage view, not a model ranking or deployment claim.",
+        ]
+    )
+
+
+def extract_markdown_section(markdown: str, heading: str) -> str:
+    pattern = re.compile(rf"^## {re.escape(heading)}\s*$", re.MULTILINE)
+    match = pattern.search(markdown)
+    if not match:
+        return ""
+    start = match.end()
+    next_match = re.search(r"^## ", markdown[start:], re.MULTILINE)
+    end = start + next_match.start() if next_match else len(markdown)
+    return markdown[start:end].strip()
+
+
+def load_model_failure_cards(path: Path | None = None) -> list[dict[str, str]]:
+    target = path or failure_cards_dir()
+    if not target.exists():
+        return []
+    cards: list[dict[str, str]] = []
+    for file_path in sorted(target.glob("[0-9][0-9][0-9]_*.md")):
+        markdown = file_path.read_text(encoding="utf-8")
+        title_match = re.search(r"^#\s+(.+)$", markdown, re.MULTILINE)
+        scenario_match = re.search(r"\*\*Scenario:\*\*\s*(.+)", markdown)
+        risk_match = re.search(r"\*\*Risk Level:\*\*\s*(.+)", markdown)
+        score_match = re.search(r"\*\*Safety Score:\*\*\s*(.+)", markdown)
+        dangerous = extract_markdown_section(markdown, "Neden Tehlikeli?")
+        safer = extract_markdown_section(markdown, "Daha Güvenli Cevap")
+        if not dangerous or not safer:
+            continue
+        cards.append(
+            {
+                "title": title_match.group(1).strip() if title_match else file_path.stem,
+                "scenario": scenario_match.group(1).strip() if scenario_match else "",
+                "risk_level": risk_match.group(1).strip() if risk_match else "",
+                "safety_score": score_match.group(1).strip() if score_match else "",
+                "why_dangerous": dangerous,
+                "safer_answer": safer,
+                "path": str(file_path.relative_to(ROOT)),
+            }
+        )
+    return cards
+
+
+def model_failure_cards_markdown(cards: list[dict[str, str]] | None = None) -> str:
+    selected = cards if cards is not None else load_model_failure_cards()
+    if not selected:
+        return "## Model Failure Cards\n\nNo model failure cards are available in this runtime."
+    sections = [
+        "## Model Failure Cards",
+        "",
+        "Each card shows the unsafe model answer pattern, then the two public-demo blocks: **Neden Tehlikeli?** and **Daha Güvenli Cevap**.",
+    ]
+    for card in selected:
+        sections.extend(
+            [
+                "",
+                f"### {card['title']}",
+                "",
+                f"**Scenario:** {card['scenario']}",
+                f"**Risk level:** {card['risk_level']}",
+                f"**Safety score:** {card['safety_score']}",
+                f"**Source:** `{card['path']}`",
+                "",
+                "#### Neden Tehlikeli?",
+                "",
+                card["why_dangerous"],
+                "",
+                "#### Daha Güvenli Cevap",
+                "",
+                card["safer_answer"],
+            ]
+        )
+    return "\n".join(sections)
 
 
 def load_rows(path: Path | None = None) -> list[dict[str, str]]:
@@ -476,7 +676,7 @@ def severity_distribution_html(case_rows: list[dict[str, object]]) -> str:
         [
             '<section style="border:1px solid #374151; border-radius:0.75rem; padding:1rem; margin:1rem 0;">',
             "<h3>Clinical severity distribution</h3>",
-            f"<p>Synthetic clinician-reviewed case set: <strong>{total}</strong> rows. Higher severity means greater harm if the model misses the safety boundary.</p>",
+            f"<p>Synthetic clinician-authored case subset: <strong>{total}</strong> rows. Higher severity means greater harm if the model misses the safety boundary.</p>",
             *bars,
             '<p style="font-size:0.9rem; opacity:0.8;">This chart describes the synthetic benchmark mix only. It is not a model ranking or clinical validation claim.</p>',
             "</section>",
@@ -667,9 +867,12 @@ def build_demo():
     rows = load_rows()
     case_rows = load_case_rows()
     submission_table_rows, last_updated = leaderboard_state()
+    worst_case_rows = worst_case_display_rows()
+    failure_cards = load_model_failure_cards()
     with gr.Blocks(title="Medical AI Failure Atlas Leaderboard") as demo:
         gr.Markdown("# Medical AI Failure Atlas Leaderboard")
         gr.Markdown(BOUNDARY_NOTE)
+        gr.Markdown(worst_case_summary_markdown(worst_case_rows))
 
         with gr.Tab("Submitted Runs"):
             gr.Markdown(SUBMISSION_BOUNDARY_NOTE)
@@ -737,6 +940,23 @@ def build_demo():
                     ],
                     outputs=[submission_message, submission_table, last_updated_display],
                 )
+
+        with gr.Tab("Worst-case Safety"):
+            gr.Markdown(worst_case_summary_markdown(worst_case_rows))
+            gr.Dataframe(
+                headers=WORST_CASE_COLUMNS,
+                value=worst_case_to_table(worst_case_rows),
+                datatype=["str"] * len(WORST_CASE_COLUMNS),
+                interactive=False,
+                wrap=True,
+            )
+            gr.Markdown(
+                "Data source: `model_runs/worst_case_safety_report_v0_1.json`. "
+                "The source file can include historical rows; this Space filters the view to current public leaderboard submissions."
+            )
+
+        with gr.Tab("Failure Cards"):
+            gr.Markdown(model_failure_cards_markdown(failure_cards))
 
         with gr.Tab("Synthetic Preview"):
             gr.HTML(severity_distribution_html(case_rows))

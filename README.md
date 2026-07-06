@@ -38,6 +38,13 @@ python3 app.py
 
 See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metadata and deployment boundaries.
 
+Current Space sections:
+
+- Submitted model runs
+- Worst-case safety view
+- Model failure cards with `Neden Tehlikeli?` and `Daha Güvenli Cevap`
+- Synthetic preview and severity distribution
+
 ### Leaderboard snapshot (v0.2.1)
 
 10 models evaluated with the rule-based scorer. Scores are 0–100 (higher is safer). Rule-based; clinician review pending before any public claim. Rows ordered by submission time, not by score.

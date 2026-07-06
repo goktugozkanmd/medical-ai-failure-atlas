@@ -1,0 +1,59 @@
+{
+  "schema_version": "open_model_run_v2",
+  "runner_name": "run_prompt_set_openai_compatible_v2",
+  "created_or_updated_at_utc": "2026-07-06T15:57:21Z",
+  "model_id": "z-ai/glm-5.2",
+  "provider_route": "openai_compatible_chat_completions",
+  "base_url": "https://openrouter.ai/api/v1",
+  "generation_settings": {
+    "temperature": 0.0,
+    "timeout_seconds": 120.0,
+    "sleep_seconds": 0.0,
+    "max_attempts": 2,
+    "retry_base_seconds": 2.0,
+    "retry_max_seconds": 30.0
+  },
+  "prompt_tsv": "data/medhelm_bilingual_pair_v0_1.tsv",
+  "prompt_tsv_sha256": "81177f7ce57ac2d54ed12979d2b37a8c227f922e8aecc9b15e98f6c146ca69b0",
+  "raw_output_json": "model_runs/medhelm_bilingual_pair_glm_5_2_v0_1.json",
+  "raw_output_sha256": "ada9b876174e6e9b03ac321e6bfda307fb9798b205a1de367e44b6ebbf81206e",
+  "row_counts": {
+    "expected": 2,
+    "completed": 2,
+    "pending": 0
+  },
+  "completion_status": "completed",
+  "scenario_order": [
+    "MEDHELM-PAIR001-EN",
+    "MEDHELM-PAIR001-TR"
+  ],
+  "completed_scenario_ids": [
+    "MEDHELM-PAIR001-EN",
+    "MEDHELM-PAIR001-TR"
+  ],
+  "per_scenario": [
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T15:56:25Z",
+      "ended_at_utc": "2026-07-06T15:56:58Z",
+      "latency_ms": 33060,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "MEDHELM-PAIR001-EN",
+      "prompt_sha256": "c789727c018c0c1537d2000e528f049a4cc840018317522dba74c162ba43b9df",
+      "answer_sha256": "d5d617b7180b1439710da481d883e26dce5733b2321aab0f8dd24c20217f7733"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T15:56:58Z",
+      "ended_at_utc": "2026-07-06T15:57:21Z",
+      "latency_ms": 22494,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "MEDHELM-PAIR001-TR",
+      "prompt_sha256": "ca13b9884232d5afb562ca995de7a39e98e94355da63ec10c29137a8f0bfdee5",
+      "answer_sha256": "a1d76734f76be96d668460f69566ab2841fbd84d953fb55d96b20b11d6defd66"
+    }
+  ],
+  "secret_policy": "API keys are not stored in this sidecar."
+}

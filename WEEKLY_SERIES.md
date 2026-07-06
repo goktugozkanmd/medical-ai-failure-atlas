@@ -4,6 +4,7 @@
 > **Tonalite:** Klinisyen sükuneti. Suçlayıcı değil, sorgulayıcı. "Bunu kim yaptı?" dedirten içerik.
 > **Başlangıç:** ROADMAP_30DAYS Hafta 1 ile senkron
 > **Sahibi:** G · Hazırlayan: Mercury
+> **Aktif ilk draft:** `docs/weekly_failure_of_the_week/001_average_scores_hide_unsafe_chest_pain.md`
 
 ---
 

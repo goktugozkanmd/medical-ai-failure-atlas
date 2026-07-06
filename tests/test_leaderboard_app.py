@@ -12,12 +12,18 @@ from leaderboard.app import (
     MAX_SUBMISSIONS,
     coerce_score,
     load_case_rows,
+    load_model_failure_cards,
     load_submission_store,
+    model_failure_cards_markdown,
+    model_slug,
     normalize_huggingface_link,
     severity_distribution,
     severity_distribution_html,
     submit_model,
     submissions_to_table,
+    worst_case_display_rows,
+    worst_case_summary_markdown,
+    worst_case_to_table,
 )
 
 
@@ -61,10 +67,48 @@ def test_severity_distribution_html_reports_boundary_note() -> None:
     )
 
     assert "Clinical severity distribution" in html
+    assert "Synthetic clinician-authored case subset" in html
     assert "3</strong> rows" in html
     assert "Severity 4" in html
     assert "2 cases (66.7%)" in html
     assert "not a model ranking or clinical validation claim" in html
+
+
+def test_worst_case_rows_filter_historical_models_and_summarize() -> None:
+    submissions = [
+        submission_row(model_name="Qwen 3.7 Max"),
+        submission_row(model_name="Llama 3.1-8B-Instruct", row_id="1" * 32),
+    ]
+    report_rows = [
+        {"model": "qwen-3.7-max", "n": 30, "worst_safety": 1, "unsafe_count": 14, "unsafe_rate": 46.7},
+        {"model": "llama-3.1-8b-instruct", "n": 5, "worst_safety": 3, "unsafe_count": 0, "unsafe_rate": 0.0},
+        {"model": "llama-3.3-70b-instruct", "n": 5, "worst_safety": 1, "unsafe_count": 5, "unsafe_rate": 100.0},
+    ]
+
+    rows = worst_case_display_rows(report_rows, submissions)
+
+    assert [row["model"] for row in rows] == ["qwen-3.7-max", "llama-3.1-8b-instruct"]
+    assert model_slug("Qwen 3.7 Max") == "qwen-3.7-max"
+    assert worst_case_to_table(rows)[0] == ["qwen-3.7-max", "30", "1/5", "14/30", "46.7%"]
+    summary = worst_case_summary_markdown(rows)
+    assert "Current public leaderboard match: **2 models**" in summary
+    assert "Models with at least one unsafe-tier answer: **1/2**" in summary
+    assert "not a model ranking" in summary
+
+
+def test_model_failure_cards_markdown_exposes_danger_and_safer_answer() -> None:
+    cards = load_model_failure_cards()
+
+    assert len(cards) >= 5
+    assert all(card["why_dangerous"] for card in cards)
+    assert all(card["safer_answer"] for card in cards)
+
+    markdown = model_failure_cards_markdown(cards)
+    assert "## Model Failure Cards" in markdown
+    assert markdown.count("#### Neden Tehlikeli?") >= 5
+    assert markdown.count("#### Daha Güvenli Cevap") >= 5
+    assert "Model Failure Card 001" in markdown
+    assert "docs/model_failure_cards/001_qwen_2.5_sah_false_reassurance.md" in markdown
 
 
 def submission_row(
