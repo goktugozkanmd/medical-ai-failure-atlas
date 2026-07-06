@@ -3,7 +3,7 @@
 > Single source of truth for the v0.2.1 release process.
 > Created: 2026-07-03 03:00 TRT
 
-## 1. Preprint (arXiv-ready)
+## 1. Preprint (TeX-ready draft; arXiv submit pending)
 
 | Adım | Durum | Not |
 |------|-------|-----|

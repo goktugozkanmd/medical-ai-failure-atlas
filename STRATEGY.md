@@ -13,7 +13,7 @@ Bu pozisyonun üç dayanağı var:
 | Dayanak | Kanıt (repo'da mevcut) |
 |---------|----------------------|
 | Klinisyen kimliği | goktugozkanmd — hekim imzası, vakalar klinik gözle yazıldı |
-| Ölçme altyapısı | v0.2.1 public core: 100 clinician-authored synthetic cases; active working expansion: 241 tracked rows across core, Turkish, and TR-EN drift preview layers; 10-model public leaderboard; rule-based scorer; weekly CI pipeline |
+| Ölçme altyapısı | v0.2.1 public core assets: 150 scenario-bank rows + 70 prompts; ayrı Failure Atlas intake, Turkish ve TR-EN drift preview katmanları; 10-model public leaderboard; rule-based scorer; CI/HF-router model runs |
 | Hata odaklılık | Safety gate taxonomy, worst-case safety report, failure atlas |
 
 Rakamlar değil, **failure mode sınıflandırması**. Bir model ortalama 52 alabilir — ama worst-case'de 30 prompt'tan 14'ünde unsafe tier'a düşüyorsa (Qwen 3.7 Max), o modelin hasta karşısında ne yaptığı ayrı bir sorudur. Biz o soruyu soran benchmark'ız.
@@ -24,12 +24,12 @@ Rakamlar değil, **failure mode sınıflandırması**. Bir model ortalama 52 ala
 
 MedFailBench bir side project değil. Şu anda sahip olduğu ve çoğu benchmark'ın sahip olmadığı şeyler:
 
-- **Gerçek model çıktıları** (simülasyon değil, CI'dan weekly gerçek API çağrıları)
+- **Gerçek model çıktıları** (simülasyon değil, CI/HF-router üzerinden gerçek API çağrıları)
 - **Worst-case safety görünümü** (ortalama gizlemiyor, minimum güvenlik skoru gösteriyor)
-- **10 model × 10 uzmanlık alanı** matrisi
+- **10 public leaderboard model** ve uzmanlık alanlarına ayrılmış safety promptları
 - **Çin modellerine özel kapsam** (Qwen, DeepSeek, GLM, Kimi — batıdaki çoğu benchmark bunları atlar)
-- **Türkçe tıbbi dil güvenlik testi** (bilingual drift için tek açık benchmark)
-- **Zenodo DOI + arXiv-ready preprint** (akademik alıntı altyapısı hazır)
+- **Türkçe tıbbi dil güvenlik testi** (bilingual drift için açık bir safety-test şablonu)
+- **Zenodo DOI + TeX-ready preprint draft** (DOI ile cite edilebilir; arXiv submit endorsement bekler)
 - **HuggingFace Space'de canlı leaderboard**
 
 Konumlandırma dili:
@@ -76,11 +76,11 @@ Prensip: **Self-promotion değil, self-evident artefact.**
 
 | Artefakt | Neden "bunu kim yaptı?" dedirtir |
 |----------|----------------------------------|
-| Worst-case safety report | Ortalama skorlar yalan söyler; worst-case'i gösteren tek benchmark |
-| 10-model Çin karşılaştırması | Batı'da hiçbir benchmark 4 Çin ailesini yan yana medical safety'den geçirmiyor |
-| MedHELM bridge spec | Bir upstream benchmark'a bridge yazan tek bağımsız klinisyen |
+| Worst-case safety report | Ortalama skorun sakladığı unsafe-tier promptları doğrudan gösterir |
+| 10-model Çin karşılaştırması | Qwen, DeepSeek, GLM ve Kimi ailelerini aynı safety-gate çerçevesinde yan yana gösterir |
+| MedHELM bridge spec | Bir klinisyenin upstream benchmark formatına bridge yazdığını gösterir |
 | HF Space live leaderboard | Repoda kod var, Space canlı çalışıyor — talk değil, walk |
-| Weekly CI eval (gerçek çıktılar) | Simülasyon yok, gerçek API çağrıları, gerçek token maliyeti |
+| CI/HF-router eval (gerçek çıktılar) | Simülasyon yok, gerçek model çağrıları, doğrulanabilir JSON çıktıları |
 
 ### Yapılmayacaklar:
 

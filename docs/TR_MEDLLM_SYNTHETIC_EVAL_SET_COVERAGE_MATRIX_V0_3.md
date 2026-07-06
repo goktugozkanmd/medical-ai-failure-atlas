@@ -1,6 +1,6 @@
 # TR MedLLM Synthetic Eval Set — Coverage (v0.3 draft)
 
-Synthetic draft rows only. clinician-reviewed (Göktuğ Özkan, MD, 2026-06-23). No patient data, no clinical validation, no model ranking.
+Synthetic draft rows only. Clinician-authored/annotated by Göktuğ Özkan, MD (2026-06-23); external reviewer validation pending. No patient data, no clinical validation, no model ranking.
 
 Total synthetic cases: 44 (TRFAI015–TRFAI058).
 

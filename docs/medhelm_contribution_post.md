@@ -9,7 +9,7 @@
 
 ## Summary
 
-I am a clinician (MD) building an open-source benchmark called **Medical AI Failure Atlas / MedFailBench** that evaluates medical AI systems on safety-critical failure modes rather than medical knowledge recall. The current public core uses 100 synthetic, clinician-authored cases across 10 specialty domains. The active working set also includes Turkish and TR-EN safety-drift preview material; those layers should be cited separately from the core release until validation and release notes are normalized.
+I am a clinician (MD) building an open-source benchmark called **Medical AI Failure Atlas / MedFailBench** that evaluates medical AI systems on safety-critical failure modes rather than medical knowledge recall. The current public core assets include 150 scenario-bank rows and 70 prompts. The repo also contains Failure Atlas intake, Turkish, and TR-EN safety-drift preview layers; those layers should be cited separately until validation and release notes are normalized.
 
 I would like to discuss whether the **safety-gate rubric** and case structure used in MedFailBench could contribute to MedHELM as a complementary evaluation suite — particularly for the dimensions that exam-style benchmarks do not cover: escalation boundaries, remote dosing safety, false reassurance after early negative tests, and evidence overclaim.
 

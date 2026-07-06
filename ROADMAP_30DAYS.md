@@ -11,14 +11,14 @@
 | Alan | Durum |
 |---|---|
 | Sürüm | v0.2.1 yayında, Zenodo DOI aktif |
-| Vaka sayısı | Public core: 100 clinician-authored cases. Active working dashboard: 241 tracked rows across core, Turkish, and TR-EN drift preview layers. These are not one validation tier. |
+| Vaka sayısı | Public core assets: 150 scenario-bank rows + 70 prompts. Repo also contains Failure Atlas intake, Turkish, and TR-EN drift preview layers. These are not one validation tier. |
 | Model eval | 10 model, rule-based skorlu |
 | Leaderboard | HF Space canlı |
 | arXiv preprint | DRAFT hazır, submit onay bekliyor |
 | MedHELM köprü | Discussion/issue route opened; spec and adapter demo exist; exact upstream wording must be checked before external follow-up |
 | Inspect Evals | PR route opened/being reviewed if present; verify live upstream status before claiming completion |
 | Klinik panel | 24 vaka hazır, hekim puanlaması bekleniyor |
-| Sosyal | 3 LinkedIn + 2 X post taslağı hazır, yayınlandı |
+| Sosyal | Draftlar hazır; dış post G onayı bekler |
 
 ---
 
@@ -30,7 +30,7 @@ Public face'i hazır hale getir. 10 model sonuçlarından tartışması zor 3 bu
 ### Görevler
 
 #### 1.1 — Landing Page / README Temizliği (Gün 1–2)
-- [ ] README.md: v0.2.1 verilerini net göster, eski "44 vaka" referanslarını temizle
+- [ ] README.md: v0.2.1 verilerini net göster, eski erken-altküme referanslarını current claim gibi kullanma
 - [ ] Leaderboard tablosunu "worst-case" görünümüyle birlikte öne çıkar — ortalama skoru öne çıkarma, unsafe-tier oranını göster
 - [ ] HF Space: Çin frontier modelleri için filtre/gösterim ekle (kullanıcı "Chinese models only" seçebilsin)
 - [ ] Repo'da `model_runs/` altındaki JSON'ları README'de doğrudan linkle — üçüncü taraf doğrulayabilsin
@@ -77,7 +77,7 @@ Public face'i hazır hale getir. 10 model sonuçlarından tartışması zor 3 bu
 ### Görevler
 
 #### 2.1 — Çin Frontier Modelleri Kısa Raporu (Gün 8–11)
-Kapsam: Qwen (2.5-7B, 3.6 Plus, 3.7 Max), DeepSeek (V4 Pro, V4 Flash, V3.2), GLM-5.2, Kimi (K2.6, K2.7 Code) — toplam 8 model.
+Kapsam: Qwen (2.5-7B, 3.6 Plus, 3.7 Max), DeepSeek (V4 Pro, V4 Flash, V3.2), GLM-5.2, Kimi (K2.6, K2.7 Code) — toplam 9 Çin-family model run.
 
 - [ ] `docs/CHINESE_FRONTIER_SAFETY_REPORT.md` oluştur:
   - Family-by-family karşılaştırma tablosu

@@ -84,17 +84,17 @@ Detailed failure mode analyses for individual models are available in [`docs/mod
 |-------------|---------------------|
 | Qwen 3.7 Max averages 45.3 safety but 46.7% of answers are unsafe-tier | Nearly half of this model's answers on hard clinical prompts require close safety review before any downstream use |
 | GLM-5.2 averages 47.1 safety but drops to safety 1/5 on 11 of 28 prompts | The average looks borderline acceptable; the worst case is dangerous |
-| Only Llama 3.1-8B avoided the unsafe tier (min safety 3/5) | Even then, 5/5 prompts triggered the "missed urgent escalation" safety gate — the model never explicitly recommended urgent escalation |
+| On the small 5-prompt set, Llama 3.1-8B avoided the unsafe tier (min safety 3/5) | Even then, all 5 prompts triggered the "missed urgent escalation" safety gate — the model never explicitly recommended urgent escalation |
 
 **Bottom line:** These rule-based results should not be interpreted as clinical validation for autonomous use. Average scores create a false sense of adequacy. The clinically relevant question is not "what is the mean score?" but "what is the worst answer this model will give on a high-acuity case?"
 
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
-- v0.2.1 public core: 100 synthetic clinician-authored cases across 10 specialty domains. Active working expansion adds Turkish and TR-EN safety-drift preview material, but those layers must be cited separately from the core release until validation and release notes are normalized.
+- v0.2.1 public core assets: 150 scenario-bank rows and 70 prompts. Additional Failure Atlas intake, Turkish, and TR-EN safety-drift preview layers are present in the repo, but those layers must be cited separately from the core release until validation and release notes are normalized.
 - 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
-- Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses.
-- arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic).
+- CI-integrated real-model eval pipeline producing genuine (non-simulated) responses on a weekly subset, with additional model runs evaluated on demand.
+- TeX-ready preprint draft: `preprint/main.tex` (built automatically on every PR via tectonic; arXiv submit awaits endorsement).
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
 - Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)
 - Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)

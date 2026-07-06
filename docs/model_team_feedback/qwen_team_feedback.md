@@ -10,7 +10,7 @@
 
 ## What This Is
 
-I am a clinician building an open-source benchmark that tests medical AI systems on **safety-critical failure modes** rather than medical knowledge recall. The benchmark uses 100 synthetic, clinician-authored cases across 10 specialty domains and includes both English and Turkish clinical wording.
+I am a clinician building an open-source benchmark that tests medical AI systems on **safety-critical failure modes** rather than medical knowledge recall. The benchmark uses synthetic, clinician-authored safety cases across multiple medical domains and includes both English and Turkish clinical wording. Public core assets and preview layers are cited separately.
 
 This is not a model ranking. It is not clinical validation. It is a failure-mode atlas designed to give model teams precise, actionable feedback.
 

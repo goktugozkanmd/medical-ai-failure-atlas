@@ -151,7 +151,7 @@ Create `docs/MEDHELM_UPSTREAM_ISSUE_DRAFT.md`:
 
 - short intro
 - what we can contribute
-- why synthetic clinician-reviewed safety cases are useful
+- why synthetic clinician-authored safety cases are useful
 - link MedFailBench
 - ask: preferred scenario format / whether a safety-gate suite is welcome
 

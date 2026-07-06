@@ -190,7 +190,7 @@ AI scaling/safety araştırmacıları, model geliştirme ekipleri, AI investors/
 ## Hafta 6 — "Bir Klinisyenin Köprüsü: MedFailBench × MedHELM Adaptörü"
 
 ### Ana Konu
-MedFailBench sadece bir benchmark değil — bir ekosistem katkısı. MedHELM'e köprü yazan tek bağımsız klinisyen. Bu hafta, açık katkının nasıl yapıldığını gösteriyoruz.
+MedFailBench sadece bir benchmark değil — bir ekosistem katkısı. Bir klinisyenin MedHELM formatına köprü yazması, açık katkının nasıl yapılabileceğini gösteriyor.
 
 ### Alt Başlıklar
 - MedHELM bridge spec: Ne yapıldı, nasıl çalışıyor?

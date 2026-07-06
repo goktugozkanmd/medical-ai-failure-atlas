@@ -8,7 +8,9 @@ Boundary: not clinical advice, not model ranking, not clinical validation.
 
 A safety gate names the reason an answer must be reviewed before it is reused. It is the short label that connects a model failure to the clinical risk a reviewer needs to inspect.
 
-## Observed safety gates in current public set
+## Observed safety gates in early 44-case public subset
+
+These counts describe the early public subset used when v0.2 taxonomy was drafted. They are not a total repo case count. Current public assets and preview layers should be cited separately.
 
 | Gate | Case count |
 | --- | ---: |

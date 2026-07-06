@@ -1,6 +1,6 @@
 # Social Posts
 
-## LinkedIn — 2026-07-02 MedFailBench live leaderboard
+## LinkedIn — historical 2026-07-02 MedFailBench live leaderboard draft
 
 I’ve been building Medical AI Failure Atlas / MedFailBench: a clinician-built open-source benchmark for medical AI safety evaluation.
 
@@ -8,12 +8,10 @@ The point is simple: for medical AI, a wrong answer is not just wrong. The failu
 
 A missed urgent escalation is different from an unsupported guideline claim. Remote dosing advice without context is different from vague reassurance after a red flag.
 
-Today I put the leaderboard live on Hugging Face and added a clinical severity distribution view:
+Today I put the leaderboard live on Hugging Face and added an early clinical severity distribution view for the initial public subset.
 
-- 44 synthetic clinician-authored cases
-- severity 3: 7 cases
-- severity 4: 14 cases
-- severity 5: 23 cases
+- synthetic clinician-authored cases
+- severity-stratified review
 - safety gates for urgent escalation, remote dosing, discharge reassurance, evidence overclaim, and unsafe protocol detail
 
 This is not clinical validation and not a model ranking. It is infrastructure for looking at medical AI failure modes more like a clinician would.
@@ -27,10 +25,7 @@ If you work on medical AI evaluation, benchmark design, or clinical safety revie
 
 I put the Medical AI Failure Atlas / MedFailBench leaderboard live on Hugging Face.
 
-44 synthetic clinician-authored cases, now with clinical severity distribution:
-severity 3: 7
-severity 4: 14
-severity 5: 23
+Synthetic clinician-authored cases, now with clinical severity distribution by safety boundary.
 
 Not clinical validation. Not a model ranking. A way to inspect medical AI failure modes by safety boundary.
 
@@ -83,16 +78,16 @@ Not a ranking. A failure-mode atlas.
 
 ---
 
-## LinkedIn / X — 2026-07-05 v0.2.1: DOI, 100 cases, 10-model eval
+## LinkedIn / X — 2026-07-05 v0.2.1: DOI, scenario-bank assets, 10-model eval
 
-MedFailBench v0.2.1 is out with a persistent DOI (10.5281/zenodo.21205535), 100 clinician-authored synthetic cases across 10 specialty domains, and a CI-integrated weekly pipeline producing real (non-simulated) model responses across 10 models from Qwen, Llama, DeepSeek, GLM, and Kimi families.
+MedFailBench v0.2.1 is out with a persistent DOI (10.5281/zenodo.21205535), 150 clinician-authored scenario-bank rows, 70 prompts, and real (non-simulated) model responses across 10 public leaderboard models from Qwen, Llama, DeepSeek, GLM, and Kimi families.
 
 What changed since v0.2.0:
-- 44 → 100 synthetic cases (cardiology, emergency, endocrinology, neurology, nephrology, GI/hepatology, OB/women's health, geriatrics/polypharmacy, infectious diseases, source integrity)
-- DRY-RUN era is over: models now produce genuine outputs every week via CI + HF router
+- 150 scenario-bank rows and 70 prompts across medical safety domains
+- DRY-RUN era is over: models now produce genuine outputs through CI/HF-router runs
 - Persistent Zenodo DOI for citation
-- arXiv-ready preprint (built automatically on every PR)
-- main branch protection — every change goes through PR + required CI checks
+- TeX-ready preprint draft (automatic build; arXiv submit awaits endorsement)
+- main branch protection and required CI checks
 - External clinician panel validation remains pending; current public claims are synthetic, clinician-authored, and rule-based
 - 10 models evaluated with rule-based scoring
 
@@ -118,7 +113,7 @@ But averages hide the real story. Our worst-case analysis shows:
 - Qwen 3.6 Plus: 36.7% unsafe tier rate
 - Only Llama 3.1-8B avoided the unsafe tier entirely — yet it still triggered "missed urgent escalation" on every prompt
 
-A model can look acceptable on average and still produce critically unsafe answers on high-acuity cases. That is exactly why we built this benchmark.
+A model can look acceptable on average and still produce unsafe-tier answers on high-acuity cases. That is why this benchmark tracks worst-case behavior.
 
 Not clinical advice. Not a model ranking. Not clinical validation. A clinician-built infrastructure for inspecting medical AI failure modes.
 

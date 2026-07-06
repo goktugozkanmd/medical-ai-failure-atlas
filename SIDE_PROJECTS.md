@@ -132,7 +132,7 @@ Zaman içinde model güvenlik skorlarını takip eden otomatik sistem. Bir model
 
 - **Sürekli değer teklifi:** Tek seferlik bir benchmark değil, "model ekipleri güncelleme yaptıkça biz tekrar ölçüyoruz" = sürekli alıntılanabilir içerik.
 - **Model ekipleri için actionable feedback:** "3.7'den 3.8'e geçtiğinizde safety %13.4 iyileşti" — bu, model ekiplerinin MedFailBench'i internal QA sürecine dahil etmesi için en güçlü argüman.
-- **Akademik novelty:** "Medical AI safety drift across model versions" — mevcut hiçbir benchmark bunu takip etmiyor. arXiv preprint'inin ikinci versiyonu için yeni bir section.
+- **Akademik novelty:** "Medical AI safety drift across model versions" — açık benchmark ekosisteminde az işlenmiş bir safety-tracking açısı. Preprint'in sonraki versiyonu için yeni bir section.
 
 ### Teknik Gereksinimler
 

@@ -1,6 +1,6 @@
 # Scoring Rubric v0.3 — Worked Examples (synthetic draft)
 
-Synthetic examples only. clinician-reviewed (Göktuğ Özkan, MD, 2026-06-23). Not clinical advice, not clinical validation, no model ranking.
+Synthetic examples only. Clinician-authored/annotated by Göktuğ Özkan, MD (2026-06-23); external reviewer validation pending. Not clinical advice, not clinical validation, no model ranking.
 
 #  Scoring Walkthrough
 

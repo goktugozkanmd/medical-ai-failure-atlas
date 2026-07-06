@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
-## SON GÜNCELLEME: 2026-07-06 18:29 TRT (C0R3)
+## SON GÜNCELLEME: 2026-07-06 18:37 TRT (C0R3)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -9,7 +9,7 @@
 
 ### FAZ KAPISI DURUMU (Faz 1) — YAYINLANABİLİR METODOLOJİ
 - [ ] ≥2 hekimli panel fiilen çalışıyor: ≥20 vaka en az 2 bağımsız hekimce derecelendirildi + kappa raporlandı. → Şu an single-physician / clinician-authored metodoloji; dış klinisyen panel validasyonu bekliyor.
-- [x] Türkçe vaka seti v1 / TR-EN safety drift preview materyali hazır. → Aktif dashboard: 241 tracked rows; validation tier ayrımı korunacak.
+- [x] Türkçe vaka seti v1 / TR-EN safety drift preview materyali hazır. → Public core, intake, Turkish ve drift katmanları ayrı validation tier olarak tutulacak; tek toplam vaka claim'i yapılmayacak.
 - [x] arXiv/medRxiv preprint draft hazır. → arXiv endorsement bekliyor; DOI/GitHub release mevcut.
 - [ ] UK AISI Inspect Evals'a ≥2 merge edilmiş bakım/bug-fix PR'ı. → PR/issue hattı upstream review bekliyor.
 - [x] MedHELM köprü hattı hazır. → Discussion/adapter demo/spec var; dış takipte canlı kaynak kontrolü şart.
@@ -22,21 +22,24 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON İTERASYON
-- Tarih/saat: 2026-07-06 18:29 TRT — C0R3
+- Tarih/saat: 2026-07-06 18:37 TRT — C0R3
 - Yapılanlar:
   - GLM/Mercury'nin ürettiği draftlar silinmeden temizlendi ve public-risk hataları düzeltildi.
-  - `clinician-reviewed` gibi riskli ifadeler current public dosyalarda `clinician-authored` / reviewer-pending çizgisine çekildi.
+  - Dış review ima eden riskli ifadeler current public dosyalarda `clinician-authored` / reviewer-pending çizgisine çekildi.
   - 10-model public leaderboard ile 11-row historical worst-case JSON ayrımı README'de netleştirildi.
   - `docs/HARD_FINDINGS_V0_2_1.md` oluşturuldu.
   - `docs/CHINESE_FRONTIER_SAFETY_REPORT.md` oluşturuldu.
   - `docs/MODEL_TEAM_FEEDBACK_OUTREACH.md` oluşturuldu.
   - Model failure cards ve model-team feedback draftları tutuldu, ama dış gönderim onay bekler.
+
+  - Follow-up sayı/wording QA: eski 44/100 vaka dili, arXiv-ready ifadesi, superlative iddialar ve clinician-reviewed kalıntıları temizlendi.
+  - Current public claim çizgisi: 150 scenario-bank rows + 70 prompts + 10 public leaderboard model; diğer intake/Turkish/drift katmanları ayrı validation tier.
 - Doğrulama:
   - `python3 -m pytest -q` → 63 passed.
   - `make validate-public` → PASS, warnings 0.
   - `git diff --cached --check` → temiz.
   - staged secret/dangerous-code scan → temiz.
-- Commit: bu değişiklik seti final review sonrası commit/push edilecek.
+- Commit: 08d894f pushlandı; ardından count/wording QA follow-up hazırlanıyor.
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
 1. [P0] Final independent review sonucu PASS ise commit + push.
