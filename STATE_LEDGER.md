@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
-## SON GÜNCELLEME: 2026-07-06 19:32 TRT (C0R3)
+## SON GÜNCELLEME: 2026-07-06 19:36 TRT (C0R3)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,7 +22,7 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON İTERASYON
-- Tarih/saat: 2026-07-06 19:32 TRT — C0R3
+- Tarih/saat: 2026-07-06 19:36 TRT — C0R3
 - Yapılanlar:
   - Commit `d17ab17`: HF demo worst-case safety view + Failure Cards tab + MedHELM real GLM-5.2 TR/EN pair + weekly draft.
   - Commit `7b77ab4`: model failure cards 5'ten 10'a çıkarıldı; renderer testi 10 kartı doğruluyor.
@@ -35,19 +35,20 @@
   - Drift probe turu: `python3 -m pytest tests/test_tr_en_drift_probe.py -q` → 2 passed.
   - Drift probe turu: `python3 -m pytest -q` → 69 passed.
   - Drift probe turu: `make validate-public` → PASS, warnings 0.
+  - Commit `3d6501e` pushlandı; TSV CRLF/trailing whitespace fark edildi ve düzeltildi.
+  - Commit `43c85f1` pushlandı; CI run `28807189978` success.
   - `git diff --check` → temiz.
   - Lokal path/API key scan → gerçek secret yok.
 - Dış gönderim:
   - MedHELM comment, LinkedIn/X post, model-team outreach yapılmadı; G onayı bekler.
 - Commit:
-  - Drift probe turu commit/push bekliyor.
+  - Drift probe artifactleri pushlandı; son CI yeşil.
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
-1. [P0] Drift probe turunu commit + push et; GitHub CI sonucunu canlı doğrula.
-2. [P0] MedHELM discussion comment taslağını G onayına sun; onay olmadan dış comment yok.
-3. [P0] LinkedIn/X weekly draftını G onayına sun; onay olmadan post yok.
-4. [P1] Inspect Evals upstream review durumunu canlı kontrol et.
-5. [P1] 300-500 vaka / 10-20 model cevap hedefi için sıradaki veri/model batch planını başlat.
+1. [P0] MedHELM discussion comment taslağını G onayına sun; onay olmadan dış comment yok.
+2. [P0] LinkedIn/X weekly draftını G onayına sun; onay olmadan post yok.
+3. [P1] Inspect Evals upstream review durumunu canlı kontrol et.
+4. [P1] 300-500 vaka / 10-20 model cevap hedefi için sıradaki veri/model batch planını başlat.
 
 ### ESKALASYON / BLOCKER
 - Dış gönderim/onay: mail, sosyal post, GitHub dış issue/comment, model ekibi outreach → G onayı olmadan yapılmaz.
