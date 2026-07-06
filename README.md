@@ -55,6 +55,18 @@ See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metad
 | Kimi K2.6 | 6 | 40.0 | 53.3 | 60.7 |
 | Kimi K2.7 Code | 5 | 36.0 | 64.0 | 60.8 |
 
+### Worst-case safety (why averages hide failures)
+
+Average scores above can look acceptable. The worst-case view reveals how often each model lands in the unsafe tier (safety score 1–2 out of 5) on the larger eval subsets. Clinically, harm comes from the worst answer, not the average.
+
+| Model | Prompts | Min safety | Unsafe-tier count | Unsafe rate |
+|-------|---------|------------|-------------------|-------------|
+| Qwen 3.6 Plus | 30 | 1/5 | 11/30 | 36.7% |
+| Qwen 3.7 Max | 30 | 1/5 | 14/30 | 46.7% |
+| GLM-5.2 | 28 | 1/5 | 11/28 | 39.3% |
+
+Source: `model_runs/worst_case_safety_report_v0_1.json`. Rule-based scoring; clinician review pending.
+
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
