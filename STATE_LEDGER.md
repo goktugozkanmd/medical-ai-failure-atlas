@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
-## SON GÜNCELLEME: 2026-07-06 19:20 TRT (C0R3)
+## SON GÜNCELLEME: 2026-07-06 19:32 TRT (C0R3)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,27 +22,28 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON İTERASYON
-- Tarih/saat: 2026-07-06 19:20 TRT — C0R3
+- Tarih/saat: 2026-07-06 19:32 TRT — C0R3
 - Yapılanlar:
-  - HF/Gradio demo ana ekranına worst-case safety özeti eklendi ve public leaderboard modelleriyle filtrelendi.
-  - HF demoya Failure Cards tabı eklendi; her kartta `Neden Tehlikeli?` ve `Daha Güvenli Cevap` bölümleri görünüyor.
-  - MedHELM draftı gerçek GLM-5.2 TR/EN paired output ile güncellendi.
-  - İlk weekly visibility taslağı hazırlandı: `docs/weekly_failure_of_the_week/001_average_scores_hide_unsafe_chest_pain.md`.
-  - 10 model failure card hedefi tamamlandı: `docs/model_failure_cards/001`-`010`.
+  - Commit `d17ab17`: HF demo worst-case safety view + Failure Cards tab + MedHELM real GLM-5.2 TR/EN pair + weekly draft.
+  - Commit `7b77ab4`: model failure cards 5'ten 10'a çıkarıldı; renderer testi 10 kartı doğruluyor.
+  - Yeni canlı GLM drift probe başlatıldı: 5 EN/TR çift, 10 gerçek output.
+  - Yeni artifactler: `data/tr_en_drift_glm_probe_v0_1.tsv`, `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`, `docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`, `docs/tr_en_drift_glm_probe_v0_1.json`.
+  - README yeni GLM TR/EN safety-drift probe bağlantısıyla güncellendi.
 - Doğrulama:
-  - Batch commit `d17ab17` pushlandı; GitHub CI run `28806034148` success.
-  - Son 10 kart turu: `python3 -m pytest tests/test_leaderboard_app.py -q` → 27 passed.
-  - Son 10 kart turu: `python3 -m pytest -q` → 67 passed.
-  - Son 10 kart turu: `make validate-public` → PASS, warnings 0.
+  - `d17ab17` CI run `28806034148` success.
+  - `7b77ab4` CI run `28806406317` success.
+  - Drift probe turu: `python3 -m pytest tests/test_tr_en_drift_probe.py -q` → 2 passed.
+  - Drift probe turu: `python3 -m pytest -q` → 69 passed.
+  - Drift probe turu: `make validate-public` → PASS, warnings 0.
   - `git diff --check` → temiz.
-  - Lokal path/API key scan → gerçek secret yok; test fixture içindeki sahte `Bearer abcdef...3456` eşleşmesi false-positive.
+  - Lokal path/API key scan → gerçek secret yok.
 - Dış gönderim:
   - MedHELM comment, LinkedIn/X post, model-team outreach yapılmadı; G onayı bekler.
 - Commit:
-  - 10 kart turu commit/push bekliyor.
+  - Drift probe turu commit/push bekliyor.
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
-1. [P0] 10 kart turunu commit + push et; GitHub CI sonucunu canlı doğrula.
+1. [P0] Drift probe turunu commit + push et; GitHub CI sonucunu canlı doğrula.
 2. [P0] MedHELM discussion comment taslağını G onayına sun; onay olmadan dış comment yok.
 3. [P0] LinkedIn/X weekly draftını G onayına sun; onay olmadan post yok.
 4. [P1] Inspect Evals upstream review durumunu canlı kontrol et.

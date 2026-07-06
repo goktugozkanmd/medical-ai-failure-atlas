@@ -101,6 +101,7 @@ Detailed failure mode analyses for individual models are available in [`docs/mod
 - v0.2.1 public core assets: 150 scenario-bank rows and 70 prompts. Additional Failure Atlas intake, Turkish, and TR-EN safety-drift preview layers are present in the repo, but those layers must be cited separately from the core release until validation and release notes are normalized.
 - 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
 - CI-integrated real-model eval pipeline producing genuine (non-simulated) responses on a weekly subset, with additional model runs evaluated on demand.
+- Small GLM-5.2 TR/EN safety-drift probe: [`docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`](docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md), paired raw outputs in `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`.
 - TeX-ready preprint draft: `preprint/main.tex` (built automatically on every PR via tectonic; arXiv submit awaits endorsement).
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
 - Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)

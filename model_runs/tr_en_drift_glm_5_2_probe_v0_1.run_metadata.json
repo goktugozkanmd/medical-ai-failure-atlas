@@ -1,0 +1,163 @@
+{
+  "schema_version": "open_model_run_v2",
+  "runner_name": "run_prompt_set_openai_compatible_v2",
+  "created_or_updated_at_utc": "2026-07-06T16:28:06Z",
+  "model_id": "z-ai/glm-5.2",
+  "provider_route": "openai_compatible_chat_completions",
+  "base_url": "https://openrouter.ai/api/v1",
+  "generation_settings": {
+    "temperature": 0.0,
+    "timeout_seconds": 180.0,
+    "sleep_seconds": 1.0,
+    "max_attempts": 2,
+    "retry_base_seconds": 2.0,
+    "retry_max_seconds": 30.0
+  },
+  "prompt_tsv": "data/tr_en_drift_glm_probe_v0_1.tsv",
+  "prompt_tsv_sha256": "a6d13c70f537f97b59454e14109a060299450712f0b9f939015ac4931a2d6ebf",
+  "raw_output_json": "model_runs/tr_en_drift_glm_5_2_probe_v0_1.json",
+  "raw_output_sha256": "b0079f162962a5bbdddbebe170855d687ca6003397728eade9737a0902e6fa31",
+  "row_counts": {
+    "expected": 10,
+    "completed": 10,
+    "pending": 0
+  },
+  "completion_status": "completed",
+  "scenario_order": [
+    "DRIFT-EN-001",
+    "DRIFT-EN-002",
+    "DRIFT-EN-003",
+    "DRIFT-EN-004",
+    "DRIFT-EN-005",
+    "DRIFT-TR-001",
+    "DRIFT-TR-002",
+    "DRIFT-TR-003",
+    "DRIFT-TR-004",
+    "DRIFT-TR-005"
+  ],
+  "completed_scenario_ids": [
+    "DRIFT-EN-001",
+    "DRIFT-EN-002",
+    "DRIFT-EN-003",
+    "DRIFT-EN-004",
+    "DRIFT-EN-005",
+    "DRIFT-TR-001",
+    "DRIFT-TR-002",
+    "DRIFT-TR-003",
+    "DRIFT-TR-004",
+    "DRIFT-TR-005"
+  ],
+  "per_scenario": [
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:23:34Z",
+      "ended_at_utc": "2026-07-06T16:23:50Z",
+      "latency_ms": 15790,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-EN-001",
+      "prompt_sha256": "2b2a9f68254a4dadc27e6bfd7ba2877bf8aee183c2fcf69d5443510d241f0051",
+      "answer_sha256": "7e771438ab1a6fbe094c98e921f48175a0037850ef2fdf7050b380475a4b556b"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:23:51Z",
+      "ended_at_utc": "2026-07-06T16:24:19Z",
+      "latency_ms": 27863,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-EN-002",
+      "prompt_sha256": "51764ffe490f44dc6cd52b9c3f3352fd539ff30089f75025b659951e479cfe8d",
+      "answer_sha256": "94f80a9a27a46ad7a708ded6501573745e3b1007ab04852288ca557532a8d2db"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:24:20Z",
+      "ended_at_utc": "2026-07-06T16:24:26Z",
+      "latency_ms": 5503,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-EN-003",
+      "prompt_sha256": "124499c559875940c5f26208629642e89e88f98b47efc0e42ebcdb71a35abc03",
+      "answer_sha256": "73a75a9de47da407baaae53bc6332d8bc85d9a01c253c05b68aa917a17890bc4"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:24:27Z",
+      "ended_at_utc": "2026-07-06T16:24:54Z",
+      "latency_ms": 27102,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-EN-004",
+      "prompt_sha256": "c4a1fb72a0dd149d211af6fb2a554e027d2a66283a6fc26310a0b1ca6fa4e506",
+      "answer_sha256": "cd64c822621a649f844c9db65b501bfa29b3d9c6a01f05dc6f863984f757561f"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:24:55Z",
+      "ended_at_utc": "2026-07-06T16:25:11Z",
+      "latency_ms": 16185,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-EN-005",
+      "prompt_sha256": "182b80b74248afad060e03ea0183d6f141a7d5bb8454581661333ca3b36a7186",
+      "answer_sha256": "764916996083b955e7a28d4c4c6301ce531225bd975efdbc81e68d45d74cc6a2"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:25:12Z",
+      "ended_at_utc": "2026-07-06T16:25:31Z",
+      "latency_ms": 19127,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-TR-001",
+      "prompt_sha256": "f67f6f9f22d82e74192d71a36ac6286458e47858a832043d399df7e433a01112",
+      "answer_sha256": "5c9f84636a9a9ad49c883226034b40651309cbfe1c60eab31c850ce57bc5f268"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:25:32Z",
+      "ended_at_utc": "2026-07-06T16:25:59Z",
+      "latency_ms": 26691,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-TR-002",
+      "prompt_sha256": "f5bb301c973f2ef2e241be3143cf714c83dd87250a45725dca154c497ebef22e",
+      "answer_sha256": "b1a4a627c92c550c3db135367fc990bb2410e36f669940cd8320623c99618f71"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:26:00Z",
+      "ended_at_utc": "2026-07-06T16:27:09Z",
+      "latency_ms": 68731,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-TR-003",
+      "prompt_sha256": "1f96290e8beda0e20aedd79ee30b4191f815b65e3ad32b128d5827bc01ccce3b",
+      "answer_sha256": "c148eec53856e5258c9f84bb75f340884f43fcd3981fd2e88099119553542a31"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:27:10Z",
+      "ended_at_utc": "2026-07-06T16:27:34Z",
+      "latency_ms": 23829,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-TR-004",
+      "prompt_sha256": "20b638f4ae27facc6af246555d5a71fdb5328d292141dab15581b0e27ba35870",
+      "answer_sha256": "7865608e6104b4928f3d6eb72b235c28edc2036c99ee9cc09e6cb3a8bb5792fa"
+    },
+    {
+      "status": "completed",
+      "started_at_utc": "2026-07-06T16:27:35Z",
+      "ended_at_utc": "2026-07-06T16:28:06Z",
+      "latency_ms": 31186,
+      "attempts": 1,
+      "errors_before_success": [],
+      "scenario_id": "DRIFT-TR-005",
+      "prompt_sha256": "9d922d0416576ec2fa8683ad374bcedd4e7070881bdfaa66bbc7bebc4cfe6de5",
+      "answer_sha256": "0fc195a8019117a0e60565761fa6241e590bcc4072895ff561ca2a6e2c646f2b"
+    }
+  ],
+  "secret_policy": "API keys are not stored in this sidecar."
+}
