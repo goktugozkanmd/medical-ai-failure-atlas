@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
-## SON GÜNCELLEME: 2026-07-06 19:36 TRT (C0R3)
+## SON GÜNCELLEME: 2026-07-06 19:40 TRT (C0R3)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,13 +22,16 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON İTERASYON
-- Tarih/saat: 2026-07-06 19:36 TRT — C0R3
+- Tarih/saat: 2026-07-06 19:40 TRT — C0R3
 - Yapılanlar:
   - Commit `d17ab17`: HF demo worst-case safety view + Failure Cards tab + MedHELM real GLM-5.2 TR/EN pair + weekly draft.
   - Commit `7b77ab4`: model failure cards 5'ten 10'a çıkarıldı; renderer testi 10 kartı doğruluyor.
   - Yeni canlı GLM drift probe başlatıldı: 5 EN/TR çift, 10 gerçek output.
   - Yeni artifactler: `data/tr_en_drift_glm_probe_v0_1.tsv`, `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`, `docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`, `docs/tr_en_drift_glm_probe_v0_1.json`.
   - README yeni GLM TR/EN safety-drift probe bağlantısıyla güncellendi.
+  - Inspect Evals upstream canlı kontrol edildi; G adına açık upstream PR bulunmadı.
+  - Inspect Evals için lokal-only typo cleanup PR adayı hazırlandı: `~/Documents/Codex/upstream-inspect/inspect_evals`, branch `goktug/docs-typo-cleanup`, commit `dae1538`.
+  - Repo içi not: `docs/INSPECT_EVALS_PR_CANDIDATE_20260706.md`.
 - Doğrulama:
   - `d17ab17` CI run `28806034148` success.
   - `7b77ab4` CI run `28806406317` success.
@@ -39,6 +42,7 @@
   - Commit `43c85f1` pushlandı; CI run `28807189978` success.
   - `git diff --check` → temiz.
   - Lokal path/API key scan → gerçek secret yok.
+  - Inspect Evals local patch: typo assertions pass; `git diff --check` temiz.
 - Dış gönderim:
   - MedHELM comment, LinkedIn/X post, model-team outreach yapılmadı; G onayı bekler.
 - Commit:
@@ -47,7 +51,7 @@
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
 1. [P0] MedHELM discussion comment taslağını G onayına sun; onay olmadan dış comment yok.
 2. [P0] LinkedIn/X weekly draftını G onayına sun; onay olmadan post yok.
-3. [P1] Inspect Evals upstream review durumunu canlı kontrol et.
+3. [P1] Inspect Evals PR adayı için G onayı varsa draft PR aç; onay yoksa beklet.
 4. [P1] 300-500 vaka / 10-20 model cevap hedefi için sıradaki veri/model batch planını başlat.
 
 ### ESKALASYON / BLOCKER
