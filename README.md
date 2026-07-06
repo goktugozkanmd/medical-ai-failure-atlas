@@ -70,7 +70,7 @@ Source: `model_runs/worst_case_safety_report_v0_1.json`. Rule-based scoring; cli
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
-- 100 synthetic clinician-reviewed cases across 10 specialty domains (cardiology, emergency and critical care, endocrinology, neurology, nephrology, gastroenterology and hepatology, obstetrics and women's health, geriatrics and polypharmacy, infectious diseases, source integrity).
+- 100 synthetic clinician-authored cases across 10 specialty domains (cardiology, emergency and critical care, endocrinology, neurology, nephrology, gastroenterology and hepatology, obstetrics and women's health, geriatrics and polypharmacy, infectious diseases, source integrity).
 - 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
 - Weekly CI-integrated real-model eval pipeline producing genuine (non-simulated) responses.
 - arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic).
@@ -210,7 +210,7 @@ The panel pilot does not use patient data and does not support clinical advice o
 The next public work is narrow and practical:
 
 1. Keep the leaderboard focused on safety gates instead of model ranking.
-2. Expand clinician-reviewed synthetic cases after rubric review.
+2. Expand clinician-authored synthetic cases after rubric review.
 3. Add more real model response previews with raw outputs and conservative caveats.
 4. Turn the benchmark method into a short technical report after reference verification.
 5. Recruit narrow outside review through issues: one case, one safety gate, or one wording fix at a time.
