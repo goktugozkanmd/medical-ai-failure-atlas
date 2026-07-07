@@ -192,12 +192,25 @@ def load_worst_case_report(path: Path | None = None) -> list[dict[str, object]]:
     return [row for row in models if isinstance(row, dict)]
 
 
+FAMILY_CHOICES = ["All", "Chinese Frontier", "Western", "Other"]
+
+
 def model_slug(value: object) -> str:
     text = str(value or "").strip().lower()
     text = re.sub(r"\s+", "-", text)
     text = re.sub(r"[^a-z0-9.\-]+", "-", text)
     text = re.sub(r"-+", "-", text)
     return text.strip("-")
+
+
+def detect_model_family(model_name: str) -> str:
+    """Heuristic model-family detection for the worst-case filter."""
+    name = model_name.lower()
+    if any(family in name for family in ("qwen", "deepseek", "glm", "kimi")):
+        return "Chinese Frontier"
+    if "llama" in name:
+        return "Western"
+    return "Other"
 
 
 def public_leaderboard_model_slugs(submissions: list[dict[str, object]]) -> set[str]:
@@ -281,6 +294,26 @@ def worst_case_summary_markdown(rows: list[dict[str, object]]) -> str:
             "Rule-based scoring; synthetic cases only; external clinician validation pending. This is a triage view, not a model ranking or deployment claim.",
         ]
     )
+
+
+def filter_worst_case_rows(
+    report_rows: list[dict[str, object]] | None = None,
+    submissions: list[dict[str, object]] | None = None,
+    family: str = "All",
+) -> list[dict[str, object]]:
+    rows = worst_case_display_rows(report_rows, submissions)
+    if family == "All":
+        return rows
+    return [row for row in rows if detect_model_family(str(row.get("model", ""))) == family]
+
+
+def update_worst_case(family: str) -> tuple[str, list[list[str]]]:
+    report_rows = load_worst_case_report()
+    store = load_submission_store()
+    raw_submissions = store.get("submissions", [])
+    submissions = displayable_submission_rows(raw_submissions if isinstance(raw_submissions, list) else [])
+    rows = filter_worst_case_rows(report_rows, submissions, family)
+    return worst_case_summary_markdown(rows), worst_case_to_table(rows)
 
 
 def extract_markdown_section(markdown: str, heading: str) -> str:
@@ -942,13 +975,23 @@ def build_demo():
                 )
 
         with gr.Tab("Worst-case Safety"):
-            gr.Markdown(worst_case_summary_markdown(worst_case_rows))
-            gr.Dataframe(
+            model_family = gr.Dropdown(
+                choices=FAMILY_CHOICES,
+                value="All",
+                label="Model family",
+            )
+            worst_case_summary = gr.Markdown(worst_case_summary_markdown(worst_case_rows))
+            worst_case_table = gr.Dataframe(
                 headers=WORST_CASE_COLUMNS,
                 value=worst_case_to_table(worst_case_rows),
                 datatype=["str"] * len(WORST_CASE_COLUMNS),
                 interactive=False,
                 wrap=True,
+            )
+            model_family.change(
+                update_worst_case,
+                inputs=[model_family],
+                outputs=[worst_case_summary, worst_case_table],
             )
             gr.Markdown(
                 "Data source: `model_runs/worst_case_safety_report_v0_1.json`. "
