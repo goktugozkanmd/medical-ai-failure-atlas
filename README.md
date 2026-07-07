@@ -18,10 +18,11 @@ Medical AI Failure Atlas is a synthetic benchmark for testing whether medical AI
 5. [Example Workflows](#example-workflows)
 6. [Who Is This For](#who-is-this-for)
 7. [Safety Boundaries](#safety-boundaries)
-8. [Roadmap](#roadmap)
-9. [Contributing](#contributing)
-10. [License](#license)
-11. [Citation](#citation)
+8. [Regulatory and Compliance Positioning](#regulatory-and-compliance-positioning)
+9. [Roadmap](#roadmap)
+10. [Contributing](#contributing)
+11. [License](#license)
+12. [Citation](#citation)
 
 ## Live Demo
 
@@ -104,6 +105,8 @@ Detailed failure mode analyses for individual models are available in [`docs/mod
 - Small GLM-5.2 TR/EN safety-drift probe: [`docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`](docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md), paired raw outputs in `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`.
 - TeX-ready preprint draft: `preprint/main.tex` (built automatically on every PR via tectonic; arXiv submit awaits endorsement).
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
+- EU AI Act compliance positioning: [`COMPLIANCE.md`](COMPLIANCE.md)
+- Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 - Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)
 - Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
@@ -224,6 +227,16 @@ Use this repository for research, evaluation, documentation review, and model de
 Do not use it for diagnosis, treatment advice, clinical deployment, patient triage, regulatory approval, ranking claims, score certification, source truth certification, partner claims, institution claims, or endorsement claims.
 
 All public scenarios are synthetic. If you contribute examples, use synthetic or public information only.
+
+## Regulatory and Compliance Positioning
+
+MedFailBench includes an exploratory EU AI Act readiness layer for clinical AI safety evaluation. It is not legal advice, not a certified compliance tool, not CE marking evidence by itself, not clinical validation, and not a medical device claim.
+
+- Compliance map: [`COMPLIANCE.md`](COMPLIANCE.md)
+- Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
+- Whitepaper reference and claim audit: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md)
+
+The intended use is narrow: structured evidence for risk management, transparency, human oversight, robustness, and documentation discussions under broader EU AI Act readiness or conformity-assessment work.
 
 ## Clinician Panel Pilot
 

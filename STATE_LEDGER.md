@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-| SON GUNCELLEME: 2026-07-07 13:35 TRT (C0R3 — eksik kapanis / batch + PR + QA)
+| SON GUNCELLEME: 2026-07-07 16:47 TRT (C0R3 — EU AI Act whitepaper + README compliance link)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,21 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-07 16:47 TRT — C0R3 (EU AI Act whitepaper + README compliance link)
+- Yapilanlar:
+  - `docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md` public whitepaper v0.1 olarak hazirlandi.
+  - `docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md` referans ve claim-support audit olarak eklendi.
+  - `README.md` icine COMPLIANCE.md, whitepaper ve audit linkleri eklendi.
+  - `COMPLIANCE.md` resmi EU AI Act kaynaklariyla guclendirildi; high-risk wording daha konservatif hale getirildi.
+- Dogrulama:
+  - Internal link + row-count check: PASS; scenario 150, prompt 70, leaderboard 10, worst-case row 11.
+  - Reference/source audit: PASS after scope limits; legal/regulatory/journal submit icin legal/target review gerekir.
+  - `git diff --check` -> PASS.
+  - `python3 -m pytest -q` -> 72 passed.
+  - `make validate-public` -> PASS, warnings 0.
+- Dis gonderim: Henuz yok; GitHub push/remote read-back sonrasi public repo guncellenecek.
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-07 13:35 TRT — C0R3 (eksik kapanis / batch + PR + QA)
 - Yapilanlar:
   - arXiv submit durumu tekrar netlestirildi: submit endorsement yuzunden bloklu; endorsement kodu `AGUGYD`. Disarida "submitted" claim'i yok.
