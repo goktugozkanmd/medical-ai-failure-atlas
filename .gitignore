@@ -13,3 +13,6 @@ preprint/*.bbl
 preprint/*.blg
 preprint/*.log
 preprint/*.out
+build/
+dist/
+uv.lock

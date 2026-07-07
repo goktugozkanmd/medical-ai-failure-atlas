@@ -3,24 +3,23 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "medical-ai-failure-atlas"
+name = "safetyguard"
 version = "0.1.0"
-description = "Clinician built benchmark tooling for medical AI safety evaluation."
+description = "SafetyGuard CLI for MedFailBench medical AI safety evaluation."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
 authors = [{ name = "Goktug Ozkan" }]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
-dependencies = []
+dependencies = ["rich>=13"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
@@ -31,6 +30,9 @@ safetyguard = "safetyguard.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["failure_atlas*", "safetyguard*"]
+
+[tool.setuptools.package-data]
+safetyguard = ["data/*.json", "data/*.jsonl", "data/*.tsv"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

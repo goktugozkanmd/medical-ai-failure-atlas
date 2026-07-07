@@ -24,9 +24,9 @@ import os
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_PROMPTS = REPO_ROOT / "leaderboard" / "medfailbench_prompts_v0_2.jsonl"
-DEFAULT_RUBRIC = REPO_ROOT / "failure_atlas" / "rubric.json"
+PACKAGE_ROOT = Path(__file__).resolve().parent
+DEFAULT_PROMPTS = PACKAGE_ROOT / "data" / "medfailbench_prompts_v0_2.tsv"
+DEFAULT_RUBRIC = PACKAGE_ROOT / "data" / "scoring_rubric_v0_3.json"
 
 
 def eval_command(args):
@@ -158,6 +158,7 @@ def main():
 
     cmp_p = sub.add_parser("compare", help="Compare multiple evaluation results")
     cmp_p.add_argument("--runs", required=True, help="Directory containing score files")
+    cmp_p.add_argument("--format", choices=("table",), default="table", help="Output format")
     cmp_p.set_defaults(func=compare_command)
 
     args = parser.parse_args()
