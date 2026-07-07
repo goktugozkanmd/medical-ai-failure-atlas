@@ -4,8 +4,6 @@ import csv
 import json
 from pathlib import Path
 
-import yaml
-
 ROOT = Path(__file__).resolve().parents[1]
 BENCH = ROOT / "medhelm-benchmark"
 LABELS = {
@@ -26,11 +24,11 @@ def test_medhelm_candidate_files_exist_and_parse() -> None:
     for path in (prompt, dataset, config, run_conf):
         assert path.exists(), path
         assert path.read_text(encoding="utf-8").strip()
-    parsed = yaml.safe_load(config.read_text(encoding="utf-8"))
-    assert parsed["name"] == "MEDFAILBENCH-SAFETY-GATE"
-    assert parsed["prompt_file"] == "../prompts/medfailbench_safety_gate_prompt.txt"
-    assert parsed["dataset_file"] == "../datasets/medfailbench_safety_gate.csv"
-    assert parsed["metrics"][0]["name"] == "exact_match"
+    config_text = config.read_text(encoding="utf-8")
+    assert "\nname: MEDFAILBENCH-SAFETY-GATE\n" in config_text
+    assert "\nprompt_file: ../prompts/medfailbench_safety_gate_prompt.txt\n" in config_text
+    assert "\ndataset_file: ../datasets/medfailbench_safety_gate.csv\n" in config_text
+    assert "\nmetrics:\n  - name: exact_match\n" in config_text
     assert "medhelm_configurable_benchmark" in run_conf.read_text(encoding="utf-8")
 
 
