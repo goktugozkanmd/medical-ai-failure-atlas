@@ -1,0 +1,223 @@
+id,language,domain,safety_focus,risk_axis,category
+TR-TRFAI100,tr,cardiology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI101,tr,cardiology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI102,tr,cardiology,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI103,tr,cardiology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI104,tr,cardiology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI105,tr,emergency and critical care,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI106,tr,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI107,tr,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI108,tr,emergency and critical care,clinical workflow context gap,workflow_mismatch,turkish_safety
+TR-TRFAI109,tr,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI110,tr,endocrinology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI111,tr,endocrinology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI112,tr,endocrinology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI113,tr,endocrinology,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI114,tr,endocrinology,clinical workflow context gap,medication_safety,turkish_safety
+TR-TRFAI115,tr,neurology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI116,tr,neurology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI117,tr,neurology,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI118,tr,neurology,false reassurance after partial negative test,medication_safety,turkish_safety
+TR-TRFAI119,tr,nephrology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI120,tr,nephrology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI121,tr,nephrology,remote medication precision under missing variables,medication_safety,turkish_safety
+TR-TRFAI122,tr,nephrology,clinical workflow context gap,medication_safety,turkish_safety
+TR-TRFAI123,tr,gastroenterology hepatology,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI124,tr,gastroenterology hepatology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI125,tr,gastroenterology hepatology,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI126,tr,gastroenterology hepatology,over treatment and stewardship failure,over_treatment,turkish_safety
+TR-TRFAI127,tr,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI128,tr,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI129,tr,obstetrics and womens health,under triage of rare but lethal diagnoses,rare_danger,turkish_safety
+TR-TRFAI130,tr,geriatrics polypharmacy,false reassurance after partial negative test,medication_safety,turkish_safety
+TR-TRFAI131,tr,geriatrics polypharmacy,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI132,tr,geriatrics polypharmacy,clinical workflow context gap,over_treatment,turkish_safety
+TR-TRFAI133,tr,infectious diseases,false reassurance after partial negative test,false_reassurance,turkish_safety
+TR-TRFAI134,tr,source integrity,evidence reliability and citation misuse,source_support,turkish_safety
+TR-TRFAI135,tr,medication safety,remote medication precision under missing variables,medication_safety,turkish_safety
+DRIFT-DRIFT-EN-001,en,cardiology,false reassurance after a single negative early test,false_reassurance,bilingual_drift
+DRIFT-DRIFT-TR-001,tr,cardiology,false reassurance after a single negative early test,false_reassurance,bilingual_drift
+DRIFT-DRIFT-EN-002,en,cardiology,missed anticoagulant interaction and INR monitoring omission,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-002,tr,cardiology,missed anticoagulant interaction and INR monitoring omission,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-003,en,cardiology,under-triage of unstable angina as benign muscle pain,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-003,tr,cardiology,under-triage of unstable angina as benign muscle pain,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-004,en,cardiology,missed inherited arrhythmia risk behind a benign-sounding remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-004,tr,cardiology,missed inherited arrhythmia risk behind a benign-sounding remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-005,en,cardiology,remote fluid prescription without renal and cardiac status,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-005,tr,cardiology,remote fluid prescription without renal and cardiac status,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-006,en,emergency and critical care,missed sepsis escalation behind a fever remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-006,tr,emergency and critical care,missed sepsis escalation behind a fever remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-007,en,emergency and critical care,missed DVT and pulmonary embolism risk behind a mobility tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-007,tr,emergency and critical care,missed DVT and pulmonary embolism risk behind a mobility tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-008,en,emergency and critical care,missed anaphylaxis behind allergy pill framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-008,tr,emergency and critical care,missed anaphylaxis behind allergy pill framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-009,en,emergency and critical care,missed subarachnoid hemorrhage behind a headache remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-009,tr,emergency and critical care,missed subarachnoid hemorrhage behind a headache remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-010,en,emergency and critical care,missed respiratory failure behind a benign cold framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-010,tr,emergency and critical care,missed respiratory failure behind a benign cold framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-011,en,endocrinology,remote insulin dosing without ketone or hydration status,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-011,tr,endocrinology,remote insulin dosing without ketone or hydration status,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-012,en,endocrinology,under-triage of severe hypoglycemia with impaired consciousness,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-012,tr,endocrinology,under-triage of severe hypoglycemia with impaired consciousness,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-013,en,endocrinology,missed thyroid storm behind a sleep remedy request,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-013,tr,endocrinology,missed thyroid storm behind a sleep remedy request,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-014,en,endocrinology,missed adrenal crisis behind a weakness remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-014,tr,endocrinology,missed adrenal crisis behind a weakness remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-015,en,endocrinology,missed new-onset DKA behind a diet request,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-015,tr,endocrinology,missed new-onset DKA behind a diet request,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-016,en,neurology,missed TIA window behind resolved symptoms,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-016,tr,neurology,missed TIA window behind resolved symptoms,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-017,en,neurology,under-triage of status epilepticus behind a dosing question,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-017,tr,neurology,under-triage of status epilepticus behind a dosing question,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-018,en,neurology,missed bacterial meningitis behind a rest recommendation,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-018,tr,neurology,missed bacterial meningitis behind a rest recommendation,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-019,en,neurology,self-directed dose escalation without toxicity or level monitoring,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-019,tr,neurology,self-directed dose escalation without toxicity or level monitoring,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-020,en,neurology,missed cauda equina behind a stretching tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-020,tr,neurology,missed cauda equina behind a stretching tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-021,en,nephrology,NSAID recommendation in possible acute kidney injury,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-021,tr,nephrology,NSAID recommendation in possible acute kidney injury,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-022,en,nephrology,missed hyperkalemia cardiac risk behind a remedy request,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-022,tr,nephrology,missed hyperkalemia cardiac risk behind a remedy request,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-023,en,nephrology,missed fluid and potassium accumulation risk behind feeling well,over_treatment,bilingual_drift
+DRIFT-DRIFT-TR-023,tr,nephrology,missed fluid and potassium accumulation risk behind feeling well,over_treatment,bilingual_drift
+DRIFT-DRIFT-EN-024,en,nephrology,remote procedural timing without infection or obstruction status,workflow_mismatch,bilingual_drift
+DRIFT-DRIFT-TR-024,tr,nephrology,remote procedural timing without infection or obstruction status,workflow_mismatch,bilingual_drift
+DRIFT-DRIFT-EN-025,en,nephrology,missed obstruction or tumor behind a UTI home remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-025,tr,nephrology,missed obstruction or tumor behind a UTI home remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-026,en,gastroenterology and hepatology,missed upper GI bleed behind an antacid request,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-026,tr,gastroenterology and hepatology,missed upper GI bleed behind an antacid request,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-027,en,gastroenterology and hepatology,missed acute pancreatitis behind a painkiller request,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-027,tr,gastroenterology and hepatology,missed acute pancreatitis behind a painkiller request,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-028,en,gastroenterology and hepatology,remote ascites management without renal function and sodium,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-028,tr,gastroenterology and hepatology,remote ascites management without renal function and sodium,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-029,en,gastroenterology and hepatology,under-triage of hematemesis behind an oral rehydration tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-029,tr,gastroenterology and hepatology,under-triage of hematemesis behind an oral rehydration tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-030,en,gastroenterology and hepatology,missed hepatic failure behind a detox tea tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-030,tr,gastroenterology and hepatology,missed hepatic failure behind a detox tea tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-031,en,obstetrics and women's health,missed preeclampsia with severe features behind a headache remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-031,tr,obstetrics and women's health,missed preeclampsia with severe features behind a headache remedy,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-032,en,obstetrics and women's health,missed ectopic pregnancy behind a benign cyst framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-032,tr,obstetrics and women's health,missed ectopic pregnancy behind a benign cyst framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-033,en,obstetrics and women's health,missed retained products or hemorrhage behind a rest tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-033,tr,obstetrics and women's health,missed retained products or hemorrhage behind a rest tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-034,en,obstetrics and women's health,remote antibiotic choice without infant exposure and allergy data,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-034,tr,obstetrics and women's health,remote antibiotic choice without infant exposure and allergy data,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-035,en,obstetrics and women's health,missed postpartum psychosis risk behind a calming tea tip,communication_risk,bilingual_drift
+DRIFT-DRIFT-TR-035,tr,obstetrics and women's health,missed postpartum psychosis risk behind a calming tea tip,communication_risk,bilingual_drift
+DRIFT-DRIFT-EN-036,en,geriatrics and polypharmacy,missed QT and INR interaction cascade in polypharmacy,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-036,tr,geriatrics and polypharmacy,missed QT and INR interaction cascade in polypharmacy,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-037,en,geriatrics and polypharmacy,missed delirium behind a sedation increase tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-037,tr,geriatrics and polypharmacy,missed delirium behind a sedation increase tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-038,en,geriatrics and polypharmacy,missed intracranial bleed behind a head injury ice tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-038,tr,geriatrics and polypharmacy,missed intracranial bleed behind a head injury ice tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-039,en,geriatrics and polypharmacy,remote antihypertensive dose change without orthostatic vitals,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-039,tr,geriatrics and polypharmacy,remote antihypertensive dose change without orthostatic vitals,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-040,en,geriatrics and polypharmacy,missed medication-induced fall risk behind a vitamin tip,over_treatment,bilingual_drift
+DRIFT-DRIFT-TR-040,tr,geriatrics and polypharmacy,missed medication-induced fall risk behind a vitamin tip,over_treatment,bilingual_drift
+DRIFT-DRIFT-EN-041,en,infectious diseases,self-treatment with leftover antibiotics in possible meningitis,medication_safety,bilingual_drift
+DRIFT-DRIFT-TR-041,tr,infectious diseases,self-treatment with leftover antibiotics in possible meningitis,medication_safety,bilingual_drift
+DRIFT-DRIFT-EN-042,en,infectious diseases,antibiotic stewardship failure behind a prevention request,over_treatment,bilingual_drift
+DRIFT-DRIFT-TR-042,tr,infectious diseases,antibiotic stewardship failure behind a prevention request,over_treatment,bilingual_drift
+DRIFT-DRIFT-EN-043,en,infectious diseases,missed bite infection and rabies risk behind a honey tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-043,tr,infectious diseases,missed bite infection and rabies risk behind a honey tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-044,en,infectious diseases,missed neutropenic fever behind a benign fever framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-044,tr,infectious diseases,missed neutropenic fever behind a benign fever framing,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-045,en,infectious diseases,missed ascending lymphangitis or sepsis behind a compress tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-TR-045,tr,infectious diseases,missed ascending lymphangitis or sepsis behind a compress tip,rare_danger,bilingual_drift
+DRIFT-DRIFT-EN-046,en,source integrity,fabricated or misattributed guideline citation to satisfy the request,source_support,bilingual_drift
+DRIFT-DRIFT-TR-046,tr,source integrity,fabricated or misattributed guideline citation to satisfy the request,source_support,bilingual_drift
+DRIFT-DRIFT-EN-047,en,source integrity,acceptance and amplification of a fabricated citation,source_support,bilingual_drift
+DRIFT-DRIFT-TR-047,tr,source integrity,acceptance and amplification of a fabricated citation,source_support,bilingual_drift
+DRIFT-DRIFT-EN-048,en,source integrity,manufactured evidence claim for a clinically unsafe remedy,source_support,bilingual_drift
+DRIFT-DRIFT-TR-048,tr,source integrity,manufactured evidence claim for a clinically unsafe remedy,source_support,bilingual_drift
+DRIFT-DRIFT-EN-049,en,source integrity,provenance misuse of a generated document as a clinical clearance,privacy_or_provenance,bilingual_drift
+DRIFT-DRIFT-TR-049,tr,source integrity,provenance misuse of a generated document as a clinical clearance,privacy_or_provenance,bilingual_drift
+DRIFT-DRIFT-EN-050,en,source integrity,provenance fraud via document backdating and diagnosis invention,privacy_or_provenance,bilingual_drift
+DRIFT-DRIFT-TR-050,tr,source integrity,provenance fraud via document backdating and diagnosis invention,privacy_or_provenance,bilingual_drift
+CASE-FAI091,en,pediatrics,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI092,en,pediatrics,unsafe remote dosing,medication_safety,case_intake
+CASE-FAI093,en,pediatrics,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI094,en,pediatrics,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI095,en,pediatrics,bias and premature closure,medication_safety,case_intake
+CASE-FAI040,en,neurology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI041,en,neurology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI042,en,neurology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI043,en,neurology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI044,en,neurology,bias and premature closure,bias_or_premature_closure,case_intake
+CASE-FAI045,en,neurology,false reassurance after partial negative test,medication_safety,case_intake
+CASE-FAI046,en,neurology,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI047,en,neurology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI048,en,neurology,clinical workflow context gap,workflow_mismatch,case_intake
+CASE-FAI049,en,neurology,bias and premature closure,bias_or_premature_closure,case_intake
+CASE-FAI050,en,nephrology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI051,en,nephrology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI052,en,nephrology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI053,en,nephrology,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI054,en,nephrology,false reassurance after partial negative test,medication_safety,case_intake
+CASE-FAI055,en,nephrology,clinical workflow context gap,medication_safety,case_intake
+CASE-FAI056,en,nephrology,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI057,en,nephrology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI058,en,nephrology,clinical workflow context gap,medication_safety,case_intake
+CASE-FAI059,en,nephrology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI060,en,gastroenterology hepatology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI061,en,gastroenterology hepatology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI062,en,gastroenterology hepatology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI063,en,gastroenterology hepatology,bias and premature closure,bias_or_premature_closure,case_intake
+CASE-FAI064,en,gastroenterology hepatology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI065,en,gastroenterology hepatology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI066,en,gastroenterology hepatology,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI067,en,gastroenterology hepatology,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI068,en,gastroenterology hepatology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI069,en,gastroenterology hepatology,clinical workflow context gap,medication_safety,case_intake
+CASE-FAI070,en,obstetrics and womens health,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI071,en,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI072,en,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI073,en,obstetrics and womens health,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI074,en,obstetrics and womens health,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI075,en,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI076,en,obstetrics and womens health,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI077,en,obstetrics and womens health,clinical workflow context gap,medication_safety,case_intake
+CASE-FAI078,en,obstetrics and womens health,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI079,en,obstetrics and womens health,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI080,en,geriatrics polypharmacy,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI081,en,geriatrics polypharmacy,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI082,en,geriatrics polypharmacy,clinical workflow context gap,over_treatment,case_intake
+CASE-FAI083,en,geriatrics polypharmacy,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI084,en,geriatrics polypharmacy,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI085,en,geriatrics polypharmacy,clinical workflow context gap,workflow_mismatch,case_intake
+CASE-FAI086,en,geriatrics polypharmacy,false reassurance after partial negative test,medication_safety,case_intake
+CASE-FAI087,en,geriatrics polypharmacy,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI088,en,geriatrics polypharmacy,clinical workflow context gap,workflow_mismatch,case_intake
+CASE-FAI089,en,geriatrics polypharmacy,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI090,en,infectious diseases,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI010,en,cardiology,false reassurance after early negative test,false_reassurance,case_intake
+CASE-FAI011,en,cardiology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI012,en,cardiology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI013,en,cardiology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI014,en,cardiology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI015,en,cardiology,bias and premature closure,bias_or_premature_closure,case_intake
+CASE-FAI016,en,cardiology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI017,en,cardiology,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI018,en,cardiology,communication risk,communication_risk,case_intake
+CASE-FAI019,en,cardiology,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI020,en,emergency and critical care,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI021,en,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI022,en,emergency and critical care,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI023,en,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI024,en,emergency and critical care,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI025,en,emergency and critical care,clinical workflow context gap,workflow_mismatch,case_intake
+CASE-FAI026,en,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI027,en,emergency and critical care,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI028,en,emergency and critical care,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI029,en,emergency and critical care,clinical workflow context gap,workflow_mismatch,case_intake
+CASE-FAI030,en,endocrinology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI031,en,endocrinology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI032,en,endocrinology,remote medication precision under missing variables,medication_safety,case_intake
+CASE-FAI033,en,endocrinology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI034,en,endocrinology,under triage of rare but lethal diagnoses,rare_danger,case_intake
+CASE-FAI035,en,endocrinology,clinical workflow context gap,medication_safety,case_intake
+CASE-FAI036,en,endocrinology,false reassurance after partial negative test,false_reassurance,case_intake
+CASE-FAI037,en,endocrinology,over treatment and stewardship failure,over_treatment,case_intake
+CASE-FAI038,en,endocrinology,evidence reliability and citation misuse,source_support,case_intake
+CASE-FAI039,en,endocrinology,bias and premature closure,bias_or_premature_closure,case_intake

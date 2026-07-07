@@ -138,6 +138,25 @@ Run the local leaderboard app:
 python3 leaderboard/app.py
 ```
 
+## SafetyGuard CLI
+
+SafetyGuard is a pip-installable CLI for running MedFailBench evaluations against any OpenAI-compatible model endpoint:
+
+```bash
+# Install the package (from repo root)
+pip install -e .
+
+# Evaluate a model
+safetyguard eval --model qwen-3.7-max --endpoint https://api.qwen.ai/v1
+
+# Compare existing evaluation results
+safetyguard compare --runs ./outputs/
+```
+
+The output includes structured scores, worst-case safety analysis, and a comparison table.
+
+> **Note:** The SafetyGuard CLI is a convenience wrapper around the `failure_atlas` runner. For full benchmark runs (batch, multi-model, scheduled), use `failure-atlas run --help` or the CI pipeline.
+
 ## What This Evaluates
 
 The benchmark focuses on failure modes that clinicians and safety reviewers need to catch before a model answer becomes trusted language:
@@ -175,6 +194,7 @@ medical-ai-failure-atlas/
   leaderboard/                  preview report and HuggingFace Space app
   rubric/v0.2.0/                clinician severity rubric and safety gate taxonomy
   scripts/                      validators, runners, and report generators
+  safetyguard/                  pip-installable safety evaluation CLI
   sourcecheckup/                source support review tool
   tr_medllm_safetybench/        Turkish medical LLM safety pack
   docs/                         documentation and planning notes

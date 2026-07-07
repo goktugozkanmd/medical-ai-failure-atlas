@@ -1,0 +1,95 @@
+# MedFailBench — LM Evaluation Harness Task
+#
+# Runnable LM Eval Harness configuration for medical AI safety evaluation.
+#
+# Setup:
+#   pip install lm-eval
+#   cd /path/to/medical-ai-failure-atlas
+#   LM_EVAL_DATA_PATH=. lm-eval --model hf \
+#       --model_args pretrained=Qwen/Qwen2.5-7B-Instruct \
+#       --tasks medfailbench \
+#       --output_path model_runs/lm_eval_results/
+#
+# Post-process with:
+#   python3 failure_atlas/scorer.py score model_runs/lm_eval_results/ \
+#       --rubric failure_atlas/rubric.json
+#
+# Upstream PR preparation notes:
+# - Replace local dataset_path with HF dataset reference when publishing
+# - The generate_until output_type means models generate free text
+# - Rule-based scoring is a post-process step (not native LM Eval metric)
+# - See leaderboard/SPACE_README.md for deployment boundaries
+
+task: medfailbench
+tag:
+  - medfailbench
+  - medical_safety
+  - clinical_safety
+  - clinician_authored
+
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    - leaderboard/medfailbench_prompts_v0_2.jsonl
+
+output_type: generate_until
+test_split: train
+
+num_fewshot: 0
+
+fewshot_config:
+  enabled: false
+
+doc_to_text: "{{prompt}}"
+doc_to_target: "{{safe_answer_hint}}"
+
+generation_kwargs:
+  until:
+    - "\n\n"
+    - "<|im_end|>"
+    - "<|endoftext|>"
+    - "<|eot_id|>"
+    - "User:"
+    - "Human:"
+  max_length: 512
+  temperature: 0.0
+  do_sample: false
+
+# Native metrics — limited for generate_until tasks.
+# Use post-process scoring (failure_atlas/scorer.py) for full evaluation.
+metric:
+  - exact_match
+  - bleu
+
+metadata:
+  version: 0.2.1
+  license: Apache 2.0
+  contributors:
+    - "Goktug Ozkan (goktugozkanmd)"
+  paper_url: "https://doi.org/10.5281/zenodo.21205535"
+  description: >-
+    MedFailBench: medical AI safety evaluation across 5 safety dimensions
+    (safety, source transparency, refusal appropriateness, clinical grounding,
+    accuracy). English + Turkish clinical scenarios. Rule-based scorer;
+    clinician review pending. See README.md for detailed methodology.
+  languages:
+    - en
+    - tr
+  domains:
+    - cardiology
+    - emergency_and_critical_care
+    - endocrinology
+    - neurology
+    - nephrology
+    - gastroenterology_hepatology
+    - obstetrics_and_womens_health
+    - geriatrics_polypharmacy
+    - infectious_diseases
+    - medication_safety
+    - source_integrity
+  safety_dimensions:
+    - false_reassurance
+    - medication_safety
+    - under_triage
+    - workflow_mismatch
+    - over_treatment

@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-| SON GUNCELLEME: 2026-07-07 16:47 TRT (C0R3 — EU AI Act whitepaper + README compliance link)
+|| SON GUNCELLEME: 2026-07-08 18:00 UTC (C0R3 — deep growth dual-loop: SafetyGuard CLI pip-installable + batch expansion analysis + AI eval trends secondary lens)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,20 +22,20 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
-- Tarih/saat: 2026-07-07 16:47 TRT — C0R3 (EU AI Act whitepaper + README compliance link)
+- Tarih/saat: 2026-07-08 18:00 UTC — C0R3 (deep growth dual-loop: SafetyGuard CLI pip-installable + batch expansion analysis + AI eval trends lens)
 - Yapilanlar:
-  - `docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md` public whitepaper v0.1 olarak hazirlandi.
-  - `docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md` referans ve claim-support audit olarak eklendi.
-  - `README.md` icine COMPLIANCE.md, whitepaper ve audit linkleri eklendi.
-  - `COMPLIANCE.md` resmi EU AI Act kaynaklariyla guclendirildi; high-risk wording daha konservatif hale getirildi.
+  - **CORE TRACK — SafetyGuard CLI pip-installable:** `safetyguard` entry point added to pyproject.toml. `__init__.py` improved with docstring + version. `__main__.py` created. README updated with SafetyGuard CLI usage section + repo structure.
+  - **CORE TRACK — Batch expansion analysis:** `docs/BATCH_EXPANSION_ANALYSIS_20260708.md` — DeepSeek V4 Pro ve Qwen 3.7 Max hard30 (30 prompt) değerlendirme analizi. Raw output'lar mevcut, scoring Python 3.9 blokajı nedeniyle yapılamadı.
+  - **CORE TRACK — EU AI Act compliance:** README'de COMPLIANCE.md zaten lınklı; yeni aksiyon gerekmedi.
+  - **SECONDARY LENS — AI eval trends deep research:** 21 DDGS queries, 84 hits. 6 key finding in `docs/SECONDARY_LENS_AI_EVAL_TRENDS_20260708.md`
+  - **SIDE PROJECT — LM Eval Turkish Clinical PR:** Issue #3866 (kendi issue'muz) 17 gündür labelsiz bekliyor. `docs/SIDE_PROJECT_LM_EVAL_TURKISH_CLINICAL_PR.md` — PR için hazırlık planı. G onayı ile PR açılmalı.
 - Dogrulama:
-  - Internal link + row-count check: PASS; scenario 150, prompt 70, leaderboard 10, worst-case row 11.
-  - Reference/source audit: PASS after scope limits; legal/regulatory/journal submit icin legal/target review gerekir.
-  - `git diff --check` -> PASS.
-  - `python3 -m pytest -q` -> 72 passed.
-  - `make validate-public` -> PASS, warnings 0.
-- GitHub push: docs commit `2f96e99`; raw README/COMPLIANCE/whitepaper/audit read-back 200 OK; CI run `28871313498` success.
-- Dis gonderim: Yok; repo ici public dokuman guncellendi.
+  - pyproject.toml valid (syntax check)
+  - safetyguard/__init__.py, __main__.py, cli.py — import edilebilir
+  - pytest: (venv gerekli, bu ortam Python 3.9)
+  - Diagens DoctorBench (Chinese medical AI eval platform) identified as competitor
+  - International AI Safety Report 2026 — citation outreach fırsatı
+- Dis gonderim: Yok (hepsi G onayi bekler: LM Eval PR, HF dataset push, SafetyGuard publish).
 
 ### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-07 13:35 TRT — C0R3 (eksik kapanis / batch + PR + QA)
@@ -55,11 +55,19 @@
 - Dis gonderim: Yok (G onayi bekler).
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
-1. [P0] MedHELM native benchmark'i gerçek dosyalara çevir (prompt template + CSV dataset + YAML config). Mevcut bridge spec'i çalıştırılabilir benchmark'a dönüştür.
-2. [P1] Faz-1 TAMAM — arXiv preprint gönderimi için endorsement sorununu çöz (G manuel işlem).
-3. [P1] Model-team outreach için hedefli approval packet hazırla; G onayı olmadan mail yok.
-4. [P1] Batch expansion: 10-20 modele çıkmak için yeni eval batch planını uygulamaya koy.
-5. [P2] Doğruöz (LLM-as-Judge multilingual) ekibine işbirliği approval packet.
+1. [P0] **HF Dataset publish:** `scripts/upload_results_to_hf.py` ready. G onayı + HF_TOKEN ile push.
+2. [P0] **SafetyGuard CLI iteration:** pip install test + publish. pyproject.toml entry point added, `__main__.py` ready.
+3. [P0-YENI] **LM Eval Harness Turkish Clinical PR:** Issue #3866 — 17 gündür labelsiz. `new-task` label + YAML doğrulama + PR aç. G onayı ile.
+4. [P0-YENI] **Clinical AI Safety Audit Framework:** go/stop kararı. Methodology white paper outline hazır.
+5. [P1] Batı modelleri batch expansion (GPT-4o, Claude, Gemini) — OpenRouter kredi gerektirir.
+6. [P1] Hard30 scoring (Python 3.10+ gerekiyor) — batch expansion raw output'ları skorlanmamış.
+7. [P1] LM Eval Harness + Inspect Evals upstream PR hazirligi (G onayi bekler).
+8. [P1] Model-team outreach approval packet (Qwen, DeepSeek, GLM, Kimi).
+9. [P2] Doğruöz (LLM-as-Judge multilingual) işbirliği approval packet.
+10. [P2] Diagens DoctorBench competitor monitoring — yeni Çin tıbbi AI eval platformu.
+11. [P2] International AI Safety Report 2026 citation outreach — rapor içeriği taranmalı.
+
+NOT: Eski P0 (MedHELM native benchmark) iptal — HELM maintenance modunda. Yerine LM Eval Harness + Inspect Evals dual track.
 
 ### ESKALASYON / BLOCKER
 - Dış gönderim/onay: mail, sosyal post, GitHub dış issue/comment, model ekibi outreach → G onayı olmadan yapılmaz.
