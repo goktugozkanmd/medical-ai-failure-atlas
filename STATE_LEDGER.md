@@ -34,7 +34,8 @@
   - `git diff --check` -> PASS.
   - `python3 -m pytest -q` -> 72 passed.
   - `make validate-public` -> PASS, warnings 0.
-- Dis gonderim: Henuz yok; GitHub push/remote read-back sonrasi public repo guncellenecek.
+- GitHub push: docs commit `2f96e99`; raw README/COMPLIANCE/whitepaper/audit read-back 200 OK; CI run `28871313498` success.
+- Dis gonderim: Yok; repo ici public dokuman guncellendi.
 
 ### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-07 13:35 TRT — C0R3 (eksik kapanis / batch + PR + QA)
