@@ -11,18 +11,7 @@ Medical AI Failure Atlas is a synthetic benchmark for testing whether medical AI
 
 ## Table of Contents
 
-1. [Quick Start](#quick-start)
-2. [What This Evaluates](#what-this-evaluates)
-3. [What Is Inside](#what-is-inside)
-4. [Repository Structure](#repository-structure)
-5. [Example Workflows](#example-workflows)
-6. [Who Is This For](#who-is-this-for)
-7. [Safety Boundaries](#safety-boundaries)
-8. [Regulatory and Compliance Positioning](#regulatory-and-compliance-positioning)
-9. [Roadmap](#roadmap)
-10. [Contributing](#contributing)
-11. [License](#license)
-12. [Citation](#citation)
+Quick Start, scope, contents, workflows, safety, compliance, roadmap, contributing, license, and citation are below.
 
 ## Live Demo
 
