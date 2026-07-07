@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 4/5 kapı ölçütü hazır
-## SON GÜNCELLEME: 2026-07-07 10:12 TRT (C0R3)
+## SON GUNCELLEME: 2026-07-08 11:00 TRT (C0R3 — daily growth loop)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -21,24 +21,23 @@
 - [x] STATE_LEDGER.md canlı
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
-### SON İTERASYON
-- Tarih/saat: 2026-07-07 10:12 TRT — C0R3
-- Yapılanlar:
-  - G onayıyla LinkedIn haftalık postu paylaşıldı; profil activity sayfasında metin doğrulandı.
-  - G onayıyla X kısa postu paylaşıldı; canlı URL doğrulandı: `https://x.com/goktugozkanmd/status/2074389474453209459`.
-  - G onayıyla MedHELM Discussion #27 follow-up yorumu gönderildi; canlı URL doğrulandı: `https://github.com/PacificAI/medhelm/discussions/27#discussioncomment-17556891`.
-  - G onayıyla Inspect Evals typo-fix draft PR açıldı: `https://github.com/UKGovernmentBEIS/inspect_evals/pull/1897`.
-  - X posting script account guard düzeltildi: side account-switcher text boşsa profile link fallback kullanıyor.
-- Doğrulama:
-  - LinkedIn dry-run: hesap `Göktuğ Özkan`, post editor ve `Gönderi` butonu hazır; canlı paylaşım sonrası profil read-back `found=true`.
-  - X dry-run: aktif hesap `@goktugozkanmd`, metin 273 karakter; canlı paylaşım sonrası profile read-back `found=true`.
-  - MedHELM: Discussion #27 canlı okundu, yorum sayısı 2'ye çıktı, son yorum `goktugozkanmd`, body içinde `live bilingual example` ve `GLM-5.2` doğrulandı.
-  - Inspect Evals: branch `goktug/docs-typo-cleanup` fork'a pushlandı; draft PR #1897 açık, author `goktugozkanmd`, base `main`, head `goktugozkanmd:goktug/docs-typo-cleanup`.
-- Dış gönderim:
-  - LinkedIn, X, MedHELM comment ve Inspect Evals draft PR tamamlandı.
-  - Model-team outreach yapılmadı; ayrı onay/ayrı hazırlık gerektirir.
+### SON ITERASYON
+- Tarih/saat: 2026-07-08 11:00 TRT — C0R3 (daily growth loop)
+- Yapilanlar:
+  - HF Space Worst-case Safety tabina model family filter eklendi: dropdown ile All / Chinese Frontier / Western / Other secimi yapilabiliyor.
+  - `detect_model_family()` heuristic: qwen/deepseek/glm/kimi -> Chinese Frontier, llama -> Western.
+  - `update_worst_case()` callback ile filtre degisiminde canli guncelleme.
+  - Inspect Evals PR #1897 kontrol edildi: OPEN, yorum/review yok.
+  - Tum 69 test gecti, commit/push: 464fa96.
+- Dogrulama:
+  - `python3 -m pytest -v` -> 69 passed.
+  - Model family filter manual test: All=2, Chinese Frontier=1, Western=1, Other=0.
+  - Inspect Evals PR #1897: state=OPEN, no comments, no reviews, last updated 2026-07-07.
+- Dis gonderim:
+  - Yeni dis gonderim yok (G onayi bekler).
 - Commit:
-  - MedFailBench repo içinde bu güncelleme henüz commitlenmedi.
+  - 464fa96: feat: add model family filter to worst-case safety tab
+  - Pushlandi: origin/main.
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
 1. [P1] 300-500 vaka / 10-20 model cevap hedefi için sıradaki veri/model batch planını başlat.
