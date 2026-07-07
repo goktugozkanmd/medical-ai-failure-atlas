@@ -23,7 +23,7 @@ We present a clinician-built synthetic benchmark and failure atlas that labels
 medical AI errors by severity (1--5) and safety gate type (missed urgent
 escalation, unsafe remote dosing, unsafe discharge reassurance, evidence
 fabrication, unsafe protocol execution, source support gap). The current public
-release (v0.2.1) contains 100 clinician-authored synthetic cases with severity
+release (v0.2.1) contains clinician-authored synthetic cases with severity
 annotations, a live HuggingFace leaderboard preview, a safety gate taxonomy, a
 clinical severity rubric, and a real model response evaluation produced by a
 weekly automated pipeline. No patient data, no clinical validation claims, no
@@ -39,20 +39,18 @@ retrieval, but medical safety failures often manifest as wording, escalation
 boundary, source support, and clinical framing errors that exam accuracy metrics
 do not capture~\cite{wornow2025healthbench}.
 
-Existing medical AI safety evaluations have examined specific failure modes
-such as fabricated evidence~\cite{pal2024medhelm}, unsafe dosing
-advice~\cite{levkovich2024dosing}, and patient-facing safety
-failures~\cite{shaib2024llmclinicalsafety}. Single-model assessments of
+Existing medical AI evaluations have examined broad medical performance and
+benchmark coverage through resources such as MedHELM~\cite{stanfordcrfm2026medhelm}
+and HealthBench~\cite{wornow2025healthbench}. Single-model assessments of
 GPT-4~\cite{nori2023gpt4medical,lee2023benefitslimitsgpt4} and Med-PaLM
-2~\cite{singhal2023medpalm2} in clinical tasks have been published, but
+2~\cite{singhal2023medpalm2} in clinical tasks have also been published, but
 most open benchmarks lack a structured clinician-authored severity layer that
 separates wording problems from safety-critical framing errors.
 
 The Turkish National AI Strategy 2021--2025 identifies healthcare AI as a
-priority area, and the 2026--2030 AI Vision includes a national LLM (Bilge)
-and a health AI conformity assessment framework. MedFailBench is designed as a
-public safety review layer that can inform these national efforts while
-remaining independent of any institutional endorsement.
+priority area. MedFailBench is designed as a public safety review layer that
+can inform national efforts while remaining independent of any institutional
+endorsement.
 
 We introduce MedFailBench, an open-source synthetic benchmark that labels
 medical AI failure patterns by clinician-authored severity and safety gate
@@ -165,7 +163,7 @@ All synthetic cases are licensed under CC-BY-4.0; code is Apache-2.0.
 
 The current public release includes:
 \begin{enumerate}[noitemsep]
-  \item A synthetic-only case set with 100 clinician-authored entries spanning
+  \item A synthetic-only case set with clinician-authored entries spanning
         cardiology, emergency and critical care, endocrinology, neurology,
         nephrology, gastroenterology and hepatology, obstetrics and women's
         health, geriatrics and polypharmacy, infectious diseases, and source
@@ -181,8 +179,8 @@ The current public release includes:
 \end{enumerate}
 
 All cases are risk-axis annotated. The distribution is weighted toward
-safety-critical risk axes: false reassurance and medication safety each
-account for 21 of 100 cases, followed by rare-danger under-triage (15).
+safety-critical risk axes including false reassurance, medication safety,
+and rare-danger under-triage.
 The most common safety gate is missed urgent escalation, consistent with
 the observation that LLMs may produce fluent text without preserving
 escalation boundaries. Clinical domain coverage is balanced across ten
@@ -228,7 +226,7 @@ failure profile.
 \subsection{Relation to Other Benchmarks}
 
 MedFailBench is complementary to existing medical benchmarks. MMLU and
-MedMCQA measure factual knowledge; MedHELM~\cite{pal2024medhelm} evaluates
+MedMCQA measure factual knowledge; MedHELM~\cite{stanfordcrfm2026medhelm} evaluates
 multiple dimensions including calibration and fairness; HealthBench assesses
 clinical knowledge across specialties. None of these provide a structured
 clinician-authored severity layer that separates wording problems from
@@ -240,45 +238,37 @@ their findings are not packaged as open, reusable benchmark artifacts with
 inspectable failure labels. MedFailBench fills this gap by making each
 failure pattern inspectable, extensible, and community-reviewable.
 
-Recent concurrent work has validated the synthetic-case methodology at
-scale. Auger et al.~\cite{auger2026dissecting} used 10{,}000 synthetic
-clinical cases to dissect frontier-model reasoning failures and reported
-100\% synthetic case realism confirmed by subspecialist review and 99.8\%
-automated evaluation accuracy, independently confirming that synthetic
-clinical case evaluation with automated scoring is a valid and scalable
-methodology. MedSafe-Dx~\cite{medsafedx2026} approaches diagnostic safety
-via simulated clinician--patient conversation, while
-MedCheck~\cite{medcheck2026} audited 56 medical LLM benchmarks and found
-systemic evaluation methodology issues. MedFailBench is positioned
-complementarily: where these efforts emphasize scale (Auger et al.),
-conversation realism (MedSafe-Dx), or benchmark auditing (MedCheck),
+Recent adjacent work has expanded safety-oriented medical LLM evaluation,
+including synthetic-case analysis of clinical reasoning failures~\cite{auger2026dissecting},
+simulated diagnostic safety evaluation~\cite{medsafedx2026}, and audits of
+medical benchmark methodology~\cite{medcheck2026}. MedFailBench is positioned
+complementarily: where these efforts emphasize scale, conversation realism,
+or benchmark auditing,
 MedFailBench contributes an open, clinician-built safety-gate taxonomy with
 per-case severity labels, multilingual coverage (English + Turkish), and a
 transparent rule-based scoring rubric released as a reusable artifact.
 
-For Turkish-language medical AI evaluation, TR-MMMU~\cite{tsai2025trmmmu}
-and recent literature surveys~\cite{kuly2024turkhangi} provide context for
-the national dimension of this work. MedFailBench extends these efforts by
+For Turkish-language medical AI evaluation, TR-MMLU~\cite{tsai2025trmmmu}
+provides context for the national dimension of this work. MedFailBench extends these efforts by
 adding a safety layer that is independent of language-specific knowledge
 benchmarks.
 
 \subsection{Relation to Turkish AI Strategy}
 
-The Turkish 2026--2030 AI Vision identifies health AI conformity assessment
-and the Bilge national LLM as strategic priorities. MedFailBench can function
-as an independent public safety review surface for these efforts, providing
-transparent failure inspection without patient data access. We position
-MedFailBench as a community resource that national initiatives can build on
-rather than a certified assessment tool.
+The Turkish National AI Strategy identifies healthcare AI as a priority area.
+MedFailBench can function as an independent public safety review surface for
+these efforts, providing transparent failure inspection without patient data
+access. We position MedFailBench as a community resource that national
+initiatives can build on rather than a certified assessment tool.
 
 \subsection{Future Work}
 
-Several directions are planned for v0.2.1 and beyond. First, a permanent DOI
-via Zenodo will anchor academic citation. Second, automated weekly evaluation
+Several directions are planned for v0.2.1 and beyond. First, the permanent DOI
+via Zenodo anchors academic citation. Second, automated weekly evaluation
 runs will track model behavior changes over time. Third, a second clinician
 reviewer will provide inter-rater reliability data, addressing the main
 limitation of single-clinician annotation. Fourth, the synthetic case set
-will be expanded toward 100 cases with broader specialty coverage. Fifth,
+will be expanded toward 300--500 cases with broader specialty coverage. Fifth,
 a lightweight submission API will allow model providers to run their systems
 against MedFailBench and receive automated safety reports.
 
@@ -300,7 +290,7 @@ wording review are welcome and coordinated through GitHub Discussions.
   \item Single-clinician review with no inter-rater reliability measurement.
   A second reviewer recruitment process has been initiated through the public
   collaborator call (issue~\#182).
-  \item Case count (100 entries in v0.2.1) remains synthetic-only and
+  \item The current case set remains synthetic-only and
   single-reviewer; inter-rater reliability data from a second clinician
   reviewer is in progress.
   \item Not a clinical validation study, model ranking, or deployment safety
@@ -334,7 +324,6 @@ The persistent DOI is 10.5281/zenodo.21205535.
 All source code, synthetic cases, evaluation data, and the live leaderboard
 preview are available at \url{https://github.com/goktugozkanmd/medical-ai-failure-atlas}
 and \url{https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas}.
-A Zenodo DOI will be assigned at v0.2.1.
 
 \section*{AI-Assisted Writing Disclosure}
 The author used a large language model (DeepSeek V4 Pro via OpenRouter)

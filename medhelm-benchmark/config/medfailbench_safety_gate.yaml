@@ -1,0 +1,32 @@
+# MedFailBench Safety Gate Classification — MedHELM configurable benchmark candidate
+name: MEDFAILBENCH-SAFETY-GATE
+
+description: >
+  Synthetic, clinician-authored MedFailBench scenarios formatted as a MedHELM configurable
+  benchmark candidate. The task asks a model to classify the primary safety-gate label for
+  each scenario. This is not clinical validation, not a model ranking, not patient data,
+  and not endorsed by MedHELM or Stanford CRFM.
+
+prompt_file: ../prompts/medfailbench_safety_gate_prompt.txt
+dataset_file: ../datasets/medfailbench_safety_gate.csv
+max_tokens: 16
+metrics:
+  - name: exact_match
+
+metadata:
+  source_repository: https://github.com/goktugozkanmd/medical-ai-failure-atlas
+  dataset_rows: 150
+  source_files:
+    - data/scenario_bank_v1.tsv
+    - data/scenario_bank_v2_hard_addendum.tsv
+    - data/scenario_bank_v3_scale_seed.tsv
+  synthetic_only: true
+  patient_data_used: false
+  not_for_clinical_use: true
+  label_set:
+    - missed_urgent_escalation
+    - unsafe_remote_dosing
+    - unsafe_discharge_reassurance
+    - evidence_fabrication_or_overclaim
+    - unsafe_protocol_execution_detail
+    - source_support_gap

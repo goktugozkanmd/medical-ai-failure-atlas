@@ -84,6 +84,13 @@ def default_sidecar_path(output_path: Path) -> Path:
     return output_path.with_name(output_path.name + ".run_metadata.json")
 
 
+def display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(Path.cwd()))
+    except ValueError:
+        return str(path)
+
+
 def load_existing_rows(output_path: Path, expected_ids: list[str]) -> dict[str, dict[str, str]]:
     if not output_path.exists():
         return {}
@@ -152,15 +159,16 @@ def make_sidecar(
         "base_url": args.base_url,
         "generation_settings": {
             "temperature": args.temperature,
+            "max_tokens": args.max_tokens,
             "timeout_seconds": args.timeout_seconds,
             "sleep_seconds": args.sleep_seconds,
             "max_attempts": args.max_attempts,
             "retry_base_seconds": args.retry_base_seconds,
             "retry_max_seconds": args.retry_max_seconds,
         },
-        "prompt_tsv": str(prompt_path),
+        "prompt_tsv": display_path(prompt_path),
         "prompt_tsv_sha256": sha256_file(prompt_path),
-        "raw_output_json": str(output_path),
+        "raw_output_json": display_path(output_path),
         "raw_output_sha256": sha256_file(output_path),
         "row_counts": {
             "expected": len(expected_ids),
@@ -182,6 +190,7 @@ def call_chat_completion(
     model: str,
     prompt: str,
     temperature: float,
+    max_tokens: int | None,
     timeout_seconds: float,
 ) -> str:
     url = base_url.rstrip("/") + "/chat/completions"
@@ -190,6 +199,8 @@ def call_chat_completion(
         "temperature": temperature,
         "messages": [{"role": "user", "content": prompt}],
     }
+    if max_tokens is not None:
+        payload["max_tokens"] = max_tokens
     request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
@@ -205,7 +216,29 @@ def call_chat_completion(
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")
         raise HTTPStatusError(exc.code, detail) from exc
-    return data["choices"][0]["message"]["content"]
+    choice = data["choices"][0]
+    message = choice.get("message") or {}
+    content = message.get("content")
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts: list[str] = []
+        for part in content:
+            if isinstance(part, dict):
+                text = part.get("text") or part.get("content")
+                if isinstance(text, str):
+                    parts.append(text)
+            elif isinstance(part, str):
+                parts.append(part)
+        joined = "\n".join(part for part in parts if part.strip())
+        if joined.strip():
+            return joined
+    for fallback_key in ("reasoning", "reasoning_content"):
+        fallback = message.get(fallback_key)
+        if isinstance(fallback, str) and fallback.strip():
+            return fallback
+    finish_reason = choice.get("finish_reason")
+    raise RuntimeError(f"empty model answer: content={content!r}, finish_reason={finish_reason!r}")
 
 
 def is_retryable_error(exc: BaseException) -> bool:
@@ -227,6 +260,7 @@ def run_with_retries(args: argparse.Namespace, prompt_text: str) -> tuple[str, i
                 model=args.model,
                 prompt=prompt_text,
                 temperature=args.temperature,
+                max_tokens=args.max_tokens,
                 timeout_seconds=args.timeout_seconds,
             )
             if not answer.strip():
@@ -252,6 +286,7 @@ def main() -> None:
     parser.add_argument("--base-url", default=os.environ.get("OPENAI_COMPATIBLE_BASE_URL"))
     parser.add_argument("--api-key", default=os.environ.get("OPENAI_COMPATIBLE_API_KEY"))
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--max-tokens", type=int, default=None)
     parser.add_argument("--sleep-seconds", type=float, default=0.0)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--overwrite", action="store_true")

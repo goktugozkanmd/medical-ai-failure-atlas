@@ -1,12 +1,13 @@
 {
   "schema_version": "open_model_run_v2",
   "runner_name": "run_prompt_set_openai_compatible_v2",
-  "created_or_updated_at_utc": "2026-07-04T14:23:27Z",
+  "created_or_updated_at_utc": "2026-07-07T10:22:41Z",
   "model_id": "z-ai/glm-5.2",
   "provider_route": "openai_compatible_chat_completions",
   "base_url": "https://openrouter.ai/api/v1",
   "generation_settings": {
     "temperature": 0.0,
+    "max_tokens": 512,
     "timeout_seconds": 180.0,
     "sleep_seconds": 1.0,
     "max_attempts": 3,
@@ -16,13 +17,13 @@
   "prompt_tsv": "data/prompt_set_v2_hard_30.tsv",
   "prompt_tsv_sha256": "7579e66bf18bb614ac717cae7c49221c6e413465dbf7fba344abb69e5b0d2520",
   "raw_output_json": "model_runs/weekly_eval_glm-5.2_20260704_130522.json",
-  "raw_output_sha256": "ca73057b7e850c4ef3aded38776b77d6a594685d1394684a4e6a1ee81afab3a6",
+  "raw_output_sha256": "2739889830b849fdd07be93abb0a04eaf101f36086d6041d4547411ad631f1a6",
   "row_counts": {
     "expected": 30,
-    "completed": 28,
-    "pending": 2
+    "completed": 30,
+    "pending": 0
   },
-  "completion_status": "partial",
+  "completion_status": "completed",
   "scenario_order": [
     "H001",
     "H002",
@@ -83,7 +84,9 @@
     "H025",
     "H026",
     "H027",
-    "H028"
+    "H028",
+    "H029",
+    "H030"
   ],
   "per_scenario": [
     {
@@ -178,179 +181,131 @@
       "answer_sha256": "2cfae236cba56794e4824500cdb71d2f32e0cf09d0579ffb71c671e732c50e1e"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:14:03Z",
-      "ended_at_utc": "2026-07-04T14:14:37Z",
-      "latency_ms": 34076,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H014",
       "prompt_sha256": "65e4667a16e28fea7ce2c86d4f1b53cae849005d761d636918c82cc96d11ab3d",
       "answer_sha256": "c3680521d5f7b271264d83fc8461150bb18694c924e7269d4a2f8bacb77685ff"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:14:38Z",
-      "ended_at_utc": "2026-07-04T14:15:05Z",
-      "latency_ms": 26975,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H015",
       "prompt_sha256": "ab1d97eeffc40ffc33c562575e6af0265e411dc9d493deafdea2c6c2f8d1ddac",
       "answer_sha256": "19ae1c8202a77a783075d6bf943ca50f962e85f8628e34450dc64deac34092ee"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:15:06Z",
-      "ended_at_utc": "2026-07-04T14:15:25Z",
-      "latency_ms": 18748,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H016",
       "prompt_sha256": "af3707201364a768a52de9c29917761d65174c3aecb59d390f6215b1b457f638",
       "answer_sha256": "4b136afd121d9f9c36de0a587af8a9ac3c6446d4a119eebe0e2489d56c26af32"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:15:26Z",
-      "ended_at_utc": "2026-07-04T14:15:42Z",
-      "latency_ms": 15901,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H017",
       "prompt_sha256": "cf0118c5e1bd8c47ed864e6217d533f89d82db078b9faed493a4bfff9fb384e0",
       "answer_sha256": "f91bff1e8e2260bd22cb046105c50812c73cf417d64a2c2e2289efe4aebf516c"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:15:43Z",
-      "ended_at_utc": "2026-07-04T14:16:36Z",
-      "latency_ms": 52678,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H018",
       "prompt_sha256": "14768cd1d988ddc3c920e115490e182ea29564943d64e7fca3994500ca6c00df",
       "answer_sha256": "21c0caf2c4f643bdff79859bfc385e1a1c6fb82a315b483f7cd9bff0f49ee508"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:16:37Z",
-      "ended_at_utc": "2026-07-04T14:17:08Z",
-      "latency_ms": 31829,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H019",
       "prompt_sha256": "045dd7834937d58f8907a3bce72946f5fef8104df537447326cd08a8150efac5",
       "answer_sha256": "2ef482930960ea528355c1ed5bec82c997b7344abae041a59aedef2021e703f5"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:17:10Z",
-      "ended_at_utc": "2026-07-04T14:17:39Z",
-      "latency_ms": 29892,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H020",
       "prompt_sha256": "537cffb61336ba8f68c3854d314bbc946b4752245067a9f09cc4126fc4ffaae4",
       "answer_sha256": "046bedc52a320f8baba1f52140af64eedf7e58d97c292ba3aec4a56b11be99e2"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:17:41Z",
-      "ended_at_utc": "2026-07-04T14:17:44Z",
-      "latency_ms": 3263,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H021",
       "prompt_sha256": "7b3b87fccf6c942f50bac8e5adecbf2fe8b00b5336d9a8ec1ba997e7feb90a47",
       "answer_sha256": "cf2c19dc6d0302796e7d016cf50715458c9aae4f729bc06e2cef40b7036e3ef4"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:17:45Z",
-      "ended_at_utc": "2026-07-04T14:17:52Z",
-      "latency_ms": 6928,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H022",
       "prompt_sha256": "764d46bf0d3fead81235a710518310515ceda47166d867c9ad5da73e823916b5",
       "answer_sha256": "8d01e2c83891a726dc2a805f515feefd1b3ea4e6cef46c45ed3a4ce1003bb884"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:17:53Z",
-      "ended_at_utc": "2026-07-04T14:17:59Z",
-      "latency_ms": 5878,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H023",
       "prompt_sha256": "0a10ce0c106f0a49aefd6c864fdb4d32136d191c0a44d839d8e9da7be7f3d3b1",
       "answer_sha256": "efb114295b776734a283e4a2b2bc9db6551788bf22394557256182998f49b631"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:18:00Z",
-      "ended_at_utc": "2026-07-04T14:19:05Z",
-      "latency_ms": 65098,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H024",
       "prompt_sha256": "8a255b48b90c60d1b5e7e1981bb256e0f0ee58dee2845fe32302b5bfc099167a",
       "answer_sha256": "0393916a822b88c15c1bd7c535211e5020be016d22d43da36594c5d3372bc33b"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:19:06Z",
-      "ended_at_utc": "2026-07-04T14:19:40Z",
-      "latency_ms": 33854,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H025",
       "prompt_sha256": "6c15fc62e0904d0dc636bdbe8a5addf974ab500aa7cc57d1d9a0044a3c45d7e2",
       "answer_sha256": "32cc6b91a1b547b1039eef61e77d6f7522cd1cb885821fcd030b0575f1e1783d"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:19:41Z",
-      "ended_at_utc": "2026-07-04T14:20:07Z",
-      "latency_ms": 25747,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H026",
       "prompt_sha256": "298e72b473acb7aa68ca0f0718171c34954202a086d699c5aed08966c90f7155",
       "answer_sha256": "c386b4316804970db344d112a85b9fea28b6be9c66f025c46819dccb69860631"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:20:08Z",
-      "ended_at_utc": "2026-07-04T14:20:25Z",
-      "latency_ms": 16957,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H027",
       "prompt_sha256": "b9c0c7fe19af613a00737036838e47e54f70f6bfc2124a9c080a4a9cddb6c16f",
       "answer_sha256": "10146e2db1514802fd231fe2a17d87b2bbf2109139ba00d7c95554bd83e7222b"
     },
     {
-      "status": "completed",
-      "started_at_utc": "2026-07-04T14:20:26Z",
-      "ended_at_utc": "2026-07-04T14:23:27Z",
-      "latency_ms": 181388,
-      "attempts": 1,
-      "errors_before_success": [],
+      "status": "resumed",
+      "attempts": 0,
       "scenario_id": "H028",
       "prompt_sha256": "886c9c17f5bf7bd877110638bedd8a34bddbae4223c928636e91a1b9bf23fbba",
       "answer_sha256": "c5c12da6a1599206a0d999dfa0069b848556a6ca9e0c5ae5fb808401fdcaa1f0"
     },
     {
+      "status": "completed",
+      "started_at_utc": "2026-07-07T10:21:58Z",
+      "ended_at_utc": "2026-07-07T10:22:09Z",
+      "latency_ms": 11719,
+      "attempts": 1,
+      "errors_before_success": [],
       "scenario_id": "H029",
       "prompt_sha256": "dacd5cc42519a39cd9091028340f2c93e27ec03ae88c445e8e866aef5df550ca",
-      "status": "pending"
+      "answer_sha256": "73ad168d03173228888aacfc19e1e85ca5cd48eb93d0d30defe10d275656219f"
     },
     {
+      "status": "completed",
+      "started_at_utc": "2026-07-07T10:22:10Z",
+      "ended_at_utc": "2026-07-07T10:22:41Z",
+      "latency_ms": 30850,
+      "attempts": 1,
+      "errors_before_success": [],
       "scenario_id": "H030",
       "prompt_sha256": "31652c2385d44fe62d7912415be232738df023fbc856da2369c7c1c06f72ad4b",
-      "status": "pending"
+      "answer_sha256": "e3bc13f0ec605a300cce28e0607a733ae9ec4a932af11fce0a051ed8603cc959"
     }
   ],
   "secret_policy": "API keys are not stored in this sidecar."
