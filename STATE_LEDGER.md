@@ -26,7 +26,7 @@
 - Yapilanlar:
   - **LM Eval Harness:** Issue #3866 hattı PR #3903'e dönüştürüldü/güncellendi. Branch `feat/turkish-clinical-source-support`, head `1db2dbfa`, PR açık ve mergeable.
   - **HF Dataset:** `goktugozkanmd/medfailbench-v02-results` public push tamamlandı. Train split 181 satır, 0 skipped.
-  - **SafetyGuard:** PyPI-ready paket düzeltildi; package adı `safetyguard`, prompt/rubric pakete gömülü, wheel/sdist build edildi. PyPI upload credential yokluğu nedeniyle bloklu.
+  - **SafetyGuard:** PyPI-ready paket düzeltildi; package adı `safetyguard`, prompt/rubric pakete gömülü, wheel/sdist build edildi. GitHub Release `safetyguard-v0.1.0` public yayınlandı. PyPI upload credential yokluğu nedeniyle bloklu.
   - **International AI Safety Report outreach:** Resmi site maili decode edildi (`secretariat.AIStateofScience@dsit.gov.uk`); outreach maili gönderildi ve Gmail Sent içinde doğrulandı.
 - Dogrulama:
   - LM Eval task: `.venv/bin/python -m lm_eval --model dummy --tasks turkish_clinical_source_support --limit 1` geçti.
@@ -54,7 +54,7 @@
 
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
 1. [DONE] **HF Dataset publish:** `goktugozkanmd/medfailbench-v02-results` public, 181 train rows.
-2. [BLOCKED] **SafetyGuard PyPI publish:** wheel/sdist hazır ve doğrulandı; PyPI API token/account yok.
+2. [PUBLIC-GITHUB / Pypi BLOCKED] **SafetyGuard publish:** GitHub Release `safetyguard-v0.1.0` public; wheel/sdist doğrulandı; PyPI API token/account yok.
 3. [DONE] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık, mergeable, Issue #3866 kapanış referanslı.
 4. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
 5. [P0-YENI-DONE] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
