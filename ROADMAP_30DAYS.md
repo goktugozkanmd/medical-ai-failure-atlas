@@ -194,9 +194,10 @@ Amaç: veriyle ses çıkarma, varlığını hissettirme, tartışma başlatma.
 | GitHub stars | ≥ 100 (başlangıç ~50 tahmini) |
 | arXiv preprint indirme | ≥ 50 |
 | HF Space unique visitors | ≥ 500 |
-| Model ekibi yanıtı | ≥ 2/4 ekip yanıt verdi |
+| Model ekip yanıtı | ≥ 2/4 ekip yanıt verdi |
 | MedHELM/Inspect katkısı | ≥ 1 merge veya maintainer onayı |
 | Dış alıntılanma | ≥ 1 blog/tweet/forum'da alıntı |
+| EU AI Act compliance konumlandırması | COMPLIANCE.md yayında, ≥1 regulatory kaynak bağlantısı doğrulandı |
 
 ---
 
