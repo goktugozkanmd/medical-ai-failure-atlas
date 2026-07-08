@@ -1,0 +1,93 @@
+name: Health AI Assurance Kit feedback
+description: Review a Health AI Assurance Kit artifact without adding clinical, ranking, endorsement, or deployment claims.
+title: "Health AI Assurance feedback: "
+labels: ["documentation", "assurance-lab"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this route for feedback on Health AI Assurance Kit wording, boundaries, usability, or missing context. Use synthetic or public information only. Do not include patient data, private clinical data, raw clinical notes, private model output, deployment results, clinical advice, physician selection, clinical validation claims, model ranking claims, source truth certification claims, regulatory compliance claims, official compatibility claims, institution support claims, partnership claims, payment claims, or terms acceptance claims.
+  - type: dropdown
+    id: artifact_reviewed
+    attributes:
+      label: Artifact reviewed
+      options:
+        - Start Here proof pack
+        - Health AI Assurance Kit roadmap
+        - Kit level assurance card
+        - SafetyGuard Studio product mode
+        - SourceCheckup Medical surface
+        - Turkish drift preview
+        - Clinician literacy demo
+        - Monitoring digest
+        - Adapter smoke note
+        - Local leaderboard preview
+        - Other public documentation
+    validations:
+      required: true
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Feedback type
+      options:
+        - Boundary wording risk
+        - Missing context
+        - Usability issue
+        - Source support concern
+        - Language coverage concern
+        - Medical advice wording concern
+        - Routing or template concern
+        - Documentation fix
+    validations:
+      required: true
+  - type: textarea
+    id: exact_location
+    attributes:
+      label: Exact public location
+      description: Name the document, section, table row, issue, or public link.
+      placeholder: docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md, Release Gates table.
+    validations:
+      required: true
+  - type: textarea
+    id: feedback_summary
+    attributes:
+      label: Feedback summary
+      description: State the issue in one or two sentences.
+      placeholder: This sentence could be read as clinical readiness instead of a documentation boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested fix
+      description: Propose wording, routing, or a small documentation change.
+      placeholder: Rewrite the sentence to say local rule based review only and keep clinical validation blocked.
+    validations:
+      required: true
+  - type: dropdown
+    id: requested_route
+    attributes:
+      label: Best next route
+      options:
+        - Keep in Health AI Assurance feedback
+        - Move to SourceCheckup source review
+        - Move to synthetic failure case
+        - Move to evidence concern
+        - Close as outside project scope
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundary check
+      options:
+        - label: This uses synthetic or public information only.
+          required: true
+        - label: This includes no patient data, private clinical data, raw clinical note, or private model output.
+          required: true
+        - label: This does not report clinical deployment or clinical care results.
+          required: true
+        - label: This does not ask the maintainer to select physicians.
+          required: true
+        - label: This does not claim clinical validation, model ranking, source truth certification, regulatory compliance, official compatibility, institution support, partnership, payment, or terms acceptance.
+          required: true

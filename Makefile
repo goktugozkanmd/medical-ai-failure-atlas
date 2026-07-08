@@ -13,6 +13,7 @@ validate:
 	$(PYTHON) scripts/validate_clinician_review_protocol_v0_1.py
 	$(PYTHON) scripts/validate_source_claim_review_queue_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_intake_20260708.py
 	$(PYTHON) scripts/validate_label_audit_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_intake_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_dashboard_v0_1.py
@@ -487,6 +488,9 @@ sourcecheckup_contrib_v02:
 
 sourcecheckup_public_issue:
 	$(PYTHON) scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py
+
+health_ai_assurance_feedback_intake_20260708:
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_intake_20260708.py
 
 sourcecheckup_repo_run_guide:
 	$(PYTHON) scripts/sourcecheckup_repo_doctor_v0_1.py
