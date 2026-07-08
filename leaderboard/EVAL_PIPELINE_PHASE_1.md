@@ -26,6 +26,8 @@ Default scheduled runs stay in dry-run mode, so no provider/API credits are spen
 - [x] Dry-run path tested locally without API calls.
 - [x] Scoring path tested locally against an existing raw run.
 - [x] New pytest coverage passed locally: `tests/test_ci_eval_pipeline.py`.
+- [x] GitHub push completed after adding `workflow` scope.
+- [x] GitHub workflow_dispatch dry-run passed: run `28929095888`.
 
 ## Files Created
 
@@ -79,7 +81,7 @@ Step 6: Enable weekly dry-run schedule                   ← DONE
 | `OPENROUTER_API_KEY` secret | Configuration | Needed only for OpenRouter real runs |
 | `OPENAI_API_KEY` secret | Configuration | Needed only for OpenAI real runs |
 | `HF_TOKEN` secret | Configuration | Needed only for Hugging Face real runs |
-| GitHub Actions readback | Verification | First workflow_dispatch run still needs live GH check |
+| GitHub Actions readback | Verification | Dry-run passed on GitHub; real provider run still needs secrets and spend approval |
 
 ---
 
@@ -89,7 +91,7 @@ Step 6: Enable weekly dry-run schedule                   ← DONE
 - [x] `scripts/ci_eval_runner.py --dry-run` prints planned calls without errors
 - [ ] Full run on 1 model produces `leaderboard/results/raw_*.json` and `scored_*.json`
 - [ ] Scored results match manual eval format (append-compatible)
-- [ ] GitHub Actions workflow runs green on `workflow_dispatch`
+- [x] GitHub Actions workflow runs green on `workflow_dispatch` dry-run
 - [ ] Weekly schedule triggers correctly
 
 ---

@@ -22,6 +22,20 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-08 11:35 TRT — Codex (workflow scope fixed + GitHub eval dry-run verified)
+- Yapilanlar:
+  - GitHub CLI token'a `workflow` scope eklendi.
+  - Local eval automation commit'i `5d5a49a` remote `main` dalina push edildi.
+  - Eval Pipeline workflow'u GitHub'da aktif hale geldi.
+  - Workflow dispatch ile masrafsiz dry-run calistirildi.
+- Dogrulama:
+  - GitHub auth scope readback: `workflow` scope mevcut.
+  - Push: `65e0899..5d5a49a main -> main`.
+  - Normal CI run `28929069347`: success.
+  - Eval Pipeline dry-run `28929095888`: success. Dry-run oldugu icin `leaderboard/results` artifact uyarisi beklenen davranis; API cagrisi ve provider harcamasi yapilmadi.
+- Dis gonderim: Yok. Bu iterasyonda email, sosyal post veya model-team outreach gonderilmedi.
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-08 11:18 TRT — Codex (G-approved eval automation implementation)
 - Yapilanlar:
   - Eval CI Pipeline Phase 1 uygulandi: `.github/workflows/eval-pipeline.yml`, `scripts/ci_eval_runner.py`, `scripts/ci_score_runner.py`.
@@ -84,7 +98,7 @@
 3. [DONE] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık, mergeable, Issue #3866 kapanış referanslı.
 4. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
 5. [P0-YENI] **Distribution & Visibility:** **PACKET HAZIR** (`docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`, `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md`). Dis submit/PR/form icin final metin onayi gerekir.
-6. [DONE-LOCAL / GH-RUN BEKLIYOR] **Eval CI Pipeline Phase 1:** workflow YAML + runner scriptleri uygulandi; dry-run ve local skor testi geçti. GitHub `workflow_dispatch` canlı run ve secret kontrolü bekliyor.
+6. [DONE] **Eval CI Pipeline Phase 1:** workflow YAML + runner scriptleri remote main'de; normal CI yesil; GitHub `workflow_dispatch` dry-run yesil. Gercek provider run icin secret ve harcama onayi gerekir.
 7. [P0-YENI] **MedAI Safety Benchmark Index:** Yeni proje fikri — medical AI benchmark karşılaştırma indeksi (`docs/MEDAI_SAFETY_BENCHMARK_INDEX.md`). G onayı ile başlanabilir.
 8. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`). G onayı ile build'e başla.
 9. [P0-YENI] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
