@@ -1,0 +1,118 @@
+{
+  "artifact_id": "health_ai_assurance_feedback_triage_board_20260708",
+  "status": "public_feedback_triage_board_ready",
+  "created_date": "2026-07-08",
+  "phase": "P10",
+  "public_anchor": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/231",
+  "purpose": "Classify public Health AI Assurance Kit feedback after intake without creating clinical advice, clinical validation, model ranking, source truth, regulatory, compatibility, institution, endorsement, partnership, payment, or terms acceptance claims.",
+  "input_routes": [
+    {
+      "id": "kit_feedback",
+      "template": ".github/ISSUE_TEMPLATE/health_ai_assurance_feedback.yml"
+    },
+    {
+      "id": "source_support_review",
+      "template": ".github/ISSUE_TEMPLATE/sourcecheckup_review.yml"
+    },
+    {
+      "id": "synthetic_failure_case",
+      "template": ".github/ISSUE_TEMPLATE/synthetic_failure_case.yml"
+    },
+    {
+      "id": "evidence_concern",
+      "template": ".github/ISSUE_TEMPLATE/evidence_concern.yml"
+    }
+  ],
+  "input_route_count": 4,
+  "triage_states": [
+    "needs_route",
+    "needs_rewrite",
+    "accepted_for_docs",
+    "accepted_for_queue",
+    "closed_boundary",
+    "needs_owner_review"
+  ],
+  "triage_state_count": 6,
+  "board_rows": [
+    {
+      "id": "P10R001",
+      "route": "unknown_or_mixed",
+      "reviewer_concern": "The issue mixes kit wording, source support, synthetic case input, or evidence concern.",
+      "triage_state": "needs_route",
+      "next_action": "Ask the reviewer to reopen through one selected template.",
+      "allowed_output": "routed_github_issue"
+    },
+    {
+      "id": "P10R002",
+      "route": "kit_feedback",
+      "reviewer_concern": "A Health AI Assurance Kit sentence is confusing or too broad.",
+      "triage_state": "accepted_for_docs",
+      "next_action": "Open a small documentation PR with the exact sentence and safer replacement.",
+      "allowed_output": "documentation_fix"
+    },
+    {
+      "id": "P10R003",
+      "route": "source_support_review_or_synthetic_failure_case",
+      "reviewer_concern": "A source support question or synthetic failure case proposal fits the public boundary.",
+      "triage_state": "accepted_for_queue",
+      "next_action": "Move the item into the matching queue after maintainer review.",
+      "allowed_output": "queue_entry_or_reviewed_pr"
+    },
+    {
+      "id": "P10R004",
+      "route": "kit_feedback",
+      "reviewer_concern": "The wording can sound like clinical advice, clinical validation, model ranking, or source truth certification.",
+      "triage_state": "needs_rewrite",
+      "next_action": "Request a narrower wording before accepting the issue.",
+      "allowed_output": "rewritten_issue_text"
+    },
+    {
+      "id": "P10R005",
+      "route": "any",
+      "reviewer_concern": "The issue includes patient data, private clinical text, raw clinical notes, or private model output.",
+      "triage_state": "closed_boundary",
+      "next_action": "Close the issue and ask for synthetic or public information only.",
+      "allowed_output": "boundary_closure_note"
+    },
+    {
+      "id": "P10R006",
+      "route": "any",
+      "reviewer_concern": "The issue asks for provider API runs, new cases without review, agent selected physicians, regulatory compliance, official compatibility, institution support, partnership, payment, or terms acceptance claims.",
+      "triage_state": "needs_owner_review",
+      "next_action": "Close blocked requests and send positioning questions to owner review.",
+      "allowed_output": "boundary_closure_note_or_owner_review_note"
+    }
+  ],
+  "board_row_count": 6,
+  "blocked_claims": [
+    "patient_data",
+    "private_clinical_text",
+    "real_clinical_notes",
+    "private_model_output",
+    "provider_api_run",
+    "new_case_without_review",
+    "physician_selection_by_agent",
+    "medical_advice",
+    "clinical_validation",
+    "model_ranking",
+    "source_truth_certification",
+    "regulatory_compliance",
+    "official_compatibility",
+    "institution_support",
+    "partnership_claim",
+    "payment_claim",
+    "terms_acceptance_claim"
+  ],
+  "contains_patient_data": false,
+  "provider_api_call_allowed": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "no_medical_advice": true,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_source_truth_certification_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "no_institution_support_claim": true,
+  "next_safe_action": "Use this board to classify incoming feedback from issue 231 and route accepted items into a reviewed PR or queue."
+}

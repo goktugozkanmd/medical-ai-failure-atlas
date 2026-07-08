@@ -14,6 +14,7 @@ validate:
 	$(PYTHON) scripts/validate_source_claim_review_queue_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_health_ai_assurance_feedback_intake_20260708.py
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_board_20260708.py
 	$(PYTHON) scripts/validate_label_audit_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_intake_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_dashboard_v0_1.py
@@ -191,6 +192,10 @@ validate:
 	$(PYTHON) scripts/validate_public_release.py --root .
 
 validate-public: validate
+
+.PHONY: health_ai_assurance_feedback_triage_board_20260708
+health_ai_assurance_feedback_triage_board_20260708:
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_board_20260708.py
 
 demo_cases:
 	$(PYTHON) scripts/validate_demo_cases_v0_1.py
