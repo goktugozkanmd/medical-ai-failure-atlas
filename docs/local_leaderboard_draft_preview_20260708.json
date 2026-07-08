@@ -1,0 +1,102 @@
+{
+  "artifact_id": "local_leaderboard_draft_preview_20260708",
+  "status": "local_draft_preview_not_public_update",
+  "created_date": "2026-07-08",
+  "source_leaderboard": "leaderboard/submissions.json",
+  "source_leaderboard_sha256": "6848859365e29736c00f808bf0ee3fd998686c5f983772600250a6cae1a801a8",
+  "source_promotion_gate": "docs/model_run_promotion_gate_20260708.json",
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "public_leaderboard_modified": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_compatibility_claim": true,
+  "draft_scope": {
+    "purpose": "show how existing local 30 row artifacts could close part of the public leaderboard prompt count gap",
+    "models_in_preview": 2,
+    "public_rows_closed_by_local_artifacts": 27,
+    "provider_generation_rows_used": 0,
+    "public_write_allowed": false
+  },
+  "draft_rows": [
+    {
+      "model_name": "DeepSeek V4 Pro",
+      "current_submission_id": "e11eb63cec625b1db1de04a92a814ebb",
+      "current_public_prompt_count": 5,
+      "draft_prompt_count": 30,
+      "local_rows_closing_public_gap": 25,
+      "provider_generation_rows_used": 0,
+      "current_public_scores": {
+        "safety_score": 52.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "draft_scores_from_local_rule_scores": {
+        "safety_score": 74.0,
+        "source_support_score": 82.7,
+        "clinical_boundary_score": 81.0
+      },
+      "score_file": "model_runs/model_run_normalization_20260708/deepseek_v4_pro_hard30_enriched_rule_scores.json",
+      "source_raw": "model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_raw_outputs.json",
+      "final_label_counts": {
+        "clinically_usable_with_caution": 23,
+        "needs_revision_before_clinical_use": 2,
+        "unsafe": 5
+      },
+      "safety_gate_counts": {
+        "missed_urgent_escalation": 5,
+        "unsafe_discharge_reassurance": 1,
+        "unsafe_remote_dosing": 1
+      },
+      "draft_status": "local_preview_only_not_written_to_public_leaderboard"
+    },
+    {
+      "model_name": "GLM-5.2",
+      "current_submission_id": "1a2462a406bd62a845a34c7227758a96",
+      "current_public_prompt_count": 28,
+      "draft_prompt_count": 30,
+      "local_rows_closing_public_gap": 2,
+      "provider_generation_rows_used": 0,
+      "current_public_scores": {
+        "safety_score": 47.1,
+        "source_support_score": 57.1,
+        "clinical_boundary_score": 61.6
+      },
+      "draft_scores_from_local_rule_scores": {
+        "safety_score": 72.0,
+        "source_support_score": 82.7,
+        "clinical_boundary_score": 87.0
+      },
+      "score_file": "model_runs/model_run_normalization_20260708/glm_5_2_hard30_enriched_rule_scores.json",
+      "source_raw": "model_runs/weekly_eval_glm-5.2_20260704_130522.json",
+      "final_label_counts": {
+        "clinically_usable_with_caution": 22,
+        "needs_revision_before_clinical_use": 3,
+        "unsafe": 5
+      },
+      "safety_gate_counts": {
+        "missed_urgent_escalation": 5,
+        "unsafe_discharge_reassurance": 2,
+        "unsafe_remote_dosing": 1
+      },
+      "draft_status": "local_preview_only_not_written_to_public_leaderboard"
+    }
+  ],
+  "blocked_actions": [
+    "write_leaderboard_submissions_json",
+    "publish_preview_without_user_approval",
+    "rank_models_from_preview",
+    "claim_clinical_validation",
+    "start_provider_api_calls",
+    "add_new_cases"
+  ],
+  "next_safe_actions": [
+    "review preview row wording and score derivation",
+    "if approved later, create a separate public leaderboard update patch",
+    "keep remaining provider generation gap blocked until explicit approval"
+  ]
+}

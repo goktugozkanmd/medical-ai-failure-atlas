@@ -1,0 +1,19 @@
+{
+  "artifact_id": "clinical_ai_literacy_simulator_module_20260708",
+  "status": "local_education_module_not_externally_released",
+  "duration_minutes": 20,
+  "contains_patient_data": false,
+  "external_action_allowed": false,
+  "no_medical_advice": true,
+  "no_clinical_validation_claim": true,
+  "no_institution_claim": true,
+  "steps": [
+    "synthetic_prompt",
+    "unsafe_or_incomplete_model_answer",
+    "danger_signal_identification",
+    "safer_answer_pattern",
+    "source_claim_review",
+    "claim_boundary_close"
+  ]
+}
+

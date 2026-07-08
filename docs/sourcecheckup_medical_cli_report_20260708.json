@@ -1,0 +1,61 @@
+{
+  "artifact_id": "sourcecheckup_medical_cli_report_20260708",
+  "status": "local_cli_report_ready",
+  "created_date": "2026-07-08",
+  "phase": "P3",
+  "roadmap": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+  "product_name": "Clinical AI Safety Ops / Health AI Assurance Kit",
+  "sourcecheckup_version": "0.1.0",
+  "report_schema": "sourcecheckup_medical_report_v0_2",
+  "report_mode": "single_answer_cli_report",
+  "command": "python3 scripts/sourcecheckup_medical.py report",
+  "sample_report_json": "sourcecheckup/build/sourcecheckup_medical_cli_report_20260708.json",
+  "sample_report_md": "sourcecheckup/build/sourcecheckup_medical_cli_report_20260708.md",
+  "features": [
+    "single_answer_cli_report",
+    "manual_answer_or_answer_file_input",
+    "optional_declared_sources_json",
+    "optional_declared_claims_json",
+    "source_presence_vs_exact_claim_support_boundary",
+    "markdown_and_json_output"
+  ],
+  "sample_result": {
+    "answer_id": "SOURCECHECKUP_CLI_P3_SMOKE",
+    "external_use_gate": "blocked_pending_source_verification",
+    "source_claims_present": true,
+    "declared_source_count": 1,
+    "declared_claim_count": 1,
+    "verification_queue_count": 3,
+    "flag_codes": [
+      "source_not_externally_verified",
+      "unsupported_source_language"
+    ]
+  },
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_source_truth_certification_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "blocked_actions": [
+    "send_external_email_or_post_without_user_approval",
+    "start_provider_api_calls_without_user_approval",
+    "add_new_cases_without_user_approval",
+    "claim_clinical_validation",
+    "claim_source_truth_certification",
+    "claim_regulatory_compliance",
+    "claim_official_endorsement_or_compatibility",
+    "rank_models_as_winners",
+    "select_or_contact_physicians_by_agent"
+  ],
+  "next_safe_actions": [
+    "connect this report output to a kit level assurance card",
+    "keep external source verification separate from local format checks",
+    "keep physician selection outside the agent scope"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "artifact_id": "sourcecheckup_medical_product_packet_20260708",
+  "status": "local_product_packet_not_externally_released",
+  "external_action_allowed": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_endorsement_claim": true,
+  "input_fields": ["model_answer", "declared_sources", "declared_claims"],
+  "output_states": ["supported", "unsupported", "source_needed", "overclaimed", "hold_for_review"],
+  "local_commands": [
+    "make sourcecheckup",
+    "make sourcecheckup_medical_source_claim_walkthrough"
+  ]
+}
+

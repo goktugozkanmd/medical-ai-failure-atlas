@@ -1,0 +1,405 @@
+{
+  "artifact_id": "model_run_normalization_plan_20260708",
+  "status": "local_manifest_and_score_table_plan",
+  "created_date": "2026-07-08",
+  "target_prompt_count": 30,
+  "public_models_count": 10,
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_compatibility_claim": true,
+  "source_files": [
+    "leaderboard/submissions.json",
+    "model_runs/worst_case_safety_report_v0_1.json",
+    "model_runs/"
+  ],
+  "score_table_scope": {
+    "purpose": "normalize existing public model runs toward the shared 30 prompt hard set",
+    "ranking_allowed": false,
+    "public_claim_allowed": false,
+    "provider_call_allowed": false,
+    "new_prompt_or_case_creation_allowed": false
+  },
+  "totals": {
+    "public_normalization_gap_rows": 176,
+    "provider_generation_gap_rows": 149,
+    "local_score_or_promotion_gap_rows": 27
+  },
+  "models": [
+    {
+      "model_name": "Llama 3.1-8B-Instruct",
+      "submission_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 5,
+      "local_missing_prompt_count": 25,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 60.0,
+        "source_support_score": 56.0,
+        "clinical_boundary_score": 63.2
+      },
+      "public_note": "Real (non-DRY-RUN) eval. CI weekly-eval pipeline + local run 2026-07-05. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_score_summary",
+          "path": "model_runs/weekly_eval_llama-3.1-8b-instruct_20260705_171309.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 25 missing rows until the user approves provider generation."
+    },
+    {
+      "model_name": "Qwen 2.5-7B-Instruct",
+      "submission_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 5,
+      "local_missing_prompt_count": 25,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 52.0,
+        "source_support_score": 64.0,
+        "clinical_boundary_score": 63.2
+      },
+      "public_note": "First real (non-DRY-RUN) model eval. CI weekly-eval (Mon 03:00 UTC) + local run 2026-07-04. Rule-based scoring; clinician review pending before any public claim.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_score_summary",
+          "path": "model_runs/weekly_eval_qwen-2.5-7b-instruct_20260704_204124.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 25 missing rows until the user approves provider generation."
+    },
+    {
+      "model_name": "Kimi K2.6",
+      "submission_id": "f1e45c9ab13f3c355227e847a756e7ae",
+      "target_prompt_count": 30,
+      "public_prompt_count": 6,
+      "public_additional_needed": 24,
+      "local_completed_prompt_count": 6,
+      "local_missing_prompt_count": 24,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 6,
+      "current_public_score_fields": {
+        "safety_score": 40.0,
+        "source_support_score": 53.3,
+        "clinical_boundary_score": 60.7
+      },
+      "public_note": "Real eval via HF router. 6-prompt subset. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "partial_raw_outputs",
+          "path": "model_runs/weekly_eval_kimi-k2.6_20260704_160510.json",
+          "exists": true,
+          "row_count": 6,
+          "completion_status": "partial"
+        },
+        {
+          "kind": "partial_run_metadata",
+          "path": "model_runs/weekly_eval_kimi-k2.6_20260704_160510.run_metadata.json",
+          "exists": true,
+          "row_count": 6,
+          "completion_status": "partial"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 24 missing rows until the user approves provider generation."
+    },
+    {
+      "model_name": "Qwen 3.7 Max",
+      "submission_id": "a35b4eddbb6e0e7441f72e814a1751bf",
+      "target_prompt_count": 30,
+      "public_prompt_count": 30,
+      "public_additional_needed": 0,
+      "local_completed_prompt_count": 30,
+      "local_missing_prompt_count": 0,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 30,
+      "current_public_score_fields": {
+        "safety_score": 45.3,
+        "source_support_score": 56.0,
+        "clinical_boundary_score": 59.9
+      },
+      "public_note": "Real eval via HF router. 30-prompt set. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_raw_outputs",
+          "path": "model_runs/weekly_eval_qwen-3.7-max_20260704_150000.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "weekly_run_metadata",
+          "path": "model_runs/weekly_eval_qwen-3.7-max_20260704_150000.run_metadata.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "hard30_raw_outputs",
+          "path": "model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_raw_outputs.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "hard30_rule_scores",
+          "path": "model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "public_already_30",
+      "safe_next_action": "No generation needed; keep as normalization anchor."
+    },
+    {
+      "model_name": "Qwen 3.6 Plus",
+      "submission_id": "796f5807300ce67d14992b106540023e",
+      "target_prompt_count": 30,
+      "public_prompt_count": 30,
+      "public_additional_needed": 0,
+      "local_completed_prompt_count": 30,
+      "local_missing_prompt_count": 0,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 30,
+      "current_public_score_fields": {
+        "safety_score": 46.7,
+        "source_support_score": 60.0,
+        "clinical_boundary_score": 62.0
+      },
+      "public_note": "Real eval via HF router. 30-prompt set. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_raw_outputs",
+          "path": "model_runs/weekly_eval_qwen-3.6-plus_20260704_140751.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "weekly_run_metadata",
+          "path": "model_runs/weekly_eval_qwen-3.6-plus_20260704_140751.run_metadata.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "public_already_30",
+      "safe_next_action": "No generation needed; keep as normalization anchor."
+    },
+    {
+      "model_name": "DeepSeek V3.2",
+      "submission_id": "ef6ea1360f8f5d4a9b298066c44d3c49",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 5,
+      "local_missing_prompt_count": 25,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 44.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "public_note": "Real eval via HF router. 5-prompt set. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_raw_outputs",
+          "path": "model_runs/weekly_eval_deepseek-v3.2_20260704_130631.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        },
+        {
+          "kind": "weekly_run_metadata",
+          "path": "model_runs/weekly_eval_deepseek-v3.2_20260704_130631.run_metadata.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 25 missing rows until the user approves provider generation."
+    },
+    {
+      "model_name": "Kimi K2.7 Code",
+      "submission_id": "2c5c0cb8110c67739a08fc6adffa05e6",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 5,
+      "local_missing_prompt_count": 25,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 36.0,
+        "source_support_score": 64.0,
+        "clinical_boundary_score": 60.8
+      },
+      "public_note": "Real eval via HF router. 5-prompt set. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_raw_outputs",
+          "path": "model_runs/weekly_eval_kimi-k2.7-code_20260704_130620.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        },
+        {
+          "kind": "weekly_run_metadata",
+          "path": "model_runs/weekly_eval_kimi-k2.7-code_20260704_130620.run_metadata.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 25 missing rows until the user approves provider generation."
+    },
+    {
+      "model_name": "GLM-5.2",
+      "submission_id": "1a2462a406bd62a845a34c7227758a96",
+      "target_prompt_count": 30,
+      "public_prompt_count": 28,
+      "public_additional_needed": 2,
+      "local_completed_prompt_count": 30,
+      "local_missing_prompt_count": 0,
+      "local_score_or_promotion_gap": 2,
+      "worst_case_report_prompt_count": 28,
+      "current_public_score_fields": {
+        "safety_score": 47.1,
+        "source_support_score": 57.1,
+        "clinical_boundary_score": 61.6
+      },
+      "public_note": "Real eval via HF router. 28-prompt set (largest subset). Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_raw_outputs",
+          "path": "model_runs/weekly_eval_glm-5.2_20260704_130522.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "weekly_run_metadata",
+          "path": "model_runs/weekly_eval_glm-5.2_20260704_130522.run_metadata.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "local_30_available_public_table_lagging",
+      "safe_next_action": "Use existing local rows to close 2 public table rows; no provider call."
+    },
+    {
+      "model_name": "DeepSeek V4 Pro",
+      "submission_id": "e11eb63cec625b1db1de04a92a814ebb",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 30,
+      "local_missing_prompt_count": 0,
+      "local_score_or_promotion_gap": 25,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 52.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "public_note": "Real (non-DRY-RUN) eval via HF router. 5-prompt subset. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_score_summary",
+          "path": "model_runs/weekly_eval_deepseek-v4-pro_20260704_120507.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        },
+        {
+          "kind": "hard30_raw_outputs",
+          "path": "model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_raw_outputs.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "hard30_run_metadata",
+          "path": "model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_raw_outputs.run_metadata.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        },
+        {
+          "kind": "hard30_rule_scores",
+          "path": "model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_rule_scores.json",
+          "exists": true,
+          "row_count": 30,
+          "completion_status": "completed"
+        }
+      ],
+      "state": "local_30_available_public_table_lagging",
+      "safe_next_action": "Use existing local rows to close 25 public table rows; no provider call."
+    },
+    {
+      "model_name": "DeepSeek V4 Flash",
+      "submission_id": "ef32a787c51cefae2e7f55857291e7b2",
+      "target_prompt_count": 30,
+      "public_prompt_count": 5,
+      "public_additional_needed": 25,
+      "local_completed_prompt_count": 5,
+      "local_missing_prompt_count": 25,
+      "local_score_or_promotion_gap": 0,
+      "worst_case_report_prompt_count": 5,
+      "current_public_score_fields": {
+        "safety_score": 44.0,
+        "source_support_score": 48.0,
+        "clinical_boundary_score": 59.2
+      },
+      "public_note": "Real (non-DRY-RUN) eval via HF router. 5-prompt subset. Rule-based scoring; clinician review pending.",
+      "local_artifacts": [
+        {
+          "kind": "weekly_score_summary",
+          "path": "model_runs/weekly_eval_deepseek-v4-flash_20260704_120225.json",
+          "exists": true,
+          "row_count": 5,
+          "completion_status": "partial"
+        }
+      ],
+      "state": "provider_generation_needed_later",
+      "safe_next_action": "Park 25 missing rows until the user approves provider generation."
+    }
+  ],
+  "blocked_actions": [
+    "start_provider_api_calls_without_user_approval",
+    "add_new_cases_for_this_step",
+    "rank_models_from_partial_rows",
+    "claim_clinical_validation",
+    "publish_or_submit_without_fresh_audit",
+    "select_or_contact_physicians_by_agent"
+  ],
+  "next_safe_actions": [
+    "promote or rescore existing DeepSeek V4 Pro hard30 local artifacts into a draft score table",
+    "close the GLM 5.2 public table gap from existing local 30 row output before any provider call",
+    "keep short set models parked until the user approves any provider generation budget"
+  ]
+}

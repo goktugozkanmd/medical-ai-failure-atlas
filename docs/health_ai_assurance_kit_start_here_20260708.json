@@ -1,0 +1,200 @@
+{
+  "artifact_id": "health_ai_assurance_kit_start_here_20260708",
+  "status": "local_start_here_proof_pack_ready",
+  "created_date": "2026-07-08",
+  "phase": "P7B",
+  "roadmap": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+  "product_name": "Clinical AI Safety Ops / Health AI Assurance Kit",
+  "purpose": "Give a single local entry point for the P0 through P7 Health AI Assurance Kit artifacts before any external proof route.",
+  "source_artifacts": {
+    "roadmap_json": "docs/health_ai_assurance_kit_roadmap_20260708.json",
+    "roadmap_md": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+    "kit_card_json": "docs/health_ai_assurance_kit_card_20260708.json",
+    "kit_card_md": "docs/HEALTH_AI_ASSURANCE_KIT_CARD_20260708.md",
+    "safetyguard_studio": "docs/safetyguard_studio_product_mode_20260708.json",
+    "sourcecheckup_cli": "docs/sourcecheckup_medical_cli_report_20260708.json",
+    "turkish_drift": "docs/turkish_drift_preview_dashboard_20260708.json",
+    "clinician_literacy": "docs/health_ai_clinician_literacy_demo_index_20260708.json",
+    "monitoring_digest": "docs/health_ai_monitoring_digest_schema_20260708.json",
+    "local_leaderboard_preview": "docs/local_leaderboard_draft_preview_20260708.json",
+    "adapter_framework_smoke": "docs/medfailbench_adapter_framework_smoke_20260708.json"
+  },
+  "quick_start_order": [
+    {
+      "id": "read_start_here",
+      "order": 1,
+      "action": "Open this Start Here file first.",
+      "why": "It maps every local proof artifact and repeats the blocked gates."
+    },
+    {
+      "id": "read_roadmap",
+      "order": 2,
+      "action": "Read the Health AI Assurance Kit roadmap.",
+      "why": "It shows the lane structure, the opened P8 issue, and the follow up review gates."
+    },
+    {
+      "id": "read_kit_card",
+      "order": 3,
+      "action": "Read the kit level assurance card.",
+      "why": "It is the single evidence layer summary."
+    },
+    {
+      "id": "try_studio_locally",
+      "order": 4,
+      "action": "Use SafetyGuard Studio only as a local synthetic or manual answer surface.",
+      "why": "It gives a practical product view without provider calls."
+    },
+    {
+      "id": "run_sourcecheckup_locally",
+      "order": 5,
+      "action": "Use SourceCheckup Medical for internal source support review.",
+      "why": "It keeps source presence separate from exact claim support."
+    },
+    {
+      "id": "review_language_drift",
+      "order": 6,
+      "action": "Check the Turkish drift dashboard before language claims.",
+      "why": "It preserves validation tier separation."
+    },
+    {
+      "id": "review_demo_index",
+      "order": 7,
+      "action": "Use the clinician literacy demo index for local education flow only.",
+      "why": "It keeps medical advice and institution claims blocked."
+    },
+    {
+      "id": "stop_at_external_gate",
+      "order": 8,
+      "action": "Use issue 231 as the first public proof route and stop before any further external action.",
+      "why": "Any follow up email, post, PR, provider run, clinical panel work, or institution named route still needs separate review."
+    }
+  ],
+  "quick_start_step_count": 8,
+  "proof_pack_artifacts": [
+    {
+      "id": "roadmap",
+      "label": "Roadmap",
+      "source": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+      "what_it_shows": "Shows the full Clinical AI Safety Ops build direction and completed phases.",
+      "does_not_show": "Does not allow external release or institution named claims."
+    },
+    {
+      "id": "kit_card",
+      "label": "Kit level assurance card",
+      "source": "docs/HEALTH_AI_ASSURANCE_KIT_CARD_20260708.md",
+      "what_it_shows": "Connects eight local evidence layers into one internal card.",
+      "does_not_show": "Does not claim clinical validation, source truth certification, model ranking, or regulatory compliance."
+    },
+    {
+      "id": "safetyguard_studio",
+      "label": "SafetyGuard Studio product mode",
+      "source": "docs/SAFETYGUARD_STUDIO_PRODUCT_MODE_20260708.md",
+      "what_it_shows": "Local product surface with 5 features and 4 endpoints.",
+      "does_not_show": "Does not call provider APIs or make deployment claims."
+    },
+    {
+      "id": "sourcecheckup_cli",
+      "label": "SourceCheckup Medical CLI report",
+      "source": "docs/SOURCECHECKUP_MEDICAL_CLI_REPORT_20260708.md",
+      "what_it_shows": "Runnable source support report with schema sourcecheckup_medical_report_v0_2.",
+      "does_not_show": "Does not certify exact claim support without separate review."
+    },
+    {
+      "id": "turkish_drift_dashboard",
+      "label": "Turkish drift preview dashboard",
+      "source": "docs/TURKISH_DRIFT_PREVIEW_DASHBOARD_20260708.md",
+      "what_it_shows": "Tracks 5 TR EN pairs and 44 existing Turkish synthetic rows.",
+      "does_not_show": "Does not merge validation tiers or create new case claims."
+    },
+    {
+      "id": "clinician_literacy_demo",
+      "label": "Clinician literacy demo index",
+      "source": "docs/HEALTH_AI_CLINICIAN_LITERACY_DEMO_INDEX_20260708.md",
+      "what_it_shows": "Local 20 minute demo with 3 synthetic cases.",
+      "does_not_show": "Does not select physicians, give medical advice, or claim institution support."
+    },
+    {
+      "id": "monitoring_digest_schema",
+      "label": "Monitoring digest schema",
+      "source": "docs/HEALTH_AI_MONITORING_DIGEST_SCHEMA_20260708.md",
+      "what_it_shows": "Manual monitoring schema with 7 watch surfaces and 6 sample rows.",
+      "does_not_show": "Does not start automation or paid runs."
+    },
+    {
+      "id": "local_leaderboard_preview",
+      "label": "Local leaderboard draft preview",
+      "source": "docs/LOCAL_LEADERBOARD_DRAFT_PREVIEW_20260708.md",
+      "what_it_shows": "Local preview closes 27 public rows from existing artifacts.",
+      "does_not_show": "Does not modify the public leaderboard or rank models as winners."
+    },
+    {
+      "id": "adapter_framework_smoke",
+      "label": "Adapter framework smoke",
+      "source": "docs/MEDFAILBENCH_ADAPTER_FRAMEWORK_SMOKE_20260708.md",
+      "what_it_shows": "Local adapter smoke status: passed.",
+      "does_not_show": "Does not claim registry acceptance or upstream compatibility."
+    }
+  ],
+  "proof_pack_artifact_count": 9,
+  "completed_roadmap_phases": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P7B"
+  ],
+  "completed_roadmap_phase_count": 9,
+  "summary_counts": {
+    "evidence_layers": 8,
+    "local_rows_scored": 60,
+    "tr_en_pairs": 5,
+    "turkish_rows": 44,
+    "human_review_assignments_prepared": 30,
+    "monitoring_watch_surfaces": 7,
+    "monitoring_sample_rows": 6
+  },
+  "release_gate_summary": {
+    "internal_start_here": "ready",
+    "external_proof_route": "first_public_issue_opened",
+    "provider_api_run": "separate_review_required",
+    "new_case_addition": "separate_review_required",
+    "physician_selection": "user_only",
+    "automation_start": "owner_must_ask"
+  },
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "paid_run_allowed": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_medical_advice": true,
+  "no_clinical_validation_claim": true,
+  "no_source_truth_certification_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "no_institution_claim": true,
+  "blocked_actions": [
+    "send_external_email_or_post_without_user_approval",
+    "run_external_presentation_without_user_approval",
+    "start_provider_api_calls_without_user_approval",
+    "start_automation_without_user_approval",
+    "add_new_cases_without_user_approval",
+    "claim_clinical_validation",
+    "claim_source_truth_certification",
+    "claim_regulatory_compliance",
+    "claim_official_endorsement_or_compatibility",
+    "rank_models_as_winners",
+    "select_or_contact_physicians_by_agent",
+    "ask_for_patient_data",
+    "use_institution_name_publicly_without_written_permission"
+  ],
+  "external_proof_issue": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/231",
+  "next_build_step": "p8_followups_need_separate_review",
+  "next_safe_internal_action": "Prepare separate reviewed routes for any follow up PR, provider run, panel work, or institution named action."
+}

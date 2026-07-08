@@ -1,0 +1,120 @@
+{
+  "artifact_id": "safetyguard_studio_product_mode_20260708",
+  "status": "local_product_mode_ready",
+  "created_date": "2026-07-08",
+  "phase": "P2",
+  "roadmap": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+  "product_name": "Clinical AI Safety Ops / Health AI Assurance Kit",
+  "product_mode_schema": "safetyguard_studio_product_mode_v0_1",
+  "result_schema": "safetyguard_studio_result_v0_1",
+  "assurance_summary_schema": "safetyguard_assurance_summary_v0_1",
+  "surface": "SafetyGuard Studio product mode",
+  "endpoints": [
+    "/",
+    "/api/examples",
+    "/api/analyze",
+    "/api/proof-pack"
+  ],
+  "features": [
+    "sample_mode",
+    "manual_answer_paste",
+    "client_side_score_json_export",
+    "client_side_assurance_summary_export",
+    "proof_pack_panel"
+  ],
+  "proof_pack_artifacts": [
+    {
+      "id": "health_ai_start_here",
+      "label": "Health AI Assurance Kit Start Here",
+      "path": "docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md",
+      "status": "local_start_here_ready"
+    },
+    {
+      "id": "health_ai_roadmap",
+      "label": "Health AI Assurance Kit roadmap",
+      "path": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+      "status": "p0_to_p7b_completed_p8_blocked"
+    },
+    {
+      "id": "kit_assurance_card",
+      "label": "Kit level assurance card",
+      "path": "docs/HEALTH_AI_ASSURANCE_KIT_CARD_20260708.md",
+      "status": "local_kit_card_ready"
+    },
+    {
+      "id": "safetyguard_studio",
+      "label": "SafetyGuard Studio scoring",
+      "path": "safetyguard/studio.py",
+      "status": "local_product_mode"
+    },
+    {
+      "id": "sourcecheckup_medical",
+      "label": "SourceCheckup Medical review route",
+      "path": "docs/SOURCECHECKUP_MEDICAL_CLI_REPORT_20260708.md",
+      "status": "local_cli_report_ready"
+    },
+    {
+      "id": "transparency_card",
+      "label": "Transparency card export",
+      "path": "scripts/export_safetyguard_transparency_card.py",
+      "status": "local_export_ready"
+    },
+    {
+      "id": "turkish_drift",
+      "label": "Turkish and English drift review",
+      "path": "docs/TURKISH_DRIFT_PREVIEW_DASHBOARD_20260708.md",
+      "status": "local_drift_preview_ready"
+    },
+    {
+      "id": "clinician_literacy",
+      "label": "Clinician literacy simulator",
+      "path": "docs/HEALTH_AI_CLINICIAN_LITERACY_DEMO_INDEX_20260708.md",
+      "status": "local_demo_index_ready"
+    },
+    {
+      "id": "monitoring_digest_schema",
+      "label": "Monitoring digest schema",
+      "path": "docs/HEALTH_AI_MONITORING_DIGEST_SCHEMA_20260708.md",
+      "status": "manual_schema_ready_no_automation"
+    },
+    {
+      "id": "adapter_framework_smoke",
+      "label": "Adapter framework smoke",
+      "path": "docs/MEDFAILBENCH_ADAPTER_FRAMEWORK_SMOKE_20260708.md",
+      "status": "local_framework_smoke_ready"
+    }
+  ],
+  "sample_smoke": {
+    "scenario_id": "STUDIO_PRODUCT_MODE_SMOKE",
+    "model_name": "studio-product-mode-smoke",
+    "final_label": "clinically_usable_with_caution",
+    "review_status": "local_rule_scoring_only",
+    "export_bundle_present": true,
+    "download_links_are_client_side": true
+  },
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "blocked_actions": [
+    "send_external_email_or_post_without_user_approval",
+    "start_provider_api_calls_without_user_approval",
+    "add_new_cases_without_user_approval",
+    "claim_clinical_validation",
+    "claim_regulatory_compliance",
+    "claim_official_endorsement_or_compatibility",
+    "rank_models_as_winners",
+    "select_or_contact_physicians_by_agent"
+  ],
+  "next_safe_actions": [
+    "connect SourceCheckup Medical CLI report as P3",
+    "keep external proof route blocked until explicit user approval",
+    "keep physician selection outside the agent scope"
+  ]
+}

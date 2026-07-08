@@ -1,0 +1,10 @@
+{
+  "artifact_id": "medical_ai_safety_monitoring_bot_plan_20260708",
+  "status": "plan_only_automation_not_started",
+  "automation_started": false,
+  "external_action_allowed": false,
+  "paid_run_allowed": false,
+  "contains_patient_data": false,
+  "start_gate": "owner_must_ask"
+}
+

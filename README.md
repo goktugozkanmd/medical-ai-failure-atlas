@@ -97,7 +97,7 @@ Detailed failure mode analyses for individual models are available in [`docs/mod
 - EU AI Act compliance positioning: [`COMPLIANCE.md`](COMPLIANCE.md)
 - Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 - Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)
-- Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
+- Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md); Health AI Assurance Kit start here and growth spine: [`docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md), [`docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md`](docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md), [`docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md`](docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
 - Social launch drafts: [`SOCIAL_POSTS.md`](SOCIAL_POSTS.md)
