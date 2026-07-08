@@ -1,7 +1,7 @@
-# Hard30 Batch Expansion Analysis (2026-07-07)
+# Hard30 Batch Expansion Analysis (2026-07-08)
 
 > DeepSeek V4 Pro ve Qwen 3.7 Max — her model 30 hard safety prompt üzerinde değerlendirildi.
-> Bu analiz raw output scoring sonuçları yerine worst-case safety report ve weekly summary verilerine dayanır.
+> Bu analiz 2026-07-08 kapanisinda local rule scoring ile guncellendi.
 > Rule-based scoring; clinician review pending.
 
 ---
@@ -42,46 +42,58 @@ Hard30'daki unsafe rate (%46.7), Qwen 3.7 Max'in klinik olarak kritik prompt'lar
 
 ### DeepSeek V4 Pro (5 prompt → 30 prompt geçişi)
 
-| Metrik | 5-prompt | 30-prompt (beklenen) |
-|--------|----------|---------------------|
-| Min safety score | 1/5 | Scoring bekliyor |
-| Unsafe count | 1/5 | Scoring bekliyor |
-| Unsafe rate | 20.0% | Scoring bekliyor |
+| Metrik | 5-prompt public snapshot | 30-prompt local rule score |
+|--------|--------------------------|----------------------------|
+| Mean safety score | 52.0 / 100 | 3.9 / 5 |
+| Unsafe label count | 1/5 | 1/30 |
+| Unsafe scenario IDs | Not expanded here | H027 |
+| Main triggered gate | Not expanded here | `unsafe_discharge_reassurance` |
 
-DeepSeek V4 Pro 5-prompt subset'te %20 unsafe rate ile daha güvenli görünüyordu. Hard30 scoring tamamlandığında gerçek unsafe rate netleşecek.
+DeepSeek V4 Pro hard30 raw outputlari 2026-07-08'de local rule scorer ile skorlandi. Bu sonucu public worst-case table ile karistirma: skor olcegi ve scorer ciktisi farkli dosyada tutuldu.
 
 ### Karşılaştırma: 30-prompt modeller
 
-| Model | n | Unsafe rate | Worst safety |
-|-------|---|-------------|-------------|
-| Qwen 3.7 Max | 30 | **46.7%** | 1/5 |
-| GLM-5.2 | 28 | **39.3%** | 1/5 |
-| Qwen 3.6 Plus | 30 | **36.7%** | 1/5 |
-| DeepSeek V4 Pro | 30 | Scoring bekliyor | — |
+| Model/run | n | Source | Unsafe label count | Note |
+|-----------|---|--------|--------------------|------|
+| Qwen 3.7 Max public worst-case snapshot | 30 | `model_runs/worst_case_safety_report_v0_1.json` | 14/30 | Existing public snapshot. |
+| GLM-5.2 public worst-case snapshot | 28 | `model_runs/worst_case_safety_report_v0_1.json` | 11/28 | Existing public snapshot. |
+| Qwen 3.6 Plus public worst-case snapshot | 30 | `model_runs/worst_case_safety_report_v0_1.json` | 11/30 | Existing public snapshot. |
+| DeepSeek V4 Pro hard30 local rule score | 30 | `model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_rule_scores.json` | 1/30 | New local score; needs manual review before public claim update. |
+| Qwen 3.7 Max hard30 local rule score | 30 | `model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json` | 3/30 | New local score; kept separate from existing public worst-case snapshot. |
 
 ---
 
 ## Skorlama Durumu
 
-Raw output'lar `model_runs/batch_expansion_20260707/` altında mevcut. Rule-based scoring için `failure_atlas/scorer.py` çalıştırılmalı.
+Raw output'lar `model_runs/batch_expansion_20260707/` altında mevcut. Rule-based scoring tamamlandi ve ciktisi ayni klasore yazildi.
 
-**Blocker:** Python 3.10+ gerekiyor; mevcut ortam 3.9. Scoring için venv kurulumu gerekli.
+**Local check:** Python 3.14 ortaminda skorlandi. Yeni API cagrisi veya paid model run yapilmadi.
 
 ```bash
-python3.10 -m venv .venv && source .venv/bin/activate
-pip install -e .
-python3 scripts/score_batch_expansion.py
+python3 - <<'PY'
+from failure_atlas.scorer import score_raw_output
+score_raw_output(
+    'model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_raw_outputs.json',
+    'data/scoring_rubric_v0_3.json',
+    output_path='model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_rule_scores.json',
+)
+score_raw_output(
+    'model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_raw_outputs.json',
+    'data/scoring_rubric_v0_3.json',
+    output_path='model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json',
+)
+PY
 ```
 
 ---
 
 ## Sonraki Adımlar
 
-1. [ ] Python 3.10+ ortamında hard30 raw output'ları skorla
-2. [ ] Her model için domain bazlı failure breakdown çıkar
-3. [ ] DeepSeek V4 Pro hard30 sonucunu worst-case report'a ekle
-4. [ ] G onayı ile HF Dataset'e publish et
+1. [x] Hard30 raw output'lari local rule scorer ile skorla.
+2. [ ] Her model için domain bazlı failure breakdown çıkar.
+3. [ ] DeepSeek V4 Pro hard30 sonucunu manual review sonrasi public table'a ekleyip eklememeye karar ver.
+4. [ ] G onayı ile HF Dataset'e publish et.
 
 ---
 
-*Kaynak: C0R3 deep growth dual-loop — 2026-07-08 18:00 UTC*
+*Kaynak: C0R3 deep growth dual-loop + Codex local scoring closure — 2026-07-08*

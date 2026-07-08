@@ -1,0 +1,137 @@
+# MedFailBench Model Registry
+# 
+# Registered models for automated eval pipeline.
+# Add new models here → eval-pipeline picks them up automatically.
+#
+# Fields:
+#   id:         Unique identifier (used in filenames and CI matrix)
+#   name:       Display name for leaderboard
+#   provider:   API provider (openrouter | hf | openai | anthropic)
+#   model:      Model string passed to the API
+#   active:     true = included in scheduled runs, false = archived
+#   tier:       core | extended | experimental
+#   notes:      Optional context
+
+models:
+  - id: qwen-3.7-max
+    name: Qwen 3.7 Max
+    provider: openrouter
+    model: qwen/qwen-3.7-max
+    active: true
+    tier: core
+    notes: Chinese frontier, large eval set (30 prompts)
+
+  - id: qwen-3.6-plus
+    name: Qwen 3.6 Plus
+    provider: openrouter
+    model: qwen/qwen-3.6-plus
+    active: true
+    tier: core
+    notes: Chinese frontier, large eval set (30 prompts)
+
+  - id: glm-5.2
+    name: GLM-5.2
+    provider: openrouter
+    model: glm/glm-5.2
+    active: true
+    tier: core
+    notes: Chinese frontier, large eval set (28 prompts)
+
+  - id: deepseek-v4-pro
+    name: DeepSeek V4 Pro
+    provider: openrouter
+    model: deepseek/deepseek-v4-pro
+    active: true
+    tier: core
+    notes: Chinese frontier, large eval set
+
+  - id: kimi-k2.6
+    name: Kimi K2.6
+    provider: openrouter
+    model: moonshot/kimi-k2.6
+    active: true
+    tier: core
+    notes: Chinese frontier
+
+  - id: kimi-k2.7-code
+    name: Kimi K2.7 Code
+    provider: openrouter
+    model: moonshot/kimi-k2.7-code
+    active: true
+    tier: core
+    notes: Chinese frontier
+
+  - id: deepseek-v4-flash
+    name: DeepSeek V4 Flash
+    provider: openrouter
+    model: deepseek/deepseek-v4-flash
+    active: true
+    tier: extended
+    notes: Smaller eval set (5 prompts)
+
+  - id: deepseek-v3.2
+    name: DeepSeek V3.2
+    provider: openrouter
+    model: deepseek/deepseek-v3.2
+    active: true
+    tier: extended
+    notes: Smaller eval set (5 prompts)
+
+  - id: qwen-2.5-7b-instruct
+    name: Qwen 2.5-7B-Instruct
+    provider: hf
+    model: Qwen/Qwen2.5-7B-Instruct
+    active: true
+    tier: extended
+    notes: Baseline, HF-backed (no API key needed)
+
+  - id: llama-3.1-8b-instruct
+    name: Llama 3.1-8B-Instruct
+    provider: hf
+    model: meta-llama/Llama-3.1-8B-Instruct
+    active: true
+    tier: extended
+    notes: Western baseline, HF-backed
+
+  # P1: Western model candidates (OpenRouter credits required)
+  # - id: gpt-4o
+  #   name: GPT-4o
+  #   provider: openrouter
+  #   model: openai/gpt-4o
+  #   active: false
+  #   tier: extended
+  #   notes: P1 — needs OpenRouter credits
+  #
+  # - id: claude-sonnet-4
+  #   name: Claude Sonnet 4
+  #   provider: openrouter
+  #   model: anthropic/claude-sonnet-4
+  #   active: false
+  #   tier: extended
+  #   notes: P1 — needs OpenRouter credits
+  #
+  # - id: gemini-3-pro
+  #   name: Gemini 3 Pro
+  #   provider: openrouter
+  #   model: google/gemini-3-pro
+  #   active: false
+  #   tier: extended
+  #   notes: P1 — needs OpenRouter credits
+
+schedules:
+  weekly:
+    # Models to run on Monday 05:00 UTC schedule
+    - qwen-3.7-max
+    - qwen-3.6-plus
+    - glm-5.2
+    - deepseek-v4-pro
+  biweekly:
+    # Models to run every 2 weeks
+    - kimi-k2.6
+    - kimi-k2.7-code
+  monthly:
+    # Models to run every 4 weeks
+    - deepseek-v4-flash
+    - deepseek-v3.2
+    - qwen-2.5-7b-instruct
+    - llama-3.1-8b-instruct

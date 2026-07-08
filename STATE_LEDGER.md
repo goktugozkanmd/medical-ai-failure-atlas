@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-|| SON GUNCELLEME: 2026-07-09 08:00 UTC (C0R3 — deep growth dual-loop: eval CI pipeline design + Clinical AI Safety Audit Framework outline + automation/data secondary lens)
+||| SON GUNCELLEME: 2026-07-08 11:01 TRT (Codex — PR #1897 ready for review + hard30 local scoring + outreach/visibility packets)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,20 +22,32 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
-- Tarih/saat: 2026-07-07 21:22 TRT — C0R3 (G onaylı dış aksiyon paketi)
+- Tarih/saat: 2026-07-08 11:01 TRT — Codex (user-approved cleanup: items 1, 2, 5, 6, 7)
 - Yapilanlar:
-  - **LM Eval Harness:** Issue #3866 hattı PR #3903'e dönüştürüldü/güncellendi. Branch `feat/turkish-clinical-source-support`, head `1db2dbfa`, PR açık ve mergeable.
-  - **HF Dataset:** `goktugozkanmd/medfailbench-v02-results` public push tamamlandı. Train split 181 satır, 0 skipped.
-  - **SafetyGuard:** PyPI-ready paket düzeltildi; package adı `safetyguard`, prompt/rubric pakete gömülü, wheel/sdist build edildi. GitHub Release `safetyguard-v0.1.0` public yayınlandı. PyPI upload credential yokluğu nedeniyle bloklu.
-  - **International AI Safety Report outreach:** Resmi site maili decode edildi (`secretariat.AIStateofScience@dsit.gov.uk`); outreach maili gönderildi ve Gmail Sent içinde doğrulandı.
+  - Inspect Evals PR #1897 `ready for review` yapildi. Canli durum: OPEN, not draft, MERGEABLE, review required. Tania'nin onceki approval'i draft oldugu icin dismissed kaldi; yeni review bekleniyor.
+  - Future-date kaymasi yeni dosyalarda 2026-07-08'e cekildi; `docs/CORE_TRACK_AUTOMATION_DATA_PIPELINE_20260708.md`, `docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`, `docs/SECONDARY_LENS_DISTRIBUTION_VISIBILITY_20260708.md`.
+  - Model team outreach queue guncellendi: `docs/MODEL_TEAM_FEEDBACK_OUTREACH.md`. Qwen, GLM, DeepSeek, Kimi icin hedef sirasi, evidence anchor, subject line ve pre-send gate netlestirildi. Dis gonderim yapilmadi.
+  - Hard30 raw output'lari yeni API cagrisi olmadan local rule scorer ile skorlandi. Yeni dosyalar: `model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_rule_scores.json` ve `model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json`.
+  - Hard30 kapanis notu eklendi: `docs/HARD30_RULE_SCORING_20260708.md`. DeepSeek V4 Pro hard30: 30/30 rows, 1 unsafe local label (H027). Qwen 3.7 Max hard30: 30/30 rows, 3 unsafe local labels (H018, H019, H027). Public claim update yok.
+  - Distribution visibility packet eklendi: `docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`; checklist statuslari packet-ready olarak guncellendi. Dis form/PR/email/comment gonderilmedi.
 - Dogrulama:
-  - LM Eval task: `.venv/bin/python -m lm_eval --model dummy --tasks turkish_clinical_source_support --limit 1` geçti.
-  - HF dataset API: public false değil, `private=False`; `load_dataset(..., split="train")` -> 181 rows.
-  - SafetyGuard: `pytest -q` -> 72 passed; `twine check` -> PASSED; pip wheel install Python 3.13 -> help + prompt/rubric load OK.
-  - Outreach: Message-ID `<178344851375.87342.16612323023986284931@gmail.com>` sent+verified.
-- Dis gonderim: Yapıldı — IASR outreach maili. PyPI gerçek upload credential bekliyor.
+  - PR #1897 GitHub readback: `isDraft=false`, `mergeable=MERGEABLE`, `reviewDecision=REVIEW_REQUIRED`.
+  - Hard30 raw row check: DeepSeek 30/30 empty 0; Qwen 30/30 empty 0.
+- Dis gonderim: Yok. PR #1897 draft state degistirildi; model-team outreach, aggregator/list submissions ve awesome-list PR'lari gonderilmedi.
 
 ### ÖNCEKİ ITERASYON
+- Tarih/saat: 2026-07-08 19:00 TRT — C0R3 (deep growth: distribution/visibility lens)
+- Yapilanlar:
+  - **Model Registry:** `config/models.yaml` oluşturuldu — 10 model tanımı, scheduled cadence, provider/active/tier alanları. Batı modelleri (GPT-4o, Claude, Gemini) P1 olarak yorum satırında bekliyor.
+  - **Eval CI Pipeline Phase 1 Plan:** `leaderboard/EVAL_PIPELINE_PHASE_1.md` yazıldı — 3-job workflow tasarımı (resolve-models → eval → commit). Script iskeletleri (`ci_eval_runner.py`, `ci_score_runner.py`) belirtildi. G onayı bekliyor.
+  - **Distribution Visibility Checklist:** `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md` — 9 benchmark aggregator/directory hedef belirlendi. Mevcut durum: 0/9 listed. En yüksek öncelik: AISafetyBenchExplorer, PapersWithCode.
+  - **Secondary Lens Report:** `docs/SECONDARY_LENS_DISTRIBUTION_VISIBILITY_20260708.md` — 5 bulgu, 1 yeni proje fikri (MedAI Safety Benchmark Index).
+- Dogrulama:
+  - `config/models.yaml` YAML valid
+  - Dosyalar fiziksel olarak klasörlerde mevcut
+- Dis gonderim: Yok (G onayı bekler — eval pipeline implementasyonu, aggregator submission'ları)
+
+### DAHA ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-07 13:35 TRT — C0R3 (eksik kapanis / batch + PR + QA)
 - Yapilanlar:
   - arXiv submit durumu tekrar netlestirildi: submit endorsement yuzunden bloklu; endorsement kodu `AGUGYD`. Disarida "submitted" claim'i yok.
@@ -57,14 +69,16 @@
 2. [PUBLIC-GITHUB / Pypi BLOCKED] **SafetyGuard publish:** GitHub Release `safetyguard-v0.1.0` public; wheel/sdist doğrulandı; PyPI API token/account yok.
 3. [DONE] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık, mergeable, Issue #3866 kapanış referanslı.
 4. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
-5. [P0-YENI-DONE] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
-6. [P0-YENI] **Eval CI Pipeline:** **DESIGN HAZIR** (`docs/CORE_TRACK_AUTOMATION_DATA_PIPELINE_20260709.md`). G onayı ile Phase 1 implementasyonuna başla.
-7. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260709.md`). G onayı ile build'e başla.
-8. [P1] Batı modelleri batch expansion (GPT-4o, Claude, Gemini) — OpenRouter kredi gerektirir.
-9. [P1] Hard30 scoring (Python 3.10+ gerekiyor) — batch expansion raw output'ları skorlanmamış.
-10. [P1] Model-team outreach approval packet (Qwen, DeepSeek, GLM, Kimi).
-11. [P2] Doğruöz (LLM-as-Judge multilingual) işbirliği approval packet.
-12. [P2] Diagens DoctorBench competitor monitoring — yeni Çin tıbbi AI eval platformu.
+5. [P0-YENI] **Distribution & Visibility:** **PACKET HAZIR** (`docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`, `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md`). Dis submit/PR/form icin final metin onayi gerekir.
+6. [P0-YENI] **Eval CI Pipeline Phase 1:** **PLAN HAZIR** (`leaderboard/EVAL_PIPELINE_PHASE_1.md`) + `config/models.yaml` model registry. G onayı ile workflow YAML + runner script implementasyonu.
+7. [P0-YENI] **MedAI Safety Benchmark Index:** Yeni proje fikri — medical AI benchmark karşılaştırma indeksi (`docs/MEDAI_SAFETY_BENCHMARK_INDEX.md`). G onayı ile başlanabilir.
+8. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`). G onayı ile build'e başla.
+9. [P0-YENI] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
+10. [P1] Batı modelleri batch expansion (GPT-4o, Claude, Gemini) — OpenRouter kredi gerektirir.
+11. [DONE-LOCAL] Hard30 local rule scoring tamamlandi — score dosyalari yazildi; public claim update icin manual review gerekir.
+12. [PACKET-READY] Model-team outreach approval packet (Qwen, DeepSeek, GLM, Kimi) — gonderim yapilmadi, exact target/channel onayi gerekir.
+13. [P2] Doğruöz (LLM-as-Judge multilingual) işbirliği approval packet.
+14. [P2] Diagens DoctorBench competitor monitoring — yeni Çin tıbbi AI eval platformu.
 
 NOT: Eski P0 (MedHELM native benchmark) iptal — HELM maintenance modunda. Yerine LM Eval Harness + Inspect Evals dual track.
 

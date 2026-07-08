@@ -26,6 +26,10 @@ VCS_DIR_NAMES = {
     ".svn",
 }
 
+LOCAL_ONLY_DIR_NAMES = {
+    ".venv",
+}
+
 def joined(*parts: str) -> str:
     return "".join(parts)
 
@@ -521,6 +525,8 @@ def validate(root: Path, strict: bool) -> tuple[list[str], list[str]]:
     for path in sorted(root.rglob("*")):
         relative = path.relative_to(root)
         if relative.parts and relative.parts[0] in VCS_DIR_NAMES:
+            continue
+        if relative.parts and relative.parts[0] in LOCAL_ONLY_DIR_NAMES:
             continue
         if relative.parts and relative.parts[0] == "review_forms":
             fail(errors, f"Internal review form path present in public candidate: {relative}")
