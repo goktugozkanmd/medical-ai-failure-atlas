@@ -1,0 +1,174 @@
+{
+  "artifact_id": "health_ai_assurance_kit_card_20260708",
+  "status": "local_kit_level_assurance_card_ready",
+  "created_date": "2026-07-08",
+  "phase": "P5",
+  "roadmap": "docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md",
+  "product_name": "Clinical AI Safety Ops / Health AI Assurance Kit",
+  "card_schema": "health_ai_assurance_kit_card_v0_1",
+  "source_artifacts": {
+    "roadmap": "docs/health_ai_assurance_kit_roadmap_20260708.json",
+    "safetyguard_studio": "docs/safetyguard_studio_product_mode_20260708.json",
+    "sourcecheckup_cli": "docs/sourcecheckup_medical_cli_report_20260708.json",
+    "turkish_drift": "docs/turkish_drift_preview_dashboard_20260708.json",
+    "transparency_export": "docs/safetyguard_evaluation_card_export_path_20260708.json",
+    "clinician_panel_packet": "docs/clinician_panel_reviewer_packet_20260708.json",
+    "clinician_literacy": "docs/clinical_ai_literacy_simulator_module_20260708.json",
+    "monitoring_plan": "docs/medical_ai_safety_monitoring_bot_plan_20260708.json",
+    "promotion_gate": "docs/model_run_promotion_gate_20260708.json"
+  },
+  "evidence_layers": [
+    {
+      "id": "safety_evidence_spine",
+      "label": "Safety evidence spine",
+      "status": "local_promoted_score_review_ready",
+      "source": "docs/model_run_promotion_gate_20260708.json",
+      "signals": {
+        "models_ready_for_local_promotion_review": 2,
+        "local_rows_scored": 60,
+        "provider_generation_rows_used": 0
+      },
+      "public_claim_boundary": "local score review only, not model ranking"
+    },
+    {
+      "id": "safetyguard_studio_surface",
+      "label": "SafetyGuard Studio surface",
+      "status": "local_product_mode_ready",
+      "source": "docs/safetyguard_studio_product_mode_20260708.json",
+      "signals": {
+        "features": 5,
+        "endpoints": 4,
+        "sample_review_status": "local_rule_scoring_only"
+      },
+      "public_claim_boundary": "local synthetic/manual review surface only"
+    },
+    {
+      "id": "source_support_layer",
+      "label": "SourceCheckup Medical source support",
+      "status": "local_cli_report_ready",
+      "source": "docs/sourcecheckup_medical_cli_report_20260708.json",
+      "signals": {
+        "report_schema": "sourcecheckup_medical_report_v0_2",
+        "sample_external_use_gate": "blocked_pending_source_verification",
+        "verification_queue_count": 3
+      },
+      "public_claim_boundary": "source presence is separated from exact claim support"
+    },
+    {
+      "id": "turkish_drift_layer",
+      "label": "Turkish and English drift preview",
+      "status": "local_preview_dashboard_ready",
+      "source": "docs/turkish_drift_preview_dashboard_20260708.json",
+      "signals": {
+        "validation_tiers": 2,
+        "tr_en_pairs": 5,
+        "probe_outputs": 10,
+        "turkish_rows": 44,
+        "sourcecheckup_needed_rows": 6,
+        "high_severity_rows": 23
+      },
+      "public_claim_boundary": "small probe and existing Turkish synthetic rows stay separate"
+    },
+    {
+      "id": "transparency_card_layer",
+      "label": "Transparency card export path",
+      "status": "local_export_path",
+      "source": "docs/safetyguard_evaluation_card_export_path_20260708.json",
+      "signals": {
+        "outputs": [
+          "transparency_card_json",
+          "transparency_card_markdown",
+          "hf_evaluation_card_markdown"
+        ],
+        "local_smoke_status": "passed",
+        "external_submission_allowed": false
+      },
+      "public_claim_boundary": "export path only, no registry acceptance claim"
+    },
+    {
+      "id": "human_review_status_layer",
+      "label": "Human review status",
+      "status": "controlled_local_reviewer_handoff_not_sent",
+      "source": "docs/clinician_panel_reviewer_packet_20260708.json",
+      "signals": {
+        "case_count": 15,
+        "assignment_count": 30,
+        "external_send_allowed": false,
+        "reviewer_selection_owner": "user"
+      },
+      "public_claim_boundary": "review packet prepared, external reviewer selection remains with the user"
+    },
+    {
+      "id": "clinician_literacy_layer",
+      "label": "Clinician literacy demo layer",
+      "status": "local_education_module_not_externally_released",
+      "source": "docs/clinical_ai_literacy_simulator_module_20260708.json",
+      "signals": {
+        "duration_minutes": 20,
+        "steps": 6,
+        "external_action_allowed": false
+      },
+      "public_claim_boundary": "local education module only, not medical advice"
+    },
+    {
+      "id": "monitoring_boundary_layer",
+      "label": "Monitoring boundary",
+      "status": "plan_only_automation_not_started",
+      "source": "docs/medical_ai_safety_monitoring_bot_plan_20260708.json",
+      "signals": {
+        "automation_started": false,
+        "external_action_allowed": false,
+        "start_gate": "owner_must_ask"
+      },
+      "public_claim_boundary": "plan only, automation not started"
+    }
+  ],
+  "release_gates": {
+    "internal_product_card": "ready",
+    "external_release": "blocked_without_user_approval",
+    "provider_api_run": "blocked_without_user_approval",
+    "new_case_addition": "blocked_without_user_approval",
+    "physician_selection": "user_only",
+    "clinical_validation_claim": "not_claimed",
+    "source_truth_certification": "not_claimed",
+    "regulatory_compliance_claim": "not_claimed",
+    "official_compatibility_claim": "not_claimed",
+    "model_ranking": "not_claimed"
+  },
+  "kit_summary": {
+    "evidence_layer_count": 8,
+    "local_rows_scored": 60,
+    "tr_en_pairs": 5,
+    "turkish_rows": 44,
+    "sourcecheckup_needed_rows": 6,
+    "human_review_assignments_prepared": 30,
+    "external_gate": "blocked_without_user_approval"
+  },
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_source_truth_certification_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "blocked_actions": [
+    "send_external_email_or_post_without_user_approval",
+    "start_provider_api_calls_without_user_approval",
+    "add_new_cases_without_user_approval",
+    "claim_clinical_validation",
+    "claim_source_truth_certification",
+    "claim_regulatory_compliance",
+    "claim_official_endorsement_or_compatibility",
+    "rank_models_as_winners",
+    "select_or_contact_physicians_by_agent"
+  ],
+  "next_safe_actions": [
+    "use this card as the kit level internal index",
+    "connect the clinician literacy demo into the next roadmap phase",
+    "keep external release blocked until explicit user approval and audit"
+  ]
+}

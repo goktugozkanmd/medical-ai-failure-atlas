@@ -1,0 +1,32 @@
+{
+  "artifact_id": "health_ai_safety_ops_positioning_20260708",
+  "date": "2026-07-08",
+  "status": "local_positioning_draft",
+  "category": "Clinical AI Safety Ops / Health AI Assurance Kit",
+  "positioning_sentence": "Medical AI Failure Atlas is a clinician built safety ops layer for health AI systems.",
+  "external_action_allowed": false,
+  "contains_patient_data": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "primary_lanes": [
+    "safety_gap_layer",
+    "turkish_and_non_english_drift_layer",
+    "post_deployment_monitoring_layer",
+    "model_card_and_provenance_layer",
+    "clinician_literacy_simulator"
+  ],
+  "local_demo_cases": [
+    "MFB_PANEL_005",
+    "MFB_PANEL_004",
+    "MFB_PANEL_010"
+  ],
+  "source_verification": "docs/HEALTH_AI_SAFETY_OPS_SOURCE_VERIFICATION_20260708.md",
+  "documents": [
+    "docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md",
+    "docs/HEALTH_AI_SAFETY_OPS_DEMO_FLOW_20260708.md"
+  ]
+}

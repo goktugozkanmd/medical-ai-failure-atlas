@@ -1,0 +1,22 @@
+{
+  "artifact_id": "turkish_clinical_safetybench_packaging_gate_20260708",
+  "status": "local_packaging_gate_no_new_cases_added",
+  "external_action_allowed": false,
+  "new_cases_allowed_without_owner_approval": false,
+  "contains_patient_data": false,
+  "agent_selects_physicians": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "required_fields": [
+    "scenario_id",
+    "language",
+    "domain",
+    "risk_axis",
+    "drift_pair_id",
+    "safe_answer_hint",
+    "synthetic_only",
+    "validation_tier"
+  ],
+  "next_build": "existing_prompt_manifest_exporter"
+}
+

@@ -1,0 +1,24 @@
+{
+  "artifact_id": "medical_ai_benchmark_boundary_index_20260708",
+  "status": "local_index_not_external_claim",
+  "source_support_note": "docs/PROJECT_GROWTH_SOURCE_VERIFICATION_20260708.md",
+  "external_action_allowed": false,
+  "rows": [
+    {
+      "lane": "HealthBench",
+      "useful_for": "broad realistic health conversation rubric direction",
+      "do_not_claim": "MedFailBench equivalence or HealthBench collaboration"
+    },
+    {
+      "lane": "MedHELM",
+      "useful_for": "clinical workflow evaluation ecosystem and contribution route",
+      "do_not_claim": "MedHELM acceptance endorsement or official compatibility"
+    },
+    {
+      "lane": "MedFailBench",
+      "useful_for": "safety failure layer and worst case review",
+      "do_not_claim": "clinical validation model ranking or deployment readiness"
+    }
+  ]
+}
+

@@ -1,0 +1,72 @@
+{
+  "artifact_id": "medfailbench_adapter_framework_smoke_20260708",
+  "commands": [
+    {
+      "cmd": [
+        "lm_eval",
+        "validate",
+        "--tasks",
+        "medfailbench_safety_layer_v0_1",
+        "--include_path",
+        "adapters/lm_eval"
+      ],
+      "stdout_tail": [
+        "Validating tasks: ['medfailbench_safety_layer_v0_1']",
+        "All tasks found and valid"
+      ]
+    },
+    {
+      "cmd": [
+        "lm_eval",
+        "run",
+        "--model",
+        "dummy",
+        "--tasks",
+        "medfailbench_safety_layer_v0_1",
+        "--include_path",
+        "adapters/lm_eval",
+        "--limit",
+        "1",
+        "--output_path",
+        "<temporary_lm_eval_output_dir>",
+        "--log_samples"
+      ],
+      "stdout_tail": [
+        "dummy ({}), gen_kwargs: ({}), limit: 1.0, num_fewshot: None, batch_size: 1",
+        "|            Tasks             |Version|Filter|n-shot|           Metric            |   |Value|   |Stderr|",
+        "|------------------------------|------:|------|-----:|-----------------------------|---|----:|---|------|",
+        "|MedFailBench Safety Layer v0.1|    0.1|none  |     0|medfailbench_composite       |\u2191  |    0|\u00b1  |   N/A|",
+        "|                              |       |none  |     0|medfailbench_no_remote_dosing|\u2191  |    1|\u00b1  |   N/A|",
+        "|                              |       |none  |     0|medfailbench_safety_presence |\u2191  |    0|\u00b1  |   N/A|",
+        "|                              |       |none  |     0|medfailbench_source_boundary |\u2191  |    1|\u00b1  |   N/A|",
+        ""
+      ]
+    }
+  ],
+  "contains_patient_data": false,
+  "datasets_version": "5.0.0",
+  "external_submission_allowed": false,
+  "inspect_ai_version": "0.3.244",
+  "inspect_sample_count": 20,
+  "inspect_scorer_count": 1,
+  "inspect_scorer_metadata_keys": [
+    "medfailbench_composite",
+    "medfailbench_no_remote_dosing",
+    "medfailbench_safety_presence",
+    "medfailbench_source_boundary"
+  ],
+  "inspect_scorer_smoke_value": 1.0,
+  "inspect_task_build_passed": true,
+  "inspect_task_type": "Task",
+  "lm_eval_composite": 0.0,
+  "lm_eval_dummy_run_passed": true,
+  "lm_eval_output_dir": "<temporary_lm_eval_output_dir>",
+  "lm_eval_result_file_found": true,
+  "lm_eval_sample_file_found": true,
+  "lm_eval_sample_len": 1,
+  "lm_eval_validate_passed": true,
+  "lm_eval_version": "0.4.12",
+  "python": "3.11.14",
+  "status": "passed",
+  "synthetic_only": true
+}

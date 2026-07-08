@@ -1,0 +1,98 @@
+{
+  "artifact_id": "model_run_promotion_gate_20260708",
+  "status": "local_score_table_promotion_gate",
+  "created_date": "2026-07-08",
+  "target_prompt_count": 30,
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_compatibility_claim": true,
+  "source_prompt_set": "data/prompt_set_v2_hard_30.tsv",
+  "rubric": "data/scoring_rubric_v0_3.json",
+  "models": [
+    {
+      "model_name": "DeepSeek V4 Pro",
+      "model_id": "deepseek_v4_pro_hard30_enriched",
+      "source_raw": "model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_raw_outputs.json",
+      "enriched_raw": "model_runs/model_run_normalization_20260708/deepseek_v4_pro_hard30_enriched_raw_outputs.json",
+      "rule_scores": "model_runs/model_run_normalization_20260708/deepseek_v4_pro_hard30_enriched_rule_scores.json",
+      "public_prompt_count_before_gate": 5,
+      "target_prompt_count": 30,
+      "scored_item_count": 30,
+      "normalization_gap_closed_locally": 25,
+      "provider_generation_rows_used": 0,
+      "mean_scores": {
+        "safety": 3.7,
+        "accuracy": 2.833,
+        "source_transparency": 4.133,
+        "refusal_appropriateness": 4.433,
+        "clinical_grounding": 3.667
+      },
+      "final_label_counts": {
+        "clinically_usable_with_caution": 23,
+        "needs_revision_before_clinical_use": 2,
+        "unsafe": 5
+      },
+      "safety_gate_counts": {
+        "missed_urgent_escalation": 5,
+        "unsafe_discharge_reassurance": 1,
+        "unsafe_remote_dosing": 1
+      },
+      "promotion_status": "ready_for_local_review_not_public"
+    },
+    {
+      "model_name": "GLM-5.2",
+      "model_id": "glm_5_2_hard30_enriched",
+      "source_raw": "model_runs/weekly_eval_glm-5.2_20260704_130522.json",
+      "enriched_raw": "model_runs/model_run_normalization_20260708/glm_5_2_hard30_enriched_raw_outputs.json",
+      "rule_scores": "model_runs/model_run_normalization_20260708/glm_5_2_hard30_enriched_rule_scores.json",
+      "public_prompt_count_before_gate": 28,
+      "target_prompt_count": 30,
+      "scored_item_count": 30,
+      "normalization_gap_closed_locally": 2,
+      "provider_generation_rows_used": 0,
+      "mean_scores": {
+        "safety": 3.6,
+        "accuracy": 2.833,
+        "source_transparency": 4.133,
+        "refusal_appropriateness": 4.733,
+        "clinical_grounding": 3.967
+      },
+      "final_label_counts": {
+        "clinically_usable_with_caution": 22,
+        "needs_revision_before_clinical_use": 3,
+        "unsafe": 5
+      },
+      "safety_gate_counts": {
+        "missed_urgent_escalation": 5,
+        "unsafe_discharge_reassurance": 2,
+        "unsafe_remote_dosing": 1
+      },
+      "promotion_status": "ready_for_local_review_not_public"
+    }
+  ],
+  "totals": {
+    "models_ready_for_local_promotion_review": 2,
+    "local_rows_scored": 60,
+    "public_rows_closed_by_local_artifacts": 27,
+    "provider_generation_rows_used": 0
+  },
+  "blocked_actions": [
+    "publish_public_table_without_user_approval",
+    "start_provider_api_calls",
+    "rank_models_from_this_gate",
+    "claim_clinical_validation",
+    "add_new_cases",
+    "select_or_contact_physicians_by_agent"
+  ],
+  "next_safe_actions": [
+    "review this local score table for schema and row consistency",
+    "decide whether DeepSeek V4 Pro hard30 and GLM 5.2 rows should update the public leaderboard draft",
+    "keep the remaining 149 provider generation rows blocked until explicit user approval"
+  ]
+}

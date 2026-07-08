@@ -1,0 +1,20 @@
+{
+  "artifact_id": "safetyguard_evaluation_card_export_path_20260708",
+  "status": "local_export_path",
+  "source_input": "SafetyGuard score JSON",
+  "outputs": [
+    "transparency_card_json",
+    "transparency_card_markdown",
+    "hf_evaluation_card_markdown"
+  ],
+  "local_smoke": {
+    "status": "passed",
+    "script": "scripts/smoke_safetyguard_card_release_gate_20260708.py",
+    "manifest": "docs/safetyguard_card_release_gate_smoke_20260708.json"
+  },
+  "contains_patient_data": false,
+  "external_submission_allowed": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_registry_acceptance_claim": true
+}
