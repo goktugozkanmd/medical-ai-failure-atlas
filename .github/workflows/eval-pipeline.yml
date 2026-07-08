@@ -1,0 +1,190 @@
+name: Eval Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_id:
+        description: Model id from config/models.yaml. Leave blank to run all active models.
+        required: false
+        type: string
+      dry_run:
+        description: Validate the run without calling paid/provider APIs.
+        required: true
+        default: true
+        type: boolean
+      prompt_limit:
+        description: Maximum prompts per model. Use 0 for the full prompt set.
+        required: true
+        default: "5"
+        type: string
+      commit_results:
+        description: Commit scored results back to leaderboard/results after a real run.
+        required: true
+        default: false
+        type: boolean
+  schedule:
+    - cron: "12 5 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  resolve-models:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.resolve.outputs.matrix }}
+      dry_run: ${{ steps.resolve.outputs.dry_run }}
+      prompt_limit: ${{ steps.resolve.outputs.prompt_limit }}
+      commit_results: ${{ steps.resolve.outputs.commit_results }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install resolver dependency
+        run: python -m pip install pyyaml
+      - name: Resolve model matrix
+        id: resolve
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MODEL_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.model_id || '' }}
+          INPUT_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.dry_run) || 'true' }}
+          INPUT_PROMPT_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.prompt_limit || '5' }}
+          INPUT_COMMIT_RESULTS: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.commit_results) || 'false' }}
+          ENABLE_SCHEDULED_REAL_EVAL: ${{ vars.EVAL_PIPELINE_ENABLE_SCHEDULE || 'false' }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          import yaml
+
+          models_path = Path("config/models.yaml")
+          config = yaml.safe_load(models_path.read_text(encoding="utf-8")) or {}
+          models = config.get("models", [])
+          wanted = (os.getenv("INPUT_MODEL_ID") or "").strip()
+          event = os.getenv("EVENT_NAME")
+          if wanted:
+              selected = [item for item in models if item.get("id") == wanted]
+              if not selected:
+                  raise SystemExit(f"Model id not found in {models_path}: {wanted}")
+          elif event == "schedule":
+              weekly_ids = set((config.get("schedules") or {}).get("weekly", []))
+              selected = [
+                  item
+                  for item in models
+                  if item.get("id") in weekly_ids and item.get("active", True)
+              ]
+          else:
+              selected = [item for item in models if item.get("active", True)]
+          include = []
+          for item in selected:
+              model_id = item.get("id")
+              provider = item.get("provider")
+              model_name = item.get("model_name") or item.get("model")
+              if not model_id or not provider or not model_name:
+                  raise SystemExit(f"Invalid model entry: {item}")
+              include.append(
+                  {
+                      "model": str(model_id),
+                      "provider": str(provider),
+                      "model_name": str(model_name),
+                  }
+              )
+          if not include:
+              raise SystemExit("No active models found")
+
+          if event == "schedule":
+              dry_run = (os.getenv("ENABLE_SCHEDULED_REAL_EVAL", "false").lower() != "true")
+              commit_results = False
+              prompt_limit = "5"
+          else:
+              dry_run = (os.getenv("INPUT_DRY_RUN", "true").lower() == "true")
+              commit_results = (os.getenv("INPUT_COMMIT_RESULTS", "false").lower() == "true")
+              prompt_limit = os.getenv("INPUT_PROMPT_LIMIT") or "5"
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"matrix={json.dumps({'include': include}, separators=(',', ':'))}\n")
+              handle.write(f"dry_run={str(dry_run).lower()}\n")
+              handle.write(f"commit_results={str(commit_results).lower()}\n")
+              handle.write(f"prompt_limit={prompt_limit}\n")
+          PY
+
+  eval:
+    runs-on: ubuntu-latest
+    needs: resolve-models
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.resolve-models.outputs.matrix) }}
+    env:
+      DRY_RUN: ${{ needs.resolve-models.outputs.dry_run }}
+      PROMPT_LIMIT: ${{ needs.resolve-models.outputs.prompt_limit }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run evaluation
+        run: |
+          set -euo pipefail
+          mkdir -p leaderboard/results
+          raw_path="leaderboard/results/raw_${{ matrix.model }}.json"
+          scored_path="leaderboard/results/scored_${{ matrix.model }}.json"
+          args=()
+          if [ "${DRY_RUN}" = "true" ]; then
+            args+=(--dry-run)
+          else
+            args+=(--overwrite)
+          fi
+          python scripts/ci_eval_runner.py \
+            --model "${{ matrix.model }}" \
+            --provider "${{ matrix.provider }}" \
+            --model-name "${{ matrix.model_name }}" \
+            --prompts leaderboard/medfailbench_prompts_v0_2.jsonl \
+            --limit "${PROMPT_LIMIT}" \
+            --output "${raw_path}" \
+            "${args[@]}"
+          if [ "${DRY_RUN}" != "true" ]; then
+            python scripts/ci_score_runner.py \
+              --input "${raw_path}" \
+              --output "${scored_path}" \
+              --rubric data/scoring_rubric_v0_3.json
+          fi
+      - name: Upload eval artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results-${{ matrix.model }}
+          path: leaderboard/results/
+          if-no-files-found: warn
+
+  commit-results:
+    runs-on: ubuntu-latest
+    needs:
+      - resolve-models
+      - eval
+    if: ${{ github.event_name == 'workflow_dispatch' && needs.resolve-models.outputs.dry_run == 'false' && needs.resolve-models.outputs.commit_results == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: eval-results-*
+          merge-multiple: true
+          path: leaderboard/results
+      - name: Commit scored results
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add leaderboard/results
+          if git diff --cached --quiet; then
+            echo "No eval result changes to commit."
+            exit 0
+          fi
+          git commit -m "Add CI evaluation results"
+          git push

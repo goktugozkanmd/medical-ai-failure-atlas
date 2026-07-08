@@ -22,6 +22,20 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-08 11:18 TRT — Codex (G-approved eval automation implementation)
+- Yapilanlar:
+  - Eval CI Pipeline Phase 1 uygulandi: `.github/workflows/eval-pipeline.yml`, `scripts/ci_eval_runner.py`, `scripts/ci_score_runner.py`.
+  - Workflow `config/models.yaml` model registry'sini okuyacak, dry-run varsayilanıyla masraf çıkarmadan doğrulayacak, manuel gerçek run'da ham JSON üretip skorlayacak ve isteğe bağlı sonuç commit'i yapacak şekilde kuruldu.
+  - Runner `leaderboard/medfailbench_prompts_v0_2.jsonl` prompt setini doğrudan okuyacak şekilde yazıldı; skor runner mevcut `failure_atlas/scorer.py` ile uyumlu JSON kullanıyor.
+  - `leaderboard/EVAL_PIPELINE_PHASE_1.md` plan durumundan implementation record durumuna güncellendi.
+- Dogrulama:
+  - Workflow YAML parse check: PASS.
+  - `.venv/bin/python -m pytest tests/test_ci_eval_pipeline.py`: 2 passed.
+  - `scripts/ci_eval_runner.py --dry-run` real API çağrısı yapmadan 2 prompt planını doğruladı.
+  - `scripts/ci_score_runner.py` mevcut Qwen raw run üstünde `/tmp/medfailbench_ci_scored_demo.json` üretti: 5 scored item.
+- Dis gonderim: Yok. GitHub Actions gerçek run ve provider secret kontrolü henüz canlı GitHub üstünden yapılmadı.
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-08 11:01 TRT — Codex (user-approved cleanup: items 1, 2, 5, 6, 7)
 - Yapilanlar:
   - Inspect Evals PR #1897 `ready for review` yapildi. Canli durum: OPEN, not draft, MERGEABLE, review required. Tania'nin onceki approval'i draft oldugu icin dismissed kaldi; yeni review bekleniyor.
@@ -70,7 +84,7 @@
 3. [DONE] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık, mergeable, Issue #3866 kapanış referanslı.
 4. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
 5. [P0-YENI] **Distribution & Visibility:** **PACKET HAZIR** (`docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`, `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md`). Dis submit/PR/form icin final metin onayi gerekir.
-6. [P0-YENI] **Eval CI Pipeline Phase 1:** **PLAN HAZIR** (`leaderboard/EVAL_PIPELINE_PHASE_1.md`) + `config/models.yaml` model registry. G onayı ile workflow YAML + runner script implementasyonu.
+6. [DONE-LOCAL / GH-RUN BEKLIYOR] **Eval CI Pipeline Phase 1:** workflow YAML + runner scriptleri uygulandi; dry-run ve local skor testi geçti. GitHub `workflow_dispatch` canlı run ve secret kontrolü bekliyor.
 7. [P0-YENI] **MedAI Safety Benchmark Index:** Yeni proje fikri — medical AI benchmark karşılaştırma indeksi (`docs/MEDAI_SAFETY_BENCHMARK_INDEX.md`). G onayı ile başlanabilir.
 8. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`). G onayı ile build'e başla.
 9. [P0-YENI] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
