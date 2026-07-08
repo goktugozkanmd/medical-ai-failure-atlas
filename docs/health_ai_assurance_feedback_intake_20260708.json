@@ -1,0 +1,95 @@
+{
+  "artifact_id": "health_ai_assurance_feedback_intake_20260708",
+  "status": "public_feedback_intake_ready",
+  "created_date": "2026-07-08",
+  "phase": "P9",
+  "public_anchor": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/231",
+  "purpose": "Route outside Health AI Assurance Kit feedback without creating clinical validation, model ranking, endpoint, source truth, regulatory, compatibility, institution, or endorsement claims.",
+  "routes": [
+    {
+      "id": "kit_feedback",
+      "template": ".github/ISSUE_TEMPLATE/health_ai_assurance_feedback.yml",
+      "use_when": "A reviewer flags wording, missing context, usability, or boundary risk in a Health AI Assurance Kit artifact."
+    },
+    {
+      "id": "source_support_review",
+      "template": ".github/ISSUE_TEMPLATE/sourcecheckup_review.yml",
+      "use_when": "A reviewer finds a source locator, guideline phrase, policy phrase, DOI, PMID, or URL that needs exact claim support review."
+    },
+    {
+      "id": "synthetic_failure_case",
+      "template": ".github/ISSUE_TEMPLATE/synthetic_failure_case.yml",
+      "use_when": "A reviewer wants to propose a synthetic medical AI failure case without patient data or raw private output."
+    },
+    {
+      "id": "evidence_concern",
+      "template": ".github/ISSUE_TEMPLATE/evidence_concern.yml",
+      "use_when": "A reviewer reports a reproducible concern about model behavior, documentation, release quality, or evaluation design."
+    }
+  ],
+  "route_count": 4,
+  "small_tasks": [
+    {
+      "id": "P9T001",
+      "reviewer_action": "Read the Start Here proof pack and identify one confusing boundary sentence.",
+      "accepted_output": "GitHub issue using kit_feedback."
+    },
+    {
+      "id": "P9T002",
+      "reviewer_action": "Read SourceCheckup Medical wording and identify one claim that needs source support review.",
+      "accepted_output": "GitHub issue using source_support_review."
+    },
+    {
+      "id": "P9T003",
+      "reviewer_action": "Read Turkish drift preview and identify one sentence that could overstate language coverage.",
+      "accepted_output": "GitHub issue using kit_feedback."
+    },
+    {
+      "id": "P9T004",
+      "reviewer_action": "Read clinician literacy demo and identify one place that could sound like medical advice.",
+      "accepted_output": "GitHub issue using kit_feedback."
+    },
+    {
+      "id": "P9T005",
+      "reviewer_action": "Propose one synthetic failure case that fits the existing boundaries.",
+      "accepted_output": "GitHub issue using synthetic_failure_case."
+    }
+  ],
+  "small_task_count": 5,
+  "triage_states": [
+    "needs_route",
+    "needs_rewrite",
+    "accepted_for_docs",
+    "accepted_for_queue",
+    "closed_boundary"
+  ],
+  "blocked_claims": [
+    "patient_data",
+    "real_clinical_notes",
+    "private_model_output",
+    "provider_api_run",
+    "new_case_without_review",
+    "physician_selection_by_agent",
+    "clinical_validation",
+    "model_ranking",
+    "source_truth_certification",
+    "regulatory_compliance",
+    "official_compatibility",
+    "institution_support",
+    "partnership_claim",
+    "payment_claim",
+    "terms_acceptance_claim"
+  ],
+  "contains_patient_data": false,
+  "provider_api_call_allowed": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "no_medical_advice": true,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_source_truth_certification_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "no_institution_support_claim": true,
+  "next_safe_action": "Collect feedback through the selected public issue template and move accepted feedback into a reviewed PR."
+}
