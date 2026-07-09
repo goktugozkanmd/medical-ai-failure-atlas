@@ -1,0 +1,111 @@
+{
+  "artifact_id": "health_ai_assurance_feedback_triage_examples_20260709",
+  "status": "public_feedback_triage_examples_ready",
+  "created_date": "2026-07-09",
+  "phase": "P11",
+  "public_anchor": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/231",
+  "purpose": "Convert public Health AI Assurance Kit feedback into example maintainer decision records without creating patient data, clinical advice, clinical validation, model ranking, source truth, regulatory, compatibility, institution, endorsement, partnership, payment, or terms acceptance claims.",
+  "source_artifacts": [
+    "docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md",
+    "docs/health_ai_assurance_feedback_intake_20260708.json",
+    "docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md",
+    "docs/health_ai_assurance_feedback_triage_board_20260708.json"
+  ],
+  "decision_types": [
+    "documentation_fix",
+    "source_review_queue",
+    "synthetic_case_queue",
+    "rewrite_before_acceptance",
+    "boundary_close",
+    "owner_review"
+  ],
+  "decision_type_count": 6,
+  "example_records": [
+    {
+      "id": "P11E001",
+      "incoming_route": "kit_feedback",
+      "example_feedback": "Reviewer says the Start Here packet is useful but one boundary sentence is too broad.",
+      "triage_state": "accepted_for_docs",
+      "decision": "documentation_fix",
+      "maintainer_action": "Open a small PR with the exact sentence, safer replacement, and changed file path.",
+      "allowed_output": "documentation_fix",
+      "blocked_claim_risk": false
+    },
+    {
+      "id": "P11E002",
+      "incoming_route": "source_support_review",
+      "example_feedback": "Reviewer flags a DOI, PMID, guideline phrase, or URL that may not support the claim sentence.",
+      "triage_state": "accepted_for_queue",
+      "decision": "source_review_queue",
+      "maintainer_action": "Add the claim sentence, locator, support state, and uncertainty state to a reviewed source queue.",
+      "allowed_output": "source_review_queue_entry",
+      "blocked_claim_risk": false
+    },
+    {
+      "id": "P11E003",
+      "incoming_route": "synthetic_failure_case",
+      "example_feedback": "Reviewer proposes a synthetic failure case without patient data or private model output.",
+      "triage_state": "accepted_for_queue",
+      "decision": "synthetic_case_queue",
+      "maintainer_action": "Move the proposal into synthetic intake only after maintainer review and boundary check.",
+      "allowed_output": "synthetic_case_queue_entry",
+      "blocked_claim_risk": false
+    },
+    {
+      "id": "P11E004",
+      "incoming_route": "kit_feedback",
+      "example_feedback": "Reviewer wording says the kit proves clinical safety, validates a model, ranks models, or certifies sources.",
+      "triage_state": "needs_rewrite",
+      "decision": "rewrite_before_acceptance",
+      "maintainer_action": "Ask for narrower wording that names the documentation concern without validation, ranking, or certification language.",
+      "allowed_output": "rewritten_issue_text",
+      "blocked_claim_risk": true
+    },
+    {
+      "id": "P11E005",
+      "incoming_route": "any",
+      "example_feedback": "Reviewer includes patient data, private clinical text, raw clinical notes, or private model output.",
+      "triage_state": "closed_boundary",
+      "decision": "boundary_close",
+      "maintainer_action": "Close the issue and request synthetic or public information only.",
+      "allowed_output": "boundary_closure_note",
+      "blocked_claim_risk": true
+    },
+    {
+      "id": "P11E006",
+      "incoming_route": "any",
+      "example_feedback": "Reviewer asks for provider API runs, physician selection by the agent, regulatory clearance, official compatibility, institution support, partnership, payment, or terms acceptance.",
+      "triage_state": "needs_owner_review",
+      "decision": "owner_review",
+      "maintainer_action": "Close blocked requests and send any positioning question to owner review before public wording changes.",
+      "allowed_output": "owner_review_note",
+      "blocked_claim_risk": true
+    }
+  ],
+  "example_record_count": 6,
+  "required_triage_states": [
+    "accepted_for_docs",
+    "accepted_for_queue",
+    "needs_rewrite",
+    "closed_boundary",
+    "needs_owner_review"
+  ],
+  "contains_patient_data": false,
+  "contains_private_clinical_text": false,
+  "contains_raw_clinical_notes": false,
+  "contains_private_model_output": false,
+  "provider_api_call_allowed": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "no_medical_advice": true,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_source_truth_certification_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_official_compatibility_claim": true,
+  "no_institution_support_claim": true,
+  "no_partnership_claim": true,
+  "no_payment_claim": true,
+  "no_terms_acceptance_claim": true,
+  "next_safe_action": "Use these examples when classifying public feedback from issue 231 into reviewed documentation fixes, source queue entries, synthetic case queue entries, rewrites, boundary closures, or owner review notes."
+}
