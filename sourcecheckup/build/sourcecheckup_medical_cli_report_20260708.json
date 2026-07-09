@@ -1,0 +1,85 @@
+{
+  "boundary": "Local synthetic or manually pasted source support review only. No patient data, clinical validation, source truth certification, model ranking, regulatory compliance, official compatibility, endorsement, deployment, or external action claim.",
+  "claim_support_distinction": {
+    "locator_format_is_not_source_existence": true,
+    "manual_review_required_for_external_use": true,
+    "source_existence_is_not_exact_claim_support": true,
+    "source_presence_is_not_claim_support": true
+  },
+  "contains_patient_data": false,
+  "external_action_allowed": false,
+  "external_actions_executed": false,
+  "input": "<single-answer-cli-report>",
+  "items": [
+    {
+      "answer_id": "SOURCECHECKUP_CLI_P3_SMOKE",
+      "declared_claim_count": 1,
+      "declared_source_count": 1,
+      "external_actions_executed": false,
+      "external_source_clearance": false,
+      "external_use_gate": "blocked_pending_source_verification",
+      "extracted_locators": {
+        "doi": [
+          "10.5555/sourcecheckup.synthetic.cli"
+        ],
+        "pmid": [],
+        "url": []
+      },
+      "flags": [
+        {
+          "code": "source_not_externally_verified",
+          "evidence": "S1:doi:10.5555/sourcecheckup.synthetic.cli",
+          "message": "Declared source is not externally verified.",
+          "severity": "medium"
+        },
+        {
+          "code": "unsupported_source_language",
+          "evidence": "guidelines recommend",
+          "message": "Answer uses broad source support language that needs a specific verified source or rewrite.",
+          "severity": "medium"
+        }
+      ],
+      "source_claims_present": true,
+      "verification_queue": [
+        {
+          "kind": "doi",
+          "reason": "declared_source_status_format_checked_only",
+          "value": "10.5555/sourcecheckup.synthetic.cli"
+        },
+        {
+          "kind": "guideline",
+          "reason": "central_guideline_or_policy_claim_requires_source_text_support_check",
+          "value": "Guidelines recommend remote medication dose adjustment."
+        },
+        {
+          "kind": "unsupported_source_language",
+          "reason": "rewrite_or_link_to_verified_source",
+          "value": "guidelines recommend"
+        }
+      ]
+    }
+  ],
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_compatibility_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_source_truth_certification_claim": true,
+  "report_mode": "single_answer_cli_report",
+  "schema_version": "sourcecheckup_medical_report_v0_2",
+  "sourcecheckup_version": "0.1.0",
+  "summary": {
+    "flag_counts": {
+      "source_not_externally_verified": 1,
+      "unsupported_source_language": 1
+    },
+    "gate_counts": {
+      "blocked_pending_source_verification": 1
+    },
+    "items": 1,
+    "severity_counts": {
+      "medium": 2
+    },
+    "verification_queue_items": 3
+  },
+  "synthetic_or_manual_input_only": true
+}
