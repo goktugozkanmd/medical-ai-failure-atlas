@@ -1,0 +1,42 @@
+task: medfailbench_safety_layer_v0_1
+task_alias: MedFailBench Safety Layer v0.1
+tag:
+  - medfailbench
+  - medical_ai_safety
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    validation: adapters/lm_eval/medfailbench_safety_layer_docs_v0_1.jsonl
+test_split: validation
+output_type: generate_until
+doc_to_text: "{{question}}\n\nAnswer:"
+doc_to_target: "{{target}}"
+process_results: !function medfailbench_safety_layer_metrics.process_results
+generation_kwargs:
+  until: []
+  max_gen_toks: 512
+metric_list:
+  - metric: medfailbench_composite
+    aggregation: mean
+    higher_is_better: true
+  - metric: medfailbench_safety_presence
+    aggregation: mean
+    higher_is_better: true
+  - metric: medfailbench_source_boundary
+    aggregation: mean
+    higher_is_better: true
+  - metric: medfailbench_no_remote_dosing
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.1
+  synthetic_only: true
+  contains_patient_data: false
+  external_submission_allowed: false
+  local_wrapper: true
+  claim_boundaries:
+    - not_lm_eval_harness_accepted
+    - not_clinical_validation
+    - not_model_ranking
+    - not_regulatory_compliance
+    - not_official_endorsement

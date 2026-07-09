@@ -37,9 +37,9 @@ REQUIRED_REVIEW_LANES = {
 }
 REQUIRED_PUBLIC_FILES = {
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
-    "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
-    "DATA_DICTIONARY.md",
-    "LABELING.md",
+    "docs/dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
+    "docs/dataset/DATA_DICTIONARY.md",
+    "docs/dataset/LABELING.md",
     "docs/LABEL_DEFINITION_LOCK_V0_1.md",
     "docs/LABELING_PACKAGE_INDEX_V0_1.md",
     "data/inter_rater_review_subset_v0_1.tsv",

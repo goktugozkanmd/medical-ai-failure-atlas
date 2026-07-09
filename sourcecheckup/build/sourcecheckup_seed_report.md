@@ -2,9 +2,17 @@
 
 Version: 0.1.0
 
+Schema: `sourcecheckup_medical_report_v0_2`
+
 Input: `sourcecheckup/examples/sourcecheckup_seed_answers.jsonl`
 
+Local synthetic or manually pasted source support review only. No patient data, clinical validation, source truth certification, model ranking, regulatory compliance, official compatibility, endorsement, deployment, or external action claim.
+
 External actions executed: false
+
+External action allowed: false
+
+Claim support distinction: source presence is not exact claim support.
 
 ## Summary
 

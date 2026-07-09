@@ -78,3 +78,14 @@ def test_ci_score_runner_scores_raw_run_object(tmp_path):
     assert result.returncode == 0, result.stderr
     payload = json.loads(scored.read_text(encoding="utf-8"))
     assert payload["items"][0]["scenario_id"] == "CASE-1"
+
+
+def test_eval_pipeline_includes_safetyguard_card_release_gate_artifact_job():
+    workflow = (ROOT / ".github" / "workflows" / "eval-pipeline.yml").read_text(encoding="utf-8")
+
+    assert "safetyguard-card-release-gate:" in workflow
+    assert "needs.resolve-models.outputs.dry_run == 'true'" in workflow
+    assert "scripts/smoke_safetyguard_card_release_gate_20260708.py" in workflow
+    assert "docs/safetyguard_card_release_gate_smoke_20260708.json" in workflow
+    assert "build/safetyguard_card_release_gate_20260708/" in workflow
+    assert "if-no-files-found: error" in workflow

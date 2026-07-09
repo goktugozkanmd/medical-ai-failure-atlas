@@ -157,7 +157,7 @@ Create `docs/MEDHELM_UPSTREAM_ISSUE_DRAFT.md`:
 
 ### Block 3 — Visibility
 
-Update `SOCIAL_POSTS.md` with one human, non-hype post:
+Update `outreach/SOCIAL_POSTS.md` with one human, non-hype post:
 
 - “I’m aligning MedFailBench with MedHELM-style clinical workflow evaluation…”
 - no grandiose claims

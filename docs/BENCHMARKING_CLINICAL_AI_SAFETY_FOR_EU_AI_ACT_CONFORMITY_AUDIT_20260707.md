@@ -35,7 +35,7 @@ Decision: pass after scope limits. The whitepaper is author-review ready, not le
 | 16 | `docs/SAFETY_GATE_TAXONOMY_V0_2.md` | Local file read | verified | Safety gate names and definitions. |
 | 17 | Scenario-bank TSV files | Local Python count through terminal | verified | 150 total scenario-bank rows. |
 | 18 | Prompt-set TSV files | Local Python count through terminal | verified | 70 total prompt rows. |
-| 19 | `COMPLIANCE.md` | Local file read | verified | Existing MedFailBench EU AI Act compliance positioning page. |
+| 19 | `governance/COMPLIANCE.md` | Local file read | verified | Existing MedFailBench EU AI Act compliance positioning page. |
 
 ## Claim-support audit
 

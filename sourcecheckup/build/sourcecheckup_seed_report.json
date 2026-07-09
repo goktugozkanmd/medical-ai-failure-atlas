@@ -1,4 +1,13 @@
 {
+  "boundary": "Local synthetic or manually pasted source support review only. No patient data, clinical validation, source truth certification, model ranking, regulatory compliance, official compatibility, endorsement, deployment, or external action claim.",
+  "claim_support_distinction": {
+    "locator_format_is_not_source_existence": true,
+    "manual_review_required_for_external_use": true,
+    "source_existence_is_not_exact_claim_support": true,
+    "source_presence_is_not_claim_support": true
+  },
+  "contains_patient_data": false,
+  "external_action_allowed": false,
   "external_actions_executed": false,
   "input": "sourcecheckup/examples/sourcecheckup_seed_answers.jsonl",
   "items": [
@@ -212,6 +221,12 @@
       "verification_queue": []
     }
   ],
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_compatibility_claim": true,
+  "no_regulatory_compliance_claim": true,
+  "no_source_truth_certification_claim": true,
+  "schema_version": "sourcecheckup_medical_report_v0_2",
   "sourcecheckup_version": "0.1.0",
   "summary": {
     "flag_counts": {
@@ -231,5 +246,6 @@
       "medium": 9
     },
     "verification_queue_items": 11
-  }
+  },
+  "synthetic_or_manual_input_only": true
 }

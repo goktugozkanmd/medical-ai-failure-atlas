@@ -56,7 +56,7 @@ High-risk system readiness evidence should cover:
 - Add EU AI Act compliance scenarios (manufacturer-use-case specific)
 - Expand to UK MHRA / FDA alignment
 - Create a "conformity assessment rubric" version of the scoring framework
-- Whitepaper v0.1: ["Benchmarking Clinical AI Safety for EU AI Act Conformity"](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
+- Whitepaper v0.1: ["Benchmarking Clinical AI Safety for EU AI Act Conformity"](../BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 
 ---
 

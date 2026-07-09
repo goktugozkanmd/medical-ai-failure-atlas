@@ -196,7 +196,7 @@ Required outcome: Keep the 24 row subset framed as protocol testing only.
 
 ### LAA004: Raw output exclusion audit
 
-Linked IDs: LAR004, PUBLIC_RELEASE_BOUNDARY_V0_1.md
+Linked IDs: LAR004, docs/release/PUBLIC_RELEASE_BOUNDARY_V0_1.md
 
 Required roles: LAR004
 

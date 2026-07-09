@@ -46,4 +46,3 @@ make sourcecheckup_medical_source_claim_walkthrough
 ## Boundary
 
 No patient data, no guideline truth certification, no clinical validation, no regulatory compliance claim, no official endorsement claim.
-

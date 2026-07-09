@@ -1,0 +1,16 @@
+{
+  "artifact_id": "medfailbench_local_adapter_wrappers_20260708",
+  "contains_patient_data": false,
+  "external_submission_allowed": false,
+  "inspect_dataset": "adapters/inspect_evals/medfailbench_safety_layer_dataset_v0_1.jsonl",
+  "inspect_rows": 20,
+  "lm_eval_dataset": "adapters/lm_eval/medfailbench_safety_layer_docs_v0_1.jsonl",
+  "lm_eval_rows": 20,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_registry_acceptance_claim": true,
+  "source_dataset": "safetyguard/data/medfailbench_prompts_v0_2.jsonl",
+  "source_limit": 20,
+  "status": "local_wrapper_package",
+  "synthetic_only": true
+}

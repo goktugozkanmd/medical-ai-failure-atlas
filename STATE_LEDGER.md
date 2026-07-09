@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-08 11:01 TRT (Codex — PR #1897 ready for review + hard30 local scoring + outreach/visibility packets)
+||| SON GUNCELLEME: 2026-07-09 12:12 TRT (C0R3 — UTSAK 2026 oral abstract submitted; portal status Başvuru gönderildi)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,38 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-09 12:12 TRT — C0R3 (UTSAK 2026 oral abstract submitted)
+- Yapilanlar:
+  - UTSAK/Symplify hesabi olusturuldu, Gmail Spam'e dusen dogrulama mailinden hesap aktive edildi.
+  - Credential vault'a `utsak_symplify` ve `utsak_symplify_username` olarak kaydedildi.
+  - Türkçe/İngilizce oral abstract paketi hazirlandi; de-AI/humanizasyon, referans halusinasyon kontrolu ve claim-support kontrolu yapildi.
+  - Sözlü Bildiri olarak portala gonderildi.
+- Dogrulama:
+  - Portal bildiri no: `2C81DB04`.
+  - Portal durumu: `Başvuru gönderildi`.
+  - Portal detayinda Türkçe ve İngilizce özet readback yapildi.
+  - Yazar readback: `Uzm. Dr. Göktuğ Özkan`, sorumlu yazar; kurum `Kütahya Emet Dr. Fazıl Doğan State Hospital`.
+  - Dosya yukleme zorunlulugu gorunmedi; portal `Bu bildiriye ait yüklü dosya bulunamadı` yazdi.
+  - Ödeme ekrani cikmadi; ödeme yapilmadi.
+  - Paket kaydi: `.../utsak_2026_goktug_ai_drug_safety_20260709/UTSAK2026_GOKTUG_AI_ILAC_GUVENLIGI_PORTAL_KAYIT_20260709.md`.
+- Dis gonderim: UTSAK oral abstract formal portal submit tamamlandi.
+
+### ÖNCEKİ ITERASYON
+- Tarih/saat: 2026-07-09 11:43 TRT — C0R3 (JBI Editorial Manager submission completed)
+- Yapilanlar:
+  - JBI submission package Editorial Manager uzerinden tamamlandi ve final onay verildi.
+  - Article type etik engel nedeniyle Special Communication yerine Original Research yapildi; EIC daveti/on yazisma bulunmadigi icin Special Communication onayi verilmedi.
+  - Final DOCX/PDF paketi temizlendi: structured abstract, statement-of-significance table, CRediT roles, data/code availability, subscription publishing route.
+  - Elsevier Publishing Options: Subscription secildi; ekranda `Nothing to pay` goruldu.
+- Dogrulama:
+  - EM confirmation: `Thank you for approving "A Clinical Informatics Evidence Layer for Health AI Safety Governance: Mapping Synthetic Failure-Mode Benchmarks to Oversight Workflows"`.
+  - Gmail confirmation: `JBI-26-2501 - Confirming your submission to Journal of Biomedical Informatics`.
+  - Final main menu readback: Incomplete 0, Waiting for Author Approval 0, Submissions Being Processed 1.
+  - Built EM PDF kaydi: `JBI_EM_BUILT_SUBMISSION_PDF_20260709.pdf`, 13 sayfa, 1,510,196 bytes.
+  - Pre-submit reference/claim audit kaydi mevcut: `JBI_V0_5_DELTA_REFERENCE_CLAIM_AUDIT_20260709_0047.md/json`.
+- Dis gonderim: JBI Editorial Manager submit tamamlandi. Odeme yok; OA secilmedi.
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-08 11:35 TRT — Codex (workflow scope fixed + GitHub eval dry-run verified)
 - Yapilanlar:
   - GitHub CLI token'a `workflow` scope eklendi.

@@ -26,4 +26,3 @@ Automation starts only if G asks. Until then this remains a plan.
 ## Boundary
 
 No external action, no paid run, no account changes, no patient data, no public claims.
-

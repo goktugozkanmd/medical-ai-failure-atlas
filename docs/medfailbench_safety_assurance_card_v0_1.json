@@ -1,0 +1,129 @@
+{
+  "card_id": "medfailbench_safety_assurance_card_v0_1",
+  "status": "local_build_not_external_release",
+  "date": "2026 07 08",
+  "artifact": "Medical AI Failure Atlas and MedFailBench safety gate work",
+  "release_gate_level": "L1",
+  "contains_patient_data": false,
+  "identifiers_present": false,
+  "synthetic_examples_only": true,
+  "not_for_clinical_use": true,
+  "no_clinical_deployment_claim": true,
+  "no_clinical_validation_claim": true,
+  "no_model_safety_claim": true,
+  "no_model_ranking": true,
+  "no_regulatory_approval_claim": true,
+  "no_official_endorsement_claim": true,
+  "external_action_allowed": false,
+  "requires_explicit_clearance_for": [
+    "payment",
+    "terms_acceptance",
+    "secrets",
+    "patient_data",
+    "clinical_deployment",
+    "clinical_validation_claim",
+    "model_safety_claim",
+    "model_ranking_claim",
+    "official_endorsement_claim",
+    "medical_device_submission",
+    "journal_or_preprint_submission",
+    "public_issue_or_pull_request"
+  ],
+  "current_evidence": {
+    "failure_atlas_external_sample_rows": 3,
+    "panel_case_count": 15,
+    "panel_assignment_count": 30,
+    "clinician_reviews_recorded": 0,
+    "model_endpoint_runs_included": 0,
+    "raw_model_outputs_released": false,
+    "source_files": [
+      "data/failure_atlas_external_sample_v0_1.jsonl",
+      "data/medhelm_remote_rescue_metric_v0_1.json",
+      "data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv",
+      "data/panel_pilot/clinician_panel_rating_sheet_v0_1.tsv",
+      "docs/MEDHELM_THREE_CASE_UPSTREAM_PACKET_V0_1.md",
+      "failure_atlas/panel_console.py",
+      "failure_atlas/panel_review.py"
+    ]
+  },
+  "source_verification_note": "docs/MEDFAILBENCH_SAFETY_ASSURANCE_CARD_SOURCE_VERIFICATION_20260708.md",
+  "source_anchors": [
+    {
+      "source_id": "nist_ai_rmf",
+      "body": "NIST",
+      "official_page": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "support_status": "verified_from_official_page",
+      "used_as": "risk management and trustworthiness orientation only"
+    },
+    {
+      "source_id": "chai_applied_model_card",
+      "body": "CHAI",
+      "official_page": "https://www.chai.org/workgroup/applied-model",
+      "support_status": "verified_from_official_page",
+      "used_as": "health AI transparency orientation only"
+    },
+    {
+      "source_id": "fda_ai_device_lifecycle_draft",
+      "body": "FDA",
+      "official_page": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing",
+      "support_status": "verified_from_official_page",
+      "used_as": "device lifecycle documentation contrast only"
+    },
+    {
+      "source_id": "fda_pccp_final_guidance",
+      "body": "FDA",
+      "official_page": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/marketing-submission-recommendations-predetermined-change-control-plan-artificial-intelligence",
+      "support_status": "verified_from_official_page",
+      "used_as": "planned change control orientation only"
+    },
+    {
+      "source_id": "who_lmm_health_guidance",
+      "body": "WHO",
+      "official_page": "https://www.who.int/publications/i/item/9789240084759",
+      "support_status": "verified_from_official_page",
+      "used_as": "large model health governance orientation only"
+    }
+  ],
+  "required_sections": [
+    "intended_use",
+    "non_use_boundary",
+    "current_evidence_state",
+    "evidence_gaps",
+    "privacy_and_data_boundary",
+    "source_lenses",
+    "risk_register",
+    "human_review_state",
+    "release_gate",
+    "public_wording_allowed",
+    "public_wording_blocked",
+    "audit_trail"
+  ],
+  "release_gate_levels": [
+    {
+      "level": "L1",
+      "name": "local_build",
+      "external_use": "not_allowed_by_default"
+    },
+    {
+      "level": "L2",
+      "name": "clinician_reviewed",
+      "external_use": "requires_public_wording_gate"
+    },
+    {
+      "level": "L3",
+      "name": "public_candidate",
+      "external_use": "requires_exact_action_clearance"
+    },
+    {
+      "level": "L5",
+      "name": "clinical_deployment",
+      "external_use": "blocked_in_this_automation"
+    }
+  ],
+  "remaining_blockers": [
+    "clinician_review_not_recorded",
+    "source_claims_need_refresh_before_external_use",
+    "academic_or_formal_text_needs_audit_before_external_use",
+    "owner_approval_not_recorded_for_external_action"
+  ]
+}

@@ -51,7 +51,7 @@ that manufacturers can point to as part of their conformity assessment.
 
 1. **Rebrand SAFETY_GATE_TAXONOMY.md** as "conformity assessment rubric"
 2. **Add EU AI Act article references** to existing rubrics
-3. **Create a COMPLIANCE.md** showing the mapping table above
+3. **Create a governance/COMPLIANCE.md** showing the mapping table above
 4. **Add "regulatory compliance scenario" category** to scenario bank
 5. **Write a whitepaper outline**: "Benchmarking Clinical AI Safety for EU AI Act Conformity"
 

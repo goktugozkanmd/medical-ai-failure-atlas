@@ -25,4 +25,3 @@ Purpose: turn MedFailBench failure cases into a short clinician AI literacy simu
 ## Boundary
 
 No patient data, no medical advice, no clinical validation, no institution claim, no official collaboration claim, and no external presentation without owner approval.
-

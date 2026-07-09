@@ -1,0 +1,21 @@
+{
+  "artifact_id": "safetyguard_card_release_gate_ci_artifact_20260708",
+  "status": "workflow_dry_run_artifact_job_wired",
+  "workflow": ".github/workflows/eval-pipeline.yml",
+  "job": "safetyguard-card-release-gate",
+  "runs_only_when_dry_run": true,
+  "local_smoke_script": "scripts/smoke_safetyguard_card_release_gate_20260708.py",
+  "artifact_name": "safetyguard-card-release-gate",
+  "artifact_paths": [
+    "docs/safetyguard_card_release_gate_smoke_20260708.json",
+    "build/safetyguard_card_release_gate_20260708/"
+  ],
+  "contains_patient_data": false,
+  "external_submission_allowed": false,
+  "provider_api_call_allowed": false,
+  "huggingface_publish_allowed": false,
+  "agent_selected_physicians": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "no_official_endorsement_claim": true
+}

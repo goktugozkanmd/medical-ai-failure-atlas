@@ -74,7 +74,7 @@ Left `medmarks_candidate_env_v1_20260614/` in place because validators and bound
 
 No files under `data/` were edited. No evaluation result files were edited.
 
-Updated `PUBLIC_RELEASE_BOUNDARY_V0_1.md` to point at the archived MedMARKS v0 path.
+Updated `release/PUBLIC_RELEASE_BOUNDARY_V0_1.md` to point at the archived MedMARKS v0 path.
 
 ### 5. External PR status checks
 

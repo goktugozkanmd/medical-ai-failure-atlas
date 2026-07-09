@@ -119,8 +119,8 @@ MedFailBench is an open, clinician-authored, synthetic clinical AI safety benchm
 
 ### Near term
 
-1. Keep COMPLIANCE.md linked from the README.
-2. Keep this whitepaper linked from README and COMPLIANCE.md.
+1. Keep governance/COMPLIANCE.md linked from the README.
+2. Keep this whitepaper linked from README and governance/COMPLIANCE.md.
 3. Add a conformity-assessment worksheet that maps each prompt to Article 9, 10, 13, 14, or 15 evidence categories.
 4. Add a reviewer-facing risk register template with safety gate, severity, source gap, mitigation, and retest fields.
 5. Keep public language conservative until external clinician panel validation is complete.
@@ -156,7 +156,7 @@ MedFailBench sources:
 
 1. Medical AI Failure Atlas repository. https://github.com/goktugozkanmd/medical-ai-failure-atlas
 2. MedFailBench Zenodo v0.2.1 DOI. https://doi.org/10.5281/zenodo.21205535
-3. `COMPLIANCE.md`
+3. `governance/COMPLIANCE.md`
 4. `docs/SAFETY_GATE_TAXONOMY_V0_2.md`
 5. `leaderboard/submissions.json`
 6. `model_runs/worst_case_safety_report_v0_1.json`

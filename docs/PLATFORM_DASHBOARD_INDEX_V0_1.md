@@ -653,10 +653,10 @@ Public files:
 41. [Label audit maintainer public preview closure checklist](label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md)
 42. [Label audit maintainer public preview closure JSON](label_audit/label_audit_maintainer_public_preview_closure_checklist_v0_1.json)
 43. [Label audit GitHub issue template](../.github/ISSUE_TEMPLATE/label_audit_review.yml)
-44. [Dataset evaluation card draft](../DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
-45. [Data dictionary](../DATA_DICTIONARY.md)
+44. [Dataset evaluation card draft](dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md)
+45. [Data dictionary](dataset/DATA_DICTIONARY.md)
 46. [Pilot inter rater review rows](../data/inter_rater_review_subset_v0_1.tsv)
-47. [Labeling workflow](../LABELING.md)
+47. [Labeling workflow](dataset/LABELING.md)
 48. [Label definition lock](LABEL_DEFINITION_LOCK_V0_1.md)
 49. [Labeling package index](LABELING_PACKAGE_INDEX_V0_1.md)
 

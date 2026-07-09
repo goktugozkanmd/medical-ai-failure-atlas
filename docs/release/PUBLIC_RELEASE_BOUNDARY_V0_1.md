@@ -13,7 +13,7 @@ This file separates material that can plausibly become public v0.1 from material
 These files are eligible for the public v0.1 release after sanitation:
 
 1. `README.md` after public wording cleanup.
-2. `DATA_DICTIONARY.md` after public wording cleanup.
+2. `../dataset/DATA_DICTIONARY.md` after public wording cleanup.
 3. `Makefile`
 4. `data/scenario_bank_v1.tsv`
 5. `data/scenario_bank_v2_hard_addendum.tsv`

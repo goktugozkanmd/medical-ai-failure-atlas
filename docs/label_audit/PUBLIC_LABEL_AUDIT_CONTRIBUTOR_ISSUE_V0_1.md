@@ -55,8 +55,8 @@ Maintainers should route accepted issues into one of:
 
 1. `docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md`
 2. `docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md`
-3. `DATASET_EVALUATION_CARD_V0_1_DRAFT.md`
-4. `DATA_DICTIONARY.md`
+3. `docs/dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md`
+4. `docs/dataset/DATA_DICTIONARY.md`
 5. `docs/LABEL_DEFINITION_LOCK_V0_1.md`
 6. `docs/LABELING_PACKAGE_INDEX_V0_1.md`
 7. A closed issue comment explaining why the row is not suitable.

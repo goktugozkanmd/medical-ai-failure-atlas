@@ -175,7 +175,7 @@ MedFailBench can support evidence collection for high-risk AI readiness, especia
 | Human oversight | Clinician review fields and escalation boundaries |
 | Accuracy/robustness | Scenario-pack results and worst-case failures |
 
-Primary source mapping is maintained in `COMPLIANCE.md`.
+Primary source mapping is maintained in `governance/COMPLIANCE.md`.
 
 ## Versioning rule
 

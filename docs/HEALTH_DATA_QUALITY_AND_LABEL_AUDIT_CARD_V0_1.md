@@ -21,7 +21,7 @@ Current public source files:
 7. `data/inter_rater_review_subset_v0_1.tsv`
 8. `data/scoring_rubric_v0_1.json`
 9. `docs/LABEL_DEFINITION_LOCK_V0_1.md`
-10. `LABELING.md`
+10. `docs/dataset/LABELING.md`
 11. `sourcecheckup/review_queue/source_claim_review_queue_v0_1.jsonl`
 
 ## Current counts

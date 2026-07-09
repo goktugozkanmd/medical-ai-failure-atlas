@@ -1,0 +1,43 @@
+{
+  "packet_id": "clinician_panel_reviewer_packet_20260708",
+  "status": "controlled_local_reviewer_handoff_not_sent",
+  "date": "2026 07 08",
+  "project": "MedFailBench clinician safety review",
+  "case_count": 15,
+  "reviewer_codes": [
+    "R01",
+    "R02"
+  ],
+  "assignment_count": 30,
+  "contains_patient_data": false,
+  "synthetic_examples_only": true,
+  "not_for_clinical_use": true,
+  "no_clinical_validation_claim": true,
+  "no_model_safety_claim": true,
+  "no_model_ranking": true,
+  "no_clinical_deployment_claim": true,
+  "no_regulatory_approval_claim": true,
+  "no_official_endorsement_claim": true,
+  "external_send_allowed": false,
+  "requires_owner_approval_before_send": true,
+  "outward_facing_files": [
+    "docs/CLINICIAN_PANEL_REVIEWER_PACKET_20260708.md",
+    "docs/CLINICIAN_PANEL_REVIEWER_MESSAGE_20260708.md"
+  ],
+  "internal_audit_note": "docs/CLINICIAN_PANEL_REVIEWER_AUDIT_NOTE_20260708.md",
+  "source_files": [
+    "data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv",
+    "data/panel_pilot/clinician_panel_rating_sheet_v0_1.tsv",
+    "failure_atlas/panel_review.py",
+    "failure_atlas/panel_console.py"
+  ],
+  "blocked_claims": [
+    "clinical_validation",
+    "model_safety",
+    "model_ranking",
+    "clinical_deployment_readiness",
+    "regulatory_approval",
+    "official_endorsement",
+    "real_patient_data_use"
+  ]
+}

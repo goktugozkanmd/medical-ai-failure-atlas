@@ -10,6 +10,11 @@ from urllib.parse import urlparse
 
 
 VERSION = "0.1.0"
+BOUNDARY_TEXT = (
+    "Local synthetic or manually pasted source support review only. "
+    "No patient data, clinical validation, source truth certification, model ranking, "
+    "regulatory compliance, official compatibility, endorsement, deployment, or external action claim."
+)
 
 ALLOWED_SOURCE_TYPES = {"doi", "pmid", "url", "guideline", "policy", "other"}
 ALLOWED_CLAIM_TYPES = {"doi", "pmid", "url", "guideline", "policy", "evidence", "other"}
@@ -372,8 +377,24 @@ def analyze_rows(rows: list[dict[str, Any]], input_path: Path | str) -> dict[str
     gate_counts = Counter(item["external_use_gate"] for item in items)
     return {
         "sourcecheckup_version": VERSION,
+        "schema_version": "sourcecheckup_medical_report_v0_2",
         "input": str(input_path),
+        "boundary": BOUNDARY_TEXT,
         "external_actions_executed": False,
+        "external_action_allowed": False,
+        "synthetic_or_manual_input_only": True,
+        "contains_patient_data": False,
+        "no_clinical_validation_claim": True,
+        "no_source_truth_certification_claim": True,
+        "no_model_ranking": True,
+        "no_regulatory_compliance_claim": True,
+        "no_official_compatibility_claim": True,
+        "claim_support_distinction": {
+            "source_presence_is_not_claim_support": True,
+            "locator_format_is_not_source_existence": True,
+            "source_existence_is_not_exact_claim_support": True,
+            "manual_review_required_for_external_use": True,
+        },
         "summary": {
             "items": len(items),
             "gate_counts": dict(sorted(gate_counts.items())),
@@ -391,9 +412,17 @@ def write_markdown(report: dict[str, Any], out: Path) -> None:
         "",
         f"Version: {report['sourcecheckup_version']}",
         "",
+        f"Schema: `{report.get('schema_version', 'sourcecheckup_medical_report_v0_2')}`",
+        "",
         f"Input: `{report['input']}`",
         "",
+        report.get("boundary", BOUNDARY_TEXT),
+        "",
         "External actions executed: false",
+        "",
+        "External action allowed: false",
+        "",
+        "Claim support distinction: source presence is not exact claim support.",
         "",
         "## Summary",
         "",
@@ -446,6 +475,59 @@ def validate_cmd(args: argparse.Namespace) -> int:
     print(f"out_json={args.out_json}")
     print(f"out_md={args.out_md}")
     return 0
+
+
+def report_cmd(args: argparse.Namespace) -> int:
+    answer = read_text_arg("answer", args.answer, args.answer_file)
+    prompt = read_text_arg("prompt", args.prompt, args.prompt_file, required=False)
+    row = {
+        "answer_id": args.answer_id,
+        "prompt": prompt,
+        "answer": answer,
+        "declared_sources": parse_json_list_arg("declared_sources_json", args.declared_sources_json),
+        "declared_claims": parse_json_list_arg("declared_claims_json", args.declared_claims_json),
+    }
+    report = analyze_rows([row], "<single-answer-cli-report>")
+    report["report_mode"] = "single_answer_cli_report"
+    args.out_json.parent.mkdir(parents=True, exist_ok=True)
+    args.out_md.parent.mkdir(parents=True, exist_ok=True)
+    args.out_json.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
+    write_markdown(report, args.out_md)
+    item = report["items"][0]
+    print("PASS SourceCheckup Medical CLI report")
+    print(f"answer_id={item['answer_id']}")
+    print(f"gate={item['external_use_gate']}")
+    print(f"verification_queue_items={len(item['verification_queue'])}")
+    print(f"out_json={args.out_json}")
+    print(f"out_md={args.out_md}")
+    return 0
+
+
+def read_text_arg(name: str, value: str | None, file_path: Path | None, *, required: bool = True) -> str:
+    if value is not None and file_path is not None:
+        raise SystemExit(f"Use either --{name} or --{name}-file, not both.")
+    if file_path is not None:
+        return file_path.read_text(encoding="utf-8")
+    if value is not None:
+        return value
+    if required:
+        raise SystemExit(f"Missing required --{name} or --{name}-file.")
+    return ""
+
+
+def parse_json_list_arg(name: str, value: str | None) -> list[dict[str, Any]]:
+    if value is None or not value.strip():
+        return []
+    try:
+        parsed = json.loads(value)
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"--{name} must be valid JSON: {exc}") from exc
+    if not isinstance(parsed, list):
+        raise SystemExit(f"--{name} must be a JSON list.")
+    for index, item in enumerate(parsed, start=1):
+        if not isinstance(item, dict):
+            raise SystemExit(f"--{name} item {index} must be a JSON object.")
+    return parsed
 
 
 def self_test_cmd() -> int:
@@ -510,11 +592,24 @@ def main(argv: list[str] | None = None) -> int:
     validate.add_argument("--out-json", required=True, type=Path)
     validate.add_argument("--out-md", required=True, type=Path)
 
+    report = sub.add_parser("report")
+    report.add_argument("--answer-id", default="SOURCECHECKUP_MANUAL")
+    report.add_argument("--prompt")
+    report.add_argument("--prompt-file", type=Path)
+    report.add_argument("--answer")
+    report.add_argument("--answer-file", type=Path)
+    report.add_argument("--declared-sources-json")
+    report.add_argument("--declared-claims-json")
+    report.add_argument("--out-json", required=True, type=Path)
+    report.add_argument("--out-md", required=True, type=Path)
+
     sub.add_parser("self-test")
 
     args = parser.parse_args(argv)
     if args.cmd == "validate":
         return validate_cmd(args)
+    if args.cmd == "report":
+        return report_cmd(args)
     if args.cmd == "self-test":
         return self_test_cmd()
     raise SystemExit(f"unknown command: {args.cmd}")

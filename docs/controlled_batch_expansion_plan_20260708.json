@@ -1,0 +1,57 @@
+{
+  "artifact_id": "controlled_batch_expansion_plan_20260708",
+  "status": "local_planning_gate",
+  "date": "2026 07 08",
+  "external_action_allowed": false,
+  "provider_api_call_allowed": false,
+  "automation_started": false,
+  "new_cases_added": false,
+  "agent_selected_physicians": false,
+  "contains_patient_data": false,
+  "no_clinical_validation_claim": true,
+  "no_model_ranking": true,
+  "separate_validation_tiers": true,
+  "max_core_release_rows": 300,
+  "current_counts": {
+    "scenario_bank_core_rows": 150,
+    "public_prompt_set_rows": 70,
+    "safetyguard_prompt_surface_rows": 222,
+    "leaderboard_prompt_surface_rows": 222,
+    "turkish_medllm_rows": 44,
+    "tr_en_drift_probe_rows": 10,
+    "panel_pilot_rows": 15
+  },
+  "leaderboard_prompt_categories": {
+    "turkish_safety": 36,
+    "bilingual_drift": 100,
+    "case_intake": 86
+  },
+  "phases": [
+    {
+      "id": "phase_1_normalize_existing_runs",
+      "target_core_rows": 150,
+      "new_core_rows_allowed_without_g_approval": 0,
+      "provider_calls_allowed_without_g_approval": false
+    },
+    {
+      "id": "phase_2_expand_core_to_220",
+      "target_core_rows": 220,
+      "new_core_rows_requires_g_clinical_logic_approval": true,
+      "release_allowed_before_validation_gate": false
+    },
+    {
+      "id": "phase_3_expand_core_to_300_cap",
+      "target_core_rows": 300,
+      "hard_cap": true,
+      "release_allowed_before_validation_gate": false
+    }
+  ],
+  "blocked_actions": [
+    "merge_validation_tiers",
+    "claim_300_rows_exist_now",
+    "claim_external_panel_complete",
+    "add_patient_data",
+    "start_paid_provider_runs_without_g_approval",
+    "publish_release_without_fresh_audit"
+  ]
+}
