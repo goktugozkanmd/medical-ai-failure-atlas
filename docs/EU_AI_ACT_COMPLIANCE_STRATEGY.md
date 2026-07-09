@@ -16,7 +16,7 @@ Key deadlines:
 - **August 2026**: High-risk AI system obligations apply (Annex III, Article 6)
 - Medical devices classified under MDR/IVDR are **automatically high-risk** under the AI Act
 - Requirements: risk management system, technical documentation, conformity assessment,
-  human oversight, accuracy/robustness/cybersecurity
+  human oversight and accuracy/robustness evidence for clinical safety
 
 **What's missing:** A standardised, clinician-written, severity-graded clinical safety benchmark
 that manufacturers can point to as part of their conformity assessment.

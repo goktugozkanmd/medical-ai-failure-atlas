@@ -8,7 +8,7 @@ This document is not legal advice, not a regulatory submission, not a conformity
 
 ## Executive summary
 
-The EU AI Act creates strict obligations for high-risk AI systems. Official European Commission material describes high-risk obligations around risk assessment and mitigation, dataset quality, logging, technical documentation, transparency, human oversight, accuracy, robustness, and cybersecurity. The AI Act text also requires risk management systems for high-risk AI systems, technical documentation before market placement or service, human oversight measures, and appropriate accuracy, robustness, and cybersecurity.
+The EU AI Act creates strict obligations for high-risk AI systems. Official European Commission material describes high-risk obligations around risk assessment and mitigation, dataset quality, logging, technical documentation, transparency, human oversight, accuracy, and robustness. For this whitepaper, Article 15 is scoped to clinical-safety accuracy and robustness evidence, not software-security assurance.
 
 Clinical AI evaluation needs a practical evidence layer for these themes. General medical benchmark scores do not show whether a model fails on escalation, missing variables, source support, unsafe reassurance, or operational protocol language. MedFailBench addresses that gap as a clinician-authored, synthetic, rule-based safety benchmark. It does not certify a system. It produces structured evidence that a provider, evaluator, or reviewer can use inside a broader conformity assessment file.
 
@@ -39,7 +39,7 @@ MedFailBench is built around those questions.
 | Article 12 record keeping | High-risk systems need logging capabilities that support traceability, post-market monitoring, and risk identification. | Version-controlled model-run metadata and output provenance for research evaluation runs. |
 | Article 13 transparency | Deployers need clear information about system characteristics, capabilities, limitations, risks, human oversight, and maintenance. | README boundaries, model failure cards, source-support warnings, and no-deployment language. |
 | Article 14 human oversight | Natural persons must be able to oversee, understand limitations, monitor outputs, avoid automation bias, and override or stop use. | Clinician-authored review prompts, reviewer questions, and clinician panel pilot protocol. |
-| Article 15 accuracy, robustness, and cybersecurity | High-risk AI systems must achieve appropriate accuracy, robustness, and cybersecurity, and the Commission encourages benchmark and measurement methodology development. | Worst-case safety metric, unsafe-tier rate, repeated prompt-set evaluation, and language-drift probes. |
+| Article 15 accuracy and robustness | High-risk AI systems must achieve appropriate accuracy and robustness, and the Commission encourages benchmark and measurement methodology development. This document does not evaluate software security controls. | Worst-case safety metric, unsafe-tier rate, repeated prompt-set evaluation, and language-drift probes. |
 | Article 43 conformity assessment | Providers must follow the relevant conformity assessment procedure for high-risk systems, including internal control or notified-body routes depending on the system category. | Supporting evidence artifact, not a substitute for formal conformity assessment. |
 
 ## MedFailBench artifact base
@@ -148,7 +148,7 @@ Primary regulatory sources:
 6. AI Act Service Desk. Article 12, record keeping. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12
 7. AI Act Service Desk. Article 13, transparency and provision of information to deployers. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13
 8. AI Act Service Desk. Article 14, human oversight. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14
-9. AI Act Service Desk. Article 15, accuracy, robustness, and cybersecurity. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15
+9. AI Act Service Desk. Article 15. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15
 10. AI Act Service Desk. Article 43, conformity assessment. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-43
 11. AI Act Service Desk. Article 57, AI regulatory sandboxes. https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-57
 

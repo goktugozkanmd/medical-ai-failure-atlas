@@ -20,7 +20,7 @@ An audit asks: **is this model, in this workflow, safe enough for the intended c
 ## Non-goals
 
 - It does not certify compliance with the EU AI Act, FDA rules, UK MHRA rules, or local medical-device law.
-- It does not replace manufacturer validation, clinical trials, cybersecurity review, data-protection review, or human-factors testing.
+- It does not replace manufacturer validation, clinical trials, software security review, data-protection review, or human-factors testing.
 - It does not permit autonomous diagnosis or treatment.
 - It does not claim clinician-panel validation unless independent raters are actually used and reported.
 

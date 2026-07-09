@@ -73,7 +73,7 @@
       "blocked_claim": "Performance guarantee"
     },
     {
-      "domain": "Cybersecurity",
+      "domain": "Data and operational boundary",
       "public_artifact_question": "Are secrets private data and operational systems excluded",
       "evidence_to_prepare": "No secrets statement no private operational data statement",
       "blocked_claim": "Production readiness"

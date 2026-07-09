@@ -58,7 +58,7 @@ Project response: connect benchmark wording to governance questions: who reviews
 
 Source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
 
-Checked signal: the European Commission page describes risk based AI regulation and lists high risk obligations such as risk assessment, high quality datasets, logging, documentation, information to deployers, human oversight, robustness, cybersecurity, and accuracy. It also states that more innovators will gain access to regulatory sandboxes, including an EU level sandbox.
+Checked signal: the European Commission page describes risk based AI regulation and lists high risk obligations such as risk assessment, high quality datasets, logging, documentation, information to deployers, human oversight, robustness, and accuracy. It also states that more innovators will gain access to regulatory sandboxes, including an EU level sandbox.
 
 Pressure meaning: public medical AI work must move toward documentation, traceability, human oversight, data quality, and sandbox readiness.
 

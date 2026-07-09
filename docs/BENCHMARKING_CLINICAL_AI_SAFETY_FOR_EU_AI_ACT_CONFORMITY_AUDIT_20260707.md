@@ -25,7 +25,7 @@ Decision: pass after scope limits. The whitepaper is author-review ready, not le
 | 6 | AI Act Service Desk Article 12 | Live fetch succeeded | verified | Record keeping and logging summary. |
 | 7 | AI Act Service Desk Article 13 | Live fetch succeeded | verified | Transparency and information to deployers summary. |
 | 8 | AI Act Service Desk Article 14 | Live fetch succeeded | verified | Human oversight requirements. |
-| 9 | AI Act Service Desk Article 15 | Live fetch succeeded | verified | Accuracy, robustness, cybersecurity, and benchmark methodology encouragement. |
+| 9 | AI Act Service Desk Article 15 | Live fetch succeeded | verified | Accuracy, robustness, and benchmark methodology encouragement for the clinical safety slice. |
 | 10 | AI Act Service Desk Article 43 | Live fetch succeeded | verified | Conformity assessment routes. |
 | 11 | AI Act Service Desk Article 57 | Live fetch succeeded | verified | Regulatory sandbox controlled environment, guidance, supervision, and documentation. |
 | 12 | MedFailBench Zenodo DOI 10.5281/zenodo.21205535 | Live fetch succeeded | verified | v0.2.1 release, clinician-built synthetic evaluation resource, not clinical advice, not model ranking, not clinically validated decision support. |
@@ -41,14 +41,14 @@ Decision: pass after scope limits. The whitepaper is author-review ready, not le
 
 | Claim | Support | Fit | Action |
 | --- | --- | --- | --- |
-| EU AI Act high-risk obligations include risk assessment, dataset quality, logging, documentation, transparency, human oversight, accuracy, robustness, and cybersecurity. | European Commission AI Act page and AI Act FAQ. | direct | keep |
+| EU AI Act high-risk obligations include risk assessment, dataset quality, logging, documentation, transparency, human oversight, accuracy, and robustness. | European Commission AI Act page and AI Act FAQ. | direct | keep |
 | Article 9 requires a documented risk management system for high-risk AI systems. | AI Act Service Desk Article 9. | direct | keep |
 | Article 10 concerns data governance and dataset quality. | AI Act Service Desk Article 10. | direct | keep |
 | Article 11 concerns technical documentation. | AI Act Service Desk Article 11. | direct | keep |
 | Article 12 concerns record keeping and logging. | AI Act Service Desk Article 12. | direct, summary page | keep with summary-source awareness |
 | Article 13 concerns transparency and information to deployers. | AI Act Service Desk Article 13. | direct, summary page | keep with summary-source awareness |
 | Article 14 concerns human oversight. | AI Act Service Desk Article 14. | direct | keep |
-| Article 15 concerns accuracy, robustness, cybersecurity, and encourages benchmarks and measurement methodologies. | AI Act Service Desk Article 15. | direct | keep |
+| Article 15 concerns accuracy and robustness for this benchmark evidence role and encourages benchmarks and measurement methodologies. | AI Act Service Desk Article 15. | direct | keep |
 | Article 43 concerns conformity assessment procedures. | AI Act Service Desk Article 43. | direct | keep |
 | Article 57 describes AI regulatory sandboxes as controlled environments for development, testing, validation, guidance, and supervision before market placement or service. | AI Act Service Desk Article 57. | direct | keep |
 | Medical treatment assessment and AI systems operating medical devices can fall into high-risk categories under Commission FAQ language. | European Commission Navigating the AI Act FAQ. | direct | keep; avoid saying every medical AI is automatically high-risk |

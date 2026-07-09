@@ -195,7 +195,7 @@ Verified source facts:
 
 1. The page is an official European Commission page for the AI Act.
 2. It describes a risk based approach.
-3. It states that high risk systems have obligations including risk assessment, documentation, traceability, human oversight, robustness, cybersecurity, and accuracy.
+3. It states that high risk systems have obligations including risk assessment, documentation, traceability, human oversight, robustness, and accuracy.
 4. It states that transparency rules come into effect in August 2026.
 5. It states that high risk rules for certain areas apply from 2 December 2027 and product integrated systems from 2 August 2028 after the political agreement noted on the page.
 6. It mentions post market monitoring and serious incident reporting.

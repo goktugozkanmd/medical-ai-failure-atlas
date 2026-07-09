@@ -22,7 +22,7 @@ Source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-a
 
 Readiness meaning: the project should separate general readiness work from product route, medical device route, and high risk system route.
 
-3. The European Commission AI Act question page describes mandatory high risk system themes such as risk management, data quality, documentation and traceability, transparency, human oversight, accuracy, cybersecurity, robustness, quality management, monitoring, incident response, and cooperation with authorities.
+3. The European Commission AI Act question page describes mandatory high risk system themes such as risk management, data quality, documentation and traceability, transparency, human oversight, accuracy, robustness, quality management, monitoring, incident response, and cooperation with authorities.
 
 Source: https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act
 
@@ -106,7 +106,7 @@ Evidence to prepare: synthetic risk pack, warning sign checklist.
 
 Blocked claim: performance guarantee.
 
-9. Cybersecurity
+9. Data and operational boundary
 
 Public artifact question: Are secrets, private data, and operational systems excluded.
 
