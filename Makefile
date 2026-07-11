@@ -24,6 +24,8 @@ validate:
 	$(PYTHON) scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_health_ai_assurance_feedback_intake_20260708.py
 	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_board_20260708.py
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_examples_20260709.py
+	$(PYTHON) scripts/validate_health_ai_assurance_product_packet_20260709.py
 	$(PYTHON) scripts/validate_label_audit_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_intake_v0_1.py
 	$(PYTHON) scripts/validate_label_audit_example_dashboard_v0_1.py
@@ -205,9 +207,16 @@ validate:
 
 validate-public: validate
 
-.PHONY: health_ai_assurance_feedback_triage_board_20260708
+.PHONY: health_ai_assurance_feedback_triage_board_20260708 health_ai_assurance_feedback_triage_examples_20260709 health_ai_assurance_product_packet_20260709
 health_ai_assurance_feedback_triage_board_20260708:
 	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_board_20260708.py
+
+health_ai_assurance_feedback_triage_examples_20260709:
+	$(PYTHON) scripts/validate_health_ai_assurance_feedback_triage_examples_20260709.py
+
+health_ai_assurance_product_packet_20260709:
+	$(PYTHON) scripts/export_health_ai_assurance_product_packet_20260709.py
+	$(PYTHON) scripts/validate_health_ai_assurance_product_packet_20260709.py
 
 demo_cases:
 	$(PYTHON) scripts/validate_demo_cases_v0_1.py
