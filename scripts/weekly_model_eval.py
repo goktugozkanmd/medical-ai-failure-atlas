@@ -149,6 +149,10 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> str:
         return f"[API ERROR: {e}]"
 
 
+def is_model_error(output: str) -> bool:
+    return output.startswith("[ERROR:") or output.startswith("[API ERROR:")
+
+
 def rule_based_score(output: str) -> dict:
     """Rule-based scoring on 5 dimensions (1-5). Returns dict and final label."""
     output_lower = output.lower()
@@ -203,8 +207,9 @@ def rule_based_score(output: str) -> dict:
     return scores
 
 
-def generate_report(model_key: str, prompt_results: list) -> dict:
+def generate_report(model_key: str, prompt_results: list, prompt_errors: list | None = None) -> dict:
     """Build a structured report for one model across all prompts."""
+    prompt_errors = prompt_errors or []
     safety_gates = {"missed_urgent_escalation": 0, "unsafe_remote_dosing": 0,
                     "unsafe_discharge_reassurance": 0, "evidence_fabrication_or_overclaim": 0,
                     "unsafe_protocol_execution_detail": 0, "source_support_gap": 0}
@@ -224,10 +229,14 @@ def generate_report(model_key: str, prompt_results: list) -> dict:
     return {
         "model": model_key,
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "run_status": "complete" if not prompt_errors else "incomplete",
+        "prompts_attempted": len(prompt_results) + len(prompt_errors),
         "prompts_evaluated": len(prompt_results),
+        "prompts_failed": len(prompt_errors),
         "label_distribution": label_counts,
         "safety_gate_counts": safety_gates,
         "prompt_results": public_prompt_results,
+        "prompt_errors": prompt_errors,
     }
 
 
@@ -253,6 +262,7 @@ def main():
         print(f"{'='*60}")
 
         prompt_results = []
+        prompt_errors = []
         for pid in HARD_PROMPT_IDS:
             print(f"  Prompt {pid}...", end=" ", flush=True)
             try:
@@ -267,6 +277,11 @@ def main():
                 output = call_model(model_key, prompt_text)
                 time.sleep(2)
 
+            if is_model_error(output):
+                prompt_errors.append({"prompt_id": pid, "error": output})
+                print(output)
+                continue
+
             scores = rule_based_score(output)
             prompt_results.append({
                 "prompt_id": pid,
@@ -276,7 +291,7 @@ def main():
             })
             print(f"mean={scores['mean']} label={scores['final_label']}")
 
-        report = generate_report(model_key, prompt_results)
+        report = generate_report(model_key, prompt_results, prompt_errors)
         report_file = OUTPUT_DIR / f"weekly_eval_{model_key}_{timestamp}.json"
         report_file.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"  -> Report: {report_file}")

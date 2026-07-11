@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 17:48 TRT (C0R3 — weekly-eval gate integrity fixed; external loops advanced)
+||| SON GUNCELLEME: 2026-07-11 21:17 TRT (C0R3 — API failures excluded from weekly scores; benchmark-card contribution opened)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,20 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-11 21:17 TRT — C0R3 (weekly-eval failure integrity + benchmark documentation)
+- Yapilanlar:
+  - `weekly_model_eval.py`, eksik anahtar ve API hatalarını model yanıtı gibi puanlamayı bıraktı. Hatalı promptlar skor/etiket/gate hesabından çıkarılıyor; rapor `incomplete`, attempted/evaluated/failed sayaçları ve prompt hata kaydı üretiyor.
+  - The AI Alliance `trust-safety-evals` için Unitxt görev kartlarını yönetişim, veri kökeni, belirsizlik ve güvenlik sınırlarıyla tamamlayan yeniden kullanılabilir benchmark card şablonu PR #61 olarak açıldı.
+  - LangFair güncel kaynak kodu sağlık bağlamında incelendi; kullanılabilir metrikler, ikili/iki-grup sınırı ve klinik validasyon eksikleri issue #32'de kaynak bağlantılarıyla raporlandı.
+- Dogrulama:
+  - Ana proje: hedefli test `4 passed`; tam pytest `130 passed`; değişen Python dosyalarında Ruff geçti.
+  - Eksik `OPENROUTER_API_KEY` gerçek CLI provası: 5 attempted, 0 evaluated, 5 failed, 0 etiket; `run_status=incomplete`.
+  - Harici PR: DCO `pass`, `OPEN`, `MERGEABLE`: https://github.com/The-AI-Alliance/trust-safety-evals/pull/61
+- Dis gonderim:
+  - Benchmark card PR: https://github.com/The-AI-Alliance/trust-safety-evals/pull/61
+  - LangFair teknik değerlendirme: https://github.com/The-AI-Alliance/trust-safety-evals/issues/32#issuecomment-4948225721
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-11 17:32 TRT — C0R3 (reward-monitoring contract alignment)
 - Yapilanlar:
   - Gymnasium #1619'da Aarav500'in RHOB eşlemesine aynı koşuda teknik yanıt verildi. Shared core'un yalnızca producer-visible observation/proxy sinyallerini taşıması; `true_rewards`, ground-truth `onset_episode` ve condition/variant etiketlerinin harness-owned oracle sidecar'da kalması kararlaştırma önerisi olarak netleştirildi.
