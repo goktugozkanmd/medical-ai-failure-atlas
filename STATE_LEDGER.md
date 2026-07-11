@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 14:45 TRT (C0R3 — four upstream PRs revalidated and maintainer review requested)
+||| SON GUNCELLEME: 2026-07-11 17:32 TRT (C0R3 — RHOB oracle boundary clarified; live queue corrected)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,22 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-11 17:32 TRT — C0R3 (reward-monitoring contract alignment)
+- Yapilanlar:
+  - Gymnasium #1619'da Aarav500'in RHOB eşlemesine aynı koşuda teknik yanıt verildi. Shared core'un yalnızca producer-visible observation/proxy sinyallerini taşıması; `true_rewards`, ground-truth `onset_episode` ve condition/variant etiketlerinin harness-owned oracle sidecar'da kalması kararlaştırma önerisi olarak netleştirildi.
+  - Cross-domain birleştirme için opaque `RunIdentity` + domain namespace; Inspect tarafında `model/task/sample_id/epoch`, Gym tarafında `env_id/seeds/episode`, RHOB tarafında `task_id/condition/seeds/episode` yaklaşımı korundu.
+  - Canlı kuyruk yeniden okundu: Inspect Evals PR #1897'nin 2026-07-09'da Celia Waggoner tarafından merge edildiği doğrulandı; eski OPEN kaydı düzeltildi.
+  - Tier 2 Hugging Face lighteval PR #1272, geçmişi yeniden yazmadan güncel `main` ile birleştirildi ve `e234530` başına push edildi. ISO-15924 script-aware language tag katkısı yeniden review-ready duruma getirildi.
+- Dogrulama:
+  - Gymnasium yanıtı API ile geri okundu: https://github.com/Farama-Foundation/Gymnasium/issues/1619#issuecomment-4946801247
+  - Bildirim thread'i yanıt sonrası read durumuna alındı ve `unread=false` geri okundu.
+  - Inspect Evals #1897: `MERGED`, merge commit `b4ff8a8af84d0c99e2ecf3a6e248dd84d0fa8260`.
+  - lighteval #1272: hedefli pytest `9 passed`; Ruff check geçti; Ruff format check `6 files already formatted`; canlı PR `OPEN`, `MERGEABLE`, `REVIEW_REQUIRED`.
+- Dis gonderim:
+  - Aarav500'e oracle/producer sınırı ve RHOB onset ayrımı üzerine kanıtlı teknik yanıt gönderildi.
+  - Hugging Face lighteval maintainer hattına kapsam ve doğrulama kanıtı gönderildi: https://github.com/huggingface/lighteval/pull/1272#issuecomment-4946896017
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-11 14:45 TRT — C0R3 (upstream PR review revival)
 - Yapilanlar:
   - Inspect AI PR #4474 güncel `main` üzerine rebase edildi ve maintainer `dragonstyle` review için etiketlendi.
