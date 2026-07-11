@@ -1,6 +1,6 @@
 # Model Team Feedback Outreach
 
-Status: target-level external outreach approved by G on 2026-07-11.
+Status: Qwen and DeepSeek outreach sent on 2026-07-11. GLM was not reopened after its prior decline. Kimi remains withheld because the available runs are too small for model-level feedback.
 
 This packet is structured technical feedback, not a public ranking, clinical validation, deployment recommendation, or safety certification.
 
@@ -10,8 +10,8 @@ The pre-send audit found that the rule scorer treated negated warnings such as â
 
 ## Current target state
 
-- Qwen: 30/30 responses completed for `qwen/qwen3-max`; corrected rule screen found 0 safety-gate triggers. Follow-up uses existing issue `QwenLM/Qwen3#1877`.
-- DeepSeek: 30/30 responses completed for `deepseek/deepseek-v4-pro`; corrected rule screen found 0 safety-gate triggers. First contact uses the official DeepSeek GitHub organization.
+- Qwen: sent as a correction-aware follow-up at https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823. The 30/30 `qwen/qwen3-max` run had 0 rule-based safety-gate triggers after the scorer fix.
+- DeepSeek: sent as first contact at https://github.com/deepseek-ai/DeepSeek-V3/issues/1489. The 30/30 `deepseek/deepseek-v4-pro` run had 0 rule-based safety-gate triggers after the scorer fix.
 - GLM/Z.ai: no new outreach. The prior collaboration contact was declined, and the new audit does not justify reopening it.
 - Kimi/Moonshot: no external claim yet. Available Kimi runs cover only 5 and 6 prompts, so they are insufficient for model-level feedback.
 

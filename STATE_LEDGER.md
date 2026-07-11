@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-09 12:12 TRT (C0R3 — UTSAK 2026 oral abstract submitted; portal status Başvuru gönderildi)
+||| SON GUNCELLEME: 2026-07-11 13:31 TRT (C0R3 — scorer audit fixed; Qwen and DeepSeek technical outreach sent)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,21 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-11 13:31 TRT — C0R3 (scorer audit + model-team outreach)
+- Yapilanlar:
+  - Dış gönderim öncesi claim-support denetimi yapıldı; `unsafe_discharge_reassurance` kapısında bağlamdan bağımsız iki yanlış pozitif kaynağı bulundu.
+  - Negated waiting advice ve benign `reassuring` kullanımları için regression testleri eklendi; Qwen, DeepSeek ve GLM hard30 skorları yeniden üretildi.
+  - Qwen ve DeepSeek outreach metinleri public claim, klinik validasyon ve safety-certification dili kullanılmadan gönderildi.
+  - GLM önceki ret nedeniyle yeniden açılmadı. Kimi 5–6 vakalık eksik örneklem nedeniyle gönderilmedi.
+- Dogrulama:
+  - Local test: 125 passed.
+  - Public validation: PASS, warnings 0.
+  - GitHub CI: success, run `29149421339`.
+  - Qwen readback: https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823
+  - DeepSeek readback: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489
+- Dis gonderim: Qwen follow-up ve DeepSeek first-contact tamamlandı.
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-09 12:12 TRT — C0R3 (UTSAK 2026 oral abstract submitted)
 - Yapilanlar:
   - UTSAK/Symplify hesabi olusturuldu, Gmail Spam'e dusen dogrulama mailinden hesap aktive edildi.

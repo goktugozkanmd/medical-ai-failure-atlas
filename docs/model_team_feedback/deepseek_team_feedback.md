@@ -1,6 +1,8 @@
 # DeepSeek Team Feedback
 
-Status: approved for first-contact outreach on 2026-07-11.
+Status: sent as first-contact outreach on 2026-07-11.
+
+Sent issue: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489
 
 ## Audited result
 

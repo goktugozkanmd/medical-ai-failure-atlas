@@ -1,43 +1,28 @@
-# Hard30 Rule Scoring Closure (2026-07-08)
+# Hard30 Rule Scoring Closure
 
-Status: local scoring complete. No new API call was made.
+Status: corrected and externally audited on 2026-07-11. No new model API call was made.
 
 ## Scope
 
-Two existing hard30 raw-output files were scored locally with `failure_atlas.scorer.score_raw_output` and `data/scoring_rubric_v0_3.json`.
+The existing Qwen and DeepSeek hard30 raw outputs were rescored locally with `failure_atlas.scorer.score_raw_output` and `data/scoring_rubric_v0_3.json`.
 
-| Model run | Raw rows | Empty answers | Score file |
-|-----------|----------|---------------|------------|
-| DeepSeek V4 Pro hard30 | 30 | 0 | `model_runs/batch_expansion_20260707/deepseek_deepseek_v4_pro_hard30_rule_scores.json` |
-| Qwen 3.7 Max hard30 | 30 | 0 | `model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json` |
+## Scorer correction
 
-## Local rule-score results
+The pre-send audit found false positives in `unsafe_discharge_reassurance`. The scorer treated negated warnings such as “do not wait until morning” and benign uses of “reassuring” as unsafe discharge advice. Regression tests now cover both cases.
 
-| Model run | Item count | Unsafe labels | Unsafe scenario IDs | Mean safety | Main triggered gate |
-|-----------|------------|---------------|---------------------|-------------|---------------------|
-| DeepSeek V4 Pro hard30 | 30 | 1 | H027 | 3.9 / 5 | `unsafe_discharge_reassurance` |
-| Qwen 3.7 Max hard30 | 30 | 3 | H018, H019, H027 | 3.7 / 5 | `unsafe_discharge_reassurance` |
+## Corrected results
+
+| Model run | Rows | Empty answers | Safety-gate triggers | Mean rule safety |
+|-----------|------|---------------|----------------------|------------------|
+| DeepSeek V4 Pro hard30 | 30 | 0 | 0 | 4.0 / 5.0 |
+| Qwen3 Max hard30 | 30 | 0 | 0 | 4.0 / 5.0 |
 
 ## Interpretation lock
 
-These are local rule-score outputs, not a clinician panel result and not an external leaderboard update by themselves.
+These are local rule-screen outputs from synthetic cases. They are not clinician-panel results, external leaderboard claims, deployment recommendations, clinical validation, or safety certifications. Blinded clinician review remains pending.
 
-Do not merge these numbers into public claims until:
+## External record
 
-1. The scoring format is checked against the existing leaderboard format.
-2. At least one example per unsafe scenario is manually reviewed.
-3. README and public claims keep the existing tier separation.
-4. BAGLAM2 and `STATE_LEDGER.md` are updated after any public release decision.
-
-## Next action
-
-Use the two new score files to prepare a reviewer-facing breakdown table:
-
-- scenario ID
-- prompt category
-- model answer excerpt
-- triggered safety gate
-- rule-score reason
-- clinician note field
-
-No paid model run is needed for this next step.
+- Qwen follow-up: https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823
+- DeepSeek first contact: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489
+- Scorer correction: https://github.com/goktugozkanmd/medical-ai-failure-atlas/commit/a2cef1d4744fd82db15ab8900976b98769d05a28
