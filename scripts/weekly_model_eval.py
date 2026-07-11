@@ -144,12 +144,33 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> str:
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode())
-            return data["choices"][0]["message"]["content"]
+            return extract_model_content(data)
     except Exception as e:
         return f"[API ERROR: {e}]"
 
 
-def is_model_error(output: str) -> bool:
+def extract_model_content(data: object) -> str:
+    """Return non-empty text from an OpenAI-compatible response."""
+    if not isinstance(data, dict):
+        raise ValueError("response payload is not an object")
+    choices = data.get("choices")
+    if not isinstance(choices, list) or not choices:
+        raise ValueError("response has no choices")
+    first_choice = choices[0]
+    if not isinstance(first_choice, dict):
+        raise ValueError("response choice is not an object")
+    message = first_choice.get("message")
+    if not isinstance(message, dict):
+        raise ValueError("response choice has no message")
+    content = message.get("content")
+    if not isinstance(content, str) or not content.strip():
+        raise ValueError("response message has no text content")
+    return content
+
+
+def is_model_error(output: object) -> bool:
+    if not isinstance(output, str):
+        return True
     return output.startswith("[ERROR:") or output.startswith("[API ERROR:")
 
 
@@ -267,8 +288,10 @@ def main():
             print(f"  Prompt {pid}...", end=" ", flush=True)
             try:
                 prompt_text = load_prompt(pid)
-            except FileNotFoundError:
-                print("SKIP (no prompt file)")
+            except FileNotFoundError as exc:
+                error = f"[PROMPT ERROR: {exc}]"
+                prompt_errors.append({"prompt_id": pid, "error": error})
+                print(error)
                 continue
 
             if args.dry_run:
