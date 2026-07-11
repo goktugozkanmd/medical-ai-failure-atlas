@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 13:47 TRT (C0R3 — prompt-linked rescoring corrected; external corrections posted)
+||| SON GUNCELLEME: 2026-07-11 14:45 TRT (C0R3 — four upstream PRs revalidated and maintainer review requested)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,25 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-11 14:45 TRT — C0R3 (upstream PR review revival)
+- Yapilanlar:
+  - Inspect AI PR #4474 güncel `main` üzerine rebase edildi ve maintainer `dragonstyle` review için etiketlendi.
+  - Inspect AI PR #4458'deki `mean.py` çakışması güncel boş-girdi koruması korunarak çözüldü; kapsam dışı clamp/log değişiklikleri taşınmadı. Dal force-with-lease ile güncellendi ve maintainer review istendi.
+  - LM Evaluation Harness PR #3903 ve #3918 güncel `main` üzerinde yeniden doğrulandı. Mevcut reviewer'lar `baberabb` ve `0xSMT` kısa, kanıtlı yorumlarla yeniden bilgilendirildi.
+  - Inspect AI issue #4286 follow-up'ı başlatılmadı; onaylanan iki seçenekten review yolu uygulandı. `ScoreStatus` enum follow-up'ı #4458 maintainer geri bildirimi sonrasında çatışmasız ele alınacak.
+- Dogrulama:
+  - Inspect AI #4474: `tests/monitor/test_types.py` 37 passed; Ruff passed.
+  - Inspect AI #4458: `tests/scorer` 347 passed, 157 optional-backend skipped; Ruff passed.
+  - lm-eval #3903: Türkçe klinik task dummy-model smoke run passed.
+  - lm-eval #3918: `validate` passed; public Hugging Face dataset ile dummy-model smoke run passed.
+  - Dört PR da canlıda OPEN ve REVIEW_REQUIRED. Inspect AI dış-contributor review-request API'si 404 verdi; maintainer etiketli yorum fallback'i kullanıldı.
+- Dis gonderim:
+  - #4474: https://github.com/UKGovernmentBEIS/inspect_ai/pull/4474#issuecomment-4945375273
+  - #4458: https://github.com/UKGovernmentBEIS/inspect_ai/pull/4458#issuecomment-4945375493
+  - #3903: https://github.com/EleutherAI/lm-evaluation-harness/pull/3903#issuecomment-4945375788
+  - #3918: https://github.com/EleutherAI/lm-evaluation-harness/pull/3918#issuecomment-4945376046
+
+### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-11 13:47 TRT — C0R3 (prompt-linked scorer audit correction)
 - Yapilanlar:
   - Geç gelen bağımsız denetim, legacy hard30 ham dosyalarında `prompt_text` bulunmadığını ve ilk düzeltilmiş yeniden puanlamada prompt-bağımlı kapıların çalışmadığını ortaya çıkardı.
@@ -144,18 +163,19 @@
 ### SIRADAKİ EN İYİ ADAYLAR (öncelik sırası)
 1. [DONE] **HF Dataset publish:** `goktugozkanmd/medfailbench-v02-results` public, 181 train rows.
 2. [PUBLIC-GITHUB / Pypi BLOCKED] **SafetyGuard publish:** GitHub Release `safetyguard-v0.1.0` public; wheel/sdist doğrulandı; PyPI API token/account yok.
-3. [DONE] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık, mergeable, Issue #3866 kapanış referanslı.
-4. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
-5. [P0-YENI] **Distribution & Visibility:** **PACKET HAZIR** (`docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`, `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md`). Dis submit/PR/form icin final metin onayi gerekir.
-6. [DONE] **Eval CI Pipeline Phase 1:** workflow YAML + runner scriptleri remote main'de; normal CI yesil; GitHub `workflow_dispatch` dry-run yesil. Gercek provider run icin secret ve harcama onayi gerekir.
-7. [P0-YENI] **MedAI Safety Benchmark Index:** Yeni proje fikri — medical AI benchmark karşılaştırma indeksi (`docs/MEDAI_SAFETY_BENCHMARK_INDEX.md`). G onayı ile başlanabilir.
-8. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`). G onayı ile build'e başla.
-9. [P0-YENI] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
-10. [P1] Batı modelleri batch expansion (GPT-4o, Claude, Gemini) — OpenRouter kredi gerektirir.
-11. [DONE-LOCAL] Hard30 local rule scoring tamamlandi — score dosyalari yazildi; public claim update icin manual review gerekir.
-12. [PACKET-READY] Model-team outreach approval packet (Qwen, DeepSeek, GLM, Kimi) — gonderim yapilmadi, exact target/channel onayi gerekir.
-13. [P2] Doğruöz (LLM-as-Judge multilingual) işbirliği approval packet.
-14. [P2] Diagens DoctorBench competitor monitoring — yeni Çin tıbbi AI eval platformu.
+3. [REVIEW-REQUESTED] **LM Eval Harness Turkish Clinical PR:** PR #3903 açık; smoke test geçti; iki maintainer reviewer ve güncel yorumla review bekliyor.
+4. [REVIEW-REQUESTED] **LM Eval Harness MedFailBench PR:** PR #3918 açık; task validation ve public-dataset smoke run geçti; iki maintainer reviewer ve güncel yorumla review bekliyor.
+5. [DONE] **International AI Safety Report 2026 citation outreach:** mail gönderildi ve Sent doğrulandı.
+6. [P0-YENI] **Distribution & Visibility:** **PACKET HAZIR** (`docs/DISTRIBUTION_VISIBILITY_SPRINT_20260708.md`, `docs/DISTRIBUTION_VISIBILITY_CHECKLIST.md`). Dis submit/PR/form icin final metin onayi gerekir.
+7. [DONE] **Eval CI Pipeline Phase 1:** workflow YAML + runner scriptleri remote main'de; normal CI yesil; GitHub `workflow_dispatch` dry-run yesil. Gercek provider run icin secret ve harcama onayi gerekir.
+8. [P0-YENI] **MedAI Safety Benchmark Index:** Yeni proje fikri — medical AI benchmark karşılaştırma indeksi (`docs/MEDAI_SAFETY_BENCHMARK_INDEX.md`). G onayı ile başlanabilir.
+9. [P0-YENI] **Medical AI Safety Monitoring Bot:** **SPEC HAZIR** (`docs/SECONDARY_LENS_AUTOMATION_DATA_20260708.md`). G onayı ile build'e başla.
+10. [P0-YENI] **Clinical AI Safety Audit Framework:** **OUTLINE HAZIR** (`docs/CLINICAL_AI_SAFETY_AUDIT_FRAMEWORK_OUTLINE.md`). Go/stop kararı bekliyor.
+11. [P1] Batı modelleri batch expansion (GPT-4o, Claude, Gemini) — OpenRouter kredi gerektirir.
+12. [DONE-LOCAL] Hard30 local rule scoring tamamlandi — score dosyalari yazildi; public claim update icin manual review gerekir.
+13. [PACKET-READY] Model-team outreach approval packet (Qwen, DeepSeek, GLM, Kimi) — gonderim yapilmadi, exact target/channel onayi gerekir.
+14. [P2] Doğruöz (LLM-as-Judge multilingual) işbirliği approval packet.
+15. [P2] Diagens DoctorBench competitor monitoring — yeni Çin tıbbi AI eval platformu.
 
 NOT: Eski P0 (MedHELM native benchmark) iptal — HELM maintenance modunda. Yerine LM Eval Harness + Inspect Evals dual track.
 
