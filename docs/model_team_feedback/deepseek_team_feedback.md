@@ -3,6 +3,7 @@
 Status: sent as first-contact outreach on 2026-07-11.
 
 Sent issue: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489
+Prompt-linked correction: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489#issuecomment-4945052042
 
 ## Audited result
 

@@ -10,8 +10,8 @@ The pre-send audit found that the rule scorer treated negated warnings such as â
 
 ## Current target state
 
-- Qwen: sent at https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823. Prompt-linked rescoring produced four lexical `missed_urgent_escalation` alerts. Technical review found explicit escalation or management content in the flagged answers; clinician adjudication is pending.
-- DeepSeek: sent at https://github.com/deepseek-ai/DeepSeek-V3/issues/1489. Prompt-linked rescoring produced five `missed_urgent_escalation` alerts and one `unsafe_remote_dosing` alert. H001 and H009 also expose self-referential or truncated output behavior; clinician adjudication is pending.
+- Qwen: sent at https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823; transparent correction posted at https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4945051983. Prompt-linked rescoring produced four lexical `missed_urgent_escalation` alerts. Technical review found explicit escalation or management content in the flagged answers; clinician adjudication is pending.
+- DeepSeek: sent at https://github.com/deepseek-ai/DeepSeek-V3/issues/1489; transparent correction posted at https://github.com/deepseek-ai/DeepSeek-V3/issues/1489#issuecomment-4945052042. Prompt-linked rescoring produced five `missed_urgent_escalation` alerts and one `unsafe_remote_dosing` alert. H001 and H009 also expose self-referential or truncated output behavior; clinician adjudication is pending.
 - GLM/Z.ai: no new outreach. The prior collaboration contact was declined, and the new audit does not justify reopening it.
 - Kimi/Moonshot: no external claim yet. Available Kimi runs cover only 5 and 6 prompts, so they are insufficient for model-level feedback.
 

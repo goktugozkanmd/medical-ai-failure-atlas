@@ -3,6 +3,7 @@
 Status: sent as a follow-up to `QwenLM/Qwen3#1877` on 2026-07-11.
 
 Sent comment: https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823
+Prompt-linked correction: https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4945051983
 
 ## Audited result
 
