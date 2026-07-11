@@ -1,0 +1,92 @@
+{
+  "artifact_id": "safetyguard_card_release_gate_smoke_20260708",
+  "boundary_flags": {
+    "contains_patient_data": false,
+    "external_action_allowed": false,
+    "not_clinical_advice": true,
+    "not_clinical_validation": true,
+    "not_model_ranking": true,
+    "not_official_endorsement": true,
+    "not_regulatory_compliance": true,
+    "synthetic_or_manual_review_only": true
+  },
+  "card_item_count": 2,
+  "card_schema_version": "safetyguard_transparency_card_v0_1",
+  "commands": [
+    {
+      "cmd": [
+        "python3",
+        "-m",
+        "safetyguard",
+        "eval",
+        "--model",
+        "release-gate-demo-model",
+        "--endpoint",
+        "<local_fake_openai_server>",
+        "--prompt-set",
+        "safetyguard/data/medfailbench_prompts_v0_2.tsv",
+        "--rubric",
+        "safetyguard/data/scoring_rubric_v0_3.json",
+        "--limit",
+        "2",
+        "--rpm",
+        "0",
+        "--output",
+        "build/safetyguard_card_release_gate_20260708"
+      ],
+      "name": "safetyguard_eval",
+      "returncode": 0,
+      "stderr_tail": [
+        "[release-gate-demo-model] 1/2 TR-TRFAI100",
+        "[release-gate-demo-model] 2/2 TR-TRFAI101",
+        "[release-gate-demo-model] saved build/safetyguard_card_release_gate_20260708/raw/release-gate-demo-model_release-gate-demo-model.json"
+      ],
+      "stdout_tail": [
+        "Evaluating release-gate-demo-model on 2 prompt(s) from medfailbench_prompts_v0_2.tsv...",
+        "  Scores: build/safetyguard_card_release_gate_20260708/release-gate-demo-model_scores.json",
+        "  Reports: build/safetyguard_card_release_gate_20260708/reports/",
+        "Done. Output: build/safetyguard_card_release_gate_20260708"
+      ]
+    },
+    {
+      "cmd": [
+        "python3",
+        "scripts/export_safetyguard_transparency_card.py",
+        "--score-file",
+        "build/safetyguard_card_release_gate_20260708/release-gate-demo-model_scores.json",
+        "--out-json",
+        "build/safetyguard_card_release_gate_20260708/safetyguard_transparency_card_v0_1.json",
+        "--out-md",
+        "build/safetyguard_card_release_gate_20260708/SAFETYGUARD_TRANSPARENCY_CARD_V0_1.md",
+        "--out-hf-card",
+        "build/safetyguard_card_release_gate_20260708/HF_EVALUATION_CARD_MEDFAILBENCH_SAFETY_LAYER_V0_1.md"
+      ],
+      "name": "card_export",
+      "returncode": 0,
+      "stderr_tail": [],
+      "stdout_tail": [
+        "Wrote transparency card JSON: build/safetyguard_card_release_gate_20260708/safetyguard_transparency_card_v0_1.json",
+        "Wrote transparency card Markdown: build/safetyguard_card_release_gate_20260708/SAFETYGUARD_TRANSPARENCY_CARD_V0_1.md",
+        "Wrote HF evaluation card Markdown: build/safetyguard_card_release_gate_20260708/HF_EVALUATION_CARD_MEDFAILBENCH_SAFETY_LAYER_V0_1.md"
+      ]
+    }
+  ],
+  "contains_patient_data": false,
+  "external_submission_allowed": false,
+  "hf_card_contains_not_published_state": true,
+  "hf_evaluation_card_markdown": "build/safetyguard_card_release_gate_20260708/HF_EVALUATION_CARD_MEDFAILBENCH_SAFETY_LAYER_V0_1.md",
+  "local_fake_server_used": true,
+  "local_path_leak_scan_passed": true,
+  "prompt_count": 2,
+  "release_gate_passed": true,
+  "score_file": "build/safetyguard_card_release_gate_20260708/release-gate-demo-model_scores.json",
+  "score_item_count": 2,
+  "score_schema_version": "failure_atlas_scores_v0_1",
+  "source_gap_item_count": 0,
+  "status": "passed",
+  "synthetic_only": true,
+  "transparency_card_json": "build/safetyguard_card_release_gate_20260708/safetyguard_transparency_card_v0_1.json",
+  "transparency_card_markdown": "build/safetyguard_card_release_gate_20260708/SAFETYGUARD_TRANSPARENCY_CARD_V0_1.md",
+  "unsafe_item_count": 0,
+  "unsafe_rate": 0.0
+}

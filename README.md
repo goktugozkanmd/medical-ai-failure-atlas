@@ -94,13 +94,14 @@ Detailed failure mode analyses for individual models are available in [`docs/mod
 - Small GLM-5.2 TR/EN safety-drift probe: [`docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`](docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md), paired raw outputs in `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`.
 - TeX-ready preprint draft: `preprint/main.tex` (built automatically on every PR via tectonic; arXiv submit awaits endorsement).
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
-- EU AI Act compliance positioning: [`COMPLIANCE.md`](COMPLIANCE.md)
+- EU AI Act compliance positioning: [`docs/governance/COMPLIANCE.md`](docs/governance/COMPLIANCE.md)
 - Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 - Chinese frontier model safety snapshot: [`docs/CHINESE_FRONTIER_SAFETY_REPORT.md`](docs/CHINESE_FRONTIER_SAFETY_REPORT.md)
-- Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md); Health AI Assurance Kit product packet, start here, feedback intake, triage board, triage examples, and growth spine: [`docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md`](docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md), [`docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md`](docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md), [`docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md`](docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md)
+- Strategic research note: [`docs/STRATEGIC_RESEARCH_20260703.md`](docs/STRATEGIC_RESEARCH_20260703.md)
+- Health AI Assurance Kit product packet, start here, feedback intake, triage board, triage examples, and growth spine: [`docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md`](docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md), [`docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md`](docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md), [`docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md`](docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
-- Social launch drafts: [`SOCIAL_POSTS.md`](SOCIAL_POSTS.md)
+- Social launch drafts: [`docs/outreach/SOCIAL_POSTS.md`](docs/outreach/SOCIAL_POSTS.md)
 - Model team outreach queue: [`docs/MODEL_TEAM_FEEDBACK_OUTREACH.md`](docs/MODEL_TEAM_FEEDBACK_OUTREACH.md)
 
 ## Quick Start
@@ -129,22 +130,21 @@ python3 leaderboard/app.py
 
 ## SafetyGuard CLI
 
-SafetyGuard is a pip-installable CLI for running MedFailBench evaluations against any OpenAI-compatible model endpoint:
+SafetyGuard is the local CLI wrapper for running MedFailBench checks against an OpenAI-compatible chat completions endpoint:
 
 ```bash
-# Install the package (from repo root)
 pip install -e .
-
-# Evaluate a model
-safetyguard eval --model qwen-3.7-max --endpoint https://api.qwen.ai/v1
-
-# Compare existing evaluation results
-safetyguard compare --runs ./outputs/
+safetyguard eval --model demo-model --dry-run --limit 5
+safetyguard eval --model qwen-3.7-max --endpoint https://api.example.com/v1/chat/completions --api-key MODEL_API_KEY --limit 30 --output outputs/safetyguard_qwen_37max
+safetyguard compare --runs model_runs/batch_expansion_20260707
+safetyguard studio --port 8766
 ```
 
-The output includes structured scores, worst-case safety analysis, and a comparison table.
+The output includes raw responses, structured rule-based scores, Markdown and CSV reports, and a comparison table. Use `--limit` for a smoke run before a full run. `--api-key` expects the name of an environment variable, not the secret value itself.
 
 > **Note:** The SafetyGuard CLI is a convenience wrapper around the `failure_atlas` runner. For full benchmark runs (batch, multi-model, scheduled), use `failure-atlas run --help` or the CI pipeline.
+
+SafetyGuard Studio is a local paste-and-score UI for synthetic or manually pasted answers. Run `safetyguard studio --port 8766`. Export a run-level transparency card with `python3 scripts/export_safetyguard_transparency_card.py --score-file outputs/safetyguard_demo/demo-model_scores.json`.
 
 ## What This Evaluates
 
@@ -241,7 +241,7 @@ All public scenarios are synthetic. If you contribute examples, use synthetic or
 
 MedFailBench includes an exploratory EU AI Act readiness layer for clinical AI safety evaluation. It is not legal advice, not a certified compliance tool, not CE marking evidence by itself, not clinical validation, and not a medical device claim.
 
-- Compliance map: [`COMPLIANCE.md`](COMPLIANCE.md)
+- Compliance map: [`docs/governance/COMPLIANCE.md`](docs/governance/COMPLIANCE.md)
 - Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 - Whitepaper reference and claim audit: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY_AUDIT_20260707.md)
 

@@ -73,7 +73,7 @@ deployment context, is safe/unsafe for clinical use."
 | MedFailBench scenarios | Core auditing material (150+ scenarios) |
 | SafetyGuard CLI | Model evaluation engine |
 | Scoring rubric v0.3 | Automated first-pass scoring |
-| EU AI Act COMPLIANCE.md | Regulatory mapping layer |
+| EU AI Act governance/COMPLIANCE.md | Regulatory mapping layer |
 | Clinician panel protocol | Future multi-rater capability |
 
 ---

@@ -21,7 +21,7 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 
 1. Zip the contents of `preprint/` (main.tex, references.bib, figures/):
    ```bash
-   cd preprint && zip -r ../medfailbench-v0.2.1-arxiv.zip main.tex references.bib figures/
+   cd preprint && zip -r ../dist/release/medfailbench-v0.2.1-arxiv.zip main.tex references.bib figures/
    ```
 2. Go to https://arxiv.org/submit
 3. License: choose arXiv's default or CC-BY-4.0 (matches the data license)

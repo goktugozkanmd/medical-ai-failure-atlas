@@ -1,8 +1,10 @@
 # MedFailBench — 30 Günlük Yol Haritası
 
 > **Başlangıç:** 2026-07-06 · **Bitiş:** 2026-08-04
+> **Son güncelleme:** 2026-07-09 — Ziying Sheng geri bildirimi işlendi
 > **Sürüm hedefi:** v0.2.1 → v0.3.0 arası görünürlük ve katkı döngüsü
 > **Prensip:** Her hafta bir somut, dışarıdan doğrulanabilir artifact çıkar. İçeride kalmasın.
+> **Yeni rota düzeltmesi:** MedFailBench küçük bağımsız benchmark gibi değil; mevcut açık veri setleri üstüne büyüyen, HealthBench/CSEDB karşısında farkını açık gösteren, ölçek ve klinisyen doğrulaması olan bir çalışma gibi geliştirilecek.
 
 ---
 
@@ -22,12 +24,37 @@
 
 ---
 
+## 2026-07-09 Kritik Rota Düzeltmesi — Dış Eleştiri Entegrasyonu
+
+Ziying Sheng'in geri bildirimi net ders verdi: fikir tek başına sorun değil; mevcut paket dışarıdan küçük, bağımsız kişi işi ve sınırlı yenilik/ölçek algısı veriyor. Bundan sonra roadmap şu eksene göre yürür:
+
+- **Önce fark analizi:** HealthBench, CSEDB ve benzer klinik güvenlik değerlendirme çalışmalarına karşı MedFailBench'in neyi farklı ölçtüğü yazılmadan novelty iddiası büyütülmez.
+- **Mevcut açık veri setleri üstüne büyüme:** Sıfırdan küçük vaka seti gibi konumlanmak yerine açık veri setlerinden seçilen/haritalanan senaryolarla ölçek büyütme planı hazırlanır.
+- **Ölçek hedefi:** Public core küçük paket algısından çıkarılır; geniş aday havuzu + panel-doğrulanmış alt set ayrımı netleştirilir.
+- **Klinisyen güvenilirliği:** Tek kişi işi görüntüsü azaltılır; bağımsız klinisyen puanlaması, uzmanlık alanı etiketi ve uyuşmazlık çözümü görünür hale getirilir.
+- **Outreach sırası:** Büyük ekiplerden işbirliği istemeden önce gap analysis, scale plan ve doğrulanabilir artifact hazır olur.
+
+### Yeni zorunlu kapılar
+
+- [ ] `docs/COMPETITIVE_GAP_ANALYSIS_HEALTHBENCH_CSEDB.md`: HealthBench/CSEDB/benzer benchmark'lara karşı kapsam, görev tipi, veri kaynağı, klinik güvenlik boyutu ve MedFailBench farkı.
+- [ ] `docs/OPEN_DATASET_EXTENSION_PLAN.md`: Mevcut açık veri setlerinden büyüme stratejisi; hasta verisi yok, lisans ve kullanım sınırı açık.
+- [ ] README novelty dili: "standalone benchmark" vurgusu azaltılır; "clinical safety failure-mode extension layer" konumu netleştirilir.
+- [ ] Outreach mesajları: işbirliği istemeden önce ölçek + gap artifact linkleri içerir.
+
+---
+
 ## Hafta 1 (Gün 1–7) — Landing Temizleme + 3 Sert Bulgu
 
 ### Hedef
 Public face'i hazır hale getir. 10 model sonuçlarından tartışması zor 3 bulgu çıkar. Bu bulgular sonraki 3 haftanın temelini oluşturacak.
 
 ### Görevler
+
+#### 1.0 — Dış Eleştiri Gap Audit (Gün 1–2, kritik ek kapı)
+- [ ] HealthBench ve CSEDB kapsamını kaynak üzerinden kontrol et; MedFailBench'in gerçekten farklı ölçtüğü failure-mode alanlarını yaz
+- [ ] Mevcut açık veri setleriyle büyüme planını çıkar; lisans, hasta verisi riski ve yeniden kullanım sınırlarını not et
+- [ ] README/landing dilinde küçük bağımsız benchmark algısını azalt; ölçeklenebilir extension-layer konumlandırmasına geç
+- [ ] Klinisyen panel planını görünür yap: kaç vaka, hangi uzmanlık, iki bağımsız puanlama, adjudication kuralı
 
 #### 1.1 — Landing Page / README Temizliği (Gün 1–2)
 - [ ] README.md: v0.2.1 verilerini net göster, eski erken-altküme referanslarını current claim gibi kullanma
@@ -86,6 +113,7 @@ Kapsam: Qwen (2.5-7B, 3.6 Plus, 3.7 Max), DeepSeek (V4 Pro, V4 Flash, V3.2), GLM
   - Spesifik failure örnekleri (prompt ID + ham çıktı + neden unsafe)
   - **Dikkat:** "Çin modelleri kötü" demek yok. "Bu modellerin bu benchmark'da bu pattern'leri var" demek var. Veri konuşur.
 - [ ] İngilizce yaz (uluslararası erişim için), Türkçe executive summary ekle
+- [ ] Raporun girişine HealthBench/CSEDB fark analiziyle uyumlu kısa konumlandırma ekle; MedFailBench'in mevcut benchmark'ların yerine geçtiğini ima etme
 
 #### 2.2 — arXiv Preprint Submit (Gün 12)
 - [ ] `preprint/main.tex`'i güncelle: 10-model sonuçlarını + 3 bulguyu ekle
@@ -161,6 +189,7 @@ Her Çin model ekibi için özelleştirilmiş, kısa, veri-odaklı mesaj:
 **Ton:** Suçlayıcı değil. "Veriyi paylaşıyorum, kullanmak isterseniz açık" tonu. AMA sonuçları net.
 
 - [ ] Outreach mesajlarını `docs/MODEL_TEAM_FEEDBACK_OUTREACH.md` olarak taslağa koy (G onayından sonra gönderim)
+- [ ] Her outreach mesajına önce gap analysis + açık veri seti büyüme planı linki ekle; sadece küçük case-pack üzerinden işbirliği isteme
 - [ ] Llama/Meta ekibine: "Sizin model en yüksek safety'de, işte karşılaştırmalı veri" — olumlu feedback
 
 #### 4.2 — LinkedIn/X Görünürlük Amplifikasyonu (Gün 26–28)
@@ -197,7 +226,7 @@ Amaç: veriyle ses çıkarma, varlığını hissettirme, tartışma başlatma.
 | Model ekip yanıtı | ≥ 2/4 ekip yanıt verdi |
 | MedHELM/Inspect katkısı | ≥ 1 merge veya maintainer onayı |
 | Dış alıntılanma | ≥ 1 blog/tweet/forum'da alıntı |
-| EU AI Act compliance konumlandırması | COMPLIANCE.md yayında, ≥1 regulatory kaynak bağlantısı doğrulandı |
+| EU AI Act compliance konumlandırması | ../governance/COMPLIANCE.md yayında, ≥1 regulatory kaynak bağlantısı doğrulandı |
 
 ---
 

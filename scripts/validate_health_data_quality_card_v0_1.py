@@ -162,7 +162,7 @@ REQUIRED_FILES = [
     "data/inter_rater_review_subset_v0_1.tsv",
     "data/scoring_rubric_v0_1.json",
     "docs/LABEL_DEFINITION_LOCK_V0_1.md",
-    "LABELING.md",
+    "docs/dataset/LABELING.md",
 ]
 
 FORBIDDEN_PHRASES = [

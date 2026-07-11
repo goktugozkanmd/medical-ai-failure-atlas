@@ -37,4 +37,3 @@ Purpose: keep the Turkish clinical safety lane ready for packaging without addin
 ## Next Build
 
 Create a packaging script that reads existing SafetyGuard prompt rows and emits a Turkish safety pack manifest without changing the prompt set.
-

@@ -21,4 +21,3 @@ Source support: see `docs/PROJECT_GROWTH_SOURCE_VERIFICATION_20260708.md`.
 ## Next Build
 
 Convert this index into a small JSON backed table that can be refreshed monthly.
-

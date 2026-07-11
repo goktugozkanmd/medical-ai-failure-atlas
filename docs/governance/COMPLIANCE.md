@@ -19,7 +19,7 @@ High-risk system readiness evidence should cover:
 - Record keeping and traceability (Art. 12)
 - Transparency and deployer information (Art. 13)
 - Human oversight (Art. 14)
-- Accuracy, robustness, cybersecurity (Art. 15)
+- Accuracy and robustness (Art. 15 clinical-safety slice)
 
 **Problem:** No standard open clinical safety benchmark exists for Article 15 robustness evidence or Article 9 risk management evidence in medical language models.
 
@@ -56,7 +56,7 @@ High-risk system readiness evidence should cover:
 - Add EU AI Act compliance scenarios (manufacturer-use-case specific)
 - Expand to UK MHRA / FDA alignment
 - Create a "conformity assessment rubric" version of the scoring framework
-- Whitepaper v0.1: ["Benchmarking Clinical AI Safety for EU AI Act Conformity"](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
+- Whitepaper v0.1: ["Benchmarking Clinical AI Safety for EU AI Act Conformity"](../BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
 
 ---
 
@@ -72,7 +72,7 @@ Primary official sources:
 - [AI Act Service Desk: Article 12, record keeping](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12)
 - [AI Act Service Desk: Article 13, transparency](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13)
 - [AI Act Service Desk: Article 14, human oversight](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)
-- [AI Act Service Desk: Article 15, accuracy, robustness, cybersecurity](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15)
+- [AI Act Service Desk: Article 15](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15)
 - [AI Act Service Desk: Article 43, conformity assessment](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-43)
 - [AI Act Service Desk: Article 57, regulatory sandboxes](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-57)
 

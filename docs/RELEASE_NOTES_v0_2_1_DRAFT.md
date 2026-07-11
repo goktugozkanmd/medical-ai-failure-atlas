@@ -28,7 +28,7 @@
 ### Infrastructure
 - HF Space running (200 OK verified)
 - All URLs live (GitHub, HF Space, HF Runtime)
-- Release checklist created (`docs/V0_2_1_RELEASE_CHECKLIST.md`)
+- Release checklist created (`docs/V0_2_1_release/RELEASE_CHECKLIST.md`)
 
 ### Blocker
 - LaTeX compile: `pdflatex` not available on build machine; `brew install --cask mactex-no-gui` needed

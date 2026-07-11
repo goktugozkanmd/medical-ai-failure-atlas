@@ -1,7 +1,19 @@
 # MedFailBench v0.2.1 Roadmap
 > Hedef: v0.2.0 flagship layer'ı gerçek bir işbirlikçi benchmark'a dönüştürmek
-> Oluşturma: 2026-07-02 20:00 TRT, son güncelleme: 2026-07-03 03:00 TRT
-> Durum: AKTIF -- GitHub Discussions ✅, CONTRIBUTING ✅, weekly eval script ✅. Kalan: DOI, arXiv, expansion.
+> Oluşturma: 2026-07-02 20:00 TRT, son güncelleme: 2026-07-09 TRT
+> Durum: AKTIF -- GitHub Discussions ✅, CONTRIBUTING ✅, weekly eval script ✅. Yeni dış eleştiri kapısı: ölçek/yenilik/gap analysis/clinician validation.
+
+## External feedback pivot — 2026-07-09
+
+Ziying Sheng geri bildirimi roadmap'e işlendi. Ana ders: MedFailBench fikri değil, mevcut paket görüntüsü zayıf duruyor. Küçük bağımsız benchmark algısı, sınırlı yenilik/ölçek ve HealthBench/CSEDB gibi mevcut çalışmalar karşısında farkın net olmaması işbirliği şansını düşürüyor.
+
+Bundan sonraki geliştirme yönü:
+
+1. HealthBench, CSEDB ve benzer benchmark'lara karşı açık gap analysis yazılacak.
+2. Mevcut açık veri setleri üstüne büyüyen extension plan hazırlanacak.
+3. Geniş aday havuzu ile panel-doğrulanmış alt set ayrımı netleşecek.
+4. Klinisyen paneli ve inter-rater/adjudication hattı işbirliği öncesi görünür hale gelecek.
+5. Büyük ekiplerden işbirliği istemeden önce ölçek + novelty + doğrulama artifact'leri hazır olacak.
 
 ## Immediate panelization sprint
 
@@ -137,7 +149,7 @@ MedFailBench preprint'ini arXiv'e yükle.
 
 ---
 
-## Next Best Actions (Güncel — 03:00 TRT)
+## Next Best Actions (Güncel — 2026-07-09 TRT)
 
 1. ~~Preprint referanslarını genişlet~~ ✅ (20:00 run)
 2. ~~main.tex'i gerçek eval verisiyle genişlet~~ ✅ (20:00 run)
@@ -145,6 +157,9 @@ MedFailBench preprint'ini arXiv'e yükle.
 4. ~~CONTRIBUTING.md güncelle~~ ✅ (21:00 run)
 5. ~~Weekly eval script oluştur~~ ✅ (02:00 run)
 6. ~~Release checklist doc oluştur~~ ✅ (03:00 run)
-7. ⏳ Zenodo DOI — G GitHub-Zenodo login yaparsa tamamlanır
-8. ⏳ ArXiv submit — DOI sonrası
-9. **Yeni iş adayları:** (a) HF Space'e model submission formu ekle, (b) İkinci growth post/LinkedIn brief taslağı, (c) Lighteval/Inspect entegrasyon planı, (d) Preprint'i 100 case expansion planına hazırla, (e) Collaborator onboarding dashboard
+7. ⏳ `docs/COMPETITIVE_GAP_ANALYSIS_HEALTHBENCH_CSEDB.md` — dış eleştiri sonrası kritik yeni kapı
+8. ⏳ `docs/OPEN_DATASET_EXTENSION_PLAN.md` — küçük standalone benchmark algısını kırmak için
+9. ⏳ README/landing novelty dili — HealthBench/CSEDB yerine geçme iddiası yok; farklı failure-mode extension konumu net
+10. ⏳ Klinisyen panel görünürlüğü — iki bağımsız puanlama + adjudication + uzmanlık etiketi
+11. ⏳ ArXiv submit — gap analysis ve novelty dili temizlendikten sonra
+12. **Yeni iş adayları:** (a) HF Space'e model submission formu ekle, (b) İkinci growth post/LinkedIn brief taslağı, (c) Lighteval/Inspect entegrasyon planı, (d) Preprint'i açık veri seti extension planına hazırla, (e) Collaborator onboarding dashboard

@@ -58,7 +58,7 @@ Priority meaning: this is an institutional route signal for readiness language a
 
 Official source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
 
-Checked fact: the European Commission page describes a risk based AI Act, lists high risk obligations such as risk assessment, high quality datasets, logging, documentation, information to deployers, human oversight, robustness, cybersecurity, and accuracy. It also states that more innovators will gain access to regulatory sandboxes including an EU level sandbox.
+Checked fact: the European Commission page describes a risk based AI Act, lists high risk obligations such as risk assessment, high quality datasets, logging, documentation, information to deployers, human oversight, robustness, and accuracy. It also states that more innovators will gain access to regulatory sandboxes including an EU level sandbox.
 
 Priority meaning: Türkiye health AI safety work should produce sandbox readiness artifacts, not clinical deployment claims. The near term output should be documentation, human oversight, data quality, risk controls, and literacy.
 

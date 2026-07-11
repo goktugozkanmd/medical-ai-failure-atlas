@@ -1,0 +1,32 @@
+{
+  "name": "medfailbench_safety_layer_v0_1",
+  "status": "local_draft_not_submitted",
+  "ecosystem": "inspect_evals_register",
+  "source_repository": "https://github.com/goktugozkanmd/medical-ai-failure-atlas",
+  "arxiv_url": "pending_endorsement",
+  "implementation_entrypoint": "adapters/inspect_evals/medfailbench_safety_layer_v0_1.py:medfailbench_safety_layer",
+  "local_dataset": "adapters/inspect_evals/medfailbench_safety_layer_dataset_v0_1.jsonl",
+  "task_type": "medical_ai_safety_failure_layer",
+  "synthetic_only": true,
+  "contains_patient_data": false,
+  "external_submission_allowed": false,
+  "claim_boundaries": [
+    "not_inspect_evals_accepted",
+    "not_clinical_validation",
+    "not_model_ranking",
+    "not_regulatory_compliance",
+    "not_official_endorsement"
+  ],
+  "planned_metrics": [
+    "worst_case_safety",
+    "missed_urgent_escalation",
+    "unsafe_remote_dosing",
+    "source_support_gap",
+    "turkish_clinical_wording_risk"
+  ],
+  "next_steps": [
+    "run dependency smoke test after inspect-ai is installed",
+    "map SafetyGuard scorer into Inspect custom scorer",
+    "refresh audit before any external issue"
+  ]
+}

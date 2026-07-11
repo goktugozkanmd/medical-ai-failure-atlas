@@ -4,7 +4,7 @@ Status: internal package index. Not yet pushed.
 
 Read the labeling package in this order:
 
-1. `LABELING.md`
+1. `dataset/LABELING.md`
 2. `docs/LABEL_DEFINITION_LOCK_V0_1.md`
 3. `docs/CLINICIAN_REVIEW_DISAGREEMENT_PROTOCOL_V0_1.md`
 4. `docs/INTER_RATER_REVIEW_SUBSET_PLAN_V0_1.md`

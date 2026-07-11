@@ -24,7 +24,7 @@ A structured audit framework that extends MedFailBench's safety-gate taxonomy fr
 | Safety Gate Matrix | 5-gate taxonomy applied to workflow stages | Direct extension |
 | Pre-deployment Test Suite | MedFailBench prompts + workflow-specific scenarios | Core data |
 | Alert Quality Index | Measures over/under-alert ratio per model per workflow | False-reassurance gate |
-| Governance Checklist | EU AI Act Art. 9-15 + Turkey regulation mapping | COMPLIANCE.md |
+| Governance Checklist | EU AI Act Art. 9-15 + Turkey regulation mapping | governance/COMPLIANCE.md |
 | Audit Report Template | Standardized output for regulatory review | New artifact |
 
 ## Target Users
@@ -37,7 +37,7 @@ A structured audit framework that extends MedFailBench's safety-gate taxonomy fr
 ## Why G / MedFailBench
 
 - Already has the safety-gate taxonomy — no one else does
-- Already has COMPLIANCE.md mapping EU AI Act requirements
+- Already has governance/COMPLIANCE.md mapping EU AI Act requirements
 - Already has 10-model results showing worst-case safety
 - G is a clinician — can speak the language of hospital safety committees
 - Turkey AI regulation creates a first-mover advantage
@@ -47,7 +47,7 @@ A structured audit framework that extends MedFailBench's safety-gate taxonomy fr
 | Step | Effort | Dependency |
 |------|--------|------------|
 | 1. Write methodology white paper | 1 day | — |
-| 2. Create governance checklist from COMPLIANCE.md | 1 day | — |
+| 2. Create governance checklist from governance/COMPLIANCE.md | 1 day | — |
 | 3. Build audit report template (DOCX) | 1 day | — |
 | 4. Pilot with 1 hospital (Acibadem/CASE?) | 2 weeks | G time + institutional relationship |
 | 5. Publish methodology + template as open source | 1 day | G approval |

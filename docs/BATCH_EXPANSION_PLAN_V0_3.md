@@ -1,103 +1,106 @@
-# Batch Expansion Plan: 300–500 Vignette / 15–20 Model
+# Controlled Batch Expansion Plan v0.3
 
-**Status:** Planning | **Author:** C0R3 | **Date:** 2026-07-07 12:30 TRT
+Date: 2026 07 08
 
-## Rationale
+Status: local planning gate. This plan replaces the older 300 to 500 row expansion idea.
 
-Current leaderboard has 10 models with uneven prompt counts (5–30). 
-The project needs:
-1. **Equal footing** — all models tested on same prompt set for fair comparison
-2. **Western model coverage** — currently only Llama 3.1-8B
-3. **Scenario depth** — expand from ~150 scenario-bank rows toward 300–500
-4. **Statistical significance** — 5-prompt runs produce noisy signals
+## Decision
 
-## Phase 1: Equalize to 30 Prompts (All Existing Models)
+Do not expand the public core as one large mixed benchmark. Keep a hard cap of 300 public core scenario bank rows for the next release cycle.
 
-Bring every current model to 30 prompts using existing scenario bank.
+The project already has several useful layers, but they are not one validation tier:
 
-| Model | Current | Needed | New prompts needed |
-|-------|---------|--------|--------------------|
-| Llama 3.1-8B | 5 | 30 | 25 |
-| Qwen 2.5-7B | 5 | 30 | 25 |
-| DeepSeek V4 Pro | 5 | 30 | 25 |
-| DeepSeek V4 Flash | 5 | 30 | 25 |
-| DeepSeek V3.2 | 5 | 30 | 25 |
-| Kimi K2.6 | 6 | 30 | 24 |
-| Kimi K2.7 Code | 5 | 30 | 25 |
-| Qwen 3.6 Plus | 30 | 30 | 0 |
-| Qwen 3.7 Max | 30 | 30 | 0 |
-| GLM-5.2 | 28 | 30 | 2 |
-| **Total** | **124** | **300** | **176 new runs** |
+1. Core scenario bank rows
+2. Public prompt sets
+3. SafetyGuard prompt surface
+4. Turkish safety rows
+5. Turkish and English drift rows
+6. Panel pilot rows
+7. Failure Atlas intake rows
 
-**Effort:** ~176 API calls. At ~5s per call = ~15 min. At 1–2 min per model pipeline = ~2 hours agent time.
+The next growth step is controlled normalization, not raw row inflation.
 
-**Risk:** Low. Same scenario bank, same scorer, same pipeline. Pure scale operation.
+## Live Counts From Repository
 
-## Phase 2: Add Western Frontier Models
+| Layer | Current count | Source |
+| --- | ---: | --- |
+| Core scenario bank | 150 | `data/scenario_bank_v1.tsv`, `data/scenario_bank_v2_hard_addendum.tsv`, `data/scenario_bank_v3_scale_seed.tsv` |
+| Public prompt sets | 70 | `data/prompt_set_v1.tsv`, `data/prompt_set_v2_hard_30.tsv`, `data/prompt_set_v3_scale_30.tsv` |
+| SafetyGuard prompt surface | 222 | `safetyguard/data/medfailbench_prompts_v0_2.tsv` |
+| Leaderboard prompt surface | 222 | `leaderboard/medfailbench_prompts_v0_2.jsonl` |
+| Turkish MedLLM synthetic set | 44 | `data/tr_medllm_synthetic_eval_set_v0_3.jsonl` |
+| Turkish and English drift probe | 10 | `data/tr_en_drift_glm_probe_v0_1.tsv` |
+| Panel pilot cases | 15 | `data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv` |
 
-The biggest strategic gap. Current leaderboard has 9 Chinese + 1 Western (Llama).
+These counts must stay described separately in public text.
 
-| Model | Priority | Rationale | Access |
-|-------|----------|-----------|--------|
-| **GPT-4o** | P0 | Most widely used clinical AI | OpenRouter |
-| **Claude 4 Opus / Sonnet** | P0 | Strong medical reasoning | OpenRouter |
-| **Gemini 2.5 Pro** | P0 | Google's medical ML ecosystem | OpenRouter |
-| **GPT-5 Nano** | P1 | Already has run metadata in weekly preview | OpenRouter |
-| **Mistral Large 2** | P2 | Strong EU alternative | OpenRouter |
-| **Llama 4** (if public) | P2 | Next-gen Meta model | OpenRouter |
+## Phase 1: Normalize Current Model Runs
 
-**Effort:** 6 models × 30 prompts = 180 API calls + pipeline eval.
+Goal: bring existing leaderboard models toward the same 30 prompt public prompt set where local outputs already exist or where G approves provider cost.
 
-**Risk:** Cost. Need OpenRouter credits. Estimation: ~60M tokens input + ~6M output at ~$0.50–2.00 total depending on model pricing. Low technical risk.
+Allowed now:
 
-## Phase 3: Expand Scenario Bank to 500 Rows
+1. Use existing prompt sets only.
+2. Generate local manifests and run plans.
+3. Prepare score table templates.
+4. Keep model result claims tied to actual run counts.
 
-### Strategy: Tiered Expansion
+Blocked without G approval:
 
-| Tier | Description | New rows | Total |
-|------|-------------|----------|-------|
-| Core v1 | Current safety-gate scenarios | 150 | 150 |
-| Core v2 | Extend severity/gate coverage | 100 | 250 |
-| Specialty | Cardiology, nephrology, ER, geriatrics | 100 | 350 |
-| Language drift | TR-EN across all new scenarios | 50 | 400 |
-| Rare edge cases | Multi-condition, drug interactions, guideline conflicts | 100 | 500 |
+1. Paid provider calls.
+2. New external outreach.
+3. Public release note.
+4. Claims that unequal model runs are directly comparable.
 
-### Scenario source approach
-- **No patient data** — synthetic vignettes only
-- **Clinician-authored** — G creates or approves the clinical logic
-- **Pattern-based generation** — use scenario template system to create systematic variations
-- **Prompt variety** — each scenario produces 2–3 prompt variations (direct, masked, escalation-framed)
-- **Validation** — all new scenarios go through existing validator + pytest gate
+## Phase 2: Expand Core Scenario Bank To 220
 
-## Phase 4: Priority Sequencing
+Goal: add at most 70 new core scenario rows after G approves clinical logic.
 
-```
-Week 1-2: Phase 1 (equalize existing models to 30 prompts)
-          + Phase 2 top-3 Western models (GPT-4o, Claude, Gemini)
-Week 3-4: Phase 3 tier 1-2 (Core v2 + Specialty: +200 rows)
-Week 5-6: Phase 2 remaining (GPT-5 Nano, Mistral, Llama 4)
-          + Phase 3 tier 3 (Language drift: +50 rows)
-Week 7-8: Phase 3 tier 4 (Rare edge cases: +100 rows)
-          + Full re-eval all models on complete 500-scenario set
-```
+Rules:
 
-## Pre-Execution Checklist
+1. New rows must be synthetic.
+2. G approves the clinical logic.
+3. No patient data.
+4. No hidden patient derived text.
+5. Each row has a safety focus, domain, setting, task, and expected safety gate.
+6. New rows stay draft until validator and release notes pass.
 
-- [ ] All new prompts pass `make validate-public`
-- [ ] No patient data in any new scenario
-- [ ] All model runs use same system prompt and scoring rubric
-- [ ] CI passes after each push
-- [ ] Public claims updated: "X scenarios, Y models, clinician-authored"
-- [ ] STATE_LEDGER and BAGLAM2 updated
+## Phase 3: Expand Core Scenario Bank To 300
 
-## Blockers
+Goal: reach the hard cap only if Phase 2 passes.
 
-1. **Western model cost** — needs G confirmation on OpenRouter budget
-2. **G approval** — Phase 2 (Western models) needs G go-ahead before API calls
-3. **Phase 3 scenario design** — G needs to sign off on new clinical vignette logic
+Rules:
+
+1. Final core public cap is 300 scenario bank rows.
+2. Turkish rows, drift rows, panel pilot rows, and intake rows remain separate layers.
+3. Public copy must keep working rows separated by release layer and review status.
+4. External clinician panel status remains pending until external scores exist.
+
+## What This Unlocks
+
+1. Cleaner model run comparison.
+2. Safer v0.3.0 release planning.
+3. Better Health AI Safety Ops story without benchmark bloat.
+4. A visible path from 150 core rows to 300 core rows.
+5. A guardrail against inflated public claims.
+
+## Blocked Claims
+
+Do not claim:
+
+1. 300 rows exist now.
+2. All 222 SafetyGuard rows are one validated public core tier.
+3. Turkish, drift, panel, and intake rows are the same release layer.
+4. External clinician validation is complete.
+5. New cases were added in this planning step.
+6. Any model is clinically safe or unsafe for deployment based on this plan.
 
 ## Immediate Next Action
 
-**Start Phase 1 now** — equalize existing 10 models to 30 prompts each. This uses existing scenarios and pipeline, costs nothing extra, and produces the biggest immediate signal improvement.
+Use the validator:
 
-Ready to start: `python3 -m src.batch_eval --models "llama3.1-8b,qwen2.5-7b,deepseek-v4-pro,deepseek-v4-flash,deepseek-v3.2,kimi-k2.6,kimi-k2.7-code,glm-5.2" --prompts ./data/scenario_bank_v1 --output model_runs/batch_phase1_20260707`
+```bash
+make controlled_batch_expansion_20260708
+```
+
+Then use the resulting JSON manifest as the gate before any new row generation or provider run.

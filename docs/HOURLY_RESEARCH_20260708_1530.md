@@ -70,7 +70,7 @@
 ### Yön A: 🏆 EU AI Act Compliance Positioning (Etki: 🔥🔥🔥🔥🔥 | Hız: 2 gün | Risk: Düşük)
 MedFailBench'i EU AI Act conformity assessment audit framework'u olarak konumlandır.
 - Mevcut varlıklar yeniden etiketlenir (SAFETY_GATE_TAXONOMY → conformity rubric)
-- COMPLIANCE.md asset→requirement mapping oluşturuldu
+- governance/COMPLIANCE.md asset→requirement mapping oluşturuldu
 - Dış onay gereken tek şey: whitepaper yayını
 
 ### Yön B: Competitor Differentiation (Etki: 🔥🔥🔥 | Hız: 1 gün | Risk: Düşük)
@@ -90,9 +90,9 @@ Vishwanath et al. 2026'yı README'de ve preprint'te referans olarak ekle. "Gener
 - G'nin hedefleriyle uyumlu: akademik/AI prestij + network + görünürlük
 
 ### Üretilen
-1. `docs/EU_AI_ACT_COMPLIANCE_STRATEGY.md` — tam strateji dokümanı (6 bölüm)
-2. `COMPLIANCE.md` — repo kökünde asset→requirement mapping tablosu
-3. ROADMAP_30DAYS.md güncellendi — success metric eklendi
+1. `docs/EU_AI_ACT_COMPLIANCE_project/STRATEGY.md` — tam strateji dokümanı (6 bölüm)
+2. `governance/COMPLIANCE.md` — repo kökünde asset→requirement mapping tablosu
+3. project/ROADMAP_30DAYS.md güncellendi — success metric eklendi
 4. BAGLAM2 güncellendi — yeni entry eklendi
 
 ### Engeller
@@ -111,18 +111,18 @@ Vishwanath et al. 2026'yı README'de ve preprint'te referans olarak ekle. "Gener
 - JAMA AI mental health harm taxonomy → taksonomi talep ediyor
 
 ### Karar
-EU AI Act compliance positioning — mevcut varlıkları yeniden etiketle, COMPLIANCE.md ile dokümante et. Dış onay gereken: whitepaper.
+EU AI Act compliance positioning — mevcut varlıkları yeniden etiketle, governance/COMPLIANCE.md ile dokümante et. Dış onay gereken: whitepaper.
 
 ### Üretilen
-- `docs/EU_AI_ACT_COMPLIANCE_STRATEGY.md`
-- `COMPLIANCE.md`
+- `docs/EU_AI_ACT_COMPLIANCE_project/STRATEGY.md`
+- `governance/COMPLIANCE.md`
 - `docs/HOURLY_RESEARCH_20260708_1530.md` — bu rapor
 - BAGLAM2 güncellendi
-- ROADMAP_30DAYS.md güncellendi
+- project/ROADMAP_30DAYS.md güncellendi
 
 ---
 
 ## G Onayı Gerekenler
 
 1. **EU AI Act whitepaper yayını:** "Benchmarking Clinical AI Safety for EU AI Act Conformity" başlıklı bir whitepaper yayınlamak. Onay verirsen hazırlanır.
-2. **COMPLIANCE.md'i README'de referans gösterme:** Repo'nun ana sayfasında compliance bağlantısı görünür olacak. Onay vermezsen sadece docs/ klasöründe kalır.
+2. **governance/COMPLIANCE.md'i README'de referans gösterme:** Repo'nun ana sayfasında compliance bağlantısı görünür olacak. Onay vermezsen sadece docs/ klasöründe kalır.

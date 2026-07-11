@@ -28,9 +28,9 @@ DATA: dict[str, Any] = {
     "no_official_endorsement_claim": True,
     "linked_public_files": [
         "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
-        "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
-        "DATA_DICTIONARY.md",
-        "LABELING.md",
+        "docs/dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
+        "docs/dataset/DATA_DICTIONARY.md",
+        "docs/dataset/LABELING.md",
         "docs/LABEL_DEFINITION_LOCK_V0_1.md",
         "docs/LABELING_PACKAGE_INDEX_V0_1.md",
         "data/inter_rater_review_subset_v0_1.tsv",
@@ -168,7 +168,7 @@ DATA: dict[str, Any] = {
         {
             "audit_id": "LAA004",
             "title": "Raw output exclusion audit",
-            "linked_ids": ["LAR004", "PUBLIC_RELEASE_BOUNDARY_V0_1.md"],
+            "linked_ids": ["LAR004", "docs/release/PUBLIC_RELEASE_BOUNDARY_V0_1.md"],
             "required_role_ids": ["LAR004"],
             "review_state": "not_for_public_summary",
             "required_outcome": "Keep raw model outputs excluded unless redistribution is cleared.",

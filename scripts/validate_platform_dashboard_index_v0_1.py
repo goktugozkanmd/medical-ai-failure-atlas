@@ -468,10 +468,10 @@ REQUIRED_LINK_TARGETS = [
     "docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md",
     "docs/label_audit/label_audit_maintainer_public_preview_closure_checklist_v0_1.json",
     ".github/ISSUE_TEMPLATE/label_audit_review.yml",
-    "DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
-    "DATA_DICTIONARY.md",
+    "docs/dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
+    "docs/dataset/DATA_DICTIONARY.md",
     "data/inter_rater_review_subset_v0_1.tsv",
-    "LABELING.md",
+    "docs/dataset/LABELING.md",
     "docs/LABEL_DEFINITION_LOCK_V0_1.md",
     "docs/LABELING_PACKAGE_INDEX_V0_1.md",
 ]
