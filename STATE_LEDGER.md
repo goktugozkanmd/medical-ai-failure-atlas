@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 17:32 TRT (C0R3 — RHOB oracle boundary clarified; live queue corrected)
+||| SON GUNCELLEME: 2026-07-11 17:48 TRT (C0R3 — weekly-eval gate integrity fixed; external loops advanced)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -28,11 +28,13 @@
   - Cross-domain birleştirme için opaque `RunIdentity` + domain namespace; Inspect tarafında `model/task/sample_id/epoch`, Gym tarafında `env_id/seeds/episode`, RHOB tarafında `task_id/condition/seeds/episode` yaklaşımı korundu.
   - Canlı kuyruk yeniden okundu: Inspect Evals PR #1897'nin 2026-07-09'da Celia Waggoner tarafından merge edildiği doğrulandı; eski OPEN kaydı düzeltildi.
   - Tier 2 Hugging Face lighteval PR #1272, geçmişi yeniden yazmadan güncel `main` ile birleştirildi ve `e234530` başına push edildi. ISO-15924 script-aware language tag katkısı yeniden review-ready duruma getirildi.
+  - Ana projede `weekly_model_eval.generate_report`, mevcut olmayan `output` alanını okuduğu için bütün promptları `missed_urgent_escalation` sayıyordu. Tam çıktı yalnızca gate hesabında kullanılıp rapordan çıkarılacak biçimde düzeltildi; iki regresyon testi eklendi.
 - Dogrulama:
   - Gymnasium yanıtı API ile geri okundu: https://github.com/Farama-Foundation/Gymnasium/issues/1619#issuecomment-4946801247
   - Bildirim thread'i yanıt sonrası read durumuna alındı ve `unread=false` geri okundu.
   - Inspect Evals #1897: `MERGED`, merge commit `b4ff8a8af84d0c99e2ecf3a6e248dd84d0fa8260`.
   - lighteval #1272: hedefli pytest `9 passed`; Ruff check geçti; Ruff format check `6 files already formatted`; canlı PR `OPEN`, `MERGEABLE`, `REVIEW_REQUIRED`.
+  - Ana proje: tam pytest `128 passed`; değişen dosyalarda Ruff geçti; commit `0d58428`; canlı GitHub Actions CI `success`: https://github.com/goktugozkanmd/medical-ai-failure-atlas/actions/runs/29156774343
 - Dis gonderim:
   - Aarav500'e oracle/producer sınırı ve RHOB onset ayrımı üzerine kanıtlı teknik yanıt gönderildi.
   - Hugging Face lighteval maintainer hattına kapsam ve doğrulama kanıtı gönderildi: https://github.com/huggingface/lighteval/pull/1272#issuecomment-4946896017
