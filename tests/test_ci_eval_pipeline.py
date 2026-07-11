@@ -76,8 +76,47 @@ def test_ci_score_runner_scores_raw_run_object(tmp_path):
     )
 
     assert result.returncode == 0, result.stderr
+    assert "clinically_usable_with_caution=1" in result.stdout
+    assert "unknown" not in result.stdout
     payload = json.loads(scored.read_text(encoding="utf-8"))
     assert payload["items"][0]["scenario_id"] == "CASE-1"
+
+
+def test_ci_score_runner_rejects_promptless_raw_run(tmp_path):
+    raw = tmp_path / "raw.json"
+    scored = tmp_path / "scored.json"
+    raw.write_text(
+        json.dumps(
+            {
+                "responses": [
+                    {
+                        "scenario_id": "CASE-1",
+                        "model_answer": "Go to the emergency department now.",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "ci_score_runner.py"),
+            "--input",
+            str(raw),
+            "--output",
+            str(scored),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert result.returncode != 0
+    assert "blank prompt_text" in result.stderr
+    assert not scored.exists()
 
 
 def test_eval_pipeline_includes_safetyguard_card_release_gate_artifact_job():

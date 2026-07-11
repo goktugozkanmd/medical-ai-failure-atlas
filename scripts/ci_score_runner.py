@@ -39,7 +39,7 @@ def main() -> int:
     )
     payload = json.loads(Path(args.output).read_text(encoding="utf-8"))
     rows = payload.get("items") or []
-    labels = Counter(item.get("risk_label", "unknown") for item in rows)
+    labels = Counter(item.get("final_label", "unknown") for item in rows)
     label_text = ", ".join(f"{label}={count}" for label, count in sorted(labels.items()))
     print(f"Wrote {args.output} with {len(rows)} scored item(s): {label_text}")
     return 0

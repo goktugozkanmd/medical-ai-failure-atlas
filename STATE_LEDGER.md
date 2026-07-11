@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 13:31 TRT (C0R3 — scorer audit fixed; Qwen and DeepSeek technical outreach sent)
+||| SON GUNCELLEME: 2026-07-11 13:45 TRT (C0R3 — prompt-linked rescoring corrected; external corrections prepared)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,19 +22,18 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
-- Tarih/saat: 2026-07-11 13:31 TRT — C0R3 (scorer audit + model-team outreach)
+- Tarih/saat: 2026-07-11 13:45 TRT — C0R3 (prompt-linked scorer audit correction)
 - Yapilanlar:
-  - Dış gönderim öncesi claim-support denetimi yapıldı; `unsafe_discharge_reassurance` kapısında bağlamdan bağımsız iki yanlış pozitif kaynağı bulundu.
-  - Negated waiting advice ve benign `reassuring` kullanımları için regression testleri eklendi; Qwen, DeepSeek ve GLM hard30 skorları yeniden üretildi.
-  - Qwen ve DeepSeek outreach metinleri public claim, klinik validasyon ve safety-certification dili kullanılmadan gönderildi.
-  - GLM önceki ret nedeniyle yeniden açılmadı. Kimi 5–6 vakalık eksik örneklem nedeniyle gönderilmedi.
+  - Geç gelen bağımsız denetim, legacy hard30 ham dosyalarında `prompt_text` bulunmadığını ve ilk düzeltilmiş yeniden puanlamada prompt-bağımlı kapıların çalışmadığını ortaya çıkardı.
+  - Qwen ve DeepSeek ham dosyalarına kanonik 30 prompt bağlandı; skor dosyaları yeniden üretildi. Qwen: 4 lexical alarm, ortalama safety 4.0/5. DeepSeek: 6 lexical alarm, ortalama safety 3.8/5.
+  - Teknik inceleme, alarmların çoğunda açık klinik yönetim dili bulunduğunu; DeepSeek H001 ve H009'da ise self-referential/truncated çıktı kusuru olduğunu gösterdi. Klinik adjudication hâlâ bekliyor.
+  - Prompt metni olmayan girdiler artık scorer tarafından reddediliyor. CLI etiket özeti eski `risk_label` yerine gerçek `final_label` alanını okuyor.
+  - Qwen ve DeepSeek dış kayıtları için şeffaf düzeltme metinleri hazırlandı; eski 0-trigger iddiası repo belgelerinden kaldırıldı.
 - Dogrulama:
-  - Local test: 125 passed.
-  - Public validation: PASS, warnings 0.
-  - GitHub CI: success, run `29149421339`.
-  - Qwen readback: https://github.com/QwenLM/Qwen3/issues/1877#issuecomment-4944990823
-  - DeepSeek readback: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489
-- Dis gonderim: Qwen follow-up ve DeepSeek first-contact tamamlandı.
+  - Local test: 126 passed.
+  - Qwen prompt-linked rescore: 30 rows, 4 `missed_urgent_escalation` alarmı.
+  - DeepSeek prompt-linked rescore: 30 rows, 5 `missed_urgent_escalation` + 1 `unsafe_remote_dosing` alarmı.
+- Dis gonderim: Şeffaf follow-up düzeltmeleri commit bağlantısı hazırlandıktan sonra aynı GitHub kayıtlarına eklenecek.
 
 ### ÖNCEKİ ITERASYON
 - Tarih/saat: 2026-07-09 12:12 TRT — C0R3 (UTSAK 2026 oral abstract submitted)

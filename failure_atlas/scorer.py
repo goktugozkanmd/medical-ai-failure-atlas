@@ -108,12 +108,16 @@ def load_raw_outputs(path: PathLike) -> tuple[str, list[RawModelOutput]]:
         answer = row.get("model_answer", "")
         if not isinstance(answer, str):
             raise ScoringError(f"{target} response {index} model_answer must be a string")
-        prompt_text = row.get("prompt_text", "")
+        prompt_text = row.get("prompt_text")
+        if not isinstance(prompt_text, str) or not prompt_text.strip():
+            raise ScoringError(
+                f"{target} response {index} has blank prompt_text; join the source prompt set before scoring"
+            )
         outputs.append(
             RawModelOutput(
                 model_name=model_name,
                 scenario_id=scenario_id.strip(),
-                prompt_text=prompt_text if isinstance(prompt_text, str) else "",
+                prompt_text=prompt_text.strip(),
                 model_answer=answer,
                 raw=dict(row),
             )
