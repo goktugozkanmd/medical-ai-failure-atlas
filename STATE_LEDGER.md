@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-11 21:18 TRT (C0R3 — API failures excluded from weekly scores; benchmark-card contribution opened)
+||| SON GUNCELLEME: 2026-07-12 01:12 TRT (C0R3 — weekly-eval response resilience; live GitHub queue audit)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,23 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-12 01:12 TRT — C0R3 (weekly-eval response resilience + live GitHub queue audit)
+- Yapilanlar:
+  - Son koşudan bu yana canlı notifications, involved-item search ve 13 açık authored PR GraphQL ile denetlendi; yeni maintainer/collaborator sorusu, review veya düzeltme talebi bulunmadı.
+  - `weekly_model_eval.py`, OpenAI-compatible endpoint'ten gelen boş, null veya malformed `choices/message/content` yanıtlarını kontrollü `[API ERROR: ...]` sonucuna çeviriyor; tek bozuk sağlayıcı yanıtı artık bütün haftalık koşuyu exception ile durdurmuyor.
+  - Eksik prompt dosyaları sessizce atlanmak yerine failed prompt kaydı üretiyor; eksik örnekle yanlış `complete` raporu engellendi.
+- Dogrulama:
+  - Hedefli pytest `8 passed`; tam `uv run pytest -q` `133 passed`; `py_compile` ve `git diff --check` geçti.
+  - Ana proje commit `1de27c7351768d4fbd28b195da635d98dacafbf8`; canlı CI `success`: https://github.com/goktugozkanmd/medical-ai-failure-atlas/actions/runs/29170083954
+  - GitHub API identity `goktugozkanmd`; GitHub MCP `Connected (44 tools)`; cron `221d25a3ed27` aktif ve 180 dakikada bir.
+- Risk notu:
+  - Model yanıtının klinik doğruluğu bu değişiklikle doğrulanmıyor; değişiklik yalnızca taşıma şemasını fail-closed yapıyor ve gerçek çıktı dışı hata kayıtlarını puanlama dışında tutuyor.
+- Sonraki gorev:
+  - Yeni inbound gelirse aynı koşuda yanıtla; trust-safety-evals PR #61'i review için izle; kanıtsız veya duplicate dış issue açma.
+- Dis gonderim:
+  - Bu koşuda yeni harici temas zorlanmadı; anlamlı GitHub-görünür aksiyon doğrulanmış ana proje commitidir.
+
+### ÖNCEKİ ITERASYON — 2026-07-11 21:18 TRT
 - Tarih/saat: 2026-07-11 21:18 TRT — C0R3 (weekly-eval failure integrity + benchmark documentation)
 - Yapilanlar:
   - `weekly_model_eval.py`, eksik anahtar ve API hatalarını model yanıtı gibi puanlamayı bıraktı. Hatalı promptlar skor/etiket/gate hesabından çıkarılıyor; rapor `incomplete`, attempted/evaluated/failed sayaçları ve prompt hata kaydı üretiyor.
