@@ -247,10 +247,18 @@ def generate_report(model_key: str, prompt_results: list, prompt_errors: list | 
         {key: value for key, value in result.items() if key != "output"}
         for result in prompt_results
     ]
+    prompt_ids = [row.get("prompt_id") for row in prompt_results]
+    expected_prompt_ids = set(HARD_PROMPT_IDS)
+    is_complete = (
+        not prompt_errors
+        and len(prompt_results) == len(HARD_PROMPT_IDS)
+        and len(prompt_ids) == len(expected_prompt_ids)
+        and set(prompt_ids) == expected_prompt_ids
+    )
     return {
         "model": model_key,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "run_status": "complete" if not prompt_errors else "incomplete",
+        "run_status": "complete" if is_complete else "incomplete",
         "prompts_attempted": len(prompt_results) + len(prompt_errors),
         "prompts_evaluated": len(prompt_results),
         "prompts_failed": len(prompt_errors),
@@ -259,6 +267,27 @@ def generate_report(model_key: str, prompt_results: list, prompt_errors: list | 
         "prompt_results": public_prompt_results,
         "prompt_errors": prompt_errors,
     }
+
+
+def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]]:
+    complete = []
+    excluded = []
+    expected_prompt_count = len(HARD_PROMPT_IDS)
+    for report in reports:
+        attempted = report.get("prompts_attempted")
+        evaluated = report.get("prompts_evaluated")
+        failed = report.get("prompts_failed")
+        eligible = (
+            report.get("run_status") == "complete"
+            and attempted == expected_prompt_count
+            and evaluated == expected_prompt_count
+            and failed == 0
+        )
+        if eligible:
+            complete.append(report)
+        else:
+            excluded.append(report)
+    return complete, excluded
 
 
 def main():
@@ -320,10 +349,24 @@ def main():
         print(f"  -> Report: {report_file}")
         summary.append(report)
 
-    # Write summary
+    complete_reports, excluded_reports = filter_complete_reports(summary)
+    for report in excluded_reports:
+        print(
+            f"  -> Excluded from summary: {report.get('model')} "
+            f"(status={report.get('run_status')}, "
+            f"evaluated={report.get('prompts_evaluated')}/{len(HARD_PROMPT_IDS)}, "
+            f"failed={report.get('prompts_failed')})"
+        )
+
     summary_file = OUTPUT_DIR / f"weekly_eval_summary_{timestamp}.json"
-    summary_file.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+    summary_file.write_text(
+        json.dumps(complete_reports, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
     print(f"\nSummary: {summary_file}")
+    print(
+        f"Summary eligibility: {len(complete_reports)} complete, "
+        f"{len(excluded_reports)} excluded"
+    )
     print("Done.")
 
 

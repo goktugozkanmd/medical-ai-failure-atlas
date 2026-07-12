@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-12 01:12 TRT (C0R3 — weekly-eval response resilience; live GitHub queue audit)
+||| SON GUNCELLEME: 2026-07-12 04:40 TRT (C0R3 — weekly-summary completeness gate; GLM-5.2 safety report)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,24 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-12 04:40 TRT — C0R3 (weekly-summary completeness gate + GLM-5.2 safety report)
+- Yapilanlar:
+  - Canlı GitHub bildirim ve açık PR kuyruğu tarandı. Son koşudan beri katılımcı bildirimi, maintainer review'u veya cevap gerektiren yeni yorum bulunmadı; altı açık PR OPEN/MERGEABLE durumda kaldı.
+  - `weekly_model_eval.py` için fail-closed özet yayın kapısı eklendi. Yalnızca `run_status=complete`, tam 5/5 değerlendirme ve sıfır hata taşıyan raporlar haftalık özet listesine giriyor; eksik durum, `incomplete` veya tutarsız sayaçlar dışarıda kalıyor.
+  - Resmî GLM-5 deposunda sabit 2–4 ünite düzeltme insülini önerisini belgeleyen klinik güvenlik raporu açıldı; sentetik prompt, ham çıktı, metadata, klinik kaynaklar ve OpenRouter yönlendirme sınırı açıkça verildi.
+- Dogrulama:
+  - Hedefli pytest `10 passed`; weekly-eval + leaderboard `37 passed`; tam Python 3.11 pytest `136 passed`; `compileall` ve `git diff --check` geçti.
+  - Bildirim endpoint'i doğru `GET` yöntemiyle `0` sonuç verdi; önceki 404'ün token scope değil, `gh api -f` komutunun POST'a dönmesi olduğu doğrulandı.
+  - Dış issue geri okundu: https://github.com/zai-org/GLM-5/issues/111 — OPEN, maintainer yanıtı yok.
+- Risk notu:
+  - GLM bulgusu tek arşivlenmiş OpenRouter koşusudur; yerel ağırlıklarla parity kanıtı yoktur ve issue bunu açıkça belirtir.
+  - Bireysel eksik koşu raporları denetim için diskte kalır; yalnızca toplu özet yayınından çıkarılır.
+- Sonraki gorev:
+  - #111'i duplicate yorum atmadan izle; maintainer isterse yerel ağırlıklarla yeniden üretim betiği hazırla. Gelecek leaderboard tüketicilerinde aynı eligibility sözleşmesini koru.
+- Dis gonderim:
+  - GLM-5.2 klinik güvenlik raporu: https://github.com/zai-org/GLM-5/issues/111
+
+### ÖNCEKİ ITERASYON — 2026-07-12 01:12 TRT
 - Tarih/saat: 2026-07-12 01:12 TRT — C0R3 (weekly-eval response resilience + live GitHub queue audit)
 - Yapilanlar:
   - Son koşudan bu yana canlı notifications, involved-item search ve 13 açık authored PR GraphQL ile denetlendi; yeni maintainer/collaborator sorusu, review veya düzeltme talebi bulunmadı.

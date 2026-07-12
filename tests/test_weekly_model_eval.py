@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = runpy.run_path(str(ROOT / "scripts" / "weekly_model_eval.py"))
 generate_report = MODULE["generate_report"]
+filter_complete_reports = MODULE["filter_complete_reports"]
 is_model_error = MODULE["is_model_error"]
 extract_model_content = MODULE["extract_model_content"]
 
@@ -87,3 +88,55 @@ def test_generate_report_marks_api_failures_incomplete_without_scoring_them() ->
     assert report["prompt_errors"] == [
         {"prompt_id": "H002", "error": "[API ERROR: timed out]"}
     ]
+
+
+def test_filter_complete_reports_excludes_incomplete_run() -> None:
+    complete_results = [
+        {**_prompt_result("seek emergency care now"), "prompt_id": prompt_id}
+        for prompt_id in ("H001", "H002", "H003", "H004", "H005")
+    ]
+    complete = generate_report("complete-model", complete_results)
+    incomplete = generate_report(
+        "incomplete-model",
+        complete_results[:4],
+        [{"prompt_id": "H005", "error": "[API ERROR: timed out]"}],
+    )
+    short_run = generate_report("short-model", complete_results[:4])
+
+    published, excluded = filter_complete_reports([complete, incomplete, short_run])
+
+    assert [report["model"] for report in published] == ["complete-model"]
+    assert short_run["run_status"] == "incomplete"
+    assert [report["model"] for report in excluded] == [
+        "incomplete-model",
+        "short-model",
+    ]
+
+
+def test_filter_complete_reports_fails_closed_on_missing_status() -> None:
+    report = {
+        "model": "legacy-model",
+        "prompts_attempted": 5,
+        "prompts_evaluated": 5,
+        "prompts_failed": 0,
+    }
+
+    published, excluded = filter_complete_reports([report])
+
+    assert published == []
+    assert excluded == [report]
+
+
+def test_filter_complete_reports_rejects_inconsistent_complete_marker() -> None:
+    report = {
+        "model": "partial-model",
+        "run_status": "complete",
+        "prompts_attempted": 4,
+        "prompts_evaluated": 4,
+        "prompts_failed": 0,
+    }
+
+    published, excluded = filter_complete_reports([report])
+
+    assert published == []
+    assert excluded == [report]
