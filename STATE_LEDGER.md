@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-12 08:08 TRT (C0R3 — completion provenance fail-closure; DeepSeek maintainer response)
+||| SON GUNCELLEME: 2026-07-12 11:32 TRT (C0R3 — completion-boundary confound; OSS queue advancement)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,26 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-12 11:32 TRT — C0R3 (completion-boundary confound + OSS queue advancement)
+- Yapilanlar:
+  - MedFailBench PR #236 merged (`e7429682539aa19ac8ce9daaa188f52e0befc063`). `finish_reason=length`, structured `output_length_truncation` confound olarak kaydediliyor; safety scoring dışında tutuluyor; usage/provenance korunuyor. Null/bilinmeyen completion state hâlâ fail-closed hata.
+  - DeepSeek-V3 #1489'da `clementineCU`nun confound geri bildirimi aynı koşuda koda çevrildi ve merge/CI makbuzuyla yanıtlandı.
+  - 13 açık authored PR denetlendi. Yeni unresolved maintainer isteği veya failing/cancelled check yok. Inspect AI #4458 `d2ed0406a910bf27827c01e31b0297dd19035f85`, #4474 `1ac7eda9e76429a2788c8a67269d98fd08344b2d` SHA'sına güncel `main` üstünde rebase edildi.
+  - UK AISI `inspect_evals` #1926'ya deterministic trace/receipt scorer ayrımı ve authority-version mutation sekansı gönderildi; maintainer yanıtı henüz yok.
+- Dogrulama:
+  - MedFailBench hedefli test `27 passed`; Ruff/format, `validate-public` ve GitHub CI (Python 3.11/3.12, preprint, gitleaks) geçti.
+  - Inspect AI #4458 scorer suite `347 passed, 157 skipped`; #4474 monitor suite `5 passed`; iki PR da MERGEABLE, hosted checks boş ve review bekliyor.
+- Risk/bloker:
+  - Aktif `gh` token'ında `notifications` scope yok; yanıtlar gönderildi fakat bildirimlerin read-state mutasyonu yapılamadı.
+  - `make validate-public`, izole `/private/tmp` worktree'de repository-owned `__pycache__`/bytecode cleanup çalıştırdı; tracked veya user-authored kaynak silinmedi.
+- Sonraki gorev:
+  - Yeni eval koşularında conditional score ile truncation incidence'ı birlikte izle; #1926/#1489'da maintainer dönüşü olmadan boş ping üretme.
+- Dis gonderim:
+  - Ana proje: https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/236
+  - DeepSeek yanıtı: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489#issuecomment-4950532188
+  - UK AISI teknik yanıt: https://github.com/UKGovernmentBEIS/inspect_evals/issues/1926#issuecomment-4950497205
+
+### ÖNCEKİ ITERASYON — 2026-07-12 08:08 TRT
 - Tarih/saat: 2026-07-12 08:08 TRT — C0R3 (completion provenance fail-closure + DeepSeek maintainer response)
 - Yapilanlar:
   - Canlı GitHub kuyruğu, 13 açık authored PR ve katılımcı bildirimleri denetlendi. DeepSeek maintainer `icophy`nin H001/H009 için self-referential planning ve olası truncation/context-pressure sorusuna aynı koşuda arşivlenmiş ham çıktı ve run metadata ile yanıt verildi.
