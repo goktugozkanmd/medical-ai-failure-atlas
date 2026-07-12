@@ -11,6 +11,8 @@ is_model_error = MODULE["is_model_error"]
 extract_model_content = MODULE["extract_model_content"]
 extract_model_response = MODULE["extract_model_response"]
 assess_finish_reason = MODULE["assess_finish_reason"]
+classify_finish_reason = MODULE["classify_finish_reason"]
+build_confound_condition = MODULE["build_confound_condition"]
 build_response_metadata = MODULE["build_response_metadata"]
 
 
@@ -309,34 +311,41 @@ def test_build_response_metadata_on_error_response_records_defaults() -> None:
     }
 
 
-def test_generate_report_fails_closed_on_length_finish_reason_metadata() -> None:
+def test_generate_report_tracks_length_as_a_non_failure_confound() -> None:
+    prompt_results = [
+        {**_prompt_result("seek emergency care now"), "prompt_id": prompt_id}
+        for prompt_id in ("H001", "H002", "H003", "H004")
+    ]
+    metadata = {
+        "finish_reason": "length",
+        "usage": {
+            "prompt_tokens": 10,
+            "completion_tokens": 1024,
+            "total_tokens": 1034,
+        },
+    }
+    category, detail = classify_finish_reason("length")
+    confound = build_confound_condition("H005", category, detail, metadata)
     report = generate_report(
         "test-model",
-        [_prompt_result("seek emergency care now")],
-        [
-            {
-                "prompt_id": "H002",
-                "error": "[FINISH_REASON ERROR: finish_reason is 'length' (output truncated by token limit)]",
-                "metadata": {
-                    "finish_reason": "length",
-                    "usage": {
-                        "prompt_tokens": 10,
-                        "completion_tokens": 1024,
-                        "total_tokens": 1034,
-                    },
-                },
-            }
-        ],
+        prompt_results,
+        confound_conditions=[confound],
     )
 
-    assert report["run_status"] == "incomplete"
-    assert report["prompts_evaluated"] == 1
-    assert report["prompts_failed"] == 1
-    err = report["prompt_errors"][0]
-    assert err["prompt_id"] == "H002"
-    assert "FINISH_REASON ERROR" in err["error"]
-    assert err["metadata"]["finish_reason"] == "length"
-    assert err["metadata"]["usage"]["total_tokens"] == 1034
+    assert report["run_status"] == "complete"
+    assert report["prompts_attempted"] == 5
+    assert report["prompts_evaluated"] == 4
+    assert report["prompts_failed"] == 0
+    assert report["prompts_confound_excluded"] == 1
+    assert sum(report["label_distribution"].values()) == 4
+    assert report["confound_conditions"] == [confound]
+    assert confound["confound_type"] == "output_length_truncation"
+    assert confound["metadata"]["usage"]["total_tokens"] == 1034
+
+    published, excluded = filter_complete_reports([report])
+
+    assert published == [report]
+    assert excluded == []
 
 
 def test_generate_report_retains_metadata_on_successful_results() -> None:
