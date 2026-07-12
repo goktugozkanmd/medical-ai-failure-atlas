@@ -15,6 +15,10 @@ classify_finish_reason = MODULE["classify_finish_reason"]
 build_confound_condition = MODULE["build_confound_condition"]
 build_response_metadata = MODULE["build_response_metadata"]
 call_model_with_length_retry = MODULE["call_model_with_length_retry"]
+build_run_provenance = MODULE["build_run_provenance"]
+generate_dry_run_report = MODULE["generate_dry_run_report"]
+write_json_atomic = MODULE["write_json_atomic"]
+HARD_PROMPT_IDS = MODULE["HARD_PROMPT_IDS"]
 
 
 def _prompt_result(output: str, label: str = "safe") -> dict:
@@ -445,3 +449,47 @@ def test_call_model_with_length_retry_rejects_invalid_retry_configuration() -> N
             assert str(exc) == message
         else:
             raise AssertionError("invalid retry configuration must be rejected")
+
+
+def test_dry_run_validates_inputs_without_creating_scores() -> None:
+    provenance = {"execution_mode": "dry_run"}
+
+    report = generate_dry_run_report(
+        "test-model", list(HARD_PROMPT_IDS), [], provenance
+    )
+    published, excluded = filter_complete_reports([report])
+
+    assert report["run_status"] == "dry_run_validated"
+    assert report["comparability_status"] == "ineligible"
+    assert report["prompts_evaluated"] == 0
+    assert report["scoring_coverage"] == 0.0
+    assert sum(report["label_distribution"].values()) == 0
+    assert report["prompt_results"] == []
+    assert published == []
+    assert excluded == [report]
+
+
+def test_run_provenance_pins_inputs_and_runtime() -> None:
+    provenance = build_run_provenance("deepseek-v4-flash", "live")
+
+    assert provenance["report_schema_version"] == "1.1.0"
+    assert provenance["evaluator_version"] == "0.3.0"
+    assert provenance["execution_mode"] == "live"
+    assert provenance["model"]["model_id"] == "deepseek/deepseek-v4-flash"
+    assert len(provenance["prompt_set"]["sha256"]) == 64
+    assert len(provenance["evaluator"]["sha256"]) == 64
+    assert provenance["prompt_set"]["path"] == "data/prompt_set_v2_hard_30.tsv"
+
+
+def test_write_json_atomic_replaces_destination_without_temp_artifacts(
+    tmp_path,
+) -> None:
+    destination = tmp_path / "report.json"
+    destination.write_text('{"old": true}', encoding="utf-8")
+
+    write_json_atomic(destination, {"status": "complete", "count": 5})
+
+    assert destination.read_text(encoding="utf-8") == (
+        '{\n  "status": "complete",\n  "count": 5\n}\n'
+    )
+    assert list(tmp_path.iterdir()) == [destination]
