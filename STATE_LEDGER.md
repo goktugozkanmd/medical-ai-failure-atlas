@@ -1,6 +1,6 @@
 # STATE LEDGER — MedFailBench İnşa Döngüsü
 ## AKTİF FAZ: Faz 1 — Metodolojiyi Yayınlanabilir Yap | İlerleme: 5/5 kapı ölçütü hazır ✅
-||| SON GUNCELLEME: 2026-07-12 04:40 TRT (C0R3 — weekly-summary completeness gate; GLM-5.2 safety report)
+||| SON GUNCELLEME: 2026-07-12 08:08 TRT (C0R3 — completion provenance fail-closure; DeepSeek maintainer response)
 
 > Bu dosya Codex/C0R3 iterasyonlarında güncel durum defteridir.
 > Ana şartname: CODEX_3YEAR_BUILD_LOOP.md.
@@ -22,6 +22,23 @@
 - [x] Panel/kappa araçları hazır, dış panel validasyonu bekliyor
 
 ### SON ITERASYON
+- Tarih/saat: 2026-07-12 08:08 TRT — C0R3 (completion provenance fail-closure + DeepSeek maintainer response)
+- Yapilanlar:
+  - Canlı GitHub kuyruğu, 13 açık authored PR ve katılımcı bildirimleri denetlendi. DeepSeek maintainer `icophy`nin H001/H009 için self-referential planning ve olası truncation/context-pressure sorusuna aynı koşuda arşivlenmiş ham çıktı ve run metadata ile yanıt verildi.
+  - `weekly_model_eval.py`, OpenAI-compatible yanıtlardan `finish_reason` ile prompt/completion/total token kullanımını koruyor. Yalnızca açık `finish_reason=stop` puanlanıyor; `length`, null, boş ve bilinmeyen durumlar metadata ile prompt hatasına dönüyor ve koşuyu `incomplete` yapıyor.
+  - Legacy DeepSeek artefaktında `max_tokens=512` bulundu; H001 ve H009 ortada kesiliyor, fakat eski kayıtta provider `finish_reason`/usage yok. Bu nedenle truncation nedeni iddia edilmedi; kayıtlar `incomplete output / cause unknown` olarak netleştirildi.
+- Dogrulama:
+  - Hedefli pytest `27 passed`; tam `uv run pytest -q` `153 passed`; Ruff check, Python compile ve `git diff --check` geçti.
+  - Ana proje commit `bb846341ff85705a6ceea15559f2996ba2be2fc3`; canlı CI'nin beş zorunlu işi başarılı: https://github.com/goktugozkanmd/medical-ai-failure-atlas/actions/runs/29180697886
+  - DeepSeek yanıtı GitHub API ile geri okundu: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489#issuecomment-4950030421
+- Risk notu:
+  - Eski 2026-07-07 DeepSeek koşusunun stop nedeni sonradan belirlenemez; yalnızca yeni koşular provenance alanlarını taşır. Klinik action-level adjudication hâlâ ayrı clinician rubric gerektirir.
+- Sonraki gorev:
+  - Yeni model koşularında metadata şemasını izle; #1489'da ek maintainer sorusu gelirse aynı koşuda kanıtla dön. Açık PR'larda review gelmeden boş ping üretme.
+- Dis gonderim:
+  - DeepSeek maintainer'a kanıtlı teknik yanıt: https://github.com/deepseek-ai/DeepSeek-V3/issues/1489#issuecomment-4950030421
+
+### ÖNCEKİ ITERASYON — 2026-07-12 04:40 TRT
 - Tarih/saat: 2026-07-12 04:40 TRT — C0R3 (weekly-summary completeness gate + GLM-5.2 safety report)
 - Yapilanlar:
   - Canlı GitHub bildirim ve açık PR kuyruğu tarandı. Son koşudan beri katılımcı bildirimi, maintainer review'u veya cevap gerektiren yeni yorum bulunmadı; altı açık PR OPEN/MERGEABLE durumda kaldı.
