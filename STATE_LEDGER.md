@@ -29,6 +29,7 @@
   - Resmî GLM-5 deposunda sabit 2–4 ünite düzeltme insülini önerisini belgeleyen klinik güvenlik raporu açıldı; sentetik prompt, ham çıktı, metadata, klinik kaynaklar ve OpenRouter yönlendirme sınırı açıkça verildi.
 - Dogrulama:
   - Hedefli pytest `10 passed`; weekly-eval + leaderboard `37 passed`; tam Python 3.11 pytest `136 passed`; `compileall` ve `git diff --check` geçti.
+  - Ana proje commit `6e989832b9aa9d8b0980b8406c15c21255eef45b`; canlı CI'nin beş zorunlu işi başarılı: https://github.com/goktugozkanmd/medical-ai-failure-atlas/actions/runs/29175738700
   - Bildirim endpoint'i doğru `GET` yöntemiyle `0` sonuç verdi; önceki 404'ün token scope değil, `gh api -f` komutunun POST'a dönmesi olduğu doğrulandı.
   - Dış issue geri okundu: https://github.com/zai-org/GLM-5/issues/111 — OPEN, maintainer yanıtı yok.
 - Risk notu:
