@@ -102,6 +102,8 @@ CHINESE_FRONTIER_MODEL_KEYS = [
 ]
 
 HARD_PROMPT_IDS = ["H001", "H002", "H003", "H004", "H005"]
+DEFAULT_MAX_TOKENS = 1024
+DEFAULT_LENGTH_RETRIES = 1
 
 
 def load_prompt(prompt_id: str) -> str:
@@ -118,7 +120,12 @@ def load_prompt(prompt_id: str) -> str:
     raise FileNotFoundError(f"Prompt {prompt_id} not found in {PROMPTS_FILE}")
 
 
-def call_model(model_key: str, prompt: str, timeout: int = 60) -> dict:
+def call_model(
+    model_key: str,
+    prompt: str,
+    timeout: int = 60,
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+) -> dict:
     """Call a model API and return content plus completion metadata.
 
     On success returns ``{"content", "finish_reason", "usage"}``; on failure
@@ -135,7 +142,7 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> dict:
     payload = {
         "model": config["model_id"] or model_key,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 1024,
+        "max_tokens": max_tokens,
         "temperature": 0.0,
     }
     req = urllib.request.Request(
@@ -144,7 +151,6 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> dict:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
-            # Some OpenAI-compatible gateways 403 the default urllib UA.
             "User-Agent": "MedFailBench-eval/0.1 (+https://github.com/goktugozkanmd/medical-ai-failure-atlas)",
         },
         method="POST",
@@ -157,9 +163,48 @@ def call_model(model_key: str, prompt: str, timeout: int = 60) -> dict:
                 "content": parsed["content"],
                 "finish_reason": parsed["finish_reason"],
                 "usage": parsed["usage"],
+                "request_max_tokens": max_tokens,
             }
     except Exception as e:
         return {"error": f"[API ERROR: {e}]"}
+
+
+def call_model_with_length_retry(
+    model_key: str,
+    prompt: str,
+    timeout: int = 60,
+    initial_max_tokens: int = DEFAULT_MAX_TOKENS,
+    length_retries: int = DEFAULT_LENGTH_RETRIES,
+) -> dict:
+    if initial_max_tokens < 1:
+        raise ValueError("initial_max_tokens must be positive")
+    if length_retries < 0:
+        raise ValueError("length_retries must not be negative")
+
+    attempts = []
+    max_tokens = initial_max_tokens
+    for attempt_number in range(1, length_retries + 2):
+        response = call_model(model_key, prompt, timeout=timeout, max_tokens=max_tokens)
+        attempt = {
+            "attempt": attempt_number,
+            "request_max_tokens": max_tokens,
+            "finish_reason": response.get("finish_reason"),
+            "usage": response.get("usage"),
+        }
+        if "error" in response:
+            attempt["error"] = response["error"]
+        attempts.append(attempt)
+        category, _ = classify_finish_reason(response.get("finish_reason"))
+        if (
+            "error" in response
+            or category != FINISH_REASON_CONFOUND
+            or attempt_number > length_retries
+        ):
+            response["attempts"] = attempts
+            return response
+        max_tokens *= 2
+
+    raise RuntimeError("length retry loop did not return")
 
 
 def extract_model_response(data: object) -> dict:
@@ -283,6 +328,8 @@ def build_response_metadata(response: dict) -> dict:
             "completion_tokens": usage.get("completion_tokens"),
             "total_tokens": usage.get("total_tokens"),
         },
+        "request_max_tokens": response.get("request_max_tokens"),
+        "attempts": response.get("attempts", []),
     }
 
 
@@ -428,16 +475,30 @@ def generate_report(
     ]
     accounted_ids = prompt_ids + confound_ids
     expected_prompt_ids = set(HARD_PROMPT_IDS)
-    is_complete = (
+    is_accounted = (
         not prompt_errors
         and len(accounted_ids) == len(HARD_PROMPT_IDS)
         and len(accounted_ids) == len(set(accounted_ids))
         and set(accounted_ids) == expected_prompt_ids
     )
+    if not is_accounted:
+        run_status = "incomplete"
+        comparability_status = "ineligible"
+    elif confound_conditions:
+        run_status = "complete_with_confounds"
+        comparability_status = "confounded"
+    else:
+        run_status = "complete"
+        comparability_status = "eligible"
+    scoring_coverage = (
+        round(len(prompt_results) / len(HARD_PROMPT_IDS), 4) if HARD_PROMPT_IDS else 0.0
+    )
     return {
         "model": model_key,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "run_status": "complete" if is_complete else "incomplete",
+        "run_status": run_status,
+        "comparability_status": comparability_status,
+        "scoring_coverage": scoring_coverage,
         "prompts_attempted": (
             len(prompt_results) + len(prompt_errors) + len(confound_conditions)
         ),
@@ -466,6 +527,7 @@ def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]
             and attempted == expected_prompt_count
             and failed == 0
             and evaluated + confound_excluded == expected_prompt_count
+            and confound_excluded == 0
         )
         if eligible:
             complete.append(report)
@@ -520,7 +582,7 @@ def main():
                     "finish_reason": "stop",
                 }
             else:
-                response = call_model(model_key, prompt_text)
+                response = call_model_with_length_retry(model_key, prompt_text)
                 time.sleep(2)
 
             if "error" in response:
