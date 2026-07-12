@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MedFailBench Weekly Model Response Evaluation Script (v0.2.1)
+MedFailBench Weekly Model Response Evaluation Script (v0.3.0)
 
 Reads hard prompts from data/, calls configured model APIs,
 runs rule-based scoring, writes timestamped report.
@@ -8,7 +8,7 @@ runs rule-based scoring, writes timestamped report.
 Usage:
   python3 scripts/weekly_model_eval.py                    # run all configured models
   python3 scripts/weekly_model_eval.py --model deepseek   # single model only
-  python3 scripts/weekly_model_eval.py --dry-run          # scoring only, no API calls
+  python3 scripts/weekly_model_eval.py --dry-run          # validate inputs, no API/scoring
 
 Requires env vars (or .env):
   DEEPSEEK_API_KEY, OPENAI_API_KEY, OPENROUTER_API_KEY, HF_TOKEN
@@ -17,9 +17,12 @@ Requires env vars (or .env):
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
+import sys
+import tempfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -104,6 +107,8 @@ CHINESE_FRONTIER_MODEL_KEYS = [
 HARD_PROMPT_IDS = ["H001", "H002", "H003", "H004", "H005"]
 DEFAULT_MAX_TOKENS = 1024
 DEFAULT_LENGTH_RETRIES = 1
+REPORT_SCHEMA_VERSION = "1.1.0"
+EVALUATOR_VERSION = "0.3.0"
 
 
 def load_prompt(prompt_id: str) -> str:
@@ -118,6 +123,63 @@ def load_prompt(prompt_id: str) -> str:
             if row.get("scenario_id", "").strip() == prompt_id:
                 return row.get("prompt_text", "").strip()
     raise FileNotFoundError(f"Prompt {prompt_id} not found in {PROMPTS_FILE}")
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def build_run_provenance(model_key: str, execution_mode: str) -> dict:
+    config = CONFIGURED_MODELS[model_key]
+    script_path = Path(__file__).resolve()
+    return {
+        "report_schema_version": REPORT_SCHEMA_VERSION,
+        "evaluator_version": EVALUATOR_VERSION,
+        "execution_mode": execution_mode,
+        "python_version": sys.version.split()[0],
+        "model": {
+            "key": model_key,
+            "provider": config["provider"],
+            "model_id": config["model_id"],
+            "endpoint": config["endpoint"],
+        },
+        "prompt_set": {
+            "path": str(PROMPTS_FILE.relative_to(REPO_ROOT)),
+            "sha256": sha256_file(PROMPTS_FILE),
+        },
+        "evaluator": {
+            "path": str(script_path.relative_to(REPO_ROOT)),
+            "sha256": sha256_file(script_path),
+        },
+    }
+
+
+def write_json_atomic(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=f".{path.name}.",
+            suffix=".tmp",
+            delete=False,
+        ) as temporary:
+            json.dump(payload, temporary, indent=2, ensure_ascii=False)
+            temporary.write("\n")
+            temporary.flush()
+            os.fsync(temporary.fileno())
+            temporary_path = Path(temporary.name)
+        os.replace(temporary_path, path)
+    except Exception:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+        raise
 
 
 def call_model(
@@ -437,6 +499,7 @@ def generate_report(
     prompt_results: list,
     prompt_errors: list | None = None,
     confound_conditions: list | None = None,
+    provenance: dict | None = None,
 ) -> dict:
     """Build a structured report for one model across all prompts.
 
@@ -496,6 +559,8 @@ def generate_report(
     return {
         "model": model_key,
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "execution_mode": "live",
+        "provenance": provenance or {},
         "run_status": run_status,
         "comparability_status": comparability_status,
         "scoring_coverage": scoring_coverage,
@@ -513,6 +578,45 @@ def generate_report(
     }
 
 
+def generate_dry_run_report(
+    model_key: str,
+    validated_prompt_ids: list[str],
+    prompt_errors: list[dict],
+    provenance: dict,
+) -> dict:
+    expected_prompt_ids = set(HARD_PROMPT_IDS)
+    validated_ids = set(validated_prompt_ids)
+    validation_complete = (
+        not prompt_errors
+        and len(validated_prompt_ids) == len(validated_ids)
+        and validated_ids == expected_prompt_ids
+    )
+    return {
+        "model": model_key,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "execution_mode": "dry_run",
+        "provenance": provenance,
+        "run_status": "dry_run_validated" if validation_complete else "dry_run_failed",
+        "comparability_status": "ineligible",
+        "scoring_coverage": 0.0,
+        "prompts_attempted": len(validated_prompt_ids) + len(prompt_errors),
+        "prompts_evaluated": 0,
+        "prompts_failed": len(prompt_errors),
+        "prompts_confound_excluded": 0,
+        "prompts_validated": len(validated_prompt_ids),
+        "validated_prompt_ids": validated_prompt_ids,
+        "label_distribution": {
+            "unsafe": 0,
+            "clinically usable with caution": 0,
+            "safe": 0,
+        },
+        "safety_gate_counts": {},
+        "prompt_results": [],
+        "prompt_errors": prompt_errors,
+        "confound_conditions": [],
+    }
+
+
 def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]]:
     complete = []
     excluded = []
@@ -524,6 +628,7 @@ def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]
         confound_excluded = report.get("prompts_confound_excluded", 0)
         eligible = (
             report.get("run_status") == "complete"
+            and report.get("execution_mode", "live") == "live"
             and attempted == expected_prompt_count
             and failed == 0
             and evaluated + confound_excluded == expected_prompt_count
@@ -545,7 +650,9 @@ def main():
         "--chinese", action="store_true", help="Run all Chinese frontier models"
     )
     parser.add_argument(
-        "--dry-run", action="store_true", help="Scoring only, no API calls"
+        "--dry-run",
+        action="store_true",
+        help="Validate prompt/config inputs without API calls or scoring",
     )
     args = parser.parse_args()
 
@@ -555,7 +662,7 @@ def main():
     else:
         models_to_run = [args.model] if args.model else list(CONFIGURED_MODELS.keys())
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S_%fZ")
     summary = []
 
     for model_key in models_to_run:
@@ -566,6 +673,7 @@ def main():
         prompt_results = []
         prompt_errors = []
         confound_conditions = []
+        validated_prompt_ids = []
         for pid in HARD_PROMPT_IDS:
             print(f"  Prompt {pid}...", end=" ", flush=True)
             try:
@@ -577,13 +685,12 @@ def main():
                 continue
 
             if args.dry_run:
-                response = {
-                    "content": f"[DRY-RUN simulated output for {model_key} on {pid}]",
-                    "finish_reason": "stop",
-                }
-            else:
-                response = call_model_with_length_retry(model_key, prompt_text)
-                time.sleep(2)
+                validated_prompt_ids.append(pid)
+                print("validated")
+                continue
+
+            response = call_model_with_length_retry(model_key, prompt_text)
+            time.sleep(2)
 
             if "error" in response:
                 prompt_errors.append(
@@ -638,13 +745,23 @@ def main():
             )
             print(f"mean={scores['mean']} label={scores['final_label']}")
 
-        report = generate_report(
-            model_key, prompt_results, prompt_errors, confound_conditions
+        provenance = build_run_provenance(
+            model_key, "dry_run" if args.dry_run else "live"
         )
+        if args.dry_run:
+            report = generate_dry_run_report(
+                model_key, validated_prompt_ids, prompt_errors, provenance
+            )
+        else:
+            report = generate_report(
+                model_key,
+                prompt_results,
+                prompt_errors,
+                confound_conditions,
+                provenance,
+            )
         report_file = OUTPUT_DIR / f"weekly_eval_{model_key}_{timestamp}.json"
-        report_file.write_text(
-            json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
-        )
+        write_json_atomic(report_file, report)
         print(f"  -> Report: {report_file}")
         summary.append(report)
 
@@ -659,9 +776,7 @@ def main():
         )
 
     summary_file = OUTPUT_DIR / f"weekly_eval_summary_{timestamp}.json"
-    summary_file.write_text(
-        json.dumps(complete_reports, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    write_json_atomic(summary_file, complete_reports)
     print(f"\nSummary: {summary_file}")
     print(
         f"Summary eligibility: {len(complete_reports)} complete, "
