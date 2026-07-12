@@ -3,13 +3,15 @@ from __future__ import annotations
 import runpy
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = runpy.run_path(str(ROOT / "scripts" / "weekly_model_eval.py"))
 generate_report = MODULE["generate_report"]
 filter_complete_reports = MODULE["filter_complete_reports"]
 is_model_error = MODULE["is_model_error"]
 extract_model_content = MODULE["extract_model_content"]
+extract_model_response = MODULE["extract_model_response"]
+assess_finish_reason = MODULE["assess_finish_reason"]
+build_response_metadata = MODULE["build_response_metadata"]
 
 
 def _prompt_result(output: str, label: str = "safe") -> dict:
@@ -140,3 +142,216 @@ def test_filter_complete_reports_rejects_inconsistent_complete_marker() -> None:
 
     assert published == []
     assert excluded == [report]
+
+
+def test_extract_model_response_preserves_finish_reason_and_usage() -> None:
+    payload = {
+        "choices": [
+            {
+                "message": {"content": "clinical answer"},
+                "finish_reason": "stop",
+            }
+        ],
+        "usage": {
+            "prompt_tokens": 42,
+            "completion_tokens": 7,
+            "total_tokens": 49,
+        },
+    }
+
+    parsed = extract_model_response(payload)
+
+    assert parsed["content"] == "clinical answer"
+    assert parsed["finish_reason"] == "stop"
+    assert parsed["usage"] == {
+        "prompt_tokens": 42,
+        "completion_tokens": 7,
+        "total_tokens": 49,
+    }
+
+
+def test_extract_model_response_defaults_usage_to_none_when_missing() -> None:
+    payload = {"choices": [{"message": {"content": "answer"}, "finish_reason": "stop"}]}
+
+    parsed = extract_model_response(payload)
+
+    assert parsed["finish_reason"] == "stop"
+    assert parsed["usage"] is None
+
+
+def test_extract_model_response_defaults_finish_reason_to_none_when_missing() -> None:
+    payload = {
+        "choices": [{"message": {"content": "answer"}}],
+        "usage": {"prompt_tokens": 1, "completion_tokens": 2, "total_tokens": 3},
+    }
+
+    parsed = extract_model_response(payload)
+
+    assert parsed["finish_reason"] is None
+
+
+def test_extract_model_content_still_wraps_response() -> None:
+    payload = {
+        "choices": [{"message": {"content": "answer"}, "finish_reason": "stop"}],
+        "usage": {"prompt_tokens": 1, "completion_tokens": 2, "total_tokens": 3},
+    }
+
+    assert extract_model_content(payload) == "answer"
+
+
+def test_assess_finish_reason_accepts_stop() -> None:
+    ok, reason = assess_finish_reason("stop")
+
+    assert ok is True
+    assert reason == ""
+
+
+def test_assess_finish_reason_fails_closed_on_length() -> None:
+    ok, reason = assess_finish_reason("length")
+
+    assert ok is False
+    assert "length" in reason
+    assert "truncat" in reason
+
+
+def test_assess_finish_reason_fails_closed_on_null() -> None:
+    ok, reason = assess_finish_reason(None)
+
+    assert ok is False
+    assert "null" in reason
+
+
+def test_assess_finish_reason_fails_closed_on_empty_string() -> None:
+    ok, reason = assess_finish_reason("")
+
+    assert ok is False
+    assert "empty" in reason
+
+
+def test_assess_finish_reason_fails_closed_on_unknown_value() -> None:
+    ok, reason = assess_finish_reason("content_filter")
+
+    assert ok is False
+    assert "content_filter" in reason
+
+
+def test_assess_finish_reason_is_case_insensitive() -> None:
+    ok, _ = assess_finish_reason("STOP")
+
+    assert ok is True
+
+
+def test_assess_finish_reason_rejects_non_string_type() -> None:
+    ok, reason = assess_finish_reason(123)
+
+    assert ok is False
+    assert "not a string" in reason
+
+
+def test_build_response_metadata_normalizes_usage_fields() -> None:
+    response = {
+        "content": "answer",
+        "finish_reason": "stop",
+        "usage": {
+            "prompt_tokens": 10,
+            "completion_tokens": 5,
+            "total_tokens": 15,
+        },
+    }
+
+    metadata = build_response_metadata(response)
+
+    assert metadata == {
+        "finish_reason": "stop",
+        "usage": {
+            "prompt_tokens": 10,
+            "completion_tokens": 5,
+            "total_tokens": 15,
+        },
+    }
+
+
+def test_build_response_metadata_defaults_usage_to_none_when_absent() -> None:
+    response = {"content": "answer", "finish_reason": "stop"}
+
+    metadata = build_response_metadata(response)
+
+    assert metadata["finish_reason"] == "stop"
+    assert metadata["usage"] == {
+        "prompt_tokens": None,
+        "completion_tokens": None,
+        "total_tokens": None,
+    }
+
+
+def test_build_response_metadata_preserves_null_usage_fields() -> None:
+    response = {"content": "answer", "finish_reason": "stop", "usage": {}}
+
+    metadata = build_response_metadata(response)
+
+    assert metadata["usage"] == {
+        "prompt_tokens": None,
+        "completion_tokens": None,
+        "total_tokens": None,
+    }
+
+
+def test_build_response_metadata_on_error_response_records_defaults() -> None:
+    response = {"error": "[API ERROR: timed out]"}
+
+    metadata = build_response_metadata(response)
+
+    assert metadata["finish_reason"] is None
+    assert metadata["usage"] == {
+        "prompt_tokens": None,
+        "completion_tokens": None,
+        "total_tokens": None,
+    }
+
+
+def test_generate_report_fails_closed_on_length_finish_reason_metadata() -> None:
+    report = generate_report(
+        "test-model",
+        [_prompt_result("seek emergency care now")],
+        [
+            {
+                "prompt_id": "H002",
+                "error": "[FINISH_REASON ERROR: finish_reason is 'length' (output truncated by token limit)]",
+                "metadata": {
+                    "finish_reason": "length",
+                    "usage": {
+                        "prompt_tokens": 10,
+                        "completion_tokens": 1024,
+                        "total_tokens": 1034,
+                    },
+                },
+            }
+        ],
+    )
+
+    assert report["run_status"] == "incomplete"
+    assert report["prompts_evaluated"] == 1
+    assert report["prompts_failed"] == 1
+    err = report["prompt_errors"][0]
+    assert err["prompt_id"] == "H002"
+    assert "FINISH_REASON ERROR" in err["error"]
+    assert err["metadata"]["finish_reason"] == "length"
+    assert err["metadata"]["usage"]["total_tokens"] == 1034
+
+
+def test_generate_report_retains_metadata_on_successful_results() -> None:
+    successful = {
+        **_prompt_result("seek emergency care now"),
+        "metadata": {
+            "finish_reason": "stop",
+            "usage": {
+                "prompt_tokens": 10,
+                "completion_tokens": 5,
+                "total_tokens": 15,
+            },
+        },
+    }
+    report = generate_report("test-model", [successful])
+
+    assert report["prompt_results"][0]["metadata"]["finish_reason"] == "stop"
+    assert report["prompt_results"][0]["metadata"]["usage"]["total_tokens"] == 15
