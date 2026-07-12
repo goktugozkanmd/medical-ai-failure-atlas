@@ -14,6 +14,7 @@ assess_finish_reason = MODULE["assess_finish_reason"]
 classify_finish_reason = MODULE["classify_finish_reason"]
 build_confound_condition = MODULE["build_confound_condition"]
 build_response_metadata = MODULE["build_response_metadata"]
+call_model_with_length_retry = MODULE["call_model_with_length_retry"]
 
 
 def _prompt_result(output: str, label: str = "safe") -> dict:
@@ -270,6 +271,8 @@ def test_build_response_metadata_normalizes_usage_fields() -> None:
             "completion_tokens": 5,
             "total_tokens": 15,
         },
+        "request_max_tokens": None,
+        "attempts": [],
     }
 
 
@@ -332,7 +335,9 @@ def test_generate_report_tracks_length_as_a_non_failure_confound() -> None:
         confound_conditions=[confound],
     )
 
-    assert report["run_status"] == "complete"
+    assert report["run_status"] == "complete_with_confounds"
+    assert report["comparability_status"] == "confounded"
+    assert report["scoring_coverage"] == 0.8
     assert report["prompts_attempted"] == 5
     assert report["prompts_evaluated"] == 4
     assert report["prompts_failed"] == 0
@@ -344,8 +349,8 @@ def test_generate_report_tracks_length_as_a_non_failure_confound() -> None:
 
     published, excluded = filter_complete_reports([report])
 
-    assert published == [report]
-    assert excluded == []
+    assert published == []
+    assert excluded == [report]
 
 
 def test_generate_report_retains_metadata_on_successful_results() -> None:
@@ -364,3 +369,79 @@ def test_generate_report_retains_metadata_on_successful_results() -> None:
 
     assert report["prompt_results"][0]["metadata"]["finish_reason"] == "stop"
     assert report["prompt_results"][0]["metadata"]["usage"]["total_tokens"] == 15
+
+
+def test_call_model_with_length_retry_doubles_budget_and_returns_clean_stop() -> None:
+    calls = []
+
+    def fake_call_model(model_key, prompt, timeout, max_tokens):
+        calls.append((model_key, prompt, timeout, max_tokens))
+        if len(calls) == 1:
+            return {
+                "content": "truncated",
+                "finish_reason": "length",
+                "usage": {"completion_tokens": max_tokens},
+                "request_max_tokens": max_tokens,
+            }
+        return {
+            "content": "complete answer",
+            "finish_reason": "stop",
+            "usage": {"completion_tokens": 1200},
+            "request_max_tokens": max_tokens,
+        }
+
+    original = call_model_with_length_retry.__globals__["call_model"]
+    call_model_with_length_retry.__globals__["call_model"] = fake_call_model
+    try:
+        response = call_model_with_length_retry(
+            "test-model", "prompt", timeout=12, initial_max_tokens=1000
+        )
+    finally:
+        call_model_with_length_retry.__globals__["call_model"] = original
+
+    assert [call[-1] for call in calls] == [1000, 2000]
+    assert response["content"] == "complete answer"
+    assert response["finish_reason"] == "stop"
+    assert [attempt["finish_reason"] for attempt in response["attempts"]] == [
+        "length",
+        "stop",
+    ]
+
+
+def test_call_model_with_length_retry_keeps_exhausted_confound_provenance() -> None:
+    def fake_call_model(model_key, prompt, timeout, max_tokens):
+        return {
+            "content": "still truncated",
+            "finish_reason": "length",
+            "usage": {"completion_tokens": max_tokens},
+            "request_max_tokens": max_tokens,
+        }
+
+    original = call_model_with_length_retry.__globals__["call_model"]
+    call_model_with_length_retry.__globals__["call_model"] = fake_call_model
+    try:
+        response = call_model_with_length_retry(
+            "test-model", "prompt", initial_max_tokens=512, length_retries=2
+        )
+    finally:
+        call_model_with_length_retry.__globals__["call_model"] = original
+
+    assert response["finish_reason"] == "length"
+    assert [attempt["request_max_tokens"] for attempt in response["attempts"]] == [
+        512,
+        1024,
+        2048,
+    ]
+
+
+def test_call_model_with_length_retry_rejects_invalid_retry_configuration() -> None:
+    for kwargs, message in [
+        ({"initial_max_tokens": 0}, "initial_max_tokens must be positive"),
+        ({"length_retries": -1}, "length_retries must not be negative"),
+    ]:
+        try:
+            call_model_with_length_retry("test-model", "prompt", **kwargs)
+        except ValueError as exc:
+            assert str(exc) == message
+        else:
+            raise AssertionError("invalid retry configuration must be rejected")
