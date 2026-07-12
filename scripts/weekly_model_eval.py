@@ -190,24 +190,87 @@ def extract_model_content(data: object) -> str:
     return extract_model_response(data)["content"]
 
 
+FINISH_REASON_SCORABLE = "scorable"
+FINISH_REASON_CONFOUND = "confound"
+FINISH_REASON_UNKNOWN_INCOMPLETE = "unknown_incomplete"
+CONFOUND_TYPE_OUTPUT_LENGTH = "output_length_truncation"
+
+
+def classify_finish_reason(finish_reason: object) -> tuple[str, str]:
+    """Classify a finish_reason into a completion category.
+
+    Returns ``(category, reason)`` where category is one of:
+
+    * ``"scorable"`` -- an explicit ``stop``; safe to score.
+    * ``"confound"`` -- ``length`` (token-limit truncation). The output is
+      predictably incomplete, so the response must not be scored as a safety
+      failure. It is recorded as a structured confound condition instead.
+    * ``"unknown_incomplete"`` -- null, empty, non-string or any other value.
+      The cause of incompletion is ambiguous, so the run fails closed.
+    """
+    if finish_reason is None:
+        return (
+            FINISH_REASON_UNKNOWN_INCOMPLETE,
+            "finish_reason is null (ambiguous completion)",
+        )
+    if not isinstance(finish_reason, str):
+        return (
+            FINISH_REASON_UNKNOWN_INCOMPLETE,
+            f"finish_reason is not a string: {finish_reason!r}",
+        )
+    normalized = finish_reason.strip().lower()
+    if normalized == "stop":
+        return FINISH_REASON_SCORABLE, ""
+    if normalized == "length":
+        return (
+            FINISH_REASON_CONFOUND,
+            "finish_reason is 'length' (output truncated by token limit)",
+        )
+    if normalized == "":
+        return (
+            FINISH_REASON_UNKNOWN_INCOMPLETE,
+            "finish_reason is empty (ambiguous completion)",
+        )
+    return (
+        FINISH_REASON_UNKNOWN_INCOMPLETE,
+        f"finish_reason is '{normalized}' (not a clean stop)",
+    )
+
+
 def assess_finish_reason(finish_reason: object) -> tuple[bool, str]:
     """Decide whether a finish_reason permits scoring.
 
-    Fail-closed: only an explicit ``stop`` is acceptable. ``length`` (token-limit
-    truncation), null, empty or any other value is rejected with a reason string.
+    Fail-closed: only an explicit ``stop`` is scorable. ``length`` (token-limit
+    truncation), null, empty or any other value is not scorable. Callers that
+    need to distinguish a predictable length confound from an ambiguous
+    incomplete cause should use :func:`classify_finish_reason` instead.
     """
-    if finish_reason is None:
-        return False, "finish_reason is null (ambiguous completion)"
-    if not isinstance(finish_reason, str):
-        return False, f"finish_reason is not a string: {finish_reason!r}"
-    normalized = finish_reason.strip().lower()
-    if normalized == "stop":
-        return True, ""
-    if normalized == "length":
-        return False, "finish_reason is 'length' (output truncated by token limit)"
-    if normalized == "":
-        return False, "finish_reason is empty (ambiguous completion)"
-    return False, f"finish_reason is '{normalized}' (not a clean stop)"
+    category, reason = classify_finish_reason(finish_reason)
+    return category == FINISH_REASON_SCORABLE, reason
+
+
+def build_confound_condition(
+    prompt_id: str, category: str, reason: str, metadata: dict
+) -> dict:
+    """Build a structured confound condition record for a non-scorable response.
+
+    The response is excluded from scoring but is not treated as a safety
+    failure. ``category`` must be a non-scorable completion category; an
+    ``"unknown_incomplete"`` category is distinguished so downstream
+    stratification can separate predictable confounds from ambiguous causes.
+    """
+    confound_type = (
+        CONFOUND_TYPE_OUTPUT_LENGTH
+        if category == FINISH_REASON_CONFOUND
+        else "unknown_incomplete_cause"
+    )
+    return {
+        "prompt_id": prompt_id,
+        "confound_type": confound_type,
+        "category": category,
+        "detail": reason,
+        "metadata": metadata,
+    }
 
 
 def build_response_metadata(response: dict) -> dict:
@@ -323,10 +386,21 @@ def rule_based_score(output: str) -> dict:
 
 
 def generate_report(
-    model_key: str, prompt_results: list, prompt_errors: list | None = None
+    model_key: str,
+    prompt_results: list,
+    prompt_errors: list | None = None,
+    confound_conditions: list | None = None,
 ) -> dict:
-    """Build a structured report for one model across all prompts."""
+    """Build a structured report for one model across all prompts.
+
+    ``confound_conditions`` records responses excluded from scoring because of a
+    predictable completion-boundary confound (e.g. ``finish_reason=length``).
+    Those prompts are neither scored nor counted as safety failures; they are
+    tracked separately for stratification. Hard failures (``prompt_errors``)
+    still mark the run incomplete.
+    """
     prompt_errors = prompt_errors or []
+    confound_conditions = confound_conditions or []
     safety_gates = {
         "missed_urgent_escalation": 0,
         "unsafe_remote_dosing": 0,
@@ -349,24 +423,32 @@ def generate_report(
         for result in prompt_results
     ]
     prompt_ids = [row.get("prompt_id") for row in prompt_results]
+    confound_ids = [
+        cond.get("prompt_id") for cond in confound_conditions if cond.get("prompt_id")
+    ]
+    accounted_ids = prompt_ids + confound_ids
     expected_prompt_ids = set(HARD_PROMPT_IDS)
     is_complete = (
         not prompt_errors
-        and len(prompt_results) == len(HARD_PROMPT_IDS)
-        and len(prompt_ids) == len(expected_prompt_ids)
-        and set(prompt_ids) == expected_prompt_ids
+        and len(accounted_ids) == len(HARD_PROMPT_IDS)
+        and len(accounted_ids) == len(set(accounted_ids))
+        and set(accounted_ids) == expected_prompt_ids
     )
     return {
         "model": model_key,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "run_status": "complete" if is_complete else "incomplete",
-        "prompts_attempted": len(prompt_results) + len(prompt_errors),
+        "prompts_attempted": (
+            len(prompt_results) + len(prompt_errors) + len(confound_conditions)
+        ),
         "prompts_evaluated": len(prompt_results),
         "prompts_failed": len(prompt_errors),
+        "prompts_confound_excluded": len(confound_conditions),
         "label_distribution": label_counts,
         "safety_gate_counts": safety_gates,
         "prompt_results": public_prompt_results,
         "prompt_errors": prompt_errors,
+        "confound_conditions": confound_conditions,
     }
 
 
@@ -378,11 +460,12 @@ def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]
         attempted = report.get("prompts_attempted")
         evaluated = report.get("prompts_evaluated")
         failed = report.get("prompts_failed")
+        confound_excluded = report.get("prompts_confound_excluded", 0)
         eligible = (
             report.get("run_status") == "complete"
             and attempted == expected_prompt_count
-            and evaluated == expected_prompt_count
             and failed == 0
+            and evaluated + confound_excluded == expected_prompt_count
         )
         if eligible:
             complete.append(report)
@@ -420,6 +503,7 @@ def main():
 
         prompt_results = []
         prompt_errors = []
+        confound_conditions = []
         for pid in HARD_PROMPT_IDS:
             print(f"  Prompt {pid}...", end=" ", flush=True)
             try:
@@ -453,10 +537,21 @@ def main():
             metadata = build_response_metadata(response)
             output = response["content"]
 
-            ok_finish, finish_reason_reason = assess_finish_reason(
+            category, finish_reason_reason = classify_finish_reason(
                 response.get("finish_reason")
             )
-            if not ok_finish:
+            if category == FINISH_REASON_CONFOUND:
+                confound_conditions.append(
+                    build_confound_condition(
+                        pid, category, finish_reason_reason, metadata
+                    )
+                )
+                print(
+                    f"[CONFOUND: {finish_reason_reason}] "
+                    f"excluded from scoring, not a safety failure"
+                )
+                continue
+            if category != FINISH_REASON_SCORABLE:
                 error = f"[FINISH_REASON ERROR: {finish_reason_reason}]"
                 prompt_errors.append(
                     {
@@ -481,7 +576,9 @@ def main():
             )
             print(f"mean={scores['mean']} label={scores['final_label']}")
 
-        report = generate_report(model_key, prompt_results, prompt_errors)
+        report = generate_report(
+            model_key, prompt_results, prompt_errors, confound_conditions
+        )
         report_file = OUTPUT_DIR / f"weekly_eval_{model_key}_{timestamp}.json"
         report_file.write_text(
             json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -495,6 +592,7 @@ def main():
             f"  -> Excluded from summary: {report.get('model')} "
             f"(status={report.get('run_status')}, "
             f"evaluated={report.get('prompts_evaluated')}/{len(HARD_PROMPT_IDS)}, "
+            f"confound_excluded={report.get('prompts_confound_excluded', 0)}, "
             f"failed={report.get('prompts_failed')})"
         )
 
