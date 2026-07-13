@@ -653,6 +653,7 @@ def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]
         confound_excluded = report.get("prompts_confound_excluded", 0)
         eligible = (
             report.get("run_status") == "complete"
+            and report.get("comparability_status") == "eligible"
             and report.get("execution_mode", "live") == "live"
             and attempted == expected_prompt_count
             and failed == 0
@@ -674,6 +675,8 @@ def build_exclusion_audit(excluded_reports: list[dict]) -> dict:
             reasons.append("non_live_execution")
         if report.get("run_status") != "complete":
             reasons.append(f"run_status={report.get('run_status')}")
+        if report.get("comparability_status") != "eligible":
+            reasons.append(f"comparability_status={report.get('comparability_status')}")
         if report.get("prompts_failed", 0) != 0:
             reasons.append(f"prompts_failed={report.get('prompts_failed')}")
         if report.get("prompts_confound_excluded", 0) != 0:
