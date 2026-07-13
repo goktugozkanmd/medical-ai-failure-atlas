@@ -82,6 +82,78 @@ def test_discovery_blocks_weekly_eval_with_sidecar_hash_mismatch(
     ]
 
 
+def test_discovery_blocks_weekly_eval_with_non_object_row(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    prompt_path = _write_prompt_tsv(tmp_path, count=30)
+    raw_path = _write_raw_outputs(
+        tmp_path / "weekly_eval_non_object_20260704_120000.json",
+        count=30,
+        row_overrides={0: "not an object"},
+    )
+    _write_sidecar(raw_path, prompt_path, count=30)
+    monkeypatch.setattr(upload_results_to_hf, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(upload_results_to_hf, "HARD30_PROMPTS_FILE", prompt_path)
+
+    runs, skipped = upload_results_to_hf.discover_model_runs_with_skips()
+
+    assert runs == []
+    assert skipped == [
+        "weekly_eval_non_object_20260704_120000.json: row 0 is not an object"
+    ]
+
+
+def test_discovery_blocks_weekly_eval_with_unexpected_row_keys(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    prompt_path = _write_prompt_tsv(tmp_path, count=30)
+    raw_path = _write_raw_outputs(
+        tmp_path / "weekly_eval_bad_keys_20260704_120000.json",
+        count=30,
+        row_overrides={
+            0: {
+                "scenario_id": "H001",
+                "model_answer": "Answer H001",
+                "extra": "leaks into raw output",
+            }
+        },
+    )
+    _write_sidecar(raw_path, prompt_path, count=30)
+    monkeypatch.setattr(upload_results_to_hf, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(upload_results_to_hf, "HARD30_PROMPTS_FILE", prompt_path)
+
+    runs, skipped = upload_results_to_hf.discover_model_runs_with_skips()
+
+    assert runs == []
+    assert skipped == [
+        "weekly_eval_bad_keys_20260704_120000.json: row 0 has unexpected keys"
+    ]
+
+
+def test_discovery_blocks_weekly_eval_with_empty_model_answer(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    prompt_path = _write_prompt_tsv(tmp_path, count=30)
+    raw_path = _write_raw_outputs(
+        tmp_path / "weekly_eval_empty_answer_20260704_120000.json",
+        count=30,
+        row_overrides={0: {"scenario_id": "H001", "model_answer": "  "}},
+    )
+    _write_sidecar(raw_path, prompt_path, count=30)
+    monkeypatch.setattr(upload_results_to_hf, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(upload_results_to_hf, "HARD30_PROMPTS_FILE", prompt_path)
+
+    runs, skipped = upload_results_to_hf.discover_model_runs_with_skips()
+
+    assert runs == []
+    assert skipped == [
+        "weekly_eval_empty_answer_20260704_120000.json: row 0 has empty model_answer"
+    ]
+
+
 def _scenario_ids(count: int) -> list[str]:
     return [f"H{index:03d}" for index in range(1, count + 1)]
 
@@ -97,11 +169,18 @@ def _write_prompt_tsv(tmp_path: Path, count: int) -> Path:
     return path
 
 
-def _write_raw_outputs(path: Path, count: int) -> Path:
+def _write_raw_outputs(
+    path: Path,
+    count: int,
+    *,
+    row_overrides: dict[int, object] | None = None,
+) -> Path:
     rows = [
         {"scenario_id": scenario_id, "model_answer": f"Answer {scenario_id}"}
         for scenario_id in _scenario_ids(count)
     ]
+    for index, row in (row_overrides or {}).items():
+        rows[index] = row
     path.write_text(json.dumps(rows), encoding="utf-8")
     return path
 
@@ -131,11 +210,15 @@ def _write_sidecar(
         "completed_scenario_ids": scenario_ids,
         "per_scenario": [
             {
-                "scenario_id": row["scenario_id"],
+                "scenario_id": row.get("scenario_id", scenario_ids[index])
+                if isinstance(row, dict)
+                else scenario_ids[index],
                 "status": "completed",
-                "answer_sha256": upload_results_to_hf.sha256_text(row["model_answer"]),
+                "answer_sha256": upload_results_to_hf.sha256_text(
+                    str(row.get("model_answer", "")) if isinstance(row, dict) else ""
+                ),
             }
-            for row in rows
+            for index, row in enumerate(rows)
         ],
     }
     sidecar_path = raw_path.with_suffix(".run_metadata.json")

@@ -137,6 +137,13 @@ def weekly_eval_publish_block_reason(path: Path) -> str | None:
     expected_ids = read_hard30_prompt_ids()
     if len(data) != len(expected_ids):
         return f"row count {len(data)} != expected {len(expected_ids)}"
+    for index, row in enumerate(data):
+        if not isinstance(row, dict):
+            return f"row {index} is not an object"
+        if set(row) != {"scenario_id", "model_answer"}:
+            return f"row {index} has unexpected keys"
+        if not isinstance(row["model_answer"], str) or not row["model_answer"].strip():
+            return f"row {index} has empty model_answer"
     found_ids = [
         row.get("scenario_id") if isinstance(row, dict) else None for row in data
     ]
