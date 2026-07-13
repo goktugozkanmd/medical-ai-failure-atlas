@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 import scripts.upload_results_to_hf as upload_results_to_hf
 
 
@@ -152,6 +154,64 @@ def test_discovery_blocks_weekly_eval_with_empty_model_answer(
     assert skipped == [
         "weekly_eval_empty_answer_20260704_120000.json: row 0 has empty model_answer"
     ]
+
+
+def test_publish_gate_exits_when_skipped_items_exist(capsys) -> None:
+    with pytest.raises(SystemExit) as exc:
+        upload_results_to_hf.enforce_no_skips_before_publish(
+            ["weekly_eval_partial.json: completion_status=partial"],
+            allow_skips=False,
+        )
+
+    assert exc.value.code == 1
+    output = capsys.readouterr().out
+    assert "refused to publish" in output
+    assert "weekly_eval_partial.json: completion_status=partial" in output
+
+
+def test_publish_gate_allows_reviewed_skipped_items() -> None:
+    upload_results_to_hf.enforce_no_skips_before_publish(
+        ["weekly_eval_partial.json: completion_status=partial"],
+        allow_skips=True,
+    )
+
+
+def test_strict_dry_run_exits_when_skipped_items_exist(monkeypatch, capsys) -> None:
+    monkeypatch.setattr(
+        upload_results_to_hf, "load_prompts_index", lambda: {"H001": {}}
+    )
+    monkeypatch.setattr(
+        upload_results_to_hf,
+        "collect_rows",
+        lambda: (
+            [
+                {
+                    "id": "run-H001",
+                    "model_name": "test-model",
+                    "model_response": "safe answer",
+                }
+            ],
+            ["weekly_eval_partial.json: completion_status=partial"],
+            [
+                {
+                    "name": "test-model",
+                    "result_file": upload_results_to_hf.REPO_ROOT
+                    / "model_runs"
+                    / "weekly_eval_partial.json",
+                    "rows": 1,
+                    "skipped": 1,
+                }
+            ],
+        ),
+    )
+
+    with pytest.raises(SystemExit) as exc:
+        upload_results_to_hf.dry_run(strict=True)
+
+    assert exc.value.code == 1
+    output = capsys.readouterr().out
+    assert "Total valid rows: 1" in output
+    assert "refused to publish" in output
 
 
 def _scenario_ids(count: int) -> list[str]:

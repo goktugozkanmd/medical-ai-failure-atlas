@@ -14,6 +14,7 @@ Output:
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -437,7 +438,19 @@ def collect_rows() -> tuple[list[dict[str, Any]], list[str], list[dict[str, Any]
     return all_rows, all_skipped, run_summaries
 
 
-def dry_run() -> None:
+def enforce_no_skips_before_publish(skipped: list[str], *, allow_skips: bool) -> None:
+    if allow_skips or not skipped:
+        return
+    print("Error: refused to publish because skipped rows or files were found")
+    for item in skipped[:20]:
+        print(f"  skipped: {item}")
+    if len(skipped) > 20:
+        print(f"  ... {len(skipped) - 20} more skipped")
+    print("Pass --allow-skips only after reviewing the skipped items.")
+    sys.exit(1)
+
+
+def dry_run(*, strict: bool = False, allow_skips: bool = False) -> None:
     prompts = load_prompts_index()
     print(f"Prompt index: {len(prompts)} entries")
     rows, skipped, runs = collect_rows()
@@ -459,10 +472,12 @@ def dry_run() -> None:
         print(
             f"First row: {first['id']} | {first['model_name']} | {len(first['model_response'])} chars"
         )
+    if strict:
+        enforce_no_skips_before_publish(skipped, allow_skips=allow_skips)
     print("Run with HF_TOKEN set to actually publish.")
 
 
-def upload() -> None:
+def upload(*, allow_skips: bool = False) -> None:
     try:
         from datasets import Dataset
     except ImportError:
@@ -480,6 +495,7 @@ def upload() -> None:
     if not rows:
         print("No valid data to upload")
         sys.exit(1)
+    enforce_no_skips_before_publish(skipped, allow_skips=allow_skips)
 
     print(f"Valid rows: {len(rows)}")
     print(f"Skipped rows: {len(skipped)}")
@@ -489,8 +505,25 @@ def upload() -> None:
     print(f"Done! https://huggingface.co/datasets/{RESULTS_DATASET}")
 
 
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit non-zero during dry-run when skipped rows or files are found.",
+    )
+    parser.add_argument(
+        "--allow-skips",
+        action="store_true",
+        help="Allow publishing or strict dry-run success with reviewed skipped items.",
+    )
+    return parser.parse_args(argv)
+
+
 if __name__ == "__main__":
-    if "--dry-run" in sys.argv or not os.environ.get("HF_TOKEN"):
-        dry_run()
+    args = parse_args(sys.argv[1:])
+    if args.dry_run or not os.environ.get("HF_TOKEN"):
+        dry_run(strict=args.strict, allow_skips=args.allow_skips)
     else:
-        upload()
+        upload(allow_skips=args.allow_skips)
