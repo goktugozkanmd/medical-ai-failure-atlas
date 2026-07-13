@@ -21,6 +21,7 @@ import json
 import os
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -38,6 +39,7 @@ SCENARIO_BANK_FILE = REPO_ROOT / "data" / "scenario_bank_v2_hard_addendum.tsv"
 REVIEWED_SKIP_MANIFEST_FILE = (
     REPO_ROOT / "model_runs" / "hf_publish_reviewed_skips.json"
 )
+REVIEWED_SKIP_MANIFEST_SCHEMA = "hf_publish_reviewed_skips_v1"
 RESULTS_DATASET = "goktugozkanmd/medfailbench-v02-results"
 
 ROW_FIELDS = {
@@ -441,6 +443,21 @@ def collect_rows() -> tuple[list[dict[str, Any]], list[str], list[dict[str, Any]
     return all_rows, all_skipped, run_summaries
 
 
+def split_skip_reason(item: str) -> tuple[str, str]:
+    file_name, separator, reason = item.partition(": ")
+    if not separator or not file_name.strip() or not reason.strip():
+        raise ValueError(f"invalid skipped item format: {item}")
+    return file_name, reason
+
+
+def reviewed_skip_entries(skipped: list[str]) -> list[dict[str, str]]:
+    entries = []
+    for item in sorted(set(skipped)):
+        file_name, reason = split_skip_reason(item)
+        entries.append({"file": file_name, "reason": reason})
+    return entries
+
+
 def load_reviewed_skip_manifest(path: Path) -> set[str]:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -451,7 +468,7 @@ def load_reviewed_skip_manifest(path: Path) -> set[str]:
 
     if not isinstance(data, dict):
         raise ValueError("reviewed skip manifest must be an object")
-    if data.get("schema_version") != "hf_publish_reviewed_skips_v1":
+    if data.get("schema_version") != REVIEWED_SKIP_MANIFEST_SCHEMA:
         raise ValueError(
             f"unsupported reviewed skip manifest schema: {data.get('schema_version')}"
         )
@@ -459,7 +476,7 @@ def load_reviewed_skip_manifest(path: Path) -> set[str]:
     if not isinstance(items, list):
         raise ValueError("reviewed skip manifest missing skipped list")
 
-    reviewed: set[str] = set()
+    reviewed: list[str] = []
     for index, item in enumerate(items):
         if not isinstance(item, dict):
             raise ValueError(f"reviewed skip item {index} is not an object")
@@ -469,8 +486,60 @@ def load_reviewed_skip_manifest(path: Path) -> set[str]:
             raise ValueError(f"reviewed skip item {index} missing file")
         if not isinstance(reason, str) or not reason.strip():
             raise ValueError(f"reviewed skip item {index} missing reason")
-        reviewed.add(f"{file_name}: {reason}")
-    return reviewed
+        reviewed.append(f"{file_name}: {reason}")
+    if len(reviewed) != len(set(reviewed)):
+        raise ValueError("reviewed skip manifest contains duplicate skipped items")
+    if reviewed != sorted(reviewed):
+        raise ValueError("reviewed skip manifest skipped list must be sorted")
+    return set(reviewed)
+
+
+def write_reviewed_skip_manifest(
+    path: Path,
+    skipped: list[str],
+    *,
+    reviewed_at: str | None = None,
+) -> None:
+    payload = {
+        "schema_version": REVIEWED_SKIP_MANIFEST_SCHEMA,
+        "reviewed_at": reviewed_at or date.today().isoformat(),
+        "review_note": (
+            "Generated from the current HF publish skip list. Commit only after "
+            "reviewing every skipped file and reason."
+        ),
+        "skipped": reviewed_skip_entries(skipped),
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def validate_reviewed_skip_manifest_matches_current(
+    *,
+    skipped: list[str],
+    manifest_path: Path,
+) -> None:
+    try:
+        reviewed = load_reviewed_skip_manifest(manifest_path)
+    except ValueError as exc:
+        print(f"Error: {exc}")
+        sys.exit(1)
+    current = set(skipped)
+    unexpected = sorted(current - reviewed)
+    stale = sorted(reviewed - current)
+    if not unexpected and not stale:
+        print(f"Reviewed skip manifest matches {len(current)} current skipped items.")
+        return
+    print("Error: reviewed skip manifest does not match current skipped rows/files")
+    for item in unexpected[:20]:
+        print(f"  unexpected: {item}")
+    if len(unexpected) > 20:
+        print(f"  ... {len(unexpected) - 20} more unexpected")
+    for item in stale[:20]:
+        print(f"  stale: {item}")
+    if len(stale) > 20:
+        print(f"  ... {len(stale) - 20} more stale")
+    print("Run --write-reviewed-skip-manifest only after reviewing every changed item.")
+    sys.exit(1)
 
 
 def enforce_no_skips_before_publish(
@@ -607,11 +676,38 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=REVIEWED_SKIP_MANIFEST_FILE,
         help="Allow only skipped items exactly listed in this reviewed manifest.",
     )
+    parser.add_argument(
+        "--validate-reviewed-skip-manifest",
+        action="store_true",
+        help=(
+            "Validate that the reviewed skip manifest schema is current and exactly "
+            "matches the skipped files produced by discovery."
+        ),
+    )
+    parser.add_argument(
+        "--write-reviewed-skip-manifest",
+        action="store_true",
+        help="Write a sorted reviewed skip manifest from the current skipped list.",
+    )
     return parser.parse_args(argv)
 
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
+    if args.write_reviewed_skip_manifest:
+        _rows, skipped, _runs = collect_rows()
+        write_reviewed_skip_manifest(args.reviewed_skip_manifest, skipped)
+        print(
+            f"Wrote {len(set(skipped))} reviewed skipped items to {args.reviewed_skip_manifest}"
+        )
+        sys.exit(0)
+    if args.validate_reviewed_skip_manifest:
+        _rows, skipped, _runs = collect_rows()
+        validate_reviewed_skip_manifest_matches_current(
+            skipped=skipped,
+            manifest_path=args.reviewed_skip_manifest,
+        )
+        sys.exit(0)
     if args.dry_run or not os.environ.get("HF_TOKEN"):
         dry_run(
             strict=args.strict,

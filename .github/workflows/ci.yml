@@ -72,6 +72,9 @@ jobs:
       - name: Run validate-public
         run: make PYTHON=python validate-public
 
+      - name: Validate HF reviewed skip manifest
+        run: python scripts/upload_results_to_hf.py --validate-reviewed-skip-manifest
+
       - name: Run HF publish strict dry-run
         run: python scripts/upload_results_to_hf.py --dry-run --strict
 

@@ -200,6 +200,77 @@ def test_publish_gate_allows_exact_reviewed_skip_manifest(tmp_path: Path) -> Non
     )
 
 
+def test_reviewed_skip_manifest_rejects_duplicates(tmp_path: Path) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "hf_publish_reviewed_skips_v1",
+                "skipped": [
+                    {
+                        "file": "weekly_eval_partial.json",
+                        "reason": "completion_status=partial",
+                    },
+                    {
+                        "file": "weekly_eval_partial.json",
+                        "reason": "completion_status=partial",
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="duplicate"):
+        upload_results_to_hf.load_reviewed_skip_manifest(manifest)
+
+
+def test_reviewed_skip_manifest_rejects_unsorted_items(tmp_path: Path) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "hf_publish_reviewed_skips_v1",
+                "skipped": [
+                    {
+                        "file": "weekly_eval_z.json",
+                        "reason": "missing run metadata sidecar",
+                    },
+                    {
+                        "file": "weekly_eval_a.json",
+                        "reason": "missing run metadata sidecar",
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="must be sorted"):
+        upload_results_to_hf.load_reviewed_skip_manifest(manifest)
+
+
+def test_write_reviewed_skip_manifest_sorts_current_skips(tmp_path: Path) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+
+    upload_results_to_hf.write_reviewed_skip_manifest(
+        manifest,
+        [
+            "weekly_eval_z.json: missing run metadata sidecar",
+            "weekly_eval_a.json: completion_status=partial",
+        ],
+        reviewed_at="2026-07-13",
+    )
+
+    data = json.loads(manifest.read_text(encoding="utf-8"))
+    assert data["schema_version"] == "hf_publish_reviewed_skips_v1"
+    assert data["reviewed_at"] == "2026-07-13"
+    assert data["skipped"] == [
+        {"file": "weekly_eval_a.json", "reason": "completion_status=partial"},
+        {"file": "weekly_eval_z.json", "reason": "missing run metadata sidecar"},
+    ]
+
+
 def test_publish_gate_rejects_unexpected_reviewed_skip_manifest(
     tmp_path: Path,
     capsys,
@@ -234,6 +305,47 @@ def test_publish_gate_rejects_unexpected_reviewed_skip_manifest(
     output = capsys.readouterr().out
     assert "reviewed skip manifest does not match" in output
     assert "unexpected: weekly_eval_new.json: missing run metadata sidecar" in output
+
+
+def test_validate_reviewed_skip_manifest_matches_current(
+    tmp_path: Path, capsys
+) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    upload_results_to_hf.write_reviewed_skip_manifest(
+        manifest,
+        ["weekly_eval_partial.json: completion_status=partial"],
+        reviewed_at="2026-07-13",
+    )
+
+    upload_results_to_hf.validate_reviewed_skip_manifest_matches_current(
+        skipped=["weekly_eval_partial.json: completion_status=partial"],
+        manifest_path=manifest,
+    )
+
+    assert "matches 1 current skipped items" in capsys.readouterr().out
+
+
+def test_validate_reviewed_skip_manifest_rejects_stale_item(
+    tmp_path: Path,
+    capsys,
+) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    upload_results_to_hf.write_reviewed_skip_manifest(
+        manifest,
+        ["weekly_eval_old.json: missing run metadata sidecar"],
+        reviewed_at="2026-07-13",
+    )
+
+    with pytest.raises(SystemExit) as exc:
+        upload_results_to_hf.validate_reviewed_skip_manifest_matches_current(
+            skipped=["weekly_eval_new.json: missing run metadata sidecar"],
+            manifest_path=manifest,
+        )
+
+    assert exc.value.code == 1
+    output = capsys.readouterr().out
+    assert "unexpected: weekly_eval_new.json: missing run metadata sidecar" in output
+    assert "stale: weekly_eval_old.json: missing run metadata sidecar" in output
 
 
 def test_strict_dry_run_exits_when_skipped_items_exist(monkeypatch, capsys) -> None:
