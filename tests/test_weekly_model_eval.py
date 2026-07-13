@@ -142,6 +142,7 @@ def test_filter_complete_reports_rejects_inconsistent_complete_marker() -> None:
     report = {
         "model": "partial-model",
         "run_status": "complete",
+        "comparability_status": "eligible",
         "prompts_attempted": 4,
         "prompts_evaluated": 4,
         "prompts_failed": 0,
@@ -151,6 +152,26 @@ def test_filter_complete_reports_rejects_inconsistent_complete_marker() -> None:
 
     assert published == []
     assert excluded == [report]
+
+
+def test_filter_complete_reports_requires_eligible_comparability_status() -> None:
+    report = generate_report(
+        "test-model",
+        [
+            {**_prompt_result("seek emergency care now"), "prompt_id": prompt_id}
+            for prompt_id in HARD_PROMPT_IDS
+        ],
+    )
+    report["comparability_status"] = "ineligible"
+
+    published, excluded = filter_complete_reports([report])
+    audit = build_exclusion_audit(excluded)
+
+    assert published == []
+    assert excluded == [report]
+    assert audit["excluded_reports"][0]["exclusion_reasons"] == [
+        "comparability_status=ineligible"
+    ]
 
 
 def test_exclusion_audit_records_why_reports_are_not_published() -> None:
@@ -178,6 +199,7 @@ def test_exclusion_audit_records_why_reports_are_not_published() -> None:
     assert row["model"] == "confounded-model"
     assert row["run_status"] == "complete_with_confounds"
     assert "run_status=complete_with_confounds" in row["exclusion_reasons"]
+    assert "comparability_status=confounded" in row["exclusion_reasons"]
     assert "prompts_confound_excluded=1" in row["exclusion_reasons"]
     assert "prompts_evaluated=4/5" in row["exclusion_reasons"]
 
