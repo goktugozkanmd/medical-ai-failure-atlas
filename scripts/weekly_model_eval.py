@@ -9,6 +9,7 @@ Usage:
   python3 scripts/weekly_model_eval.py                    # run all configured models
   python3 scripts/weekly_model_eval.py --model deepseek   # single model only
   python3 scripts/weekly_model_eval.py --dry-run          # validate inputs, no API/scoring
+  python3 scripts/weekly_model_eval.py --model deepseek --max-tokens 1024 --length-retries 2
 
 Requires env vars (or .env):
   DEEPSEEK_API_KEY, OPENAI_API_KEY, OPENROUTER_API_KEY, HF_TOKEN
@@ -107,6 +108,7 @@ CHINESE_FRONTIER_MODEL_KEYS = [
 HARD_PROMPT_IDS = ["H001", "H002", "H003", "H004", "H005"]
 DEFAULT_MAX_TOKENS = 1024
 DEFAULT_LENGTH_RETRIES = 1
+DEFAULT_TIMEOUT_SECONDS = 60
 REPORT_SCHEMA_VERSION = "1.1.0"
 EVALUATOR_VERSION = "0.3.0"
 
@@ -133,10 +135,30 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def build_run_provenance(model_key: str, execution_mode: str) -> dict:
+def build_eval_run_config(
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+    length_retries: int = DEFAULT_LENGTH_RETRIES,
+    timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
+) -> dict:
+    if max_tokens < 1:
+        raise ValueError("max_tokens must be positive")
+    if length_retries < 0:
+        raise ValueError("length_retries must not be negative")
+    if timeout_seconds < 1:
+        raise ValueError("timeout_seconds must be positive")
+    return {
+        "initial_max_tokens": max_tokens,
+        "length_retries": length_retries,
+        "timeout_seconds": timeout_seconds,
+    }
+
+
+def build_run_provenance(
+    model_key: str, execution_mode: str, run_config: dict | None = None
+) -> dict:
     config = CONFIGURED_MODELS[model_key]
     script_path = Path(__file__).resolve()
-    return {
+    provenance = {
         "report_schema_version": REPORT_SCHEMA_VERSION,
         "evaluator_version": EVALUATOR_VERSION,
         "execution_mode": execution_mode,
@@ -156,6 +178,9 @@ def build_run_provenance(model_key: str, execution_mode: str) -> dict:
             "sha256": sha256_file(script_path),
         },
     }
+    if run_config is not None:
+        provenance["run_config"] = run_config
+    return provenance
 
 
 def write_json_atomic(path: Path, payload: object) -> None:
@@ -641,6 +666,46 @@ def filter_complete_reports(reports: list[dict]) -> tuple[list[dict], list[dict]
     return complete, excluded
 
 
+def build_exclusion_audit(excluded_reports: list[dict]) -> dict:
+    rows = []
+    for report in excluded_reports:
+        reasons = []
+        if report.get("execution_mode", "live") != "live":
+            reasons.append("non_live_execution")
+        if report.get("run_status") != "complete":
+            reasons.append(f"run_status={report.get('run_status')}")
+        if report.get("prompts_failed", 0) != 0:
+            reasons.append(f"prompts_failed={report.get('prompts_failed')}")
+        if report.get("prompts_confound_excluded", 0) != 0:
+            reasons.append(
+                f"prompts_confound_excluded={report.get('prompts_confound_excluded')}"
+            )
+        if report.get("prompts_evaluated") != len(HARD_PROMPT_IDS):
+            reasons.append(
+                f"prompts_evaluated={report.get('prompts_evaluated')}/"
+                f"{len(HARD_PROMPT_IDS)}"
+            )
+        rows.append(
+            {
+                "model": report.get("model"),
+                "run_status": report.get("run_status"),
+                "comparability_status": report.get("comparability_status"),
+                "execution_mode": report.get("execution_mode", "live"),
+                "prompts_attempted": report.get("prompts_attempted"),
+                "prompts_evaluated": report.get("prompts_evaluated"),
+                "prompts_failed": report.get("prompts_failed"),
+                "prompts_confound_excluded": report.get("prompts_confound_excluded", 0),
+                "exclusion_reasons": reasons or ["not_summary_eligible"],
+            }
+        )
+    return {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "expected_prompt_count": len(HARD_PROMPT_IDS),
+        "excluded_count": len(rows),
+        "excluded_reports": rows,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="MedFailBench Weekly Model Evaluation")
     parser.add_argument(
@@ -654,7 +719,30 @@ def main():
         action="store_true",
         help="Validate prompt/config inputs without API calls or scoring",
     )
+    parser.add_argument(
+        "--max-tokens",
+        type=int,
+        default=DEFAULT_MAX_TOKENS,
+        help="Initial completion token budget for each prompt",
+    )
+    parser.add_argument(
+        "--length-retries",
+        type=int,
+        default=DEFAULT_LENGTH_RETRIES,
+        help="Number of retries after finish_reason=length; budget doubles each retry",
+    )
+    parser.add_argument(
+        "--timeout-seconds",
+        type=int,
+        default=DEFAULT_TIMEOUT_SECONDS,
+        help="HTTP timeout for each model call",
+    )
     args = parser.parse_args()
+    run_config = build_eval_run_config(
+        max_tokens=args.max_tokens,
+        length_retries=args.length_retries,
+        timeout_seconds=args.timeout_seconds,
+    )
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     if args.chinese:
@@ -689,7 +777,13 @@ def main():
                 print("validated")
                 continue
 
-            response = call_model_with_length_retry(model_key, prompt_text)
+            response = call_model_with_length_retry(
+                model_key,
+                prompt_text,
+                timeout=args.timeout_seconds,
+                initial_max_tokens=args.max_tokens,
+                length_retries=args.length_retries,
+            )
             time.sleep(2)
 
             if "error" in response:
@@ -746,7 +840,9 @@ def main():
             print(f"mean={scores['mean']} label={scores['final_label']}")
 
         provenance = build_run_provenance(
-            model_key, "dry_run" if args.dry_run else "live"
+            model_key,
+            "dry_run" if args.dry_run else "live",
+            run_config,
         )
         if args.dry_run:
             report = generate_dry_run_report(
@@ -777,7 +873,10 @@ def main():
 
     summary_file = OUTPUT_DIR / f"weekly_eval_summary_{timestamp}.json"
     write_json_atomic(summary_file, complete_reports)
+    excluded_file = OUTPUT_DIR / f"weekly_eval_excluded_{timestamp}.json"
+    write_json_atomic(excluded_file, build_exclusion_audit(excluded_reports))
     print(f"\nSummary: {summary_file}")
+    print(f"Excluded audit: {excluded_file}")
     print(
         f"Summary eligibility: {len(complete_reports)} complete, "
         f"{len(excluded_reports)} excluded"

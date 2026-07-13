@@ -16,6 +16,8 @@ build_confound_condition = MODULE["build_confound_condition"]
 build_response_metadata = MODULE["build_response_metadata"]
 call_model_with_length_retry = MODULE["call_model_with_length_retry"]
 build_run_provenance = MODULE["build_run_provenance"]
+build_eval_run_config = MODULE["build_eval_run_config"]
+build_exclusion_audit = MODULE["build_exclusion_audit"]
 generate_dry_run_report = MODULE["generate_dry_run_report"]
 write_json_atomic = MODULE["write_json_atomic"]
 HARD_PROMPT_IDS = MODULE["HARD_PROMPT_IDS"]
@@ -149,6 +151,35 @@ def test_filter_complete_reports_rejects_inconsistent_complete_marker() -> None:
 
     assert published == []
     assert excluded == [report]
+
+
+def test_exclusion_audit_records_why_reports_are_not_published() -> None:
+    report = generate_report(
+        "confounded-model",
+        [
+            {**_prompt_result("seek emergency care now"), "prompt_id": prompt_id}
+            for prompt_id in ("H001", "H002", "H003", "H004")
+        ],
+        confound_conditions=[
+            {
+                "prompt_id": "H005",
+                "confound_type": "output_length_truncation",
+                "category": "confound",
+                "detail": "finish_reason is length",
+                "metadata": {"finish_reason": "length"},
+            }
+        ],
+    )
+
+    audit = build_exclusion_audit([report])
+
+    assert audit["excluded_count"] == 1
+    row = audit["excluded_reports"][0]
+    assert row["model"] == "confounded-model"
+    assert row["run_status"] == "complete_with_confounds"
+    assert "run_status=complete_with_confounds" in row["exclusion_reasons"]
+    assert "prompts_confound_excluded=1" in row["exclusion_reasons"]
+    assert "prompts_evaluated=4/5" in row["exclusion_reasons"]
 
 
 def test_extract_model_response_preserves_finish_reason_and_usage() -> None:
@@ -451,6 +482,28 @@ def test_call_model_with_length_retry_rejects_invalid_retry_configuration() -> N
             raise AssertionError("invalid retry configuration must be rejected")
 
 
+def test_eval_run_config_validates_token_retry_and_timeout_values() -> None:
+    assert build_eval_run_config(
+        max_tokens=2048, length_retries=2, timeout_seconds=90
+    ) == {
+        "initial_max_tokens": 2048,
+        "length_retries": 2,
+        "timeout_seconds": 90,
+    }
+
+    for kwargs, message in [
+        ({"max_tokens": 0}, "max_tokens must be positive"),
+        ({"length_retries": -1}, "length_retries must not be negative"),
+        ({"timeout_seconds": 0}, "timeout_seconds must be positive"),
+    ]:
+        try:
+            build_eval_run_config(**kwargs)
+        except ValueError as exc:
+            assert str(exc) == message
+        else:
+            raise AssertionError("invalid eval config must be rejected")
+
+
 def test_dry_run_validates_inputs_without_creating_scores() -> None:
     provenance = {"execution_mode": "dry_run"}
 
@@ -470,7 +523,10 @@ def test_dry_run_validates_inputs_without_creating_scores() -> None:
 
 
 def test_run_provenance_pins_inputs_and_runtime() -> None:
-    provenance = build_run_provenance("deepseek-v4-flash", "live")
+    run_config = build_eval_run_config(
+        max_tokens=2048, length_retries=2, timeout_seconds=90
+    )
+    provenance = build_run_provenance("deepseek-v4-flash", "live", run_config)
 
     assert provenance["report_schema_version"] == "1.1.0"
     assert provenance["evaluator_version"] == "0.3.0"
@@ -479,6 +535,7 @@ def test_run_provenance_pins_inputs_and_runtime() -> None:
     assert len(provenance["prompt_set"]["sha256"]) == 64
     assert len(provenance["evaluator"]["sha256"]) == 64
     assert provenance["prompt_set"]["path"] == "data/prompt_set_v2_hard_30.tsv"
+    assert provenance["run_config"] == run_config
 
 
 def test_write_json_atomic_replaces_destination_without_temp_artifacts(
