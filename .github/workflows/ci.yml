@@ -72,6 +72,9 @@ jobs:
       - name: Run validate-public
         run: make PYTHON=python validate-public
 
+      - name: Run HF publish strict dry-run
+        run: python scripts/upload_results_to_hf.py --dry-run --strict
+
   secret-scan:
     name: secret-scan (gitleaks)
     runs-on: ubuntu-latest
@@ -176,4 +179,3 @@ jobs:
           name: weekly-eval-results
           path: model_runs/
           retention-days: 30
-

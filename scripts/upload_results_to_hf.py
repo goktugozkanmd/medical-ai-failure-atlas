@@ -35,6 +35,9 @@ PREVIEW_PROMPTS_FILE = (
     / "prompt_set_v2_hard_5_preview.tsv"
 )
 SCENARIO_BANK_FILE = REPO_ROOT / "data" / "scenario_bank_v2_hard_addendum.tsv"
+REVIEWED_SKIP_MANIFEST_FILE = (
+    REPO_ROOT / "model_runs" / "hf_publish_reviewed_skips.json"
+)
 RESULTS_DATASET = "goktugozkanmd/medfailbench-v02-results"
 
 ROW_FIELDS = {
@@ -438,9 +441,72 @@ def collect_rows() -> tuple[list[dict[str, Any]], list[str], list[dict[str, Any]
     return all_rows, all_skipped, run_summaries
 
 
-def enforce_no_skips_before_publish(skipped: list[str], *, allow_skips: bool) -> None:
-    if allow_skips or not skipped:
+def load_reviewed_skip_manifest(path: Path) -> set[str]:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        raise ValueError(f"reviewed skip manifest not found: {path}") from None
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"invalid reviewed skip manifest JSON: {exc.msg}") from None
+
+    if not isinstance(data, dict):
+        raise ValueError("reviewed skip manifest must be an object")
+    if data.get("schema_version") != "hf_publish_reviewed_skips_v1":
+        raise ValueError(
+            f"unsupported reviewed skip manifest schema: {data.get('schema_version')}"
+        )
+    items = data.get("skipped")
+    if not isinstance(items, list):
+        raise ValueError("reviewed skip manifest missing skipped list")
+
+    reviewed: set[str] = set()
+    for index, item in enumerate(items):
+        if not isinstance(item, dict):
+            raise ValueError(f"reviewed skip item {index} is not an object")
+        file_name = item.get("file")
+        reason = item.get("reason")
+        if not isinstance(file_name, str) or not file_name.strip():
+            raise ValueError(f"reviewed skip item {index} missing file")
+        if not isinstance(reason, str) or not reason.strip():
+            raise ValueError(f"reviewed skip item {index} missing reason")
+        reviewed.add(f"{file_name}: {reason}")
+    return reviewed
+
+
+def enforce_no_skips_before_publish(
+    skipped: list[str],
+    *,
+    allow_skips: bool,
+    reviewed_skip_manifest: Path | None = None,
+) -> None:
+    if not skipped:
         return
+    if allow_skips:
+        return
+    if reviewed_skip_manifest is not None:
+        try:
+            reviewed = load_reviewed_skip_manifest(reviewed_skip_manifest)
+        except ValueError as exc:
+            print(f"Error: {exc}")
+            sys.exit(1)
+        current = set(skipped)
+        unexpected = sorted(current - reviewed)
+        stale = sorted(reviewed - current)
+        if not unexpected and not stale:
+            return
+        print("Error: reviewed skip manifest does not match current skipped rows/files")
+        for item in unexpected[:20]:
+            print(f"  unexpected: {item}")
+        if len(unexpected) > 20:
+            print(f"  ... {len(unexpected) - 20} more unexpected")
+        for item in stale[:20]:
+            print(f"  stale: {item}")
+        if len(stale) > 20:
+            print(f"  ... {len(stale) - 20} more stale")
+        print(
+            "Update the reviewed skip manifest only after reviewing every changed item."
+        )
+        sys.exit(1)
     print("Error: refused to publish because skipped rows or files were found")
     for item in skipped[:20]:
         print(f"  skipped: {item}")
@@ -450,7 +516,12 @@ def enforce_no_skips_before_publish(skipped: list[str], *, allow_skips: bool) ->
     sys.exit(1)
 
 
-def dry_run(*, strict: bool = False, allow_skips: bool = False) -> None:
+def dry_run(
+    *,
+    strict: bool = False,
+    allow_skips: bool = False,
+    reviewed_skip_manifest: Path | None = None,
+) -> None:
     prompts = load_prompts_index()
     print(f"Prompt index: {len(prompts)} entries")
     rows, skipped, runs = collect_rows()
@@ -473,11 +544,19 @@ def dry_run(*, strict: bool = False, allow_skips: bool = False) -> None:
             f"First row: {first['id']} | {first['model_name']} | {len(first['model_response'])} chars"
         )
     if strict:
-        enforce_no_skips_before_publish(skipped, allow_skips=allow_skips)
+        enforce_no_skips_before_publish(
+            skipped,
+            allow_skips=allow_skips,
+            reviewed_skip_manifest=reviewed_skip_manifest,
+        )
     print("Run with HF_TOKEN set to actually publish.")
 
 
-def upload(*, allow_skips: bool = False) -> None:
+def upload(
+    *,
+    allow_skips: bool = False,
+    reviewed_skip_manifest: Path | None = None,
+) -> None:
     try:
         from datasets import Dataset
     except ImportError:
@@ -495,7 +574,11 @@ def upload(*, allow_skips: bool = False) -> None:
     if not rows:
         print("No valid data to upload")
         sys.exit(1)
-    enforce_no_skips_before_publish(skipped, allow_skips=allow_skips)
+    enforce_no_skips_before_publish(
+        skipped,
+        allow_skips=allow_skips,
+        reviewed_skip_manifest=reviewed_skip_manifest,
+    )
 
     print(f"Valid rows: {len(rows)}")
     print(f"Skipped rows: {len(skipped)}")
@@ -518,12 +601,25 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Allow publishing or strict dry-run success with reviewed skipped items.",
     )
+    parser.add_argument(
+        "--reviewed-skip-manifest",
+        type=Path,
+        default=REVIEWED_SKIP_MANIFEST_FILE,
+        help="Allow only skipped items exactly listed in this reviewed manifest.",
+    )
     return parser.parse_args(argv)
 
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     if args.dry_run or not os.environ.get("HF_TOKEN"):
-        dry_run(strict=args.strict, allow_skips=args.allow_skips)
+        dry_run(
+            strict=args.strict,
+            allow_skips=args.allow_skips,
+            reviewed_skip_manifest=args.reviewed_skip_manifest if args.strict else None,
+        )
     else:
-        upload(allow_skips=args.allow_skips)
+        upload(
+            allow_skips=args.allow_skips,
+            reviewed_skip_manifest=args.reviewed_skip_manifest,
+        )

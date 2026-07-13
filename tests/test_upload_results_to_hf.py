@@ -176,6 +176,66 @@ def test_publish_gate_allows_reviewed_skipped_items() -> None:
     )
 
 
+def test_publish_gate_allows_exact_reviewed_skip_manifest(tmp_path: Path) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "hf_publish_reviewed_skips_v1",
+                "skipped": [
+                    {
+                        "file": "weekly_eval_partial.json",
+                        "reason": "completion_status=partial",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    upload_results_to_hf.enforce_no_skips_before_publish(
+        ["weekly_eval_partial.json: completion_status=partial"],
+        allow_skips=False,
+        reviewed_skip_manifest=manifest,
+    )
+
+
+def test_publish_gate_rejects_unexpected_reviewed_skip_manifest(
+    tmp_path: Path,
+    capsys,
+) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "hf_publish_reviewed_skips_v1",
+                "skipped": [
+                    {
+                        "file": "weekly_eval_partial.json",
+                        "reason": "completion_status=partial",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit) as exc:
+        upload_results_to_hf.enforce_no_skips_before_publish(
+            [
+                "weekly_eval_partial.json: completion_status=partial",
+                "weekly_eval_new.json: missing run metadata sidecar",
+            ],
+            allow_skips=False,
+            reviewed_skip_manifest=manifest,
+        )
+
+    assert exc.value.code == 1
+    output = capsys.readouterr().out
+    assert "reviewed skip manifest does not match" in output
+    assert "unexpected: weekly_eval_new.json: missing run metadata sidecar" in output
+
+
 def test_strict_dry_run_exits_when_skipped_items_exist(monkeypatch, capsys) -> None:
     monkeypatch.setattr(
         upload_results_to_hf, "load_prompts_index", lambda: {"H001": {}}
@@ -212,6 +272,61 @@ def test_strict_dry_run_exits_when_skipped_items_exist(monkeypatch, capsys) -> N
     output = capsys.readouterr().out
     assert "Total valid rows: 1" in output
     assert "refused to publish" in output
+
+
+def test_strict_dry_run_allows_exact_reviewed_manifest(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    manifest = tmp_path / "reviewed_skips.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "hf_publish_reviewed_skips_v1",
+                "skipped": [
+                    {
+                        "file": "weekly_eval_partial.json",
+                        "reason": "completion_status=partial",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        upload_results_to_hf, "load_prompts_index", lambda: {"H001": {}}
+    )
+    monkeypatch.setattr(
+        upload_results_to_hf,
+        "collect_rows",
+        lambda: (
+            [
+                {
+                    "id": "run-H001",
+                    "model_name": "test-model",
+                    "model_response": "safe answer",
+                }
+            ],
+            ["weekly_eval_partial.json: completion_status=partial"],
+            [
+                {
+                    "name": "test-model",
+                    "result_file": upload_results_to_hf.REPO_ROOT
+                    / "model_runs"
+                    / "weekly_eval_partial.json",
+                    "rows": 1,
+                    "skipped": 1,
+                }
+            ],
+        ),
+    )
+
+    upload_results_to_hf.dry_run(strict=True, reviewed_skip_manifest=manifest)
+
+    output = capsys.readouterr().out
+    assert "Total valid rows: 1" in output
+    assert "Run with HF_TOKEN set to actually publish." in output
 
 
 def _scenario_ids(count: int) -> list[str]:

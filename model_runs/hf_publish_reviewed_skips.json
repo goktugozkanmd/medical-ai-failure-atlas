@@ -1,0 +1,43 @@
+{
+  "schema_version": "hf_publish_reviewed_skips_v1",
+  "reviewed_at": "2026-07-13",
+  "review_note": "Legacy or partial weekly eval artifacts reviewed before enabling strict HF publish preflight. New skipped files must be reviewed and added explicitly.",
+  "skipped": [
+    {
+      "file": "weekly_eval_deepseek-v3.2_20260704_130631.json",
+      "reason": "row count 5 != expected 30"
+    },
+    {
+      "file": "weekly_eval_deepseek-v4-flash_20260703_094550.json",
+      "reason": "missing run metadata sidecar"
+    },
+    {
+      "file": "weekly_eval_deepseek-v4-flash_20260704_120225.json",
+      "reason": "missing run metadata sidecar"
+    },
+    {
+      "file": "weekly_eval_deepseek-v4-pro_20260704_120507.json",
+      "reason": "missing run metadata sidecar"
+    },
+    {
+      "file": "weekly_eval_kimi-k2.6_20260704_160510.json",
+      "reason": "row count 6 != expected 30"
+    },
+    {
+      "file": "weekly_eval_kimi-k2.7-code_20260704_130620.json",
+      "reason": "row count 5 != expected 30"
+    },
+    {
+      "file": "weekly_eval_llama-3.1-8b-instruct_20260705_171309.json",
+      "reason": "missing run metadata sidecar"
+    },
+    {
+      "file": "weekly_eval_llama-3.3-70b-instruct_20260703_094550.json",
+      "reason": "missing run metadata sidecar"
+    },
+    {
+      "file": "weekly_eval_qwen-2.5-7b-instruct_20260704_204124.json",
+      "reason": "missing run metadata sidecar"
+    }
+  ]
+}
