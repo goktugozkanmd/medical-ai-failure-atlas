@@ -1,17 +1,18 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{authblk}
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\setlength{\emergencystretch}{3em}
 
 \title{MedFailBench: A Clinician-Built Open-Source Benchmark for\\Medical AI Safety Boundary Inspection}
 
 \author[1]{Goktug Ozkan, MD}
 \affil[1]{Department of Internal Medicine, Kutahya Emet Dr. Fazil Dogan State Hospital, Kutahya, Turkiye}
-\date{Draft v0.2}
+\date{Preprint v0.2.1 (July 2026)}
 
 \begin{document}
 \maketitle
@@ -23,11 +24,11 @@ We present a clinician-built synthetic benchmark and failure atlas that labels
 medical AI errors by severity (1--5) and safety gate type (missed urgent
 escalation, unsafe remote dosing, unsafe discharge reassurance, evidence
 fabrication, unsafe protocol execution, source support gap). The current public
-release (v0.2.1) contains clinician-authored synthetic cases with severity
+release (v0.2.1) contains 44 clinician-reviewed synthetic cases with severity
 annotations, a live HuggingFace leaderboard preview, a safety gate taxonomy, a
-clinical severity rubric, and a real model response evaluation produced by a
-weekly automated pipeline. No patient data, no clinical validation claims, no
-model rankings. MedFailBench is released under Apache-2.0 and CC-BY-4.0 and
+clinical severity rubric, and an automated pipeline for archiving model-response
+screening runs. No patient data, clinical validation claims, or model rankings
+are included. MedFailBench is released under Apache-2.0 and CC-BY-4.0 and
 carries the Zenodo DOI 10.5281/zenodo.21205535.
 \end{abstract}
 
@@ -35,22 +36,21 @@ carries the Zenodo DOI 10.5281/zenodo.21205535.
 
 Large language models (LLMs) are increasingly proposed for clinical settings.
 General benchmarks such as MMLU~\cite{hendrycks2021mmlu} measure knowledge
-retrieval, but medical safety failures often manifest as wording, escalation
-boundary, source support, and clinical framing errors that exam accuracy metrics
-do not capture~\cite{wornow2025healthbench}.
+retrieval. HealthBench extends evaluation to open-ended conversations using
+physician-created rubrics~\cite{arora2025healthbench}, but transparent inspection
+of severity-labelled boundary failures remains limited.
 
-Existing medical AI evaluations have examined broad medical performance and
-benchmark coverage through resources such as MedHELM~\cite{stanfordcrfm2026medhelm}
-and HealthBench~\cite{wornow2025healthbench}. Single-model assessments of
+Existing medical AI evaluations include broad, clinician-validated task
+taxonomies~\cite{bedi2025medhelm}, medication-safety decision support
+testing~\cite{ong2024medicationsafety}, and physician-led studies of unsafe
+patient-facing answers~\cite{draelos2026patientanswers}. Assessments of
 GPT-4~\cite{nori2023gpt4medical,lee2023benefitslimitsgpt4} and Med-PaLM
 2~\cite{singhal2023medpalm2} in clinical tasks have also been published, but
 most open benchmarks lack a structured clinician-authored severity layer that
 separates wording problems from safety-critical framing errors.
 
-The Turkish National AI Strategy 2021--2025 identifies healthcare AI as a
-priority area. MedFailBench is designed as a public safety review layer that
-can inform national efforts while remaining independent of any institutional
-endorsement.
+MedFailBench is designed as an independent public safety review resource,
+without institutional endorsement.
 
 We introduce MedFailBench, an open-source synthetic benchmark that labels
 medical AI failure patterns by clinician-authored severity and safety gate
@@ -103,10 +103,18 @@ Level & Label & Meaning \\
 Distribution in the current synthetic set: severity 3 = 7 cases, severity 4 = 14 cases,
 severity 5 = 23 cases.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.62\linewidth]{figures/severity_distribution.pdf}
+\caption{Severity distribution in the 44-case clinician-reviewed release.}
+\label{fig:severity}
+\end{figure}
+
 \subsection{Safety Gate Taxonomy}
 
 A safety gate names the primary review reason that connects a model failure to
-the clinical risk a reviewer needs to inspect~\ref{tab:gates}.
+the clinical risk a reviewer needs to inspect, as summarized in
+Table~\ref{tab:gates}.
 
 \begin{table}[h]
 \centering
@@ -114,36 +122,30 @@ the clinical risk a reviewer needs to inspect~\ref{tab:gates}.
 \toprule
 Gate & Definition \\
 \midrule
-missed\_urgent\_escalation & Answer fails to preserve urgent evaluation. \\
-unsafe\_remote\_dosing & Answer implies medication change without missing variables. \\
-unsafe\_discharge\_reassurance & Reassurance despite unresolved red flags. \\
-evidence\_fabrication\_or\_overclaim & Overstates evidence or invents support. \\
-unsafe\_protocol\_execution\_detail & Turns general guidance into operational steps. \\
-source\_support\_gap & Source support problem needing explicit checking. \\
+Missed urgent escalation & Answer fails to preserve urgent evaluation. \\
+Unsafe remote dosing & Answer implies medication change without missing variables. \\
+Unsafe discharge reassurance & Reassurance despite unresolved red flags. \\
+Evidence fabrication or overclaim & Overstates evidence or invents support. \\
+Unsafe protocol execution detail & Turns general guidance into operational steps. \\
+Source support gap & Source support problem needing explicit checking. \\
 \bottomrule
 \end{tabular}
 \caption{Safety gate taxonomy v0.2.\label{tab:gates}}
 \end{table}
 
-\subsection{Real Model Response Evaluation}
+\subsection{Automated Response Screening Pipeline}
 
-We evaluated 10 open-weight LLMs spanning 7B to 70B+ parameters across five
-model families (Qwen, Llama, DeepSeek, GLM, Kimi) on synthetic prompts from
-the MedFailBench set. Evaluation subsets range from 5 hard prompts
-(H001--H005) to a 30-prompt safety set. The evaluation protocol proceeds as
-follows: each model receives the same clinical prompts via API, and raw
-outputs are collected without system prompt modifications. A rule-based
-scoring script then evaluates each output across 5 dimensions (safety,
-accuracy, source transparency, refusal appropriateness, clinical grounding)
-on a 1--5 scale and assigns a final label (unsafe, clinically usable with
-caution, or safe). Safety gate counts are tallied per model. Results were
-documented as a weekly evaluation preview and made available in the
-repository. This is an automated screening pass; full clinician review is
-required before any public safety claim.
+The repository includes a provider-agnostic pipeline for collecting model
+responses to fixed synthetic prompts. Each run records the provider, model,
+timestamp, prompt identifier, and whether the run is a dry run. Dry-run payloads
+are explicitly marked and are excluded from evidence claims. A rule-based script
+can assign provisional scores for safety, accuracy, source transparency, refusal
+appropriateness, and clinical grounding. These outputs are screening artifacts;
+this report makes no comparative model-performance claim from them.
 
 \subsection{Repository Structure}
 
-The MedFailBench repository (\url{https://github.com/goktugozkanmd/medical-ai-failure-atlas})
+The MedFailBench \href{https://github.com/goktugozkanmd/medical-ai-failure-atlas}{public repository}
 is organized for inspectability and contribution:
 \begin{enumerate}[noitemsep]
   \item \texttt{data/} -- synthetic case files in structured JSON format with
@@ -163,74 +165,45 @@ All synthetic cases are licensed under CC-BY-4.0; code is Apache-2.0.
 
 The current public release includes:
 \begin{enumerate}[noitemsep]
-  \item A synthetic-only case set with clinician-authored entries spanning
-        cardiology, emergency and critical care, endocrinology, neurology,
-        nephrology, gastroenterology and hepatology, obstetrics and women's
-        health, geriatrics and polypharmacy, infectious diseases, and source
-        integrity.
+  \item A synthetic-only case set with 44 clinician-reviewed entries across 21
+        domain labels spanning cardiology, emergency and critical care,
+        endocrinology, neurology, nephrology, gastroenterology and hepatology,
+        obstetrics and women's health, geriatrics and polypharmacy, infectious
+        diseases, dermatology, hematology, respiratory care, and rheumatology.
   \item A safety gate taxonomy with 6 defined gate types.
   \item A clinical severity rubric with 5 levels.
   \item A live HuggingFace leaderboard preview with model submission form.
-  \item A weekly automated real-model evaluation pipeline (CI-integrated),
-        currently producing genuine Qwen 2.5-7B responses across 5 hard
-        prompts; extendable to additional models via provider API keys.
+  \item A CI-integrated pipeline that archives real-model response runs and
+        labels dry runs explicitly; automated scores are screening outputs that
+        require clinician review before any performance claim.
   \item A collaboration brief and contribution guide with issue templates.
   \item A persistent Zenodo DOI (10.5281/zenodo.21205535) for citation.
 \end{enumerate}
 
-All cases are risk-axis annotated. The distribution is weighted toward
-safety-critical risk axes including false reassurance, medication safety,
-and rare-danger under-triage.
-The most common safety gate is missed urgent escalation, consistent with
-the observation that LLMs may produce fluent text without preserving
-escalation boundaries. Clinical domain coverage is balanced across ten
-specialty areas (cardiology, emergency and critical care, endocrinology,
-neurology, nephrology, gastroenterology and hepatology, obstetrics and
-women's health, geriatrics and polypharmacy, infectious diseases, and
-source integrity), with ten cases each in the eight core domains.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l r r r r r r}
-\toprule
-Model & Safety & Acc. & Source & Refusal & Clin. & Auto final \\
-& mean & mean & trans. & approp. & ground. & labels \\
-\midrule
-DeepSeek V4 Flash & 1.8 & 2.2 & 4.0 & 4.2 & 3.6 & 4 unsafe; 1 caution \\
-Qwen 2.5 7B Instr. & 1.8 & 2.2 & 4.0 & 4.2 & 3.6 & 4 unsafe; 1 caution \\
-Llama 3.3 70B Instr. & 1.6 & 2.2 & 4.0 & 4.2 & 4.0 & 4 unsafe; 1 caution \\
-\bottomrule
-\end{tabular}
-\caption{Automated rule-based evaluation of Chinese-frontier models across 5 hard synthetic prompts (H001--H005). Scores are 1--5 (5 best). v0.2.1 introduces a CI-integrated weekly pipeline producing real (non-simulated) model responses; Qwen 2.5-7B is the first model with genuine outputs. Clinician review is required before any public claim.}
-\end{table}
+All 44 cases are risk-axis annotated. Rare-danger cases are the largest group
+(10), followed by medication safety (8) and workflow mismatch (8). Severity is
+weighted toward higher-risk review: 7 cases are level 3, 14 are level 4, and 23
+are level 5. Forty cases have a populated safety-gate field; four require gate
+completion. The most common populated gate is missed urgent escalation (16).
 
 \section{Discussion}
 
-MedFailBench provides a clinician-authored severity and safety gate layer
-that existing medical AI benchmarks do not offer. While benchmarks such as
-MMLU~\cite{hendrycks2021mmlu} and HealthBench~\cite{wornow2025healthbench}
-report aggregate knowledge accuracy, they do not distinguish between a
-fluent but unsafe response and a cautious refusal. MedFailBench shifts the
+MedFailBench provides a clinician-reviewed severity and safety gate layer.
+While MMLU~\cite{hendrycks2021mmlu} reports aggregate knowledge accuracy and
+HealthBench~\cite{arora2025healthbench} uses detailed conversation-specific
+rubrics, MedFailBench makes each released boundary-failure label directly
+inspectable. It shifts the
 question from \textit{does the model know the answer?} to \textit{what safety
 boundary failed and how dangerous is it?}
-
-The preliminary automated evaluation demonstrates that all three tested
-models produce safety-related failures on the same hard prompts, with missed
-urgent escalation as the dominant failure mode. This consistency across
-model sizes (7B to 70B parameters) and architectures suggests that medical
-safety boundary failures are not limited to small models but reflect a
-deeper pattern in how LLMs handle clinical ambiguity. Full clinician review
-is required to validate these automated findings and to produce a detailed
-failure profile.
 
 \subsection{Relation to Other Benchmarks}
 
 MedFailBench is complementary to existing medical benchmarks. MMLU and
-MedMCQA measure factual knowledge; MedHELM~\cite{stanfordcrfm2026medhelm} evaluates
-multiple dimensions including calibration and fairness; HealthBench assesses
-clinical knowledge across specialties. None of these provide a structured
-clinician-authored severity layer that separates wording problems from
-safety-critical framing errors.
+MedMCQA measure factual knowledge; MedHELM~\cite{bedi2025medhelm} covers broad
+real-world medical tasks with a clinician-validated taxonomy; HealthBench
+assesses open-ended health conversations using physician-created rubrics.
+MedFailBench contributes a compact, openly inspectable severity and safety-gate
+layer for synthetic boundary-failure cases.
 
 Specialized evaluations of GPT-4~\cite{nori2023gpt4medical} and Med-PaLM
 2~\cite{singhal2023medpalm2} have examined long-form clinical reasoning, but
@@ -238,39 +211,22 @@ their findings are not packaged as open, reusable benchmark artifacts with
 inspectable failure labels. MedFailBench fills this gap by making each
 failure pattern inspectable, extensible, and community-reviewable.
 
-Recent adjacent work has expanded safety-oriented medical LLM evaluation,
-including synthetic-case analysis of clinical reasoning failures~\cite{auger2026dissecting},
-simulated diagnostic safety evaluation~\cite{medsafedx2026}, and audits of
-medical benchmark methodology~\cite{medcheck2026}. MedFailBench is positioned
-complementarily: where these efforts emphasize scale, conversation realism,
-or benchmark auditing,
-MedFailBench contributes an open, clinician-built safety-gate taxonomy with
-per-case severity labels, multilingual coverage (English + Turkish), and a
-transparent rule-based scoring rubric released as a reusable artifact.
+For Turkish-language evaluation, TR-MMLU~\cite{bayram2025trmmlu} provides a
+knowledge-benchmark reference point. MedFailBench adds a safety layer that is
+independent of language-specific knowledge accuracy.
 
-For Turkish-language medical AI evaluation, TR-MMLU~\cite{tsai2025trmmmu}
-provides context for the national dimension of this work. MedFailBench extends these efforts by
-adding a safety layer that is independent of language-specific knowledge
-benchmarks.
+\subsection{Relation to National AI Strategy}
 
-\subsection{Relation to Turkish AI Strategy}
-
-The Turkish National AI Strategy identifies healthcare AI as a priority area.
-MedFailBench can function as an independent public safety review surface for
-these efforts, providing transparent failure inspection without patient data
-access. We position MedFailBench as a community resource that national
-initiatives can build on rather than a certified assessment tool.
+For national or institutional AI strategy contexts, MedFailBench can serve as an
+independent public safety review surface, without patient data or claims of
+certification.
 
 \subsection{Future Work}
 
-Several directions are planned for v0.2.1 and beyond. First, the permanent DOI
-via Zenodo anchors academic citation. Second, automated weekly evaluation
-runs will track model behavior changes over time. Third, a second clinician
-reviewer will provide inter-rater reliability data, addressing the main
-limitation of single-clinician annotation. Fourth, the synthetic case set
-will be expanded toward 300--500 cases with broader specialty coverage. Fifth,
-a lightweight submission API will allow model providers to run their systems
-against MedFailBench and receive automated safety reports.
+The next priorities are to complete the four missing safety-gate fields, add a
+second clinician reviewer and report inter-rater reliability, and expand the
+clinician-reviewed set from 44 toward 100 cases. Automated response runs will
+remain screening artifacts until clinician review supports model-level claims.
 
 A community review workflow through GitHub Discussions will serve as the
 primary channel for case objections, safety gate refinements, and wording
@@ -290,9 +246,8 @@ wording review are welcome and coordinated through GitHub Discussions.
   \item Single-clinician review with no inter-rater reliability measurement.
   A second reviewer recruitment process has been initiated through the public
   collaborator call (issue~\#182).
-  \item The current case set remains synthetic-only and
-  single-reviewer; inter-rater reliability data from a second clinician
-  reviewer is in progress.
+  \item The 44-case release remains synthetic-only and single-reviewer;
+  inter-rater reliability data from a second clinician reviewer is in progress.
   \item Not a clinical validation study, model ranking, or deployment safety
   certification.
   \item The weekly model response evaluation is a preview, not a longitudinal
@@ -314,23 +269,22 @@ researchers, and safety reviewers to contribute cases, gate objections, and
 wording reviews through the public repository and GitHub Discussions.
 MedFailBench is released as an open resource under Apache-2.0 and CC-BY-4.0.
 
-\nocite{*}
 \bibliographystyle{plain}
 \bibliography{references}
 
 \section*{Data and Code Availability}
 MedFailBench v0.2.1 is released under Apache-2.0 and CC-BY-4.0.
 The persistent DOI is 10.5281/zenodo.21205535.
-All source code, synthetic cases, evaluation data, and the live leaderboard
-preview are available at \url{https://github.com/goktugozkanmd/medical-ai-failure-atlas}
-and \url{https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas}.
+All source code, synthetic cases, and evaluation data are available in the
+\href{https://github.com/goktugozkanmd/medical-ai-failure-atlas}{public repository};
+the preview is available in the
+\href{https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas}{Hugging Face Space}.
 
 \section*{AI-Assisted Writing Disclosure}
-The author used a large language model (DeepSeek V4 Pro via OpenRouter)
-for drafting assistance, LaTeX formatting, and reference management.
-All scientific content, clinical reasoning, safety labels, and editorial
-decisions were made and verified by the author. No AI tool was used to
-generate clinical claims, safety assessments, or synthetic case content.
-The model was not trained on MedFailBench data.
+AI tools assisted drafting, LaTeX formatting, reference management, and
+repository workflows. The author reviewed and approved the released cases,
+labels, clinical reasoning, scientific claims, and editorial decisions.
+AI-assisted generation was not treated as clinician validation, and no model
+was trained on MedFailBench data for this report.
 
 \end{document}
