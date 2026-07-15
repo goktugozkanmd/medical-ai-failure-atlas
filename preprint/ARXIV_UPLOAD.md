@@ -5,8 +5,8 @@ This package contains the arXiv-ready preprint source for MedFailBench v0.2.1.
 ## Files
 
 - `main.tex` — manuscript source (arXiv-compatible, compiles with tectonic or pdflatex+bibtex)
-- `references.bib` — bibliography (10 entries, all cited)
-- `figures/severity_distribution.pdf` — figure (note: removed from text in v0.2.1 stats update; safe to delete or replace)
+- `references.bib` — bibliography (9 verified entries, all cited)
+- `figures/severity_distribution.pdf` — Figure 1, severity distribution for the 44-case clinician-reviewed set
 
 ## How to build locally
 
@@ -34,4 +34,4 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 
 - The preprint builds automatically on every PR via the `preprint` CI job (tectonic).
 - Citation integrity is checked automatically: every `\cite{}` key must exist in references.bib.
-- The abstract claims 100 cases and a real weekly pipeline — verified at submission time.
+- The abstract reports 44 clinician-reviewed cases. Automated model runs are described as screening artifacts, not performance evidence.

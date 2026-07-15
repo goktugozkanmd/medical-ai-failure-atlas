@@ -35,64 +35,19 @@ Current Space sections:
 - Model failure cards with `Neden Tehlikeli?` and `Daha Güvenli Cevap`
 - Synthetic preview and severity distribution
 
-### Leaderboard snapshot (v0.2.1)
-
-10 models evaluated with the rule-based scorer. Scores are 0–100 (higher is safer). Rule-based; clinician review pending before any public claim. Rows ordered by submission time, not by score.
-
-| Model | Prompts | Safety | Source | Boundary |
-|-------|---------|--------|--------|----------|
-| Llama 3.1-8B-Instruct | 5 | 60.0 | 56.0 | 63.2 |
-| Qwen 2.5-7B-Instruct | 5 | 52.0 | 64.0 | 63.2 |
-| DeepSeek V4 Pro | 5 | 52.0 | 48.0 | 59.2 |
-| Qwen 3.6 Plus | 30 | 46.7 | 60.0 | 62.0 |
-| GLM-5.2 | 28 | 47.1 | 57.1 | 61.6 |
-| Qwen 3.7 Max | 30 | 45.3 | 56.0 | 59.9 |
-| DeepSeek V4 Flash | 5 | 44.0 | 48.0 | 59.2 |
-| DeepSeek V3.2 | 5 | 44.0 | 48.0 | 59.2 |
-| Kimi K2.6 | 6 | 40.0 | 53.3 | 60.7 |
-| Kimi K2.7 Code | 5 | 36.0 | 64.0 | 60.8 |
-
-### Worst-case safety (why averages hide failures)
-
-Average scores above can look acceptable. The worst-case view reveals how often each model lands in the unsafe tier (safety score 1–2 out of 5) on the larger eval subsets. Clinically, harm comes from the worst answer, not the average.
-
-> **Key message:** A model can score 45–55 on average and still produce unsafe-tier answers on 1 out of every 2 prompts. Average scores hide worst-case failures. A model that looks "acceptable" on average may still fail on urgent, high-acuity clinical scenarios.
-
-| Model | Prompts | Min safety | Unsafe-tier count | Unsafe rate |
-|-------|---------|------------|-------------------|-------------|
-| Qwen 3.6 Plus | 30 | 1/5 | 11/30 | 36.7% |
-| Qwen 3.7 Max | 30 | 1/5 | 14/30 | 46.7% |
-| GLM-5.2 | 28 | 1/5 | 11/28 | 39.3% |
-| Kimi K2.6 | 6 | 1/5 | 3/6 | 50.0% |
-| Kimi K2.7 Code | 5 | 1/5 | 3/5 | 60.0% |
-| DeepSeek V3.2 | 5 | 1/5 | 2/5 | 40.0% |
-| DeepSeek V4 Flash | 5 | 1/5 | 2/5 | 40.0% |
-| DeepSeek V4 Pro | 5 | 1/5 | 1/5 | 20.0% |
-| Qwen 2.5-7B-Instruct | 5 | 1/5 | 1/5 | 20.0% |
-| Llama 3.1-8B-Instruct | 5 | 3/5 | 0/5 | 0.0% |
-
-Source: `model_runs/worst_case_safety_report_v0_1.json`. Rule-based scoring; clinician review pending. The source file also retains a historical Llama 3.3 70B run; the table above is aligned to the 10-model public leaderboard.
-
-Detailed failure mode analyses for individual models are available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
-
-#### What this means in practice
-
-| Observation | Clinical implication |
-|-------------|---------------------|
-| Qwen 3.7 Max averages 45.3 safety but 46.7% of answers are unsafe-tier | Nearly half of this model's answers on hard clinical prompts require close safety review before any downstream use |
-| GLM-5.2 averages 47.1 safety but drops to safety 1/5 on 11 of 28 prompts | The average looks borderline acceptable; the worst case is dangerous |
-| On the small 5-prompt set, Llama 3.1-8B avoided the unsafe tier (min safety 3/5) | Even then, all 5 prompts triggered the "missed urgent escalation" safety gate — the model never explicitly recommended urgent escalation |
-
-**Bottom line:** These rule-based results should not be interpreted as clinical validation for autonomous use. Average scores create a false sense of adequacy. The clinically relevant question is not "what is the mean score?" but "what is the worst answer this model will give on a high-acuity case?"
+The Space and model cards are screening previews only. They are not clinical
+validation, model ranking, deployment evidence, score certification, or
+endorsement. Detailed failure mode analyses for individual model outputs are
+available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
 
 ## Recent Public Artifacts (v0.2.1)
 
 - Zenodo DOI: [10.5281/zenodo.21205535](https://doi.org/10.5281/zenodo.21205535) — cite the resource via this DOI.
-- v0.2.1 public core assets: 150 scenario-bank rows and 70 prompts. Additional Failure Atlas intake, Turkish, and TR-EN safety-drift preview layers are present in the repo, but those layers must be cited separately from the core release until validation and release notes are normalized.
-- 10-model rule-based evaluation leaderboard spanning 7B–70B+ parameters across Qwen, Llama, DeepSeek, GLM, and Kimi families.
-- CI-integrated real-model eval pipeline producing genuine (non-simulated) responses on a weekly subset, with additional model runs evaluated on demand.
+- Preprint evidence set: 44 synthetic clinician-reviewed cases across 21 domain labels; no patient data.
+- Repository assets also include 150 scenario-bank rows and 70 prompt rows. These broader assets must be cited separately from the 44-case preprint evidence set until validation and release notes are normalized.
+- CI-integrated model-response pipeline labels dry runs explicitly. Automated scores are screening outputs pending clinician review, not model rankings.
 - Small GLM-5.2 TR/EN safety-drift probe: [`docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`](docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md), paired raw outputs in `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`.
-- TeX-ready preprint draft: `preprint/main.tex` (built automatically on every PR via tectonic; arXiv submit awaits endorsement).
+- arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic; upload still requires final submission clearance).
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
 - EU AI Act compliance positioning: [`docs/governance/COMPLIANCE.md`](docs/governance/COMPLIANCE.md)
 - Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)

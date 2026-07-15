@@ -1,5 +1,5 @@
-# Preprint skeleton
+# MedFailBench preprint
 
-Draft manuscript skeleton for MedFailBench / Medical AI Failure Atlas.
+Submission-candidate manuscript for MedFailBench / Medical AI Failure Atlas.
 
-Status: early draft. Not submitted. References require full verification before any public academic submission.
+Status: not submitted. Core bibliographic identifiers and public-data claims were re-audited on 2026-07-15; final arXiv preview and author confirmation remain required.
