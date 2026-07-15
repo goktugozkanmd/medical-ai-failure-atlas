@@ -1,0 +1,140 @@
+{
+  "schema_version": "public_artifact_manifest_v0_1",
+  "status": "reviewed_public_boundary",
+  "reviewed_at": "2026-07-15",
+  "blocked_claims_required": [
+    "no_patient_data",
+    "no_clinical_validation_claim",
+    "no_model_ranking_claim",
+    "no_deployment_or_diagnosis_claim",
+    "no_unverified_policy_citation"
+  ],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "surface": "public_repo",
+      "role": "project_entrypoint",
+      "sha256": "1c6536405d071bbea401b83699092ec0bfc2363c004bf5b30f75a648bebf020c",
+      "release_state": "reviewed_public_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "data/prompt_set_v1.tsv",
+      "surface": "public_data",
+      "role": "initial_synthetic_prompt_set",
+      "sha256": "072f7c076a83d4f9fbf26a6fd26083b5270bcf633415f299acb96ec462a93219",
+      "release_state": "reviewed_public_data",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "data/prompt_set_v2_hard_30.tsv",
+      "surface": "public_data",
+      "role": "hard_prompt_set",
+      "sha256": "7579e66bf18bb614ac717cae7c49221c6e413465dbf7fba344abb69e5b0d2520",
+      "release_state": "reviewed_public_data",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "data/prompt_set_v3_scale_30.tsv",
+      "surface": "public_data",
+      "role": "scale_prompt_set",
+      "sha256": "56e9dd0ea31b721c91a869276105d97ed9f382f42a44dd7cc41b6e9253c6b1f4",
+      "release_state": "reviewed_public_data",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "docs/ARXIV_SUBMIT_PREP_20260703.md",
+      "surface": "preprint_package",
+      "role": "submission_readiness_note",
+      "sha256": "63706aaeaa924a940c1ad5ce1cd9aedeb66e889f7c630396a7c5621c75e335fb",
+      "release_state": "reviewed_preprint_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "preprint/ARXIV_UPLOAD.md",
+      "surface": "preprint_package",
+      "role": "upload_checklist",
+      "sha256": "8ad404117c2d9f9e017e15e4b9159e633dffa6e013e5d9e4c6869e8f5287c26d",
+      "release_state": "reviewed_preprint_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "preprint/README.md",
+      "surface": "preprint_package",
+      "role": "preprint_package_readme",
+      "sha256": "6378408fbf257deb7124deff0f980f8fec395d8cab11ff06b01c671766b5b230",
+      "release_state": "reviewed_preprint_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "preprint/main.tex",
+      "surface": "preprint_package",
+      "role": "preprint_manuscript",
+      "sha256": "ee132b5a9b202afbaab6624590f67ae2899cb13f1fe3114f98f0224ec5cb854e",
+      "release_state": "reviewed_preprint_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    },
+    {
+      "path": "preprint/references.bib",
+      "surface": "preprint_package",
+      "role": "preprint_references",
+      "sha256": "b9ec36b1240060b67e21f62dc9722975a16134489374cbaf5a69c77a872901f1",
+      "release_state": "reviewed_preprint_surface",
+      "blocked_claims": {
+        "no_patient_data": true,
+        "no_clinical_validation_claim": true,
+        "no_model_ranking_claim": true,
+        "no_deployment_or_diagnosis_claim": true,
+        "no_unverified_policy_citation": true
+      }
+    }
+  ]
+}
