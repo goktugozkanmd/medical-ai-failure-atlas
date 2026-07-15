@@ -19,6 +19,7 @@ validate:
 	$(PYTHON) scripts/validate_scoring_rubric_v0_1.py
 	$(PYTHON) scripts/validate_failure_atlas_public_summary_v0_1.py
 	$(PYTHON) scripts/validate_preprint_claim_guard.py
+	$(PYTHON) scripts/validate_public_artifact_manifest_v0_1.py
 	$(PYTHON) scripts/validate_clinician_review_protocol_v0_1.py
 	$(PYTHON) scripts/validate_clinician_panel_reviewer_packet_20260708.py
 	$(PYTHON) scripts/validate_source_claim_review_queue_v0_1.py

@@ -50,6 +50,7 @@ REQUIRED_FILES = [
     "docs/dataset/DATASET_EVALUATION_CARD_V0_1_DRAFT.md",
     "docs/release/PUBLIC_RELEASE_BOUNDARY_V0_1.md",
     "docs/release/RELEASE_MANIFEST_V0_1_DRAFT.md",
+    "docs/release/PUBLIC_ARTIFACT_MANIFEST_V0_1.json",
     "CONTRIBUTING.md",
     "docs/release/PUBLIC_RELEASE_CANDIDATE_STATUS.md",
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
