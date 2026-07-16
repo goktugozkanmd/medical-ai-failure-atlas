@@ -170,11 +170,11 @@ def build_run_provenance(
             "endpoint": config["endpoint"],
         },
         "prompt_set": {
-            "path": str(PROMPTS_FILE.relative_to(REPO_ROOT)),
+            "path": PROMPTS_FILE.relative_to(REPO_ROOT).as_posix(),
             "sha256": sha256_file(PROMPTS_FILE),
         },
         "evaluator": {
-            "path": str(script_path.relative_to(REPO_ROOT)),
+            "path": script_path.relative_to(REPO_ROOT).as_posix(),
             "sha256": sha256_file(script_path),
         },
     }
