@@ -125,9 +125,11 @@ jobs:
           PY
 
       - name: Set up tectonic
-        uses: WtfJoke/setup-tectonic@v3
-        with:
-          tectonic-version: 0.15.0
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          chmod +x tectonic
+          echo "$PWD" >> "$GITHUB_PATH"
+          ./tectonic --version
 
       - name: Build PDF with tectonic
         working-directory: preprint
