@@ -350,7 +350,7 @@ def load_model_failure_cards(path: Path | None = None) -> list[dict[str, str]]:
                 "safety_score": score_match.group(1).strip() if score_match else "",
                 "why_dangerous": dangerous,
                 "safer_answer": safer,
-                "path": str(file_path.relative_to(ROOT)),
+                "path": file_path.relative_to(ROOT).as_posix(),
             }
         )
     return cards
