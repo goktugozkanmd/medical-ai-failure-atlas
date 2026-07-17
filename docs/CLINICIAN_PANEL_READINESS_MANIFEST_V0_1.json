@@ -1,0 +1,89 @@
+{
+  "schema_version": "clinician_panel_readiness_manifest_v0_1",
+  "status": "controlled_local_review_ready_not_complete",
+  "reviewed_at": "2026-07-16",
+  "panel_claim_state": "not_complete",
+  "case_count": 15,
+  "reviewer_codes": [
+    "R01",
+    "R02"
+  ],
+  "required_cases_per_reviewer": 15,
+  "assignment_count": 30,
+  "minimum_completed_reviewers_for_panel_claim": 2,
+  "boundary_flags": {
+    "contains_patient_data": false,
+    "synthetic_examples_only": true,
+    "not_for_clinical_use": true,
+    "no_clinical_validation_claim": true,
+    "no_model_safety_claim": true,
+    "no_model_ranking": true,
+    "no_clinical_deployment_claim": true,
+    "no_regulatory_approval_claim": true,
+    "no_official_endorsement_claim": true,
+    "external_send_allowed": false,
+    "requires_owner_approval_before_send": true
+  },
+  "blocked_public_claims": [
+    "panel_review_complete",
+    "clinical_validation",
+    "model_safety",
+    "model_ranking",
+    "clinical_deployment_readiness",
+    "regulatory_approval",
+    "official_endorsement",
+    "real_patient_data_use"
+  ],
+  "allowed_public_claims_before_completion": [
+    "controlled local reviewer handoff is prepared",
+    "synthetic cases are ready for clinician review",
+    "reviewer codes are used instead of public reviewer names"
+  ],
+  "artifacts": [
+    {
+      "role": "clinician_review_protocol",
+      "path": "docs/CLINICIAN_REVIEW_PROTOCOL_V0_1.md",
+      "surface": "public_preview"
+    },
+    {
+      "role": "reviewer_packet",
+      "path": "docs/CLINICIAN_PANEL_REVIEWER_PACKET_20260708.md",
+      "surface": "controlled_local_handoff"
+    },
+    {
+      "role": "reviewer_message_draft",
+      "path": "docs/CLINICIAN_PANEL_REVIEWER_MESSAGE_20260708.md",
+      "surface": "not_sent"
+    },
+    {
+      "role": "internal_audit_note",
+      "path": "docs/CLINICIAN_PANEL_REVIEWER_AUDIT_NOTE_20260708.md",
+      "surface": "internal_only"
+    },
+    {
+      "role": "packet_boundary_json",
+      "path": "docs/clinician_panel_reviewer_packet_20260708.json",
+      "surface": "machine_readable_boundary"
+    },
+    {
+      "role": "panel_case_table",
+      "path": "data/panel_pilot/clinician_panel_pilot_cases_v0_1.tsv",
+      "surface": "synthetic_case_table"
+    },
+    {
+      "role": "panel_assignment_sheet",
+      "path": "data/panel_pilot/clinician_panel_rating_sheet_v0_1.tsv",
+      "surface": "local_assignment_template"
+    },
+    {
+      "role": "panel_review_module",
+      "path": "failure_atlas/panel_review.py",
+      "surface": "local_tooling"
+    },
+    {
+      "role": "panel_console_module",
+      "path": "failure_atlas/panel_console.py",
+      "surface": "local_tooling"
+    }
+  ]
+}

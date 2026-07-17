@@ -53,6 +53,7 @@ REQUIRED_FILES = [
     "docs/release/PUBLIC_ARTIFACT_MANIFEST_V0_1.json",
     "CONTRIBUTING.md",
     "docs/release/PUBLIC_RELEASE_CANDIDATE_STATUS.md",
+    "docs/CLINICIAN_PANEL_READINESS_MANIFEST_V0_1.json",
     "docs/HEALTH_DATA_QUALITY_AND_LABEL_AUDIT_CARD_V0_1.md",
     "docs/LABEL_AUDIT_REVIEWER_ROLE_TABLE_V0_1.md",
     "docs/label_audit_reviewer_role_table_v0_1.json",
