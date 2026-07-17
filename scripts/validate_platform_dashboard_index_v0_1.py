@@ -491,7 +491,7 @@ FORBIDDEN_PHRASES = [
 
 def dashboard_mentions(text: str, relative_path: str) -> bool:
     root_relative = relative_path
-    dashboard_relative = str(Path(relative_path).relative_to("docs")) if relative_path.startswith("docs/") else "../" + relative_path
+    dashboard_relative = Path(relative_path).relative_to("docs").as_posix() if relative_path.startswith("docs/") else "../" + relative_path
     candidates = {
         root_relative,
         root_relative.replace("-", "%2D"),
