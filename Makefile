@@ -22,6 +22,7 @@ validate:
 	$(PYTHON) scripts/validate_public_artifact_manifest_v0_1.py
 	$(PYTHON) scripts/validate_clinician_review_protocol_v0_1.py
 	$(PYTHON) scripts/validate_clinician_panel_reviewer_packet_20260708.py
+	$(PYTHON) scripts/validate_clinician_panel_readiness_manifest_v0_1.py
 	$(PYTHON) scripts/validate_source_claim_review_queue_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_public_contributor_issue_v0_1.py
 	$(PYTHON) scripts/validate_health_ai_assurance_feedback_intake_20260708.py
