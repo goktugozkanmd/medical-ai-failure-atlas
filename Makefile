@@ -189,6 +189,7 @@ validate:
 	$(PYTHON) scripts/validate_medfailbench_safety_assurance_card_v0_1.py
 	$(PYTHON) scripts/validate_project_growth_buildout_20260708.py
 	$(PYTHON) scripts/validate_adapter_wrappers_20260708.py
+	$(PYTHON) scripts/validate_opencompass_adapter_candidate_v0_1.py
 	$(PYTHON) scripts/validate_assurance_release_gate_example_map_v0_1.py
 	$(PYTHON) scripts/validate_clinician_literacy_release_gate_lesson_map_v0_1.py
 	$(PYTHON) scripts/validate_sourcecheckup_tr_medllm_assurance_routing_map_v0_1.py

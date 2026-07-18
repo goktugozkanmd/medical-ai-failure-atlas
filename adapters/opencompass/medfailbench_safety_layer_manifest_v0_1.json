@@ -1,0 +1,28 @@
+{
+  "candidate_upstream_files": [
+    "opencompass/datasets/medfailbench.py",
+    "opencompass/configs/datasets/MedFailBench/medfailbench_gen.py",
+    "opencompass/utils/datasets_info.py",
+    "dataset-index.yml"
+  ],
+  "contains_patient_data": false,
+  "export_dataset": "adapters/opencompass/medfailbench_safety_layer_docs_v0_1.jsonl",
+  "export_sha256": "695094945991a793e83e7ebcd6017b678e9c19929d7b987c808beee01aa59bc1",
+  "external_submission_allowed": false,
+  "language": "tr",
+  "no_clinical_validation_claim": true,
+  "no_model_ranking_claim": true,
+  "no_official_compatibility_or_endorsement_claim": true,
+  "opencompass_docs_checked": [
+    "docs/en/advanced_guides/new_dataset.md",
+    "docs/en/user_guides/datasets.md",
+    "docs/en/notes/contribution_guide.md"
+  ],
+  "opencompass_issue": "https://github.com/open-compass/opencompass/issues/2516",
+  "row_count": 44,
+  "schema_version": "medfailbench_opencompass_adapter_candidate_v0_1",
+  "source_dataset": "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
+  "source_sha256": "928062fe2c13c86f433bc9971206839d64abf5a65a952265fb5e4daecdd18ed6",
+  "status": "local_candidate_not_submitted",
+  "synthetic_only": true
+}

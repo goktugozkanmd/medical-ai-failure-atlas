@@ -9,6 +9,7 @@ Current surfaces:
 1. `inspect_evals/register/medfailbench_safety_layer_v0_1.json`
 2. `lm_eval/medfailbench_safety_layer_v0_1.yaml`
 3. `huggingface/evaluation_card_medfailbench_safety_layer_v0_1.md`
+4. `opencompass/medfailbench_safety_layer_manifest_v0_1.json`
 
 Boundary:
 
