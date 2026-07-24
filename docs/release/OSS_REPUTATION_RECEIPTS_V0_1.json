@@ -1,0 +1,119 @@
+{
+  "schema_version": "oss_reputation_receipts_v0_1",
+  "status": "live_review_snapshot_not_acceptance",
+  "reviewed_at": "2026-07-24T18:59:55Z",
+  "boundary_flags": {
+    "no_upstream_acceptance_without_merge": true,
+    "no_official_endorsement_claim": true,
+    "no_clinical_validation_claim": true,
+    "no_model_ranking_claim": true,
+    "pending_review_is_not_acceptance": true
+  },
+  "receipts": [
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 254,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/254",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T16:33:01Z",
+      "evidence": {
+        "command": "gh run view 30108764237 --repo goktugozkanmd/medical-ai-failure-atlas --json status,conclusion,headSha,url,jobs",
+        "result": "success on main SHA 61396e06331a0dd29a6ea416e8fe46f95229a9bd"
+      }
+    },
+    {
+      "repository": "open-compass/opencompass",
+      "number": 2560,
+      "url": "https://github.com/open-compass/opencompass/pull/2560",
+      "scope": "upstream",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 2560 -R open-compass/opencompass --json state,mergeStateStatus,statusCheckRollup",
+        "result": "open, RTD checks success, maintainer review pending"
+      }
+    },
+    {
+      "repository": "ruypontes/clinical-ai-lab",
+      "number": 6,
+      "url": "https://github.com/ruypontes/clinical-ai-lab/pull/6",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 6 -R ruypontes/clinical-ai-lab --json state,mergeStateStatus,statusCheckRollup",
+        "result": "open, clean, GitGuardian Security Checks success"
+      }
+    },
+    {
+      "repository": "julcambec/clinical-rag-eval-engine",
+      "number": 2,
+      "url": "https://github.com/julcambec/clinical-rag-eval-engine/pull/2",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 2 -R julcambec/clinical-rag-eval-engine --json state,mergeStateStatus,statusCheckRollup",
+        "result": "open, no hosted checks reported, review pending"
+      }
+    },
+    {
+      "repository": "ritikajha89/medical-llm-eval",
+      "number": 2,
+      "url": "https://github.com/ritikajha89/medical-llm-eval/pull/2",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 2 -R ritikajha89/medical-llm-eval --json state,mergeStateStatus,statusCheckRollup",
+        "result": "open, no hosted checks reported, review pending"
+      }
+    },
+    {
+      "repository": "UKGovernmentBEIS/inspect_ai",
+      "number": 4474,
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4474",
+      "scope": "upstream",
+      "contribution_type": "pull_request",
+      "state": "closed",
+      "acceptance_state": "closed_no_merge",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 4474 -R UKGovernmentBEIS/inspect_ai --json state,mergeStateStatus,comments",
+        "result": "closed by maintainer on 2026-07-17; follow-up should use external Hooks plus read_eval_log path"
+      }
+    },
+    {
+      "repository": "huggingface/lighteval",
+      "number": 1272,
+      "url": "https://github.com/huggingface/lighteval/pull/1272",
+      "scope": "upstream",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-24T18:59:55Z",
+      "evidence": {
+        "command": "gh pr view 1272 -R huggingface/lighteval --json state,mergeStateStatus,statusCheckRollup",
+        "result": "open, no hosted checks reported, review pending"
+      }
+    }
+  ]
+}
