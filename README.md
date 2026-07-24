@@ -56,6 +56,7 @@ available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
 - Health AI Assurance Kit product packet, start here, feedback intake, triage board, triage examples, and growth spine: [`docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md`](docs/HEALTH_AI_ASSURANCE_PRODUCT_PACKET_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_START_HERE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_INTAKE_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_BOARD_20260708.md), [`docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md`](docs/HEALTH_AI_ASSURANCE_FEEDBACK_TRIAGE_EXAMPLES_20260709.md), [`docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md`](docs/HEALTH_AI_ASSURANCE_KIT_ROADMAP_20260708.md), [`docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md`](docs/PROJECT_GROWTH_BUILDOUT_INDEX_20260708.md), [`docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md`](docs/HEALTH_AI_SAFETY_OPS_POSITIONING_20260708.md)
 - MedHELM bridge spec: [`docs/MEDHELM_BRIDGE_SPEC.md`](docs/MEDHELM_BRIDGE_SPEC.md)
 - Collaboration brief for medical AI safety review: [`docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md`](docs/MEDFAILBENCH_COLLABORATION_BRIEF_20260702.md)
+- External language review packet: [`docs/EXTERNAL_LANGUAGE_REVIEW_PACKET_V0_1.md`](docs/EXTERNAL_LANGUAGE_REVIEW_PACKET_V0_1.md)
 - Social launch drafts: [`docs/outreach/SOCIAL_POSTS.md`](docs/outreach/SOCIAL_POSTS.md)
 - Model team outreach queue: [`docs/MODEL_TEAM_FEEDBACK_OUTREACH.md`](docs/MODEL_TEAM_FEEDBACK_OUTREACH.md)
 
@@ -228,7 +229,7 @@ See [docs/LEADERBOARD_PLAN.md](docs/LEADERBOARD_PLAN.md) for the Space deploymen
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use synthetic examples only and keep claims narrow. A useful contribution usually adds one clear failure case, one source support check, one validator fix, or one documentation improvement.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use synthetic examples only and keep claims narrow. A useful contribution usually adds one clear failure case, one source support check, one validator fix, one language review packet, or one documentation improvement.
 
 ## License
 
