@@ -1,8 +1,14 @@
 # OpenCompass Candidate Export
 
-Status: local candidate. Not submitted upstream.
+Status: upstream candidate PR open, pending maintainer review.
 
 Purpose: keep the 44 case Turkish MedFailBench evidence set in a shape that can be turned into an OpenCompass dataset contribution after maintainer review.
+
+Upstream trace:
+
+1. Issue: `https://github.com/open-compass/opencompass/issues/2516`
+2. Pull request: `https://github.com/open-compass/opencompass/pull/2560`
+3. Review state: pending maintainer review.
 
 Files:
 
@@ -17,6 +23,7 @@ Boundary:
 4. No upstream acceptance claim.
 5. No clinical validation claim.
 6. No model score or leaderboard claim.
+7. No official OpenCompass compatibility or endorsement claim.
 
 Local smoke:
 

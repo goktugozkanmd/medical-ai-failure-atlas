@@ -12,6 +12,9 @@ DATASET_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_do
 MANIFEST_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_manifest_v0_1.json"
 README_PATH = ROOT / "adapters" / "opencompass" / "README.md"
 EXPECTED_SCHEMA = "medfailbench_opencompass_adapter_candidate_v0_1"
+EXPECTED_STATUS = "upstream_candidate_pr_open_pending_review"
+EXPECTED_UPSTREAM_REVIEW_STATE = "pending_maintainer_review"
+EXPECTED_OPENCOMPASS_PR = "https://github.com/open-compass/opencompass/pull/2560"
 FORBIDDEN_TEXT = (
     "clinically validated",
     "validated for clinical use",
@@ -63,7 +66,7 @@ def read_jsonl(path: Path, errors: list[str]) -> list[dict[str, Any]]:
 def validate_manifest(manifest: dict[str, Any], errors: list[str]) -> None:
     expected_flags = {
         "schema_version": EXPECTED_SCHEMA,
-        "status": "local_candidate_not_submitted",
+        "status": EXPECTED_STATUS,
         "synthetic_only": True,
         "contains_patient_data": False,
         "external_submission_allowed": False,
@@ -83,6 +86,12 @@ def validate_manifest(manifest: dict[str, Any], errors: list[str]) -> None:
     docs = manifest.get("opencompass_docs_checked")
     if not isinstance(docs, list) or len(docs) < 3:
         errors.append("manifest must record OpenCompass docs checked")
+    if manifest.get("opencompass_pr") != EXPECTED_OPENCOMPASS_PR:
+        errors.append(f"manifest opencompass_pr must be {EXPECTED_OPENCOMPASS_PR!r}")
+    if manifest.get("upstream_review_state") != EXPECTED_UPSTREAM_REVIEW_STATE:
+        errors.append(f"manifest upstream_review_state must be {EXPECTED_UPSTREAM_REVIEW_STATE!r}")
+    if manifest.get("accepted_upstream") is not False:
+        errors.append("manifest accepted_upstream must be False")
 
 
 def validate_rows(rows: list[dict[str, Any]], errors: list[str]) -> None:
@@ -148,7 +157,7 @@ def main() -> int:
         return 1
     print("PASS OpenCompass adapter candidate validation")
     print(f"rows={len(rows)}")
-    print("status=local_candidate_not_submitted")
+    print(f"status={EXPECTED_STATUS}")
     return 0
 
 

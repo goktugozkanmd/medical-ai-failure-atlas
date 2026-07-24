@@ -94,7 +94,7 @@ def write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> int:
 def build_manifest(row_count: int) -> dict[str, Any]:
     return {
         "schema_version": "medfailbench_opencompass_adapter_candidate_v0_1",
-        "status": "local_candidate_not_submitted",
+        "status": "upstream_candidate_pr_open_pending_review",
         "source_dataset": "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
         "source_sha256": _sha256(SOURCE_DATASET),
         "export_dataset": "adapters/opencompass/medfailbench_safety_layer_docs_v0_1.jsonl",
@@ -108,6 +108,9 @@ def build_manifest(row_count: int) -> dict[str, Any]:
         "no_model_ranking_claim": True,
         "no_official_compatibility_or_endorsement_claim": True,
         "opencompass_issue": "https://github.com/open-compass/opencompass/issues/2516",
+        "opencompass_pr": "https://github.com/open-compass/opencompass/pull/2560",
+        "upstream_review_state": "pending_maintainer_review",
+        "accepted_upstream": False,
         "opencompass_docs_checked": [
             "docs/en/advanced_guides/new_dataset.md",
             "docs/en/user_guides/datasets.md",

@@ -1,4 +1,5 @@
 {
+  "accepted_upstream": false,
   "candidate_upstream_files": [
     "opencompass/datasets/medfailbench.py",
     "opencompass/configs/datasets/MedFailBench/medfailbench_gen.py",
@@ -19,10 +20,12 @@
     "docs/en/notes/contribution_guide.md"
   ],
   "opencompass_issue": "https://github.com/open-compass/opencompass/issues/2516",
+  "opencompass_pr": "https://github.com/open-compass/opencompass/pull/2560",
   "row_count": 44,
   "schema_version": "medfailbench_opencompass_adapter_candidate_v0_1",
   "source_dataset": "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
   "source_sha256": "928062fe2c13c86f433bc9971206839d64abf5a65a952265fb5e4daecdd18ed6",
-  "status": "local_candidate_not_submitted",
-  "synthetic_only": true
+  "status": "upstream_candidate_pr_open_pending_review",
+  "synthetic_only": true,
+  "upstream_review_state": "pending_maintainer_review"
 }
