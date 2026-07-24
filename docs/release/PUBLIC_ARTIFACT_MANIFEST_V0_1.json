@@ -14,7 +14,7 @@
       "path": "README.md",
       "surface": "public_repo",
       "role": "project_entrypoint",
-      "sha256": "1c6536405d071bbea401b83699092ec0bfc2363c004bf5b30f75a648bebf020c",
+      "sha256": "3e6d597ca3d0a8ba5ed224ff51a0c1f09881ad97efbedcce2e01fd0e0cabff77",
       "release_state": "reviewed_public_surface",
       "blocked_claims": {
         "no_patient_data": true,
