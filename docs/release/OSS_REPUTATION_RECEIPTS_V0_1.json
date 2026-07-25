@@ -1,7 +1,7 @@
 {
   "schema_version": "oss_reputation_receipts_v0_1",
   "status": "live_review_snapshot_not_acceptance",
-  "reviewed_at": "2026-07-25T16:01:01Z",
+  "reviewed_at": "2026-07-25T16:06:38Z",
   "boundary_flags": {
     "no_upstream_acceptance_without_merge": true,
     "no_official_endorsement_claim": true,

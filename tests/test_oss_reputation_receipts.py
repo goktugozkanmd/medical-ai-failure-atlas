@@ -138,3 +138,18 @@ def test_oss_reputation_receipts_reject_external_repo_as_main_project(tmp_path: 
     errors = validate(root)
 
     assert any("main_project scope is limited to" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_receipt_verified_after_review(tmp_path: Path) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["reviewed_at"] = "2026-07-25T16:00:00Z"
+    manifest["receipts"][0]["last_verified_at"] = "2026-07-25T16:01:00Z"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "last_verified_at must not be later than manifest reviewed_at" in error
+        for error in errors
+    )
