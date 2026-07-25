@@ -34,8 +34,15 @@ ALLOWED_ACCEPTANCE_STATES = {
     "issue_closed_no_action",
 }
 GITHUB_URL_RE = re.compile(
-    r"^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(pull|issues|discussions)/[0-9]+$"
+    r"^https://github\.com/"
+    r"(?P<owner>[A-Za-z0-9_.-]+)/(?P<repo>[A-Za-z0-9_.-]+)/"
+    r"(?P<kind>pull|issues|discussions)/(?P<number>[0-9]+)$"
 )
+URL_KIND_TO_CONTRIBUTION_TYPE = {
+    "pull": "pull_request",
+    "issues": "issue",
+    "discussions": "discussion",
+}
 
 
 def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[str]:
@@ -107,7 +114,8 @@ def _validate_receipt(
         number = -1
 
     url = receipt.get("url")
-    if not isinstance(url, str) or not GITHUB_URL_RE.fullmatch(url):
+    url_match = GITHUB_URL_RE.fullmatch(url) if isinstance(url, str) else None
+    if not url_match:
         errors.append(f"{prefix}: url must be a GitHub pull, issue, or discussion URL")
         url = ""
     elif url in seen_urls:
@@ -133,6 +141,17 @@ def _validate_receipt(
             errors.append(f"{prefix}: duplicate repository/number/type {identity}")
         else:
             seen_repo_numbers.add(identity)
+
+    if url_match:
+        url_repository = f"{url_match.group('owner')}/{url_match.group('repo')}"
+        url_number = int(url_match.group("number"))
+        url_contribution_type = URL_KIND_TO_CONTRIBUTION_TYPE[url_match.group("kind")]
+        if repository and repository != url_repository:
+            errors.append(f"{prefix}: url repository must match repository")
+        if number > 0 and number != url_number:
+            errors.append(f"{prefix}: url number must match number")
+        if contribution_type and contribution_type != url_contribution_type:
+            errors.append(f"{prefix}: url type must match contribution_type")
 
     _validate_timestamp(
         receipt.get("last_verified_at"), f"{prefix}:last_verified_at", errors
@@ -219,6 +238,22 @@ def _validate_claim_boundary(
                 errors.append(f"{prefix}: upstream/external merges must be merged_upstream")
             if accepted_upstream is not True:
                 errors.append(f"{prefix}: merged upstream/external PR must mark accepted_upstream")
+
+    if contribution_type in {"issue", "discussion"}:
+        if state == "merged":
+            errors.append(f"{prefix}: issues and discussions cannot use merged state")
+        if state == "open":
+            if acceptance_state != "issue_open_pending":
+                errors.append(f"{prefix}: open issues/discussions must be issue_open_pending")
+            if accepted_upstream is not False:
+                errors.append(f"{prefix}: open issues/discussions must not claim acceptance")
+        if state == "closed":
+            if acceptance_state != "issue_closed_no_action":
+                errors.append(
+                    f"{prefix}: closed issues/discussions must be issue_closed_no_action"
+                )
+            if accepted_upstream is not False:
+                errors.append(f"{prefix}: closed issues/discussions must not claim acceptance")
 
 
 def main() -> int:
