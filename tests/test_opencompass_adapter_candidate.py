@@ -5,7 +5,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-from scripts.validate_opencompass_adapter_candidate_v0_1 import validate_manifest
+from failure_atlas.data import load_eval_set
+from scripts.validate_opencompass_adapter_candidate_v0_1 import (
+    validate_manifest,
+    validate_source_alignment,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -107,3 +111,20 @@ def test_opencompass_validator_rejects_export_hash_drift() -> None:
         )
         for error in errors
     )
+
+
+def test_opencompass_validator_rejects_source_alignment_drift() -> None:
+    rows = [
+        json.loads(line)
+        for line in DATASET.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    rows[0]["target"] = "This no longer matches the source safe answer expectation."
+    rows[0]["metadata"]["review_status"] = "pending clinician review"
+
+    errors: list[str] = []
+    source_cases = load_eval_set(ROOT / "data" / "tr_medllm_synthetic_eval_set_v0_3.jsonl")
+    validate_source_alignment(rows, source_cases, errors)
+
+    assert "row 1 TRFAI015 target does not match source dataset" in errors
+    assert "row 1 TRFAI015 metadata.review_status does not match source dataset" in errors

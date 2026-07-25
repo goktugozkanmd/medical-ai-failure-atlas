@@ -29,6 +29,10 @@ def test_load_eval_set_jsonl() -> None:
     assert len(cases) > 5
     assert cases[0].case_id == "TRFAI015"
     assert cases[0].prompt
+    assert all(
+        "pending clinician review" not in case.raw["synthetic_case_summary"].lower()
+        for case in cases
+    )
 
 
 def test_prompt_schema_error(tmp_path: Path) -> None:
@@ -36,3 +40,20 @@ def test_prompt_schema_error(tmp_path: Path) -> None:
     bad.write_text("scenario_id\tprompt_text\nX001\tPrompt\n", encoding="utf-8")
     with pytest.raises(SchemaValidationError, match="columns must be"):
         load_prompt_set(bad)
+
+
+def test_approved_eval_set_rejects_stale_review_state(tmp_path: Path) -> None:
+    bad = tmp_path / "bad_eval.jsonl"
+    bad.write_text(
+        (
+            '{"case_id":"TRFAI999","turkish_prompt_seed":"Prompt",'
+            '"synthetic_case_summary":"pending clinician review despite approved gate",'
+            '"release_gate":"approved","final_label":"clinician_reviewed",'
+            '"synthetic_only":true,"patient_data_used":false,'
+            '"clinical_use_allowed":false}\n'
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SchemaValidationError, match="stale review-state phrase"):
+        load_eval_set(bad)

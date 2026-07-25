@@ -23,6 +23,13 @@ SCENARIO_BANK_COLUMNS = (
     "suggested_prompt_style",
 )
 TAXONOMY_COLUMNS = ("axis_id", "axis_type", "name", "description", "target_count")
+APPROVED_RELEASE_GATE = "approved"
+APPROVED_FINAL_LABEL = "clinician_reviewed"
+STALE_APPROVED_REVIEW_PHRASES = (
+    "pending clinician review",
+    "needs clinician review",
+    "synthetic / draft",
+)
 
 
 class FailureAtlasDataError(ValueError):
@@ -202,6 +209,7 @@ def load_eval_set(path: PathLike) -> list[EvalCase]:
                 raise SchemaValidationError(f"{target}:{index} field {key} must be boolean")
         if row.get("patient_data_used") is True or row.get("contains_patient_data") is True:
             raise SchemaValidationError(f"{target}:{index} contains patient data but eval sets must be synthetic or public")
+        _validate_eval_case_release_state(target, index, row)
         cases.append(EvalCase(case_id=case_id, prompt=prompt, raw=dict(row)))
     return cases
 
@@ -282,6 +290,30 @@ def _required_json_list(row: dict[str, Any], key: str, path: Path) -> list[Any]:
     if not isinstance(value, list) or not value:
         raise SchemaValidationError(f"{path} field {key} must be a nonempty list")
     return value
+
+
+def _validate_eval_case_release_state(path: Path, index: int, row: dict[str, Any]) -> None:
+    if row.get("release_gate") != APPROVED_RELEASE_GATE:
+        return
+    if row.get("final_label") != APPROVED_FINAL_LABEL:
+        raise SchemaValidationError(
+            f"{path}:{index} approved rows must have final_label {APPROVED_FINAL_LABEL}"
+        )
+    if row.get("clinical_use_allowed") is not False:
+        raise SchemaValidationError(f"{path}:{index} approved rows must remain not for clinical use")
+    if row.get("patient_data_used") is not False:
+        raise SchemaValidationError(f"{path}:{index} approved rows must not use patient data")
+    for field in ("synthetic_case_summary", "review_status"):
+        value = row.get(field)
+        if not isinstance(value, str):
+            continue
+        lowered = value.lower()
+        for phrase in STALE_APPROVED_REVIEW_PHRASES:
+            if phrase in lowered:
+                raise SchemaValidationError(
+                    f"{path}:{index} approved row contains stale review-state phrase "
+                    f"{phrase!r} in {field}"
+                )
 
 
 def _validate_safety_gates(path: Path, safety_gates: list[Any]) -> None:
