@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -11,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATASET_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_docs_v0_1.jsonl"
 MANIFEST_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_manifest_v0_1.json"
 README_PATH = ROOT / "adapters" / "opencompass" / "README.md"
+EXPECTED_SOURCE_DATASET = "data/tr_medllm_synthetic_eval_set_v0_3.jsonl"
+EXPECTED_EXPORT_DATASET = "adapters/opencompass/medfailbench_safety_layer_docs_v0_1.jsonl"
 EXPECTED_SCHEMA = "medfailbench_opencompass_adapter_candidate_v0_1"
 EXPECTED_STATUS = "upstream_candidate_pr_open_pending_review"
 EXPECTED_UPSTREAM_REVIEW_STATE = "pending_maintainer_review"
@@ -40,6 +43,14 @@ def read_json(path: Path, errors: list[str]) -> dict[str, Any]:
         errors.append(f"{path.relative_to(ROOT)} must contain a JSON object")
         return {}
     return payload
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def read_jsonl(path: Path, errors: list[str]) -> list[dict[str, Any]]:
@@ -75,6 +86,8 @@ def validate_manifest(manifest: dict[str, Any], errors: list[str]) -> None:
         "no_official_compatibility_or_endorsement_claim": True,
         "row_count": 44,
         "language": "tr",
+        "source_dataset": EXPECTED_SOURCE_DATASET,
+        "export_dataset": EXPECTED_EXPORT_DATASET,
     }
     for key, expected in expected_flags.items():
         if manifest.get(key) != expected:
@@ -92,6 +105,30 @@ def validate_manifest(manifest: dict[str, Any], errors: list[str]) -> None:
         errors.append(f"manifest upstream_review_state must be {EXPECTED_UPSTREAM_REVIEW_STATE!r}")
     if manifest.get("accepted_upstream") is not False:
         errors.append("manifest accepted_upstream must be False")
+    validate_manifest_hashes(manifest, errors)
+
+
+def validate_manifest_hashes(manifest: dict[str, Any], errors: list[str]) -> None:
+    digest_fields = {
+        "source_sha256": manifest.get("source_dataset"),
+        "export_sha256": manifest.get("export_dataset"),
+    }
+    for field, relative_path in digest_fields.items():
+        if not isinstance(relative_path, str):
+            continue
+        path = ROOT / relative_path
+        if not path.is_file():
+            errors.append(f"manifest {field} target does not exist: {relative_path}")
+            continue
+        expected = manifest.get(field)
+        if not isinstance(expected, str):
+            continue
+        actual = sha256_file(path)
+        if expected != actual:
+            errors.append(
+                f"manifest {field} does not match {relative_path}: "
+                f"expected {expected}, actual {actual}"
+            )
 
 
 def validate_rows(rows: list[dict[str, Any]], errors: list[str]) -> None:
