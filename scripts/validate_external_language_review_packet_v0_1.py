@@ -46,6 +46,25 @@ FORBIDDEN_CLAIM_PHRASES = {
     "official endorsement",
 }
 
+TEXT_PACKET_FIELDS = (
+    "translation_text",
+    "risk_preservation_note",
+    "wording_risk_note",
+    "safer_rewrite",
+)
+
+PLACEHOLDER_PHRASES = {
+    "short note about preserved risk.",
+    "short note about unsafe wording risk.",
+    "target language close translation.",
+    "target language safer rewrite.",
+}
+PLACEHOLDER_TOKEN = re.compile(r"\b(todo|tbd|placeholder|fill me|replace this)\b", re.IGNORECASE)
+
+
+def normalize_text(value: str) -> str:
+    return " ".join(value.casefold().split())
+
 
 def load_jsonl(path: Path) -> list[tuple[int, dict[str, Any]]]:
     rows: list[tuple[int, dict[str, Any]]] = []
@@ -142,6 +161,25 @@ def validate_row(
         value = row[key]
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{prefix}.{key}: must be a non empty string")
+
+    for key in TEXT_PACKET_FIELDS:
+        value = row[key]
+        if not isinstance(value, str) or not value.strip():
+            continue
+        normalized_value = normalize_text(value)
+        if normalized_value in PLACEHOLDER_PHRASES or PLACEHOLDER_TOKEN.search(value):
+            errors.append(f"{prefix}.{key}: replace template placeholder text before submission")
+
+    translation_text = row["translation_text"]
+    safer_rewrite = row["safer_rewrite"]
+    if (
+        isinstance(translation_text, str)
+        and isinstance(safer_rewrite, str)
+        and translation_text.strip()
+        and safer_rewrite.strip()
+        and normalize_text(translation_text) == normalize_text(safer_rewrite)
+    ):
+        errors.append(f"{prefix}.safer_rewrite: must differ from translation_text")
 
     preserved_tags = row["failure_mechanism_tags_preserved"]
     if not isinstance(preserved_tags, list) or not preserved_tags:
