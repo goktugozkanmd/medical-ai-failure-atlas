@@ -54,4 +54,4 @@ Each row must include:
 python3 scripts/validate_external_language_review_packet_v0_1.py path/to/review.jsonl
 ```
 
-The validator checks that the source case exists in `data/failure_atlas_external_sample_v0_1.jsonl`, preserved tags match the source case, and public boundary booleans stay false.
+The validator checks that the source case exists in `data/failure_atlas_external_sample_v0_1.jsonl`, the `review_id` starts with the same source case ID, preserved tags are non empty, unique, and present on the source case, and public boundary booleans stay false.

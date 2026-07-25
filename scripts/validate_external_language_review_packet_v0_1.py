@@ -109,7 +109,8 @@ def validate_row(
         return errors
 
     review_id = row["review_id"]
-    if not isinstance(review_id, str) or not REVIEW_ID.match(review_id):
+    valid_review_id = isinstance(review_id, str) and bool(REVIEW_ID.match(review_id))
+    if not valid_review_id:
         errors.append(f"{prefix}.review_id: expected pattern CASE_LANG_REVIEW_001")
     elif review_id in seen_review_ids:
         errors.append(f"{prefix}.review_id: duplicate {review_id}")
@@ -120,6 +121,8 @@ def validate_row(
     source_case = source_cases.get(source_case_id) if isinstance(source_case_id, str) else None
     if source_case is None:
         errors.append(f"{prefix}.source_case_id: unknown source case {source_case_id!r}")
+    elif valid_review_id and not review_id.startswith(f"{source_case_id}_LANG_REVIEW_"):
+        errors.append(f"{prefix}.review_id: must start with source_case_id plus _LANG_REVIEW_")
 
     review_language = row["review_language"]
     if not isinstance(review_language, str) or not LANGUAGE_CODE.match(review_language):
@@ -144,12 +147,23 @@ def validate_row(
     if not isinstance(preserved_tags, list) or not preserved_tags:
         errors.append(f"{prefix}.failure_mechanism_tags_preserved: must be a non empty list")
     elif source_case is not None:
-        source_tags = set(source_case.get("failure_mechanism_tags", []))
-        unknown_tags = sorted(tag for tag in preserved_tags if tag not in source_tags)
-        if unknown_tags:
+        non_string_tags = [tag for tag in preserved_tags if not isinstance(tag, str) or not tag.strip()]
+        if non_string_tags:
             errors.append(
-                f"{prefix}.failure_mechanism_tags_preserved: tags not in source case: {unknown_tags}"
+                f"{prefix}.failure_mechanism_tags_preserved: all tags must be non empty strings"
             )
+        else:
+            duplicated_tags = sorted({tag for tag in preserved_tags if preserved_tags.count(tag) > 1})
+            if duplicated_tags:
+                errors.append(
+                    f"{prefix}.failure_mechanism_tags_preserved: duplicate tags: {duplicated_tags}"
+                )
+            source_tags = set(source_case.get("failure_mechanism_tags", []))
+            unknown_tags = sorted(tag for tag in preserved_tags if tag not in source_tags)
+            if unknown_tags:
+                errors.append(
+                    f"{prefix}.failure_mechanism_tags_preserved: tags not in source case: {unknown_tags}"
+                )
 
     boolean_requirements = {
         "contains_patient_data": False,
