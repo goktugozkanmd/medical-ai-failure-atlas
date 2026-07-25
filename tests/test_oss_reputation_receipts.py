@@ -125,3 +125,16 @@ def test_oss_reputation_receipts_reject_open_issue_acceptance_claim(tmp_path: Pa
 
     assert any("open issues/discussions must be issue_open_pending" in error for error in errors)
     assert any("open issues/discussions must not claim acceptance" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_external_repo_as_main_project(tmp_path: Path) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][8]["scope"] = "main_project"
+    manifest["receipts"][8]["state"] = "merged"
+    manifest["receipts"][8]["acceptance_state"] = "internal_merged"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("main_project scope is limited to" in error for error in errors)

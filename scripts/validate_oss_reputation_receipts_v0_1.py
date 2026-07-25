@@ -13,6 +13,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = Path("docs/release/OSS_REPUTATION_RECEIPTS_V0_1.json")
 
+MAIN_PROJECT_REPOSITORY = "goktugozkanmd/medical-ai-failure-atlas"
 SCHEMA_VERSION = "oss_reputation_receipts_v0_1"
 STATUS = "live_review_snapshot_not_acceptance"
 REQUIRED_BOUNDARY_FLAGS = {
@@ -152,6 +153,11 @@ def _validate_receipt(
             errors.append(f"{prefix}: url number must match number")
         if contribution_type and contribution_type != url_contribution_type:
             errors.append(f"{prefix}: url type must match contribution_type")
+
+    if scope == "main_project" and repository != MAIN_PROJECT_REPOSITORY:
+        errors.append(
+            f"{prefix}: main_project scope is limited to {MAIN_PROJECT_REPOSITORY}"
+        )
 
     _validate_timestamp(
         receipt.get("last_verified_at"), f"{prefix}:last_verified_at", errors
