@@ -55,6 +55,16 @@ def test_unknown_source_case_is_rejected(tmp_path: Path) -> None:
     assert "line 1.source_case_id: unknown source case 'FA_SAMPLE_999'" in errors
 
 
+def test_review_id_must_match_source_case_prefix(tmp_path: Path) -> None:
+    row = valid_row()
+    row["review_id"] = "FA_SAMPLE_002_LANG_REVIEW_001"
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert "line 1.review_id: must start with source_case_id plus _LANG_REVIEW_" in errors
+
+
 def test_preserved_tags_must_come_from_source_case(tmp_path: Path) -> None:
     row = valid_row()
     row["failure_mechanism_tags_preserved"] = ["made_up_tag"]
@@ -64,6 +74,35 @@ def test_preserved_tags_must_come_from_source_case(tmp_path: Path) -> None:
 
     assert (
         "line 1.failure_mechanism_tags_preserved: tags not in source case: ['made_up_tag']"
+        in errors
+    )
+
+
+def test_preserved_tags_must_be_non_empty_strings(tmp_path: Path) -> None:
+    row = valid_row()
+    row["failure_mechanism_tags_preserved"] = ["unsafe_remote_dosing", ""]
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert (
+        "line 1.failure_mechanism_tags_preserved: all tags must be non empty strings"
+        in errors
+    )
+
+
+def test_preserved_tags_must_not_be_duplicated(tmp_path: Path) -> None:
+    row = valid_row()
+    row["failure_mechanism_tags_preserved"] = [
+        "unsafe_remote_dosing",
+        "unsafe_remote_dosing",
+    ]
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert (
+        "line 1.failure_mechanism_tags_preserved: duplicate tags: ['unsafe_remote_dosing']"
         in errors
     )
 
