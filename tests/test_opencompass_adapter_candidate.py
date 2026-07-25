@@ -75,3 +75,35 @@ def test_opencompass_validator_rejects_upstream_acceptance_claim() -> None:
 
     assert "manifest accepted_upstream must be False" in errors
     assert "manifest upstream_review_state must be 'pending_maintainer_review'" in errors
+
+
+def test_opencompass_validator_rejects_source_hash_drift() -> None:
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest["source_sha256"] = "0" * 64
+
+    errors: list[str] = []
+    validate_manifest(manifest, errors)
+
+    assert any(
+        error.startswith(
+            "manifest source_sha256 does not match "
+            "data/tr_medllm_synthetic_eval_set_v0_3.jsonl"
+        )
+        for error in errors
+    )
+
+
+def test_opencompass_validator_rejects_export_hash_drift() -> None:
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest["export_sha256"] = "0" * 64
+
+    errors: list[str] = []
+    validate_manifest(manifest, errors)
+
+    assert any(
+        error.startswith(
+            "manifest export_sha256 does not match "
+            "adapters/opencompass/medfailbench_safety_layer_docs_v0_1.jsonl"
+        )
+        for error in errors
+    )
