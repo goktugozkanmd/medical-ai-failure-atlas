@@ -24,7 +24,7 @@
   "row_count": 44,
   "schema_version": "medfailbench_opencompass_adapter_candidate_v0_1",
   "source_dataset": "data/tr_medllm_synthetic_eval_set_v0_3.jsonl",
-  "source_sha256": "928062fe2c13c86f433bc9971206839d64abf5a65a952265fb5e4daecdd18ed6",
+  "source_sha256": "23f69c913b6ff38ccde23e526b4b0f72785ccfc3fa76478c980a879a499ef331",
   "status": "upstream_candidate_pr_open_pending_review",
   "synthetic_only": true,
   "upstream_review_state": "pending_maintainer_review"

@@ -4,15 +4,22 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+if TYPE_CHECKING:
+    from failure_atlas.data import EvalCase
+
 DATASET_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_docs_v0_1.jsonl"
 MANIFEST_PATH = ROOT / "adapters" / "opencompass" / "medfailbench_safety_layer_manifest_v0_1.json"
 README_PATH = ROOT / "adapters" / "opencompass" / "README.md"
 EXPECTED_SOURCE_DATASET = "data/tr_medllm_synthetic_eval_set_v0_3.jsonl"
+SOURCE_DATASET_PATH = ROOT / EXPECTED_SOURCE_DATASET
 EXPECTED_EXPORT_DATASET = "adapters/opencompass/medfailbench_safety_layer_docs_v0_1.jsonl"
 EXPECTED_SCHEMA = "medfailbench_opencompass_adapter_candidate_v0_1"
 EXPECTED_STATUS = "upstream_candidate_pr_open_pending_review"
@@ -168,6 +175,61 @@ def validate_rows(rows: list[dict[str, Any]], errors: list[str]) -> None:
             errors.append(f"row {index} target must contain a substantial safe answer expectation")
 
 
+def validate_source_alignment(
+    rows: list[dict[str, Any]], source_cases: list["EvalCase"], errors: list[str]
+) -> None:
+    source_by_id = {case.case_id: case.raw for case in source_cases}
+    row_ids = [str(row.get("id", "")) for row in rows]
+    missing_exports = sorted(set(source_by_id) - set(row_ids))
+    unknown_exports = sorted(set(row_ids) - set(source_by_id))
+    if missing_exports:
+        errors.append(f"OpenCompass export missing source rows: {missing_exports[:10]}")
+    if unknown_exports:
+        errors.append(f"OpenCompass export has unknown source rows: {unknown_exports[:10]}")
+
+    metadata_keys = (
+        "clinical_domain",
+        "failure_pattern",
+        "language",
+        "release_gate",
+        "review_status",
+        "risk_axis",
+        "safety_gate",
+        "setting",
+        "severity_1_to_5",
+        "source_dataset",
+        "taxonomy_domain_id",
+        "taxonomy_pattern_ids",
+        "taxonomy_setting_id",
+    )
+    for index, row in enumerate(rows, start=1):
+        row_id = row.get("id")
+        if not isinstance(row_id, str) or row_id not in source_by_id:
+            continue
+        source = source_by_id[row_id]
+        expected_top_level = {
+            "question": source.get("turkish_prompt_seed") or source.get("prompt"),
+            "target": source.get("safe_answer_expectation"),
+            "language": source.get("language", "tr"),
+            "clinical_domain": source.get("clinical_domain", "unknown"),
+            "risk_axis": source.get("risk_axis", "unknown"),
+            "safety_gate": source.get("safety_gate"),
+            "severity_1_to_5": source.get("severity_1_to_5"),
+        }
+        for key, expected in expected_top_level.items():
+            if row.get(key) != expected:
+                errors.append(f"row {index} {row_id} {key} does not match source dataset")
+        metadata = row.get("metadata")
+        if not isinstance(metadata, dict):
+            continue
+        expected_metadata = dict(source)
+        expected_metadata["source_case_id"] = row_id
+        expected_metadata["source_dataset"] = EXPECTED_SOURCE_DATASET
+        for key in metadata_keys:
+            if metadata.get(key) != expected_metadata.get(key):
+                errors.append(f"row {index} {row_id} metadata.{key} does not match source dataset")
+
+
 def validate_text_boundaries(errors: list[str]) -> None:
     for path in (README_PATH, MANIFEST_PATH):
         if not path.is_file():
@@ -180,12 +242,21 @@ def validate_text_boundaries(errors: list[str]) -> None:
 
 
 def main() -> int:
+    from failure_atlas.data import FailureAtlasDataError, load_eval_set
+
     errors: list[str] = []
     manifest = read_json(MANIFEST_PATH, errors)
     rows = read_jsonl(DATASET_PATH, errors)
+    source_cases: list[EvalCase] = []
+    try:
+        source_cases = load_eval_set(SOURCE_DATASET_PATH)
+    except (FailureAtlasDataError, FileNotFoundError) as exc:
+        errors.append(f"source dataset validation failed: {exc}")
     if manifest:
         validate_manifest(manifest, errors)
     validate_rows(rows, errors)
+    if source_cases:
+        validate_source_alignment(rows, source_cases, errors)
     validate_text_boundaries(errors)
     if errors:
         print("FAIL OpenCompass adapter candidate validation")
