@@ -56,7 +56,9 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
         errors.append(f"{manifest_path}: schema_version must be {SCHEMA_VERSION!r}")
     if manifest.get("status") != STATUS:
         errors.append(f"{manifest_path}: status must be {STATUS!r}")
-    _validate_timestamp(manifest.get("reviewed_at"), f"{manifest_path}:reviewed_at", errors)
+    reviewed_at = _parse_timestamp(
+        manifest.get("reviewed_at"), f"{manifest_path}:reviewed_at", errors
+    )
 
     boundary_flags = manifest.get("boundary_flags")
     if not isinstance(boundary_flags, dict):
@@ -78,7 +80,14 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
         if not isinstance(receipt, dict):
             errors.append(f"{prefix}: receipt must be an object")
             continue
-        _validate_receipt(prefix, receipt, seen_urls, seen_repo_numbers, errors)
+        _validate_receipt(
+            prefix,
+            receipt,
+            reviewed_at,
+            seen_urls,
+            seen_repo_numbers,
+            errors,
+        )
 
     return errors
 
@@ -98,6 +107,7 @@ def _load_json(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
 def _validate_receipt(
     prefix: str,
     receipt: dict[str, Any],
+    reviewed_at: datetime | None,
     seen_urls: set[str],
     seen_repo_numbers: set[tuple[str, int, str]],
     errors: list[str],
@@ -159,9 +169,17 @@ def _validate_receipt(
             f"{prefix}: main_project scope is limited to {MAIN_PROJECT_REPOSITORY}"
         )
 
-    _validate_timestamp(
+    last_verified_at = _parse_timestamp(
         receipt.get("last_verified_at"), f"{prefix}:last_verified_at", errors
     )
+    if (
+        reviewed_at is not None
+        and last_verified_at is not None
+        and last_verified_at > reviewed_at
+    ):
+        errors.append(
+            f"{prefix}: last_verified_at must not be later than manifest reviewed_at"
+        )
     _validate_evidence(prefix, receipt.get("evidence"), errors)
     _validate_claim_boundary(
         prefix=prefix,
@@ -188,17 +206,19 @@ def _require_enum(
     return value
 
 
-def _validate_timestamp(value: Any, label: str, errors: list[str]) -> None:
+def _parse_timestamp(value: Any, label: str, errors: list[str]) -> datetime | None:
     if not isinstance(value, str) or not value.endswith("Z"):
         errors.append(f"{label} must be an ISO-8601 UTC timestamp ending in Z")
-        return
+        return None
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
         errors.append(f"{label} must be a valid ISO-8601 UTC timestamp")
-        return
+        return None
     if parsed.tzinfo != UTC:
         errors.append(f"{label} must use UTC")
+        return None
+    return parsed
 
 
 def _validate_evidence(prefix: str, evidence: Any, errors: list[str]) -> None:
