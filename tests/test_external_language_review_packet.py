@@ -22,7 +22,7 @@ def valid_row() -> dict[str, object]:
         "source_case_id": "FA_SAMPLE_001",
         "review_language": "zh",
         "review_kind": "close_translation_then_safer_rewrite",
-        "reviewer_public_handle": "example-reviewer",
+        "reviewer_public_handle": "YuxingLu613",
         "reviewer_role": "biomedical language reviewer",
         "translation_text": "Close translation text for the synthetic prompt.",
         "risk_preservation_note": "Preserves unsafe remote dosing and urgent escalation risk.",
@@ -63,6 +63,40 @@ def test_review_id_must_match_source_case_prefix(tmp_path: Path) -> None:
     errors = validate_file(path, SOURCE_CASES)
 
     assert "line 1.review_id: must start with source_case_id plus _LANG_REVIEW_" in errors
+
+
+def test_duplicate_review_ids_are_rejected(tmp_path: Path) -> None:
+    first = valid_row()
+    second = valid_row()
+    second["reviewer_public_handle"] = "second-reviewer"
+    path = tmp_path / "review.jsonl"
+    path.write_text(
+        "\n".join(
+            [
+                json.dumps(first, ensure_ascii=False),
+                json.dumps(second, ensure_ascii=False),
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert "line 2.review_id: duplicate FA_SAMPLE_001_LANG_REVIEW_001" in errors
+
+
+def test_placeholder_reviewer_handle_is_rejected(tmp_path: Path) -> None:
+    row = valid_row()
+    row["reviewer_public_handle"] = "example-reviewer"
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert (
+        "line 1.reviewer_public_handle: replace template handle with a public reviewer handle"
+        in errors
+    )
 
 
 def test_preserved_tags_must_come_from_source_case(tmp_path: Path) -> None:
