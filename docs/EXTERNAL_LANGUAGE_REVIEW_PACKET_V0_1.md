@@ -34,7 +34,7 @@ Each row must include:
   "source_case_id": "FA_SAMPLE_001",
   "review_language": "zh",
   "review_kind": "close_translation_then_safer_rewrite",
-  "reviewer_public_handle": "example-reviewer",
+  "reviewer_public_handle": "your-public-handle",
   "reviewer_role": "biomedical language reviewer",
   "translation_text": "Target language close translation.",
   "risk_preservation_note": "Short note about preserved risk.",
@@ -54,6 +54,6 @@ Each row must include:
 python3 scripts/validate_external_language_review_packet_v0_1.py path/to/review.jsonl
 ```
 
-The validator checks that the source case exists in `data/failure_atlas_external_sample_v0_1.jsonl`, the `review_id` starts with the same source case ID, preserved tags are non empty, unique, and present on the source case, and public boundary booleans stay false.
+The validator checks that the source case exists in `data/failure_atlas_external_sample_v0_1.jsonl`, the `review_id` starts with the same source case ID, the reviewer handle is replaced with a real public handle, preserved tags are non empty, unique, and present on the source case, and public boundary booleans stay false.
 
 The validator also rejects copied template placeholders such as `Target language close translation.` and rejects a `safer_rewrite` that repeats the close translation. A submitted packet must separate the source-risk translation from the safer patient-facing rewrite.

@@ -59,11 +59,26 @@ PLACEHOLDER_PHRASES = {
     "target language close translation.",
     "target language safer rewrite.",
 }
+PLACEHOLDER_REVIEWER_HANDLES = {
+    "anon",
+    "anonymous",
+    "example reviewer",
+    "example-reviewer",
+    "github handle",
+    "reviewer",
+    "your handle",
+    "your-handle",
+    "your-public-handle",
+}
 PLACEHOLDER_TOKEN = re.compile(r"\b(todo|tbd|placeholder|fill me|replace this)\b", re.IGNORECASE)
 
 
 def normalize_text(value: str) -> str:
     return " ".join(value.casefold().split())
+
+
+def normalize_handle(value: str) -> str:
+    return normalize_text(value).lstrip("@")
 
 
 def load_jsonl(path: Path) -> list[tuple[int, dict[str, Any]]]:
@@ -161,6 +176,17 @@ def validate_row(
         value = row[key]
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{prefix}.{key}: must be a non empty string")
+
+    reviewer_public_handle = row["reviewer_public_handle"]
+    if isinstance(reviewer_public_handle, str) and reviewer_public_handle.strip():
+        normalized_handle = normalize_handle(reviewer_public_handle)
+        if (
+            normalized_handle in PLACEHOLDER_REVIEWER_HANDLES
+            or PLACEHOLDER_TOKEN.search(reviewer_public_handle)
+        ):
+            errors.append(
+                f"{prefix}.reviewer_public_handle: replace template handle with a public reviewer handle"
+            )
 
     for key in TEXT_PACKET_FIELDS:
         value = row[key]
