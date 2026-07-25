@@ -1,7 +1,7 @@
 {
   "schema_version": "oss_reputation_receipts_v0_1",
   "status": "live_review_snapshot_not_acceptance",
-  "reviewed_at": "2026-07-24T18:59:55Z",
+  "reviewed_at": "2026-07-25T16:01:01Z",
   "boundary_flags": {
     "no_upstream_acceptance_without_merge": true,
     "no_official_endorsement_claim": true,
@@ -113,6 +113,51 @@
       "evidence": {
         "command": "gh pr view 1272 -R huggingface/lighteval --json state,mergeStateStatus,statusCheckRollup",
         "result": "open, no hosted checks reported, review pending"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 261,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/261",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-25T16:01:01Z",
+      "evidence": {
+        "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
+        "result": "CI run 30159349529 success on main SHA a61572c47504475bdce4dc2ef50480ca01340f6b after PR #261 merge"
+      }
+    },
+    {
+      "repository": "fpytloun/intaris",
+      "number": 2,
+      "url": "https://github.com/fpytloun/intaris/pull/2",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-25T16:06:10Z",
+      "evidence": {
+        "command": "gh pr view 2 --repo fpytloun/intaris --json url,state,reviewDecision,headRefOid,mergeable,comments",
+        "result": "open PR, head a20a6d938f4582fee4b5b287833dc0228ed1a370, maintainer changes-requested review answered"
+      }
+    },
+    {
+      "repository": "UKGovernmentBEIS/inspect_evals",
+      "number": 1963,
+      "url": "https://github.com/UKGovernmentBEIS/inspect_evals/issues/1963",
+      "scope": "upstream",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-25T16:06:38Z",
+      "evidence": {
+        "command": "gh issue view 1963 --repo UKGovernmentBEIS/inspect_evals --json url,state,comments",
+        "result": "open issue, MEG rename clarification answered with Register submission guardrails"
       }
     }
   ]
