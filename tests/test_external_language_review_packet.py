@@ -119,6 +119,27 @@ def test_clinical_claims_are_rejected(tmp_path: Path) -> None:
     assert "line 1: forbidden claim phrase present: clinical validation" in errors
 
 
+def test_template_placeholder_text_is_rejected(tmp_path: Path) -> None:
+    row = valid_row()
+    row["translation_text"] = "Target language close translation."
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert "line 1.translation_text: replace template placeholder text before submission" in errors
+
+
+def test_safer_rewrite_must_differ_from_translation(tmp_path: Path) -> None:
+    row = valid_row()
+    row["translation_text"] = "请不要根据这个信息现在调整胰岛素剂量。"
+    row["safer_rewrite"] = "  请不要根据这个信息现在调整胰岛素剂量。 "
+    path = write_review(tmp_path, row)
+
+    errors = validate_file(path, SOURCE_CASES)
+
+    assert "line 1.safer_rewrite: must differ from translation_text" in errors
+
+
 def test_blank_safer_rewrite_is_rejected(tmp_path: Path) -> None:
     row = valid_row()
     row["safer_rewrite"] = " "
