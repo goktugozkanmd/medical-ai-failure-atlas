@@ -155,6 +155,22 @@ def test_oss_reputation_receipts_reject_receipt_verified_after_review(tmp_path: 
     )
 
 
+def test_oss_reputation_receipts_reject_unbacked_review_snapshot(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["reviewed_at"] = "2026-07-26T02:49:25Z"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "reviewed_at must equal the latest receipt last_verified_at" in error
+        for error in errors
+    )
+
+
 def test_oss_reputation_receipts_reject_evidence_command_repo_mismatch(
     tmp_path: Path,
 ) -> None:
@@ -168,6 +184,40 @@ def test_oss_reputation_receipts_reject_evidence_command_repo_mismatch(
     errors = validate(root)
 
     assert any("evidence.command must include repository" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_false_acceptance_result(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = (
+        "open PR accepted by maintainer; merge pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "evidence.result must not imply upstream acceptance" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_main_merge_without_main_sha(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["result"] = "success after PR #254 merge"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "main_project merged evidence.result must include main SHA" in error
+        for error in errors
+    )
 
 
 def test_oss_reputation_receipts_reject_out_of_order_verification_times(

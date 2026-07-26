@@ -44,6 +44,13 @@ URL_KIND_TO_CONTRIBUTION_TYPE = {
     "issues": "issue",
     "discussions": "discussion",
 }
+FALSE_ACCEPTANCE_RESULT_PATTERNS = (
+    re.compile(r"\baccepted by\b", re.IGNORECASE),
+    re.compile(r"\bmaintainer accepted\b", re.IGNORECASE),
+    re.compile(r"\bapproved by\b", re.IGNORECASE),
+    re.compile(r"\bmerged upstream\b", re.IGNORECASE),
+    re.compile(r"\badopted upstream\b", re.IGNORECASE),
+)
 
 
 def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[str]:
@@ -76,6 +83,7 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
     seen_urls: set[str] = set()
     seen_repo_numbers: set[tuple[str, int, str]] = set()
     previous_last_verified_at: datetime | None = None
+    latest_last_verified_at: datetime | None = None
     for index, receipt in enumerate(receipts):
         prefix = f"{manifest_path}:receipts[{index}]"
         if not isinstance(receipt, dict):
@@ -97,6 +105,19 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
             errors.append(f"{prefix}: last_verified_at must be non-decreasing")
         if last_verified_at is not None:
             previous_last_verified_at = last_verified_at
+            latest_last_verified_at = max(
+                latest_last_verified_at or last_verified_at,
+                last_verified_at,
+            )
+
+    if (
+        reviewed_at is not None
+        and latest_last_verified_at is not None
+        and reviewed_at != latest_last_verified_at
+    ):
+        errors.append(
+            f"{manifest_path}:reviewed_at must equal the latest receipt last_verified_at"
+        )
 
     return errors
 
@@ -189,7 +210,15 @@ def _validate_receipt(
         errors.append(
             f"{prefix}: last_verified_at must not be later than manifest reviewed_at"
         )
-    _validate_evidence(prefix, receipt.get("evidence"), repository, errors)
+    _validate_evidence(
+        prefix,
+        receipt.get("evidence"),
+        repository,
+        scope,
+        state,
+        accepted_upstream,
+        errors,
+    )
     _validate_claim_boundary(
         prefix=prefix,
         scope=scope,
@@ -235,6 +264,9 @@ def _validate_evidence(
     prefix: str,
     evidence: Any,
     repository: str,
+    scope: str | None,
+    state: str | None,
+    accepted_upstream: Any,
     errors: list[str],
 ) -> None:
     if not isinstance(evidence, dict):
@@ -247,6 +279,19 @@ def _validate_evidence(
     command = evidence.get("command")
     if isinstance(command, str) and repository and repository not in command:
         errors.append(f"{prefix}: evidence.command must include repository {repository}")
+    result = evidence.get("result")
+    if accepted_upstream is False and isinstance(result, str):
+        if any(pattern.search(result) for pattern in FALSE_ACCEPTANCE_RESULT_PATTERNS):
+            errors.append(
+                f"{prefix}: evidence.result must not imply upstream acceptance "
+                "when accepted_upstream is false"
+            )
+    if scope == "main_project" and state == "merged" and isinstance(result, str):
+        normalized_result = result.lower()
+        if "main sha" not in normalized_result and "main head" not in normalized_result:
+            errors.append(
+                f"{prefix}: main_project merged evidence.result must include main SHA"
+            )
 
 
 def _validate_claim_boundary(
