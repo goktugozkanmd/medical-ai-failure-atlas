@@ -328,6 +328,65 @@ def test_oss_reputation_receipts_reject_main_merge_without_main_sha(
     )
 
 
+def test_oss_reputation_receipts_reject_external_merge_without_merge_commit(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][2].update(
+        {
+            "state": "merged",
+            "acceptance_state": "merged_upstream",
+            "accepted_upstream": True,
+            "evidence": {
+                "command": (
+                    "gh pr view 6 -R ruypontes/clinical-ai-lab "
+                    "--json state,mergedAt,statusCheckRollup"
+                ),
+                "result": "merged; build check success",
+            },
+        }
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("evidence.command must request mergeCommit" in error for error in errors)
+    assert any("evidence.result must include merge commit SHA" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_linked_pr_issue_state_without_link(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    issue_receipt = next(
+        receipt
+        for receipt in manifest["receipts"]
+        if receipt["repository"] == "P-r-e-m-i-u-m/generative-ai-engineering-lab"
+        and receipt["number"] == 14
+    )
+    issue_receipt.update(
+        {
+            "state": "closed",
+            "acceptance_state": "issue_closed_by_merged_pr",
+            "evidence": {
+                "command": (
+                    "gh issue view 14 --repo "
+                    "P-r-e-m-i-u-m/generative-ai-engineering-lab "
+                    "--json url,state,title,closedAt"
+                ),
+                "result": "closed after maintainer follow-up",
+            },
+        }
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("issue_closed_by_merged_pr evidence.result" in error for error in errors)
+
+
 def test_oss_reputation_receipts_reject_out_of_order_verification_times(
     tmp_path: Path,
 ) -> None:

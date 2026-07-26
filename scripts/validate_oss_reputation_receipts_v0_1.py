@@ -33,6 +33,7 @@ ALLOWED_ACCEPTANCE_STATES = {
     "merged_upstream",
     "issue_open_pending",
     "issue_closed_no_action",
+    "issue_closed_by_merged_pr",
 }
 GITHUB_URL_RE = re.compile(
     r"^https://github\.com/"
@@ -62,6 +63,7 @@ CHECK_SUCCESS_PATTERNS = (
     re.compile(r"\bchecks?\s+(?:are\s+|all\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
     re.compile(r"\bstatus\s+checks?\s+(?:are\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
 )
+MERGE_COMMIT_SHA_RE = re.compile(r"\b[0-9a-f]{40}\b", re.IGNORECASE)
 
 
 def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[str]:
@@ -226,7 +228,9 @@ def _validate_receipt(
         receipt.get("evidence"),
         repository,
         scope,
+        contribution_type,
         state,
+        acceptance_state,
         accepted_upstream,
         errors,
     )
@@ -276,7 +280,9 @@ def _validate_evidence(
     evidence: Any,
     repository: str,
     scope: str | None,
+    contribution_type: str | None,
     state: str | None,
+    acceptance_state: str | None,
     accepted_upstream: Any,
     errors: list[str],
 ) -> None:
@@ -290,6 +296,16 @@ def _validate_evidence(
     command = evidence.get("command")
     if isinstance(command, str) and repository and repository not in command:
         errors.append(f"{prefix}: evidence.command must include repository {repository}")
+    if (
+        contribution_type == "pull_request"
+        and state == "merged"
+        and scope in {"upstream", "external"}
+        and isinstance(command, str)
+        and "mergeCommit" not in command
+    ):
+        errors.append(
+            f"{prefix}: merged upstream/external PR evidence.command must request mergeCommit"
+        )
     result = evidence.get("result")
     if accepted_upstream is False and isinstance(result, str):
         if any(pattern.search(result) for pattern in FALSE_ACCEPTANCE_RESULT_PATTERNS):
@@ -307,6 +323,27 @@ def _validate_evidence(
         _validate_result_state_wording(prefix, state, result, errors)
     if isinstance(result, str):
         _validate_check_evidence_wording(prefix, result, errors)
+    if (
+        contribution_type == "pull_request"
+        and state == "merged"
+        and scope in {"upstream", "external"}
+        and accepted_upstream is True
+        and isinstance(result, str)
+        and not MERGE_COMMIT_SHA_RE.search(result)
+    ):
+        errors.append(
+            f"{prefix}: merged upstream/external PR evidence.result must include merge commit SHA"
+        )
+    if (
+        contribution_type in {"issue", "discussion"}
+        and state == "closed"
+        and acceptance_state == "issue_closed_by_merged_pr"
+        and isinstance(result, str)
+        and not re.search(r"\blinked (?:pr|pull request)\b", result, re.IGNORECASE)
+    ):
+        errors.append(
+            f"{prefix}: issue_closed_by_merged_pr evidence.result must cite a linked PR"
+        )
 
 
 def _validate_result_state_wording(
@@ -391,9 +428,12 @@ def _validate_claim_boundary(
             if accepted_upstream is not False:
                 errors.append(f"{prefix}: open issues/discussions must not claim acceptance")
         if state == "closed":
-            if acceptance_state != "issue_closed_no_action":
+            if acceptance_state not in {
+                "issue_closed_no_action",
+                "issue_closed_by_merged_pr",
+            }:
                 errors.append(
-                    f"{prefix}: closed issues/discussions must be issue_closed_no_action"
+                    f"{prefix}: closed issues/discussions must use a closed issue state"
                 )
             if accepted_upstream is not False:
                 errors.append(f"{prefix}: closed issues/discussions must not claim acceptance")

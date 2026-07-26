@@ -1,7 +1,7 @@
 {
   "schema_version": "oss_reputation_receipts_v0_1",
   "status": "live_review_snapshot_not_acceptance",
-  "reviewed_at": "2026-07-26T08:53:01Z",
+  "reviewed_at": "2026-07-26T14:56:45Z",
   "boundary_flags": {
     "no_upstream_acceptance_without_merge": true,
     "no_official_endorsement_claim": true,
@@ -356,18 +356,63 @@
       }
     },
     {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 269,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/269",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
+        "result": "merged; CI run 30200927784 success on main SHA 693c1b8fa3d3564de527b980cf337f35a713fb80 after PR #269 merged"
+      }
+    },
+    {
+      "repository": "P-r-e-m-i-u-m/generative-ai-engineering-lab",
+      "number": 29,
+      "url": "https://github.com/P-r-e-m-i-u-m/generative-ai-engineering-lab/pull/29",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "merged_upstream",
+      "accepted_upstream": true,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh pr view 29 --repo P-r-e-m-i-u-m/generative-ai-engineering-lab --json url,state,mergedAt,mergeCommit,headRefOid,statusCheckRollup,title",
+        "result": "merged; merge commit 519badafae3eddefc6ecbd085082444fa9b5ace5; build check success; owner thanked RAG failure eval case"
+      }
+    },
+    {
       "repository": "P-r-e-m-i-u-m/generative-ai-engineering-lab",
       "number": 14,
       "url": "https://github.com/P-r-e-m-i-u-m/generative-ai-engineering-lab/issues/14",
       "scope": "external",
       "contribution_type": "issue",
-      "state": "open",
-      "acceptance_state": "issue_open_pending",
+      "state": "closed",
+      "acceptance_state": "issue_closed_by_merged_pr",
       "accepted_upstream": false,
-      "last_verified_at": "2026-07-26T08:53:01Z",
+      "last_verified_at": "2026-07-26T14:56:45Z",
       "evidence": {
-        "command": "gh issue view 14 --repo P-r-e-m-i-u-m/generative-ai-engineering-lab --json url,state,title,comments,updatedAt",
-        "result": "open issue with goktugozkanmd technical comment; medical RAG failure fixture proposal pending maintainer response"
+        "command": "gh issue view 14 --repo P-r-e-m-i-u-m/generative-ai-engineering-lab --json url,state,title,closedAt,comments,updatedAt",
+        "result": "closed by linked PR #29 merge; issue comment received maintainer eyes reaction and PR #29 implemented fixture"
+      }
+    },
+    {
+      "repository": "ajaysurya1221/evalopt-graph",
+      "number": 4,
+      "url": "https://github.com/ajaysurya1221/evalopt-graph/pull/4",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh pr view 4 --repo ajaysurya1221/evalopt-graph --json url,state,headRefOid,mergeable,statusCheckRollup,comments,reviews",
+        "result": "open PR, head e5757016ebf18423451fb12ac7868a91842fa66d, statusCheckRollup [], CodeRabbit comments answered with local validation evidence"
       }
     },
     {
@@ -379,7 +424,7 @@
       "state": "open",
       "acceptance_state": "issue_open_pending",
       "accepted_upstream": false,
-      "last_verified_at": "2026-07-26T08:53:01Z",
+      "last_verified_at": "2026-07-26T14:56:45Z",
       "evidence": {
         "command": "gh issue view 17 --repo mohamad679/NeuroSight --json url,state,title,author,createdAt,updatedAt,comments",
         "result": "open issue by goktugozkanmd; confidence metric wording guard proposal pending maintainer response"
