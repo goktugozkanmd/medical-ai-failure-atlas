@@ -292,6 +292,33 @@ def _validate_evidence(
             errors.append(
                 f"{prefix}: main_project merged evidence.result must include main SHA"
             )
+    if isinstance(result, str) and state is not None:
+        _validate_result_state_wording(prefix, state, result, errors)
+
+
+def _validate_result_state_wording(
+    prefix: str,
+    state: str,
+    result: str,
+    errors: list[str],
+) -> None:
+    normalized_result = result.lower()
+    if state == "open":
+        if not re.search(r"\bopen\b", normalized_result):
+            errors.append(f"{prefix}: open evidence.result must include open")
+        if re.search(
+            r"\b(merged|closed|approved|accepted|resolved|final)\b",
+            normalized_result,
+        ):
+            errors.append(
+                f"{prefix}: open evidence.result must not imply a final disposition"
+            )
+    elif state == "closed":
+        if not re.search(r"\bclosed\b", normalized_result):
+            errors.append(f"{prefix}: closed evidence.result must include closed")
+    elif state == "merged":
+        if not re.search(r"\bmerged\b", normalized_result):
+            errors.append(f"{prefix}: merged evidence.result must include merged")
 
 
 def _validate_claim_boundary(
