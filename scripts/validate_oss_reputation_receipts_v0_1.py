@@ -51,6 +51,17 @@ FALSE_ACCEPTANCE_RESULT_PATTERNS = (
     re.compile(r"\bmerged upstream\b", re.IGNORECASE),
     re.compile(r"\badopted upstream\b", re.IGNORECASE),
 )
+NO_HOSTED_CHECKS_PATTERNS = (
+    re.compile(r"\bno hosted checks?\b", re.IGNORECASE),
+    re.compile(r"\bno checks? reported\b", re.IGNORECASE),
+    re.compile(r"\bempty statuscheckrollup\b", re.IGNORECASE),
+    re.compile(r"\bstatuscheckrollup\s*\[\s*\]", re.IGNORECASE),
+)
+CHECK_SUCCESS_PATTERNS = (
+    re.compile(r"\bci\s+(?:is\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+    re.compile(r"\bchecks?\s+(?:are\s+|all\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+    re.compile(r"\bstatus\s+checks?\s+(?:are\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+)
 
 
 def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[str]:
@@ -294,6 +305,8 @@ def _validate_evidence(
             )
     if isinstance(result, str) and state is not None:
         _validate_result_state_wording(prefix, state, result, errors)
+    if isinstance(result, str):
+        _validate_check_evidence_wording(prefix, result, errors)
 
 
 def _validate_result_state_wording(
@@ -319,6 +332,20 @@ def _validate_result_state_wording(
     elif state == "merged":
         if not re.search(r"\bmerged\b", normalized_result):
             errors.append(f"{prefix}: merged evidence.result must include merged")
+
+
+def _validate_check_evidence_wording(
+    prefix: str,
+    result: str,
+    errors: list[str],
+) -> None:
+    if any(pattern.search(result) for pattern in NO_HOSTED_CHECKS_PATTERNS) and any(
+        pattern.search(result) for pattern in CHECK_SUCCESS_PATTERNS
+    ):
+        errors.append(
+            f"{prefix}: evidence.result must not describe CI/checks as green "
+            "when no hosted checks are reported"
+        )
 
 
 def _validate_claim_boundary(

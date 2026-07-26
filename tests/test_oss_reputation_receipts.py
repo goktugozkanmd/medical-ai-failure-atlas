@@ -233,6 +233,57 @@ def test_oss_reputation_receipts_reject_open_result_with_final_disposition(
     )
 
 
+def test_oss_reputation_receipts_reject_no_hosted_checks_ci_green_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][3]["evidence"]["result"] = (
+        "open, no hosted checks reported, CI green, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_no_checks_reported_check_success_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][4]["evidence"]["result"] = (
+        "open, no checks reported, status checks success, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_empty_status_rollup_checks_passed_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][6]["evidence"]["result"] = (
+        "open, statusCheckRollup [], all checks passed, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
 def test_oss_reputation_receipts_reject_closed_result_without_closed_word(
     tmp_path: Path,
 ) -> None:
