@@ -1,7 +1,7 @@
 {
   "schema_version": "oss_reputation_receipts_v0_1",
   "status": "live_review_snapshot_not_acceptance",
-  "reviewed_at": "2026-07-26T02:48:25Z",
+  "reviewed_at": "2026-07-26T05:51:06Z",
   "boundary_flags": {
     "no_upstream_acceptance_without_merge": true,
     "no_official_endorsement_claim": true,
@@ -263,6 +263,66 @@
       "evidence": {
         "command": "gh issue view 1 --repo nktarasios/triage --json url,state,comments,updatedAt,author,title",
         "result": "open issue by goktugozkanmd; comments empty; eval config and label snapshot hash proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 265,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/265",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T05:51:06Z",
+      "evidence": {
+        "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
+        "result": "CI run 30185258870 success on main SHA f49d08a2ed47dab3103821924766299d86f5cc82 after PR #265 merge"
+      }
+    },
+    {
+      "repository": "sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework",
+      "number": 17,
+      "url": "https://github.com/sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework/issues/17",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T05:51:06Z",
+      "evidence": {
+        "command": "gh issue view 17 --repo sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework --json url,state,title,createdAt,author",
+        "result": "open issue by goktugozkanmd; minimal six-record evidence-pack fixture proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "avnlp/rag-pipelines",
+      "number": 9,
+      "url": "https://github.com/avnlp/rag-pipelines/issues/9",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T05:51:06Z",
+      "evidence": {
+        "command": "gh issue view 9 --repo avnlp/rag-pipelines --json url,state,title,createdAt,author",
+        "result": "open issue by goktugozkanmd; HealthBench insufficiency and escalation outcome proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "Nirvana-Jie/skill-reviewer",
+      "number": 14,
+      "url": "https://github.com/Nirvana-Jie/skill-reviewer/issues/14",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T05:51:06Z",
+      "evidence": {
+        "command": "gh issue view 14 --repo Nirvana-Jie/skill-reviewer --json url,state,title,createdAt,author",
+        "result": "open issue by goktugozkanmd; high-stakes clinical safety skill-review fixture proposal pending maintainer response"
       }
     }
   ]
