@@ -204,6 +204,63 @@ def test_oss_reputation_receipts_reject_false_acceptance_result(
     )
 
 
+def test_oss_reputation_receipts_reject_open_result_without_open_state_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = "review pending"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("open evidence.result must include open" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_open_result_with_final_disposition(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = "open PR, closed as fixed"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "open evidence.result must not imply a final disposition" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_closed_result_without_closed_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][5]["evidence"]["result"] = "maintainer passed on the PR"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("closed evidence.result must include closed" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_merged_result_without_merged_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["result"] = (
+        "success on main SHA 61396e06331a0dd29a6ea416e8fe46f95229a9bd after PR #254"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("merged evidence.result must include merged" in error for error in errors)
+
+
 def test_oss_reputation_receipts_reject_main_merge_without_main_sha(
     tmp_path: Path,
 ) -> None:
