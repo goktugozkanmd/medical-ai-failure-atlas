@@ -75,12 +75,13 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
 
     seen_urls: set[str] = set()
     seen_repo_numbers: set[tuple[str, int, str]] = set()
+    previous_last_verified_at: datetime | None = None
     for index, receipt in enumerate(receipts):
         prefix = f"{manifest_path}:receipts[{index}]"
         if not isinstance(receipt, dict):
             errors.append(f"{prefix}: receipt must be an object")
             continue
-        _validate_receipt(
+        last_verified_at = _validate_receipt(
             prefix,
             receipt,
             reviewed_at,
@@ -88,6 +89,14 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
             seen_repo_numbers,
             errors,
         )
+        if (
+            previous_last_verified_at is not None
+            and last_verified_at is not None
+            and last_verified_at < previous_last_verified_at
+        ):
+            errors.append(f"{prefix}: last_verified_at must be non-decreasing")
+        if last_verified_at is not None:
+            previous_last_verified_at = last_verified_at
 
     return errors
 
@@ -111,7 +120,7 @@ def _validate_receipt(
     seen_urls: set[str],
     seen_repo_numbers: set[tuple[str, int, str]],
     errors: list[str],
-) -> None:
+) -> datetime | None:
     repository = receipt.get("repository")
     if not isinstance(repository, str) or not re.fullmatch(
         r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository
@@ -180,7 +189,7 @@ def _validate_receipt(
         errors.append(
             f"{prefix}: last_verified_at must not be later than manifest reviewed_at"
         )
-    _validate_evidence(prefix, receipt.get("evidence"), errors)
+    _validate_evidence(prefix, receipt.get("evidence"), repository, errors)
     _validate_claim_boundary(
         prefix=prefix,
         scope=scope,
@@ -190,6 +199,7 @@ def _validate_receipt(
         accepted_upstream=accepted_upstream,
         errors=errors,
     )
+    return last_verified_at
 
 
 def _require_enum(
@@ -221,7 +231,12 @@ def _parse_timestamp(value: Any, label: str, errors: list[str]) -> datetime | No
     return parsed
 
 
-def _validate_evidence(prefix: str, evidence: Any, errors: list[str]) -> None:
+def _validate_evidence(
+    prefix: str,
+    evidence: Any,
+    repository: str,
+    errors: list[str],
+) -> None:
     if not isinstance(evidence, dict):
         errors.append(f"{prefix}: evidence must be an object")
         return
@@ -229,6 +244,9 @@ def _validate_evidence(prefix: str, evidence: Any, errors: list[str]) -> None:
         value = evidence.get(field)
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{prefix}: evidence.{field} must be a non-empty string")
+    command = evidence.get("command")
+    if isinstance(command, str) and repository and repository not in command:
+        errors.append(f"{prefix}: evidence.command must include repository {repository}")
 
 
 def _validate_claim_boundary(
