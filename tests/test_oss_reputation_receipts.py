@@ -153,3 +153,31 @@ def test_oss_reputation_receipts_reject_receipt_verified_after_review(tmp_path: 
         "last_verified_at must not be later than manifest reviewed_at" in error
         for error in errors
     )
+
+
+def test_oss_reputation_receipts_reject_evidence_command_repo_mismatch(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["command"] = (
+        "gh run view 30108764237 --repo other/project"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("evidence.command must include repository" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_out_of_order_verification_times(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["last_verified_at"] = "2026-07-24T16:00:00Z"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("last_verified_at must be non-decreasing" in error for error in errors)
