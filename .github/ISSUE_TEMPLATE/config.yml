@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Live Hugging Face Space
-    url: https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas
-    about: View the live MedFailBench leaderboard preview.
+  - name: Documentation map
+    url: https://github.com/goktugozkanmd/medical-ai-failure-atlas/blob/main/docs/README.md
+    about: Find the current release, method, rubric, citation, and contribution entry points.
   - name: Collaboration call
     url: https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/182
     about: Use this issue for general collaboration interest.
