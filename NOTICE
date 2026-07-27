@@ -1,0 +1,14 @@
+Medical AI Failure Atlas / MedFailBench
+Copyright 2026 Goktug Ozkan
+
+Software source code in this repository is licensed under the Apache License,
+Version 2.0. See LICENSE.
+
+Synthetic scenario data, documentation, evaluation cards, and other non code
+text are licensed under Creative Commons Attribution 4.0 International unless
+an individual file states otherwise. The canonical license URL is:
+
+https://creativecommons.org/licenses/by/4.0/
+
+This notice describes which license applies to each part of the repository. It
+does not replace or modify either license.

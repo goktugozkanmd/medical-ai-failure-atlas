@@ -105,4 +105,4 @@ Questions and early ideas can start in [GitHub Discussions](https://github.com/g
 
 ## License
 
-Contribution licensing follows the project notice. Code contributions are provided under Apache License 2.0. Synthetic data, documentation, evaluation cards, and other noncode text are provided under Creative Commons Attribution 4.0 International unless a file states otherwise. See [LICENSE](LICENSE) for the full notice.
+Contribution licensing follows the project notice. Code contributions are provided under Apache License 2.0. Synthetic data, documentation, evaluation cards, and other noncode text are provided under Creative Commons Attribution 4.0 International unless a file states otherwise. See [NOTICE](NOTICE) for the license scope map and [LICENSE](LICENSE) for the Apache License 2.0 text.

@@ -9,7 +9,8 @@ This page identifies the current public entry points for MedFailBench. Files not
 * [Public artifact integrity manifest](release/PUBLIC_ARTIFACT_MANIFEST_V0_1.json)
 * [Changelog](../CHANGELOG.md)
 * [Citation metadata](../CITATION.cff)
-* [License notice](../LICENSE)
+* [Apache License 2.0](../LICENSE)
+* [License scope and attribution notice](../NOTICE)
 
 ## Method and review boundaries
 
