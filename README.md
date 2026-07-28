@@ -2,7 +2,7 @@
 
 A clinician-built benchmark for medical AI safety evaluation.
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](pyproject.toml) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![HF Space](https://img.shields.io/badge/HuggingFace%20Space-live-green)](https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21205535-blue)](https://doi.org/10.5281/zenodo.21205535)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](pyproject.toml) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21205535-blue)](https://doi.org/10.5281/zenodo.21205535)
 
 ![Medical AI Failure Atlas demo screenshot](docs/assets/demo-screenshot.png)
 <!-- Legacy validator anchor: ![Demo screenshot placeholder](docs/assets/demo-placeholder.svg) -->
@@ -13,29 +13,25 @@ Medical AI Failure Atlas is a synthetic benchmark for testing whether medical AI
 
 Quick Start, scope, contents, workflows, safety, compliance, roadmap, contributing, license, and citation are below.
 
-## Live Demo
+## Local Preview
 
-The leaderboard app is live on HuggingFace Spaces:
-
-[https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas](https://huggingface.co/spaces/goktugozkanmd/medical-ai-failure-atlas)
-
-Local preview:
+Run the screening preview locally:
 
 ```bash
 python3 -m pip install -r requirements.txt
 python3 app.py
 ```
 
-See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for Space metadata and deployment boundaries.
+See [`leaderboard/SPACE_README.md`](leaderboard/SPACE_README.md) for interface metadata and deployment boundaries.
 
-Current Space sections:
+Current preview sections:
 
 - Submitted model runs
 - Worst-case safety view
 - Model failure cards with `Neden Tehlikeli?` and `Daha Güvenli Cevap`
 - Synthetic preview and severity distribution
 
-The Space and model cards are screening previews only. They are not clinical
+The interface and model cards are screening previews only. They are not clinical
 validation, model ranking, deployment evidence, score certification, or
 endorsement. Detailed failure mode analyses for individual model outputs are
 available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
@@ -47,7 +43,7 @@ available in [`docs/model_failure_cards/`](docs/model_failure_cards/).
 - Repository assets also include 150 scenario-bank rows and 70 prompt rows. These broader assets must be cited separately from the 44-case preprint evidence set until validation and release notes are normalized.
 - CI-integrated model-response pipeline labels dry runs explicitly. Automated scores are screening outputs pending clinician review, not model rankings.
 - Small GLM-5.2 TR/EN safety-drift probe: [`docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md`](docs/TR_EN_DRIFT_GLM_PROBE_V0_1.md), paired raw outputs in `model_runs/tr_en_drift_glm_5_2_probe_v0_1.json`.
-- arXiv-ready preprint: `preprint/main.tex` (built automatically on every PR via tectonic; upload still requires final submission clearance).
+- Method paper: [arXiv:2607.15166](https://arxiv.org/abs/2607.15166). Check the submission history on arXiv for the current public version.
 - Hard findings from the current rule-based snapshot: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md)
 - EU AI Act compliance positioning: [`docs/governance/COMPLIANCE.md`](docs/governance/COMPLIANCE.md)
 - Whitepaper: [`docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md`](docs/BENCHMARKING_CLINICAL_AI_SAFETY_FOR_EU_AI_ACT_CONFORMITY.md)
@@ -125,7 +121,7 @@ The public prompt files currently form a 70 row prompt set across the v1, hard 3
 | Failure atlas | [`failure_atlas/public/`](failure_atlas/public/INDEX.md) | Taxonomy preview, case intake schema, [methodology](failure_atlas/public/METHODOLOGY.md), and review queue. |
 | SourceCheckup Medical | `sourcecheckup/` | Source support checks for medical AI answers and public claim review. |
 | Turkish MedLLM safety bench | `tr_medllm_safetybench/` | Turkish medical language risk pack and specialty spread summary. |
-| Leaderboard preview | `leaderboard/` | Synthetic no ranking report template and deployable Space app. |
+| Leaderboard preview | `leaderboard/` | Synthetic no ranking report template and local preview app. |
 | Review rubric | `rubric/v0.2.0/` | Clinician severity rubric and safety gate taxonomy for the flagship layer. |
 | Validation scripts | `scripts/` | Deterministic checks for data shape, release boundaries, and generated reports. |
 | Documentation | `docs/` | Method notes, release cards, governance worksheets, and archived field work. |
@@ -136,7 +132,7 @@ The public prompt files currently form a 70 row prompt set across the v1, hard 3
 medical-ai-failure-atlas/
   data/                         synthetic scenario and rubric files
   failure_atlas/public/         public taxonomy and case intake materials
-  leaderboard/                  preview report and HuggingFace Space app
+  leaderboard/                  preview report and local preview app
   rubric/v0.2.0/                clinician severity rubric and safety gate taxonomy
   scripts/                      validators, runners, and report generators
   safetyguard/                  pip-installable safety evaluation CLI
@@ -225,7 +221,7 @@ The next public work is narrow and practical:
 4. Turn the benchmark method into a short technical report after reference verification.
 5. Recruit narrow outside review through issues: one case, one safety gate, or one wording fix at a time.
 
-See [docs/LEADERBOARD_PLAN.md](docs/LEADERBOARD_PLAN.md) for the Space deployment plan and [docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md](docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md) for the latest response-preview artifact.
+See [docs/LEADERBOARD_PLAN.md](docs/LEADERBOARD_PLAN.md) for the interface deployment plan and [docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md](docs/MEDFAILBENCH_WEEKLY_MODEL_RESPONSE_EVAL_20260702.md) for the latest response preview artifact.
 
 ## Contributing
 
@@ -233,11 +229,11 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use synth
 
 ## License
 
-Code in this repository is licensed under Apache-2.0.
+Code in this repository is licensed under Apache-2.0. The root [LICENSE](LICENSE) file contains the standard Apache License 2.0 text so GitHub can identify the software license.
 
-Synthetic scenario data, documentation, evaluation cards, and other non code text are licensed under CC-BY-4.0 unless a file says otherwise.
+Synthetic scenario data, documentation, evaluation cards, and other non code text are licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) unless a file says otherwise.
 
-See [LICENSE](LICENSE) for the full license notice.
+See [NOTICE](NOTICE) for the copyright and license scope map.
 
 ## Citation
 
