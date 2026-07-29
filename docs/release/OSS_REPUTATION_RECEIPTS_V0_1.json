@@ -1,7 +1,7 @@
 {
   "schema_version": "oss_reputation_receipts_v0_1",
   "status": "live_review_snapshot_not_acceptance",
-  "reviewed_at": "2026-07-25T16:06:38Z",
+  "reviewed_at": "2026-07-26T14:56:45Z",
   "boundary_flags": {
     "no_upstream_acceptance_without_merge": true,
     "no_official_endorsement_claim": true,
@@ -22,7 +22,7 @@
       "last_verified_at": "2026-07-24T16:33:01Z",
       "evidence": {
         "command": "gh run view 30108764237 --repo goktugozkanmd/medical-ai-failure-atlas --json status,conclusion,headSha,url,jobs",
-        "result": "success on main SHA 61396e06331a0dd29a6ea416e8fe46f95229a9bd"
+        "result": "merged; success on main SHA 61396e06331a0dd29a6ea416e8fe46f95229a9bd"
       }
     },
     {
@@ -127,7 +127,7 @@
       "last_verified_at": "2026-07-25T16:01:01Z",
       "evidence": {
         "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
-        "result": "CI run 30159349529 success on main SHA a61572c47504475bdce4dc2ef50480ca01340f6b after PR #261 merge"
+        "result": "CI run 30159349529 success on main SHA a61572c47504475bdce4dc2ef50480ca01340f6b after PR #261 merged"
       }
     },
     {
@@ -158,6 +158,276 @@
       "evidence": {
         "command": "gh issue view 1963 --repo UKGovernmentBEIS/inspect_evals --json url,state,comments",
         "result": "open issue, MEG rename clarification answered with Register submission guardrails"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 264,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/264",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:44:35Z",
+      "evidence": {
+        "command": "gh pr view 264 --repo goktugozkanmd/medical-ai-failure-atlas --json state,mergedAt,mergeCommit,headRefOid,url",
+        "result": "merged at 2026-07-25T23:50:24Z; main SHA 9ee2a3d272d2397ca5936de8d1ffe8fcf5ee9652"
+      }
+    },
+    {
+      "repository": "Francis1998/medagent-core",
+      "number": 42,
+      "url": "https://github.com/Francis1998/medagent-core/issues/42",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:44:35Z",
+      "evidence": {
+        "command": "gh issue view 42 --repo Francis1998/medagent-core --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; safety claim evidence manifest proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "Ai-MAFlutter/Medical-Knowledge-AI",
+      "number": 1,
+      "url": "https://github.com/Ai-MAFlutter/Medical-Knowledge-AI/issues/1",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:44:35Z",
+      "evidence": {
+        "command": "gh issue view 1 --repo Ai-MAFlutter/Medical-Knowledge-AI --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; medical safety boundary proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "mattmuldoon48/incident-agent-eval",
+      "number": 1,
+      "url": "https://github.com/mattmuldoon48/incident-agent-eval/issues/1",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:44:35Z",
+      "evidence": {
+        "command": "gh issue view 1 --repo mattmuldoon48/incident-agent-eval --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; partial-evidence false-completion proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "Pu11en/clinical-triage-agent",
+      "number": 1,
+      "url": "https://github.com/Pu11en/clinical-triage-agent/issues/1",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:48:25Z",
+      "evidence": {
+        "command": "gh issue view 1 --repo Pu11en/clinical-triage-agent --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; overdose and poisoning frozen-node case proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "Patrick-Bonsu/rl-clinical-agent",
+      "number": 1,
+      "url": "https://github.com/Patrick-Bonsu/rl-clinical-agent/issues/1",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:48:25Z",
+      "evidence": {
+        "command": "gh issue view 1 --repo Patrick-Bonsu/rl-clinical-agent --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; detector AUC polarity/support guard proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "nktarasios/triage",
+      "number": 1,
+      "url": "https://github.com/nktarasios/triage/issues/1",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T02:48:25Z",
+      "evidence": {
+        "command": "gh issue view 1 --repo nktarasios/triage --json url,state,comments,updatedAt,author,title",
+        "result": "open issue by goktugozkanmd; comments empty; eval config and label snapshot hash proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 265,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/265",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T05:51:06Z",
+      "evidence": {
+        "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
+        "result": "CI run 30185258870 success on main SHA f49d08a2ed47dab3103821924766299d86f5cc82 after PR #265 merged"
+      }
+    },
+    {
+      "repository": "sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework",
+      "number": 17,
+      "url": "https://github.com/sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework/issues/17",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T08:53:01Z",
+      "evidence": {
+        "command": "gh issue view 17 --repo sergey-morev/CASEF-Clinical-AI-Safety-Evaluation-Framework --json url,state,title,createdAt,author",
+        "result": "open issue by goktugozkanmd; minimal six-record evidence-pack fixture proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "avnlp/rag-pipelines",
+      "number": 9,
+      "url": "https://github.com/avnlp/rag-pipelines/issues/9",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "closed",
+      "acceptance_state": "issue_closed_no_action",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T08:53:01Z",
+      "evidence": {
+        "command": "gh issue view 9 --repo avnlp/rag-pipelines --json number,state,title,url,author,comments,closedAt,updatedAt",
+        "result": "closed by maintainer as out of scope; uniform RAG harness keeps HealthBench scored against benchmark reference completions"
+      }
+    },
+    {
+      "repository": "Nirvana-Jie/skill-reviewer",
+      "number": 14,
+      "url": "https://github.com/Nirvana-Jie/skill-reviewer/issues/14",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T08:53:01Z",
+      "evidence": {
+        "command": "gh issue view 14 --repo Nirvana-Jie/skill-reviewer --json url,state,title,createdAt,author",
+        "result": "open issue by goktugozkanmd; high-stakes clinical safety skill-review fixture proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 267,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/267",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T08:53:01Z",
+      "evidence": {
+        "command": "gh pr view 267 --repo goktugozkanmd/medical-ai-failure-atlas --json state,mergedAt,mergeCommit,headRefOid,url,title",
+        "result": "merged at 2026-07-26T05:54:15Z; main SHA 743850794e95556af84f8ca8933efca0ab14bf78"
+      }
+    },
+    {
+      "repository": "DerMayer1/Medbay",
+      "number": 3,
+      "url": "https://github.com/DerMayer1/Medbay/issues/3",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T08:53:01Z",
+      "evidence": {
+        "command": "gh issue view 3 --repo DerMayer1/Medbay --json url,state,title,author,createdAt,updatedAt,comments",
+        "result": "open issue by goktugozkanmd; mixed scheduling plus clinical-risk policy regression proposal pending maintainer response"
+      }
+    },
+    {
+      "repository": "goktugozkanmd/medical-ai-failure-atlas",
+      "number": 269,
+      "url": "https://github.com/goktugozkanmd/medical-ai-failure-atlas/pull/269",
+      "scope": "main_project",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "internal_merged",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh run list --repo goktugozkanmd/medical-ai-failure-atlas --branch main --limit 5 --json databaseId,status,conclusion,headSha,workflowName,url,createdAt",
+        "result": "merged; CI run 30200927784 success on main SHA 693c1b8fa3d3564de527b980cf337f35a713fb80 after PR #269 merged"
+      }
+    },
+    {
+      "repository": "P-r-e-m-i-u-m/generative-ai-engineering-lab",
+      "number": 29,
+      "url": "https://github.com/P-r-e-m-i-u-m/generative-ai-engineering-lab/pull/29",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "merged",
+      "acceptance_state": "merged_upstream",
+      "accepted_upstream": true,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh pr view 29 --repo P-r-e-m-i-u-m/generative-ai-engineering-lab --json url,state,mergedAt,mergeCommit,headRefOid,statusCheckRollup,title",
+        "result": "merged; merge commit 519badafae3eddefc6ecbd085082444fa9b5ace5; build check success; owner thanked RAG failure eval case"
+      }
+    },
+    {
+      "repository": "P-r-e-m-i-u-m/generative-ai-engineering-lab",
+      "number": 14,
+      "url": "https://github.com/P-r-e-m-i-u-m/generative-ai-engineering-lab/issues/14",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "closed",
+      "acceptance_state": "issue_closed_by_merged_pr",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh issue view 14 --repo P-r-e-m-i-u-m/generative-ai-engineering-lab --json url,state,title,closedAt,comments,updatedAt",
+        "result": "closed by linked PR #29 merge; issue comment received maintainer eyes reaction and PR #29 implemented fixture"
+      }
+    },
+    {
+      "repository": "ajaysurya1221/evalopt-graph",
+      "number": 4,
+      "url": "https://github.com/ajaysurya1221/evalopt-graph/pull/4",
+      "scope": "external",
+      "contribution_type": "pull_request",
+      "state": "open",
+      "acceptance_state": "pending_review",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh pr view 4 --repo ajaysurya1221/evalopt-graph --json url,state,headRefOid,mergeable,statusCheckRollup,comments,reviews",
+        "result": "open PR, head e5757016ebf18423451fb12ac7868a91842fa66d, statusCheckRollup [], CodeRabbit comments answered with local validation evidence"
+      }
+    },
+    {
+      "repository": "mohamad679/NeuroSight",
+      "number": 17,
+      "url": "https://github.com/mohamad679/NeuroSight/issues/17",
+      "scope": "external",
+      "contribution_type": "issue",
+      "state": "open",
+      "acceptance_state": "issue_open_pending",
+      "accepted_upstream": false,
+      "last_verified_at": "2026-07-26T14:56:45Z",
+      "evidence": {
+        "command": "gh issue view 17 --repo mohamad679/NeuroSight --json url,state,title,author,createdAt,updatedAt,comments",
+        "result": "open issue by goktugozkanmd; confidence metric wording guard proposal pending maintainer response"
       }
     }
   ]

@@ -153,3 +153,248 @@ def test_oss_reputation_receipts_reject_receipt_verified_after_review(tmp_path: 
         "last_verified_at must not be later than manifest reviewed_at" in error
         for error in errors
     )
+
+
+def test_oss_reputation_receipts_reject_unbacked_review_snapshot(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["reviewed_at"] = "2026-07-26T02:49:25Z"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "reviewed_at must equal the latest receipt last_verified_at" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_evidence_command_repo_mismatch(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["command"] = (
+        "gh run view 30108764237 --repo other/project"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("evidence.command must include repository" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_false_acceptance_result(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = (
+        "open PR accepted by maintainer; merge pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "evidence.result must not imply upstream acceptance" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_open_result_without_open_state_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = "review pending"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("open evidence.result must include open" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_open_result_with_final_disposition(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["evidence"]["result"] = "open PR, closed as fixed"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "open evidence.result must not imply a final disposition" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_no_hosted_checks_ci_green_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][3]["evidence"]["result"] = (
+        "open, no hosted checks reported, CI green, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_no_checks_reported_check_success_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][4]["evidence"]["result"] = (
+        "open, no checks reported, status checks success, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_empty_status_rollup_checks_passed_claim(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][6]["evidence"]["result"] = (
+        "open, statusCheckRollup [], all checks passed, review pending"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "must not describe CI/checks as green" in error for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_closed_result_without_closed_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][5]["evidence"]["result"] = "maintainer passed on the PR"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("closed evidence.result must include closed" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_merged_result_without_merged_word(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["result"] = (
+        "success on main SHA 61396e06331a0dd29a6ea416e8fe46f95229a9bd after PR #254"
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("merged evidence.result must include merged" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_main_merge_without_main_sha(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][0]["evidence"]["result"] = "success after PR #254 merge"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any(
+        "main_project merged evidence.result must include main SHA" in error
+        for error in errors
+    )
+
+
+def test_oss_reputation_receipts_reject_external_merge_without_merge_commit(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][2].update(
+        {
+            "state": "merged",
+            "acceptance_state": "merged_upstream",
+            "accepted_upstream": True,
+            "evidence": {
+                "command": (
+                    "gh pr view 6 -R ruypontes/clinical-ai-lab "
+                    "--json state,mergedAt,statusCheckRollup"
+                ),
+                "result": "merged; build check success",
+            },
+        }
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("evidence.command must request mergeCommit" in error for error in errors)
+    assert any("evidence.result must include merge commit SHA" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_linked_pr_issue_state_without_link(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    issue_receipt = next(
+        receipt
+        for receipt in manifest["receipts"]
+        if receipt["repository"] == "P-r-e-m-i-u-m/generative-ai-engineering-lab"
+        and receipt["number"] == 14
+    )
+    issue_receipt.update(
+        {
+            "state": "closed",
+            "acceptance_state": "issue_closed_by_merged_pr",
+            "evidence": {
+                "command": (
+                    "gh issue view 14 --repo "
+                    "P-r-e-m-i-u-m/generative-ai-engineering-lab "
+                    "--json url,state,title,closedAt"
+                ),
+                "result": "closed after maintainer follow-up",
+            },
+        }
+    )
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("issue_closed_by_merged_pr evidence.result" in error for error in errors)
+
+
+def test_oss_reputation_receipts_reject_out_of_order_verification_times(
+    tmp_path: Path,
+) -> None:
+    root = copy_manifest(tmp_path)
+    manifest = read_manifest(root)
+    manifest["receipts"][1]["last_verified_at"] = "2026-07-24T16:00:00Z"
+    rewrite_manifest(root, manifest)
+
+    errors = validate(root)
+
+    assert any("last_verified_at must be non-decreasing" in error for error in errors)

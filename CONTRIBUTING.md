@@ -1,265 +1,108 @@
 # Contributing
 
-Status: public contribution guide.
+MedFailBench welcomes focused contributions from clinicians, evaluation researchers, language reviewers, and open source maintainers.
 
-## Scope
+The project uses synthetic cases only. It is not clinical advice, a clinical validation study, or evidence that a model is safe for clinical use.
 
-This project is a physician authored synthetic medical AI evaluation resource.
+## Choose one contribution route
 
-It is not clinical advice.
+### Report one weak spot
 
-It is not a clinical validation study.
+Use [issue 182](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/182) if you want to flag one unclear claim, missing safety gate, wording problem, or source support concern.
 
-It must not include patient data.
-
-## First outside objection
-
-If you only have two minutes, do not open a new issue first.
-
-Use the current collaboration and outside review issue:
-
-https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/182
-
-Outside means a person who is not maintaining this repository and is not posting through a project account. A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
-
-One sentence is enough.
-
-Useful shape:
+One short response is enough:
 
 ```text
 Weak spot:
 Safer wording or missing gate:
 ```
 
-This counts even if you have not read the full repository. Pick one README line, card, issue body, workbook row, source support note, Turkish wording example, or readiness phrase that sounds too strong, unclear, unsupported, or too easy to trust.
+A maintainer or controlled seed can test the route, but it is not outside review and is not external validation.
 
-Use synthetic or public examples only. Do not include patient data, private clinical text, raw private model output, clinical advice, validation, deployment, ranking, score certification, source truth certification, partner claims, institution claims, endorsement, payment, or terms action.
+### Propose a synthetic case
 
-## Contribution rules
+Open the [synthetic case issue form](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/new?template=synthetic_case.yml). The form asks for the clinical domain, care setting, task, expected safety behavior, missing variables, and review question.
 
-1. Do not submit real patient cases.
-2. Do not include protected health information.
-3. Do not include dates, locations, identifiers, or rare details from real patients.
-4. Use synthetic cases only.
-5. Mark every case with data provenance.
-6. Keep clinical safety wording conservative.
-7. Do not claim a model is safe or unsafe overall from one case.
-8. Do not add external model outputs unless platform terms allow redistribution.
-9. Do not add clinical advice for patients.
-10. Do not remove release boundary notes without review.
+Use only invented details. Do not adapt a real patient encounter, note, message, or model transcript.
 
-## Case proposal minimum fields
+### Improve code or documentation
 
-1. Scenario ID.
-2. Clinical domain.
-3. Care setting.
-4. Synthetic patient summary.
-5. Task for model.
-6. Expected safety focus.
-7. Failure mechanism tags.
-8. Missing variables that determine safe action.
-9. Patient facing risk if wording is copied.
-10. Review question for a clinician.
+Open a focused pull request. Good first contributions include:
 
-## Review status wording
+1. One validator correction.
+2. One adapter or integration fix.
+3. One documentation clarification.
+4. One Turkish medical language review.
+5. One reproducible test for an existing behavior.
 
-Allowed:
+The [documentation map](docs/README.md) identifies the current release, method, rubric, and review files.
 
-`physician authored synthetic draft pending final clinician review`
+## Nonnegotiable boundaries
 
-Not allowed unless explicitly confirmed:
+Every contribution must follow these rules:
 
-`clinician validated`
+1. Do not submit patient data or protected health information.
+2. Do not include dates, locations, identifiers, rare details, or excerpts derived from a real patient.
+3. Do not submit private clinical text or private model output.
+4. Mark synthetic material and its provenance clearly.
+5. Do not claim clinical validation, deployment readiness, regulatory approval, endorsement, or overall model safety.
+6. Do not infer a global model ranking from one case or one run.
+7. Do not add external model outputs unless their terms permit redistribution.
+8. Keep safety wording conservative and identify missing variables that could change the safe response.
 
-Not allowed:
+Allowed review wording:
 
-`safe for clinical use`
-
-## Getting started via GitHub Discussions
-
-The project now has [GitHub Discussions](https://github.com/goktugozkanmd/medical-ai-failure-atlas/discussions) for community interaction. Start here:
-
-1. **Read the welcome post** in the General category.
-2. **Introduce yourself** if you are a clinician, ML engineer, or safety researcher interested in contributing.
-3. **Ask questions** in Q&A.
-4. **Propose a synthetic case** under Ideas.
-
-For a new case submission, use the [synthetic case template](docs/templates/SYNTHETIC_CASE_TEMPLATE.md).
-
-## Synthetic case submission workflow
-
-1. Pick the template: `docs/templates/SYNTHETIC_CASE_TEMPLATE.md`
-2. Fill in all fields. Use only synthetic data — no patient data, no real clinical notes.
-3. Open a PR with your filled template as `data/cases/SC-XXX.md`.
-4. Label: `synthetic-case`. A maintainer will review and assign a severity score.
-
-## External communication
-
-Repository issues and pull requests should stay focused on synthetic examples, source support review, failure taxonomy, validation scripts, and documentation.
-
-Do not use this repository to request patient data, clinical deployment, clinical validation, institutional endorsement, model ranking claims, or private benchmark access.
-
-## Label audit issue route
-
-Use `.github/ISSUE_TEMPLATE/label_audit_review.yml` for synthetic data quality and label audit examples.
-
-This route is for synthetic provenance, label definition lock, pilot subset framing, raw output exclusion, and public release boundary review.
-
-It does not allow patient data, raw model outputs, clinical advice, clinical validation claims, dataset quality proof, or outward use without maintainer review.
-
-Public example intake rows are available at `docs/label_audit/LABEL_AUDIT_EXAMPLE_INTAKE_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_examples
+```text
+physician authored synthetic draft pending final clinician review
 ```
 
-The compact dashboard for these rows is available at `docs/label_audit/LABEL_AUDIT_EXAMPLE_DASHBOARD_V0_1.md`.
+Do not use:
 
-Run:
-
-```bash
-make label_audit_dashboard
+```text
+clinician validated
+safe for clinical use
 ```
 
-The maintainer triage board is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_TRIAGE_BOARD_V0_1.md`.
-
-Run:
+## Local setup
 
 ```bash
-make label_audit_triage
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e ".[dev]"
 ```
 
-The public wording decision log is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_WORDING_DECISION_LOG_V0_1.md`.
-
-Run:
+Run the checks that match your change:
 
 ```bash
-make label_audit_wording_log
+python3 -m pytest
+make validate-public
 ```
 
-The release gate checklist is available at `docs/label_audit/LABEL_AUDIT_RELEASE_GATE_CHECKLIST_V0_1.md`.
+Documentation only changes still need link and formatting checks. State exactly which commands you ran in the pull request.
 
-Run:
+## Pull request scope
 
-```bash
-make label_audit_release_gates
-```
+Keep one pull request focused on one problem. Explain:
 
-The release gate outcome dashboard is available at `docs/label_audit/LABEL_AUDIT_RELEASE_GATE_OUTCOME_DASHBOARD_V0_1.md`.
+1. What changed.
+2. Why the change is needed.
+3. Which public claim or behavior it affects.
+4. Which checks were run.
+5. What remains unverified.
 
-Run:
+Use the repository pull request template. A maintainer may request narrower wording, an additional synthetic test, or removal of unsupported claims before merging.
 
-```bash
-make label_audit_outcome_dashboard
-```
+## Review routes
 
-The release note packet is available at `docs/label_audit/LABEL_AUDIT_RELEASE_NOTE_PACKET_V0_1.md`.
+Use the existing issue forms for specialized review:
 
-Run:
+* [Evidence concern](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/new?template=evidence_concern.yml)
+* [Label audit review](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/new?template=label_audit_review.yml)
+* [Clinician review](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/new?template=clinician_review.yml)
+* [SourceCheckup review](https://github.com/goktugozkanmd/medical-ai-failure-atlas/issues/new?template=sourcecheckup_review.yml)
 
-```bash
-make label_audit_release_packet
-```
+Questions and early ideas can start in [GitHub Discussions](https://github.com/goktugozkanmd/medical-ai-failure-atlas/discussions).
 
-The public changelog is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_CHANGELOG_V0_1.md`.
+## License
 
-Run:
-
-```bash
-make label_audit_changelog
-```
-
-The public release index is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_RELEASE_INDEX_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_release_index
-```
-
-The public contributor digest is available at `docs/label_audit/LABEL_AUDIT_PUBLIC_CONTRIBUTOR_DIGEST_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_contributor_digest
-```
-
-The maintainer handoff notes are available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_HANDOFF_NOTES_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_handoff
-```
-
-The maintainer closeout digest is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_CLOSEOUT_DIGEST_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_closeout_digest
-```
-
-The maintainer release readiness digest is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_READINESS_DIGEST_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_release_readiness_digest
-```
-
-The maintainer evidence map is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_EVIDENCE_MAP_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_evidence_map
-```
-
-The maintainer audit trail packet is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_AUDIT_TRAIL_PACKET_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_audit_trail_packet
-```
-
-The maintainer release candidate summary is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_RELEASE_CANDIDATE_SUMMARY_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_release_candidate_summary
-```
-
-The maintainer public preview decision log is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_DECISION_LOG_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_public_preview_decision_log
-```
-
-The maintainer public preview handoff summary is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_HANDOFF_SUMMARY_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_public_preview_handoff_summary
-```
-
-The maintainer public preview closure checklist is available at `docs/label_audit/LABEL_AUDIT_MAINTAINER_PUBLIC_PREVIEW_CLOSURE_CHECKLIST_V0_1.md`.
-
-Run:
-
-```bash
-make label_audit_maintainer_public_preview_closure_checklist
-```
-
-
-## Clinical severity and safety gate layer
-
-Use `docs/CLINICAL_SEVERITY_RUBRIC_V0_2.md` and `docs/SAFETY_GATE_TAXONOMY_V0_2.md` when proposing synthetic case labels. Keep claims narrow: severity labels describe one synthetic case or one reviewed output, not global model safety.
+Contribution licensing follows the project notice. Code contributions are provided under Apache License 2.0. Synthetic data, documentation, evaluation cards, and other noncode text are provided under Creative Commons Attribution 4.0 International unless a file states otherwise. See [NOTICE](NOTICE) for the license scope map and [LICENSE](LICENSE) for the Apache License 2.0 text.

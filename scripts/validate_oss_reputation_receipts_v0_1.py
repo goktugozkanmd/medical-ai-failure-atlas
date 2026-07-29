@@ -33,6 +33,7 @@ ALLOWED_ACCEPTANCE_STATES = {
     "merged_upstream",
     "issue_open_pending",
     "issue_closed_no_action",
+    "issue_closed_by_merged_pr",
 }
 GITHUB_URL_RE = re.compile(
     r"^https://github\.com/"
@@ -44,6 +45,25 @@ URL_KIND_TO_CONTRIBUTION_TYPE = {
     "issues": "issue",
     "discussions": "discussion",
 }
+FALSE_ACCEPTANCE_RESULT_PATTERNS = (
+    re.compile(r"\baccepted by\b", re.IGNORECASE),
+    re.compile(r"\bmaintainer accepted\b", re.IGNORECASE),
+    re.compile(r"\bapproved by\b", re.IGNORECASE),
+    re.compile(r"\bmerged upstream\b", re.IGNORECASE),
+    re.compile(r"\badopted upstream\b", re.IGNORECASE),
+)
+NO_HOSTED_CHECKS_PATTERNS = (
+    re.compile(r"\bno hosted checks?\b", re.IGNORECASE),
+    re.compile(r"\bno checks? reported\b", re.IGNORECASE),
+    re.compile(r"\bempty statuscheckrollup\b", re.IGNORECASE),
+    re.compile(r"\bstatuscheckrollup\s*\[\s*\]", re.IGNORECASE),
+)
+CHECK_SUCCESS_PATTERNS = (
+    re.compile(r"\bci\s+(?:is\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+    re.compile(r"\bchecks?\s+(?:are\s+|all\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+    re.compile(r"\bstatus\s+checks?\s+(?:are\s+)?(?:green|passed|passing|success|successful)\b", re.IGNORECASE),
+)
+MERGE_COMMIT_SHA_RE = re.compile(r"\b[0-9a-f]{40}\b", re.IGNORECASE)
 
 
 def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[str]:
@@ -75,18 +95,41 @@ def validate(root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST) -> list[
 
     seen_urls: set[str] = set()
     seen_repo_numbers: set[tuple[str, int, str]] = set()
+    previous_last_verified_at: datetime | None = None
+    latest_last_verified_at: datetime | None = None
     for index, receipt in enumerate(receipts):
         prefix = f"{manifest_path}:receipts[{index}]"
         if not isinstance(receipt, dict):
             errors.append(f"{prefix}: receipt must be an object")
             continue
-        _validate_receipt(
+        last_verified_at = _validate_receipt(
             prefix,
             receipt,
             reviewed_at,
             seen_urls,
             seen_repo_numbers,
             errors,
+        )
+        if (
+            previous_last_verified_at is not None
+            and last_verified_at is not None
+            and last_verified_at < previous_last_verified_at
+        ):
+            errors.append(f"{prefix}: last_verified_at must be non-decreasing")
+        if last_verified_at is not None:
+            previous_last_verified_at = last_verified_at
+            latest_last_verified_at = max(
+                latest_last_verified_at or last_verified_at,
+                last_verified_at,
+            )
+
+    if (
+        reviewed_at is not None
+        and latest_last_verified_at is not None
+        and reviewed_at != latest_last_verified_at
+    ):
+        errors.append(
+            f"{manifest_path}:reviewed_at must equal the latest receipt last_verified_at"
         )
 
     return errors
@@ -111,7 +154,7 @@ def _validate_receipt(
     seen_urls: set[str],
     seen_repo_numbers: set[tuple[str, int, str]],
     errors: list[str],
-) -> None:
+) -> datetime | None:
     repository = receipt.get("repository")
     if not isinstance(repository, str) or not re.fullmatch(
         r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository
@@ -180,7 +223,17 @@ def _validate_receipt(
         errors.append(
             f"{prefix}: last_verified_at must not be later than manifest reviewed_at"
         )
-    _validate_evidence(prefix, receipt.get("evidence"), errors)
+    _validate_evidence(
+        prefix,
+        receipt.get("evidence"),
+        repository,
+        scope,
+        contribution_type,
+        state,
+        acceptance_state,
+        accepted_upstream,
+        errors,
+    )
     _validate_claim_boundary(
         prefix=prefix,
         scope=scope,
@@ -190,6 +243,7 @@ def _validate_receipt(
         accepted_upstream=accepted_upstream,
         errors=errors,
     )
+    return last_verified_at
 
 
 def _require_enum(
@@ -221,7 +275,17 @@ def _parse_timestamp(value: Any, label: str, errors: list[str]) -> datetime | No
     return parsed
 
 
-def _validate_evidence(prefix: str, evidence: Any, errors: list[str]) -> None:
+def _validate_evidence(
+    prefix: str,
+    evidence: Any,
+    repository: str,
+    scope: str | None,
+    contribution_type: str | None,
+    state: str | None,
+    acceptance_state: str | None,
+    accepted_upstream: Any,
+    errors: list[str],
+) -> None:
     if not isinstance(evidence, dict):
         errors.append(f"{prefix}: evidence must be an object")
         return
@@ -229,6 +293,96 @@ def _validate_evidence(prefix: str, evidence: Any, errors: list[str]) -> None:
         value = evidence.get(field)
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{prefix}: evidence.{field} must be a non-empty string")
+    command = evidence.get("command")
+    if isinstance(command, str) and repository and repository not in command:
+        errors.append(f"{prefix}: evidence.command must include repository {repository}")
+    if (
+        contribution_type == "pull_request"
+        and state == "merged"
+        and scope in {"upstream", "external"}
+        and isinstance(command, str)
+        and "mergeCommit" not in command
+    ):
+        errors.append(
+            f"{prefix}: merged upstream/external PR evidence.command must request mergeCommit"
+        )
+    result = evidence.get("result")
+    if accepted_upstream is False and isinstance(result, str):
+        if any(pattern.search(result) for pattern in FALSE_ACCEPTANCE_RESULT_PATTERNS):
+            errors.append(
+                f"{prefix}: evidence.result must not imply upstream acceptance "
+                "when accepted_upstream is false"
+            )
+    if scope == "main_project" and state == "merged" and isinstance(result, str):
+        normalized_result = result.lower()
+        if "main sha" not in normalized_result and "main head" not in normalized_result:
+            errors.append(
+                f"{prefix}: main_project merged evidence.result must include main SHA"
+            )
+    if isinstance(result, str) and state is not None:
+        _validate_result_state_wording(prefix, state, result, errors)
+    if isinstance(result, str):
+        _validate_check_evidence_wording(prefix, result, errors)
+    if (
+        contribution_type == "pull_request"
+        and state == "merged"
+        and scope in {"upstream", "external"}
+        and accepted_upstream is True
+        and isinstance(result, str)
+        and not MERGE_COMMIT_SHA_RE.search(result)
+    ):
+        errors.append(
+            f"{prefix}: merged upstream/external PR evidence.result must include merge commit SHA"
+        )
+    if (
+        contribution_type in {"issue", "discussion"}
+        and state == "closed"
+        and acceptance_state == "issue_closed_by_merged_pr"
+        and isinstance(result, str)
+        and not re.search(r"\blinked (?:pr|pull request)\b", result, re.IGNORECASE)
+    ):
+        errors.append(
+            f"{prefix}: issue_closed_by_merged_pr evidence.result must cite a linked PR"
+        )
+
+
+def _validate_result_state_wording(
+    prefix: str,
+    state: str,
+    result: str,
+    errors: list[str],
+) -> None:
+    normalized_result = result.lower()
+    if state == "open":
+        if not re.search(r"\bopen\b", normalized_result):
+            errors.append(f"{prefix}: open evidence.result must include open")
+        if re.search(
+            r"\b(merged|closed|approved|accepted|resolved|final)\b",
+            normalized_result,
+        ):
+            errors.append(
+                f"{prefix}: open evidence.result must not imply a final disposition"
+            )
+    elif state == "closed":
+        if not re.search(r"\bclosed\b", normalized_result):
+            errors.append(f"{prefix}: closed evidence.result must include closed")
+    elif state == "merged":
+        if not re.search(r"\bmerged\b", normalized_result):
+            errors.append(f"{prefix}: merged evidence.result must include merged")
+
+
+def _validate_check_evidence_wording(
+    prefix: str,
+    result: str,
+    errors: list[str],
+) -> None:
+    if any(pattern.search(result) for pattern in NO_HOSTED_CHECKS_PATTERNS) and any(
+        pattern.search(result) for pattern in CHECK_SUCCESS_PATTERNS
+    ):
+        errors.append(
+            f"{prefix}: evidence.result must not describe CI/checks as green "
+            "when no hosted checks are reported"
+        )
 
 
 def _validate_claim_boundary(
@@ -274,9 +428,12 @@ def _validate_claim_boundary(
             if accepted_upstream is not False:
                 errors.append(f"{prefix}: open issues/discussions must not claim acceptance")
         if state == "closed":
-            if acceptance_state != "issue_closed_no_action":
+            if acceptance_state not in {
+                "issue_closed_no_action",
+                "issue_closed_by_merged_pr",
+            }:
                 errors.append(
-                    f"{prefix}: closed issues/discussions must be issue_closed_no_action"
+                    f"{prefix}: closed issues/discussions must use a closed issue state"
                 )
             if accepted_upstream is not False:
                 errors.append(f"{prefix}: closed issues/discussions must not claim acceptance")
