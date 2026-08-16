@@ -82,20 +82,17 @@ jobs:
     name: secret-scan (gitleaks)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: gitleaks
-        # No config-path: gitleaks-action v2 auto-discovers .gitleaks.toml
-        # in the repo root. Passing config-path crashes the SARIF upload step.
-        # continue-on-error: the scan flags a non-secret string constant
-        # ('DATA_NAME_TOKEN' in a deleted script); tracked in .gitleaks.toml.
-        # Scan still runs and reports findings, but does not block PRs.
-        uses: gitleaks/gitleaks-action@v2
-        continue-on-error: true
+        uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+          # Avoid the historical SARIF upload crash while keeping findings fatal.
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
 
   preprint:
     name: build preprint (tectonic)
