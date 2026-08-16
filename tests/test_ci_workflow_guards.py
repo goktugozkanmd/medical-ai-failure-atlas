@@ -1,8 +1,10 @@
 from pathlib import Path
 import re
+import tomllib
 
 
 CI_WORKFLOW = Path(__file__).parents[1] / ".github" / "workflows" / "ci.yml"
+GITLEAKS_CONFIG = Path(__file__).parents[1] / ".gitleaks.toml"
 
 
 def _job_block(workflow: str, job_name: str) -> str:
@@ -19,3 +21,9 @@ def test_secret_scan_is_fail_closed_and_uses_current_action() -> None:
     assert "continue-on-error: true" not in secret_scan
     assert "GITLEAKS_CONFIG: .gitleaks.toml" in secret_scan
     assert 'GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"' in secret_scan
+
+
+def test_gitleaks_config_extends_default_rules() -> None:
+    config = tomllib.loads(GITLEAKS_CONFIG.read_text(encoding="utf-8"))
+
+    assert config["extend"]["useDefault"] is True
