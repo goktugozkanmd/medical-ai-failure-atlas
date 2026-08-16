@@ -1,7 +1,7 @@
 # gitleaks configuration
-# Extends the default ruleset (gitleaks-action loads default automatically when
-# this file uses `extend`).
-extend = true
+# Extends the default ruleset while retaining repository-specific allowlists.
+[extend]
+useDefault = true
 
 [allowlist]
 description = "Allowed false positives for medical-ai-failure-atlas"
