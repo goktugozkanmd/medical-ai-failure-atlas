@@ -27,3 +27,19 @@ def test_gitleaks_config_extends_default_rules() -> None:
     config = tomllib.loads(GITLEAKS_CONFIG.read_text(encoding="utf-8"))
 
     assert config["extend"]["useDefault"] is True
+
+
+def test_gitleaks_allows_only_the_known_jwt_negative_fixture() -> None:
+    config = tomllib.loads(GITLEAKS_CONFIG.read_text(encoding="utf-8"))
+
+    assert config["allowlists"] == [
+        {
+            "description": "Known fake JWT used by leaderboard rejection tests",
+            "condition": "AND",
+            "regexTarget": "line",
+            "paths": [r"^tests/test_leaderboard_(?:submissions_validator|app)\.py$"],
+            "regexes": [
+                r"token eyJhbGciOiJIUzI1NiJ9\.eyJzdWIiOiJzdWJtaXNzaW9uIn0\.signaturepayload123"
+            ],
+        }
+    ]
