@@ -19,3 +19,12 @@ paths = [
   'medical_intelligence_atlas_coverage_dashboard',
   'medical_intelligence_atlas_coverage',
 ]
+
+[[allowlists]]
+description = "Known fake JWT used by leaderboard rejection tests"
+condition = "AND"
+regexTarget = "line"
+paths = ['^tests/test_leaderboard_(?:submissions_validator|app)\.py$']
+regexes = [
+  'token eyJhbGciOiJIUzI1NiJ9\.eyJzdWIiOiJzdWJtaXNzaW9uIn0\.signaturepayload123',
+]
