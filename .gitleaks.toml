@@ -20,7 +20,10 @@ paths = [
   'medical_intelligence_atlas_coverage',
 ]
 
-[[allowlists]]
+[[rules]]
+id = "jwt"
+
+[[rules.allowlists]]
 description = "Known fake JWT used by leaderboard rejection tests"
 condition = "AND"
 regexTarget = "line"
