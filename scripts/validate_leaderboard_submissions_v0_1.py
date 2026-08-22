@@ -157,11 +157,13 @@ def validate_store(data: object) -> list[str]:
             if latest_submitted_at is None or submitted_at > latest_submitted_at:
                 latest_submitted_at = submitted_at
 
-        first_submitted_at = row.get("first_submitted_at")
-        if first_submitted_at:
-            first_parsed = parse_timestamp(first_submitted_at, f"{label}.first_submitted_at", errors)
-            if first_parsed and submitted_at and first_parsed > submitted_at:
-                fail(errors, f"{label}.first_submitted_at: cannot be later than submitted_at")
+        first_parsed = parse_timestamp(
+            row.get("first_submitted_at"),
+            f"{label}.first_submitted_at",
+            errors,
+        )
+        if first_parsed and submitted_at and first_parsed > submitted_at:
+            fail(errors, f"{label}.first_submitted_at: cannot be later than submitted_at")
 
         if row.get("huggingface_reachable") is not True:
             fail(errors, f"{label}.huggingface_reachable: must be true")

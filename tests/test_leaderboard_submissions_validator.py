@@ -83,6 +83,19 @@ def test_validate_store_rejects_timezone_less_first_submitted_timestamp_without_
     assert "submissions[1].first_submitted_at: timestamp must include timezone" in errors
 
 
+def test_validate_store_requires_first_submission_timestamp() -> None:
+    row = valid_row(1)
+    del row["first_submitted_at"]
+    store = {
+        "last_updated": "2026-06-27T02:00:00Z",
+        "submissions": [row],
+    }
+
+    errors = validate_store(store)
+
+    assert "submissions[1].first_submitted_at: missing timestamp" in errors
+
+
 def test_validate_store_rejects_timezone_less_last_updated_without_crashing() -> None:
     row = valid_row(1)
     store = {

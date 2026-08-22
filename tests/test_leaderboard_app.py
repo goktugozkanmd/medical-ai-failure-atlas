@@ -139,6 +139,13 @@ def submission_row(
     }
 
 
+def test_public_submission_filter_requires_first_submission_provenance() -> None:
+    row = submission_row()
+    del row["first_submitted_at"]
+
+    assert leaderboard_app.displayable_submission_rows([row]) == []
+
+
 def test_normalize_huggingface_link_requires_https_model_path() -> None:
     assert normalize_huggingface_link("huggingface.co/model-name/") == "https://huggingface.co/model-name"
     assert normalize_huggingface_link("huggingface.co/org/model/") == "https://huggingface.co/org/model"

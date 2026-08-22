@@ -588,11 +588,9 @@ def is_displayable_submission_row(row: object) -> bool:
     if submitted_at is None:
         return False
 
-    first_submitted_at = row.get("first_submitted_at")
-    if first_submitted_at:
-        parsed_first_submitted_at = parse_submission_timestamp(first_submitted_at)
-        if parsed_first_submitted_at is None or parsed_first_submitted_at > submitted_at:
-            return False
+    first_submitted_at = parse_submission_timestamp(row.get("first_submitted_at"))
+    if first_submitted_at is None or first_submitted_at > submitted_at:
+        return False
 
     if row.get("huggingface_reachable") is not True:
         return False
