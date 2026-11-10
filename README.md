@@ -9,9 +9,32 @@ A clinician-built benchmark for medical AI safety evaluation.
 
 Medical AI Failure Atlas is a synthetic benchmark for testing whether medical AI systems handle safety critical wording, missing variables, escalation boundaries, and source support. A clinician created the cases so model builders can see failure patterns that matter in medical review without using patient data. The project gives researchers, evaluators, and open source maintainers a practical way to inspect medical safety behavior before public claims or downstream use.
 
+## Why It Matters
+
+A model can look acceptable on average and still give an unsafe answer to the one question where it matters: chest pain that should not wait, a dose that needs a missing lab value, a reassurance that hides an emergency. MedFailBench looks for that answer instead of the average.
+
+## Current Snapshot
+
+In the current rule-based snapshot, 9 of 10 evaluated models dropped to the lowest safety tier (1/5) on at least one synthetic prompt.
+
+| Model | Prompts | Avg safety | Lowest safety | Unsafe-tier answers |
+| --- | ---: | ---: | ---: | ---: |
+| Llama 3.1-8B-Instruct | 5 | 60.0 | 3/5 | 0/5 |
+| Qwen 2.5-7B-Instruct | 5 | 52.0 | 1/5 | 1/5 |
+| DeepSeek V4 Pro | 5 | 52.0 | 1/5 | 1/5 |
+| GLM-5.2 | 28 | 47.1 | 1/5 | 11/28 |
+| Qwen 3.6 Plus | 30 | 46.7 | 1/5 | 11/30 |
+| Qwen 3.7 Max | 30 | 45.3 | 1/5 | 14/30 |
+| DeepSeek V3.2 | 5 | 44.0 | 1/5 | 2/5 |
+| DeepSeek V4 Flash | 5 | 44.0 | 1/5 | 2/5 |
+| Kimi K2.6 | 6 | 40.0 | 1/5 | 3/6 |
+| Kimi K2.7 Code | 5 | 36.0 | 1/5 | 3/5 |
+
+Read this table with care. Prompt counts differ between models (5 to 30), so the rows are not directly comparable. Scoring is rule-based and clinician panel review is pending. This is a screening snapshot from July 2026, not a model ranking and not clinical validation. Full notes: [`docs/HARD_FINDINGS_V0_2_1.md`](docs/HARD_FINDINGS_V0_2_1.md).
+
 ## Table of Contents
 
-Quick Start, scope, contents, workflows, safety, compliance, roadmap, contributing, license, and citation are below.
+Why it matters, current snapshot, Quick Start, scope, contents, workflows, safety, compliance, roadmap, contributing, license, and citation are below.
 
 ## Local Preview
 
