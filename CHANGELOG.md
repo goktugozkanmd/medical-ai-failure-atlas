@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fixed the README transparency card command: it pointed at a score file that no run creates. It now uses a score file shipped in the repository, and `scripts/export_safetyguard_transparency_card.py` reports a missing or malformed score file in one line instead of a traceback.
+
 ## v0.2.1g — 2026-07-03 04:00 (preprint community review workflow + limitations expansion)
 
 - Expanded preprint Future Work with dedicated community review workflow paragraph: structured discussion templates, monthly release batching, CHANGELOG attribution.

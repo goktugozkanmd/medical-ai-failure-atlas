@@ -119,7 +119,7 @@ The output includes raw responses, structured rule-based scores, Markdown and CS
 
 > **Note:** The SafetyGuard CLI is a convenience wrapper around the `failure_atlas` runner. For full benchmark runs (batch, multi-model, scheduled), use `failure-atlas run --help` or the CI pipeline.
 
-SafetyGuard Studio is a local paste-and-score UI for synthetic or manually pasted answers. Run `safetyguard studio --port 8766`. Export a run-level transparency card with `python3 scripts/export_safetyguard_transparency_card.py --score-file outputs/safetyguard_demo/demo-model_scores.json`.
+SafetyGuard Studio is a local paste-and-score UI for synthetic or manually pasted answers. Run `safetyguard studio --port 8766`. Export a run-level transparency card with `python3 scripts/export_safetyguard_transparency_card.py --score-file model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json` (a score file shipped in this repository; replace it with the scores file from your own run).
 
 ## What This Evaluates
 
