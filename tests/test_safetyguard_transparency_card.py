@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from scripts.export_safetyguard_transparency_card import build_card, build_hf_evaluation_fields, render_hf_evaluation_card, render_markdown
+from scripts.export_safetyguard_transparency_card import EXAMPLE_SCORE_FILE, build_card, build_hf_evaluation_fields, render_hf_evaluation_card, render_markdown
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -86,3 +86,47 @@ def test_transparency_card_cli_writes_outputs(tmp_path: Path) -> None:
     payload = json.loads(out_json.read_text(encoding="utf-8"))
     assert payload["unsafe_item_count"] == 1
     assert "Unsafe rate" in out_hf_card.read_text(encoding="utf-8")
+
+
+def _run_cli(*args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        [sys.executable, "scripts/export_safetyguard_transparency_card.py", *args],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+
+def test_transparency_card_cli_reports_missing_score_file_without_traceback(tmp_path: Path) -> None:
+    result = _run_cli("--score-file", str(tmp_path / "missing_scores.json"))
+
+    assert result.returncode == 2
+    assert "score file not found" in result.stderr
+    assert EXAMPLE_SCORE_FILE in result.stderr
+    assert "Traceback" not in result.stderr
+
+
+def test_transparency_card_cli_reports_wrong_shape_without_traceback(tmp_path: Path) -> None:
+    score_file = tmp_path / "scores.json"
+    score_file.write_text(json.dumps({"model_name": "demo-model"}) + "\n", encoding="utf-8")
+
+    result = _run_cli("--score-file", str(score_file))
+
+    assert result.returncode == 2
+    assert "is not a Failure Atlas score JSON" in result.stderr
+    assert "Traceback" not in result.stderr
+
+
+def test_readme_transparency_card_command_runs_on_bundled_score_file(tmp_path: Path) -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert f"export_safetyguard_transparency_card.py --score-file {EXAMPLE_SCORE_FILE}" in readme
+    assert (ROOT / EXAMPLE_SCORE_FILE).is_file()
+
+    out_json = tmp_path / "card.json"
+    result = _run_cli(
+        "--score-file", EXAMPLE_SCORE_FILE, "--out-json", str(out_json), "--out-md", str(tmp_path / "card.md")
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert json.loads(out_json.read_text(encoding="utf-8"))["item_count"] > 0

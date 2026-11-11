@@ -9,6 +9,8 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# Score file shipped in the repository, so the documented command runs on a fresh clone.
+EXAMPLE_SCORE_FILE = "model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json"
 
 
 def load_scores(path: Path) -> dict[str, Any]:
@@ -253,7 +255,17 @@ def main() -> int:
     args = parser.parse_args()
 
     score_file = Path(args.score_file)
-    scores = load_scores(score_file)
+    try:
+        scores = load_scores(score_file)
+    except FileNotFoundError:
+        parser.exit(
+            2,
+            f"error: score file not found: {score_file}\n"
+            "Pass a Failure Atlas score JSON (an object with an 'items' list).\n"
+            f"A bundled example to try: {EXAMPLE_SCORE_FILE}\n",
+        )
+    except (json.JSONDecodeError, ValueError) as exc:
+        parser.exit(2, f"error: {score_file} is not a Failure Atlas score JSON: {exc}\n")
     card = build_card(scores, score_file=score_file)
     write_card(
         card,
