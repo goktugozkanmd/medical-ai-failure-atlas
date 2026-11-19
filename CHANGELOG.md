@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.2.1g — 2026-07-03 04:00 (preprint community review workflow + limitations expansion)
+## v0.2.1h - 2026-11-19 (README snapshot table drift guard)
+
+- Added `tests/test_readme_snapshot_table.py`: the README "Current Snapshot" table is now checked against `leaderboard/submissions.json` (average safety) and `model_runs/worst_case_safety_report_v0_1.json` (prompt counts, minimum safety, unsafe-tier counts) plus the "N of M evaluated models" lead sentence, so the visitor-facing numbers cannot silently drift from the raw files.
+
+## v0.2.1g - 2026-07-03 04:00 (preprint community review workflow + limitations expansion)
 
 - Expanded preprint Future Work with dedicated community review workflow paragraph: structured discussion templates, monthly release batching, CHANGELOG attribution.
 - Broadened Limitations: collaborator call for second reviewer (#182), 100-case expansion target for v0.2.1, Discussions workflow stress-test caveat.
