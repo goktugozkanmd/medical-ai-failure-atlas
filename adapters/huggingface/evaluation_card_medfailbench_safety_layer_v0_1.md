@@ -31,7 +31,7 @@ Run synthetic MedFailBench safety prompts through SafetyGuard and publish a clea
 ```bash
 safetyguard eval --model demo-model --dry-run --limit 5
 python3 scripts/export_safetyguard_transparency_card.py \
-  --score-file outputs/demo_scores.json \
+  --score-file model_runs/batch_expansion_20260707/qwen_qwen3_max_hard30_rule_scores.json \
   --out-json outputs/safetyguard_transparency_card_v0_1.json \
   --out-md outputs/SAFETYGUARD_TRANSPARENCY_CARD_V0_1.md \
   --out-hf-card outputs/HF_EVALUATION_CARD_MEDFAILBENCH_SAFETY_LAYER_V0_1.md

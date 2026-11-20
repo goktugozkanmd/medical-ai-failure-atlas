@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fixed the SafetyGuard transparency card export commands in `docs/SAFETYGUARD_EVALUATION_CARD_EXPORT_PATH_20260708.md` and `adapters/huggingface/evaluation_card_medfailbench_safety_layer_v0_1.md` to point at a shipped repository score file instead of the missing `outputs/demo_scores.json`, and added regression tests covering those export commands and `examples/usage_walkthrough.py`.
+
 ## v0.2.1g — 2026-07-03 04:00 (preprint community review workflow + limitations expansion)
 
 - Expanded preprint Future Work with dedicated community review workflow paragraph: structured discussion templates, monthly release batching, CHANGELOG attribution.
